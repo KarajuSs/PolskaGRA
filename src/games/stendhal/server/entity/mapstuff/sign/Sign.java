@@ -95,15 +95,15 @@ public class Sign extends Entity {
 	public String describe() {
 		final String text = getText();
 		if (text == null) {
-			return "You see a sign without any text";
+			return "Widzisz znak bez żadnego napisu";
 		}
 
 		if (text.contains("\n")) {
 			// The sign's text has multiple lines. Add a linebreak after
 			// "you read" so that it is easier readable.
-			return "You read:\n\"" + text + "\"";
+			return "Czytasz:\n\"" + text + "\"";
 		} else {
-			return "You read: \"" + text + "\"";
+			return "Czytasz: \"" + text + "\"";
 		}
 	}
 
