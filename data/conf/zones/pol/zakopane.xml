@@ -41,7 +41,7 @@
 	<zone name="0_zakopane_n" level="0" x="513312" y="18432" file="Level 0/zakopane/zakopane_n.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
-			<parameter name="weather">snow_light</parameter>
+			<parameter name="weather">snow</parameter>
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
@@ -73,35 +73,13 @@
 				<parameter name="radius">20</parameter>
 			</implementation>
 		</entity>
-		<entity x="77" y="99">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">2</parameter>
-				<parameter name="height">3</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="77" y="100">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">2</parameter>
-				<parameter name="height">3</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
 	</zone>
 
 	<!-- zakopane_ne -->
 	<zone name="0_zakopane_ne" level="0" x="513440" y="18432" file="Level 0/zakopane/zakopane_ne.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
-			<parameter name="weather">snow_light</parameter>
+			<parameter name="weather">snow</parameter>
 		</attributes>
 		
 		<configurator class-name="games.stendhal.server.maps.zakopane.gorasmoka.AddBalloonListener"/>
@@ -151,7 +129,7 @@
 	<zone name="0_zakopane_w" level="0" x="513184" y="18560" file="Level 0/zakopane/zakopane_w.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
-			<parameter name="weather">snow_light</parameter>
+			<parameter name="weather">snow</parameter>
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
@@ -273,7 +251,7 @@
 	<zone name="0_zakopane_e" level="0" x="513440" y="18560" file="Level 0/zakopane/zakopane_e.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
-			<parameter name="weather">snow_light</parameter>
+			<parameter name="weather">snow</parameter>
 		</attributes>
 		
 		<configurator class-name="games.stendhal.server.maps.zakopane.city.GazdaJedrzejNPC"/>
@@ -544,10 +522,11 @@ mile widziany!
 			</attribute>
 			<attribute name="class">default</attribute>
 		</entity>
+		<!-- DISABLED SIGN
 		<entity x="60" y="36">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign"/>
 			<attribute name="text">
-#LOTERIA #REKLAMOWA
+#'LOTERIA REKLAMOWA'
 Jak to wygląda?
 Wystarczy kliknąć w reklamy na naszej stronie #www.polskagra.net/reklamy
 oraz zalogować się chociaż raz w ciągu dnia do gry:)
@@ -563,7 +542,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 				<entity x="62" y="36">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign"/>
 			<attribute name="text">
-#LOTERIA #REKLAMOWA
+#'LOTERIA REKLAMOWA'
 Co można wygrać?
 -Skóry smoków
 -Wszelkie eliksiry
@@ -597,6 +576,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			</attribute>
 			<attribute name="class">default</attribute>
 		</entity>
+		DISABLED SIGN -->
 		<portal x="30" y="41" ref="raid_map_life">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
 		</portal>
@@ -794,7 +774,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 	<zone name="0_zakopane_se" level="0" x="513440" y="18688" file="Level 0/zakopane/zakopane_se.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
-			<parameter name="weather">snow_light</parameter>
+			<parameter name="weather">snow</parameter>
 		</attributes>
 		
 		<entity x="54" y="58">
