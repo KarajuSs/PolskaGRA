@@ -48,12 +48,12 @@ public class StichardRallmanNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witojcie w #'PolskaGRA'! Grać mozecie bez płacenia dudków");
+				addGreeting("Witojcie w #'PolskaGRA'! Grać możecie bez płacenia dudków");
 				addJob("Głoszę idee #'wolnego oprogramowania'!");
 				addHelp("Pomóż #POL być jeszcze lepszym. Poświęć swój czas, powiedz znajomym, aby zagrali, twórz mapy.");
 				addReply(Arrays.asList("wolnego", "wolnym", "free", "wolnego oprogramowania"),
-					"#'Wolne oprogramowanie' oznacza wolność tworzenia, a nie tylko brak opłat. Aby zrozumieć koncepcję to powinieneś się zastanowić nad #'wolnością' jak w #'wolności słowa,' a nie jak w 'darmowym piwie'.");
-				addReply("pol",
+					"#'Wolne oprogramowanie' oznacza wolność tworzenia, a nie tylko brak opłat. Aby zrozumieć koncepcję to powinieneś się zastanowić nad #'wolnością' jak w #'wolności słowa', a nie jak w ''darmowym piwie''.");
+				addReply(Arrays.asList("pol", "polska", "polskagra", "gra", "polskaonline"),
 					"PolskaGRA jest właśnie #'wolnym oprogramowaniem' na licencji #'GNU GPL'. Możesz ją uruchamiać, kopiować, dystrybuować, studiować, zmieniać i poprawiać to oprogramowanie.");
 				addReply("gnu", "http://www.gnu.org/");
 				addReply("gpl", "http://www.gnu.org/licenses/gpl.html");
@@ -64,7 +64,7 @@ public class StichardRallmanNPC implements ZoneConfigurator {
 
 		stallman.setEntityClass("richardstallmannpc");
 		stallman.setDescription("Stichard Rallman wie wszystko o wolnym oprogramowaniu i licencjach.");
-		stallman.setPosition(24, 19);
+		stallman.setPosition(26, 11);
 		stallman.setDirection(Direction.DOWN);
 		stallman.initHP(100);
 		zone.add(stallman);
