@@ -75,7 +75,7 @@ public class Chest extends Entity implements UseListener {
 			final RPClass chest = new RPClass(CHEST_RPCLASS_NAME);
 			chest.isA("entity");
 			chest.addAttribute("open", Type.FLAG);
-			chest.addRPSlot("content", 30);
+			chest.addRPSlot("content", 36);
 		}
 	}
 
@@ -170,7 +170,7 @@ public class Chest extends Entity implements UseListener {
 		}
 		if (user instanceof Player) {
 			final Player player = (Player) user;
-			player.sendPrivateText("You cannot reach the chest from there.");
+			player.sendPrivateText("Stąd nie możesz dosięgnąć skrzyni.");
 		}
 		return false;
 	}
@@ -181,17 +181,17 @@ public class Chest extends Entity implements UseListener {
 
 	@Override
 	public String describe() {
-		String text = "You see a chest.";
+		String text = "Oto skrzynia.";
 
 		if (hasDescription()) {
 			text = getDescription();
 		}
 
 		if (isOpen()) {
-			text += " It is open.";
-			text += " You can right click and inspect this item to see its contents.";
+			text += " Jest otwarta.";
+			text += " Możesz nacisnąć prawy przycisk myszy, aby zobaczyć zawartość.";
 		} else {
-			text += " It is closed.";
+			text += " Jest zamknięta.";
 		}
 
 		return (text);

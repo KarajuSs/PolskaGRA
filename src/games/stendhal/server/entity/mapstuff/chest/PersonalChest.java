@@ -213,7 +213,7 @@ public class PersonalChest extends Chest {
 		}
 		if (user instanceof Player) {
 			final Player player = (Player) user;
-			player.sendPrivateText("You cannot reach the chest from there.");
+			player.sendPrivateText("Stąd nie możesz dosięgnąć skrzyni.");
 		}
 		return false;
 	}

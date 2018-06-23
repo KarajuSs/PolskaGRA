@@ -46,7 +46,7 @@ public class NPCOwnedChest extends Chest {
 			final Player player = (Player) user;
 
 			if (player.nextTo(this)) {
-				npc.say("Hey " + user.getTitle() + ", that is my chest.");
+				npc.say("Hej " + user.getTitle() + ", to moja skrzynia!");
 				return true;
 			} else {
 				return false;
