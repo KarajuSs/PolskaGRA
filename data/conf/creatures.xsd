@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-
-
+<?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="stendhal" xmlns:tns="http://www.example.org/creatures"
 	elementFormDefault="qualified" xmlns:Q2="stendhal">
@@ -13,7 +11,6 @@
 				minOccurs="0" maxOccurs="unbounded" />
 		</xsd:sequence>
 	</xsd:complexType>
-
 
 	<xsd:complexType name="CreatureType">
 		<xsd:sequence>
@@ -54,7 +51,7 @@
 		</xsd:sequence>
 		<xsd:attribute name="value" type="xsd:positiveInteger"/>
 	</xsd:complexType>
-	
+
 	<xsd:complexType name="Blood">
 		<xsd:attribute name="name" type="xsd:string" use="required"/>
 	</xsd:complexType>
@@ -93,13 +90,17 @@
 					<xsd:attribute name="value" type="xsd:string" />
 				</xsd:complexType>
 			</xsd:element>
-			<xsd:element name="noise" minOccurs="0">
+			<xsd:element name="resistance" minOccurs="0">
 				<xsd:complexType>
-					<xsd:attribute name="state" type="xsd:string" />
-					<xsd:attribute name="value" type="xsd:string" />
+					<xsd:attribute name="value" type="xsd:positiveInteger" />
 				</xsd:complexType>
 			</xsd:element>
-			<xsd:element name="resistance" minOccurs="0">
+			<xsd:element name="visibility" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="value" type="xsd:positiveInteger" />
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="noise" minOccurs="0">
 				<xsd:complexType>
 					<xsd:attribute name="state" type="xsd:string" />
 					<xsd:attribute name="value" type="xsd:string" />
@@ -125,7 +126,7 @@
 			<xsd:element name="movement" type="Q2:Movement" minOccurs="0"
 				maxOccurs="unbounded" />
 			<xsd:element name="death" type="Q2:Death" minOccurs="0"
-			  maxOccurs="1" />
+				maxOccurs="1" />
 		</xsd:sequence>
 	</xsd:complexType>
 
@@ -133,7 +134,7 @@
 		<xsd:attribute name="value" type="xsd:string" />
 		<xsd:attribute name="state" type="xsd:string"></xsd:attribute>
 	</xsd:complexType>
-	
+
 	<xsd:complexType name="Sound">
 		<xsd:attribute name="value" type="xsd:string" />
 	</xsd:complexType>
@@ -143,7 +144,7 @@
 	</xsd:complexType>
 	
 	<xsd:complexType name="Death">
-	  <xsd:attribute name="value" type="xsd:string" />
+		<xsd:attribute name="value" type="xsd:string" />
 	</xsd:complexType>
 
 	<xsd:complexType name="Profile">
@@ -191,21 +192,21 @@
 					<xsd:attribute name="value" type="xsd:decimal" />
 				</xsd:complexType>
 			</xsd:element>
-      <xsd:element name="statusattack" minOccurs="0" maxOccurs="unbounded">
-        <xsd:complexType>
-          <xsd:attribute name="type" type="xsd:string" />
-          <xsd:attribute name="value" type="xsd:decimal" />
-        </xsd:complexType>
-      </xsd:element>
+			<xsd:element name="statusattack" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:attribute name="type" type="xsd:string" />
+					<xsd:attribute name="value" type="xsd:decimal" />
+				</xsd:complexType>
+			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
-	
-	<xsd:complexType name="Slot">
-	    <xsd:sequence>
-	    </xsd:sequence>
-	    <xsd:attribute name="name" type="xsd:string" use="required" />
-	    <xsd:attribute name="item" type="xsd:string" use="required" />
-	    <xsd:attribute name="quantity" type="xsd:positiveInteger" />
-	</xsd:complexType>
 
+	<xsd:complexType name="Slot">
+		<xsd:sequence>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required" />
+		<xsd:attribute name="item" type="xsd:string" use="required" />
+		<xsd:attribute name="quantity" type="xsd:positiveInteger" />
+	</xsd:complexType>
+	
 </xsd:schema>

@@ -58,6 +58,10 @@ public final class CreaturesXMLLoader extends DefaultHandler {
 	private int def;
 
 	private int hp;
+	
+	private int resistance;
+	
+	private int visibility;
 
 	private double speed;
 
@@ -288,6 +292,10 @@ public final class CreaturesXMLLoader extends DefaultHandler {
 
 			sizeWidth = Integer.parseInt(size[0]);
 			sizeHeight = Integer.parseInt(size[1]);
+		} else if (attributes && qName.equals("resistance")) {
+			resistance = Integer.parseInt(attrs.getValue("value"));
+		} else if (attributes && qName.equals("visibility")) {
+			visibility = Integer.parseInt(attrs.getValue("value"));
 		} else if (qName.equals("ai")) {
 			ai = true;
 		} else if (ai && qName.equals("profile")) {
@@ -361,6 +369,8 @@ public final class CreaturesXMLLoader extends DefaultHandler {
 			creature.setRPStats(hp, atk, def, speed);
 			creature.setLevel(level, xp);
 			creature.setSize(sizeWidth, sizeHeight);
+			creature.setResistance(resistance);
+			creature.setVisibility(visibility);
 			creature.setEquipedItems(equipsItems);
 
 			creature.setBlood(bloodName);

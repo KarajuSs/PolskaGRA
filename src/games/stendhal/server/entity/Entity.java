@@ -57,6 +57,8 @@ public abstract class Entity extends RPObject implements Killer {
 	 * Amount of resistance this has with other entities (0-100).
 	 */
 	private int resistance;
+	
+	private int visibility;
 
 	private StendhalRPZone zone;
 	private StendhalRPZone lastZone;
@@ -196,6 +198,10 @@ public abstract class Entity extends RPObject implements Killer {
 		if (has("resistance")) {
 			resistance = getInt("resistance");
 		}
+		
+		if (has("visibility")) {
+			visibility = getInt("visibility");
+		}
 
 	}
 
@@ -312,6 +318,25 @@ public abstract class Entity extends RPObject implements Killer {
 	public boolean isObstacle(final Entity entity) {
 		// > 95% combined resistance = obstacle
 		return (getResistance(entity) > 95);
+	}
+	
+	/**
+	 * Get the visibility this has on other entities (0-100).
+	 * 
+	 * @return The amount of visibility, or 0 if in ghostmode.
+	 */
+	public int getVisibility() {
+		return visibility;
+	}
+	
+	/**
+	 * Get the visibility between this and another entity (0-100).
+	 * @param entity other entity to be evaluated
+	 * 
+	 * @return The amount of combined visibility.
+	 */
+	public int getVisibility(final Entity entity) {
+		return ((getVisibility() * entity.getVisibility()) / 100);
 	}
 
 	/**

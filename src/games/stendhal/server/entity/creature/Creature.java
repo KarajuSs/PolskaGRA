@@ -125,6 +125,10 @@ public class Creature extends NPC {
 
 	/** Respawn time in turns */
 	private int respawnTime;
+	
+	private int resistance;
+
+	private int visibility;
 
 	private Map<String, String> aiProfiles;
 	private IdleBehaviour idler;
@@ -223,6 +227,18 @@ public class Creature extends NPC {
 		setSounds(copy.getSounds());
 		setDeathSound(copy.deathSound);
 		setMovementSound(copy.movementSound);
+		
+		if (copy.getResistance() == 0) {
+			setResistance(100);
+		} else {
+			setResistance(copy.getResistance());
+		}
+
+		if (copy.getVisibility() == 0) {
+			setVisibility(100);
+		} else {
+			setVisibility(copy.getVisibility());
+		}
 
 		for (RPSlot slot : copy.slots()) {
 			this.addSlot((RPSlot) slot.clone());
@@ -283,6 +299,8 @@ public class Creature extends NPC {
 	 * @param height
 	 *            The creature's height, in squares
 	 * @param baseSpeed
+	 * @param visibility 
+	 * @param resistance 
 	 * @param dropItems
 	 * @param aiProfiles
 	 * @param noises
@@ -291,7 +309,7 @@ public class Creature extends NPC {
 	 */
 	public Creature(final String clazz, final String subclass, final String name, final int hp,
 			final int attack, final int defense, final int level, final int xp, final int width, final int height,
-			final double baseSpeed, final List<DropItem> dropItems,
+			final double baseSpeed, final int resistance, final int visibility, final List<DropItem> dropItems,
 			final Map<String, String> aiProfiles, final LinkedHashMap<String, LinkedList<String>> noises,
 			final int respawnTime, final String description) {
 		this();
@@ -324,6 +342,18 @@ public class Creature extends NPC {
 		setHP(hp);
 
 		setLevel(level);
+		
+		if(resistance == 0) {
+			setResistance(100);
+		} else {
+			setResistance(resistance);
+		}
+
+		if(visibility == 0) {
+			setVisibility(100);
+		} else {
+			setVisibility(visibility);
+		}
 
 		if (Level.getLevel(xp) != level) {
 			LOGGER.debug("Wrong level for xp [" + name + "]: " + xp + " -> "

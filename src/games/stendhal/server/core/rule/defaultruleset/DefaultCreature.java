@@ -76,6 +76,12 @@ public class DefaultCreature {
 	private int height;
 
 	private String bloodClass;
+	
+	/** resistance. */
+	private int resistance;
+
+	/** visibility. */
+	private int visibility;
 
 	private String corpseName;
 	private String harmlessCorpseName;
@@ -194,6 +200,22 @@ public class DefaultCreature {
 	public double getHeight() {
 		return height;
 	}
+	
+	public void setResistance(final int resistance) {
+		this.resistance = resistance;
+	}
+
+	public int getResistance() {
+		return resistance;
+	}
+
+	public void setVisibility(final int visibility) {
+		this.visibility = visibility;
+	}
+
+	public int getVisibility() {
+		return visibility;
+	}
 
 	public void setNoiseLines(final LinkedHashMap<String, LinkedList<String>> creatureSays) {
 		this.creatureSays = creatureSays;
@@ -272,7 +294,7 @@ public class DefaultCreature {
 		});
 
 		final Creature creature = new Creature(clazz, subclass, name, hp, atk, def,
-				level, xp, width, height, speed, dropsItems, aiProfiles,
+				level, xp, width, height, speed, resistance, visibility, dropsItems, aiProfiles,
 				creatureSays, respawn, description);
 		creature.equip(equipsItems);
 
@@ -406,6 +428,8 @@ public class DefaultCreature {
 		os.append("      <hp value=\"" + hp + "\"/>\n");
 		os.append("      <speed value=\"" + speed + "\"/>\n");
 		os.append("      <size value=\"" + width + "," + height + "\"/>\n");
+		os.append("      <resistance value=\"" + resistance + "\"/>\n");
+		os.append("      <visibility value=\"" + visibility + "\"/>\n");
 		os.append("    </attributes>\n");
 		os.append("    <level value=\"" + level + "\"/>\n");
 		os.append("    <experience value=\"" + (xp / 20) + "\"/>\n");
