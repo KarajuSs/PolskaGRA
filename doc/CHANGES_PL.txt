@@ -41,6 +41,7 @@ Changelog
 - przywrócono stare obrazki zwłok powtorów
 - dodano pogodę w zakopane
 - dodano teleport w zakopane_c prowadzący do semos
+- przywrócono stare statystyki potworów jak i przedmiotów
 
 
 *naprawa błędów*
