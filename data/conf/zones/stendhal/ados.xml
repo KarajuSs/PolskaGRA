@@ -2194,7 +2194,6 @@ You should never dive with a cold or severe allergy because, you may not be able
   <zone name="int_ados_bar" file="interiors/ados/bar.tmx">
     <!-- NPCs -->
     <configurator class-name="games.stendhal.server.maps.ados.bar.BarMaidNPC" />
-    <configurator class-name="games.stendhal.server.maps.semos.tavern.StichardRallmanNPC" />
     <configurator class-name="games.stendhal.server.maps.ados.bar.ItemsOnTable" />
     
     <!-- Portals -->
