@@ -99,6 +99,12 @@
 					<xsd:attribute name="value" type="xsd:string" />
 				</xsd:complexType>
 			</xsd:element>
+			<xsd:element name="resistance" minOccurs="0">
+				<xsd:complexType>
+					<xsd:attribute name="state" type="xsd:string" />
+					<xsd:attribute name="value" type="xsd:string" />
+				</xsd:complexType>
+			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 
