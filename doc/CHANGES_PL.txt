@@ -1,0 +1,39 @@
+Changelog
+---------
+
+0.01
+*klient*
+- gracze mog¹ zmieniæ kolor cia³a
+- od teraz po w³¹czeniu lub wy³¹czeniu jakieœ funkcji w ustawieniach zostaniemy o tym poinformowani na chat'cie
+- podwójne klikniêcie klawisza kierunkowego w³¹cza funkcjê auto-walk (automatyczne chodzenie) zamiast przytrzymywania ALT (buggy yet)
+- gracz mo¿e w³¹czyæ lub wy³¹czyæ funkcjê ci¹g³ego ruchu w ustawieniach (po zmianie mapy postaæ nie bêdzie siê zatrzymywa³a)
+- twarz postaci po przejœciu przez jakiœ portal zostanie od teraz poprawnie zwrócona
+- przet³umaczono czêœæ zadañ i npc
+- sprites & tiles zostan¹ podmienione obrazkami z prefixem "-safe" kiedy w ustawieniach krew jest wy³¹czona
+
+
+*serwer*
+- baza marauroa zosta³a zaktualizowana do najnowszej wersji
+- silnik gry zosta³ zaktualizowany do najnowszej wersji Stendhal'a
+
+
+*œwiat gry*
+- wiele nowych outfit'ów NPC jak i graczy
+- nowy wygl¹d kotów
+- przeniesiono animacje vulcanus, tomi & zekiel do tileset/character
+- przeniesiono mapy faiumoni z /zones/.. do /zones/stendhal/..
+- przeniesiono mapy pras³owiañskiej z /zones/.. do /zones/pol/..
+- przeniesiono potwory ze œwiata Stendhal z /sprites/monsters/.. do /sprites/monsters/stendhal/..
+- przeniesiono potwory ze œwiata PolskaOnLine z /sprites/monsters/.. do /sprites/monsters/pol/..
+- od teraz NPC mog¹ zmieniæ w³asn¹ œcie¿kê kiedy siê zderz¹ z jak¹œ kolizj¹
+- koty teraz mog¹ piæ mleko
+- dodano nowych ¿o³nierzy chroni¹cych mur miasta Ados
+- dodano po³udniow¹ bramê w mieœcie Ados
+- dodano chatkê ryback¹ od po³udniowej czêœci miasta Ados
+- rozszerzono œcie¿ki w hell'u
+
+
+*naprawa b³êdów*
+- naprawiono b³¹d, który powodowa³ duplikowanie przedmiotów poprzez podwójne logowanie
+- naprawiono odmierzany czas w hell'u
+- naprawiono b³êdy kompilowania plików
