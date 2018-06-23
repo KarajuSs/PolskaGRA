@@ -58,3 +58,4 @@ Changelog
 - naprawiono błędy kompilowania plików
 - naprawiono błąd z wyświetlaniem potworów, gdzie gra w ogóle nie wczytywała sprites z potworami
 - naprawiono błąd z zadaniem na płaszcz z mithrilu, który uniemożliwiał wykonanie tegoż zadania
+- naprawiono atrybuty resistance i visibility dla potworów
