@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../creatures.xsd ">
+
+	<!-- START: pokutniki -->
+
+	<creature name="pokutnik z bagien">
+		<type class="pol/pokutniki" subclass="pit_pokutnik_bronz" tileid="pol_pokutniki.png:0"/>
+		<description/>
+		<attributes>
+			<atk value="400"/>
+			<def value="33"/>
+			<hp value="2900"/>
+			<speed value="1.0"/>
+			<size value="2,2"/>
+		</attributes>
+		<level value="120"/>
+		<experience value="21321"/>
+		<respawn value="10101"/>
+		<corpse name="giant_knight"/>
+		<drops>
+			<item value="wielki eliksir" quantity="[1,2]" probability="80.0"/>
+			<item value="money" quantity="[30,200]" probability="100.0"/>
+			<item value="karmazynowe rękawice" quantity="[1,1]" probability="2.5"/>
+			<item value="różdżka Strzyboga" quantity="[1,1]" probability="2.5"/>
+			<item value="magia deszczu" quantity="[1,3]" probability="12.5"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="heal" params="5,25"/>
+			<profile name="attack weakest"/>
+		</ai>
+	</creature>
+
+	<creature name="pokutnik z wrzosowisk">
+		<type class="pol/pokutniki" subclass="pit_pokutnik_fiolet" tileid="pol_pokutniki.png:1"/>
+		<description/>
+		<attributes>
+			<atk value="410"/>
+			<def value="34"/>
+			<hp value="3000"/>
+			<speed value="1.0"/>
+			<size value="2,2"/>
+		</attributes>
+		<level value="125"/>
+		<experience value="22321"/>
+		<respawn value="10101"/>
+		<corpse name="giant_knight"/>
+		<drops>
+			<item value="wielki eliksir" quantity="[1,2]" probability="80.0"/>
+			<item value="money" quantity="[30,200]" probability="100.0"/>
+			<item value="rękawice cieni" quantity="[1,1]" probability="0.5"/>
+			<item value="różdżka Strzyboga" quantity="[1,1]" probability="5.5"/>
+			<item value="magia deszczu" quantity="[1,7]" probability="15.5"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="heal" params="5,25"/>
+			<profile name="attack weakest"/>
+		</ai>
+	</creature>
+
+	<creature name="pokutnik nocny">
+		<type class="pol/pokutniki" subclass="pit_pokutnik_granat" tileid="pol_pokutniki.png:2"/>
+		<description/>
+		<attributes>
+			<atk value="420"/>
+			<def value="35"/>
+			<hp value="3100"/>
+			<speed value="1.0"/>
+			<size value="2,2"/>
+		</attributes>
+		<level value="130"/>
+		<experience value="23321"/>
+		<respawn value="10101"/>
+		<corpse name="giant_knight"/>
+		<drops>
+			<item value="wielki eliksir" quantity="[1,2]" probability="80.0"/>
+			<item value="money" quantity="[30,200]" probability="100.0"/>
+			<item value="lazurowe rękawice" quantity="[1,1]" probability="2.5"/>
+			<item value="różdżka Wołosa" quantity="[1,1]" probability="2.5"/>
+			<item value="magia deszczu" quantity="[3,11]" probability="17.5"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="heal" params="5,25"/>
+			<profile name="attack weakest"/>
+		</ai>
+	</creature>
+
+	<creature name="pokutnik wieczorny">
+		<type class="pol/pokutniki" subclass="pit_pokutnik_szary" tileid="pol_pokutniki.png:3"/>
+		<description/>
+		<attributes>
+			<atk value="430"/>
+			<def value="36"/>
+			<hp value="3200"/>
+			<speed value="1.0"/>
+			<size value="2,2"/>
+		</attributes>
+		<level value="135"/>
+		<experience value="24321"/>
+		<respawn value="10101"/>
+		<corpse name="giant_knight"/>
+		<drops>
+			<item value="wielki eliksir" quantity="[1,2]" probability="80.0"/>
+			<item value="money" quantity="[30,200]" probability="100.0"/>
+			<item value="lodowe rękawice" quantity="[1,1]" probability="0.5"/>
+			<item value="różdżka Wołosa" quantity="[1,1]" probability="7.5"/>
+			<item value="magia deszczu" quantity="[6,17]" probability="22.5"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="heal" params="5,25"/>
+			<profile name="attack weakest"/>
+		</ai>
+	</creature>
+
+	<creature name="pokutnik z łąk">
+		<type class="pol/pokutniki" subclass="pit_pokutnik_zielen" tileid="pol_pokutniki.png:4"/>
+		<description/>
+		<attributes>
+			<atk value="450"/>
+			<def value="37"/>
+			<hp value="3300"/>
+			<speed value="1.0"/>
+			<size value="2,2"/>
+		</attributes>
+		<level value="150"/>
+		<experience value="25321"/>
+		<respawn value="10101"/>
+		<corpse name="giant_knight"/>
+		<drops>
+			<item value="wielki eliksir" quantity="[1,2]" probability="80.0"/>
+			<item value="money" quantity="[30,200]" probability="100.0"/>
+			<item value="tarcza elficka" quantity="[1,1]" probability="12.5"/>
+			<item value="różdżka Wołosa" quantity="[1,1]" probability="12.5"/>
+			<item value="magia deszczu" quantity="[9,37]" probability="25.5"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="heal" params="5,25"/>
+			<profile name="attack weakest"/>
+		</ai>
+	</creature>
+
+	<!-- END: pokutniki -->
+
+</creatures>

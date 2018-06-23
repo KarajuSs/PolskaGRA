@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="20" height="16" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="floor" tilewidth="32" tileheight="32">
+  <image source="../../tileset/ground/brown.png"/>
+ </tileset>
+ <tileset firstgid="6" name="brick wall" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/wall/int_wall_bricks.png"/>
+ </tileset>
+ <tileset firstgid="18" name="brick wall" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/wall/int_wall_thin_bricks.png"/>
+ </tileset>
+ <tileset firstgid="30" name="brick door" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/entrance/bricks_ns.png"/>
+ </tileset>
+ <tileset firstgid="42" name="portal" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/portal.png"/>
+ </tileset>
+ <tileset firstgid="49" name="collision" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/collision.png"/>
+ </tileset>
+ <tileset firstgid="50" name="lamp" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/light/small_lamp.png"/>
+ </tileset>
+ <tileset firstgid="54" name="warmer" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/kitchen/warmer.png"/>
+ </tileset>
+ <tileset firstgid="56" name="cabnets" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/kitchen/cabinets.png"/>
+ </tileset>
+ <tileset firstgid="100" name="floor 2" tilewidth="32" tileheight="32">
+  <image source="../../tileset/ground/indoor/floor_tan.png"/>
+ </tileset>
+ <tileset firstgid="104" name="food prep" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/household/food_preparation.png"/>
+ </tileset>
+ <tileset firstgid="120" name="crates" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/pot/wooden_crates.png"/>
+ </tileset>
+ <tileset firstgid="126" name="wood" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/firewood.png"/>
+ </tileset>
+ <tileset firstgid="132" name="sack" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/sacks.png"/>
+ </tileset>
+ <tileset firstgid="134" name="table" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/table/wooden_rectangular.png"/>
+ </tileset>
+ <tileset firstgid="143" name="chair" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/chair/wooden_pale.png"/>
+ </tileset>
+ <layer name="0_floor" width="20" height="16">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNmYGBgHgI4FYjTsdDEqEnFYh4x6nCpQbeXFu4jBpPiPkrCmFz3jeJRPNgxALsa
+MAsABQAA
+  </data>
+ </layer>
+ <layer name="1_terrain" width="20" height="16">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAONjYGDgJoBVgFgViNUIqOMHYl4gFgJiWTxYHYg1gFgTjxphIOaBmifNQDmQGjVv
+1LxR8wbEPBEglqEQi0LNEwBiLiphQSAGAFn6LAMABQAA
+  </data>
+ </layer>
+ <layer name="2_object" width="20" height="16">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgoA0wI0KNAxAHQrETEDtC2UFY1JpjEctD47sAsSsUlyCxvYhyMfHAfgiaV02B
+ec5EmNePRz+6XC0B89qAuB2IO7CowyaHzTwYmIimZxIRcjV4zAOBTiDuAuJuIuUImQcCE8iUowZA
+z0fooAKIK6G4CohbgLgVKtcExM1oYkY0cCOtAACGurjdAAUAAA==
+  </data>
+ </layer>
+ <layer name="3_roof" width="20" height="16">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGFiQA8S5QFwK5ZcDcTaSfDndXTQKBhq0AXE7EHeQKDcKRgGpAAC/FDfCAAUA
+AA==
+  </data>
+ </layer>
+ <layer name="objects" width="20" height="16">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGBigN0D2joJRMApGAQwAAJAkcfEABQAA
+  </data>
+ </layer>
+ <layer name="collision" width="20" height="16" opacity="0.52">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAADNkYGAwHADMQKYeZIAuRolZpIChaB4lZtLbPEJxjk89Nn2D3TxyAD3THyl5GJ/6
+wYgBTnS27gAFAAA=
+  </data>
+ </layer>
+ <layer name="protection" width="20" height="16">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMgpEJAGWdw/wABQAA
+  </data>
+ </layer>
+</map>

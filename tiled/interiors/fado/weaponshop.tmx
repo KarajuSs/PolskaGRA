@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="22" height="18" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="../../tileset/furniture/carpet/carpets.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/carpet/carpets.png"/>
+ </tileset>
+ <tileset firstgid="9" name="../../tileset/building/wall/int_wall_pale.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/wall/int_wall_pale.png" trans="ff00ff"/>
+ </tileset>
+ <tileset firstgid="25" name="../../tileset/building/entrance/pale_red_ns.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/entrance/pale_red_ns.png" trans="ff00ff"/>
+ </tileset>
+ <tileset firstgid="61" name="../../tileset/furniture/carpet/border2.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/carpet/border2.png"/>
+ </tileset>
+ <tileset firstgid="73" name="../../tileset/building/decoration/fireplace_2.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/decoration/fireplace_2.png"/>
+ </tileset>
+ <tileset firstgid="82" name="../../tileset/furniture/table/grey_plain.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/table/grey_plain.png"/>
+ </tileset>
+ <tileset firstgid="91" name="../../tileset/plant/bush/bushes.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/plant/bush/bushes.png" trans="ffffff"/>
+ </tileset>
+ <tileset firstgid="101" name="../../tileset/building/decoration/toolset.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/decoration/toolset.png"/>
+ </tileset>
+ <tileset firstgid="119" name="../../tileset/furniture/other/stick.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/other/stick.png"/>
+ </tileset>
+ <tileset firstgid="121" name="../../tileset/item/armor/weapons_rack.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/armor/weapons_rack.png"/>
+ </tileset>
+ <tileset firstgid="139" name="../../tileset/ground/fire/fire.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/ground/fire/fire.png"/>
+ </tileset>
+ <tileset firstgid="166" name="../../tileset/logic/portal.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/portal.png"/>
+ </tileset>
+ <tileset firstgid="173" name="../../tileset/logic/collision.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/collision.png"/>
+ </tileset>
+ <tileset firstgid="174" name="../../tileset/building/wall/int_wall_dark_red.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/wall/int_wall_dark_red.png"/>
+ </tileset>
+ <tileset firstgid="190" name="../../tileset/building/wall/int_wall_dark_red_corners.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/wall/int_wall_dark_red_corners.png"/>
+ </tileset>
+ <tileset firstgid="206" name="../../tileset/building/entrance/dark_red_ns.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/entrance/dark_red_ns.png"/>
+ </tileset>
+ <tileset firstgid="218" name="../../tileset/building/window/int_windows_dark_red.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/window/int_windows_dark_red.png"/>
+ </tileset>
+ <tileset firstgid="234" name="tools" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/tools.png"/>
+ </tileset>
+ <tileset firstgid="243" name="weapons" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/armor/weapons_for_walls.png"/>
+ </tileset>
+ <tileset firstgid="259" name="copper table" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/table/table_copper.png"/>
+ </tileset>
+ <tileset firstgid="274" name="ropes" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/ropes.png"/>
+ </tileset>
+ <tileset firstgid="278" name="tiles" tilewidth="32" tileheight="32">
+  <image source="../../tileset/ground/indoor/floor_tiles.png"/>
+ </tileset>
+ <tileset firstgid="287" name="barrel" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/pot/barrel.png"/>
+ </tileset>
+ <layer name="0_floor" width="22" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAJNhZGCQwYGzGXDLDVUMRCh41FzqmjuKBz+WxoFHzR3c5g4GDABY+njrMAYAAA==
+  </data>
+ </layer>
+ <layer name="1_terrain" width="22" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAK3TSQrCQBCF4Q6iuPAOyU1048IBZ0E9peAsKIqiIhHBE/kCFSjKVjptFXyEQPhp
+usjeGHNwNHX87ghLOMFcyRkW1J1BLjAmD1mmCjWokwasYcO6BTSLHt0me29Rd6dwXluX34PvedvQ
+IV1L1+e8FSgLabf0x3ltk+4t7WqN3JvGRMHn/YYKd5CM7GqNb7cHfTL40uX/m+sMBVuX7y1yvN9f
+3dCyt6Tr0h7BmExEk3cvcIUV8xTvWdyoe4eY2cKLnrGnB7wBLOL2fjAGAAA=
+  </data>
+ </layer>
+ <layer name="2_object" width="22" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgwAT/ofQPKP0BSm/EopYU8B1KMzFC6D9o8q+A+DUBM24B8W0S7X0LxO8IqLkH
+xPexiAszEm/PXCCeT4Q6UaCZQiSYOwuI5xCvnKagAgmTAtbRwC0gsAmHeBMQtwFxKxC3A3EHEHfR
+yA2EQOwA2TtQ4CMRasjJx8QAWD6Op4HZIBBLQ7NB4BwQnwfiCwTUPQHipySYuwuI1aA0PvACiF/i
+kQcAiFXg/jAGAAA=
+  </data>
+ </layer>
+ <layer name="3_roof" width="22" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAXDEZQjYVqACiqZUwnEtUBcA8R1QFwPxI1UMnsUjIJRAAG7gPgSlKYEAAAM
+XCpHMAYAAA==
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="22" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAXDEfyE0l8G1BWjYBSMgsEALgLxJSC+TKE5AD7cbywwBgAA
+  </data>
+ </layer>
+ <layer name="objects" width="22" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMglEwWMCqgXYAHgAA8FnuwDAGAAA=
+  </data>
+ </layer>
+ <layer name="collision" width="22" height="18" opacity="0.37">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAFvLwMCwdghjYsBaNDYp5pJiB7XcO5jNJSfsqeFeQuZSy15qu5MSt5BjNrUAueaS
+Gi+0Mpfc9EnITErDmdg8R2o5SC8MABtLY5YwBgAA
+  </data>
+ </layer>
+ <layer name="protection" width="22" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMglEwCggDAFJjj3gwBgAA
+  </data>
+ </layer>
+</map>

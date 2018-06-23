@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../creatures.xsd ">
+
+	<!-- START: skrzaty -->
+
+	<creature name="skrzat leśny">
+		<type class="pol/skrzaty_lesne" subclass="skrzat_lesny" tileid="pol_skrzaty_lesne.png:0"/>
+		<description>Oto skrzat leśny. Skoro jest jeden za chwilę zjawi się ich cała chmara.</description>
+		<attributes>
+			<atk value="50"/>
+			<def value="10"/>
+			<hp value="64"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="5"/>
+		<experience value="62"/>
+		<respawn value="901"/>
+		<corpse name="gnome"/>
+		<drops>
+			<item value="sok z chmielu" quantity="[1,1]" probability="60.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="coward"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="skrzat leśny wojownik">
+		<type class="pol/skrzaty_lesne" subclass="skrzat_lesny_wojownik" tileid="pol_skrzaty_lesne.png:1"/>
+		<description>Oto skrzat leśny. Skoro jest jeden za chwilę zjawi się ich cała chmara.</description>
+		<attributes>
+			<atk value="54"/>
+			<def value="11"/>
+			<hp value="67"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="7"/>
+		<experience value="73"/>
+		<respawn value="905"/>
+		<corpse name="gnome"/>
+		<drops>
+			<item value="miód pitny" quantity="[1,1]" probability="50.0"/>
+			<item value="opieńka miodowa" quantity="[1,5]" probability="50.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="coward"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="skrzat leśny bohater">
+		<type class="pol/skrzaty_lesne" subclass="skrzat_lesny_bohater" tileid="pol_skrzaty_lesne.png:2"/>
+		<description>Oto skrzat leśny. Skoro jest jeden za chwilę zjawi się ich cała chmara.</description>
+		<attributes>
+			<atk value="63"/>
+			<def value="12"/>
+			<hp value="74"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="9"/>
+		<experience value="97"/>
+		<respawn value="910"/>
+		<corpse name="gnome"/>
+		<drops>
+			<item value="miód pitny" quantity="[1,1]" probability="75.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="coward"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="skrzat leśny komandor">
+		<type class="pol/skrzaty_lesne" subclass="skrzat_lesny_komandor" tileid="pol_skrzaty_lesne.png:3"/>
+		<description>Oto skrzat leśny. Skoro jest jeden za chwilę zjawi się ich cała chmara.</description>
+		<attributes>
+			<atk value="70"/>
+			<def value="13"/>
+			<hp value="81"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="11"/>
+		<experience value="123"/>
+		<respawn value="915"/>
+		<corpse name="gnome"/>
+		<drops>
+			<item value="miód pitny" quantity="[1,1]" probability="90.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="coward"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="skrzat leśny lider">
+		<type class="pol/skrzaty_lesne" subclass="skrzat_lesny_lider" tileid="pol_skrzaty_lesne.png:4"/>
+		<description>Oto skrzat leśny. Skoro jest jeden za chwilę zjawi się ich cała chmara.</description>
+		<attributes>
+			<atk value="77"/>
+			<def value="15"/>
+			<hp value="89"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="13"/>
+		<experience value="151"/>
+		<respawn value="922"/>
+		<corpse name="gnome"/>
+		<drops>
+			<item value="miód pitny" quantity="[1,1]" probability="99.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="coward"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="skrzat leśny starszy">
+		<type class="pol/skrzaty_lesne" subclass="skrzat_lesny_starszy" tileid="pol_skrzaty_lesne.png:5"/>
+		<description>Oto skrzat leśny. Skoro jest jeden za chwilę zjawi się ich cała chmara.</description>
+		<attributes>
+			<atk value="83"/>
+			<def value="16"/>
+			<hp value="98"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="15"/>
+		<experience value="183"/>
+		<respawn value="931"/>
+		<corpse name="gnome"/>
+		<drops>
+			<item value="żyntyca" quantity="[1,1]" probability="50.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="coward"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="skrzat leśny starszy komandor">
+		<type class="pol/skrzaty_lesne" subclass="skrzat_lesny_starszy_komandor" tileid="pol_skrzaty_lesne.png:6"/>
+		<description>Oto skrzat leśny. Skoro jest jeden za chwilę zjawi się ich cała chmara.</description>
+		<attributes>
+			<atk value="90"/>
+			<def value="17"/>
+			<hp value="107"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="17"/>
+		<experience value="219"/>
+		<respawn value="941"/>
+		<corpse name="gnome"/>
+		<drops>
+			<item value="żyntyca" quantity="[1,1]" probability="75.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="coward"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="skrzat leśny starszy wojownik">
+		<type class="pol/skrzaty_lesne" subclass="skrzat_lesny_starszy_wojownik" tileid="pol_skrzaty_lesne.png:7"/>
+		<description>Oto skrzat leśny. Skoro jest jeden za chwilę zjawi się ich cała chmara.</description>
+		<attributes>
+			<atk value="95"/>
+			<def value="17"/>
+			<hp value="116"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="19"/>
+		<experience value="258"/>
+		<respawn value="953"/>
+		<corpse name="gnome"/>
+		<drops>
+			<item value="żyntyca" quantity="[1,1]" probability="99.0"/>
+			<item value="miód pitny" quantity="[1,1]" probability="99.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="coward"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<!-- END: skrzaty -->
+
+</creatures>

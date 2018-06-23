@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../creatures.xsd ">
+
+	<!-- START: ptaki -->
+
+	<creature name="gołąbek">
+		<type class="pol/ptaki" subclass="golabek" tileid="pol_ptaki.png:0"/>
+		<description>Oto gołąbek co ma ostry dziobek. Pewnie domaga się okruszków!</description>
+		<attributes>
+			<atk value="3"/>
+			<def value="9"/>
+			<hp value="12"/>
+			<speed value="0.4"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="1"/>
+		<experience value="8"/>
+		<respawn value="700"/>
+		<corpse name="corpse"/>
+		<drops>
+			<item value="udko" quantity="[1,1]" probability="80.0"/>
+			<item value="piórko" quantity="[1,1]" probability="90.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<sound value="pol-bird_pigeon"/>
+			</says>
+			<profile name="coward"/>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="mewa">
+		<type class="pol/ptaki" subclass="mewa" tileid="pol_ptaki.png:2"/>
+		<attributes>
+			<atk value="15"/>
+			<def value="9"/>
+			<hp value="56"/>
+			<speed value="0.8"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="3"/>
+		<experience value="30"/>
+		<respawn value="999"/>
+		<corpse name="corpse"/>
+		<drops>
+			<item value="kanapka" quantity="[1,1]" probability="2.0"/>
+			<item value="leszcz" quantity="[1,1]" probability="20.0"/>
+			<item value="okoń" quantity="[1,1]" probability="10.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<sound value="pol-seagull"/>
+			</says>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="kruk">
+		<type class="pol/ptaki" subclass="kruk" tileid="pol_ptaki.png:1"/>
+		<attributes>
+			<atk value="20"/>
+			<def value="11"/>
+			<hp value="64"/>
+			<speed value="0.8"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="6"/>
+		<experience value="62"/>
+		<respawn value="904"/>
+		<corpse name="corpse"/>
+		<drops>
+			<item value="ser" quantity="[1,1]" probability="100.0"/>
+			<item value="oscypek" quantity="[1,1]" probability="5.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<sound value="pol-crow" />
+			</says>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="jastrząb">
+		<type class="pol/ptaki" subclass="jastrzab" tileid="pol_ptaki.png:3"/>
+		<attributes>
+			<atk value="33"/>
+			<def value="99"/>
+			<hp value="127"/>
+			<speed value="0.8"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="21"/>
+		<experience value="302"/>
+		<respawn value="999"/>
+		<corpse name="corpse"/>
+		<drops>
+			<item value="udko" quantity="[1,1]" probability="80.0"/>
+			<item value="spinka" quantity="[1,1]" probability="0.0001"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<sound value="pol-hawk1"/>
+				<sound value="pol-hawk2"/>
+			</says>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<!-- END: ptaki -->
+
+</creatures>
