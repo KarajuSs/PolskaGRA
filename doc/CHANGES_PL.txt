@@ -38,6 +38,9 @@ Changelog
 - dodano południową bramę w mieście Ados
 - dodano chatkę rybacką od południowej części miasta Ados
 - rozszerzono ścieżki w hell'u
+- przywrócono stare obrazki zwłok powtorów
+- dodano pogodę w zakopane
+- dodano teleport w zakopane_c prowadzący do semos
 
 
 *naprawa błędów*
