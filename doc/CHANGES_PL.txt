@@ -3,37 +3,37 @@ Changelog
 
 0.01
 *klient*
-- gracze mog¹ zmieniæ kolor cia³a
-- od teraz po w³¹czeniu lub wy³¹czeniu jakieœ funkcji w ustawieniach zostaniemy o tym poinformowani na chat'cie
-- podwójne klikniêcie klawisza kierunkowego w³¹cza funkcjê auto-walk (automatyczne chodzenie) zamiast przytrzymywania ALT (buggy yet)
-- gracz mo¿e w³¹czyæ lub wy³¹czyæ funkcjê ci¹g³ego ruchu w ustawieniach (po zmianie mapy postaæ nie bêdzie siê zatrzymywa³a)
-- twarz postaci po przejœciu przez jakiœ portal zostanie od teraz poprawnie zwrócona
-- przet³umaczono czêœæ zadañ i npc
-- sprites & tiles zostan¹ podmienione obrazkami z prefixem "-safe" kiedy w ustawieniach krew jest wy³¹czona
+- gracze mogÄ… zmieniÄ‡ kolor ciaÅ‚a
+- od teraz po wÅ‚Ä…czeniu lub wyÅ‚Ä…czeniu jakieÅ› funkcji w ustawieniach zostaniemy o tym poinformowani na chat'cie
+- podwÃ³jne klikniÄ™cie klawisza kierunkowego wÅ‚Ä…cza funkcjÄ™ auto-walk (automatyczne chodzenie) zamiast przytrzymywania ALT (buggy yet)
+- gracz moÅ¼e wÅ‚Ä…czyÄ‡ lub wyÅ‚Ä…czyÄ‡ funkcjÄ™ ciÄ…gÅ‚ego ruchu w ustawieniach (po zmianie mapy postaÄ‡ nie bÄ™dzie siÄ™ zatrzymywaÅ‚a)
+- twarz postaci po przejÅ›ciu przez jakiÅ› portal zostanie od teraz poprawnie zwrÃ³cona
+- przetÅ‚umaczono czÄ™Å›Ä‡ zadaÅ„ i npc
+- sprites & tiles zostanÄ… podmienione obrazkami z prefixem "-safe" kiedy w ustawieniach krew jest wyÅ‚Ä…czona
 
 
 *serwer*
-- baza marauroa zosta³a zaktualizowana do najnowszej wersji
-- silnik gry zosta³ zaktualizowany do najnowszej wersji Stendhal'a
+- baza marauroa zostaÅ‚a zaktualizowana do najnowszej wersji
+- silnik gry zostaÅ‚ zaktualizowany do najnowszej wersji Stendhal'a
 
 
-*œwiat gry*
-- wiele nowych outfit'ów NPC jak i graczy
-- nowy wygl¹d kotów
+*Å›wiat gry*
+- wiele nowych outfit'Ã³w NPC jak i graczy
+- nowy wyglÄ…d kotÃ³w
 - przeniesiono animacje vulcanus, tomi & zekiel do tileset/character
 - przeniesiono mapy faiumoni z /zones/.. do /zones/stendhal/..
-- przeniesiono mapy pras³owiañskiej z /zones/.. do /zones/pol/..
-- przeniesiono potwory ze œwiata Stendhal z /sprites/monsters/.. do /sprites/monsters/stendhal/..
-- przeniesiono potwory ze œwiata PolskaOnLine z /sprites/monsters/.. do /sprites/monsters/pol/..
-- od teraz NPC mog¹ zmieniæ w³asn¹ œcie¿kê kiedy siê zderz¹ z jak¹œ kolizj¹
-- koty teraz mog¹ piæ mleko
-- dodano nowych ¿o³nierzy chroni¹cych mur miasta Ados
-- dodano po³udniow¹ bramê w mieœcie Ados
-- dodano chatkê ryback¹ od po³udniowej czêœci miasta Ados
-- rozszerzono œcie¿ki w hell'u
+- przeniesiono mapy prasÅ‚owiaÅ„skiej z /zones/.. do /zones/pol/..
+- przeniesiono potwory ze Å›wiata Stendhal z /sprites/monsters/.. do /sprites/monsters/stendhal/..
+- przeniesiono potwory ze Å›wiata PolskaOnLine z /sprites/monsters/.. do /sprites/monsters/pol/..
+- od teraz NPC mogÄ… zmieniÄ‡ wÅ‚asnÄ… Å›cieÅ¼kÄ™ kiedy siÄ™ zderzÄ… z jakÄ…Å› kolizjÄ…
+- koty teraz mogÄ… piÄ‡ mleko
+- dodano nowych Å¼oÅ‚nierzy chroniÄ…cych mur miasta Ados
+- dodano poÅ‚udniowÄ… bramÄ™ w mieÅ›cie Ados
+- dodano chatkÄ™ rybackÄ… od poÅ‚udniowej czÄ™Å›ci miasta Ados
+- rozszerzono Å›cieÅ¼ki w hell'u
 
 
-*naprawa b³êdów*
-- naprawiono b³¹d, który powodowa³ duplikowanie przedmiotów poprzez podwójne logowanie
+*naprawa bÅ‚Ä™dÃ³w*
+- naprawiono bÅ‚Ä…d, ktÃ³ry powodowaÅ‚ duplikowanie przedmiotÃ³w poprzez podwÃ³jne logowanie
 - naprawiono odmierzany czas w hell'u
-- naprawiono b³êdy kompilowania plików
+- naprawiono bÅ‚Ä™dy kompilowania plikÃ³w
