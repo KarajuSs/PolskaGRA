@@ -42,7 +42,7 @@ public class SummonAction extends AdministrationAction {
 
 
 	public static void register() {
-		CommandCenter.register(SUMMON, new SummonAction(), 14);
+		CommandCenter.register(SUMMON, new SummonAction(), 35);
 	}
 
 	/**

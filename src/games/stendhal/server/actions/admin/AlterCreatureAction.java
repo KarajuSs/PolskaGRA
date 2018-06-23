@@ -25,7 +25,7 @@ import marauroa.common.game.RPAction;
 class AlterCreatureAction extends AdministrationAction {
 
 	public static void register() {
-		CommandCenter.register(ALTERCREATURE, new AlterCreatureAction(), 17);
+		CommandCenter.register(ALTERCREATURE, new AlterCreatureAction(), 34);
 
 	}
 

@@ -35,7 +35,7 @@ public class StoreMessageOnBehalfOfPlayerAction extends AdministrationAction imp
 	private ResultHandle handle = new ResultHandle();
 	
 	public static void register() {
-		CommandCenter.register("storemessageonbehalfofplayer", new StoreMessageOnBehalfOfPlayerAction(), 21);
+		CommandCenter.register("storemessageonbehalfofplayer", new StoreMessageOnBehalfOfPlayerAction(), 999);
 	}
 
 	@Override

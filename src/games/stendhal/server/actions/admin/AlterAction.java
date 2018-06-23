@@ -37,7 +37,7 @@ import marauroa.common.game.RPClass;
 public class AlterAction extends AdministrationAction {
 
 	public static void register() {
-		CommandCenter.register(ALTER, new AlterAction(), 16);
+		CommandCenter.register(ALTER, new AlterAction(), 30);
 	}
 
 	@Override

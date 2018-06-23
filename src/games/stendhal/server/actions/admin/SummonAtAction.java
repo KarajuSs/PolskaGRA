@@ -29,7 +29,7 @@ import marauroa.common.game.RPAction;
 public class SummonAtAction extends AdministrationAction {
 
 	public static void register() {
-		CommandCenter.register(SUMMONAT, new SummonAtAction(), 15);
+		CommandCenter.register(SUMMONAT, new SummonAtAction(), 36);
 	}
 
 	@Override
