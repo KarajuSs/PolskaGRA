@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../creatures.xsd ">
+
+	<!-- START: pirate -->
+
+	<creature name="pirat">
+		<type class="pol/pol_piraci" subclass="pirat" tileid="pol_piraci.png:0"/>
+		<description>Oto pirat. Jest już doświadczonym piratem.</description>
+		<attributes>
+			<atk value="233"/>
+			<def value="26"/>
+			<hp value="625"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="50"/>
+		<experience value="3578"/>
+		<respawn value="5000"/>
+		<corpse name="human"/>
+		<drops>
+			<item value="money" quantity="[10,120]" probability="100.0"/>
+			<item value="krótki miecz" quantity="[1,1]" probability="8.5"/>
+			<item value="buty kolcze" quantity="[1,1]" probability="5.5"/>
+			<item value="skórzane rękawice" quantity="[1,1]" probability="12.5"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="kamrat">
+		<type class="pol/pol_piraci" subclass="pirat_kamrat" tileid="pol_piraci.png:1"/>
+		<description>Oto kamrat. Brał udział w wielu wydarzeniach.</description>
+		<attributes>
+			<atk value="247"/>
+			<def value="27"/>
+			<hp value="663"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="53"/>
+		<experience value="3958"/>
+		<respawn value="5300"/>
+		<corpse name="human"/>
+		<drops>
+			<item value="money" quantity="[5,160]" probability="100.0"/>
+			<item value="miecz" quantity="[1,1]" probability="5.5"/>
+			<item value="złota kolczuga" quantity="[1,1]" probability="11.5"/>
+			<item value="skórzane rękawice" quantity="[1,1]" probability="8.5"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="marynarz">
+		<type class="pol/pol_piraci" subclass="pirat_marynarz" tileid="pol_piraci.png:2"/>
+		<description>Oto marynarz. Brał udział w wielu abordażach.</description>
+		<attributes>
+			<atk value="252"/>
+			<def value="28"/>
+			<hp value="675"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="54"/>
+		<experience value="4089"/>
+		<respawn value="5400"/>
+		<corpse name="human"/>
+		<drops>
+			<item value="money" quantity="[15,150]" probability="100.0"/>
+			<item value="skórzane wzmocnione rękawice" quantity="[1,1]" probability="10.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="krwawy pirat">
+		<type class="pol/pol_piraci" subclass="pirat_krwawy" tileid="pol_piraci.png:3"/>
+		<description>Oto krwawy pirat. Jest osobą bardzo znaną oraz poważaną przez resztę załogantów.</description>
+		<attributes>
+			<atk value="266"/>
+			<def value="29"/>
+			<hp value="713"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="57"/>
+		<experience value="4493"/>
+		<respawn value="5700"/>
+		<corpse name="human"/>
+		<drops>
+			<item value="money" quantity="[20,180]" probability="100.0"/>
+			<item value="tarcza płytowa" quantity="[1,1]" probability="3.0"/>
+			<item value="maczeta" quantity="[1,1]" probability="4.0"/>
+			<item value="hełm kolczy" quantity="[1,1]" probability="6.5"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="wilk morski">
+		<type class="pol/pol_piraci" subclass="pirat_wilk_morski" tileid="pol_piraci.png:4"/>
+		<description>Oto wilk morski. Jego sława wykracza poza organizację.</description>
+		<attributes>
+			<atk value="275"/>
+			<def value="30"/>
+			<hp value="738"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="59"/>
+		<experience value="4773"/>
+		<respawn value="5900"/>
+		<corpse name="human"/>
+		<drops>
+			<item value="money" quantity="[10,80]" probability="100.0"/>
+			<item value="buty kolcze" quantity="[1,1]" probability="12.0"/>
+			<item value="skórzane twarde rękawice" quantity="[1,1]" probability="5.5"/>
+			<item value="sztylet" quantity="[1,1]" probability="9.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="kapitan piratów">
+		<type class="pol/pol_piraci" subclass="pirat_kapitan" tileid="pol_piraci.png:5"/>
+		<description>Oto  kapitan piratów. Posiada własną łajbę. Podlegają mu wszyscy oficerowie, podoficerowie oraz załoga jego statku.</description>
+		<attributes>
+			<atk value="285"/>
+			<def value="31"/>
+			<hp value="763"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="61"/>
+		<experience value="5060"/>
+		<respawn value="6100"/>
+		<corpse name="human"/>
+		<drops>
+			<item value="money" quantity="[25,220]" probability="100.0"/>
+			<item value="buty kolcze" quantity="[1,1]" probability="12.5"/>
+			<item value="spodnie kolcze" quantity="[1,1]" probability="3.5"/>
+			<item value="złota kolczuga" quantity="[1,1]" probability="8.5"/>
+			<item value="sztylet" quantity="[1,1]" probability="9.5"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="kwatermistrz">
+		<type class="pol/pol_piraci" subclass="pirat_kwatermistrz" tileid="pol_piraci.png:6"/>
+		<description>Oto kwatermistrz. Dba o zaopatrzenie, prowadzi również spis ładunku i zajmuje się podziałem łupu.</description>
+		<attributes>
+			<atk value="299"/>
+			<def value="32"/>
+			<hp value="800"/>
+			<speed value="1.0"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="64"/>
+		<experience value="5505"/>
+		<respawn value="6400"/>
+		<corpse name="human"/>
+		<drops>
+			<item value="money" quantity="[5,30]" probability="100.0"/>
+			<item value="maczeta" quantity="[1,1]" probability="6.5"/>
+			<item value="katana" quantity="[1,1]" probability="7.0"/>
+			<item value="spodnie kolcze" quantity="[1,1]" probability="5.0"/>
+			<item value="hełm kolczy" quantity="[1,1]" probability="4.5"/>
+			<item value="tarcza płytowa" quantity="[1,1]" probability="2.0"/>
+			<item value="złote rękawice" quantity="[1,1]" probability="0.001"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="brave"/>
+			<profile name="offensive"/>
+			<profile name="human"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<!-- END: pirate-->
+
+</creatures>

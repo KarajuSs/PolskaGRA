@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../creatures.xsd ">
+
+	<!-- START: zwierzeta -->
+
+	<creature name="pingwinek">
+		<type class="pol/zwierzeta" subclass="pingwinek" tileid="pol_zwierzeta.png:0"/>
+		<description>Oto mały i głupiutki pingwin.</description>
+		<attributes>
+			<atk value="6"/>
+			<def value="9"/>
+			<hp value="12"/>
+			<speed value="0.4"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="1"/>
+		<experience value="8"/>
+		<respawn value="700"/>
+		<corpse name="corpse"/>
+		<drops>
+			<item value="mięso" quantity="[1,2]" probability="50.0"/>
+			<item value="dorsz" quantity="[1,1]" probability="20.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Oou! Oou!"/>
+				<noise state="idle follow fight" value="*człap* *człap*"/>
+			</says>
+			<profile name="coward"/>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="niedźwiadek">
+		<type class="pol/zwierzeta" subclass="niedzwiadek" tileid="pol_zwierzeta.png:1"/>
+		<description/>
+		<attributes>
+			<atk value="15"/>
+			<def value="7"/>
+			<hp value="54"/>
+			<speed value="0.4"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="2"/>
+		<experience value="17"/>
+		<respawn value="900"/>
+		<corpse name="small_animal"/>
+		<drops>
+			<item value="mięso" quantity="[1,2]" probability="50.0"/>
+			<item value="okoń" quantity="[1,1]" probability="5.0"/>
+			<item value="leszcz" quantity="[1,1]" probability="5.0"/>
+			<item value="pstrąg" quantity="[1,1]" probability="1.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="rrrrr"/>
+			</says>
+			<profile name="coward"/>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="niedźwiadek polarny">
+		<type class="pol/zwierzeta" subclass="niedzwiadek_polarny" tileid="pol_zwierzeta.png:2"/>
+		<description/>
+		<attributes>
+			<atk value="21"/>
+			<def value="9"/>
+			<hp value="80"/>
+			<speed value="0.4"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="2"/>
+		<experience value="21"/>
+		<respawn value="876"/>
+		<corpse name="small_animal"/>
+		<drops>
+			<item value="mięso" quantity="[1,2]" probability="50.0"/>
+			<item value="szynka" quantity="[1,1]" probability="30.0"/>
+			<item value="szczupak" quantity="[1,1]" probability="5.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Brrrrr..."/>
+			</says>
+			<profile name="coward"/>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="niedźwiedzica">
+		<type class="pol/zwierzeta" subclass="niedzwiedz" tileid="pol_zwierzeta.png:3"/>
+		<description>Oto niedźwiedzica. Uważaj! Może być agresywna, zwłaszcza jeśli w okolicy są jej młode.</description>
+		<attributes>
+			<atk value="55"/>
+			<def value="16"/>
+			<hp value="50"/>
+			<speed value="0.4"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="4"/>
+		<experience value="40"/>
+		<respawn value="900"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="mięso" quantity="[3,7]" probability="50.0"/>
+			<item value="szynka" quantity="[1,3]" probability="30.0"/>
+			<item value="kieł niedźwiedzi" quantity="[1,1]" probability="1.0"/>
+			<item value="niedźwiedzie pazury" quantity="[1,1]" probability="1.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Rrraar!"/>
+			</says>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="niedźwiedź polarny">
+		<type class="pol/zwierzeta" subclass="niedzwiedz_polarny" tileid="pol_zwierzeta.png:4"/>
+		<description/>
+		<attributes>
+			<atk value="66"/>
+			<def value="13"/>
+			<hp value="78"/>
+			<speed value="0.7"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="10"/>
+		<experience value="110"/>
+		<respawn value="912"/>
+		<corpse name="animal"/>
+		<drops>
+			<item value="mięso" quantity="[3,12]" probability="60.0"/>
+			<item value="szynka" quantity="[2,4]" probability="40.0"/>
+			<item value="szczupak" quantity="[1,1]" probability="30.0"/>
+			<item value="kieł niedźwiedzi" quantity="[1,1]" probability="5.0"/>
+			<item value="niedźwiedzie pazury" quantity="[1,1]" probability="10.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="BBBRRRRRRR!!"/>
+			</says>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="dziki pies">
+		<type class="pol/zwierzeta" subclass="pies" tileid="pol_zwierzeta.png:5"/>
+		<attributes>
+			<atk value="25"/>
+			<def value="9"/>
+			<hp value="45"/>
+			<speed value="0.9"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="4"/>
+		<experience value="22"/>
+		<respawn value="777"/>
+		<corpse name="small_animal"/>
+		<drops>
+			<item value="mięso" quantity="[1,5]" probability="80.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Hauuuu! Hauuu!"/>
+				<noise state="idle follow fight" value="Wrrrrr!"/>
+			</says>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="lis">
+		<type class="pol/zwierzeta" subclass="lis" tileid="pol_zwierzeta.png:6"/>
+		<attributes>
+			<atk value="45"/>
+			<def value="11"/>
+			<hp value="35"/>
+			<speed value="0.8"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="2"/>
+		<experience value="18"/>
+		<respawn value="888"/>
+		<corpse name="small_animal"/>
+		<drops>
+			<item value="mięso" quantity="[1,4]" probability="60.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="piesiec">
+		<type class="pol/zwierzeta" subclass="lis_sniezny" tileid="pol_zwierzeta.png:7"/>
+		<attributes>
+			<atk value="65"/>
+			<def value="19"/>
+			<hp value="65"/>
+			<speed value="0.8"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="2"/>
+		<experience value="38"/>
+		<respawn value="9999"/>
+		<corpse name="small_animal"/>
+		<drops>
+			<item value="mięso" quantity="[1,11]" probability="80.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="fenek">
+		<type class="pol/zwierzeta" subclass="tj_fenek" tileid="pol_zwierzeta.png:8"/>
+		<attributes>
+			<atk value="67"/>
+			<def value="13"/>
+			<hp value="78"/>
+			<speed value="0.7"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="10"/>
+		<experience value="110"/>
+		<respawn value="8888"/>
+		<corpse name="small_animal"/>
+		<drops>
+			<item value="mięso" quantity="[1,9]" probability="80.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<creature name="biały tygrys">
+		<type class="pol/zwierzeta" subclass="bialy_tygrys" tileid="pol_zwierzeta.png:9"/>
+		<description>Oto biały tygrys. Nie łatwo go spotkać, ale łatwo zginąć od ran jakie zadaje.</description>
+		<attributes>
+			<atk value="191"/>
+			<def value="20"/>
+			<hp value="182"/>
+			<speed value="0.6"/>
+			<size value="1,1"/>
+		</attributes>
+		<level value="30"/>
+		<experience value="570"/>
+		<respawn value="199999"/>
+		<corpse name="cat"/>
+		<drops>
+			<item value="stek" quantity="[1,9]" probability="90.0"/>
+			<item value="kieł tygrysi" quantity="[1,1]" probability="15.0"/>
+			<item value="pazury tygrysie" quantity="[1,1]" probability="25.0"/>
+			<item value="skóra białego tygrysa" quantity="[1,1]" probability="2.0"/>
+		</drops>
+		<equips/>
+		<ai>
+			<says>
+				<noise state="idle follow fight" value="Rrraar!"/>
+				<sound value="pol-tiger"/>
+			</says>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="patrolling"/>
+		</ai>
+	</creature>
+
+	<!-- END: zwierzeta -->
+
+</creatures>

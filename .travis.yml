@@ -1,0 +1,16 @@
+language: java
+before_install:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - pip install --user codecov
+notifications:
+  irc:
+    channels:
+      - "chat.freenode.net#arianne"
+      - "chat.freenode.net#arianne-devel"
+    on_success: change
+    on_failure: change
+    use_notice: false
+    skip_join: false
+after_success:
+  - codecov
