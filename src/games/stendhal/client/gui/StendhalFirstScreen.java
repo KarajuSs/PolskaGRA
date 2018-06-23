@@ -54,7 +54,7 @@ public class StendhalFirstScreen extends JFrame {
 	private static final long serialVersionUID = -7825572598938892220L;
 
 	/** Name of the font used for the html areas. Should match the file name without .ttf */
-	private static final String FONT_NAME = "AntykwaTorunska";
+	private static final String FONT_NAME = "BlackChancery";
 	private static final int FONT_SIZE = 16;
 
 	private final StendhalClient client;
