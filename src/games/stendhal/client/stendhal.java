@@ -185,7 +185,7 @@ public final class stendhal {
 		logger.debug("XXXXXXX");
 
 		logger.info("Setting base at :" + STENDHAL_FOLDER);
-		logger.info("Stendhal " + VERSION);
+		logger.info("PolskaGRA " + VERSION);
 		logger.info(Debug.PRE_RELEASE_VERSION);
 		logger.info("Logging to directory: " + getLogFolder());
 

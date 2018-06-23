@@ -795,7 +795,7 @@ public class StendhalClient extends ClientFramework {
 		// include gamename, so that arianne.sf.net can ignore non stendhal games
 		// include server name and port because we want to support different versions for
 		// the main server and the test server
-		String url = "http://arianne.sourceforge.net/versioncheck/"
+		String url = "http://polskagra.sourceforge.net/version/"
 				+ URLEncoder.encode(gameName, "UTF-8") + "/"
 				+ URLEncoder.encode(host, "UTF-8") + "/"
 				+ URLEncoder.encode(Integer.toString(port), "UTF-8") + "/"
@@ -804,7 +804,7 @@ public class StendhalClient extends ClientFramework {
 		String message = httpClient.fetchFirstLine();
 		if ((message != null) && (message.trim().length() > 0)) {
 			JOptionPane.showMessageDialog(splashScreen,
-				new JLabel(message), "Sprawdź wersję gry",
+				new JLabel(message), "Sprawdzanie wersji",
 				JOptionPane.WARNING_MESSAGE);
 		}
 

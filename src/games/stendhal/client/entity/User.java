@@ -247,20 +247,34 @@ public class User extends Player {
 			if (changes.has("offline")) {
 				final String[] players = changes.get("offline").split(",");
 				for (final String playername : players) {
+					if (getGender().equals("F")) {
 						ClientSingletonRepository.getUserInterface().addEventLine(
 							new HeaderLessEventLine(
-							playername + " opuścił PolskaGra.",
+							playername + " opuściła grę.",
 							NotificationType.INFORMATION));
+					} else {
+						ClientSingletonRepository.getUserInterface().addEventLine(
+							new HeaderLessEventLine(
+							playername + " opuścił grę.",
+							NotificationType.INFORMATION));
+					}
 				}
 			}
 
 			if (changes.has("online")) {
 				final String[] players = changes.get("online").split(",");
 				for (final String playerName : players) {
-					ClientSingletonRepository.getUserInterface().addEventLine(
-							new HeaderLessEventLine(
-							playerName + " zawitał do PolskaGra.",
-							NotificationType.INFORMATION));
+					if (getGender().equals("F")) {
+						ClientSingletonRepository.getUserInterface().addEventLine(
+								new HeaderLessEventLine(
+								playerName + " zawitała do PolskaGRA.",
+								NotificationType.INFORMATION));
+					} else {
+						ClientSingletonRepository.getUserInterface().addEventLine(
+								new HeaderLessEventLine(
+								playerName + " zawitał do PolskaGRA.",
+								NotificationType.INFORMATION));
+					}
 				}
 			}
 

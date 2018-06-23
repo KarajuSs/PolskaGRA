@@ -113,7 +113,7 @@ public class textClient extends Thread {
 
 			@Override
 			protected String getGameName() {
-				return "stendhal";
+				return "polskagra";
 			}
 
 			@Override
@@ -174,7 +174,7 @@ public class textClient extends Thread {
 
 			@Override
 			protected void onAvailableCharacters(final String[] characters) {
-				System.out.println("Characters available");
+				System.out.println("Dostępne postacie");
 				for (final String characterAvail : characters) {
 					System.out.println(characterAvail);
 				}
@@ -188,7 +188,7 @@ public class textClient extends Thread {
 
 			@Override
 			protected void onServerInfo(final String[] info) {
-				System.out.println("Server info");
+				System.out.println("Serwer info");
 				for (final String info_string : info) {
 					System.out.println(info_string);
 				}
@@ -196,7 +196,7 @@ public class textClient extends Thread {
 
 			@Override
 			protected void onPreviousLogins(final List<String> previousLogins) {
-				System.out.println("Previous logins");
+				System.out.println("Poprzednie logowanie");
 				for (final String info_string : previousLogins) {
 					System.out.println(info_string);
 				}

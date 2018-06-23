@@ -373,14 +373,14 @@ public class CreateAccountDialog extends JDialog {
 					setEnabled(true);
 					JOptionPane.showMessageDialog(
 							owner,
-							"Uruchomiłeś starszą wersję PolskaOnLine. Proszę zaktualizuj swoją wersję",
+							"Uruchomiłeś starszą wersję gry. Proszę zaktualizuj swoją wersję",
 							"Starsza wersja", JOptionPane.ERROR_MESSAGE);
 				} catch (final BannedAddressException e) {
 					progressBar.cancel();
 					setEnabled(true);
 					JOptionPane.showMessageDialog(
 							owner,
-							"Twoje IP zostało zablokowane.",
+							"Twoje IP zostało zablokowane. Jeżeli nie zgadzasz się z decyzją to skontaktuj się z nami na http://www.polskagra.org/kontakt-gmgags",
 							"Zablokowane IP", JOptionPane.ERROR_MESSAGE);
 				} catch (final LoginFailedException e) {
 					progressBar.cancel();

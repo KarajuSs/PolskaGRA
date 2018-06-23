@@ -78,7 +78,7 @@ public class StendhalRPRuleProcessor implements IRPRuleProcessor {
 	/** list of super admins read from admins.list. */
 	private static Map<String, String> adminNames;
 	/** welcome message unless overwritten by an URL */
-	private static String welcomeMessage = "Witaj w #'PolskaGRA'! Odwiedź naszą stronę - #'www.localhost:80'! \nPamiętaj, aby nikomu &'nie udostępniać' hasła do swojego konta! Jeżeli znalazłeś jakieś błędy w grze to zgłoś to nam do &'supportu'.";
+	private static String welcomeMessage = "Witaj w #'PolskaGRA'! Odwiedź stronę - #'www.localhost:80'! \nPamiętaj, aby nikomu &'nie udostępniać' hasła do swojego konta! Jeżeli znalazłeś jakieś błędy w grze to zgłoś to nam do &'supportu'.";
 
 	/** The Singleton instance. */
 	protected static StendhalRPRuleProcessor instance;
@@ -188,9 +188,9 @@ public class StendhalRPRuleProcessor implements IRPRuleProcessor {
 	@Override
 	public boolean checkGameVersion(final String game, final String version) {
 		try {
-			if (!game.equals(Configuration.getConfiguration().get("server_typeGame", "stendhal"))) {
+			if (!game.equals(Configuration.getConfiguration().get("server_typeGame", "polskagra"))) {
 				logger.warn("Client for game " + game + " is trying to login to server for game "
-						+ Configuration.getConfiguration().get("server_typeGame", "stendhal")
+						+ Configuration.getConfiguration().get("server_typeGame", "polskagra")
 						+ ", as defined in server configuration file (usually server.ini) with key server_typeGame (defaults to \"stendhal\" if not present).");
 				return false;
 			}

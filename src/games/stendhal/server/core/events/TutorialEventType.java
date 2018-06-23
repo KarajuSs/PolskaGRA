@@ -1,4 +1,4 @@
-/* $Id$ */
+/* $Id: TutorialEventType.java,v 1.29 2012/08/06 21:20:20 kymara Exp $ */
 /***************************************************************************
  *                   (C) Copyright 2003-2010 - Stendhal                    *
  ***************************************************************************
@@ -14,58 +14,58 @@ package games.stendhal.server.core.events;
 
 /**
  * Event types used in the tutorial.
- *
+ * 
  * @author hendrik
  */
 public enum TutorialEventType {
 
 	FIRST_LOGIN(
-			"Hi, welcome to Stendhal. You can move around using the arrow keys or by clicking the mouse."),
+			"Witaj w PolskaOnLine. Możesz się poruszać używając klawiszy strzałek na klawiaturze lub klikając myszką."),
 	FIRST_MOVE(
-			"You can talk to Hayunn Naratha by saying \"hi\"."),
+			"Możesz porozmawiać z Pietrkiem mówiąc \"cześć\"."),
 	RETURN_GUARDHOUSE(
-			"Talk to Hayunn Naratha again by saying \"hi\"."),
+			"Porozmawiaj ponownie z Pietrkiem mówiąc \"cześć\"."),
 	VISIT_SEMOS_CITY(
-			"You can get a map of Semos from Monogenes. Start by saying \"hi\". Or you can go down the steps to the dungeons and fight some creatures."),
+			"Możesz dostać mapę Semos od Monogenes. Zacznij od powiedzenia \"cześć\" lub możesz pójść trochę bardziej na południe, aby powalczyć z potworami w podziemiach."),
 	VISIT_SEMOS_DUNGEON(
-			"Remember to eat regularly while you fight creatures. Double click on any cheese, meat or other food you have."),
+			"Pamiętaj, aby jeść regularnie podczas walki z potworami. Naciśnij podwójnie na ser, mięso lub na innego rodzaju jedzenia, które posiadasz."),
 	VISIT_SEMOS_DUNGEON_2(
-			"Be careful. If you walk deeper and deeper, the creatures will get more powerful. You can run back to Semos to get healed by Carmen."),
+			"Ostrożnie. Jeżeli będziesz dalej się zagłębiał to spotkasz coraz silniejsze potwory. Możesz uciec z powrotem do Semos, aby Carmen wyleczyła twoje rany."),
 	VISIT_SEMOS_TAVERN(
-			"You can trade with an NPC by saying \"hi\" then asking for their \"offer\". If you want to buy a flask, say \"buy flask\"."),
+			"Możesz handlować z NPC-ami mówiąc \"cześć\", a później pytając o jego ofertę \"oferta\". Jeżeli chciałbyś coś kupić np flaszę to powiedz \"kupię flasza\"."),
 	VISIT_SEMOS_PLAINS(
-			"Eating regularly is essential to restore your health. If you are short of food, visit the farm east and then north of here."),
+			"Regularne jedzenie jest kluczem do odzyskania swojego zdrowia. Jeżeli posiadasz małe zapasy jedzenia to odwiedź farmę, która znajduje się na północny-wschód stąd."),
 	FIRST_ATTACKED(
-			"That creature with the yellow circle is attacking you! Click on it to fight back."),
+			"Potwory w źółtym kółku atakują Ciebie! Naciśnij na nie, aby walczyć z nimi."),
 	FIRST_KILL(
-			"Click on items in corpses to transfer them to your bag."),
+			"Kliknij na przedmioty w zwłokach, aby przenieść je do swojego plecaka."),
     FIRST_PLAYER_KILL(
-			"You have been marked with the red skull of a player killer. You may find that people are wary of you now. To get it removed, you may speak to Io Flotto in Semos temple."),
+			"Zostałeś oznaczony czerwoną czaszką ponieważ zabiłeś wojownika. Możesz spotkać osoby, które będą Cię obserwować. W celu usunięcia tego porozmawiaj z Io Flotto w świątyni w Semos."),
 	FIRST_POISONED(
-			"You've just been poisoned. If you didn't drink poison, it was probably a poisonous creature attacking you. Kill poisonous creatures quickly, as you lose more HP each time you are poisoned."),
+			"Zostałeś właśnie zatruty. Jeżeli nie wypiłeś trucizny to oznacza, że zostałeś zatruty przez potwora, który cię atakuje. Szybko zabij potwora ponieważ przy zatruciu twoje PZ z biegiem czasu maleje."),
 	FIRST_PLAYER(
-			"Have you noticed that this name is printed in white? It is another real human player."),
+			"Czy zauważyłeś postacie z nazwą w kolorze białym? Oznaczają one innych wojowników."),
 	FIRST_DEATH(
-			"Oh, you have just died. But fortunately death is not permanent in this world."),
+			"Właśnie poległeś w boju, ale to nie koniec przygody. W tym świecie śmierć nie oznacza końca gry. Możesz nadal grać, ale śmierć ma swoją cenę."),
 	FIRST_PRIVATE_MESSAGE(
-			"You received a private message. To reply, Use #/msg #name #message."),
+			"Otrzymałeś prywatną wiadomość, aby odpisać użyj #/msg #imię #wiadomość."),
 	FIRST_EQUIPPED(
-			"You just got given something! Check your bag and hands."),
+			"Właśnie coś dostałeś! Sprawdź swój plecak oraz dłonie."),
 	TIMED_HELP(
-			"Press F1 to read the manual with many pictures."),
+			"Naciśnij przycisk F1, aby przeczytać przewodnik ze zdjęciami."),
 	TIMED_NAKED(
-			"Oh, aren't you feeling cold? Right click on yourself and choose \"Set Outfit\" to get dressed."),
+			"Czy nie jest Ci zimno? Naciśnij na sobie prawy przycisk i wybierz \"Ustaw wygląd\", aby się ubrać."),
 	TIMED_PASSWORD(
-			"Remember to keep your password completely secret, never tell it to another friend, player, or even admin."),
+			"Pamiętaj, żeby nikomu nie udostępniać swojego hasła. Nigdy nie podawaj przyjacielowi, innemu wojownikowi czy administratorowi."),
 	TIMED_OUTFIT(
-			"Do you like your outfit? If not, you can change it. Right click on yourself and choose \"Set Outfit\" to experiment with new hair, face, clothes and body."),
+			"Podoba się Tobie swój własny wygląd? Jeżeli nie to możesz go zmienić. Naciśnij na sobie prawy przycisk myszy i wybierz \"Ustaw wygląd\", aby poeksperymentować z nowymi fryzurami, twarzami, ubraniami i ciałem."),
 	TIMED_RULES(
-			"Thank you for continuing to play Stendhal. Now that you have played for some time, it's important that you read the rules, please type #/rules and they will open in a browser.");
+			"Dziękujemy zostanie z nami. Ze względu, że grasz już dość długo to ważne, abyś przeczytał regulamin. Wpisz #/rules a otworzy się przeglądarka z regulaminem.");
 	private String message;
 
 	/**
 	 * Creates a new TutorialEventType.
-	 *
+	 * 
 	 * @param message
 	 *            human readable message
 	 */
@@ -75,7 +75,7 @@ public enum TutorialEventType {
 
 	/**
 	 * Gets the descriptive message.
-	 *
+	 * 
 	 * @return message
 	 */
 	String getMessage() {

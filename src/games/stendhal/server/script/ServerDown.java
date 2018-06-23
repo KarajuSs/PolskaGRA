@@ -112,14 +112,13 @@ public class ServerDown extends ScriptImpl {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Oh hello, I don't get many visitors here at this #place.");
-				addJob("Oh nothing really. I just watch over space and time.");
-				addHelp("Thank you for your offer. But there is nothing you can do right now. Just wait and relax.");
-				addReply("place", "This is... Think of it as after the theater, outside space and time, beyond #reality.");
-				addReply("reality", "To get you to this place beyond reality, I had to suspend disbelief.");
-				addReply("stendhal", "The powers, that be, are currently restoring the Stendhal reality. Just wait and relax.");
-				addReply("pacman", "Oh, that is just one reality among the ones we are watching here. See #https://stendhalgame.org/-49 for details.");
-
+				addGreeting("Oh witaj nie mam w tym #miejscu zbyt wielu zwiedzających.");
+				addJob("Oh nic takiego. Patrzę w przestrzeń i czas.");
+				addHelp("Dziękuję za twoją ofertę, ale teraz nie mam nic dla ciebie. Poczekaj i odpocznij");
+				addReply(Arrays.asList("place", "miejscu"), "To jest... Pomyśl o tym jak o teatrze. Przestrzeń i czas są poza rzeczywistością.");
+				addReply(Arrays.asList("reality", "rzeczywistością", "rzeczywistość"), "Aby zabrać ciebie w miejsce poza rzeczywistością muszę pozbyć się braku wiary.");
+				addReply("polskaonline", "Moce, które aktualnie przywracają rzeczywistość PolskaOnLine. Poczekaj i zrelaksuj się.");
+				
 				addGoodbye();
 			}
 		};
@@ -129,7 +128,7 @@ public class ServerDown extends ScriptImpl {
 		npc.setPosition(25, 21);
 		npc.setDirection(Direction.UP);
 		npc.initHP(100);
-		npc.setDescription("You see Megan. She is the keeper outside space and time.");
+		npc.setDescription("Oto Megan. Pilnuje przestrzeni i czasu.");
 		zone.add(npc);
 	}
 }

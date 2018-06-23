@@ -36,7 +36,7 @@ class AtlasBrowserLaunchCommand implements SlashAction{
 	public boolean execute(final String[] params, final String remainder) {
 		StringBuilder url = new StringBuilder();
 		User user = User.get();
-		url.append("https://stendhalgame.org/world/atlas.html");
+		url.append("https://www.polskagra.org/world/kraina-faiumoni.html");
 		if (user != null) {
 			url.append("?me=");
 			url.append(user.getZoneName());
@@ -48,7 +48,7 @@ class AtlasBrowserLaunchCommand implements SlashAction{
 
 		String urlString = url.toString();
 		ClientSingletonRepository.getUserInterface().addEventLine(new HeaderLessEventLine(
-				"Trying to open #" + urlString + " in your browser.",
+				"Próbuję otworzyć adres #" + urlString + " w twojej przeglądarce internetowej.",
 		NotificationType.CLIENT));
 		BareBonesBrowserLaunch.openURL(urlString);
 		return true;

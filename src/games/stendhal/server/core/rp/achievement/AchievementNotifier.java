@@ -269,9 +269,9 @@ public final class AchievementNotifier {
 		// only send notice if actually a new added achievement was reached by doing nothing
 		if(!reached.isEmpty()) {
 			StringBuilder sb = new StringBuilder();
-			sb.append("You have reached ");
+			sb.append("Zdobyłeś ");
 			sb.append(Integer.valueOf(reached.size()));
-			sb.append(" new "+Grammar.plnoun(reached.size(), "achievement")+". Please check #https://stendhalgame.org for details.");
+			sb.append(" "+Grammar.plnoun(reached.size(), "sprawność")+". W celu poznania szczegółów sprawdź #http://www.gra.polskaonline.org.");
 			player.sendPrivateText(sb.toString());
 		}
 	}

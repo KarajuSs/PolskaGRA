@@ -54,7 +54,7 @@ public class StendhalFirstScreen extends JFrame {
 	private static final long serialVersionUID = -7825572598938892220L;
 
 	/** Name of the font used for the html areas. Should match the file name without .ttf */
-	private static final String FONT_NAME = "BlackChancery";
+	private static final String FONT_NAME = "AntykwaTorunska";
 	private static final int FONT_SIZE = 16;
 
 	private final StendhalClient client;
@@ -154,7 +154,7 @@ public class StendhalFirstScreen extends JFrame {
 		Action helpAction = new AbstractAction("Pomoc") {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				BareBonesBrowserLaunch.openURL("http://www.login.polskaonline.org/wprowadzenie");
+				BareBonesBrowserLaunch.openURL("http://www.polskagra.org/wprowadzenie");
 			}
 		};
 		helpAction.putValue(Action.MNEMONIC_KEY, KeyEvent.VK_H);
@@ -215,7 +215,7 @@ public class StendhalFirstScreen extends JFrame {
 		// LoginGUI
 		//
 		setTitle(gameName + " " + stendhal.VERSION
-				+ " - darmowa gra MMORPG - www.login.polskaonline.org");
+				+ " - darmowa gra MMORPG - www.polskagra.org");
 
 		url = DataLoader.getResource(ClientGameConfiguration.get("GAME_ICON"));
 		this.setIconImage(new ImageIcon(url).getImage());

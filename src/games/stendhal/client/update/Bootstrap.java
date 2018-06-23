@@ -60,7 +60,7 @@ public class Bootstrap {
 			final String propFile = jarFolder + "jar.properties";
 			final OutputStream os = new FileOutputStream(propFile);
 			try {
-				bootProp.store(os, "Stendhal Boot Configuration");
+				bootProp.store(os, "PolskaGRA Boot Configuration");
 			} finally {
 				os.close();
 			}

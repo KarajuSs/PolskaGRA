@@ -171,7 +171,7 @@ public class GenerateINI {
 	 * @throws FileNotFoundException in case the file cannot be written
 	 */
 	public static void main(final String[] args) throws FileNotFoundException {
-		gameName = "polskaonline";
+		gameName = "polskagra";
 
 		/** Write configuration for database */
 		databaseImplementation = getDatabaseImplementation();
@@ -321,8 +321,8 @@ public class GenerateINI {
 		out.println();
 		out.println("server_typeGame=" + gameName);
 		out.println("server_name=" + gameName + " Marauroa server");
-		out.println("server_version=0.60");
-		out.println("server_contact=http://login.polskaonline.org/kontakt-gmgags");
+		out.println("server_version=0.01");
+		out.println("server_contact=http://polskagra.org/kontakt-gmgags");
 		out.println();
 		if ((mailfrom.length() > 3) && (mailsmtphost.length() > 3) && (mailsmtpport.length() > 1) && (mailsmtpauth.length() > 3)
 			 && (mailsmtpssl.length() > 3) && (mailsmtptls.length() > 3) && (mailsmtpuser.length() > 3) && (mailsmtppass.length() > 3)) {

@@ -36,7 +36,10 @@ public class CommonPassword implements AccountParameterValidator {
 			"12345", "1234567", "asdfg", "fucku", "test",
 			"kurwa", "kurwamac", "kurwa mac", "cipa", "chuj", "huj",
 			"polskaonline", "polskaonline1", "polskaonline2",
-			"pol1", "pol2", "polpol"
+			"pol1", "pol2", "polpol", "chój", "hój", "pussy",
+			"polskagra", "gra", "poiskagra", "poiska", "polska",
+			"cock", "kok", "coca", "koka", "koko", "coco", "suck",
+			"sack", "sak", "sakk", "dick", "dik", "dikk", "penis"
 		);
 
 	private String parameterValue;

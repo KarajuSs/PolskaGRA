@@ -339,7 +339,7 @@ class OutfitDialog extends JDialog {
 
 		JComponent buttonBox = SBoxLayout.createContainer(SBoxLayout.HORIZONTAL, pad);
 		buttonBox.setAlignmentX(RIGHT_ALIGNMENT);
-		JButton cancelButton = new JButton("Cancel");
+		JButton cancelButton = new JButton("Zamknij");
 		cancelButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -348,7 +348,7 @@ class OutfitDialog extends JDialog {
 		});
 		cancelButton.setMnemonic(KeyEvent.VK_C);
 		buttonBox.add(cancelButton);
-		JButton okButton = new JButton("Change Outfit");
+		JButton okButton = new JButton("PolskaGRA - Zmień wygląd");
 		okButton.setMnemonic(KeyEvent.VK_A);
 		okButton.addActionListener(new ActionListener() {
 			@Override
