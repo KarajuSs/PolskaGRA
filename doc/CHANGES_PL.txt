@@ -10,6 +10,13 @@ Changelog
 - twarz postaci po przejściu przez jakiś portal zostanie od teraz poprawnie zwrócona
 - przetłumaczono część zadań i npc
 - sprites & tiles zostaną podmienione obrazkami z prefixem "-safe" kiedy w ustawieniach krew jest wyłączona
+- zwiększono ilość slotów w plecaku (patrząc na plecak ze Stendhal'a)
+- zmieniono pozycję rzemyku (od teraz jest poziomo 4x2)
+- nowy wygląd slotów
+
+
+*eksperymetalne zmiany*
+- nowe sloty w ekwipunku gracza (plecak, pas, rzemyk)
 
 
 *serwer*
