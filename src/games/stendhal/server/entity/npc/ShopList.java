@@ -501,7 +501,77 @@ public final class ShopList {
 		shops.add("cafe", "kanapka", 170);
 		shops.add("cafe", "kanapka z tuńczykiem", 180);
 		shops.add("cafe", "jabłecznik", 250);
+		
+		//bronek kupuje:
+		shops.add("buydragonitems", "pazury wilcze", 15);
+		shops.add("buydragonitems", "niedźwiedzie pazury", 18);
+		shops.add("buydragonitems", "pazury tygrysie", 150);
+		shops.add("buydragonitems", "pazur zielonego smoka", 35000);
+		shops.add("buydragonitems", "pazur niebieskiego smoka", 45000);
+		shops.add("buydragonitems", "pazur czerwonego smoka", 55000);
+		shops.add("buydragonitems", "pazur czarnego smoka", 65000);
+		shops.add("buydragonitems", "pazur złotego smoka", 75000);
+		
+		//bogus kupuje :
+		shops.add("buyskin", "piórko", 4);
+		shops.add("buyskin", "skóra xenocium", 800);
+		shops.add("buyskin", "skóra tygrysa", 1000);
+		shops.add("buyskin", "skóra lwa", 2000);
+		shops.add("buyskin", "skóra zielonego smoka", 2600);
+		shops.add("buyskin", "skóra czerwonego smoka", 3200);
+		shops.add("buyskin", "skóra niebieskiego smoka", 3800);
+		shops.add("buyskin", "skóra czarnego smoka", 4400);
+		shops.add("buyskin", "skóra złotego smoka", 5000);
+		
+		//bogus sprzedaje
+		shops.add("sellskin", "buteleczka", 5);
+		shops.add("sellskin", "butelka", 7);
+		shops.add("sellskin", "krótki miecz", 640);
+		shops.add("sellskin", "topór", 1070);
+		shops.add("sellskin", "kosa", 2000);
+		
+		//npc kupujący pióra...
+		/**
+		shops.add("buypiora", "piórko", 4);
+		shops.add("buypiora", "pióro feniksa", 1700);
+		shops.add("buypiora", "pióro anioła", 3200);
+		shops.add("buypiora", "pióro upadłego anioła", 3700);
+		shops.add("buypiora", "pióro mrocznego anioła", 4200);
+		shops.add("buypiora", "pióro archanioła", 5800);
+		shops.add("buypiora", "pióro mrocznego archanioła", 6800);
+		shops.add("buypiora", "pióro serafina", 11000);
+		shops.add("buypiora", "pióro azazela", 14000);
+		*/
+		
+		//zielarka kupuje
+		shops.add("buyziola", "arandula", 12);
+		shops.add("buyziola", "kokuda", 250);
+		shops.add("buyziola", "kekik", 28);
+		shops.add("buyziola", "sclaria", 28);
+		
+		//kibic sprzedaje
+		shops.add("mecz", "bilet na mecz", 250);
+		shops.add("mecz", "piłka", 500);
 
+		//krasnolud sprzedaje
+		shops.add("sellkopalnia", "kilof", 150);
+		shops.add("sellkopalnia", "łopata", 200);
+		shops.add("sellkopalnia", "lina", 150);
+		
+		//Jagna sprzedaje
+		shops.add("urodziny", "sok z chmielu", 8);
+		shops.add("urodziny", "napój z winogron", 10);
+		shops.add("urodziny", "napój z oliwką", 50);
+		shops.add("urodziny", "shake waniliowy", 100);
+		shops.add("urodziny", "shake czekoladowy", 100);
+		shops.add("urodziny", "mięso", 20);
+		shops.add("urodziny", "szynka", 30);
+		shops.add("urodziny", "hotdog", 120);
+		shops.add("urodziny", "hotdog z serem", 140);
+		shops.add("urodziny", "kanapka z tuńczykiem", 110);
+		shops.add("urodziny", "kanapka", 110);
+		shops.add("urodziny", "tabliczka czekolady", 80);
+		shops.add("urodziny", "lukrecja", 80);
 	}
 
 	private static ShopList instance;
