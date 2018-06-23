@@ -46,7 +46,7 @@ Changelog
 
 
 *code*
-- został dodany nowy atrybut dla portali - "face" - służącego do ustawiania kierunku skierowania gracza
+- został dodany nowy atrybut dla portali - "face" - służący do ustawiania kierunku skierowania gracza
 - został dodany nowy atrybut dla portali - "offset" - przesuwający pozycję gracza względem miejsca docelowego
 
 
