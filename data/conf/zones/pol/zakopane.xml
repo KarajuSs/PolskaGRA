@@ -11,6 +11,7 @@
 	<zone name="0_zakopane_nw" level="0" x="513184" y="18432" file="Level 0/zakopane/zakopane_nw.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">varying</parameter>
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
@@ -40,6 +41,7 @@
 	<zone name="0_zakopane_n" level="0" x="513312" y="18432" file="Level 0/zakopane/zakopane_n.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">snow_light</parameter>
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
@@ -99,10 +101,11 @@
 	<zone name="0_zakopane_ne" level="0" x="513440" y="18432" file="Level 0/zakopane/zakopane_ne.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">snow_light</parameter>
 		</attributes>
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.gorasmoka.AddBalloonListener"/>
+		<!-- <configurator class-name="games.stendhal.server.maps.pol.zakopane.gorasmoka.AddBalloonListener"/>
 		<configurator class-name="games.stendhal.server.maps.pol.zakopane.gorasmoka.OzoNPC"/>
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.plains.RatownikNPC"/>
+		<configurator class-name="games.stendhal.server.maps.pol.zakopane.plains.RatownikNPC"/>-->
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">pol-littlemeadow2</parameter>
@@ -146,6 +149,7 @@
 	<zone name="0_zakopane_w" level="0" x="513184" y="18560" file="Level 0/zakopane/zakopane_w.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">snow_light</parameter>
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
@@ -181,520 +185,11 @@
 			</implementation>
 		</entity>
 
-		<!-- Pokrzywy -->
-
-		<entity x="33" y="43">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">1</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="32" y="44">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">2</parameter>
-				<parameter name="height">3</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="31" y="45">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">1</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="31" y="47">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">3</parameter>
-				<parameter name="height">3</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="30" y="50">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">4</parameter>
-				<parameter name="height">3</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="29" y="53">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">4</parameter>
-				<parameter name="height">3</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="33" y="54">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">3</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="28" y="56">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">2</parameter>
-				<parameter name="height">2</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="32" y="56">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">1</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="30" y="57">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">3</parameter>
-				<parameter name="height">1</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="30" y="58">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">4</parameter>
-				<parameter name="height">4</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="29" y="59">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">3</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="28" y="60">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">1</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="33" y="62">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">2</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="30" y="62">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">2</parameter>
-				<parameter name="height">1</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="29" y="63">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">4</parameter>
-				<parameter name="height">1</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="30" y="64">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">2</parameter>
-				<parameter name="height">1</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="30" y="65">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">3</parameter>
-				<parameter name="height">2</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="28" y="65">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">1</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="29" y="66">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">1</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="33" y="65">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">6</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="29" y="68">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">4</parameter>
-				<parameter name="height">2</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="28" y="70">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">2</parameter>
-				<parameter name="height">2</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="30" y="70">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">3</parameter>
-				<parameter name="height">1</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="31" y="71">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">2</parameter>
-				<parameter name="height">2</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="30" y="72">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">3</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="29" y="74">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">5</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="28" y="75">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">5</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="31" y="74">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">3</parameter>
-				<parameter name="height">3</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="30" y="76">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">4</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="31" y="78">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">2</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="33" y="80">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">1</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="30" y="81">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">4</parameter>
-				<parameter name="height">1</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="31" y="82">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">2</parameter>
-				<parameter name="height">1</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="30" y="83">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">4</parameter>
-				<parameter name="height">2</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="30" y="85">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">3</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="31" y="85">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">1</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="32" y="85">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">2</parameter>
-				<parameter name="height">3</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="33" y="87">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">3</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="31" y="88">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">2</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="34" y="88">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">1</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="32" y="89">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">1</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="35" y="88">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">4</parameter>
-				<parameter name="height">3</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="34" y="90">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">1</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="36" y="91">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">3</parameter>
-				<parameter name="height">1</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-		<entity x="38" y="92">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.area.DamagingArea">
-				<parameter name="width">1</parameter>
-				<parameter name="height">1</parameter>
-				<parameter name="interval">20</parameter>
-				<parameter name="damage">1</parameter>
-				<parameter name="probability">100</parameter>
-				<parameter name="players-only">true</parameter>
-			</implementation>
-			<attribute name="name">Pokrzywy</attribute>
-		</entity>
-	</zone>
-
 	<!-- zakopane_c -->
 	<zone name="0_zakopane_c" level="0" x="513312" y="18560" file="Level 0/zakopane/zakopane_c.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">snow</parameter>
 		<!--	<parameter name="file" condition="stendhal.christmas">Level 0/zakopane/zakopane_c_xmas.tmx</parameter> -->
 		</attributes>
 		<entity x="1" y="1">
@@ -735,15 +230,15 @@
 		<portal x="67" y="57" ref="zakopane_entrance">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
 		</portal>
-
+		
 		<portal x="105" y="24" ref="exit1">
 			<destination zone="int_semos_guard_house" ref="zakopane_exit"/>
 		</portal>
-
+		
 		<portal x="106" y="24" ref="exit2">
 			<destination zone="int_semos_guard_house" ref="zakopane_exit"/>
 		</portal>
-
+		
 		<portal x="107" y="24" ref="exit3">
 			<destination zone="int_semos_guard_house" ref="zakopane_exit"/>
 		</portal>
@@ -751,11 +246,15 @@
 		<portal x="71" y="106" ref="church_entrance_1">
 			<destination zone="int_zakopane_church" ref="church_2_exit"/>
 		</portal>
-
-		<portal x="93" y="60" ref="chapel_entrance_1">
+		
+		<portal x="93" y="65" ref="chapel_entrance_1">
 			<destination zone="int_zakopane_chapel" ref="chapel_1_exit"/>
 		</portal>
-
+		
+		<portal x="124" y="88" ref="playroom_entrance">
+			<destination zone="int_zakopane_playroom" ref="playroom_exit"/>
+		</portal>
+		
 		<portal x="58" y="5" ref="bt_exit">
 			<destination zone="int_zakopane_bat_tower_1" ref="bt_enter"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.KeyedPortal">
@@ -763,20 +262,19 @@
 				<parameter name="rejected">Potrzebujesz liny aby się wspiąć.</parameter>
 			</implementation>
 		</portal>
-
+		
 	</zone>
 
 	<!-- zakopane_e -->
 	<zone name="0_zakopane_e" level="0" x="513440" y="18560" file="Level 0/zakopane/zakopane_e.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">snow_light</parameter>
 		</attributes>
-		<!--
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.city.GazdaJedrzejNPC"/>
+		<!--<configurator class-name="games.stendhal.server.maps.pol.zakopane.city.GazdaJedrzejNPC"/>
 		<configurator class-name="games.stendhal.server.maps.pol.zakopane.city.BuklakNPC"/>
 		<configurator class-name="games.stendhal.server.maps.pol.zakopane.city.ButelkaNPC"/>
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.city.ButeleczkaNPC"/>
-		-->
+		<configurator class-name="games.stendhal.server.maps.pol.zakopane.city.ButeleczkaNPC"/>-->
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">pol-littlemeadow2</parameter>
@@ -856,6 +354,7 @@
 	<zone name="0_zakopane_sw" level="0" x="513184" y="18688" file="Level 0/zakopane/zakopane_sw.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">snow</parameter>
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
@@ -920,16 +419,14 @@
 	<zone name="0_zakopane_s" level="0" x="513312" y="18688" file="Level 0/zakopane/zakopane_s.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
-			<parameter name="weather" condition="!stendhal.christmas">varying(temperature=-6,snow=-2)</parameter>
+			<parameter name="weather">snow</parameter>
 		<!--	<parameter name="file" condition="stendhal.christmas">Level 0/zakopane/zakopane_s_xmas.tmx</parameter> -->
 		</attributes>
-		<!--
 		<configurator class-name="games.stendhal.server.maps.pol.zakopane.city.CommonChest"/>
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.city.BacaZbyszekNPC"/>
+		<!--<configurator class-name="games.stendhal.server.maps.pol.zakopane.city.BacaZbyszekNPC"/>
 		<configurator class-name="games.stendhal.server.maps.pol.zakopane.city.FryderykNPC"/>
 		<configurator class-name="games.stendhal.server.maps.pol.zakopane.city.GawedziarzNPC"/>
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.city.HeroldNPC"/>
-		-->
+		<configurator class-name="games.stendhal.server.maps.pol.zakopane.city.HeroldNPC"/>-->
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">pol-goralskie</parameter>
@@ -987,7 +484,7 @@ Na południe ↓ Tatry
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign"/>
 			<attribute name="text">
 #'Przeczytaj REGULAMIN!'
-#'Strona'
+#'polskagra.net'
 			</attribute>
 			<attribute name="class">default</attribute>
 		</entity>
@@ -996,7 +493,7 @@ Na południe ↓ Tatry
 			<attribute name="text">
 Jeśli masz pytanie dotyczące gry,
 na które nie znalazłeś odpowiedzi
-na stronie #'Strona'
+na stronie #'polskagra.net'
 w dziale #'Dla początkujących'
 zapytaj GM pisząc #'/support PYTANIE'.
 			</attribute>
@@ -1008,9 +505,8 @@ zapytaj GM pisząc #'/support PYTANIE'.
 W związku z tym, że nasza gra
 jest całkowicie darmowa proszę:
 w wolnej chwili wejdź na stronę
-#'Strona'
-i kliknij #'banerek'
-jeśli pojawi się w nagłówku!
+#'polskagra.net' i kliknij #'reklamę'
+jeśli pojawi się w dziale reklamy na stronie!;)
 #'DZIĘKUJEMY!'
 			</attribute>
 			<attribute name="class">default</attribute>
@@ -1018,9 +514,9 @@ jeśli pojawi się w nagłówku!
 		<entity x="27" y="21">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign"/>
 			<attribute name="text">
-Filmy produkcji #'Polonia-Online'
-do obejrzenia na #'Strona'
-w dziale #'Filmiki!'. Możesz też pobrać #'tapetki!'
+Najświeższe informacje zawsze
+znajdziesz na naszym fanpejdżu
+#www.facebook.com/PolskaGra.org
 			</attribute>
 			<attribute name="class">default</attribute>
 		</entity>
@@ -1038,26 +534,68 @@ mile widziany!
 			</attribute>
 			<attribute name="class">default</attribute>
 		</entity>
-<!--		<entity x="31" y="17">
+		<entity x="60" y="36">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign"/>
 			<attribute name="text">
-Chesz potwierdzić swoją siłę i stać się lokalnym bohaterem?!
-#'Stań do Turnieju Faruski!'
-Jedynie co musisz zrobić to sprostać wyzwaniu potężnych potworów powyżej 150 lvlu w walce na śmierć lub życie. Quest jest 2 częściowy.
-Pierwsza część polega na samodzielnym zabiciu kolejno każdego potwoka od 150 do 300 lvl-u.
-W drugiej części musisz pokonać powyżej 300 lvl-u możesz w tej części skorzystać pomocy innych, ale musisz mieć min. 75% udziału w zabiciu potworka.
-W nagrodę otrzymasz szacunek innych oraz za 1 etap: 200 base_hp, a za 2 etap: +10% punktów ATK i +10% punktów OBR.
-Turniej organizuje Faruska i ona udziela informacji.
+#LOTERIA #REKLAMOWA
+Jak to wygląda?
+Wystarczy kliknąć w reklamy na naszej stronie #www.polskagra.net/reklamy
+oraz zalogować się chociaż raz w ciągu dnia do gry:)
+Kolejnego dnia odbywa się losowanie skrzynek zależnie od ilości kliknięć w reklamy
+25 klików = Złota Skrzynia
+10 klików = Srebrna Skrzynia
+5 klików = Brązowa Skrzynia
+
+Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzynia
 			</attribute>
 			<attribute name="class">default</attribute>
-		</entity>-->
+		</entity>
+				<entity x="62" y="36">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign"/>
+			<attribute name="text">
+#LOTERIA #REKLAMOWA
+Co można wygrać?
+-Skóry smoków
+-Wszelkie eliksiry
+-Sztylet mroku
+-Kamienne Zbroja
+-Spodnie kamienne
+-Lodowy miecz
+-Rękawice cieni
+-Zbroja cieni
+-Pas zbójecki
+-Srebrny sztylet
+-Czarne spodnie
 
++ Wiele innych, wyżej wymienione są najcenniejsze;)
+			</attribute>
+			<attribute name="class">default</attribute>
+		</entity>
+		<entity x="104" y="43">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign"/>
+			<attribute name="text">
+#LOTERIA #REKLAMOWA
+Jak to wygląda?
+Wystarczy kliknąć w reklamy na naszej stronie #www.polskagra.net/reklamy
+oraz zalogować się chociaż raz w ciągu dnia do gry:)
+Kolejnego dnia odbywa się losowanie skrzynek zależnie od ilości kliknięć w reklamy
+25 klików = Złota Skrzynia
+10 klików = Srebrna Skrzynia
+5 klików = Brązowa Skrzynia
+
+Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzynia
+			</attribute>
+			<attribute name="class">default</attribute>
+		</entity>
+		<portal x="30" y="41" ref="raid_map_life">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
+		</portal>
 		<portal x="30" y="40" ref="zakopane_1_restart_life">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
 		</portal>
 		<portal x="31" y="40" ref="zakopane_2_restart_life">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
-		</portal>
+		</portal>	
 		<portal x="33" y="26" ref="home_entrance">
 			<destination zone="int_zakopane_home" ref="entrance_home"/>
 		</portal>
@@ -1085,7 +623,7 @@ Turniej organizuje Faruska i ona udziela informacji.
 		<portal x="63" y="39" ref="football_entrance_5">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
 		</portal>
-
+		
 		<!-- po zmianach -->
 		<portal x="107" y="66" ref="hostel_entrance_1">
 			<destination zone="int_zakopane_hostel" ref="hostel_1_exit"/>
@@ -1123,22 +661,16 @@ Turniej organizuje Faruska i ona udziela informacji.
 		<portal x="92" y="72" ref="house_200_entrance">
 			<destination zone="int_zakopane_seller_house" ref="house_200_exit"/>
 		</portal>
-
+		
 		<portal x="102" y="42" ref="bank_entrace_1">
 			<destination zone="int_zakopane_bank_0" ref="bank_exit_1"/>
 		</portal>
-
+		
 		<portal x="103" y="42" ref="bank_entrace_2">
 			<destination zone="int_zakopane_bank_0" ref="bank_exit_2"/>
 		</portal>
-
-		<portal x="72" y="53" ref="mill_entrance">
-			<destination zone="int_zakopane_mill_0" ref="entrance_mill"/>
-		</portal>
-		<portal x="73" y="53" ref="mill_entrance_left">
-			<destination zone="int_zakopane_mill_0" ref="entrance_mill_left"/>
-		</portal>
-
+		
+	
 		<!-- Houses -->
 		<portal x="79" y="67" ref="house_201_entrance">
 			<destination zone="int_zakopane_house_201" ref="house_201_exit"/>
@@ -1244,16 +776,17 @@ Turniej organizuje Faruska i ona udziela informacji.
 				<parameter name="doorId">zakopane house 215</parameter>
 				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
 			</implementation>
-		</portal>
+		</portal>	
 	</zone>
 
 	<!-- zakopane_se -->
-
+	
 	<zone name="0_zakopane_se" level="0" x="513440" y="18688" file="Level 0/zakopane/zakopane_se.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">snow_light</parameter>
 		</attributes>
-
+		
 		<entity x="54" y="58">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
 				<parameter name="sound">creak-1</parameter>
@@ -1270,21 +803,26 @@ Turniej organizuje Faruska i ona udziela informacji.
 				<parameter name="volume">70</parameter>
 			</implementation>
 		</entity>
-
+		
 		<portal x="48" y="23" ref="underground_1_enter">
 			<destination zone="-1_zakopane_underground" ref="underground_1_exit"/>
 		</portal>
-
+		
+		<portal x="54" y="58" ref="mill_entrance">
+			<destination zone="int_zakopane_mill_0" ref="entrance_mill"/>
+		</portal>
+		<portal x="55" y="58" ref="mill_entrance_left">
+			<destination zone="int_zakopane_mill_0" ref="entrance_mill_left"/>
+		</portal>
+		
 	</zone>
 
 	<!-- interiors -->
 
 	<!-- Bakery -->
 	<zone name="int_zakopane_bakery" file="interiors/zakopane/bakery.tmx">
-		<!--
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.bakery.ChefNPC"/>
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.bakery.ShopAssistantNPC"/>
-		-->
+		<!--<configurator class-name="games.stendhal.server.maps.pol.zakopane.bakery.ChefNPC"/>
+		<configurator class-name="games.stendhal.server.maps.pol.zakopane.bakery.ShopAssistantNPC"/>-->
 		<portal x="26" y="14" ref="entrance_bakery">
 			<destination zone="0_zakopane_s" ref="bakery_entrance"/>
 		</portal>
@@ -1296,7 +834,7 @@ Turniej organizuje Faruska i ona udziela informacji.
 	<zone name="int_zakopane_bank_0" file="interiors/zakopane/bank_0.tmx">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
 		<configurator class-name="games.stendhal.server.maps.pol.zakopane.shop.market.TradeCenterZoneConfigurator"/>
-
+		
 		<entity x="11" y="7">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
 				<parameter name="sound">creaky-door-1, creaky-door-2, coins-1, coins-2, window-close-1</parameter>
@@ -1346,87 +884,92 @@ Turniej organizuje Faruska i ona udziela informacji.
 		<!-- passages next to trading table now one player areas -->
 		<entity x="26" y="23">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.area.OnePlayerArea">
-				<parameter name="width">5</parameter>
+				<parameter name="width">3</parameter>
 				<parameter name="height">2</parameter>
 			</implementation>
 		</entity>
 		<entity x="25" y="26">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.area.OnePlayerArea">
-				<parameter name="width">5</parameter>
+				<parameter name="width">3</parameter>
 				<parameter name="height">2</parameter>
 			</implementation>
 		</entity>
 		<entity x="24" y="29">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.area.OnePlayerArea">
-				<parameter name="width">5</parameter>
+				<parameter name="width">3</parameter>
 				<parameter name="height">2</parameter>
 			</implementation>
 		</entity>
 		<entity x="23" y="32">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.area.OnePlayerArea">
-				<parameter name="width">5</parameter>
+				<parameter name="width">3</parameter>
 				<parameter name="height">2</parameter>
 			</implementation>
 		</entity>
 		<entity x="22" y="35">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.area.OnePlayerArea">
-				<parameter name="width">5</parameter>
+				<parameter name="width">3</parameter>
+				<parameter name="height">2</parameter>
+			</implementation>
+		</entity>
+		<entity x="21" y="38">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.area.OnePlayerArea">
+				<parameter name="width">3</parameter>
 				<parameter name="height">2</parameter>
 			</implementation>
 		</entity>
 		<entity x="20" y="41">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.area.OnePlayerArea">
-				<parameter name="width">5</parameter>
+				<parameter name="width">3</parameter>
 				<parameter name="height">2</parameter>
 			</implementation>
 		</entity>
-		<entity x="19" y="21">
+		<entity x="21" y="21">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.area.OnePlayerArea">
-				<parameter name="width">5</parameter>
+				<parameter name="width">3</parameter>
 				<parameter name="height">2</parameter>
 			</implementation>
 		</entity>
-		<entity x="18" y="24">
+		<entity x="20" y="24">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.area.OnePlayerArea">
-				<parameter name="width">5</parameter>
+				<parameter name="width">3</parameter>
 				<parameter name="height">2</parameter>
 			</implementation>
 		</entity>
-		<entity x="17" y="27">
+		<entity x="19" y="27">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.area.OnePlayerArea">
-				<parameter name="width">5</parameter>
+				<parameter name="width">3</parameter>
 				<parameter name="height">2</parameter>
 			</implementation>
 		</entity>
-		<entity x="16" y="30">
+		<entity x="18" y="30">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.area.OnePlayerArea">
-				<parameter name="width">5</parameter>
+				<parameter name="width">3</parameter>
 				<parameter name="height">2</parameter>
 			</implementation>
 		</entity>
-
-		<entity x="15" y="33">
+		
+		<entity x="17" y="33">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.area.OnePlayerArea">
-				<parameter name="width">5</parameter>
+				<parameter name="width">3</parameter>
 				<parameter name="height">2</parameter>
 			</implementation>
 		</entity>
-
-		<entity x="14" y="36">
+		
+		<entity x="16" y="36">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.area.OnePlayerArea">
-				<parameter name="width">5</parameter>
+				<parameter name="width">3</parameter>
 				<parameter name="height">2</parameter>
 			</implementation>
 		</entity>
-		<entity x="13" y="39">
+		<entity x="15" y="39">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.area.OnePlayerArea">
-				<parameter name="width">5</parameter>
+				<parameter name="width">3</parameter>
 				<parameter name="height">2</parameter>
 			</implementation>
 		</entity>
-
+		
 		<!-- Bank Chests -->
-		<!--
 		<entity x="24" y="21">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.chest.PersonalChest">
 				<parameter name="slot">bank_zakopane</parameter>
@@ -1497,28 +1040,21 @@ Turniej organizuje Faruska i ona udziela informacji.
 				<parameter name="slot">bank_zakopane</parameter>
 			</implementation>
 		</entity>
-		-->
-
+		
 		<!-- stoliki-->
-
+		
 		<entity x="24" y="22">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
 			<attribute name="description">Śliczny drewniany stolik.</attribute>
 		</entity>
-
-		<entity x="23" y="29">
-			<implementation
-				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
-			<attribute name="description">Śliczny drewniany stolik.</attribute>
-		</entity>
-
+		
 		<entity x="25" y="23">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
 			<attribute name="description">Śliczny drewniany stolik.</attribute>
 		</entity>
-
+		
 		<entity x="23" y="25">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
@@ -1526,6 +1062,12 @@ Turniej organizuje Faruska i ona udziela informacji.
 		</entity>
 
 		<entity x="24" y="26">
+			<implementation
+				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
+			<attribute name="description">Śliczny drewniany stolik.</attribute>
+		</entity>
+		
+		<entity x="23" y="29">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
 			<attribute name="description">Śliczny drewniany stolik.</attribute>
@@ -1565,42 +1107,42 @@ Turniej organizuje Faruska i ona udziela informacji.
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
 			<attribute name="description">Śliczny drewniany stolik.</attribute>
-		</entity>
+		</entity>	
 
 		<entity x="20" y="38">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
 			<attribute name="description">Śliczny drewniany stolik.</attribute>
 		</entity>
-
+		
 		<entity x="18" y="40">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
 			<attribute name="description">Śliczny drewniany stolik.</attribute>
 		</entity>
-
+		
 		<entity x="19" y="41">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
 			<attribute name="description">Śliczny drewniany stolik.</attribute>
 		</entity>
-
-		<entity x="39" y="25">
+		
+		<entity x="39" y="24">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
 			<attribute name="description">Stół nakryty białym obrusem.</attribute>
 			<attribute name="width">3</attribute>
 			<attribute name="height">3</attribute>
 		</entity>
-
+		
 		<entity x="39" y="33">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
 			<attribute name="description">Stół nakryty białym obrusem.</attribute>
 			<attribute name="width">3</attribute>
-			<attribute name="height">4</attribute>
+			<attribute name="height">3</attribute>
 		</entity>
-
+		
 		<entity x="39" y="41">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
@@ -1608,7 +1150,7 @@ Turniej organizuje Faruska i ona udziela informacji.
 			<attribute name="width">3</attribute>
 			<attribute name="height">3</attribute>
 		</entity>
-
+		
 		<entity x="4" y="45">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
@@ -1616,59 +1158,57 @@ Turniej organizuje Faruska i ona udziela informacji.
 			<attribute name="width">7</attribute>
 			<attribute name="height">2</attribute>
 		</entity>
-
+		
 		<portal x="33" y="50" ref="bank_exit_1">
 			<destination zone="0_zakopane_s" ref="bank_entrace_1"/>
 		</portal>
-
+		
 		<portal x="34" y="50" ref="bank_exit_2">
 			<destination zone="0_zakopane_s" ref="bank_entrace_2"/>
 		</portal>
-
+		<!-- 
 		<portal x="2" y="16" ref="skarbiec_in_1">
 			<destination zone="int_zakopane_bank_-1" ref="skarbiec_out_1"/>
 		</portal>
-
+		
 		<portal x="2" y="17" ref="skarbiec_in_2">
 			<destination zone="int_zakopane_bank_-1" ref="skarbiec_out_2"/>
 		</portal>
-
-	</zone>
-
-	<!-- -1 bank -->
-
-	<zone name="int_zakopane_bank_-1"  file="interiors/zakopane/bank_-1.tmx">
-		<attributes>
-			<parameter name="color_method">dark</parameter>
-		</attributes>
-		<!--
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.bank.ItemsOnTableSkarbiec"/>
 		-->
+	</zone>
+	
+	<!-- -1 bank -->
+	<!--
+	<zone name="int_zakopane_bank_-1"  file="interiors/zakopane/bank_-1.tmx">
+	<attributes>
+			<parameter name="color_method">dark</parameter>
+	</attributes>
+		<configurator class-name="games.stendhal.server.maps.pol.zakopane.bank.ItemsOnTableSkarbiec"/>
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
-
-
-
+		
+		
+		
 		<portal x="2" y="16" ref="skarbiec_out_1">
 			<destination zone="int_zakopane_bank_0" ref="skarbiec_in_1"/>
 		</portal>
-
+		
 		<portal x="2" y="17" ref="skarbiec_out_2">
 			<destination zone="int_zakopane_bank_0" ref="skarbiec_in_2"/>
 		</portal>
-
-		<!-- cele -->
-
+		
+		
+		
 		<portal x="46" y="6" ref="kara">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
 		</portal>
-
+		
 		<portal x="6" y="15" ref="1c1">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
 		<portal x="7" y="15" ref="1c2">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
-
+		
 		<portal x="10" y="12" ref="2c1">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
@@ -1678,7 +1218,7 @@ Turniej organizuje Faruska i ona udziela informacji.
 		<portal x="12" y="12" ref="2c3">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
-
+		
 		<portal x="22" y="12" ref="3c1">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
@@ -1688,7 +1228,7 @@ Turniej organizuje Faruska i ona udziela informacji.
 		<portal x="24" y="12" ref="3c3">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
-
+		
 		<portal x="32" y="12" ref="4c1">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
@@ -1698,7 +1238,7 @@ Turniej organizuje Faruska i ona udziela informacji.
 		<portal x="34" y="12" ref="4c3">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
-
+		
 		<portal x="43" y="12" ref="5c1">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
@@ -1708,14 +1248,14 @@ Turniej organizuje Faruska i ona udziela informacji.
 		<portal x="45" y="12" ref="5c3">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
-
+		
 		<portal x="6" y="19" ref="6c1">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
 		<portal x="7" y="19" ref="6c2">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
-
+		
 		<portal x="10" y="46" ref="7c1">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
@@ -1725,11 +1265,11 @@ Turniej organizuje Faruska i ona udziela informacji.
 		<portal x="12" y="46" ref="7c3">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
-
+		
 		<portal x="30" y="28" ref="8c1">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
-
+	
 		<entity x="23" y="33">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
@@ -1737,7 +1277,7 @@ Turniej organizuje Faruska i ona udziela informacji.
 			<attribute name="width">1</attribute>
 			<attribute name="height">2</attribute>
 		</entity>
-
+		
 		<entity x="26" y="33">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
@@ -1745,7 +1285,7 @@ Turniej organizuje Faruska i ona udziela informacji.
 			<attribute name="width">1</attribute>
 			<attribute name="height">2</attribute>
 		</entity>
-
+		
 		<entity x="34" y="33">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
@@ -1753,7 +1293,7 @@ Turniej organizuje Faruska i ona udziela informacji.
 			<attribute name="width">1</attribute>
 			<attribute name="height">2</attribute>
 		</entity>
-
+		
 		<entity x="37" y="33">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
@@ -1761,26 +1301,26 @@ Turniej organizuje Faruska i ona udziela informacji.
 			<attribute name="width">1</attribute>
 			<attribute name="height">2</attribute>
 		</entity>
-
+		
 	</zone>
-
+	-->
 	<!-- Bat Tower 0 -->
-
+	
 	<zone name="int_zakopane_bat_tower_0"  file="interiors/zakopane/bat_tower_0.tmx">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
 		<attributes>
 			<parameter name="color_method">dark</parameter>
 		</attributes>
-
+		
 		<portal x="13" y="2" ref="bt_upto_1">
 			<destination zone="int_zakopane_bat_tower_1" ref="bt_downto_0"/>
 		</portal>
-
+		
 		<portal x="1" y="12" ref="bt_downto_-1">
 			<destination zone="int_zakopane_bat_tower_-1" ref="bt_upto_0"/>
 		</portal>
 	</zone>
-
+	
 	<!-- Bat Tower -1 -->
 	<zone name="int_zakopane_bat_tower_-1"  file="interiors/zakopane/bat_tower_-1.tmx">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
@@ -1790,23 +1330,23 @@ Turniej organizuje Faruska i ona udziela informacji.
 		<portal x="1" y="12" ref="bt_upto_0">
 			<destination zone="int_zakopane_bat_tower_0" ref="bt_downto_-1"/>
 		</portal>
-
-
-
+		
+	
+		
 	</zone>
-
+	
 	<!-- Bat Tower 1 -->
 	<zone name="int_zakopane_bat_tower_1"  file="interiors/zakopane/bat_tower_1.tmx">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
-
+		
 		<portal x="12" y="11" ref="bt_upto_2">
 			<destination zone="int_zakopane_bat_tower_2" ref="bt_downto_1"/>
 		</portal>
-
+		
 		<portal x="13" y="2" ref="bt_downto_0">
 			<destination zone="int_zakopane_bat_tower_0" ref="bt_upto_1"/>
 		</portal>
-
+		
 		<portal x="2" y="14" ref="bt_enter">
 			<destination zone="0_zakopane_c" ref="bt_exit"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.KeyedPortal">
@@ -1815,7 +1355,7 @@ Turniej organizuje Faruska i ona udziela informacji.
 			</implementation>
 		</portal>
 	</zone>
-
+	
 	<!-- Bat Tower 2 -->
 	<zone name="int_zakopane_bat_tower_2"  file="interiors/zakopane/bat_tower_2.tmx">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
@@ -1825,36 +1365,35 @@ Turniej organizuje Faruska i ona udziela informacji.
 				<parameter name="enterMessage">Przebywanie tutaj przyprawia Cię o dreszcze. Lepiej nie krocz wyżej.</parameter>
 			</implementation>
 		</entity>
-
+		
 		<portal x="7" y="7" ref="bt_upto_3">
 			<destination zone="int_zakopane_bat_tower_3" ref="bt_downto_2"/>
 		</portal>
-
+		
 		<portal x="12" y="11" ref="bt_downto_1">
 			<destination zone="int_zakopane_bat_tower_1" ref="bt_upto_2"/>
 		</portal>
-
-	</zone>
-
+		
+	</zone>	
+	
 	<!-- Bat Tower 3 -->
 	<zone name="int_zakopane_bat_tower_3"  file="interiors/zakopane/bat_tower_3.tmx">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
-
-
-
+		
+		
+		
 		<portal x="7" y="7" ref="bt_downto_2">
 			<destination zone="int_zakopane_bat_tower_2" ref="bt_upto_3"/>
 		</portal>
-
+		
 	</zone>
+
 
 	<!-- Blacksmith -->
 	<zone name="int_zakopane_blacksmith" file="interiors/zakopane/blacksmith.tmx">
-		<!--
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.blacksmith.KowalAndrzejNPC"/>
+		<!-- <configurator class-name="games.stendhal.server.maps.pol.zakopane.blacksmith.KowalAndrzejNPC"/>
 		<configurator class-name="games.stendhal.server.maps.pol.zakopane.blacksmith.KrasnoludNPC"/>
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.blacksmith.DwojakiElwirkaNPC"/>
-		-->
+		<configurator class-name="games.stendhal.server.maps.pol.zakopane.blacksmith.DwojakiElwirkaNPC"/>-->
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
 				<parameter name="sound">hammer-1, smith-1</parameter>
@@ -1885,10 +1424,8 @@ Turniej organizuje Faruska i ona udziela informacji.
 
 	<!-- Hospital -->
 	<zone name="int_zakopane_hospital" file="interiors/zakopane/hospital.tmx">
-		<!--
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.hospital.BogusNPC"/>
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.hospital.GazdzinaJadzkaNPC"/>
-		-->
+		<!-- <configurator class-name="games.stendhal.server.maps.pol.zakopane.hospital.BogusNPC"/>
+		<configurator class-name="games.stendhal.server.maps.pol.zakopane.hospital.GazdzinaJadzkaNPC"/>-->
 		<entity x="7" y="5">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.ShopSign">
 				<parameter name="shop">sellskin</parameter>
@@ -1929,8 +1466,7 @@ Turniej organizuje Faruska i ona udziela informacji.
 
 	<!-- Hostel -->
 	<zone name="int_zakopane_hostel" file="interiors/zakopane/hostel.tmx">
-		<!--
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.hostel.BronekNPC"/>
+		<!--<configurator class-name="games.stendhal.server.maps.pol.zakopane.hostel.BronekNPC"/>-->
 		<entity x="16" y="15">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.ShopSign">
 				<parameter name="shop">buydragonitems</parameter>
@@ -1940,7 +1476,6 @@ Turniej organizuje Faruska i ona udziela informacji.
 			</implementation>
 			<attribute name="class">blackboard</attribute>
 		</entity>
-		-->
 
 		<portal x="12" y="23" ref="hostel_1_exit">
 			<destination zone="0_zakopane_s" ref="hostel_entrance_1"/>
@@ -1952,7 +1487,7 @@ Turniej organizuje Faruska i ona udziela informacji.
 
 	<!-- Houses -->
 	<zone name="int_zakopane_seller_house" file="interiors/zakopane/house_200.tmx">
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.house.AlicjaNPC"/>
+		<!--<configurator class-name="games.stendhal.server.maps.pol.zakopane.house.AlicjaNPC"/>-->
 		<portal x="19" y="23" ref="house_200_exit">
 			<destination zone="0_zakopane_s" ref="house_200_entrance"/>
 		</portal>
@@ -2165,14 +1700,11 @@ Turniej organizuje Faruska i ona udziela informacji.
 
 	<!-- Home 0 -->
 	<zone name="int_zakopane_home" file="interiors/zakopane/home.tmx">
-		<!--
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.home.AdasNPC"/>
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.home.PietrekNPC"/>
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.home.TestNPC"/>
+		<!--<configurator class-name="games.stendhal.server.maps.pol.zakopane.home.AdasNPC"/>
+		<configurator class-name="games.stendhal.server.maps.pol.zakopane.home.PietrekNPC"/>-->
 		<attributes>
 			<parameter name="file" condition="stendhal.christmas">interiors/zakopane/home_xmas.tmx</parameter>
 		</attributes>
-		-->
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">pol-goralskie</parameter>
@@ -2198,7 +1730,7 @@ Turniej organizuje Faruska i ona udziela informacji.
 		<entity x="23" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign"/>
 				<attribute name="text">
-Szukaj podobnych do tego liścików, tabliczek lub znaków. Każdy może zawierać ważne wskazówki.
+Szukaj podobnych do tego liścików, tabliczek lub znaków. Każdy może zawierać ważne wskazówki.				
 				</attribute>
 			<attribute name="class">notes1</attribute>
 		</entity>
@@ -2212,7 +1744,7 @@ Szukaj podobnych do tego liścików, tabliczek lub znaków. Każdy może zawiera
 		<entity x="23" y="7">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign"/>
 				<attribute name="text">
-Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z podstawami gry na #'www.gra.PolskaOnLine.org' w dziale #'Dla początkujących'.
+Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z podstawami gry na #'www.polskagra.net' w dziale #'Dla początkujących'.
 				</attribute>
 			<attribute name="class">notes3</attribute>
 		</entity>
@@ -2250,7 +1782,7 @@ Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z po
 	<zone name="int_zakopane_mill_0" file="interiors/zakopane/mill_0.tmx">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleport"/>
 		<portal x="9" y="7" ref="entrance_mill">
-			<destination zone="0_zakopane_s" ref="mill_entrance"/>
+			<destination zone="0_zakopane_se" ref="mill_entrance"/>
 		</portal>
 		<portal x="8" y="8" ref="entrance_mill_left">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
@@ -2355,9 +1887,7 @@ Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z po
 
 	<!-- Playroom -->
 	<zone name="int_zakopane_playroom" file="interiors/zakopane/playroom.tmx">
-		<!--
 		<configurator class-name="games.stendhal.server.maps.pol.zakopane.playroom.Playroomset"/>
-		-->
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">pol-littlemeadow1</parameter>
@@ -2372,6 +1902,9 @@ Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z po
 				<parameter name="radius">5</parameter>
 			</implementation>
 		</entity>
+		<portal x="40" y="25" ref="playroom_exit">
+			<destination zone="0_zakopane_c" ref="playroom_entrance"/>
+		</portal>
 	</zone>
 
 	<!-- Postoffice -->
@@ -2406,9 +1939,7 @@ Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z po
 
 	<!-- Tavern -->
 	<zone name="int_zakopane_tavern" file="interiors/zakopane/tavern.tmx">
-		<!--
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.tavern.JagnaNPC"/>
-		-->
+		<!--<configurator class-name="games.stendhal.server.maps.pol.zakopane.tavern.JagnaNPC"/>-->
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">pol-littlemeadow1</parameter>
@@ -2432,9 +1963,7 @@ Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z po
 
 	<!-- Church -->
 	<zone name="int_zakopane_church" file="interiors/zakopane/church.tmx">
-		<!--
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.church.WikaryNPC"/>
-		-->
+		<!--<configurator class-name="games.stendhal.server.maps.pol.zakopane.church.WikaryNPC"/>-->
 		<entity x="12" y="2">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
 				<parameter name="sound">pol-bell</parameter>
@@ -2468,17 +1997,15 @@ Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z po
 			<destination zone="-1_zakopane_catacombs" ref="catacombs_1_exit" />
 			<attribute name="hidden" />
 		</portal>
-
+		
 		<portal x="11" y="2" ref="catacombs_2_exit">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination" />
 		</portal>
-	</zone>
+	</zone>	
 
 	<!-- Townhall -->
 	<zone name="int_zakopane_townhall" file="interiors/zakopane/townhall.tmx">
-		<!--
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.townhall.GazdaWojtekNPC"/>
-		-->
+		<!--<configurator class-name="games.stendhal.server.maps.pol.zakopane.townhall.GazdaWojtekNPC"/>-->
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">pol-goralskie</parameter>
@@ -2539,42 +2066,40 @@ Aktualne ceny u Gazdy Wojtka:
 			<destination zone="-2_zakopane_cave" ref="cave_-2_exit"/>
 		</portal>
 	</zone>
-
+	
 	<!-- underground -->
-
+	
 	<zone name="-1_zakopane_underground" file="Level -1/zakopane/underground.tmx">
 		<attributes>
 			<parameter name="color_method">dark</parameter>
 		</attributes>
-
+		
 		<portal x="78" y="11" ref="underground_1_exit">
 			<destination zone="0_zakopane_se" ref="underground_1_enter"/>
 		</portal>
-
+		
 		<portal x="1" y="123" ref="underground_2_enter">
 			<destination zone="-2_zakopane_underground" ref="underground_2_exit"/>
 		</portal>
-	</zone>
-
+	</zone>	
+	
 	<!-- catacombs-->
 		<zone name="-1_zakopane_catacombs" file="Level -1/zakopane/catacombs.tmx">
 		<attributes>
 			<parameter name="color_method">dark</parameter>
 		</attributes>
-
+		
 		<portal x="27" y="10" ref="catacombs_1_exit">
 			<destination zone="int_zakopane_chapel" ref="catacombs_2_exit"/>
 		</portal>
 
-		</zone>
+		</zone>	
 
 	<!-- Level -2 -->
 
 	<!-- zakopane_e -->
 	<zone name="-2_zakopane_cave" level="-2" x="513440" y="18560" file="Level -2/zakopane/cave.tmx">
-		<!--
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.cave.BartlomiejNPC"/>
-		-->
+		<!--<configurator class-name="games.stendhal.server.maps.pol.zakopane.cave.BartlomiejNPC"/>-->
 		<attributes>
 			<parameter name="color_method">dark</parameter>
 		</attributes>
@@ -2606,16 +2131,16 @@ Aktualne ceny u Gazdy Wojtka:
 		</portal>
 	</zone>
 	<!-- underground -->
-
+	
 	<zone name="-2_zakopane_underground" file="Level -2/zakopane/underground.tmx">
 		<attributes>
 			<parameter name="color_method">dark</parameter>
 		</attributes>
-
+					
 		<portal x="1" y="123" ref="underground_2_exit">
 			<destination zone="-1_zakopane_underground" ref="underground_2_enter"/>
 		</portal>
-	</zone>
+	</zone>	
 
 	<!-- Level -3 -->
 
@@ -2743,9 +2268,7 @@ Aktualne ceny u Gazdy Wojtka:
 	<!-- Level 1 -->
 
 	<zone name="1_football_playground" level="1" x="513312" y="18688" file="Level 1/zakopane/football_playground.tmx">
-		<!--
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.stadium.KibicNPC"/>
-		-->
+		<!--<configurator class-name="games.stendhal.server.maps.pol.zakopane.stadium.KibicNPC"/>-->
 		<entity x="0" y="23">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
 				<parameter name="sound">pol-boisko-tlo</parameter>
@@ -2938,9 +2461,7 @@ Aktualne ceny u Gazdy Wojtka:
 			<parameter name="color_method">time</parameter>
 		</attributes>
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleport"/>
-		<!--
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.clouds.SmokNPC"/>
-		-->
+		<!--<configurator class-name="games.stendhal.server.maps.pol.zakopane.clouds.SmokNPC"/>-->
 		<entity x="13" y="13">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
 				<parameter name="sound">pol-halny</parameter>

@@ -1460,17 +1460,19 @@ Southeast: Farmhouse
   </zone>
 
   <zone name="int_semos_guard_house" file="interiors/semos/guard_house.tmx">
-    <configurator
-      class-name="games.stendhal.server.maps.semos.guardhouse.RetiredAdventurerNPC" />
+    <configurator class-name="games.stendhal.server.maps.semos.guardhouse.RetiredAdventurerNPC" />
+	
+	<portal x="9" y="12" ref="zakopane_exit">
+		<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
+	</portal>
+	
     <portal x="13" y="16" ref="entrance">
       <destination zone="0_semos_village_w" ref="guard_house_entrance" />
     </portal>
+	
     <entity x="17" y="12">
       <implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign" />
-      <attribute name="text">KNOW HOW TO KILL CREATURES by Hayunn Naratha
-My personal favourite has always been to right-click and choose to ATTACK a creature. You can't go wrong with that!
-The sharper minded amongst you might prefer to click directly on the creature. It works too!
-</attribute>
+      <attribute name="text">WIEDZIEĆ JAK ZABIĆ POTWORA Hayunn Naratha Moją ulubioną metodą jest naciśnięcie prawego przycisku na potworze i wybranie ATAK. Takim sposobem nie możesz się pomylić! Oszuści wśród prostaków wolą nacisnąć na potworze. To też działa! </attribute>
       <attribute name="class">book_red</attribute>
     </entity>
 
@@ -2111,6 +2113,9 @@ Ahh nice, you can already smell it. And in small letters below is added: "New! L
 
     <configurator class-name="games.stendhal.server.maps.semos.tavern.BarMaidNPC" />
     <configurator class-name="games.stendhal.server.maps.semos.tavern.TraderNPC" />
+    
+    <configurator class-name="games.stendhal.server.maps.semos.tavern.StichardRallmanNPC" />
+    
     <configurator
       class-name="games.stendhal.server.maps.semos.tavern.DiceDealerNPC" />
     <configurator
