@@ -28,8 +28,8 @@ Changelog
 *świat gry*
 - wiele nowych outfit'ów NPC jak i graczy
 - nowy wygląd kotów
-- przeniesiono animacje vulcanus, tomi & zekiel do tileset/character
-- przeniesiono mapy faiumoni z /zones/.. do /zones/stendhal/..
+- przeniesiono animacje vulcanus, tomi & zekiel do /tileset/character
+- przeniesiono mapy fauimoni z /zones/.. do /zones/stendhal/..
 - przeniesiono mapy prasłowiańskiej z /zones/.. do /zones/pol/..
 - przeniesiono potwory ze świata Stendhal z /sprites/monsters/.. do /sprites/monsters/stendhal/..
 - przeniesiono potwory ze świata PolskaOnLine z /sprites/monsters/.. do /sprites/monsters/pol/..
