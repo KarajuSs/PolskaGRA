@@ -13,6 +13,7 @@ Changelog
 - zwiększono ilość slotów w plecaku (patrząc na plecak ze Stendhal'a)
 - zmieniono pozycję rzemyku (od teraz jest poziomo 4x2)
 - nowy wygląd slotów
+- przywrócono 36 slotów w skrzyni zamiast 30
 
 
 *eksperymetalne zmiany*
@@ -48,9 +49,12 @@ Changelog
 *code*
 - został dodany nowy atrybut dla portali - "face" - służący do ustawiania kierunku skierowania gracza
 - został dodany nowy atrybut dla portali - "offset" - przesuwający pozycję gracza względem miejsca docelowego
+- dodano resistance do creatures.xsd
 
 
 *naprawa błędów*
 - naprawiono błąd, który powodował duplikowanie przedmiotów poprzez podwójne logowanie
 - naprawiono odmierzany czas w hell'u
 - naprawiono błędy kompilowania plików
+- naprawiono błąd z wyświetlaniem potworów, gdzie gra w ogóle nie wczytywała sprites z potworami
+- naprawiono błąd z zadaniem na płaszcz z mithrilu, który uniemożliwiał wykonanie tegoż zadania
