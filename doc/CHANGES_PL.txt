@@ -42,6 +42,12 @@ Changelog
 - dodano pogodę w zakopane
 - dodano teleport w zakopane_c prowadzący do semos
 - przywrócono stare statystyki potworów jak i przedmiotów
+- już więcej nie będzie potrzebne 1 money do użycia zwoju czyszczącego 
+
+
+*code*
+- został dodany nowy atrybut dla portali - "face" - służącego do ustawiania kierunku skierowania gracza
+- został dodany nowy atrybut dla portali - "offset" - przesuwający pozycję gracza względem miejsca docelowego
 
 
 *naprawa błędów*
