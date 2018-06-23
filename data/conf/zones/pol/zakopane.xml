@@ -186,6 +186,7 @@
 				<parameter name="volume">20</parameter>
 			</implementation>
 		</entity>
+	</zone>
 
 	<!-- zakopane_c -->
 	<zone name="0_zakopane_c" level="0" x="513312" y="18560" file="Level 0/zakopane/zakopane_c.tmx">
