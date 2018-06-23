@@ -11,5 +11,20 @@
 	<group uri="zones/stendhal/nalwor.xml"/>
 	<group uri="zones/stendhal/orril.xml"/>
 	<group uri="zones/stendhal/semos.xml"/>
+	
+	<!-- DISABLED
+	<group uri="zones/pol/desert.xml"/>
+	<group uri="zones/pol/dragon.xml"/>
+	<group uri="zones/pol/dragon_knights.xml"/>
+	<group uri="zones/pol/gdansk.xml"/>
+	<group uri="zones/pol/koscielisko.xml"/>
+	<group uri="zones/pol/krakow.xml"/>
+	<group uri="zones/pol/labirynt.xml"/>
+	<group uri="zones/pol/tatry.xml"/>
+	<group uri="zones/pol/warszawa.xml"/>
+	<group uri="zones/pol/wieliczka.xml"/>
+	DISABLED -->
+	<group uri="zones/pol/zakopane.xml"/>
+	
 	<group uri="zones/misc.xml"/>
 </groups>

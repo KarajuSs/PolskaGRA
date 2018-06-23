@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="128" height="128" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="barrel" tilewidth="32" tileheight="32" tilecount="2" columns="1">
+  <image source="../../tileset/item/pot/barrel.png" width="32" height="64"/>
+ </tileset>
+ <tileset firstgid="3" name="brush" tilewidth="32" tileheight="32" tilecount="3" columns="1">
+  <image source="../../tileset/item/brush.png" width="32" height="96"/>
+ </tileset>
+ <tileset firstgid="6" name="small_animal" tilewidth="32" tileheight="32" tilecount="5" columns="5">
+  <image source="../../tileset/logic/creature/small_animal.png" width="160" height="32"/>
+ </tileset>
+ <tileset firstgid="11" name="collision" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="12" name="boat" tilewidth="32" tileheight="32" tilecount="42" columns="6">
+  <image source="../../tileset/object/boat.png" width="192" height="224"/>
+ </tileset>
+ <tileset firstgid="54" name="ship" tilewidth="32" tileheight="32" tilecount="368" columns="16">
+  <image source="../../tileset/object/ship.png" width="512" height="736"/>
+ </tileset>
+ <tileset firstgid="422" name="water_from_ground" tilewidth="32" tileheight="32" tilecount="33" columns="3">
+  <image source="../../tileset/ground/ground.png" width="96" height="352"/>
+ </tileset>
+ <tileset firstgid="455" name="pool" tilewidth="32" tileheight="32" tilecount="72" columns="3">
+  <image source="../../tileset/ground/water/pool_deep.png" width="96" height="768"/>
+ </tileset>
+ <tileset firstgid="527" name="protection" tilewidth="32" tileheight="32" tilecount="2" columns="2">
+  <image source="../../tileset/logic/protection.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="529" name="latarnia_blask" tilewidth="32" tileheight="32" tilecount="25" columns="5">
+  <image source="../../tileset/pol/oswietlenie/latarnia_blask.png" width="160" height="160"/>
+ </tileset>
+ <layer name="0_floor" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJzt3UFSwkAABEB8g///g1x9gVr6Jz1SFEoSNuvA9KGPHqzBmU0IeHw6HI47ef/xQrS9svcauA975/8Z8Dvyf/nrgGwz8tcBueTfTf7d5N9tRv7OgLlm5a8DMsm/26z8bUCmr4n564BMHxuy3PIzOiDT2izfNmavAzLZALb2ufwfw6z8nQEy2QBsQLelHfB6Y/42IJcO6HbeAW8nRv79yz/XrA6wAZlsQDf5d5t5L8AGZFraAc+HbXRAtqUdIP/HteQ1cGv+NiDbtR0Ykb8OyHWtA+T/+P7qgBH524Bsf3XAqPx1QLbfXgPy73FpB0blbwPy7Z2/Dsh2aQNG5q8D8p13wOj8dUC28w6Qf5/TDhidvw3It3f+OiDb6Qbskb8OyHdLB1zLXgfk23oOXJK9DrgPa68F12SvA/KtuR+4NnsdkG/pe0Jbs9cB+X57NmBE9vLPN+OzAjYg14zPCuiAbDqg24z8dUCuWZ8X0wG5dEA3HYDvjejmewO6+d4AdEA3HYAO6DarA+Sfy7VgNx2ADuimA9AB3XQA3hvE8wHd5N/NBqADurkW7OZ9wW6eDUAHdPN/prv5P9PogG46AOfAbjagmw1AB3TTATgHdvOeADqgm2eE8XwYng/rpgPQAd10ADqgm/y7+ZxAN/eDsAHdbEA3G4AO6KYD0AHdPBvSzQZgA7rpANwP7GYDutkAbEA3z4ahA7o5B3ZzDkQHdNMBuBbADnSzA7gf0M05AOeAbp4R7OYcuN03BFbD/Q==
+  </data>
+ </layer>
+ <layer name="1_terrain" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJzt2kFKw0AYBtBUtyoiioh6EV2roIdQ94J6AvUSVe+g99KtXsA/2GAWNTWxSWHmPfhomiYw8HWmA2lRAAAAAAAAAAAAAAAAACnaiux0zPoCxst8bUaeRkVx1TLPkY1FD55/K/t/73DfW6H/FOg/b/rPW5v+PyKfk2P9p6FN/0ux51sefR/rPw1N/R9HTqacP49cRC57GhPDaer/NHI25fx15CZy29egGEyX/d9d5D7yMPfRMDT7/7xV/b+0vE//aZg1/19/Oa//NFj/86b/vPn9z1vZ/7j2XLdpLSg7r6579Pw3CduRtdr7Wf1XViJ7vYyIoe0WP9+Bv/Rfdr/f64gYWrUOjBv+81Ou+eZ9uurrwFF0fRCvh7XPzfv01fcD9ec/5n0+6utAybzPT7kOrE5i3gMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEP5AjrrOUM=
+  </data>
+ </layer>
+ <layer name="2_object" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJzt2jEOgkAQBVAUbT2UWFijHoHOlqvgHfUSjgmFhUuHhN33kgnJQEHyM5NsslUFAAAAAAAAAAAAAAAA5Oy8medbAABg/Y5xBmiiTs4CWasT/TZyv0Rd5b9q3UR+26hd4p35L8M+0Tf/kI9bzPFnlL/H+TU+nwv8D//1a40P0bxHPez4bPVjtiKGch0sAACAIk3d7XPvDwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA5vAEQxAl5
+  </data>
+ </layer>
+ <layer name="3_roof" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJzt2MEJgDAQRNFUpR1oK9qT9moK8Bo3OO/B3gf+IZDWAAAAAAAAAAAAAAAAgDRHv7N6BGW2fnv1CMron03/bPpn0z+b/gDwb1f1AKZ0Vw8AYKi393/pt349hGn4/8mmfzb9s+mfTX8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYLQH8H8JIw==
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJzt2clRglEUhFHCko0MwlaUoQqKIQHQBBQSQIjZDgLeXfznVH373nevBwAAAAAAAAAAAAAAdNVL6lePoMw6bapH0NRrGqRhGqVxekuTNK2bRSPvaZY+0meap0VaplXhLtrapl3ap0PxFto7plP6St/FW2jvJ/2mc7oUb6G9a/pLt3Qv3gIAAAAAPIb/t9v8vwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADzbP/ldEZs=
+  </data>
+ </layer>
+ <layer name="objects" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJzt1rEJAAAIBDE799/YJQTlSSa48qoAAAAAAAAAAAAAAAAAAAAASNDXAQAAvOMRAQAgn+8HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGDbAK85ABY=
+  </data>
+ </layer>
+ <layer name="collision" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJzt0kEKAyEQBMC5+///5iqSbNyD6TBbA4WCHhp6RlUNAAAAAAAAAAAAAAAAAKCdu5POi/7RP7/rf/6bzov+Odv/zm6kc5PpP52X8/3vTDo3mf7TeTm/C2M5a3mjl3V23+jhzqSzkuu+/iAvuR1I5ySzB+lcnO/8W//znV5qOt/N/Ieervq9eqOPT5PORW4H0nnI7UA6BwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM/wAnqYt/U=
+  </data>
+ </layer>
+ <layer name="protection" width="128" height="128" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJztwwEJAAAMA6DxAuvfdkGuYC+pqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq7w/iWEA9
+  </data>
+ </layer>
+ <layer name="blend_ground" width="128" height="128" opacity="0.4">
+  <data encoding="base64" compression="zlib">
+   eJzt2jluQzEMBcAP3yDOYmexs2/3v2Beo5bAt4MgkmaA17FjIULksgAAAAAAAAAAAAAAACO72CzLNrlMrpLrze/U0oeb9HCX7JPb5K7o6Zpa+nCfHj4kh+SYPBY9XVNLH57Sw+fkJXlN3oqerqmlD+/p4UfymXwl30VP19Ty/7V5jjm1eY45tXmOObV5jjm1eQ6Aee1PeAfsAMZxOKGPdgD9O+dP1w6gf+f86doBzM0OAAD6Vt32ufsbX3Xb5+5vfNVtn7u/8VX/QO7+xlf9A7n7AwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4C/8ALrcEEM=
+  </data>
+ </layer>
+ <layer name="blend_roof" width="128" height="128" opacity="0.4">
+  <data encoding="base64" compression="zlib">
+   eJzt0ksKgDAQRMHgKbIRNP7vf0H7EhIkVfD2Az2lAAAAAAAAAAAAAAAAAAAAAAAAf1Sn3hfQ02z/IS3ZfU0tbWn3B0M5sveZrnSnx/4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAdecFoBuw==
+  </data>
+ </layer>
+</map>

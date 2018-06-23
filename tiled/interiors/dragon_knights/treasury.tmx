@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="24" height="10" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="wall red" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/wall/int_wall_dark_red.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="17" name="int red wall" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/wall/int_wall_dark_red_corners.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="33" name="book" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/documents/book.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="37" name="collision" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="38" name="drzwi" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/door/brown_3_doors.png" width="160" height="96"/>
+ </tileset>
+ <tileset firstgid="53" name="drewniany_stol2" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/wyposazenie/stoly/drewniany_stol2.png" width="96" height="96"/>
+ </tileset>
+ <tileset firstgid="62" name="dzbanek_filizanka" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/wyposazenie/dzbanek_filizanka.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="64" name="fotele_czerwone_zaslona" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/wyposazenie/fotele_czerwone_zaslona.png" width="160" height="192"/>
+ </tileset>
+ <tileset firstgid="94" name="kafelki_rozne" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/domki/podloga/kafelki_rozne.png" width="512" height="160"/>
+ </tileset>
+ <tileset firstgid="174" name="miecze" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/wyposazenie/miecze.png" width="256" height="128"/>
+ </tileset>
+ <tileset firstgid="206" name="roslinki_doniczki" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/natura/kwiaty/roslinki_doniczki.png" width="512" height="64"/>
+ </tileset>
+ <tileset firstgid="238" name="straznicy" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/posagi/straznicy.png" width="352" height="96"/>
+ </tileset>
+ <tileset firstgid="271" name="swiecznik" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/oswietlenie/swiecznik.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="272" name="chest_2" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/chest/chest_2.png" width="96" height="64"/>
+ </tileset>
+ <tileset firstgid="278" name="bottles_and_cups" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/drink/bottles_and_cups.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="294" name="drzwi" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/entrance/dark_red_ns_fancy.png" width="96" height="128"/>
+ </tileset>
+ <tileset firstgid="306" name="brown" tilewidth="32" tileheight="32">
+  <image source="../../tileset/ground/brown.png" width="160" height="32"/>
+ </tileset>
+ <tileset firstgid="311" name="pol_rycerze" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/creature/pol_rycerze.png" width="256" height="32"/>
+ </tileset>
+ <tileset firstgid="319" name="dark_red_ew" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/entrance/dark_red_ew.png" width="128" height="96"/>
+ </tileset>
+ <tileset firstgid="331" name="pol_rycerze" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/creature/pol_rycerze.png" width="256" height="32"/>
+ </tileset>
+ <tileset firstgid="339" name="int_wall_dark_red_corners_2" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/wall/int_wall_dark_red_corners_2.png" width="64" height="128"/>
+ </tileset>
+ <tileset firstgid="347" name="sztabki_zlota" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/wyposazenie/sztabki_zlota.png" width="64" height="96"/>
+ </tileset>
+ <tileset firstgid="353" name="statua" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/posagi/statua.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="357" name="drewniany_stol_obrus" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/wyposazenie/stoly/drewniany_stol_obrus.png" width="96" height="96"/>
+ </tileset>
+ <tileset firstgid="366" name="barierki_zlote" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/ogrodzenie/barierki_zlote.png" width="160" height="96"/>
+ </tileset>
+ <layer name="0_floor" width="24" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC5vJwMAwcxSP4lE8JDEAnzY+1cADAAA=
+  </data>
+ </layer>
+ <layer name="1_terrain" width="24" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACxNkYGAQohEWAWJRIBYDYnYqY3EglgBiSSBmY6A+4B5g84MZGRhCGMnno5tfAZTLA+J8RoQ8sr3k8JHNT4CaW0JD8+MZMc0XpoAPM18KiLnQsDSaODl8kPmyQCxHI6wAxACp3HL+wAMAAA==
+  </data>
+ </layer>
+ <layer name="2_object" width="24" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGNrAkZGBwYmRdua7As12o6H5nkCzvWho/nAD1aNhhQIAIysKVcADAAA=
+  </data>
+ </layer>
+ <layer name="3_roof" width="24" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjgHZAgJEy/ijADwCq5onWwAMAAA==
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="24" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBQMVQAAewDiOMADAAA=
+  </data>
+ </layer>
+ <layer name="objects" width="24" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGD7AjnGgXTC4gc1o+Aw7AAB0VCCkwAMAAA==
+  </data>
+ </layer>
+ <layer name="collision" width="24" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC1NlYGBQHQaY2oCWZqObj80OdHFy+bjsobb5DESqp7b5qlTgD2UMAED+NyzAAwAA
+  </data>
+ </layer>
+ <layer name="protection" width="24" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBQMVQAAewDiOMADAAA=
+  </data>
+ </layer>
+</map>

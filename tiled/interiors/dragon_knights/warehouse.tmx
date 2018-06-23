@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="17" height="13" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="int_wall_dark_red" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/wall/int_wall_dark_red.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="17" name="int_wall_dark_red_corners" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/wall/int_wall_dark_red_corners.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="33" name="dark_red_ns" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/entrance/dark_red_ns.png" width="96" height="128"/>
+ </tileset>
+ <tileset firstgid="45" name="collision" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="46" name="drewniany_stol_obrus" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/wyposazenie/stoly/drewniany_stol_obrus.png" width="96" height="96"/>
+ </tileset>
+ <tileset firstgid="55" name="kafelki_rozne" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/domki/podloga/kafelki_rozne.png" width="512" height="160"/>
+ </tileset>
+ <tileset firstgid="135" name="miecze" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/wyposazenie/miecze.png" width="256" height="128"/>
+ </tileset>
+ <tileset firstgid="167" name="dzabny" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/pot/pots_pink_blue.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="171" name="beczka" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/pot/small_barrel.png" width="32" height="64"/>
+ </tileset>
+ <tileset firstgid="173" name="beczki" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/pot/mine_barrels.png" width="256" height="64"/>
+ </tileset>
+ <tileset firstgid="189" name="depo" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/chest/chest_2.png" width="96" height="64"/>
+ </tileset>
+ <tileset firstgid="195" name="dark_red_ew" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/entrance/dark_red_ew.png" width="128" height="96"/>
+ </tileset>
+ <layer name="0_floor" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC/NkYGDwHMWjeBTTDQMA8SvzmXQDAAA=
+  </data>
+ </layer>
+ <layer name="1_terrain" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACxNkYGAQogCLALEkEIsBMTsZWByIJaBmsDGQB7ipaIboIDBDZhCZMVjihVpmSAExFxlYGmqGLBDLUYAVgBgASfDwN3QDAAA=
+  </data>
+ </layer>
+ <layer name="2_object" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGFxgDRRTWy2x4CgQH4OyDYHYiAhsjGbGSSA+BWWbALEpEdgMzYyzQHyOSn6iBjhAY/WkgJ1AvAuItwLxNjQ5mBhMzWAEAGF+NTp0AwAA
+  </data>
+ </layer>
+ <layer name="3_roof" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgoB5YDcXoYBEJaqkF9IBYnwhsQMCclTR0I73AXhqrJwVsBOJNQLwWiNehycHEYGqGKwAARSdrgXQDAAA=
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGN5gFZRegUavwqIWH1gJpZej8VdiUTsKRgE+AAAjmdlHdAMAAA==
+  </data>
+ </layer>
+ <layer name="objects" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBTQEwAAX9FJ7XQDAAA=
+  </data>
+ </layer>
+ <layer name="collision" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC9NlYGDQHYSYGIBPL6l2UdsMcgE54UAPM0g1h1L9uMzBJUaK+oHGAEFclLx0AwAA
+  </data>
+ </layer>
+ <layer name="protection" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBTQEwAAX9FJ7XQDAAA=
+  </data>
+ </layer>
+</map>

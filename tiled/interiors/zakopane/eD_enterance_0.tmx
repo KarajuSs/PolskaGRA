@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="9" height="15" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="wall red" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/wall/int_wall_dark_red.png"/>
+ </tileset>
+ <tileset firstgid="17" name="int red wall" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/wall/int_wall_dark_red_corners.png"/>
+ </tileset>
+ <tileset firstgid="33" name="dark red ns" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/entrance/dark_red_ns.png"/>
+ </tileset>
+ <tileset firstgid="45" name="collision" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/collision.png"/>
+ </tileset>
+ <tileset firstgid="46" name="kula_rozowa2" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/wyposazenie/kula_rozowa2.png"/>
+ </tileset>
+ <tileset firstgid="48" name="earth_snow_dark" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/waly/earth_snow_dark.png"/>
+ </tileset>
+ <tileset firstgid="144" name="ground_snow" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/podloze/ground_snow.png"/>
+ </tileset>
+ <tileset firstgid="148" name="green_paving" tilewidth="32" tileheight="32">
+  <image source="../../tileset/ground/green_paving.png"/>
+ </tileset>
+ <tileset firstgid="166" name="portal" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/portal.png"/>
+ </tileset>
+ <tileset firstgid="173" name="buddha" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/statue/buddha.png"/>
+ </tileset>
+ <layer name="0_floor" width="9" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAJvMwMAweRRTDc9AwrjEhwoGAOG9sGYcAgAA
+  </data>
+ </layer>
+ <layer name="1_terrain" width="9" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAI3PzwpBQRSA8WPBAslGXX+T8goWlhbeg2zZyC2xsFDWytja8J6+k3NrnEaZ+nXure/OzD2JSI4FlvJZOi844mzzgDU21uhcYW/ftrDFRL7XFDtkKKGCmWvmqKGOsjWppU3Tzoqbq2uyROP30abtmke0nza9qHnhhoA7nokmuHNC1BT//us+//67v7Nvivt0UDWj6LlrTR8DNGyO3fsQbzzZdn4cAgAA
+  </data>
+ </layer>
+ <layer name="2_object" width="9" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgQIBoII4B4lgGTKAPpdOBOAOIM9HEC9HUT0LjpwBxLZq6yUjscijthCQ2EYs5bljchk2NExZ16KCJgDzInGoizKE2WA/EG7CwkcFGIN6EhY0OFKG0Mpp4ARJbBUqrIYnlADEAs8I6IBwCAAA=
+  </data>
+ </layer>
+ <layer name="3_roof" width="9" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgYGDQY8AOcImTAxKJUJNLRfsGK1gLxOuwsAcjAAC20DYTHAIAAA==
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="9" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjADsAAObstcocAgAA
+  </data>
+ </layer>
+ <layer name="objects" width="9" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgIB2sIkPPKBh6AACJ1J2NHAIAAA==
+  </data>
+ </layer>
+ <layer name="collision" width="9" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAANNlYGDQpSLGBkbVkKYGWS0x4U0NNdgwANDDvBccAgAA
+  </data>
+ </layer>
+ <layer name="protection" width="9" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjADsAAObstcocAgAA
+  </data>
+ </layer>
+</map>

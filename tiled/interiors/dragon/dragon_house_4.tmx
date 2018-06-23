@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="17" height="13" tilewidth="32" tileheight="32">
+ <tileset name="collision" firstgid="1" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/collision.png"/>
+ </tileset>
+ <tileset name="obrazy" firstgid="2" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/wyposazenie/obrazy.png"/>
+ </tileset>
+ <tileset name="kafelki" firstgid="34" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/domki/podloga/kafelki_blyszczace.png"/>
+ </tileset>
+ <tileset name="kafelki2" firstgid="70" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/domki/podloga/kafelki_blyszczace2.png"/>
+ </tileset>
+ <tileset name="int_plazy" firstgid="76" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/waly/int_plazy.png"/>
+ </tileset>
+ <tileset name="door_drewno_int_long" firstgid="103" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/domki/drzwi/door_drewno_int_long.png"/>
+ </tileset>
+ <tileset name="huge_animal" firstgid="131" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/creature/huge_animal.png"/>
+ </tileset>
+ <layer name="0_floor" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAHNgYGBwIBGjA1L1U8sMdLOQxdyA2B2IPXDoQZfHZoYnEHsBsTcOM9DlaeWXwWLGUA/TwQIAPEGaQXQDAAA=
+  </data>
+ </layer>
+ <layer name="1_terrain" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAPNhYGDwpQD7AbE/EMcBcTwZOAGIA6FmJDKQB5JHzRg1g0gzUoA4FQfOwCOXBjUjCIiD8eB8AvIhQAwAQRtqF3QDAAA=
+  </data>
+ </layer>
+ <layer name="2_object" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgQAAWIGaFssWAWBzKlgBiSShbBIhFGXADHiDmhbLlgFgeylYAYkUoWwaIZfGYMQpGAb1BOpTOpMCMPChdQEAdAONsoF50AwAA
+  </data>
+ </layer>
+ <layer name="3_roof" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBTQEwAAX9FJ7XQDAAA=
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBTQEwAAX9FJ7XQDAAA=
+  </data>
+ </layer>
+ <layer name="objects" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAVDEbQMtANGAdkAALgSoFh0AwAA
+  </data>
+ </layer>
+ <layer name="collision" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNkYGBgHESYHDBqxqgZpJiBL+3RI40DABnRkCd0AwAA
+  </data>
+ </layer>
+ <layer name="protection" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBTQEwAAX9FJ7XQDAAA=
+  </data>
+ </layer>
+</map>

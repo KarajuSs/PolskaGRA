@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="32" height="32" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="barrels_2" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/pot/barrels_2.png"/>
+ </tileset>
+ <tileset firstgid="9" name="collision" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/collision.png"/>
+ </tileset>
+ <tileset firstgid="10" name="pasniki" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/pot/wooden_crates.png"/>
+ </tileset>
+ <tileset firstgid="16" name="farm" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/farm.png"/>
+ </tileset>
+ <tileset firstgid="192" name="plotek" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/fence/wooden_brown_fence.png"/>
+ </tileset>
+ <tileset firstgid="234" name="koniki" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/creature/farm_animal.png"/>
+ </tileset>
+ <tileset firstgid="246" name="grunt" tilewidth="32" tileheight="32">
+  <image source="../../tileset/ground/scratches.png"/>
+ </tileset>
+ <tileset firstgid="251" name="wood" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/waly/int_plazy.png"/>
+ </tileset>
+ <tileset firstgid="278" name="door_drewno_int" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/domki/drzwi/door_drewno_int.png"/>
+ </tileset>
+ <tileset firstgid="293" name="okno" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/domki/okna/window_drewno.png"/>
+ </tileset>
+ <tileset firstgid="309" name="brown" tilewidth="32" tileheight="32">
+  <image source="../../tileset/ground/brown.png"/>
+ </tileset>
+ <tileset firstgid="314" name="protection" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/protection.png"/>
+ </tileset>
+ <layer name="0_floor" width="32" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO2WSQrDMAxFv+u2IY3P0/ufqtBMVKFdmBIROcjDQotHwCh5VmT4ngDMlViIlbg64FaYOwH39Xf0HFGWnvG/GeJ3uXWuZq+O85/haC97dZr+UejP1b/m/DV6k3zL/r/5Y/8LZWnJ/6iQP+Hnd8SlEp6YIM9qaa12/sdZrXVX+M//lLPKZXQKKeff/OY3fxv+LSsGBcIJv3ZW+ET/MwMt+I9mGjL6pTP1mfwfAu2LOQAQAAA=
+  </data>
+ </layer>
+ <layer name="1_terrain" width="32" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgwA5UGXFIkKGOWLOQgS6ReohRR4yaWCCOoyNGB9jESJEnVg0udSPVfkNg2jBipL/92kA7dRhRxehpP6l6R+2nrf2xdMTEunMUEAZiwDwsDsQSZNRxo4ByIA0Mdxkglh0N/0EBpgLxNCzswQDqgLh+gOxuBeI2IG5HE4e1P+gN0Nsfo4A8QEz5rzHA4WwwGs9Eg5FWnwMAU15tyQAQAAA=
+  </data>
+ </layer>
+ <layer name="2_object" width="32" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3WsQmAMBQE0Kik1fEsnUpBnUSXcCVPsEhj8jlMELwHV+XnPqSKc/IlFVIjDeKRFukiM0+8cS50kDMjMhnupubY/RdPdFm7e6LX0mW9MxC9li7rfqb3zfdnepn9oRlZkDXTecp2Z890LiIiUlrsD1RC7A8k8icnGH638gAQAAA=
+  </data>
+ </layer>
+ <layer name="3_roof" width="32" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3WOwqAMBBF0egGXY1a2fsnfgoLl2rh6ww2ARmcUd6BW4QJSZk4R183oFFwnzWZ0bPeOFdDjRrUog71wvMYjyY0owWtwvOY7bbehedEUtLkSsMRRPrCN97Se5+jApVK91dK91r0p78KET13AuhcCx8AEAAA
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="32" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3BAQ0AAADCoPdPbQ8HFAAAAPBuEQAcxwAQAAA=
+  </data>
+ </layer>
+ <layer name="objects" width="32" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3PsQkAAAgDQfff1sLeFSwsRO7q8JAIuCUHm1rqXLb5cdICAAB+a+fLv5AAEAAA
+  </data>
+ </layer>
+ <layer name="collision" width="32" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO2UOw7AIAxDs3L/C3dFKKW2Qj4ULGUByw8I0ESk3SpRAsyPHhnGNY/mm+Vrms0zGcj+WH6fjYjlo9mox4PPrHG380f4qKcyP/vviVQ1vvXssnt3+faMNzFeVH/laz2J5LNri+J/3VdvviVzNT/7/Vn52f+PR53OX93PXeoBMppRZwAQAAA=
+  </data>
+ </layer>
+ <layer name="protection" width="32" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3DAQkAAAwDoL3W+gdbj6NgL6mqqqr6+gCeM07HABAAAA==
+  </data>
+ </layer>
+</map>

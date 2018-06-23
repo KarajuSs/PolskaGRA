@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="collision" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="2" name="protection" tilewidth="32" tileheight="32" tilecount="2" columns="2">
+  <image source="../../tileset/logic/protection.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="4" name="sciany" tilewidth="32" tileheight="32" tilecount="30" columns="5">
+  <image source="../../tileset/pol/domki/kosciol_sciany.png" width="160" height="192"/>
+ </tileset>
+ <tileset firstgid="34" name="posadzka" tilewidth="32" tileheight="32" tilecount="15" columns="5">
+  <image source="../../tileset/ground/slate_tiles.png" width="160" height="96"/>
+ </tileset>
+ <tileset firstgid="49" name="ogien" tilewidth="32" tileheight="32" tilecount="8" columns="4">
+  <image source="../../tileset/pol/oswietlenie/plomien_big.png" width="128" height="64"/>
+ </tileset>
+ <tileset firstgid="57" name="podstawa" tilewidth="32" tileheight="32" tilecount="3" columns="1">
+  <image source="../../tileset/furniture/light/iron_lamp.png" width="32" height="96"/>
+ </tileset>
+ <tileset firstgid="60" name="statula" tilewidth="32" tileheight="32" tilecount="54" columns="6">
+  <image source="../../tileset/pol/posagi/statua_z_mieczem.png" width="192" height="288"/>
+ </tileset>
+ <tileset firstgid="114" name="brama" tilewidth="32" tileheight="32" tilecount="6" columns="3">
+  <image source="../../tileset/pol/domki/drzwi/warownia_wejscie_big.png" width="96" height="64"/>
+ </tileset>
+ <tileset firstgid="120" name="kafelki" tilewidth="32" tileheight="32" tilecount="36" columns="6">
+  <image source="../../tileset/pol/domki/podloga/kafelki_blyszczace.png" width="192" height="192"/>
+ </tileset>
+ <tileset firstgid="156" name="schody" tilewidth="32" tileheight="32" tilecount="12" columns="2">
+  <image source="../../tileset/building/stairs/stairs.png" width="64" height="192"/>
+ </tileset>
+ <tileset firstgid="168" name="schody" tilewidth="32" tileheight="32" tilecount="6" columns="3">
+  <image source="../../tileset/building/stairs/grey_stone_stairs.png" width="96" height="64"/>
+ </tileset>
+ <tileset firstgid="174" name="okno" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../../tileset/building/window/classic_window.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="178" name="kafelki" tilewidth="32" tileheight="32" tilecount="91" columns="7">
+  <image source="../../tileset/pol/domki/podloga/kafelki_blyszczace3smok.png" width="224" height="416"/>
+ </tileset>
+ <tileset firstgid="269" name="kula" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../../tileset/pol/wyposazenie/kula_czarna.png" width="64" height="64"/>
+ </tileset>
+ <layer name="0_floor" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC9XS2U7CQBhA4YKgUn1gb3wp3FERxF1Q3FmUzR1XFBUVxdPYSSbNMGkm3DDpl7Zp/tOmrW1Zlu0x5pN3rhu/q9c9VbsfVlQi3rVzPIFJTGEaM5i1un8fVU+YQwzzWMAi4lhS3NtPL4EklpHCClaxJjWdxri01/XWsYFNbGEbaWQMn28Hu8hiD/s4wKFh7wjHOEEOeRRQNOyd4gwllFFBFTXD3jkucIkrXOMGt4a9Ou5wjwc84gnPblP3/9UVvQZe8Iom3vCOD7ep6zUUvRY+8YVvtPGDX7ep64lZuddxLgTYEMQAQggH/pu6npiVe4OcD2EYEdgYwajb1PXErOq7eImmrtfL9QeJqSe7QAYAAA==
+  </data>
+ </layer>
+ <layer name="1_terrain" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3OywpAQBSA4bEQQhYoFB7E+7hf33/jXzKbSTPKwqlvcU7T34RCiMiQAD5iJJpSeC/1MuSaikuvRKWpvvRMzdu9Fh166V1k3fcBIyZFb8aCVfGPDTsORU93/t7f+0Kvke7y/qTnwjbEwQnm6if0QAYAAA==
+  </data>
+ </layer>
+ <layer name="2_object" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgoC9Yj4NNij5ksBEHm5BeXGqJAZToHQWjYBSMguECAE3vh+dABgAA
+  </data>
+ </layer>
+ <layer name="3_roof" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgwA5CcIiDQCQeuZEMQGEWCsRhBNSFA3EEAyQcYRgbiALiaCCOIWBeLBDHAXE8AXUJQJwIxElo4ryMqPxkIE4B4lQC5o2CUTCUABcahgFDNHXofFLNM0VTh84n1TxyAbXNwwYAYl3msUAGAAA=
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBSMglEwCkgHADV9EcVABgAA
+  </data>
+ </layer>
+ <layer name="objects" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBSMglEwCkgHADV9EcVABgAA
+  </data>
+ </layer>
+ <layer name="collision" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NkYGBgHMWDClMLEGsesXaim4fLzdj4uNQRYx4udxAyj1Iwat7wMo/a+Y3a6Y+UfEOpeYw4xEjFADyPfO9ABgAA
+  </data>
+ </layer>
+ <layer name="protection" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NiYGBgGsWjeBSP4lE8iknEAC9MrVpABgAA
+  </data>
+ </layer>
+</map>

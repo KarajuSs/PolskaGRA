@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="10" height="20" tilewidth="32" tileheight="32">
+ <tileset name="barrel" firstgid="1" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/pot/barrel.png" width="32" height="64"/>
+ </tileset>
+ <tileset name="bushes" firstgid="3" tilewidth="32" tileheight="32">
+  <image source="../../tileset/plant/bush/bushes.png" trans="ffffff" width="160" height="64"/>
+ </tileset>
+ <tileset name="collision" firstgid="13" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset name="tiles" firstgid="14" tilewidth="32" tileheight="32">
+  <image source="../../tileset/ground/indoor/floors_3.png" width="192" height="64"/>
+ </tileset>
+ <tileset name="sciany" firstgid="26" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/waly/int_plazy.png" width="96" height="288"/>
+ </tileset>
+ <tileset name="doors" firstgid="53" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/domki/drzwi/door_drewno_int.png" width="160" height="96"/>
+ </tileset>
+ <tileset name="portale" firstgid="68" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/portal.png" width="224" height="32"/>
+ </tileset>
+ <tileset name="swierk" firstgid="75" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/natura/drzewa/tree_swierk.png" width="96" height="160"/>
+ </tileset>
+ <layer name="0_floor" width="10" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+NnYGDgH6JYdASpEyVBHTXtpNRdogTUyBLpN1ki1MDUEeN/BSLVAQCFVth8IAMAAA==
+  </data>
+ </layer>
+ <layer name="1_terrain" width="10" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC5NiYGCQJoBlgFgWiBmhGAbY0LA8kjp8AKaOEKCXunAgjgDiSDR1uPzBhUMdujno9hIbLvjUsdBQHT6ASx0XAyI8sKnjYsANQOosCdgLU2dHwCxGqDpnKJ8dDcPUwNQpALEiAawExABQwh7xIAMAAA==
+  </data>
+ </layer>
+ <layer name="2_object" width="10" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBTgAgDjoo9oIAMAAA==
+  </data>
+ </layer>
+ <layer name="3_roof" width="10" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgoD3wBmIfIPYloM4PiP2BOIAIc4KAOJgIc0KBOAyHukAC5sBACAFzRsHwBQCd3505IAMAAA==
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="10" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgoD3wBmIfIPYloM4PiP2BOICAukAgDgLiYALqQoA4FIjDiHDjKBgF2AAAW7XFCiADAAA=
+  </data>
+ </layer>
+ <layer name="objects" width="10" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYPADrwGyFwAdDKo1IAMAAA==
+  </data>
+ </layer>
+ <layer name="collision" width="10" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+NlYGDgJRHDADFqsAFi1NBbHS5/EWMeul5i1BFrHj411FZHqdtIUYeslhh1xJrFi4WPS4wYDACH6tdzIAMAAA==
+  </data>
+ </layer>
+ <layer name="protection" width="10" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBTgAgDjoo9oIAMAAA==
+  </data>
+ </layer>
+</map>

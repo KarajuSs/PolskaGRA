@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="17" height="18" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="collision" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/collision.png"/>
+ </tileset>
+ <tileset firstgid="2" name="kamienne_schody_brazowe" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/domki/schody/kamienne_schody_brazowe.png"/>
+ </tileset>
+ <tileset firstgid="8" name="kamienny_podest" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/domki/podloga/kamienny_podest.png"/>
+ </tileset>
+ <tileset firstgid="26" name="kolumny" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/posagi/kolumny.png"/>
+ </tileset>
+ <tileset firstgid="56" name="kafelki_rozne" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/wall/dojo_walls.png"/>
+ </tileset>
+ <tileset firstgid="216" name="stone doorway" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/door/stone_doorway.png"/>
+ </tileset>
+ <tileset firstgid="222" name="raised_platform" tilewidth="32" tileheight="32">
+  <image source="../../tileset/ground/indoor/raised_platform.png"/>
+ </tileset>
+ <tileset firstgid="234" name="drewniany_stol_obrus" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/wyposazenie/stoly/drewniany_stol_obrus.png"/>
+ </tileset>
+ <tileset firstgid="243" name="pos?g2" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/statue/swordsman.png"/>
+ </tileset>
+ <layer name="0_floor" width="17" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAHvEwMDwaAhgBih9H4ph4g9wqL+HpBaEnwPxCyB+iSb+AI8ZD9H4yGYgiz+GYnqZAfMburtJMeMhkp5RM6hjxhMgfgrEzygwg5z0AbMXhpHNQBZ/hsVtwwUDAD06DjTIBAAA
+  </data>
+ </layer>
+ <layer name="1_terrain" width="17" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAEthYGCYSQFOBuJ2ILYAYksgticC20FpByB2BOI6qBkg2hmIPYnAHlDaC4i90cyoZ8AEfEDMD8QCWOTakPTiM0MEiEWBWIwCM/CBUTOGhhklQFw6CNxBLTM6gbifBDwBiCcimTGJgfRyYxYQz4aasRCI5zMQV3bA8DwkPXOAGABhMFxFyAQAAA==
+  </data>
+ </layer>
+ <layer name="2_object" width="17" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAO3MSQ6AIBBEUQTB+9/O8QLOegH97HqhiYJujJU8Ft1NKfVuchQoIzoq1Ghu/tv8kxzvEub6ZCdjuElP7ixzd6HjybTohD6gY8AoTH9HdMeMRVgv/tMwSAP3PhYOWeD+C9kBh00njsgEAAA=
+  </data>
+ </layer>
+ <layer name="3_roof" width="17" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgQAWfgfgLA3bwFYi/4ZBDBt+B+AeUrYxG/wTiX0SY8RuI/0DZumj0XyD+R4QZyMAcjR4Fo2AUDB8AABppsU/IBAAA
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="17" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMgqENAANM8fbIBAAA
+  </data>
+ </layer>
+ <layer name="objects" width="17" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMgqENAANM8fbIBAAA
+  </data>
+ </layer>
+ <layer name="collision" width="17" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNkYGBgHAKYgQz1yIARjUaXI2QnNkCM20gBxJhBjvyoGYPXDGLTCLH5A5deYswYyhgAhSe1OcgEAAA=
+  </data>
+ </layer>
+ <layer name="protection" width="17" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMgqENAANM8fbIBAAA
+  </data>
+ </layer>
+</map>

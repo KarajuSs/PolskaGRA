@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="18" height="18" tilewidth="32" tileheight="32">
+ <tileset name="collision" firstgid="1" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset name="kafelki_rozne" firstgid="2" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/wall/dojo_walls.png" width="320" height="512"/>
+ </tileset>
+ <tileset name="floors 3" firstgid="162" tilewidth="32" tileheight="32">
+  <image source="../../tileset/ground/indoor/floors_3.png" width="192" height="64"/>
+ </tileset>
+ <tileset name="logs" firstgid="174" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/logs.png" width="32" height="96"/>
+ </tileset>
+ <tileset name="chest" firstgid="177" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/chest/chest_2.png" width="96" height="64"/>
+ </tileset>
+ <tileset name="meat_and_fish" firstgid="183" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/item/meat_and_fish.png" width="160" height="32"/>
+ </tileset>
+ <tileset name="balia_kukurydza" firstgid="188" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/wyposazenie/jedzenie/balia_kukurydza.png" width="64" height="32"/>
+ </tileset>
+ <tileset name="schody" firstgid="190" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/stairs/stairs.png" width="64" height="64"/>
+ </tileset>
+ <tileset name="kuchnia" firstgid="194" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/kitchen/cabinets.png" width="128" height="224"/>
+ </tileset>
+ <tileset name="piec" firstgid="222" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/kitchen/warmer_2.png" width="64" height="96"/>
+ </tileset>
+ <tileset name="chleb" firstgid="228" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/food/bread.png" width="128" height="32"/>
+ </tileset>
+ <tileset name="ryby" firstgid="232" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/food/fish_crates.png" width="128" height="64"/>
+ </tileset>
+ <tileset name="swiniak" firstgid="240" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/food/piglet.png" width="64" height="32"/>
+ </tileset>
+ <layer name="0_floor" width="18" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC1vOwMCwfBSP4lE8ikcxAwDlWsw2EAUAAA==
+  </data>
+ </layer>
+ <layer name="1_terrain" width="18" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC9NjYGBIphDPAOJAIGYCYmYg5iQCc6DxuYG4CmqOBxDzArEwEVgIiS0CxKJo5ngykA4CoPpbqGQOtdwz2MyhVvh4DHNz7IDYfhC5h5rmBANxJIk4Cs2cGAbyy55UqDnZQJzJQFzZA8MZUD0wnAbEAA48ImMQBQAA
+  </data>
+ </layer>
+ <layer name="2_object" width="18" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+XOwQqCQBRG4Xn/h4lZVCsL2lSWpWgURFTaSiJ9hY5wFyF4G01XHfhWM/xcY4bvjAuuuHXceCJGgjtSbLBFIPtNvYSHEkeckOGBPUJEOHzZcW2nvM1a7GhpO9WbX9N1Z4mVWLe8cYj6umeCKXIUyj+LseOmtlM47pRyU1Mj8Wv2Q9Uci9ofT1jzH70BwrpnpBAFAAA=
+  </data>
+ </layer>
+ <layer name="3_roof" width="18" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgoC14Q2PzhyO4BcS3ofgOBeZcRcMDDajlr01AvJkIdeuBeCMF9sDAOiLNeU0Fu4gB65EwMWpxgXVImBAgRs1wAAA5PwthEAUAAA==
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="18" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgoB14g8R+jkPNCyrZ9ZRK5jyhkjmDBbwC4g9A/HGgHYIGng20A9DAq4F2wCgYFAAAC/NbERAFAAA=
+  </data>
+ </layer>
+ <layer name="objects" width="18" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBSMglEAAgCc28dnEAUAAA==
+  </data>
+ </layer>
+ <layer name="collision" width="18" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NkYGBgHMVEY2IBNcwgZBYlbhgIc4g1l1ruIWQeLeKenuFNj7gb6PxGbwwAXXNBZBAFAAA=
+  </data>
+ </layer>
+ <layer name="protection" width="18" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBSMglEAAgCc28dnEAUAAA==
+  </data>
+ </layer>
+</map>

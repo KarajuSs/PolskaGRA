@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="18" height="18" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="collision" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/collision.png"/>
+ </tileset>
+ <tileset firstgid="2" name="bibeloty_na_stol" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/wyposazenie/bibeloty_na_stol.png"/>
+ </tileset>
+ <tileset firstgid="16" name="fotele_niebieskie" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/wyposazenie/lawki_krzesla/fotele_niebieskie.png"/>
+ </tileset>
+ <tileset firstgid="32" name="kominek" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/wyposazenie/kominek.png"/>
+ </tileset>
+ <tileset firstgid="36" name="komputer_po_co" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/klan/komputer_po_co.png"/>
+ </tileset>
+ <tileset firstgid="52" name="obrazy" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/wyposazenie/obrazy.png"/>
+ </tileset>
+ <tileset firstgid="84" name="piano2" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/other/piano2.png"/>
+ </tileset>
+ <tileset firstgid="88" name="roslinki_drzewka" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/natura/kwiaty/roslinki_drzewka.png"/>
+ </tileset>
+ <tileset firstgid="120" name="roslinki_doniczki" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/natura/kwiaty/roslinki_doniczki.png"/>
+ </tileset>
+ <tileset firstgid="152" name="zegarek" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/wyposazenie/zegarek.png"/>
+ </tileset>
+ <tileset firstgid="153" name="deski_kafle2" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/domki/podloga/deski_kafle2.png"/>
+ </tileset>
+ <tileset firstgid="165" name="dojo_walls" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/wall/dojo_walls.png"/>
+ </tileset>
+ <tileset firstgid="325" name="stairs" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/stairs/stairs.png"/>
+ </tileset>
+ <layer name="0_floor" width="18" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAJvFwMAwaxSP4lE8ikcxAwCqPHaCEAUAAA==
+  </data>
+ </layer>
+ <layer name="1_terrain" width="18" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAHNgZGCwoxBbA7ESEC9lYGBYRiZeB8SyUHNeA9kbgHgbiXg7EH9BM+cNEOsxkAY+4zCHVDBqzqg5uMyRw6JPfgDdQ64534D4D4n4L5o5/4FsNkbyMAcjxBw+IOamEHMCMQDYunJXEAUAAA==
+  </data>
+ </layer>
+ <layer name="2_object" width="18" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgoB0wA2JzLOIWQGxJhH41IFYHYjsgtgfiCCAOAeJQKNsBiB2BWAGIFfGYYwzE+kCcDeVnAHEYEIdD2TCgBMTKRLhrOANBHJhUIIwDkwJEoLQAGgYBUSLNYAdiMShbCA2DgDiJbpIBYlksNC+J5uQCsTwQyyHRU0k0g1KQCcTujITVuTJC1I4EAADDk/9jEAUAAA==
+  </data>
+ </layer>
+ <layer name="3_roof" width="18" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgoD6YQSVzOIBYG4ijqWTeKBiagA2IOYGYG0oPJIjFItZKZzdE0kjtKGBgAAB1Ny2KEAUAAA==
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="18" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMglEAAgCc28dnEAUAAA==
+  </data>
+ </layer>
+ <layer name="objects" width="18" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMglEAAgCc28dnEAUAAA==
+  </data>
+ </layer>
+ <layer name="collision" width="18" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNkYGBgHEGYAYcYNnFc6ogFQ9Ecaqmh1D344oUBTQ09zKGWv6ithhL3kGLWQOZZemIAStyllxAFAAA=
+  </data>
+ </layer>
+ <layer name="protection" width="18" height="18">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNgGAWjYBSMglEAAgCc28dnEAUAAA==
+  </data>
+ </layer>
+</map>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="22" height="22" tilewidth="32" tileheight="32">
+ <tileset name="collision" firstgid="1" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset name="hell" firstgid="2" tilewidth="32" tileheight="32">
+  <image source="../../tileset/ground/rock/hell.png" width="512" height="704"/>
+ </tileset>
+ <tileset name="fire" firstgid="354" tilewidth="32" tileheight="32">
+  <image source="../../tileset/ground/fire/fire.png" width="96" height="288"/>
+ </tileset>
+ <tileset name="trup" firstgid="381" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/corpse/skull_pale.png" width="32" height="32"/>
+ </tileset>
+ <tileset name="szkielet" firstgid="382" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/corpse/skeleton.png" width="64" height="64"/>
+ </tileset>
+ <tileset name="owca" firstgid="386" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/creature/sheep.png" width="32" height="32"/>
+ </tileset>
+ <tileset name="sheepfood" firstgid="387" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/item/sheepfood.png" width="32" height="32"/>
+ </tileset>
+ <tileset name="krzak" firstgid="388" tilewidth="32" tileheight="32">
+  <image source="../../tileset/plant/bush/various_small.png" width="96" height="96"/>
+ </tileset>
+ <tileset name="wnetrznosci1" firstgid="397" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/klan/wnetrznosci1.png" width="256" height="480"/>
+ </tileset>
+ <layer name="0_floor" width="22" height="22">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC4tmYGCIHsWjeBQPOyw/CNwwimmHDwPxIRqYuxmINw0C/41EDADzc0n2kAcAAA==
+  </data>
+ </layer>
+ <layer name="1_terrain" width="22" height="22">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC5vBwMAwgwCeyQAB04lQC8IVUNodiD1wYHRzd+BRC8KeSOaGM+AGy4GYH4jloeyVeNSCQCSR5pIKRs0dNXfUXPLMTWJkYEiG4hRG6pmbCjQrDYrTqWhuBtCsTCjOItJcEJhCwFxQ+bUCigmVY8juXYLD3BVAt60E4lUkuBHZXFzhsAFo3kYg3kRlc3cAzdsJxLsoMBdUt6QDcQaVcCYDpN4qh+IKKuFKKAYA3OeL65AHAAA=
+  </data>
+ </layer>
+ <layer name="2_object" width="22" height="22">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgIAxygTgPiPOJUIsOjmARuwPEx4C4FojrgLgeyifFjCtYxN4A8TU0MRD/LQ5zsZlBDrhAhJpnJJjXwMjA0MhImhsEgOoFgbiVRH34wFUk9jYs8t1Au3rQ7NMFYn3qOYGhHWq+LxD7k6GfC6ifm4gwwea/wQJA8dBOYry+A+L3SPwWRtxmEBtGuEALAb2gNAlK/1fxK6Mp4MEipgPER8kwC5bHQP6xIdIuZFAH1F9PRHjbQM0CuVOGFAdiAZTGMTUBvvKSGmUytcr1gQAAWEuWhZAHAAA=
+  </data>
+ </layer>
+ <layer name="3_roof" width="22" height="22">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgwA1uAfFtLPRtPHqIAa+A+DUW+jWF5g4JwAhEjPS1sgNoXyed7SQV/ALi3wNov80A2XsPiO8TqXagw4hewB2IPaDYk4rmhgNxLTQfRFLR3HYg7oDiTgrNGipxfGSQmDHcAACrb7g4kAcAAA==
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="22" height="22">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBSMglEwCkbBQAMAYvPNI5AHAAA=
+  </data>
+ </layer>
+ <layer name="objects" width="22" height="22">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYPCCZsaBdsHgAJSGA0g/rcJyNI5GwSigDgAAjQUAmZAHAAA=
+  </data>
+ </layer>
+ <layer name="collision" width="22" height="22">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC9WUWwoAIAgE9f6X7jeW3HwGCRKkjqKiioh+qihoY75oZ34ZmWJbzGoOT2+tGPZX7QHOMsr15j3tzOQ+ZOIj3Mh+sDl66u3ub6ZXkdtQYXdy9/hb3gzz1X1QeD0si2vZKrX+pAvp8sOjkAcAAA==
+  </data>
+ </layer>
+ <layer name="protection" width="22" height="22">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBSMglEwCkbBQAMAYvPNI5AHAAA=
+  </data>
+ </layer>
+</map>

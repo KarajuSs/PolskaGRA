@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="39" height="32" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="ground" tilewidth="32" tileheight="32">
+  <image source="../../tileset/ground/ground.png" width="96" height="352"/>
+ </tileset>
+ <tileset firstgid="34" name="stonecircle" tilewidth="32" tileheight="32">
+  <image source="../../tileset/ground/stonecircle.png" width="288" height="288"/>
+ </tileset>
+ <tileset firstgid="115" name="castle" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/castle.png" width="640" height="512"/>
+ </tileset>
+ <tileset firstgid="435" name="bluszcz" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/natura/bluszcz.png" width="96" height="64"/>
+ </tileset>
+ <tileset firstgid="441" name="green_paving" tilewidth="32" tileheight="32">
+  <image source="../../tileset/ground/green_paving.png" width="96" height="192"/>
+ </tileset>
+ <tileset firstgid="459" name="banners" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/banners/banners.png" width="64" height="96"/>
+ </tileset>
+ <tileset firstgid="465" name="statua" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/posagi/statua.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="469" name="brown_3_doors" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/door/brown_3_doors.png" width="160" height="96"/>
+ </tileset>
+ <tileset firstgid="484" name="large_front_on" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/sink/large_front_on.png" width="96" height="192"/>
+ </tileset>
+ <tileset firstgid="502" name="statua_z_mieczem" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/posagi/statua_z_mieczem.png" width="192" height="288"/>
+ </tileset>
+ <tileset firstgid="556" name="collision" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="557" name="straznicy" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/posagi/straznicy.png" width="352" height="96"/>
+ </tileset>
+ <tileset firstgid="590" name="iron_lamp" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/light/iron_lamp.png" width="32" height="96"/>
+ </tileset>
+ <tileset firstgid="593" name="flames" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/light/flames.png" width="192" height="32"/>
+ </tileset>
+ <tileset firstgid="599" name="weapon_banner" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/decoration/weapon_banner.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="600" name="pol_rycerze_jazda" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/creature/pol_rycerze_jazda.png" width="96" height="32"/>
+ </tileset>
+ <tileset firstgid="603" name="pol_rycerze" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/creature/pol_rycerze.png" width="256" height="32"/>
+ </tileset>
+ <layer name="0_floor" width="39" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3X3QmAMAxG0egibuKYDuEOnaPrSEEQSku/pOkf5uG+FEwPUhU9EfnJuzeia4KCI7a5d310LmOTdGauza0jmc1sK9nC3ki9bahL6utp4/qkttS+R6IaX2yT3AuuDW2l+1Zz3hDb358FiY87W+O7MOO7FzHWzGtpq5mlbYt9ZjNbyYakYWv1D2u2rx2ohQ3Zl2PTzGxjbaVS50pj7gPL/UdkgBMAAA==
+  </data>
+ </layer>
+ <layer name="1_terrain" width="39" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC92X3U4TQRTHd30FeAMlfPWCGMQYIBADBLwoiBAbo4agiSQ2pPACFOHaG1v0GiUB4QVA09Z38VvQC/Va/5POyOFwpjuzuxjgJL90e3Zmzi+bP5tSDIOgE2RA6ymhDRRAEQyAQRBV2QtHvy+BIlhm93nftl+qXnj0EbdbYMrBbZyd/QyUQJnd533bfnEGPCaY25yD2wQ5u4L1I/o6C96G9ftSX9pvqwdY/5C4PXJ0o2VzaOTmUufZrYa175hDNWzc/x9uavZFfF4C07rXC1oItN+mr6uO58d1U16d+My4jfnnd9nDL66byk63hxf16wvqWYzrVotAufUL571H/wPho+AwrN2iZnA39a5scWTk+NjgE874TPgiuGU9Zqh3NnVLUl+Zy77FzbW427wj0nNzdXOdQd1M3vYiUHkbF9wO0P9O+CG43Q7qeYuakeTvNCf0f6L/i/BbOGsmSPZ3GlVvsOYxPmejlx6pOTAIdk/QLY6fj1dSN+qXB9csa66CgqdXGm6qVG6V43Xhnnlf7Op8+1QabqaUH3+vZAO/Z3VSbhWLm+/vtrPktgry4BV6G+BO2JhJYZ6P282I8xXrWPcyOHxuy+AK6AErYf1/VUqXnlNI6JbXvW49h0Md1HMrgTIYAzfAc7DGGErZbVTP4VCHF2ATbIF74D7YBq8ZuZTd7uo5HOqwQ/Yv4HrRkl9zZkdCt3bdW7XMaeRgK5PJb7jeB0+ETNLKCLk1e02W0iqTyT/qi85gmcDzuaYz85Rg9pospVUmk02gWcijVCoz6wSzl2cprbLlgWdL+p0WJ0t/AaHY4sOAEwAA
+  </data>
+ </layer>
+ <layer name="2_object" width="39" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgYGDYMQgxqSCQibbyo2AUjIJRMJJA+GiZOGCAFRj2bEDMPgjjgBvoJh4g5h2EbhsFo2AUjIJRMApoDbYyQjA6HxnT0l5s9sD4O6AYnY+MaQGw2YPuBnS1hEAUI/mYWPdSA5wmYA4heVqCs1C764G4AQk3oskPBDgPtPsSEE8Gsqcg4akMEPHzA+g2ELiCw35c4qQAACKNbXGAEwAA
+  </data>
+ </layer>
+ <layer name="3_roof" width="39" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3OwQmAMBAF0b8p0zrsIaTCNKC2Ycxtg4IXYQPOg7mPBADAtzaTdtdh0Uejs/8kyVL0CQAAAN4sdm8W9aFZ5KvVVWJ3fq8BJdiOpIATAAA=
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="39" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3OIQoAIBQFwffP7qnVolmwCZYZ2L4JALzXKxm7Wb9PAADgvVb34LQAUhZwtYATAAA=
+  </data>
+ </layer>
+ <layer name="objects" width="39" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3XOwoAIAiA4eiUQQ+q+x+iPXQIQiz+bxRx8DEYAvCOGc/iwE+SsudDiWv5sJGF/pfLM6lCvcbcAROdWwPc2n8DfgUAHiw0GSLDgBMAAA==
+  </data>
+ </layer>
+ <layer name="collision" width="39" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2RWw4AERAExXnc/3ziAB7bY7y2KukfpKeQYgiJLE/hy7plToveGet+6z4ngJsGbhq4acz28uyz4vEHN7ybtc+761W3meCmgZsGbho1t5HsmovbP91GnHc53OhGzkkGPCyMbIATAAA=
+  </data>
+ </layer>
+ <layer name="protection" width="39" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3BMQEAAADCoPVPbQo/oAAAAACAlwEIvZz5gBMAAA==
+  </data>
+ </layer>
+</map>

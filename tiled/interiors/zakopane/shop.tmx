@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="16" height="21" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="carpets" tilewidth="32" tileheight="32" tilecount="8" columns="4">
+  <image source="../../tileset/furniture/carpet/carpets.png" width="128" height="64"/>
+ </tileset>
+ <tileset firstgid="9" name="int_green_purple" tilewidth="32" tileheight="32" tilecount="28" columns="4">
+  <image source="../../tileset/building/wall/int_green_purple.png" width="128" height="224"/>
+ </tileset>
+ <tileset firstgid="37" name="fireplace_2" tilewidth="32" tileheight="32" tilecount="9" columns="3">
+  <image source="../../tileset/building/decoration/fireplace_2.png" width="96" height="96"/>
+ </tileset>
+ <tileset firstgid="46" name="fire" tilewidth="32" tileheight="32" tilecount="27" columns="3">
+  <image source="../../tileset/ground/fire/fire.png" width="96" height="288"/>
+ </tileset>
+ <tileset firstgid="73" name="border" tilewidth="32" tileheight="32" tilecount="12" columns="3">
+  <image source="../../tileset/furniture/carpet/border.png" width="96" height="128"/>
+ </tileset>
+ <tileset firstgid="85" name="pool" tilewidth="32" tileheight="32" tilecount="9" columns="3">
+  <image source="../../tileset/building/decoration/pool.png" width="96" height="96"/>
+ </tileset>
+ <tileset firstgid="94" name="grey_long" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../../tileset/furniture/table/grey_long.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="98" name="green_purple_ns_ew" tilewidth="32" tileheight="32" tilecount="28" columns="4">
+  <image source="../../tileset/building/entrance/green_purple_ns_ew.png" width="128" height="224"/>
+ </tileset>
+ <tileset firstgid="126" name="weapons_rack" tilewidth="32" tileheight="32" tilecount="18" columns="9">
+  <image source="../../tileset/item/armor/weapons_rack.png" width="288" height="64"/>
+ </tileset>
+ <tileset firstgid="144" name="toolset" tilewidth="32" tileheight="32" tilecount="18" columns="9">
+  <image source="../../tileset/building/decoration/toolset.png" width="288" height="64"/>
+ </tileset>
+ <tileset firstgid="162" name="sword_rack" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../../tileset/item/armor/sword_rack.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="166" name="grey_pale" tilewidth="32" tileheight="32" tilecount="8" columns="2">
+  <image source="../../tileset/furniture/table/grey_pale.png" trans="ff00ff" width="64" height="128"/>
+ </tileset>
+ <tileset firstgid="174" name="brick_base" tilewidth="32" tileheight="32" tilecount="3" columns="3">
+  <image source="../../tileset/furniture/table/brick_base.png" trans="ff00ff" width="96" height="32"/>
+ </tileset>
+ <tileset firstgid="177" name="stick" tilewidth="32" tileheight="32" tilecount="2" columns="1">
+  <image source="../../tileset/furniture/other/stick.png" width="32" height="64"/>
+ </tileset>
+ <tileset firstgid="179" name="table_with_hob_pale" tilewidth="32" tileheight="32" tilecount="3" columns="3">
+  <image source="../../tileset/furniture/table/table_with_hob_pale.png" trans="ff00ff" width="96" height="32"/>
+ </tileset>
+ <tileset firstgid="182" name="armor" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../../tileset/item/armor/armor.png" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="186" name="collision" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="187" name="ubiory" tilewidth="32" tileheight="32" tilecount="64" columns="16">
+  <image source="../../tileset/pol/wyposazenie/ubiory.png" width="512" height="128"/>
+ </tileset>
+ <tileset firstgid="251" name="miecze" tilewidth="32" tileheight="32" tilecount="32" columns="8">
+  <image source="../../tileset/pol/wyposazenie/miecze.png" width="256" height="128"/>
+ </tileset>
+ <tileset firstgid="283" name="beczki" tilewidth="32" tileheight="32" tilecount="40" columns="8">
+  <image source="../../tileset/pol/wyposazenie/beczki.png" width="256" height="160"/>
+ </tileset>
+ <tileset firstgid="323" name="protection" tilewidth="32" tileheight="32" tilecount="2" columns="2">
+  <image source="../../tileset/logic/protection.png" width="64" height="32"/>
+ </tileset>
+ <layer name="0_floor" width="16" height="21">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NnYGBgH8WjeBSP4lFMMgYAm6Q4QEAFAAA=
+  </data>
+ </layer>
+ <layer name="1_terrain" width="16" height="21">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC9XOSQoCMRAF0OqlOIETbh1Ad7rTGzrjJRTE6RBewOEiXsCFv0gFQki66cSNHx5NuvhUFYioGKgEZahAN6cqNKTfJ5Wb8EXP3tCz+jx7Cc4M5rCAJWxldpe53efZDvYp+3Uejr4Z3r2CNWxkN+cp309GPyuu/gHOHidhxu5fU1wEZ5Ioee43+4NECe2PEiW0/4v7h5H3jyPvn0b0df6pfxS+fg06BrLeLnXpN6FlIcc/lzZ8AbN9JQhABQAA
+  </data>
+ </layer>
+ <layer name="2_object" width="16" height="21">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgwATcjBBMLhBmhGB08BuKRwH1gTEwvE2A2AZLuJtSEJcwoAY1Q54RgocqINf9dhT42Q4aN6OA9iAJiJOBOIVM/WlAnA7EGUSqBwDpS7tgQAUAAA==
+  </data>
+ </layer>
+ <layer name="3_roof" width="16" height="21">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgoD+4j0N8OxDvgLLrgLgeiBuAuBGI24B4JxDvx6F3GxAvAuLFRNh/gIA8yO4mIG4G4hao3SBwkAizKQE6jDS2AAgMGSF4FJAG6BE3o2DoAQDJs2RHQAUAAA==
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="16" height="21">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAX4gDjjQLtgFIyCUTBYAQC2A3FAQAUAAA==
+  </data>
+ </layer>
+ <layer name="objects" width="16" height="21">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBSMglFADgAAduqPIkAFAAA=
+  </data>
+ </layer>
+ <layer name="collision" width="16" height="21">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC9vFwMCwaxBgYgAh/djYtHALIT343EeMfnLsJ9VfpNhPTLiO6h8a+tHFhot+bHmNHhgA6CVkPEAFAAA=
+  </data>
+ </layer>
+ <layer name="protection" width="16" height="21">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC3NmZGBwHsWjeBSP4lFMMgYAZFHGgkAFAAA=
+  </data>
+ </layer>
+</map>

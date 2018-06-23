@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="15" height="15" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="../../tileset/building/castle.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/castle.png" width="640" height="512"/>
+ </tileset>
+ <tileset firstgid="321" name="../../tileset/ground/ground_2.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/ground/ground_2.png" trans="ffffff" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="325" name="../../tileset/furniture/light/iron_lamp.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/light/iron_lamp.png" trans="ff00ff" width="32" height="96"/>
+ </tileset>
+ <tileset firstgid="328" name="../../tileset/plant/indoor/flowering_plant.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/plant/indoor/flowering_plant.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="330" name="../../tileset/furniture/table/fancy_blue_red.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/table/fancy_blue_red.png" trans="ff00ff" width="128" height="64"/>
+ </tileset>
+ <tileset firstgid="338" name="../../tileset/item/documents/book.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/documents/book.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="342" name="../../tileset/item/statue/cross.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/statue/cross.png" trans="ff00ff" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="343" name="../../tileset/furniture/light/flames.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/light/flames.png" trans="ff00ff" width="192" height="32"/>
+ </tileset>
+ <tileset firstgid="349" name="../../tileset/logic/portal.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/portal.png" width="224" height="32"/>
+ </tileset>
+ <tileset firstgid="356" name="../../tileset/logic/collision.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="357" name="../../tileset/logic/protection.png" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/protection.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="359" name="kafelki_kamienne_zwykle" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/domki/podloga/kafelki_kamienne_zwykle.png" width="64" height="96"/>
+ </tileset>
+ <tileset firstgid="365" name="lawka_ciemna" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/wyposazenie/lawki_krzesla/lawka_ciemna.png" width="96" height="128"/>
+ </tileset>
+ <tileset firstgid="377" name="dywan_fiolet" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/domki/podloga/dywan_fiolet.png" width="96" height="96"/>
+ </tileset>
+ <tileset firstgid="386" name="fotele_niebieskie_zaslona" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/wyposazenie/fotele_niebieskie_zaslona.png" width="160" height="192"/>
+ </tileset>
+ <tileset firstgid="416" name="kamienny_podest" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/domki/podloga/kamienny_podest.png" width="192" height="96"/>
+ </tileset>
+ <tileset firstgid="434" name="panteonik" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/domki/panteonik.png" width="256" height="352"/>
+ </tileset>
+ <tileset firstgid="522" name="coffin" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/gothic/coffin.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="526" name="grave_statue_girl" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/gothic/grave_statue_girl.png" width="64" height="96"/>
+ </tileset>
+ <tileset firstgid="532" name="headstone_7" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/gothic/headstone_7.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="533" name="banners" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/banners/banners.png" width="64" height="96"/>
+ </tileset>
+ <tileset firstgid="539" name="urn_with_flowers" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/statue/urn_with_flowers.png" width="32" height="64"/>
+ </tileset>
+ <tileset firstgid="541" name="plants_potted_stone" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/statue/plants_potted_stone.png" width="96" height="64"/>
+ </tileset>
+ <tileset firstgid="547" name="floating_candle" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/light/floating_candle.png" width="128" height="128"/>
+ </tileset>
+ <layer name="0_floor" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC7vGwMCgwkg6vgTU9wqILRgxsSUWMWT8DKjvHxBnANnpjKTRfIwQvaTqS0fSmwmksxgR9HIsGFk+E6pXCIuZywnwM5D0opuJzV50t9HCv8TQuPxLbBxh8y8x9FD1bzoDdpwDtSMHjxoAtnTloYQDAAA=
+  </data>
+ </layer>
+ <layer name="1_terrain" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGPpgASMDw0IseBEjYb3LoGoWA+klQLwUyl9Bgt6VQHoVEK8mQ+96IL0BiDcSoVeIiYFBGIjXANWsxYLXMSLUjAL6gqtAfAULPgiV349D/jIQAwDcq40KhAMAAA==
+  </data>
+ </layer>
+ <layer name="2_object" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGLpAigmVr8CESuNSBwKKUDEuIM0NxIZQPoiGiSGrwwZ4gHK8UHkRJkyxwQpkmPDzkYESiX7Bp54Ue6kJBsq/xAIAfRmfNYQDAAA=
+  </data>
+ </layer>
+ <layer name="3_roof" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgoByIMZGvTgJNTJYJlcalDgTk0MR0oHxdJvzqKAV8QPP4CZiJS40AUEyQgF5i1Egz4ecjA3kS/Y9PPSn2UhMMlH/pAQCyhYqUhAMAAA==
+  </data>
+ </layer>
+ <layer name="objects" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBQMJAAA7Ly31YQDAAA=
+  </data>
+ </layer>
+ <layer name="collision" width="15" height="15" opacity="0.47">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC0thZGBIGSBMDkDWi24GMeLoatDdg42PrhefWwipIxVgcxul6nGFDzZzSHU3Pn2k2EsOGGj/4kvn+OQBanU7hYQDAAA=
+  </data>
+ </layer>
+ <layer name="protection" width="15" height="15" opacity="0.43">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC0tlZGBIHcWjeBQPGAYA3YTlIYQDAAA=
+  </data>
+ </layer>
+</map>

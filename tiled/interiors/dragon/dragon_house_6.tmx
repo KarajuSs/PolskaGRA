@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="17" height="13" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="int_wall_dark_red" tilewidth="32" tileheight="32" tilecount="16" columns="4">
+  <image source="../../tileset/building/wall/int_wall_dark_red.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="17" name="int_wall_dark_red_corners" tilewidth="32" tileheight="32" tilecount="16" columns="4">
+  <image source="../../tileset/building/wall/int_wall_dark_red_corners.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="33" name="dark_red_ns" tilewidth="32" tileheight="32" tilecount="12" columns="3">
+  <image source="../../tileset/building/entrance/dark_red_ns.png" width="96" height="128"/>
+ </tileset>
+ <tileset firstgid="45" name="collision" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="46" name="obrazy" tilewidth="32" tileheight="32" tilecount="32" columns="8">
+  <image source="../../tileset/pol/wyposazenie/obrazy.png" width="256" height="128"/>
+ </tileset>
+ <tileset firstgid="78" name="kafelki" tilewidth="32" tileheight="32" tilecount="36" columns="6">
+  <image source="../../tileset/pol/domki/podloga/kafelki_blyszczace.png" width="192" height="192"/>
+ </tileset>
+ <tileset firstgid="114" name="kafelki2" tilewidth="32" tileheight="32" tilecount="6" columns="3">
+  <image source="../../tileset/pol/domki/podloga/kafelki_blyszczace2.png" width="96" height="64"/>
+ </tileset>
+ <tileset firstgid="120" name="huge_animal" tilewidth="32" tileheight="32" tilecount="14" columns="14">
+  <image source="../../tileset/logic/creature/huge_animal.png" width="451" height="32"/>
+ </tileset>
+ <layer name="0_floor" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC8thYGDIIRGjA1L1U8sMdLOQxYqAuBiIS3DoQZfHZkYpEJcBcTkOM9DlaeWXwWLGUA/TwQIABEnrdnQDAAA=
+  </data>
+ </layer>
+ <layer name="1_terrain" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACxNkYGAQIgMLQ7EIEIsCsRgQs5OBxYFYBmoGGwN5gHvUDKxmSI6agWGGFBBz4cBKeOSkoWbIArEcHqyKR04eiBWAGAD+Gw6adAMAAA==
+  </data>
+ </layer>
+ <layer name="2_object" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgQAADIDaEsp2A2BnKdgFiVyjbAYgdGXADCyC2hLK9gNgbyvYBYl8o2wOIPfGYMQpGAb2BIpRWpsAMFSitRkAdAPOi0nh0AwAA
+  </data>
+ </layer>
+ <layer name="3_roof" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBTQEwAAX9FJ7XQDAAA=
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBTQEwAAX9FJ7XQDAAA=
+  </data>
+ </layer>
+ <layer name="objects" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAVDBVSRKD4KBicAAMrDq/V0AwAA
+  </data>
+ </layer>
+ <layer name="collision" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC9NlYGDQHUSYHDBqxqgZpJiBL+3RI40DAKC4fW10AwAA
+  </data>
+ </layer>
+ <layer name="protection" width="17" height="13">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBTQEwAAX9FJ7XQDAAA=
+  </data>
+ </layer>
+</map>
