@@ -36,7 +36,7 @@ public class FoodMill extends Item {
 	private String output;
 	/** Items that do not require a "container" */
 	private final List<String> containerNotRequired = new ArrayList<String>() {{
-		add("scroll eraser");
+		add("zwój czyszczący");
 	}};
 
     public FoodMill(final String name, final String clazz,
@@ -52,17 +52,17 @@ public class FoodMill extends Item {
 
     /** Sets up the input, output and container based on item name */
     private void init() {
-    	if ("sugar mill".equals(getName())) {
-    		input = "sugar cane";
-    		container = "empty sack";
-    		output = "sugar";
-    	} else if ("scroll eraser".equals(getName())) {
-    		input = "marked scroll";
-    		output = "empty scroll";
+    	if ("młynek do cukru".equals(getName())) {
+    		input = "trzcina cukrowa";
+    		container = "pusty worek";
+    		output = "cukier";
+    	} else if ("zwój czyszczący".equals(getName())) {
+    		input = "zwój zapisany";
+    		output = "niezapisany zwój";
     	} else {
-    		input = "apple";
-    		container = "bottle";
-    		output = "apple juice";
+    		input = "jabłko";
+    		container = "buteleczka";
+    		output = "sok jabłkowy";
     	}
     }
 
@@ -79,7 +79,7 @@ public class FoodMill extends Item {
     	
     	/* is the mill equipped at all? */
     	if (!isContained()) {
-    		user.sendPrivateText("You should be carrying the " + tool + " in order to use it.");
+    		user.sendPrivateText("Powinieneś mieć " + tool + ", aby móc go użyć.");
     		return false;
     	}
 
@@ -87,7 +87,7 @@ public class FoodMill extends Item {
 
     	/* is it in a hand? */
     	if (!slotName.endsWith("hand")) {
-    		user.sendPrivateText("You should hold the " + tool + " in either hand in order to use it.");
+    		user.sendPrivateText("Powinieneś trzymać " + tool + " w drugiej ręce, aby móc go użyć.");
     		return false;
     	}
 
@@ -97,7 +97,7 @@ public class FoodMill extends Item {
 
     	/* is anything in the other hand? */
     	if (first == null) {
-    		user.sendPrivateText("Your other hand looks empty.");
+    		user.sendPrivateText("Twoja druga ręka wygląda na pustą.");
     		return false;
     	}
 
@@ -106,12 +106,12 @@ public class FoodMill extends Item {
     	 * and have the correct container in his inventory
     	 */
     	if (!input.equals(first.get("name"))) {
-    		user.sendPrivateText("You need to have at least " + Grammar.a_noun(input) + " in your other hand");
+    		user.sendPrivateText("Musisz mieć conajmniej " + Grammar.a_noun(input) + " w drugiej dłoni");
     		return false;
     	}
 
     	if (containerRequired && !user.isEquipped(container)) {
-    		user.sendPrivateText("You don't have " + Grammar.a_noun(container) + " with you");
+    		user.sendPrivateText("Nie masz " + Grammar.a_noun(container) + " ze sobą");
     		return false;
     	}
 
