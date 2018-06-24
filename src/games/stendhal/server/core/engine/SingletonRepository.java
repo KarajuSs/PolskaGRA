@@ -30,8 +30,8 @@ import games.stendhal.server.entity.player.GagManager;
 import games.stendhal.server.entity.player.Jail;
 import games.stendhal.server.entity.slot.BankAccessorManager;
 import games.stendhal.server.maps.athor.ship.AthorFerry;
-//import games.stendhal.server.maps.pol.krakow.ship.KrakowFerry;
-//import games.stendhal.server.maps.pol.gdansk.ship.GdanskFerry;
+import games.stendhal.server.maps.krakow.ship.KrakowFerry;
+import games.stendhal.server.maps.gdansk.ship.GdanskFerry;
 import marauroa.server.db.TransactionPool;
 
 
@@ -171,17 +171,17 @@ public class SingletonRepository {
 
 	/**
 	 * @return the KrakowFerry instance
-	 
+	 */
 	public static KrakowFerry getKrakowFerry() {
 		return KrakowFerry.get();
-	}*/
+	}
 
 	/**
 	 * @return the GdanskFerry instance
-	 
+	 */
 	public static GdanskFerry getGdanskFerry() {
 		return GdanskFerry.get();
-	}*/
+	}
 
 	/**
 	 * @return the AchievementNotifier instance
