@@ -10,15 +10,13 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 package games.stendhal.server.maps.zakopane.playroom;
 
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.item.Item;
 
-/**
- * Creates the Ados Deathmatch Game.
- */
 public class PlaySet {
 	private StendhalRPZone zone;
 
