@@ -190,43 +190,43 @@
   <image source="../../tileset/logic/creature/small_animal.png" width="160" height="32"/>
  </tileset>
  <tileset firstgid="2012" name="trawa" tilewidth="32" tileheight="32" tilecount="15" columns="3">
-  <image source="E:/Program Files/Serwery/Builders/pol-0.43/tiled/tileset/pol/podloze/snow_grass.png" width="96" height="160"/>
+  <image source="../../tileset/pol/podloze/snow_grass.png" width="96" height="160"/>
  </tileset>
  <tileset firstgid="2027" name="snieg" tilewidth="32" tileheight="32" tilecount="36" columns="6">
-  <image source="E:/Program Files/Serwery/Builders/pol-0.43/tiled/tileset/pol/podloze/snow_ground.png" width="192" height="192"/>
+  <image source="../../tileset/pol/podloze/snow_ground.png" width="192" height="192"/>
  </tileset>
  <tileset firstgid="2063" name="domek" tilewidth="32" tileheight="32" tilecount="160" columns="8">
-  <image source="E:/Program Files/Serwery/Builders/pol-0.43/tiled/tileset/pol/domki/house_snowy_wooden.png" width="256" height="640"/>
+  <image source="../../tileset/pol/domki/house_snowy_wooden.png" width="256" height="640"/>
  </tileset>
  <tileset firstgid="2223" name="schodki" tilewidth="32" tileheight="32" tilecount="9" columns="3">
-  <image source="E:/Program Files/Serwery/Builders/pol-0.43/tiled/tileset/building/stairs/wooden_plain.png" width="96" height="96"/>
+  <image source="../../tileset/building/stairs/wooden_plain.png" width="96" height="96"/>
  </tileset>
  <tileset firstgid="2232" name="slady" tilewidth="32" tileheight="32" tilecount="14" columns="7">
-  <image source="E:/Program Files/Serwery/Builders/pol-0.43/tiled/tileset/pol/podloze/snow_tracks.png" width="224" height="64"/>
+  <image source="../../tileset/pol/podloze/snow_tracks.png" width="224" height="64"/>
  </tileset>
  <tileset firstgid="2246" name="drzwi" tilewidth="32" tileheight="32" tilecount="1" columns="1">
-  <image source="E:/Program Files/Serwery/Builders/pol-0.43/tiled/tileset/building/door/closed.png" width="32" height="32"/>
+  <image source="../../tileset/building/door/closed.png" width="32" height="32"/>
  </tileset>
  <tileset firstgid="2247" name="banery" tilewidth="32" tileheight="32" tilecount="20" columns="1">
-  <image source="E:/Program Files/Serwery/Builders/pol-0.43/tiled/tileset/pol/wyposazenie/banner.png" width="32" height="640"/>
+  <image source="../../tileset/pol/wyposazenie/banner.png" width="32" height="640"/>
  </tileset>
  <tileset firstgid="2267" name="latarnia_blaszczysko" tilewidth="32" tileheight="32" tilecount="25" columns="5">
-  <image source="E:/Program Files/Serwery/Builders/pol-0.43/tiled/tileset/pol/oswietlenie/latarnia_blaszczysko.png" width="160" height="160"/>
+  <image source="../../tileset/pol/oswietlenie/latarnia_blaszczysko.png" width="160" height="160"/>
  </tileset>
  <tileset firstgid="2292" name="krowie_placki" tilewidth="32" tileheight="32" tilecount="1" columns="1">
-  <image source="E:/Program Files/Serwery/Builders/pol-0.43/tiled/tileset/pol/podloze/snow_blue_paving_2.png" width="32" height="32"/>
+  <image source="../../tileset/pol/podloze/snow_blue_paving_2.png" width="32" height="32"/>
  </tileset>
  <tileset firstgid="2293" name="kamyki" tilewidth="32" tileheight="32" tilecount="1" columns="1">
-  <image source="E:/Program Files/Serwery/Builders/pol-0.43/tiled/tileset/pol/podloze/snow_cobbled_paving.png" width="32" height="32"/>
+  <image source="../../tileset/pol/podloze/snow_cobbled_paving.png" width="32" height="32"/>
  </tileset>
  <tileset firstgid="2294" name="las" tilewidth="32" tileheight="32" tilecount="49" columns="7">
-  <image source="E:/Program Files/Serwery/Builders/pol-0.43/tiled/tileset/pol/natura/drzewa/snow_tree_swierk_las_.png" width="224" height="224"/>
+  <image source="../../tileset/pol/natura/drzewa/snow_tree_swierk_las_.png" width="224" height="224"/>
  </tileset>
  <tileset firstgid="2343" name="choin zim wielk" tilewidth="32" tileheight="32" tilecount="54" columns="6">
-  <image source="E:/Program Files/Serwery/Builders/pol-0.43/tiled/tileset/pol/natura/drzewa/snow_tree_swierk_big.png" width="192" height="288"/>
+  <image source="../../tileset/pol/natura/drzewa/snow_tree_swierk_big.png" width="192" height="288"/>
  </tileset>
  <tileset firstgid="2397" name="snow on dead" tilewidth="32" tileheight="32" tilecount="10" columns="2">
-  <image source="E:/Program Files/Serwery/Builders/pol-0.43/tiled/tileset/pol/natura/drzewa/snow_on_dead_tree.png" width="64" height="160"/>
+  <image source="../../tileset/pol/natura/drzewa/snow_on_dead_tree.png" width="64" height="160"/>
  </tileset>
  <layer name="0_floor" width="128" height="128">
   <data encoding="base64" compression="gzip">
