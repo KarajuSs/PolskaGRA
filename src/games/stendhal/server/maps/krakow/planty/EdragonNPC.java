@@ -9,19 +9,15 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-package games.stendhal.server.maps.pol.krakow.planty;
+package games.stendhal.server.maps.krakow.planty;
+
+import java.util.Map;
 
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
-import games.stendhal.server.core.pathfinder.FixedPath;
-import games.stendhal.server.core.pathfinder.Node;
-import games.stendhal.server.entity.npc.action.SayTextAction;
 import games.stendhal.server.entity.npc.SpeakerNPC;
-
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import games.stendhal.server.entity.npc.action.SayTextAction;
 
 /*
  * Food and drink seller,  Inside Semos Tavern - Level 0 (ground floor)

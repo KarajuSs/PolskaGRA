@@ -9,28 +9,25 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-package games.stendhal.server.maps.pol.krakow.sukiennice;
+package games.stendhal.server.maps.krakow.sukiennice;
 
-import games.stendhal.common.Direction;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.Entity;
-import games.stendhal.server.entity.npc.ChatAction;
 import games.stendhal.server.entity.npc.ChatCondition;
 import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
-import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.action.SayTextAction;
 import games.stendhal.server.entity.npc.condition.AndCondition;
 import games.stendhal.server.entity.player.Player;
-
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 
 public class PankracyNPC implements ZoneConfigurator {
 	/**
@@ -64,6 +61,7 @@ public class PankracyNPC implements ZoneConfigurator {
 					ConversationPhrases.GREETING_MESSAGES,
 					new AndCondition(
 						new ChatCondition() {
+							@Override
 							public boolean fire(final Player player, final Sentence sentence, final Entity entity) {
 								return !player.isGhost();
 							}

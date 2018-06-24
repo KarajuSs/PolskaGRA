@@ -9,7 +9,10 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-package games.stendhal.server.maps.pol.gdansk.ship;
+package games.stendhal.server.maps.gdansk.ship;
+
+import java.util.Arrays;
+import java.util.Map;
 
 import games.stendhal.common.Direction;
 import games.stendhal.common.parser.Sentence;
@@ -22,11 +25,7 @@ import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.player.Player;
-import games.stendhal.server.maps.pol.gdansk.ship.GdanskFerry;
-import games.stendhal.server.maps.pol.gdansk.ship.GdanskFerry.Status;
-
-import java.util.Arrays;
-import java.util.Map;
+import games.stendhal.server.maps.gdansk.ship.GdanskFerry.Status;
 
 /**
  * Factory for an NPC who brings players from the docks to Gdansk Ferry in a

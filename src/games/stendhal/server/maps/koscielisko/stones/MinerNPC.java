@@ -10,7 +10,7 @@
  *                                                                         *
  ***************************************************************************/
 // Based on ../games/stendhal/server/maps/ados/fishermans_hut/FishermanNPC.java
-package games.stendhal.server.maps.pol.koscielisko.stones;
+package games.stendhal.server.maps.koscielisko.stones;
 
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;

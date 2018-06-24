@@ -10,24 +10,17 @@
  *                                                                         *
  ***************************************************************************/
 // Base on ../games/stendhal/server/maps/ados/barracks/BuyerNPC.java
-package games.stendhal.server.maps.pol.dragon_knights;
-
-import games.stendhal.server.core.config.ZoneConfigurator;
-import games.stendhal.server.core.engine.SingletonRepository;
-import games.stendhal.server.core.engine.StendhalRPZone;
-import games.stendhal.server.core.pathfinder.FixedPath;
-import games.stendhal.server.core.pathfinder.Node;
-import games.stendhal.server.entity.npc.ConversationPhrases;
-import games.stendhal.server.entity.npc.ShopList;
-import games.stendhal.server.entity.npc.SpeakerNPC;
-import games.stendhal.server.entity.npc.behaviour.adder.BuyerAdder;
-import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
-import games.stendhal.server.entity.npc.behaviour.impl.BuyerBehaviour;
-import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
+package games.stendhal.server.maps.dragon_knights;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
+import games.stendhal.server.core.config.ZoneConfigurator;
+import games.stendhal.server.core.engine.StendhalRPZone;
+import games.stendhal.server.core.pathfinder.FixedPath;
+import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.npc.SpeakerNPC;
 
 /**
  * Builds an NPC to buy previously un bought armor.
@@ -35,8 +28,6 @@ import java.util.Map;
  * @author kymara
  */
 public class GiowaniNPC implements ZoneConfigurator {
-	private final ShopList shops = SingletonRepository.getShopList();
-
 	/**
 	 * Configure a zone.
 	 *

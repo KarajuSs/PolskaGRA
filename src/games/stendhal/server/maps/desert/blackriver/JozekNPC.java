@@ -10,7 +10,7 @@
  *                                                                         *
  ***************************************************************************/
 // Based on ../games/stendhal/server/maps/ados/abandonedkeep/OrcKillGiantDwarfNPC.java
-package games.stendhal.server.maps.pol.desert.blackriver;
+package games.stendhal.server.maps.desert.blackriver;
 
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;

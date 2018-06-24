@@ -9,18 +9,17 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-package games.stendhal.server.maps.pol.gdansk.blacksmith;
-
-import games.stendhal.server.core.config.ZoneConfigurator;
-import games.stendhal.server.core.engine.SingletonRepository;
-import games.stendhal.server.core.engine.StendhalRPZone;
-import games.stendhal.server.core.pathfinder.FixedPath;
-import games.stendhal.server.core.pathfinder.Node;
-import games.stendhal.server.entity.npc.SpeakerNPC;
+package games.stendhal.server.maps.gdansk.blacksmith;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
+import games.stendhal.server.core.config.ZoneConfigurator;
+import games.stendhal.server.core.engine.StendhalRPZone;
+import games.stendhal.server.core.pathfinder.FixedPath;
+import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.npc.SpeakerNPC;
 
 public class BlackSmithNPC implements ZoneConfigurator {
 

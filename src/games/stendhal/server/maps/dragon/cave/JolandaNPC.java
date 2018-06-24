@@ -10,7 +10,7 @@
  *                                                                         *
  ***************************************************************************/
 // Based on ../games/stendhal/server/maps/ados/entwives/EntwifeNPC.java
-package games.stendhal.server.maps.pol.dragon.cave;
+package games.stendhal.server.maps.dragon.cave;
 
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;

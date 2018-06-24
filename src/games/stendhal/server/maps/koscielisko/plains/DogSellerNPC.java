@@ -10,7 +10,7 @@
  *                                                                         *
  ***************************************************************************/
 // Based on ../games/stendhal/server/maps/ados/felinashouse/CatSellerNPC.java
-package games.stendhal.server.maps.pol.koscielisko.plains;
+package games.stendhal.server.maps.koscielisko.plains;
 
 import games.stendhal.common.grammar.ItemParserResult;
 import games.stendhal.server.entity.Entity;

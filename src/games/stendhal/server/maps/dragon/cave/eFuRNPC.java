@@ -9,19 +9,17 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-package games.stendhal.server.maps.pol.dragon.cave;
+package games.stendhal.server.maps.dragon.cave;
 
-import games.stendhal.common.Direction;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
-import games.stendhal.server.entity.npc.SpeakerNPCFactory;
-
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 
 
 public class eFuRNPC implements ZoneConfigurator {
