@@ -700,3 +700,155 @@ data/sprites/weather/rain_light.png *@15 0:1:2:3:4:5:6:7:8:9:10:11:12:13:14:15
 
 # Weather: wave
 data/sprites/weather/wave.png *@125 0:1:2:3:4:5:6:6:6:6:5:4:3:2:1:0:1:2:3:4:5:6:5:4:3:2:1::0:0
+
+# Flagi
+tileset/pol/wyposazenie/flagi.png	0	0:1:2
+tileset/pol/wyposazenie/flagi.png	1	0:1:2
+tileset/pol/wyposazenie/flagi.png	2	0:1:2
+tileset/pol/wyposazenie/flagi.png	9	9:10:11
+tileset/pol/wyposazenie/flagi.png	10	9:10:11
+tileset/pol/wyposazenie/flagi.png	11	9:10:11
+tileset/pol/wyposazenie/flagi.png	18	18:19:20
+tileset/pol/wyposazenie/flagi.png	19	18:19:20
+tileset/pol/wyposazenie/flagi.png	20	18:19:20
+tileset/pol/wyposazenie/flagi.png	27	27:28:29
+tileset/pol/wyposazenie/flagi.png	28	27:28:29
+tileset/pol/wyposazenie/flagi.png	29	27:28:29
+
+# Oświetlenie
+tileset/pol/oswietlenie/latarnia_blaszczek.png	1@100	1:2:3:4:3:2:1
+tileset/pol/oswietlenie/latarnia_blaszczek.png	2@100	1:2:3:4:3:2:3:4:3:4:3:2:1
+
+tileset/pol/klan/drzwi_swiecace.png	0	0:4@300
+tileset/pol/klan/drzwi_swiecace.png	1	1:5@300
+tileset/pol/klan/drzwi_swiecace.png	2	2:6@300
+tileset/pol/klan/drzwi_swiecace.png	3	3:7@300
+tileset/pol/klan/drzwi_swiecace.png	4	0:4@300
+tileset/pol/klan/drzwi_swiecace.png	5	1:5@300
+tileset/pol/klan/drzwi_swiecace.png	6	2:6@300
+tileset/pol/klan/drzwi_swiecace.png	7	3:7@300
+
+tileset/pol/wyposazenie/kula_czarna.png	0	0:1
+tileset/pol/wyposazenie/kula_czarna.png	1	1:0
+
+tileset/pol/klan/sciany_oczy.png	0	0:1@3500
+tileset/pol/klan/sciany_oczy.png	4	4:5@3500
+tileset/pol/klan/sciany_oczy.png	1	0:1@3500
+tileset/pol/klan/sciany_oczy.png	5	4:5@3500
+tileset/pol/klan/sciany_oczy.png	2	2:6@3500
+tileset/pol/klan/sciany_oczy.png	3	3:7@3500
+tileset/pol/klan/sciany_oczy.png	6	2:6@3500
+tileset/pol/klan/sciany_oczy.png	7	3:7@3500
+
+tileset/pol/klan/sciany_oko.png	0	0:4@3500
+tileset/pol/klan/sciany_oko.png	1	1:5@3500
+tileset/pol/klan/sciany_oko.png	2	2:6@3500
+tileset/pol/klan/sciany_oko.png	3	3:7@3500
+tileset/pol/klan/sciany_oko.png	4	4:0@3500
+tileset/pol/klan/sciany_oko.png	5	5:1@3500
+tileset/pol/klan/sciany_oko.png	6	6:2@3500
+tileset/pol/klan/sciany_oko.png	7	7:3@3500
+
+tileset/pol/oswietlenie/swieczka.png	0	0:1:2:3:2:1
+tileset/pol/oswietlenie/swieczka.png	1	0:1:3:0:1:3
+tileset/pol/oswietlenie/swieczka.png	2	0:3:0:3:1:3
+tileset/pol/oswietlenie/swieczka.png	3	3:2:1:2:3:1
+
+tileset/pol/choinka_banki.png	0	0:1:2:1
+tileset/pol/choinka_banki.png	2	2:1:0:1
+tileset/pol/choinka_banki.png	4	4:5:6:5
+tileset/pol/choinka_banki.png	6	6:5:4:5
+tileset/pol/choinka_banki.png	8	8:9:10:9
+tileset/pol/choinka_banki.png	10	10:9:8:9
+tileset/pol/choinka_banki.png	12	12:13:14:13
+tileset/pol/choinka_banki.png	14	14:13:12:13
+
+tileset/pol/oswietlenie/flames_half.png	0	0:2:4:6:8:10
+tileset/pol/oswietlenie/flames_half.png	2	0:2:4:6:8:10
+tileset/pol/oswietlenie/flames_half.png	4	0:2:4:6:8:10
+tileset/pol/oswietlenie/flames_half.png	6	0:2:4:6:8:10
+tileset/pol/oswietlenie/flames_half.png	8	0:2:4:6:8:10
+tileset/pol/oswietlenie/flames_half.png	10	0:2:4:6:8:10
+tileset/pol/oswietlenie/flames_half.png	1	1:3:5:7:9:11
+tileset/pol/oswietlenie/flames_half.png	3	1:3:5:7:9:11
+tileset/pol/oswietlenie/flames_half.png	5	1:3:5:7:9:11
+tileset/pol/oswietlenie/flames_half.png	7	1:3:5:7:9:11
+tileset/pol/oswietlenie/flames_half.png	9	1:3:5:7:9:11
+tileset/pol/oswietlenie/flames_half.png	11	1:3:5:7:9:11
+
+tileset/pol/podloze/kolce.png	0	0:0:1:2:3:3:3:3:3:3:2:1
+
+tileset/pol/oswietlenie/latarnia.png	1	1:1:1:2:3:2:1:1:1:2:1:1
+tileset/pol/oswietlenie/latarnia.png	2	1:1:2:3:2:1:1:1:2:1:1:1
+tileset/pol/oswietlenie/latarnia.png	3	1:2:3:2:1:1:1:2:1:1:1:1
+
+tileset/pol/oswietlenie/latarnia_kulista.png	3	3:5:7:5:3:0:0:0
+tileset/pol/oswietlenie/latarnia_kulista.png	5	3:5:7:5:3:0:0:0
+tileset/pol/oswietlenie/latarnia_kulista.png	7	3:5:7:5:3:0:0:0
+tileset/pol/oswietlenie/latarnia_kulista.png	4	4:4:6:4:4:4:4:4
+tileset/pol/oswietlenie/latarnia_kulista.png	6	4:4:6:4:4:4:4:4
+
+tileset/pol/oswietlenie/latarnia_swiatlo.png	0	0:0:0:0:0:0:0:0:1:2:1:0:0:0:0:0:1:2:1
+
+tileset/pol/oswietlenie/ognisko.png	0	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/ognisko.png	1	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/ognisko.png	2	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/ognisko.png	3	0:1:2:3:1:2:3:2:3
+
+tileset/pol/oswietlenie/ognisko_half.png	0	0:2:4:6:2:4:6:4:6
+tileset/pol/oswietlenie/ognisko_half.png	2	0:2:4:6:2:4:6:4:6
+tileset/pol/oswietlenie/ognisko_half.png	4	0:2:4:6:2:4:6:4:6
+tileset/pol/oswietlenie/ognisko_half.png	6	0:2:4:6:2:4:6:4:6
+tileset/pol/oswietlenie/ognisko_half.png	1	1:3:5:7:3:5:7:5:7
+tileset/pol/oswietlenie/ognisko_half.png	3	1:3:5:7:3:5:7:5:7
+tileset/pol/oswietlenie/ognisko_half.png	5	1:3:5:7:3:5:7:5:7
+tileset/pol/oswietlenie/ognisko_half.png	7	1:3:5:7:3:5:7:5:7
+
+tileset/pol/oswietlenie/ognisty_kamien1.png	0	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/ognisty_kamien1.png	1	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/ognisty_kamien1.png	2	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/ognisty_kamien1.png	3	0:1:2:3:1:2:3:2:3
+
+tileset/pol/oswietlenie/plomien_big.png	0	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/plomien_big.png	1	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/plomien_big.png	2	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/plomien_big.png	3	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/plomien_big.png	4	4:5:6:7:5:6:7:6:7
+tileset/pol/oswietlenie/plomien_big.png	5	4:5:6:7:5:6:7:6:7
+tileset/pol/oswietlenie/plomien_big.png	6	4:5:6:7:5:6:7:6:7
+tileset/pol/oswietlenie/plomien_big.png	7	4:5:6:7:5:6:7:6:7
+
+tileset/pol/oswietlenie/plomien_small.png	0	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/plomien_small.png	1	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/plomien_small.png	2	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/plomien_small.png	3	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/plomien_small.png	4	4:5:6:7:5:6:7:6:7
+tileset/pol/oswietlenie/plomien_small.png	5	4:5:6:7:5:6:7:6:7
+tileset/pol/oswietlenie/plomien_small.png	6	4:5:6:7:5:6:7:6:7
+tileset/pol/oswietlenie/plomien_small.png	7	4:5:6:7:5:6:7:6:7
+
+tileset/pol/oswietlenie/plomien_torch.png	0	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/plomien_torch.png	1	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/plomien_torch.png	2	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/plomien_torch.png	3	0:1:2:3:1:2:3:2:3
+
+tileset/pol/oswietlenie/plomyk.png	0	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/plomyk.png	1	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/plomyk.png	2	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/plomyk.png	3	0:1:2:3:1:2:3:2:3
+
+tileset/pol/oswietlenie/swieczka_left.png	0	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/swieczka_left.png	1	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/swieczka_left.png	2	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/swieczka_left.png	3	0:1:2:3:1:2:3:2:3
+
+tileset/pol/oswietlenie/swieczka_right.png	0	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/swieczka_right.png	1	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/swieczka_right.png	2	0:1:2:3:1:2:3:2:3
+tileset/pol/oswietlenie/swieczka_right.png	3	0:1:2:3:1:2:3:2:3
+
+# Tort
+tileset/pol/tort_swieczki.png	0	0:4:8:12:4:8:12:8:12
+tileset/pol/tort_swieczki.png	2	2:6:10:14:6:10:14:10:14
+tileset/pol/tort_swieczki.png	1	1:5:9:13:5:9:13:9:13
+tileset/pol/tort_swieczki.png	3	3:7:11:15:7:11:15:11:15
