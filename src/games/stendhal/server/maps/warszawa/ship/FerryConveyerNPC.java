@@ -9,7 +9,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-package games.stendhal.server.maps.pol.warszawa.ship;
+package games.stendhal.server.maps.warszawa.ship;
 
 import games.stendhal.common.Direction;
 import games.stendhal.common.parser.Sentence;
@@ -22,8 +22,8 @@ import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.player.Player;
-import games.stendhal.server.maps.pol.krakow.ship.KrakowFerry;
-import games.stendhal.server.maps.pol.krakow.ship.KrakowFerry.Status;
+import games.stendhal.server.maps.krakow.ship.KrakowFerry;
+import games.stendhal.server.maps.krakow.ship.KrakowFerry.Status;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -123,6 +123,7 @@ public class FerryConveyerNPC implements ZoneConfigurator {
 		};
 
 		new KrakowFerry.FerryListener() {
+			@Override
 			public void onNewFerryState(final Status status) {
 				ferrystate = status;
 				switch (status) {

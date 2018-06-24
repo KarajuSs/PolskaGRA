@@ -91,6 +91,7 @@ public class ProzbaWielkoluda extends AbstractQuest {
 				ConversationStates.QUEST_OFFERED, 
 				null,
 				new ChatAction() {
+					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 						if (!player.hasQuest(QUEST_SLOT) || player.getQuest(QUEST_SLOT).equals("rejected")) {
 							raiser.say("Za dużo tu stworów biega, ciągle mi przeszkadzają w interesach. Czy mógłbyś mi pomóc i pozbyć się ich?");
@@ -156,6 +157,7 @@ public class ProzbaWielkoluda extends AbstractQuest {
 				ConversationStates.ATTENDING, 
 				null,
 				new ChatAction() {
+					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 						raiser.say("Miałeś zabić samodzielnie lawinę kamienną i tych okropnych pokutników. Ruszaj się na co czekasz. Pamiętaj samodzielnie!!!");
 				}
@@ -168,6 +170,7 @@ public class ProzbaWielkoluda extends AbstractQuest {
 				ConversationStates.ATTENDING, 
 				null,
 				new ChatAction() {
+					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 						raiser.say("Spisałeś się wyśmienicie! twoje męstwo i odwagę będą potomni wspominać!");
 						final Item pokutniki = SingletonRepository.getEntityManager()

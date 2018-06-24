@@ -11,9 +11,14 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.engine.SingletonRepository;
-import games.stendhal.server.entity.RPEntity;
 import games.stendhal.server.entity.item.Item;
 import games.stendhal.server.entity.npc.ChatAction;
 import games.stendhal.server.entity.npc.ConversationPhrases;
@@ -21,21 +26,10 @@ import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.action.SetQuestAndModifyKarmaAction;
-import games.stendhal.server.entity.npc.action.SayTimeRemainingAction;
-import games.stendhal.server.entity.npc.condition.AndCondition;
-import games.stendhal.server.entity.npc.condition.NotCondition;
-import games.stendhal.server.entity.npc.condition.PlayerHasItemWithHimCondition;
 import games.stendhal.server.entity.npc.condition.QuestCompletedCondition;
 import games.stendhal.server.entity.npc.condition.QuestInStateCondition;
 import games.stendhal.server.entity.npc.condition.QuestNotStartedCondition;
 import games.stendhal.server.entity.player.Player;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-
-import org.apache.log4j.Logger;
 
 public class Ratownik extends AbstractQuest {
 
@@ -88,6 +82,7 @@ public class Ratownik extends AbstractQuest {
 			new QuestInStateCondition(QUEST_SLOT, "start"),
 			ConversationStates.ATTENDING, null,
 			new ChatAction() {
+				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					raiser.say("Szukasz Juhasa? Ostatnio go nie widziałem. Może szedł drugą stroną doliny. Wiem, że to ulubiony szlak #Brzezdoma. Spytaj jego.");
 					player.addKarma(10);
@@ -109,6 +104,7 @@ public class Ratownik extends AbstractQuest {
 			new QuestInStateCondition(QUEST_SLOT, "krok_brzezdom"),
 			ConversationStates.ATTENDING, null,
 			new ChatAction() {
+				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					raiser.say("Przykro mi ale tędy nie szedł. Poradzę ci coś, idź ty do gospody i spytaj #Jagny."
 					+ " Kto jak kto ale ona powinna coś wiedzieć. Normalnie jak ktoś idzie w góry to zostawia wiadomość, gdzie idzie i którą trasą.");
@@ -131,6 +127,7 @@ public class Ratownik extends AbstractQuest {
 			new QuestInStateCondition(QUEST_SLOT, "krok_jagna"),
 			ConversationStates.ATTENDING, null,
 			new ChatAction() {
+				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					raiser.say("Był tu ladaco jeden jakieś dwa dni temu. Z tego co wiem miał odwiedzić #Wielkoluda. ");
 					player.addKarma(10);
@@ -152,6 +149,7 @@ public class Ratownik extends AbstractQuest {
 			new QuestInStateCondition(QUEST_SLOT, "krok_wielkolud"),
 			ConversationStates.ATTENDING, null,
 			new ChatAction() {
+				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					raiser.say("Tak był tu. Ucięliśmy sobie pogawędkę o tym i tamtym, gdy nagle zaatakowały nas te przeklęte pokutniki. Odniósł drobne obrażenia i udał się do #szpitala w Zakopanem.");
 					player.addKarma(20);
@@ -173,6 +171,7 @@ public class Ratownik extends AbstractQuest {
 			new QuestInStateCondition(QUEST_SLOT, "krok_szpital"),
 			ConversationStates.ATTENDING, null,
 			new ChatAction() {
+				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					raiser.say("Przykro mi nie widziałem go ale spytaj #zielarki.");
 					player.setQuest(QUEST_SLOT, "krok_zielarka");
@@ -192,6 +191,7 @@ public class Ratownik extends AbstractQuest {
 			new QuestInStateCondition(QUEST_SLOT, "krok_zielarka"),
 			ConversationStates.ATTENDING, null,
 			new ChatAction() {
+				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					raiser.say("Poczekaj, hm... Tak koło 9 godziny przyszedł, miał lekkie obrażenia. Podobno go i Wielkoluda pokutniki napadły."
 						+ " Opatrzyłam mu rany i miał lecieć do #gaździny  #Maryśki.");
@@ -214,6 +214,7 @@ public class Ratownik extends AbstractQuest {
 			new QuestInStateCondition(QUEST_SLOT, "krok_maryska"),
 			ConversationStates.ATTENDING, null,
 			new ChatAction() {
+				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					raiser.say("Oczywiście, że był powsinogą jeden. Wpadł jak piorun z jasnego nieba i wypadł nawet dwóch zdań z nim nie zamieniłam. Potrzebował coś od mojego męża bacy #Zbyszka.");
 					player.addKarma(10);
@@ -235,6 +236,7 @@ public class Ratownik extends AbstractQuest {
 			new QuestInStateCondition(QUEST_SLOT, "krok_zbyszek"),
 			ConversationStates.ATTENDING, null,
 			new ChatAction() {
+				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					raiser.say("Nie dalej jak trzy godziny temu poszedł sobie. Mówił coś, że ma u #Gerwazego coś do załatwienia.");
 					player.addKarma(10);
@@ -256,6 +258,7 @@ public class Ratownik extends AbstractQuest {
 			new QuestInStateCondition(QUEST_SLOT, "krok_gerwazy"),
 			ConversationStates.ATTENDING, null,
 			new ChatAction() {
+				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					raiser.say("A i owszem był u mnie. Napełniłem mu cztery bukłaki wodą, pogadaliśmy sobie chwilę i #poszedł sobie. ");
 					player.addKarma(10);
@@ -282,6 +285,7 @@ public class Ratownik extends AbstractQuest {
 			new QuestInStateCondition(QUEST_SLOT, "krok_fryderyk"),
 			ConversationStates.ATTENDING, null,
 			new ChatAction() {
+				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					raiser.say("A jakże był tu nie tak #dawno.");
 					player.addKarma(10);
@@ -309,6 +313,7 @@ public class Ratownik extends AbstractQuest {
 			new QuestInStateCondition(QUEST_SLOT, "krok_juhas"),
 			ConversationStates.ATTENDING, null,
 			new ChatAction() {
+				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					raiser.say("Mówisz akcję ratowniczą zarządził Mariusz. Idź i powiedz mu, że jestem #niedysponowany."
 								+ " Jak widzisz trochę wypiłem. A po pijanemu nie wolno w góry wybierać się.");
@@ -326,6 +331,7 @@ public class Ratownik extends AbstractQuest {
 			new QuestInStateCondition(QUEST_SLOT, "krok_mariusz"),
 			ConversationStates.ATTENDING, null,
 			new ChatAction() {
+				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					raiser.say("No tak jak wypił to absolutnie nie wolno iść mu z nami na akcję. Niech pomyślę jak cię wynagrodzić?"
 								+ " Trzymaj ten pazur. Dostałem go od przyjaciela, mi się do niczego nie przyda a ty podobno zbierasz takie cacka."

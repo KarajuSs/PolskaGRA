@@ -13,6 +13,11 @@
 
 package games.stendhal.server.maps.quests;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 import games.stendhal.common.parser.ConversationParser;
 import games.stendhal.common.parser.Expression;
 import games.stendhal.common.parser.JokerExprMatcher;
@@ -28,14 +33,7 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.condition.NotCondition;
 import games.stendhal.server.entity.npc.condition.TriggerInListCondition;
 import games.stendhal.server.entity.player.Player;
-import games.stendhal.server.maps.Region;
 import games.stendhal.server.util.TimeUtil;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
 import marauroa.common.game.RPObjectNotFoundException;
 
 /**

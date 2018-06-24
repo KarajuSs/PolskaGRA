@@ -13,11 +13,14 @@
  
 package games.stendhal.server.maps.quests;
 
-import games.stendhal.common.MathHelper;
-import games.stendhal.common.grammar.Grammar;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
 import games.stendhal.common.parser.Sentence;
-import games.stendhal.server.core.engine.SingletonRepository;
-import games.stendhal.server.entity.item.Item;
 import games.stendhal.server.entity.npc.ChatAction;
 import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
@@ -25,30 +28,16 @@ import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.action.DropItemAction;
 import games.stendhal.server.entity.npc.action.EquipItemAction;
-import games.stendhal.server.entity.npc.action.DropRecordedItemAction;
 import games.stendhal.server.entity.npc.action.IncreaseKarmaAction;
 import games.stendhal.server.entity.npc.action.IncreaseXPAction;
 import games.stendhal.server.entity.npc.action.MultipleActions;
 import games.stendhal.server.entity.npc.action.SetQuestAction;
+import games.stendhal.server.entity.npc.action.SetQuestAndModifyKarmaAction;
 import games.stendhal.server.entity.npc.condition.AndCondition;
 import games.stendhal.server.entity.npc.condition.NotCondition;
-import games.stendhal.server.entity.npc.condition.QuestInStateCondition;
-import games.stendhal.server.entity.npc.condition.GreetingMatchesNameCondition;
-import games.stendhal.server.entity.npc.action.SetQuestAndModifyKarmaAction;
 import games.stendhal.server.entity.npc.condition.PlayerHasItemWithHimCondition;
-import games.stendhal.server.entity.npc.condition.PlayerHasRecordedItemWithHimCondition;
-import games.stendhal.server.entity.npc.condition.QuestStartedCondition;
-import games.stendhal.server.entity.npc.condition.QuestStateStartsWithCondition;
-import games.stendhal.server.entity.npc.condition.QuestCompletedCondition;
-import games.stendhal.server.entity.npc.condition.QuestNotCompletedCondition;
+import games.stendhal.server.entity.npc.condition.QuestInStateCondition;
 import games.stendhal.server.entity.player.Player;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.LinkedList;
-
-import org.apache.log4j.Logger;
 
 public class BramaZrc extends AbstractQuest {
 

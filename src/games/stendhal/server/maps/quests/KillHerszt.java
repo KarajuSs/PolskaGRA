@@ -12,10 +12,13 @@
 // Based on KillDhohrNuggetcutter.
 package games.stendhal.server.maps.quests;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+
 import games.stendhal.common.MathHelper;
 import games.stendhal.common.parser.Sentence;
-import games.stendhal.server.core.engine.SingletonRepository;
-import games.stendhal.server.entity.item.Item;
 import games.stendhal.server.entity.npc.ChatAction;
 import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
@@ -35,12 +38,6 @@ import games.stendhal.server.entity.npc.condition.QuestStateStartsWithCondition;
 import games.stendhal.server.entity.npc.condition.TimePassedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.util.TimeUtil;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-
 import marauroa.common.Pair;
 
 /**

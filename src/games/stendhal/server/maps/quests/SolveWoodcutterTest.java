@@ -11,26 +11,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import games.stendhal.common.Direction;
-import games.stendhal.common.NotificationType;
-import games.stendhal.common.Rand;
-import games.stendhal.common.parser.ConversationParser;
-import games.stendhal.common.parser.Sentence;
-import games.stendhal.common.parser.SimilarExprMatcher;
-import games.stendhal.server.core.engine.SingletonRepository;
-import games.stendhal.server.core.engine.StendhalRPZone;
-import games.stendhal.server.entity.item.Item;
-import games.stendhal.server.entity.npc.ChatAction;
-import games.stendhal.server.entity.npc.ConversationPhrases;
-import games.stendhal.server.entity.npc.ConversationStates;
-import games.stendhal.server.entity.npc.EventRaiser;
-import games.stendhal.server.entity.npc.SpeakerNPC;
-import games.stendhal.server.entity.npc.action.SetQuestAndModifyKarmaAction;
-import games.stendhal.server.entity.npc.condition.QuestActiveCondition;
-import games.stendhal.server.entity.npc.condition.QuestNotStartedCondition;
-import games.stendhal.server.entity.npc.condition.QuestStartedCondition;
-import games.stendhal.server.entity.player.Player;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -47,6 +27,23 @@ import javax.xml.parsers.SAXParserFactory;
 import org.apache.log4j.Logger;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
+
+import games.stendhal.common.Rand;
+import games.stendhal.common.parser.ConversationParser;
+import games.stendhal.common.parser.Sentence;
+import games.stendhal.common.parser.SimilarExprMatcher;
+import games.stendhal.server.core.engine.SingletonRepository;
+import games.stendhal.server.entity.item.Item;
+import games.stendhal.server.entity.npc.ChatAction;
+import games.stendhal.server.entity.npc.ConversationPhrases;
+import games.stendhal.server.entity.npc.ConversationStates;
+import games.stendhal.server.entity.npc.EventRaiser;
+import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.action.SetQuestAndModifyKarmaAction;
+import games.stendhal.server.entity.npc.condition.QuestActiveCondition;
+import games.stendhal.server.entity.npc.condition.QuestNotStartedCondition;
+import games.stendhal.server.entity.npc.condition.QuestStartedCondition;
+import games.stendhal.server.entity.player.Player;
 
 /**
  * QUEST: Quest to solve a test on woodcutter
