@@ -342,7 +342,7 @@
 			<atk value="5"/>
 			<rate value="1"/>
 			<lifesteal value="0.05"/>
-			<minlevel value="400"/>
+			<min_level value="400"/>
 		</attributes>
 		<weight value="0.2"/>
 		<value value="1000000"/>
@@ -893,7 +893,7 @@
 			<atk value="70"/>
 			<def value="6"/>
 			<rate value="6"/>
-			<minlevel value="500"/>
+			<min_level value="500"/>
 		</attributes>
 		<weight value="0.2"/>
 		<value value="5400"/>

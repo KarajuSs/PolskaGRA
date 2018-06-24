@@ -39,10 +39,10 @@
 	<group uri="items/necklaces.xml"/>
 	<group uri="items/wand.xml"/>
 	<group uri="items/magia.xml"/>
-	<group uri="items/monety.xml"/>
 	<group uri="items/animationrings.xml"/>
 	
-	<!-- 
+	<!-- DISABLED ITEMS
+	<group uri="items/monety.xml"/>
 	<group uri="items/capturetheflag.xml"/>
 	-->
 	

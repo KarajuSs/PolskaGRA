@@ -28,7 +28,6 @@
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
 			<quantity value="1"/>
-			<minlevel value="100"/>
 		</attributes>
 		<weight value="0.01"/>
 		<value value="100"/>
@@ -49,7 +48,6 @@
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
 			<quantity value="1"/>
-			<minlevel value="200"/>
 		</attributes>
 		<weight value="0.01"/>
 		<value value="10000"/>
