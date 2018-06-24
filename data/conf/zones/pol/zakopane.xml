@@ -122,7 +122,13 @@
 				<parameter name="volume">5</parameter>
 			</implementation>
 		</entity>
-
+		
+		<portal x="61" y="73" ref="hostel_entrance_1">
+			<destination zone="int_zakopane_hostel" ref="hostel_1_exit"/>
+		</portal>
+		<portal x="65" y="74" ref="tavern_entrance">
+			<destination zone="int_zakopane_tavern" ref="tavern_exit"/>
+		</portal>
 	</zone>
 
 	<!-- zakopane_w -->
@@ -213,20 +219,8 @@
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
 		</portal>
 		
-		<portal x="105" y="24" ref="exit1">
-			<destination zone="int_semos_guard_house" ref="zakopane_exit"/>
-		</portal>
-		
-		<portal x="106" y="24" ref="exit2">
-			<destination zone="int_semos_guard_house" ref="zakopane_exit"/>
-		</portal>
-		
-		<portal x="107" y="24" ref="exit3">
-			<destination zone="int_semos_guard_house" ref="zakopane_exit"/>
-		</portal>
-
-		<portal x="71" y="106" ref="church_entrance_1">
-			<destination zone="int_zakopane_church" ref="church_2_exit"/>
+		<portal x="76" y="118" ref="townhall_entrance">
+			<destination zone="int_zakopane_townhall" ref="townhall_exit"/>
 		</portal>
 		
 		<portal x="93" y="65" ref="chapel_entrance_1">
@@ -245,6 +239,17 @@
 			</implementation>
 		</portal>
 		
+		<portal x="105" y="24" ref="exit1">
+			<destination zone="int_semos_guard_house" ref="zakopane_exit"/>
+		</portal>
+		
+		<portal x="106" y="24" ref="exit2">
+			<destination zone="int_semos_guard_house" ref="zakopane_exit"/>
+		</portal>
+		
+		<portal x="107" y="24" ref="exit3">
+			<destination zone="int_semos_guard_house" ref="zakopane_exit"/>
+		</portal>
 	</zone>
 
 	<!-- zakopane_e -->
@@ -397,7 +402,20 @@
 				<parameter name="volume">30</parameter>
 			</implementation>
 		</entity>
-
+		
+		<portal x="97" y="48" ref="church_entrance_1">
+			<destination zone="int_zakopane_church" ref="church_1_exit"/>
+		</portal>
+		<portal x="98" y="48" ref="church_entrance_2">
+			<destination zone="int_zakopane_church" ref="church_2_exit"/>
+		</portal>
+		
+		<portal x="78" y="56" ref="stable_entrance_1">
+			<destination zone="int_zakopane_stable" ref="stable_1_exit"/>
+		</portal>
+		<portal x="81" y="55" ref="stable_entrance_2">
+			<destination zone="int_zakopane_stable" ref="stable_2_exit"/>
+		</portal>
 	</zone>
 
 	<!-- zakopane_s -->
@@ -615,21 +633,6 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		</portal>
 		
 		<!-- po zmianach -->
-		<portal x="107" y="66" ref="hostel_entrance_1">
-			<destination zone="int_zakopane_hostel" ref="hostel_1_exit"/>
-		</portal>
-		<portal x="107" y="67" ref="hostel_entrance_2">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
-		</portal>
-		<portal x="111" y="67" ref="tavern_entrance">
-			<destination zone="int_zakopane_tavern" ref="tavern_exit"/>
-		</portal>
-		<portal x="59" y="19" ref="townhall_entrance">
-			<destination zone="int_zakopane_townhall" ref="townhall_2_exit"/>
-		</portal>
-		<portal x="60" y="19" ref="townhall_entrance_2">
-			<destination zone="int_zakopane_townhall" ref="townhall_2_exit"/>
-		</portal>
 		<portal x="51" y="49" ref="hospital_entrance_1">
 			<destination zone="int_zakopane_hospital" ref="hospital_1_exit"/>
 		</portal>
@@ -639,15 +642,6 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		<portal x="52" y="50" ref="hospital_entrance_3">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
 		</portal>
-		<portal x="58" y="68" ref="stable_entrance_1">
-			<destination zone="int_zakopane_stable" ref="stable_1_exit"/>
-		</portal>
-		<portal x="61" y="67" ref="stable_entrance_2">
-			<destination zone="int_zakopane_stable" ref="stable_2_exit"/>
-		</portal>
-		<portal x="83" y="30" ref="bakery_entrance">
-			<destination zone="int_zakopane_bakery" ref="entrance_bakery"/>
-		</portal>
 		<portal x="92" y="72" ref="house_200_entrance">
 			<destination zone="int_zakopane_seller_house" ref="house_200_exit"/>
 		</portal>
@@ -655,7 +649,6 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		<portal x="102" y="42" ref="bank_entrace_1">
 			<destination zone="int_zakopane_bank_0" ref="bank_exit_1"/>
 		</portal>
-		
 		<portal x="103" y="42" ref="bank_entrace_2">
 			<destination zone="int_zakopane_bank_0" ref="bank_exit_2"/>
 		</portal>
@@ -690,7 +683,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
 			</implementation>
 		</portal>
-		<portal x="100" y="26" ref="house_205_entrance">
+		<portal x="84" y="11" ref="house_205_entrance">
 			<destination zone="int_zakopane_house_205" ref="house_205_exit"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
 				<parameter name="doorId">zakopane house 205</parameter>
@@ -796,6 +789,10 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		
 		<portal x="48" y="23" ref="underground_1_enter">
 			<destination zone="-1_zakopane_underground" ref="underground_1_exit"/>
+		</portal>
+		
+		<portal x="45" y="41" ref="bakery_entrance">
+			<destination zone="int_zakopane_bakery" ref="entrance_bakery"/>
 		</portal>
 		
 		<portal x="54" y="58" ref="mill_entrance">
