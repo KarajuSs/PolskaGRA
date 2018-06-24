@@ -13,7 +13,6 @@ package games.stendhal.client.gui.login;
 
 import java.awt.Frame;
 import java.awt.GridLayout;
-//import java.awt.Toolkit;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,7 +21,6 @@ import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-//import java.util.Locale;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -37,9 +35,6 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import javax.swing.text.AbstractDocument;
-//import javax.swing.text.AttributeSet;
-//import javax.swing.text.BadLocationException;
-//import javax.swing.text.PlainDocument;
 
 import org.apache.log4j.Logger;
 
@@ -78,12 +73,12 @@ public class CreateAccountDialog extends JDialog {
 	/** Server port input field. */
 	private JTextField serverPortField;
 	/** Random key */
-	private JTextField randomkeyField;
+	//private JTextField randomkeyField;
 
 	/** The client used for login. */
 	private StendhalClient client;
 	/** Descriptions of error conditions. */
-	private String badEmailTitle, badEmailReason, badPasswordReason, badRandomKey;
+	private String badEmailTitle, badEmailReason, badPasswordReason/**, badRandomKey*/;
 
 	/**
 	 * Create an CreateAccountDialog for a parent window, and specified client.
@@ -142,8 +137,8 @@ public class CreateAccountDialog extends JDialog {
 		JLabel passwordretypeLabel = new JLabel("Powtórz hasło");
 		passwordretypeField = new JPasswordField();
 		
-		JLabel randomkeyLabel = new JLabel("Twój klucz (od 6 do 12 znaków)");
-		randomkeyField = new JTextField();
+		//JLabel randomkeyLabel = new JLabel("Twój klucz (od 6 do 12 znaków)");
+		//randomkeyField = new JTextField();
 
 		JLabel emailLabel = new JLabel("Adres e-mail (opcjonalnie)");
 		emailField = new JTextField();
@@ -194,8 +189,8 @@ public class CreateAccountDialog extends JDialog {
 		grid.add(passwordretypeField);
 		
 		// row 5
-		grid.add(randomkeyLabel);
-		grid.add(randomkeyField);
+		//grid.add(randomkeyLabel);
+		//grid.add(randomkeyField);
 
 		// row 6
 		grid.add(emailLabel);
@@ -441,6 +436,7 @@ public class CreateAccountDialog extends JDialog {
 			}
 		}
 		
+		/**
 		// Validator randomKey
 		final String randomkey = new String(randomkeyField.getText());
 		final boolean valKey = validateRandomKey(randomkeyField.getText(), randomkey);
@@ -455,7 +451,7 @@ public class CreateAccountDialog extends JDialog {
 			} else {
 				return false;
 			}
-		}
+		}*/
 
 		//
 		// Check the email
@@ -602,7 +598,7 @@ public class CreateAccountDialog extends JDialog {
 		return true;
 	}
 	
-	boolean validateRandomKey(final String randomkey, final String password) {
+	/**boolean validateRandomKey(final String randomkey, final String password) {
 		if (randomkey.length() >= 6 && randomkey.length() <= 12) {
 
 			boolean allNumbers = true;
@@ -677,7 +673,7 @@ public class CreateAccountDialog extends JDialog {
 		}
 
 		return true;
-	}
+	}*/
 
 	/**
 	 * A document that can contain only lower case characters.
