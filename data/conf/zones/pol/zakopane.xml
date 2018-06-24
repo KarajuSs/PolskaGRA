@@ -11,7 +11,7 @@
 	<zone name="0_zakopane_nw" level="0" x="513184" y="18432" file="Level 0/zakopane/zakopane_nw.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
-			<parameter name="weather">varying</parameter>
+			<parameter name="weather">varying(temperature=+1,rain_heavy=+1)</parameter>
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
@@ -41,7 +41,7 @@
 	<zone name="0_zakopane_n" level="0" x="513312" y="18432" file="Level 0/zakopane/zakopane_n.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
-			<parameter name="weather">snow</parameter>
+			<parameter name="weather">varying(temperature=-1,rain=+1)</parameter>
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
@@ -79,7 +79,7 @@
 	<zone name="0_zakopane_ne" level="0" x="513440" y="18432" file="Level 0/zakopane/zakopane_ne.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
-			<parameter name="weather">snow</parameter>
+			<parameter name="weather">varying(temperature=-1)</parameter>
 		</attributes>
 		
 		<configurator class-name="games.stendhal.server.maps.zakopane.gorasmoka.AddBalloonListener"/>
@@ -135,7 +135,7 @@
 	<zone name="0_zakopane_w" level="0" x="513184" y="18560" file="Level 0/zakopane/zakopane_w.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
-			<parameter name="weather">snow</parameter>
+			<parameter name="weather">varying(temperature=-1)</parameter>
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
@@ -176,7 +176,7 @@
 	<zone name="0_zakopane_c" level="0" x="513312" y="18560" file="Level 0/zakopane/zakopane_c.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
-			<parameter name="weather">snow</parameter>
+			<parameter name="weather">varying(temperature=-2,snow=+1)</parameter>
 		<!-- <parameter name="file" condition="stendhal.christmas">Level 0/zakopane/zakopane_c_xmas.tmx</parameter> -->
 		</attributes>
 		
@@ -256,7 +256,7 @@
 	<zone name="0_zakopane_e" level="0" x="513440" y="18560" file="Level 0/zakopane/zakopane_e.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
-			<parameter name="weather">snow</parameter>
+			<parameter name="weather">varying(temperature=-1)</parameter>
 		</attributes>
 		
 		<configurator class-name="games.stendhal.server.maps.zakopane.city.GazdaJedrzejNPC"/>
@@ -343,7 +343,7 @@
 	<zone name="0_zakopane_sw" level="0" x="513184" y="18688" file="Level 0/zakopane/zakopane_sw.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
-			<parameter name="weather">snow</parameter>
+			<parameter name="weather">varying(temperature=-2)</parameter>
 		</attributes>
 		
 		<entity x="1" y="1">
@@ -422,7 +422,7 @@
 	<zone name="0_zakopane_s" level="0" x="513312" y="18688" file="Level 0/zakopane/zakopane_s.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
-			<parameter name="weather">snow</parameter>
+			<parameter name="weather">varying(temperature=-2,snow_heavy=+1)</parameter>
 		<!-- <parameter name="file" condition="stendhal.christmas">Level 0/zakopane/zakopane_s_xmas.tmx</parameter> -->
 		</attributes>
 		
@@ -767,7 +767,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 	<zone name="0_zakopane_se" level="0" x="513440" y="18688" file="Level 0/zakopane/zakopane_se.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
-			<parameter name="weather">snow</parameter>
+			<parameter name="weather">varying(temperature=-2,snow_heavy=+1)</parameter>
 		</attributes>
 		
 		<entity x="54" y="58">
