@@ -610,6 +610,7 @@ public class Item extends PassiveEntity implements TurnListener, EquipListener,
 	/**
 	 * Override in SlotActivatedItem sub-class.
 	 */
+	@SuppressWarnings("unused")
 	public void initializeActiveSlotsList(final List<String> slotList) {
 		// Do nothing
 	}
@@ -617,6 +618,7 @@ public class Item extends PassiveEntity implements TurnListener, EquipListener,
 	/**
 	 * Override in StatusResistantItem sub-class.
 	 */
+	@SuppressWarnings("unused")
 	public void initializeStatusResistancesList(Map<StatusType,
 			Double> resistanceList) {
 		// Do nothing
@@ -654,7 +656,19 @@ public class Item extends PassiveEntity implements TurnListener, EquipListener,
 	 * 		Set true if the item should expire normally, false otherwise.
 	 */
 	public void onPutOnGround(final boolean expire) {
-		if (expire) {
+		if (getName().equals("figura fioletowa") || getName().equals("figura zielona")
+				|| getName().equals("damka fioletowa") || getName().equals("damka zielona")
+				|| getName().equals("pionek czerwony") || getName().equals("pionek niebieski")
+				|| getName().equals("pionek zielony") || getName().equals("pionek żółty")
+				|| getName().equals("kostka") || getName().equals("kółko")
+				|| getName().equals("krzyżyk") || getName().equals("biały pionek")
+				|| getName().equals("biała wieża") || getName().equals("biały skoczek")
+				|| getName().equals("biały goniec") || getName().equals("biały hetman")
+				|| getName().equals("biały król") || getName().equals("czarny pionek")
+				|| getName().equals("czarna wieża") || getName().equals("czarny skoczek")
+				|| getName().equals("czarny goniec") || getName().equals("czarny hetman")
+				|| getName().equals("czarny król")) {
+		} else if (expire) {
 			SingletonRepository.getTurnNotifier().notifyInSeconds(DEGRADATION_TIMEOUT, this);
 		}
 	}
