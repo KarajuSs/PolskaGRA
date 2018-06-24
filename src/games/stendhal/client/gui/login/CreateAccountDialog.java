@@ -63,7 +63,7 @@ import marauroa.common.net.InvalidVersionException;
  */
 public class CreateAccountDialog extends JDialog {
 	/** Logger instance. */
-	private static final Logger LOGGER = Logger.getLogger(CreateAccountDialog.class);
+	private static final Logger logger = Logger.getLogger(CreateAccountDialog.class);
 
 	/** User name input field. */
 	private JTextField usernameField;
@@ -77,11 +77,13 @@ public class CreateAccountDialog extends JDialog {
 	private JTextField serverField;
 	/** Server port input field. */
 	private JTextField serverPortField;
+	/** Random key */
+	private JTextField randomkeyField;
 
 	/** The client used for login. */
 	private StendhalClient client;
 	/** Descriptions of error conditions. */
-	private String badEmailTitle, badEmailReason, badPasswordReason;
+	private String badEmailTitle, badEmailReason, badPasswordReason, badRandomKey;
 
 	/**
 	 * Create an CreateAccountDialog for a parent window, and specified client.
@@ -139,6 +141,9 @@ public class CreateAccountDialog extends JDialog {
 
 		JLabel passwordretypeLabel = new JLabel("Powtórz hasło");
 		passwordretypeField = new JPasswordField();
+		
+		JLabel randomkeyLabel = new JLabel("Twój klucz (od 6 do 12 znaków)");
+		randomkeyField = new JTextField();
 
 		JLabel emailLabel = new JLabel("Adres e-mail (opcjonalnie)");
 		emailField = new JTextField();
@@ -187,8 +192,12 @@ public class CreateAccountDialog extends JDialog {
 		// row 4
 		grid.add(passwordretypeLabel);
 		grid.add(passwordretypeField);
-
+		
 		// row 5
+		grid.add(randomkeyLabel);
+		grid.add(randomkeyField);
+
+		// row 6
 		grid.add(emailLabel);
 		grid.add(emailField);
 
@@ -314,7 +323,7 @@ public class CreateAccountDialog extends JDialog {
 							"Nie można się połączyć z serwerem w celu utworzenia konta. Serwer może nie działać, a jeśli korzystasz z innego serwera " +
 							"to sprawdź czy poprawnie wpisałeś nazwę i numer portu.");
 
-					LOGGER.error(ex, ex);
+					logger.error(ex, ex);
 
 					return;
 				}
@@ -431,6 +440,22 @@ public class CreateAccountDialog extends JDialog {
 				return false;
 			}
 		}
+		
+		// Validator randomKey
+		final String randomkey = new String(randomkeyField.getText());
+		final boolean valKey = validateRandomKey(randomkeyField.getText(), randomkey);
+		if (!valKey) {
+			if (badRandomKey != null) {
+				final int i = JOptionPane.showOptionDialog(owner, badRandomKey,
+						"Niewałaściwy klucz", JOptionPane.YES_NO_OPTION,
+						JOptionPane.WARNING_MESSAGE, null, null, 1);
+				if (i == JOptionPane.NO_OPTION) {
+					return false;
+				}
+			} else {
+				return false;
+			}
+		}
 
 		//
 		// Check the email
@@ -479,7 +504,7 @@ public class CreateAccountDialog extends JDialog {
 	 */
 	private void debug(final String text) {
 		if (client == null) {
-			LOGGER.debug(text);
+			logger.debug(text);
 		}
 	}
 
@@ -569,7 +594,84 @@ public class CreateAccountDialog extends JDialog {
 			if (isVisible()) {
 				JOptionPane.showMessageDialog(getOwner(), text);
 			} else {
-				LOGGER.warn(text);
+				logger.warn(text);
+			}
+			return false;
+		}
+
+		return true;
+	}
+	
+	boolean validateRandomKey(final String randomkey, final String password) {
+		if (randomkey.length() >= 6 && randomkey.length() <= 12) {
+
+			boolean allNumbers = true;
+			try {
+				Integer.parseInt(randomkey);
+			} catch (final NumberFormatException e) {
+				allNumbers = false;
+			}
+			if (!allNumbers) {
+				badRandomKey = "W twoim kluczu muszą występować liczby!.\n"
+						+ " Czy chcesz użyć tego klucza?";
+			}
+			boolean hasPassword = false;
+			if (randomkey.contains(password)) {
+				hasPassword = true;
+			}
+			if (!hasPassword) {
+				debug("Checking if key contains a derivative of the password, trimming from the back...");
+				final int minPassLength = 3;
+				for (int i = 1; i < password.length(); i++) {
+					final String subpass = password.substring(0, password.length()
+							- i);
+					debug("\tsprawdzam for \"" + subpass + "\"...");
+					if (subpass.length() <= minPassLength) {
+						break;
+					}
+
+					if (randomkey.contains(subpass)) {
+						hasPassword = true;
+						debug("Klucz zawiera Twoje hasło!");
+						break;
+					}
+				}
+				if (!hasPassword) {
+					debug("Checking if key contains a derivative of the password, trimming from the front...");
+					for (int i = 0; i < password.length(); i++) {
+						final String subpass = password.substring(i);
+						debug("\tsprawdzam for \"" + subpass + "\"...");
+						if (subpass.length() <= minPassLength) {
+							break;
+						}
+						if (randomkey.contains(subpass)) {
+							hasPassword = true;
+							debug("Klucz zawiera Twoje hasło!");
+							break;
+						}
+					}
+				}
+			}
+			if (hasPassword) {
+				badRandomKey = "W kluczu występuję Twoje hasło. To jest kiepskie zabezpieczenie konta.\n"
+						+ " Jesteś pewien, że chcesz tego?";
+				return false;
+			}
+
+		} else if (randomkey.length() > 6) {
+			final String text = "Klucz, który wprowadziłeś jest zbyt krótki, musi mieć conajmniej 6 znaków.";
+			if (isVisible()) {
+				JOptionPane.showMessageDialog(getOwner(), text);
+			} else {
+				logger.warn(text);
+			}
+			return false;
+		} else {
+			final String text = "Klucz, który wprowadziłeś jest zbyt długi, musi mieć mniej niż 13 znaków.";
+			if (isVisible()) {
+				JOptionPane.showMessageDialog(getOwner(), text);
+			} else {
+				logger.warn(text);
 			}
 			return false;
 		}
