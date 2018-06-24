@@ -17,25 +17,29 @@ package games.stendhal.server.maps;
  *
  */
 public final class Region {
-	public static final String ADOS_CITY = "Ados City";
-	public static final String ADOS_SURROUNDS = "Ados Surrounds";
-	public static final String AMAZON_ISLAND = "Amazon Island";
-	public static final String ATHOR_ISLAND = "Athor Island";
-	public static final String SEMOS_CITY = "Semos City";
-	public static final String SEMOS_SURROUNDS = "Semos Surrounds";
-	public static final String SEMOS_MINES = "Semos Mines";
-	public static final String SEMOS_DUNGEONS = "Semos Dungeons";
-	public static final String SEMOS_YETI_CAVE = "Semos Yeti Cave";
-	public static final String FADO_CITY = "Fado City";
-	public static final String FADO_CAVES = "Fado Caves";
-	public static final String NALWOR_CITY = "Nalwor City";
+	public static final String ADOS_CITY = "Miasto Ados";
+	public static final String ADOS_SURROUNDS = "Okolice Ados";
+	public static final String AMAZON_ISLAND = "Wyspa Amazon";
+	public static final String ATHOR_ISLAND = "Wyspa Athor";
+	public static final String SEMOS_CITY = "Miasto Semos";
+	public static final String SEMOS_SURROUNDS = "Okolice Semos";
+	public static final String SEMOS_MINES = "Kopalnie Semos";
+	public static final String SEMOS_DUNGEONS = "Podziemia Semos";
+	public static final String SEMOS_YETI_CAVE = "Jaskinia Yeti w Semos";
+	public static final String FADO_CITY = "Miasto Fado";
+	public static final String FADO_CAVES = "Jaskinie Fado";
+	public static final String NALWOR_CITY = "Miasto Nalwor";
 	public static final String KIRDNEH = "Kirdneh";
 	public static final String KALAVAN = "Kalavan";
 	public static final String KOTOCH = "Kotoch";
 	public static final String ORRIL = "Or'ril";
-	public static final String ORRIL_DUNGEONS = "Or'ril Dungeons";
-	public static final String ORRIL_MINES = "Or'ril Mines";
-	public static final String HELL = "Hell";
+	public static final String ORRIL_DUNGEONS = "Podziemia Or'ril";
+	public static final String ORRIL_MINES = "Kopalnie Or'ril";
+	public static final String HELL = "Piekło";
+	//public static final String DRAGONS_LANDS = "Kraina Smoków";
+	//public static final String KRAKOW_CITY = "Miasto Kraków";
+	public static final String ZAKOPANE_CITY = "Miasto Zakopane";
+	//public static final String GDANSK_CITY = "Miasto Gdańsk";
 	private Region() {
 		// hide constructor
 	}
