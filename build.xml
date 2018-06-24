@@ -272,11 +272,14 @@
 		<copy todir="${build_server_xmlconf}/data/conf">
 			<fileset dir="data/conf">
 				<include name="creatures.xml"/>
-				<include name="creatures/*.xml"/>
+				<include name="creatures/pol/*.xml"/>
+				<include name="creatures/stendhal/*.xml"/>
 				<include name="items.xml"/>
 				<include name="items/*.xml"/>
 				<include name="zones.xml"/>
 				<include name="zones/*.xml"/>
+				<include name="zones/pol/*.xml"/>
+				<include name="zones/stendhal/*.xml"/>
 				<include name="riddles-example.xml"/>
 				<include name="spells.xml" />
 				<include name="spells/*.xml" />
@@ -336,7 +339,7 @@
 
 		<chmod file="run_clnt/lib/${client_jarname}" perm="+x"/>
 
-		<java classname="games.stendhal.client.stendhal"
+		<java classname="games.stendhal.client.polskagra"
 			fork="true"
 			failonerror="true"
 			maxmemory="128m">
