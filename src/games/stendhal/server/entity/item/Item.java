@@ -610,7 +610,6 @@ public class Item extends PassiveEntity implements TurnListener, EquipListener,
 	/**
 	 * Override in SlotActivatedItem sub-class.
 	 */
-	@SuppressWarnings("unused")
 	public void initializeActiveSlotsList(final List<String> slotList) {
 		// Do nothing
 	}
@@ -618,7 +617,6 @@ public class Item extends PassiveEntity implements TurnListener, EquipListener,
 	/**
 	 * Override in StatusResistantItem sub-class.
 	 */
-	@SuppressWarnings("unused")
 	public void initializeStatusResistancesList(Map<StatusType,
 			Double> resistanceList) {
 		// Do nothing
