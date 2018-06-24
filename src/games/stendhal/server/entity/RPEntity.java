@@ -1590,6 +1590,32 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 			}
 		});
 	}
+	
+	public void onHealed(final Entity attacker, final int damage) {
+		logger.debug("Healed " + damage + " points by " + attacker.getID());
+
+		if (attacker instanceof RPEntity) {
+			final int currentTurn = SingletonRepository.getRuleProcessor()
+					.getTurn();
+			enemiesThatGiveFightXP.put((RPEntity) attacker, currentTurn);
+		}
+
+		final int leftHP = getHP() + damage;
+
+		totalDamageReceived += damage;
+
+		// remember the damage done so that the attacker can later be rewarded
+		// XP etc.
+		damageReceived.add(attacker, damage);
+
+		if (leftHP < base_hp) {
+			setHP(leftHP);
+		} else {
+			setHP(base_hp);
+		}
+
+		notifyWorldAboutChanges();
+	}
 
 	/**
 	 * Kills this RPEntity.
