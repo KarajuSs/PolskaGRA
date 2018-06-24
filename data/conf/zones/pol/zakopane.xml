@@ -123,8 +123,8 @@
 			</implementation>
 		</entity>
 		
-		<portal x="61" y="73" ref="hostel_entrance_1">
-			<destination zone="int_zakopane_hostel" ref="hostel_1_exit"/>
+		<portal x="61" y="73" ref="hostel_entrance">
+			<destination zone="int_zakopane_hostel" ref="hostel_exit"/>
 		</portal>
 		<portal x="65" y="74" ref="tavern_entrance">
 			<destination zone="int_zakopane_tavern" ref="tavern_exit"/>
@@ -812,7 +812,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		<configurator class-name="games.stendhal.server.maps.zakopane.bakery.ShopAssistantNPC"/>
 		
 		<portal x="26" y="14" ref="entrance_bakery">
-			<destination zone="0_zakopane_s" ref="bakery_entrance"/>
+			<destination zone="0_zakopane_se" ref="bakery_entrance"/>
 		</portal>
 	</zone>
 
@@ -1319,9 +1319,6 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		<portal x="1" y="12" ref="bt_upto_0">
 			<destination zone="int_zakopane_bat_tower_0" ref="bt_downto_-1"/>
 		</portal>
-		
-	
-		
 	</zone>
 	
 	<!-- Bat Tower 1 -->
@@ -1477,11 +1474,11 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<attribute name="class">blackboard</attribute>
 		</entity>
 
-		<portal x="12" y="23" ref="hostel_1_exit">
-			<destination zone="0_zakopane_s" ref="hostel_entrance_1"/>
+		<portal x="12" y="23" ref="hostel_exit">
+			<destination zone="0_zakopane_ne" ref="hostel_entrance"/>
 		</portal>
-		<portal x="13" y="23" ref="hostel_2_exit">
-			<destination zone="0_zakopane_s" ref="hostel_entrance_2"/>
+		<portal x="13" y="23" ref="hostel_exit">
+			<destination zone="0_zakopane_ne" ref="hostel_entrance"/>
 		</portal>
 	</zone>
 
@@ -1938,10 +1935,10 @@ Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z po
 		</entity>
 
 		<portal x="5" y="30" ref="stable_1_exit">
-			<destination zone="0_zakopane_s" ref="stable_entrance_1"/>
+			<destination zone="0_zakopane_sw" ref="stable_entrance_1"/>
 		</portal>
 		<portal x="17" y="26" ref="stable_2_exit">
-			<destination zone="0_zakopane_s" ref="stable_entrance_2"/>
+			<destination zone="0_zakopane_sw" ref="stable_entrance_2"/>
 		</portal>
 	</zone>
 
@@ -1965,7 +1962,7 @@ Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z po
 		</entity>
 
 		<portal x="30" y="5" ref="tavern_exit">
-			<destination zone="0_zakopane_s" ref="tavern_entrance"/>
+			<destination zone="0_zakopane_ne" ref="tavern_entrance"/>
 		</portal>
 	</zone>
 
@@ -1983,16 +1980,16 @@ Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z po
 		</entity>
 
 		<portal x="10" y="23" ref="church_1_exit">
-			<destination zone="0_zakopane_c" ref="church_entrance_1"/>
+			<destination zone="0_zakopane_sw" ref="church_entrance_1"/>
 		</portal>
 		<portal x="11" y="23" ref="church_2_exit">
-			<destination zone="0_zakopane_c" ref="church_entrance_1"/>
+			<destination zone="0_zakopane_sw" ref="church_entrance_1"/>
 		</portal>
 		<portal x="12" y="23" ref="church_3_exit">
-			<destination zone="0_zakopane_c" ref="church_entrance_1"/>
+			<destination zone="0_zakopane_sw" ref="church_entrance_2"/>
 		</portal>
 		<portal x="13" y="23" ref="church_4_exit">
-			<destination zone="0_zakopane_c" ref="church_entrance_1"/>
+			<destination zone="0_zakopane_sw" ref="church_entrance_2"/>
 		</portal>
 	</zone>
 	<!-- Chapel -->
@@ -2033,13 +2030,13 @@ Aktualne ceny u Gazdy Wojtka:
 		</entity>
 
 		<portal x="14" y="46" ref="townhall_1_exit">
-			<destination zone="0_zakopane_s" ref="townhall_entrance"/>
+			<destination zone="0_zakopane_c" ref="townhall_entrance"/>
 		</portal>
 		<portal x="15" y="46" ref="townhall_2_exit">
-			<destination zone="0_zakopane_s" ref="townhall_entrance"/>
+			<destination zone="0_zakopane_c" ref="townhall_entrance"/>
 		</portal>
 		<portal x="16" y="46" ref="townhall_3_exit">
-			<destination zone="0_zakopane_s" ref="townhall_entrance"/>
+			<destination zone="0_zakopane_c" ref="townhall_entrance"/>
 		</portal>
 	</zone>
 
@@ -2105,7 +2102,7 @@ Aktualne ceny u Gazdy Wojtka:
 
 	<!-- Level -2 -->
 
-	<!-- zakopane_e -->
+	<!-- zakopane_cave -->
 	<zone name="-2_zakopane_cave" level="-2" x="513440" y="18560" file="Level -2/zakopane/cave.tmx">
 		<configurator class-name="games.stendhal.server.maps.zakopane.cave.BartlomiejNPC"/>
 		<attributes>
