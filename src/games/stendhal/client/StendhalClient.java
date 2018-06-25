@@ -879,4 +879,15 @@ public class StendhalClient extends ClientFramework {
 					+ " was not found in pressedStateKeys list");
 		}
 	}
+
+	/**
+	 * Clears all saved pressed state keys.
+	 */
+	public void clearPressedKeys() {
+		pressedStateKeys.clear();
+
+		if (!pressedStateKeys.isEmpty()) {
+			logger.error("Could not flush pressedStateKeys list");
+		}
+	}
 }

@@ -174,7 +174,7 @@ public class textClient extends Thread {
 
 			@Override
 			protected void onAvailableCharacters(final String[] characters) {
-				System.out.println("Dostępne postacie");
+				System.out.println("Characters available");
 				for (final String characterAvail : characters) {
 					System.out.println(characterAvail);
 				}
@@ -188,7 +188,7 @@ public class textClient extends Thread {
 
 			@Override
 			protected void onServerInfo(final String[] info) {
-				System.out.println("Serwer info");
+				System.out.println("Server info");
 				for (final String info_string : info) {
 					System.out.println(info_string);
 				}
@@ -196,7 +196,7 @@ public class textClient extends Thread {
 
 			@Override
 			protected void onPreviousLogins(final List<String> previousLogins) {
-				System.out.println("Poprzednie logowanie");
+				System.out.println("Previous logins");
 				for (final String info_string : previousLogins) {
 					System.out.println(info_string);
 				}
