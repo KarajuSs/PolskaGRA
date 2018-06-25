@@ -77,16 +77,13 @@ public class ProgressStatusQueryAction implements ActionListener {
 	 */
 	private void sendItemList(Player player, String progressType) {
 		if (progressType.equals("Otwarte zadania")) {
-			player.addEvent(new ProgressStatusEvent(progressType, 
 				SingletonRepository.getStendhalQuestSystem().getOpenQuests(player)));
 		} else if (progressType.equals("Ukończone zadania")) {
 			// Send first the list of the quests that can be repeated
 			player.addEvent(new ProgressStatusEvent("repeatable",
 					SingletonRepository.getStendhalQuestSystem().getRepeatableQuests(player)));
-			player.addEvent(new ProgressStatusEvent(progressType, 
 				SingletonRepository.getStendhalQuestSystem().getCompletedQuests(player)));
 		} else if (progressType.equals("Produkcja")) {
-			player.addEvent(new ProgressStatusEvent(progressType, 
 					SingletonRepository.getProducerRegister().getWorkingProducerNames(player)));
 		}
 		player.notifyWorldAboutChanges();
@@ -102,12 +99,10 @@ public class ProgressStatusQueryAction implements ActionListener {
 	private void sendDetails(Player player, String progressType, String item) {
 		StendhalQuestSystem questSystem = SingletonRepository.getStendhalQuestSystem();
 		if (progressType.equals("Otwarte zadania") || progressType.equals("Ukończone zadania")) {
-			player.addEvent(new ProgressStatusEvent(progressType, item, 
 				questSystem.getQuestDescription(player, item),
 				questSystem.getQuestLevelWarning(player, item),
 				questSystem.getQuestProgressDetails(player, item)));
 		} else if (progressType.equals("Produkcja")) {
-			player.addEvent(new ProgressStatusEvent(progressType, item, 
 					SingletonRepository.getProducerRegister().getProductionDescription(player, item),
 					SingletonRepository.getProducerRegister().getProductionDetails(player, item)));
 		}
