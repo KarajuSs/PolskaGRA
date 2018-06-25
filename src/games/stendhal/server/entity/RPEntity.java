@@ -2205,7 +2205,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 		} else {
 			item.setPosition(getX(), getY());
 			getZone().add(item);
-			this.sendPrivateText("You dropped the new item onto the ground because your bag is full.");
+			this.sendPrivateText("Upuściłeś nowy przedmiot na ziemię ponieważ twój plecak jest pełny.");
 			return false;
 		}
 	}

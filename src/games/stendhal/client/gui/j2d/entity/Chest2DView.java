@@ -297,7 +297,7 @@ class Chest2DView extends StateEntity2DView<Chest> {
 	private void showWindow() {
 		boolean addListener = slotWindow == null;
 		slotWindow = inspector.inspectMe(entity, entity.getContent(),
-				slotWindow, 5, 6);
+				slotWindow, 6, 6);
 		/*
 		 * Register a listener for window closing so that we can
 		 * drop the reference to the closed window and let the
