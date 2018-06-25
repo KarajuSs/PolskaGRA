@@ -99,7 +99,7 @@ public class StendhalRPAction {
 		// Disable attacking NPCS that are created as not attackable.
 		if (!victim.isAttackable()) {
 			if ((victim instanceof SpeakerNPC)) {
-				((SpeakerNPC) victim).say(player.getName() + ", if you want my attention, just say #hi.");
+				((SpeakerNPC) victim).say(player.getName() + ", jeśli chcesz zwrócić moją uwagę to powiedz #'cześć'.");
 			}
 			logger.info("REJECTED. " + player.getName() + " is attacking " + victim.getName());
 			return;
@@ -118,7 +118,7 @@ public class StendhalRPAction {
 
 				final String name = getNiceVictimName(victim);
 
-				player.sendPrivateText("The powerful protective aura in this place prevents you from attacking "
+				player.sendPrivateText("Silna ochronna aura w tym miejscu powstrzymuje Ciebie od atakowania "
 						+ name + ".");
 				return;
 			}
@@ -130,24 +130,24 @@ public class StendhalRPAction {
 					boolean activeChallenge = cm.playersHaveActiveChallenge(player, (Player) victim);
 					if(!activeChallenge) {
 						StringBuilder msgBuilder = new StringBuilder();
-						msgBuilder.append("You cannot attack ");
-						msgBuilder.append("unless ");
+						msgBuilder.append("Nie możesz atakować, ");
+						msgBuilder.append("chyba że ");
 						msgBuilder.append(victim.getName());
-						msgBuilder.append(" has accepted a challenge from you.");
+						msgBuilder.append(" zaakceptował twoje wyzwanie.");
 						player.sendPrivateText(msgBuilder.toString());
 						return;
 					}
 				}
 				// disable attacking much weaker players, except in/ self defense
 				if (!mayAttackPlayer(player, (Player) victim)) {
-					player.sendPrivateText("Your conscience would trouble you if you carried out this attack.");
+					player.sendPrivateText("Twoje sumienie może mieć problem jeżeli stoisz za tym atakiem.");
 					return;
 				}
 			} else {
 				// Only allow owners, if there is one, to attack the pet
 				final Player owner = ((DomesticAnimal) victim).getOwner();
 				if ((owner != null) && (owner != player)) {
-					player.sendPrivateText("You pity " + getNiceVictimName(victim) + " too much to kill it.");
+					player.sendPrivateText("Biedny " + getNiceVictimName(victim) + " zbyt dużo do zabicia.");
 
 					return;
 				}
@@ -239,9 +239,9 @@ public class StendhalRPAction {
 				name = Grammar.suffix_s(owner.getTitle()) + " " + name;
 			} else {
 				if (victim instanceof Sheep) {
-					name = "that " + name;
+					name = "" + name;
 				} else {
-					name = "that poor little " + name;
+					name = "biedny " + name;
 				}
 			}
 		}
@@ -647,7 +647,7 @@ public class StendhalRPAction {
 					sheep.setOwner(player);
 				} else {
 					// Didn't fit?
-					player.sendPrivateText("You seemed to have lost your sheep while trying to squeeze in.");
+					player.sendPrivateText("Wygląda na to, że twoja owca zginęła, gdy wpadłeś w tarapaty.");
 				}
 			}
 
@@ -657,7 +657,7 @@ public class StendhalRPAction {
 					pet.setOwner(player);
 				} else {
 					// Didn't fit?
-					player.sendPrivateText("You seemed to have lost your pet while trying to squeeze in.");
+					player.sendPrivateText("Wygląda na to, że twoje zwierzątko zginęło, gdy wpadłeś w tarapaty.");
 				}
 			}
 
