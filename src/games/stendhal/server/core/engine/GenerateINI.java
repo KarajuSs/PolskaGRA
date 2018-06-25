@@ -63,23 +63,6 @@ public class GenerateINI {
 
 	private static RSAKey rsakey;
 
-	private static String mailfrom;
-
-	private static String mailsmtphost;
-
-	private static String mailsmtpport;
-
-	private static String mailsmtpauth;
-
-	private static String mailsmtpssl;
-
-	private static String mailsmtptls;
-
-	private static String mailsmtpuser;
-
-	private static String mailsmtppass;
-
-
 
 	/**
 	 * reads a String from the input. When no String is chosen the defaultValue
@@ -176,24 +159,7 @@ public class GenerateINI {
 		/** Write configuration for database */
 		databaseImplementation = getDatabaseImplementation();
 		databaseSystem = getDatabaseSystem();
-		if (databaseSystem.equals("mariadb")) {
-			databaseName = getDatabaseName();
-			databaseHost = getDatabaseHost();
-			databaseUsername = getDatabaseUsername();
-			databasePassword = getDatabasePassword();
-			System.out.println("Using \"" + databaseName + "\" as database name\n");
-			System.out.println("Using \"" + databaseHost + "\" as database host\n");
-			System.out.println("Using \"" + databaseUsername + "\" as database user\n");
-			System.out.println("Using \"" + databasePassword + "\" as database user password\n");
-
-			System.out.println("In order to make these options effective please run:");
-			System.out.println("# mysql");
-			System.out.println("  create database " + databaseName + ";");
-			System.out.println("  grant all on " + databaseName + ".* to "
-					+ databaseUsername + "@localhost identified by '"
-					+ databasePassword + "';");
-			System.out.println("  exit");
-		} else if (databaseSystem.equals("mysql")) {
+		if (databaseSystem.equals("mysql")) {
 			databaseName = getDatabaseName();
 			databaseHost = getDatabaseHost();
 			databaseUsername = getDatabaseUsername();
@@ -215,17 +181,6 @@ public class GenerateINI {
 		}
 
 		tcpPort = getTCPPort();
-
-		mailfrom = getMailAddress();
-		if (!mailfrom.equals("")) {
-			mailsmtphost = getMailSmtpHost();
-			mailsmtpport = getMailSmtpPort();
-			mailsmtpauth = getMailSmtpAuth();
-			mailsmtpssl = getMailSmtpSsl();
-			mailsmtptls = getMailSmtpTls();
-			mailsmtpuser = getMailSmtpUser();
-			mailsmtppass = getSmtpPassword();
-		}
 
 		worldImplementation = getWorldImplementation();
 		ruleprocessorImplementation = getRuleProcessorImplementation();
@@ -250,9 +205,9 @@ public class GenerateINI {
 		String temp = "";
 		do {
 			System.out.println("Which database system do you want to use? \"h2\" is an integrated database that ");
-			System.out.print("works out of the box, \"mysql\" requires a MySQL server, \"mariadb\" requires a MariaDB server. If in doubt, say \"h2\" [h2]: ");
+			System.out.print("works out of the box, \"mysql\" requires a MySQL server. If in doubt, say \"h2\" [h2]: ");
 			temp = getStringWithDefault(in, "h2").toLowerCase().trim();
-		} while (!temp.equals("h2") && !temp.equals("mysql") && !temp.equals("mariadb"));
+		} while (!temp.equals("h2") && !temp.equals("mysql"));
 		return temp;
 	}
 
@@ -293,12 +248,7 @@ public class GenerateINI {
 		out.println("factory_implementation=games.stendhal.server.core.engine.StendhalRPObjectFactory");
 		out.println();
 		out.println("# Database information. Edit to match your configuration.");
-		if (databaseSystem.equals ("mariadb")) {
-			out.println("jdbc_url=jdbc:mysql://" + databaseHost + "/" + databaseName + "?rewriteBatchedStatements=true&useUnicode=yes&characterEncoding=UTF-8");
-			out.println("jdbc_class=org.mariadb.jdbc.Driver");
-			out.println("jdbc_user=" + databaseUsername);
-			out.println("jdbc_pwd=" + databasePassword);
-		} else if (databaseSystem.equals("mysql")) {
+		if (databaseSystem.equals("mysql")) {
 			out.println("jdbc_url=jdbc:mysql://" + databaseHost + "/" + databaseName + "?useUnicode=yes&characterEncoding=UTF-8");
 			out.println("jdbc_class=com.mysql.jdbc.Driver");
 			out.println("jdbc_user=" + databaseUsername);
@@ -324,28 +274,9 @@ public class GenerateINI {
 		out.println("server_version=0.01");
 		out.println("server_contact=http://polskagra.net/kontakt-gmgags");
 		out.println();
-		if ((mailfrom.length() > 3) && (mailsmtphost.length() > 3) && (mailsmtpport.length() > 1) && (mailsmtpauth.length() > 3)
-			 && (mailsmtpssl.length() > 3) && (mailsmtptls.length() > 3) && (mailsmtpuser.length() > 3) && (mailsmtppass.length() > 3)) {
-			out.println("# Account activation.");
-			out.println("mail_from=" + mailfrom);
-			out.println("smtp_host=" + mailsmtphost);
-			out.println("smtp_port=" + mailsmtpport);
-			out.println("smtp_auth=" + mailsmtpauth);
-			out.println("smtp_ssl=" + mailsmtpssl);
-			out.println("smtp_tls=" + mailsmtptls);
-			out.println("smtp_user=" + mailsmtpuser);
-			out.println("smtp_password=" + mailsmtppass);
-			out.println();
-		}
 		out.println("# Extensions configured on the server. Enable at will.");
-		out.println("#server_extension=groovy");
-		out.println("#server_extension=http");
-		out.println("server_extension=teleportsend");
-		out.println("#groovy=games.stendhal.server.scripting.StendhalGroovyRunner");
-		out.println("#http=games.stendhal.server.extension.StendhalHttpServer");
-		out.println("#stendhal.scripts.namechange.enabled");
-		out.println("teleportsend=games.stendhal.server.extension.TeleportSendExtension");
-		out.println("#http.port=8080");
+		out.println("#server_extension=xxx");
+		out.println("#xxx=some.package.Classname");
 		out.println();
 		out.println("statistics_filename=" + statisticsFilename);
 		out.println();
@@ -377,54 +308,4 @@ public class GenerateINI {
 		final String databasename = getStringWithDefault(in, "marauroa");
 		return databasename;
 	}
-
-	protected static String getMailAddress() {
-		System.out.print("If you do not want to use the e-mail just press ENTER.\n");
-		System.out.print("Write email address to send messages: ");
-		final String mailfrom = getStringWithDefault(in, "");
-		return mailfrom;
-	}
-
-	protected static String getMailSmtpHost() {
-		System.out.print("Write SMTP server address: ");
-		final String mailsmtphost = getStringWithDefault(in, "");
-		return mailsmtphost;
-	}
-
-	protected static String getMailSmtpPort() {
-		System.out.print("Write SMTP server port: ");
-		final String mailsmtpport = getStringWithDefault(in, "");
-		return mailsmtpport;
-	}
-
-	protected static String getMailSmtpAuth() {
-		System.out.print("Turn on SMTP server authentication (true/false) [true]: ");
-		final String mailsmtpauth = getStringWithDefault(in, "true");
-		return mailsmtpauth;
-	}
-
-	protected static String getMailSmtpSsl() {
-		System.out.print("Turn on SMTP server SSL (true/false) [false]: ");
-		final String mailsmtpssl = getStringWithDefault(in, "false");
-		return mailsmtpssl;
-	}
-
-	protected static String getMailSmtpTls() {
-		System.out.print("Turn on SMTP server TLS (true/false) [false]: ");
-		final String mailsmtptls = getStringWithDefault(in, "false");
-		return mailsmtptls;
-	}
-
-	protected static String getMailSmtpUser() {
-		System.out.print("Write email username: ");
-		final String mailsmtpuser = getStringWithDefault(in, "");
-		return mailsmtpuser;
-	}
-
-	protected static String getSmtpPassword() {
-		System.out.print("Write email password: ");
-		final String mailsmtppass = getStringWithDefault(in, "");
-		return mailsmtppass;
-	}
-
 }
