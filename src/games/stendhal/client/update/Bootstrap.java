@@ -428,10 +428,10 @@ public class Bootstrap {
 
 	private void clearUpdateFiles() {
 		bootProp.remove("load");
-		bootProp.remove("load-0.17");
-		bootProp.remove("load-0.25.2");
-		bootProp.remove("load-0.28.4");
-		bootProp.remove("load-0.60");
+		bootProp.remove("load-0.69");
+		bootProp.remove("load-0.86");
+		bootProp.remove("load-0.95");
+		bootProp.remove("load-1.20");
 		try {
 			saveBootProp();
 		} catch (final IOException e1) {
