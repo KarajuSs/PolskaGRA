@@ -40,7 +40,8 @@ create table if not exists character_stats
   timedate timestamp default CURRENT_TIMESTAMP,
   lastseen timestamp,
   primary key(name)
-  ) ;
+  )
+ ;
 CREATE INDEX IF NOT EXISTS i_character_stats_name ON character_stats(name);
 
 create table if not exists halloffame
@@ -51,7 +52,8 @@ create table if not exists halloffame
   points integer not null,
 
   primary key(id)
-  );
+  ) 
+ ;
 
 CREATE INDEX IF NOT EXISTS i_halloffame_charname ON halloffame(charname);
 
@@ -78,11 +80,12 @@ create table if not exists halloffame_archive_alltimes
   points integer not null,
   day date not null,
   primary key(id)
-  );
+  ) 
+ ;
 
 CREATE INDEX IF NOT EXISTS i_halloffame_archive_alltimes_day_charname ON halloffame_archive_alltimes(day, charname);
 
-  
+
 CREATE TABLE IF NOT EXISTS item (
   id INTEGER AUTO_INCREMENT NOT NULL,
   name VARCHAR(64),
@@ -188,10 +191,10 @@ CREATE INDEX IF NOT EXISTS i_postman_source ON postman(source);
 CREATE INDEX IF NOT EXISTS i_postman_target ON postman(target);
 
 CREATE TABLE IF NOT EXISTS buddy (
-  id         INTEGER AUTO_INCREMENT NOT NULL,
-  charname   VARCHAR(64),
+  id           INTEGER AUTO_INCREMENT NOT NULL,
+  charname     VARCHAR(64),
   relationtype VARCHAR(6),
-  buddy      VARCHAR(64),
+  buddy        VARCHAR(64),
   PRIMARY KEY (id)
 );
 
