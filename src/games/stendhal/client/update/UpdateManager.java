@@ -93,9 +93,9 @@ class UpdateManager {
 		downloadUpdateProp(initialDownload.booleanValue());
 		if (updateProp == null) {
 			if (initialDownload.booleanValue()) {
-				UpdateGUIDialogs.messageBox("Sorry, we need to download additional files from\r\n"
+				UpdateGUIDialogs.messageBox("Potrzebne jest pobranie dodatkowych plików z\r\n"
 						+ serverFolder
-						+ "\r\nbut that server is not reachable at the moment. Please try again later.");
+						+ "\r\n, ale serwer nie jest teraz dostępny. Później spróbuj ponownie.");
 				System.exit(1);
 			}
 			return;
@@ -121,11 +121,11 @@ class UpdateManager {
 			break;
 
 		case ERROR:
-			UpdateGUIDialogs.messageBox("An error occurred while trying to update");
+			UpdateGUIDialogs.messageBox("Wystąpił błąd podczas aktualizacji");
 			break;
 
 		case OUTDATED:
-			UpdateGUIDialogs.messageBox("Sorry, your client is too outdated for the update to work.\r\nPlease download the current version from https://arianne-project.org .");
+			UpdateGUIDialogs.messageBox("Twój klient jest zbyt stary do aktualizacji. Pobierz najnowszą wersję.");
 			break;
 
 		case INITIAL_DOWNLOAD:
@@ -318,11 +318,11 @@ class UpdateManager {
 		if (res) {
 			return true;
 		}
-		System.out.println("Downloading " + file + " ...");
+		System.out.println("Pobieram " + file + " ...");
 		final HttpClient httpClient = new HttpClient(serverFolder + file, true);
 		httpClient.setProgressListener(updateProgressBar);
 		if (!httpClient.fetchFile(jarFolder + file)) {
-			UpdateGUIDialogs.messageBox("Sorry, an error occurred while downloading the update at file " + file);
+			UpdateGUIDialogs.messageBox("Podczas pobierania aktualizacji wystąpił błąd w pliku " + file);
 			return false;
 		}
 		try {
@@ -330,11 +330,11 @@ class UpdateManager {
 			final int shouldSize = Integer.parseInt(updateProp.getProperty("file-size." + file, ""));
 			String signature = updateProp.getProperty("file-signature." + file);
 			if ((fileObj.length() != shouldSize) || !SignatureVerifier.get().checkSignature(jarFolder + file, signature)) {
-				UpdateGUIDialogs.messageBox("Sorry, an error occurred while downloading the update.\r\nThe signature of "
+				UpdateGUIDialogs.messageBox("Podczas pobierania aktualizacji wystąpił błąd..\r\nSygnatura "
 						+ file
-						+ " does not match.\r\nWe got "
+						+ " różni się.\r\nNasz ma "
 						+ fileObj.length()
-						+ " bytes of "
+						+ ", a powinien mieć "
 						+ shouldSize);
 				updateProgressBar.dispose();
 				return false;

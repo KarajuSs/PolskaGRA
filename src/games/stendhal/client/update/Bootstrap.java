@@ -145,8 +145,8 @@ public class Bootstrap {
 		// add the files in the download distribution at the end of the classpath
 		ClassLoader orgClassloader = Bootstrap.class.getClassLoader();
 		String[] includedJarFiles = new String[] { "lib/log4j.jar", "lib/marauroa.jar", "lib/jorbis.jar",
-				"lib/stendhal.jar", "lib/stendhal-data.jar", "lib/stendhal-sound-data.jar",
-				"lib/stendhal-music-data.jar"};
+				"lib/polskagra.jar", "lib/polskagra-data.jar", "lib/polskagra-sound-data.jar",
+				"lib/polskagra-music-data.jar"};
 		for (String includedJarFile : includedJarFiles) {
 			URL url = orgClassloader.getResource(includedJarFile);
 			if (url != null) {
@@ -229,7 +229,7 @@ public class Bootstrap {
 			try {
 				saveBootProp();
 			} catch (final IOException e) {
-				LoneOptionDialog.showMessageDialog("Sorry, an error occurred while downloading the update. Could not write bootProperties");
+				LoneOptionDialog.showMessageDialog("Przepraszamy, ale wystąpił błąd podczas pobierania aktualizacji. Nie można zapisać bootProperties");
 			}
 		}
 
@@ -360,10 +360,10 @@ public class Bootstrap {
 				// partly update
 				e.printStackTrace();
 
-				int res = LoneOptionDialog.showConfirmDialog("Sorry an error occurred because of inconsistent code signing.\r\n"
-						+ "Delete update files so that they are downloaded again after you restart "
-						+ ClientGameConfiguration.get("GAME_NAME") + "?\r\n"
-						+ "Note: This exception can occur if you include signed jars into a self build client.",
+				int res = LoneOptionDialog.showConfirmDialog("Przepraszamy, ale wystąpił błąd z powodu niezgodności podpisu kodu.\\r\\n"
+						+ "Usunąć pliki aktualizacji "+ ClientGameConfiguration.get("GAME_NAME") + ", aby po ponownym uruchomieniu mogły być pobrane ponownie"
+						+ "?\r\n"
+						+ "Uwaga: Ten wyjątek może się pojawić w przypadku jeśli do podpisanych plików jar dodasz samodzielnie zbudowanego klienta.",
 						ClientGameConfiguration.get("GAME_NAME"), JOptionPane.YES_NO_OPTION,
 						JOptionPane.QUESTION_MESSAGE);
 				if (res == JOptionPane.YES_OPTION) {
@@ -384,7 +384,7 @@ public class Bootstrap {
 				method.invoke(null, (Object) args);
 			} catch (final Exception err) {
 				err.printStackTrace(System.err);
-				LoneOptionDialog.showMessageDialog("Something nasty happened while trying to start your self build client: "
+				LoneOptionDialog.showMessageDialog("Coś się stało podczas próby uruchomienia samodzielnie zbudowanego klienta: "
 								+ err);
 			}
 		}
@@ -406,12 +406,12 @@ public class Bootstrap {
 		e.printStackTrace();
 
 		if (e instanceof OutOfMemoryError) {
-			LoneOptionDialog.showMessageDialog("Sorry, an OutOfMemoryError occurred. Please restart "
+			LoneOptionDialog.showMessageDialog("Przepraszamy, ale wystąpił brak pamięci. Proszę uruchom ponownie "
 					+ ClientGameConfiguration.get("GAME_NAME") + ".");
 		} else if (e instanceof LinkageError || e instanceof SecurityException || e instanceof ClassNotFoundException) {
 			int res = LoneOptionDialog.showConfirmDialog(message
-					+ " Sorry an error occurred because of an inconsistent update state.\r\nDelete update files so that they are downloaded again after you restart "
-					+ ClientGameConfiguration.get("GAME_NAME") +"?",
+					+ " Przepraszamy wystąpił błąd z powodu niewłaściwego stanu aktualizacji.\r\nUsunąć pliki aktualizacji " + ClientGameConfiguration.get("GAME_NAME") + " i pobrać je ponownie po ponownym uruchomieniu"
+					+ "?",
 					ClientGameConfiguration.get("GAME_NAME"), JOptionPane.YES_NO_OPTION,
 					JOptionPane.QUESTION_MESSAGE);
 			if (res == JOptionPane.YES_OPTION) {
@@ -420,7 +420,7 @@ public class Bootstrap {
 		} else {
 			String errorMessage = stacktraceToString(e);
 			LoneOptionDialog.showMessageDialog(message
-					+ " An unexpected error occurred.\r\nPlease open a bug report at https://sf.net/projects/arianne with this error message:\r\n"
+					+ "Wystąpił niespodziewany błąd.\r\nPrzejdź do formularza kontaktowego na http://www.login.polskaonline.org/kontakt-gmgags i napisz wiadomość o błędzie:\r\n"
 					+ errorMessage);
 		}
 		System.exit(1);
@@ -428,14 +428,14 @@ public class Bootstrap {
 
 	private void clearUpdateFiles() {
 		bootProp.remove("load");
-		bootProp.remove("load-0.69");
-		bootProp.remove("load-0.86");
-		bootProp.remove("load-0.95");
-		bootProp.remove("load-1.20");
+		bootProp.remove("load-0.17");
+		bootProp.remove("load-0.25.2");
+		bootProp.remove("load-0.28.4");
+		bootProp.remove("load-0.60");
 		try {
 			saveBootProp();
 		} catch (final IOException e1) {
-			LoneOptionDialog.showMessageDialog("Could not write jar.properties");
+			LoneOptionDialog.showMessageDialog("Nie można zapisać jar.properties");
 		}
 	}
 

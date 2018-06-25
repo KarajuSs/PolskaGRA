@@ -45,10 +45,10 @@ public class Starter {
 			final String version = System.getProperty("java.specification.version");
 			if (Float.parseFloat(version) < 1.7f) {
 				JOptionPane.showMessageDialog(
-						null,
-						"You need at least Java 7 (also known as 1.7.0) but you only have "
+					null,
+					"Wymagana jest minimum Java 8 (znana jako 1.8.0), a posiadasz wersję "
 						+ version
-						+ ". You can download it at https://java.com");
+						+ ". Możesz pobrać najnowszą wersję z http://java.com");
 			}
 		} catch (final RuntimeException e) {
 			// ignore

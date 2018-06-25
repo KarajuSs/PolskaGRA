@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
  */
 class UpdateGUIDialogs {
 
-	private static final String DIALOG_TITLE = ClientGameConfiguration.get("GAME_NAME") + " Update";
+	private static final String DIALOG_TITLE =  "Aktualizacja " + ClientGameConfiguration.get("GAME_NAME");
 
 	/**
 	 * Asks the user to accept an update.
@@ -44,14 +44,14 @@ class UpdateGUIDialogs {
 		// ask user
 		int resCode;
 		if (update) {
-			resCode = LoneOptionDialog.showConfirmDialog("There is a new version which is "
-					+ sizeString + " KB.\r\n" + "Should "
-					+ ClientGameConfiguration.get("GAME_NAME") + " be updated?",
+			resCode = LoneOptionDialog.showConfirmDialog("Jest już nowa wersja, która zajmuje "
+					+ sizeString + " KB.\r\n" + "Czy "
+					+ ClientGameConfiguration.get("GAME_NAME") + " powinna zostać zaktualizowana?",
 					DIALOG_TITLE, JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 		} else {
-			resCode = LoneOptionDialog.showConfirmDialog("We need to download some additional files which are "
-						+ sizeString + " KB.\r\n" + "Should "
-					+ ClientGameConfiguration.get("GAME_NAME") + " be installed?",
+			resCode = LoneOptionDialog.showConfirmDialog("Potrzebne jest pobranie dodatkowych plików, które zajmują "
+					+ sizeString + " KB.\r\n" + "Czy "
+					+ ClientGameConfiguration.get("GAME_NAME") + " powinna zostać zainstalowana?",
 					DIALOG_TITLE, JOptionPane.YES_NO_OPTION,
 					JOptionPane.QUESTION_MESSAGE);
 		}

@@ -27,7 +27,7 @@ import java.util.Set;
 
 /**
  * a very simple http client.
- *
+ * 
  * @author hendrik
  */
 public class HttpClient {
@@ -41,7 +41,7 @@ public class HttpClient {
 	private ProgressListener progressListener;
 
 	// 1.5 seconds
-	private final static int timeout = 1500;
+	private final static int timeout = 1500; 
 
 	private boolean tryVeryHard;
 
@@ -53,7 +53,7 @@ public class HttpClient {
 
 		/**
 		 * update download status.
-		 *
+		 * 
 		 * @param downloadedBytes
 		 *            bytes downloaded now
 		 */
@@ -61,7 +61,7 @@ public class HttpClient {
 
 		/**
 		 * completed download of this file.
-		 *
+		 * 
 		 * @param downloadedBytes
 		 *            completed download
 		 */
@@ -70,7 +70,7 @@ public class HttpClient {
 
 	/**
 	 * Creates a HTTP-Client which will connect to the specified URL.
-	 *
+	 * 
 	 * @param url
 	 *            URL to connect to
 	 */
@@ -80,7 +80,7 @@ public class HttpClient {
 
 	/**
 	 * Creates a HTTP-Client which will connect to the specified URL.
-	 *
+	 * 
 	 * @param url
 	 *            URL to connect to
 	 * @param tryVeryHard
@@ -93,7 +93,7 @@ public class HttpClient {
 
 	/**
 	 * Sets a ProgressListener to be informed of download progress.
-	 *
+	 * 
 	 * @param progressListener
 	 *            ProgressListener
 	 */
@@ -126,10 +126,8 @@ public class HttpClient {
 							boolean redirect = true;
 							Set<String> passedRedirects = new HashSet<String>();
 							passedRedirects.add(urlString);
-
 							while(redirect) {
 								String newUrl = connection.getHeaderField("Location");
-
 								// check if we already were redirected to this url
 								if(!passedRedirects.contains(newUrl)) {
 									// open the new connnection again
@@ -174,7 +172,7 @@ public class HttpClient {
 
 	/**
 	 * Determine if a repsonse code is a redirect
-	 *
+	 * 
 	 * @param responseCode
 	 * @return
 	 */
@@ -185,9 +183,8 @@ public class HttpClient {
 	/**
 	 * Return an InputStream to read the requested file from. You have to close
 	 * it using
-	 *
+	 * 
 	 * @see #close
-	 *
 	 * @return InputStream or null on error.
 	 */
 	public InputStream getInputStream() {
@@ -215,7 +212,7 @@ public class HttpClient {
 	/**
 	 * fetches the first line of a file using http and closes the connection
 	 * automatically.
-	 *
+	 * 
 	 * @return the first line
 	 */
 	public String fetchFirstLine() {
@@ -239,7 +236,7 @@ public class HttpClient {
 	/**
 	 * fetches a file using http as Properties object and closes the connection
 	 * automatically.
-	 *
+	 * 
 	 * @return the first line
 	 */
 	Properties fetchProperties() {
@@ -261,7 +258,7 @@ public class HttpClient {
 
 	/**
 	 * Fetches a file from the HTTP-Server and stores it on disk.
-	 *
+	 * 
 	 * @param filename
 	 *            name of the file to write
 	 * @return true on success, false otherwise
@@ -291,7 +288,7 @@ public class HttpClient {
 	/**
 	 * Copies data from an inputStream to an outputStream and closes both
 	 * streams after work.
-	 *
+	 * 
 	 * @param inputStream
 	 *            stream to read from
 	 * @param outputStream
