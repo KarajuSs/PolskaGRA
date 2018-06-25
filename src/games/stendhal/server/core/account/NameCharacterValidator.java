@@ -16,7 +16,7 @@ import marauroa.common.game.Result;
 
 /**
  * validates the character used for the character name.
- * 
+ *
  * @author hendrik
  */
 public class NameCharacterValidator implements AccountParameterValidator {
@@ -24,7 +24,7 @@ public class NameCharacterValidator implements AccountParameterValidator {
 
 	/**
 	 * creates a NameCharacterValidator.
-	 * 
+	 *
 	 * @param parameterValue
 	 *            value to validate
 	 */
@@ -34,31 +34,17 @@ public class NameCharacterValidator implements AccountParameterValidator {
 
 	@Override
 	public Result validate() {
-		// letters , numbers and few signs are allowed
+		// only letters are allowed
 		for (int i = parameterValue.length() - 1; i >= 0; i--) {
 			final char chr = parameterValue.charAt(i);
-			if (((chr < 'a') || (chr > 'z')) && ((chr < 'A') || (chr > 'Z'))
-					&& ((chr < '0') || (chr > '9')) && (chr != 'ą') && (chr != 'ć')
-					&& (chr != 'ę') && (chr != 'ł') && (chr != 'ń') && (chr != 'ó')
-					&& (chr != 'ś') && (chr != 'ź') && (chr != 'ż')
-					&& (chr != 'Ą') && (chr != 'Ć') && (chr != 'Ę') && (chr != 'Ł')
-					&& (chr != 'Ń') && (chr != 'Ó') && (chr != 'Ś') && (chr != 'Ź')
-					&& (chr != 'Ż')
-					&& (chr != '-') && (chr != '_') && (chr != '.') && (chr != ' ')
-					&& (chr != '!') && (chr != '$') && (chr != '%') && (chr != '^')
-					&& (chr != '&') && (chr != '*') && (chr != '(') && (chr != ')')
-					&& (chr != '+') && (chr != '=') && (chr != '?') && (chr != '{')
-					&& (chr != '}')) {
+			if ((chr < 'a') || (chr > 'z')) {
 				return Result.FAILED_INVALID_CHARACTER_USED;
 			}
 		}
 
 		// at least the first character must be a letter
 		final char chr = parameterValue.charAt(0);
-		if (((chr < 'a') || (chr > 'z')) && ((chr < 'A') || (chr > 'Z')) && (chr != 'ć')
-				&& (chr != 'ł') && (chr != 'ś') && (chr != 'ź') && (chr != 'ż')
-				&& (chr != 'Ć') && (chr != 'Ł') && (chr != 'Ś') && (chr != 'Ź')
-				&& (chr != 'Ż')) {
+		if (((chr < 'a') || (chr > 'z'))) {
 			return Result.FAILED_INVALID_CHARACTER_USED;
 		}
 
