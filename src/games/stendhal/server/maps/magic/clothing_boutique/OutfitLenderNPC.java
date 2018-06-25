@@ -188,7 +188,7 @@ public class OutfitLenderNPC implements ZoneConfigurator {
 					ConversationPhrases.OFFER_MESSAGES,
 					null,
 					ConversationStates.ATTENDING,
-					"Powiedz mi jeżeli chciałbyś #wypożyczyć #gown, #black #dress, #glasses, #other #glasses, #hat, kostium #alien, kostium #horse, #girl #horse, #jumpsuit, #dungarees, #suit #bunny lub kostium #orange.",
+					"Powiedz mi jeżeli chciałbyś #'wypożyczyć gown', #'black dress', #'glasses', #'other glasses', #'hat', kostium #'alien', kostium #'horse', #'girl horse', #'jumpsuit', #'dungarees', #'suit bunny' lub kostium #'orange'.",
 					new ExamineChatAction("outfits.png", "Outfits", "Price varies"));
 				addJob("Pracuję w tym butiku z ubraniami. To nie jest zwykły sklep. Używamy tutaj magii, aby ubrać naszych klientów w te kostiumy. Zapytaj o #ofertę.");
 				// addJob("Normalnie pracuję w butiku. Używamy magii, aby ubierać naszych klientów w fantastyczne stroje. Jestem tutaj ze względu na Mine Town Revival Weeks, gdzie #oferujemy nasze stroje po korzystnych cenach!");
