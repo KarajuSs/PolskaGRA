@@ -43,7 +43,7 @@ public class Starter {
 	public static void main(final String[] args) {
 		try {
 			final String version = System.getProperty("java.specification.version");
-			if (Float.parseFloat(version) < 1.7f) {
+			if (Float.parseFloat(version) < 1.8f) {
 				JOptionPane.showMessageDialog(
 					null,
 					"Wymagana jest minimum Java 8 (znana jako 1.8.0), a posiadasz wersję "
