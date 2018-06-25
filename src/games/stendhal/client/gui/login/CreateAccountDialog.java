@@ -384,7 +384,7 @@ public class CreateAccountDialog extends JDialog {
 					setEnabled(true);
 					JOptionPane.showMessageDialog(
 							owner,
-							"Twoje IP zostało zablokowane. Jeżeli nie zgadzasz się z decyzją to skontaktuj się z nami na http://www.polskagra.org/kontakt-gmgags",
+							"Twoje IP zostało zablokowane. Jeżeli nie zgadzasz się z decyzją to skontaktuj się z nami na http://www.polskagra.net/kontakt-gmgags",
 							"Zablokowane IP", JOptionPane.ERROR_MESSAGE);
 				} catch (final LoginFailedException e) {
 					progressBar.cancel();
@@ -458,7 +458,7 @@ public class CreateAccountDialog extends JDialog {
 		//
 		final String email = (emailField.getText()).trim();
 		if  (!validateEmail(email)) {
-			final String warning = badEmailReason + "Twój adres email jest tylko dla administratora po to, aby móc się z Tobą skontaktować w celu zweryfikowania, że To konto należy akurat do Ciebie. Jeżeli to pole pominiesz nie będziesz mógł odzyskać hasła do konta, np: Zapomniałeś hasła do swojego konta. Inny gracz zalogował się na Twoje konto i zmienił hasło. Czy chcesz kontynuować?";
+			final String warning = badEmailReason + "Twój adres email jest tylko dla administratora po to, aby móc się z Tobą skontaktować w celu zweryfikowania, że To konto należy akurat do Ciebie.\nJeżeli to pole pominiesz nie będziesz mógł odzyskać hasła do konta, np: Zapomniałeś hasła do swojego konta. Inny gracz zalogował się na Twoje konto i zmienił hasło.\nCzy chcesz kontynuować?";
 			final int i = JOptionPane.showOptionDialog(owner, warning, badEmailTitle,
 					JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE,
 					null, null, 1);

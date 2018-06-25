@@ -528,7 +528,7 @@ public class LoginDialog extends JDialog {
 				System.exit(1);
 			}
 		} catch (final BannedAddressException e) {
-			handleError("Twoje IP zostało zablokowane. Jeżeli nie zgadzasz się z tą decyzją to skontaktuj się z nami na http://www.polskagra.org/kontakt-gmgags",
+			handleError("Twoje IP zostało zablokowane. Jeżeli nie zgadzasz się z tą decyzją to skontaktuj się z nami na http://www.polskagra.net/kontakt-gmgags",
 					"Zablokowane IP");
 		}
 	}

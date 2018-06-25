@@ -310,7 +310,7 @@ public class GenerateINI {
 			out.println("jdbc_class=org.h2.Driver");
 		}
 		out.println();
-		out.println("# TCP port polskaonline will use. ");
+		out.println("# TCP port PolskaGRA will use. ");
 		out.println("tcp_port=" + tcpPort);
 		out.println();
 		out.println("# World and RP configuration. Don't edit.");
@@ -322,7 +322,7 @@ public class GenerateINI {
 		out.println("server_typeGame=" + gameName);
 		out.println("server_name=" + gameName + " Marauroa server");
 		out.println("server_version=0.01");
-		out.println("server_contact=http://polskagra.org/kontakt-gmgags");
+		out.println("server_contact=http://polskagra.net/kontakt-gmgags");
 		out.println();
 		if ((mailfrom.length() > 3) && (mailsmtphost.length() > 3) && (mailsmtpport.length() > 1) && (mailsmtpauth.length() > 3)
 			 && (mailsmtpssl.length() > 3) && (mailsmtptls.length() > 3) && (mailsmtpuser.length() > 3) && (mailsmtppass.length() > 3)) {
