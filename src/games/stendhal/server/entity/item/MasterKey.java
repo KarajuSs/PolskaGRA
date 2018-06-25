@@ -19,7 +19,7 @@ import java.util.Map;
  * Opens any door that can be used with <code>HouseKey</code>.
  */
 public class MasterKey extends HouseKey {
-	
+
 	public MasterKey(final MasterKey key) {
 		super(key);
 	}
@@ -29,7 +29,7 @@ public class MasterKey extends HouseKey {
 		
 		setInfoString("każdego domku wojowników;0;");
 	}
-	
+
 	// Open any door that can be opened with HouseKeys
 	@Override
 	public boolean matches(final String houseId, final int number) {

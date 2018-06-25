@@ -12,6 +12,10 @@
  ***************************************************************************/
 package games.stendhal.server.entity.item;
 
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+
 import games.stendhal.common.Direction;
 import games.stendhal.common.NotificationType;
 import games.stendhal.server.core.engine.ItemLogger;
@@ -22,35 +26,30 @@ import games.stendhal.server.entity.Entity;
 import games.stendhal.server.entity.RPEntity;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.util.TimeUtil;
-
-import java.util.Map;
-
 import marauroa.common.game.RPObject;
 import marauroa.common.game.RPSlot;
 import marauroa.common.game.SlotOwner;
-
-import org.apache.log4j.Logger;
 
 /**
  * A special ring that allows the owner to teleport to his or her spouse. The
  * spouse's name is engraved into the ring. Technically, the name is stored in
  * the item's infostring.
- * 
+ *
  * Wedding rings should always be bound to the owner.
- * 
+ *
  * @author daniel
  */
 public class WeddingRing extends Item {
-	/** The cooling period of players of same level in seconds */ 
+	/** The cooling period of players of same level in seconds */
 	private static final long MIN_COOLING_PERIOD = 5 * 60;
-	
+
 	private static final String LAST_USE = "amount";
 
 	private static final Logger logger = Logger.getLogger(WeddingRing.class);
 
 	/**
 	 * Creates a new wedding ring.
-	 * 
+	 *
 	 * @param name
 	 * @param clazz
 	 * @param subclass
@@ -64,7 +63,7 @@ public class WeddingRing extends Item {
 
 	/**
 	 * Copy constructor.
-	 * 
+	 *
 	 * @param item
 	 *            item to copy
 	 */
@@ -93,17 +92,17 @@ public class WeddingRing extends Item {
 			return -1;
 		}
 	}
-	
+
 	/**
 	 * Store current system time as the last used
 	 */
 	private void storeLastUsed() {
 		put(LAST_USE, (int) (System.currentTimeMillis() / 1000));
 	}
-	
+
 	/**
 	 * Get the required cooling period for wedding ring use between players
-	 * @param player1 either player using the ring or the spouse 
+	 * @param player1 either player using the ring or the spouse
 	 * @param player2 either player using the ring or the spouse
 	 * @return Required cooling time
 	 */
@@ -111,14 +110,14 @@ public class WeddingRing extends Item {
 		final int level1 = player1.getLevel();
 		final int level2 = player2.getLevel();
 		final double levelRatio = (Math.max(level1, level2) + 1.0) / (Math.min(level1, level2) + 1.0);
-		
+
 		return (int) (MIN_COOLING_PERIOD * levelRatio * levelRatio);
 	}
 
 	/**
 	 * Teleports the given player to his/her spouse, but only if the spouse is
 	 * also wearing the wedding ring.
-	 * 
+	 *
 	 * @param player
 	 *            The ring's owner.
 	 * @return <code>true</code> if the teleport was successful, otherwise
@@ -152,13 +151,13 @@ public class WeddingRing extends Item {
 
 			final Item weddingRing = spouse.getFirstEquipped("obrączka ślubna");
 
-			if (weddingRing.getInfoString() == null) { 
+			if (weddingRing.getInfoString() == null) {
 				// divorced with ring and engaged again
 				player.sendPrivateText("Przepraszam, ale "
 						+ spouseName
 						+ " rozwiódł się z tobą i jest teraz zaręczony z kimś innym.");
 				return false;
-			} else if (!(weddingRing.getInfoString().equals(player.getName()))) { 
+			} else if (!(weddingRing.getInfoString().equals(player.getName()))) {
 				// divorced and remarried
 				player.sendPrivateText("Przepraszam, ale " + spouseName
 						+ " rozwiódł się z tobą i jest teraz zaręczony z kimś innym.");
@@ -210,7 +209,7 @@ public class WeddingRing extends Item {
 			storeLastUsed();
 			return true;
 		}
-		
+
 		return false;
 	}
 
@@ -225,7 +224,7 @@ public class WeddingRing extends Item {
 			return "Oto §'obrączka ślubna'.";
 		}
 	}
-	
+
 	// Check if there are more rings in the slot where this ring was added
 	@Override
 	public void setContainer(final SlotOwner container, final RPSlot slot) {
@@ -233,7 +232,7 @@ public class WeddingRing extends Item {
 		// only bound rings destroy others
 		if ((slot != null) && (getBoundTo() != null)) {
 			for (final RPObject object : slot) {
-				if ((object instanceof WeddingRing) 
+				if ((object instanceof WeddingRing)
 						&& (!getID().equals(object.getID()))) {
 					final WeddingRing ring = (WeddingRing) object;
 					if (getBoundTo().equals(ring.getBoundTo())) {
@@ -243,22 +242,22 @@ public class WeddingRing extends Item {
 				}
 			}
 		}
-	
+
 		if (oldRing != null) {
 			// The player is cheating with multiple rings. Explode the 
 			// old ring, and use up the energy of this one
 			destroyRing(container, oldRing, slot);
 			storeLastUsed();
 		}
-		
+
 		super.setContainer(container, slot);
 	}
-	
+
 	/**
 	 * Destroy a wedding ring.
 	 * To be used when a ring is put in a same slot with another.
 	 *
-	 * @param container 
+	 * @param container
 	 * @param ring the ring to be destroyed
 	 * @param slot the slot holding the ring
 	 */
@@ -276,22 +275,22 @@ public class WeddingRing extends Item {
 		ring.removeFromWorld();
 		logger.info("Destroyed a wedding ring: " + ring);
 	}
-	
+
 	/**
 	 * Give a nice message to nearby players when rings get destroyed.
-	 * 
+	 *
 	 * @param ring the ring that got destroyed
 	 */
 	private void informNearbyPlayers(final WeddingRing ring) {
 		try {
 			final Entity container = (Entity) ring.getBaseContainer();
 			final StendhalRPZone zone = getZone();
-			
+
 			if (zone != null) {
 				for (final Player player : zone.getPlayers()) {
 					if (player.nextTo(container)) {
-						player.sendPrivateText(NotificationType.SCENE_SETTING, 
 						"Błyska światło, gdy obrączka ślubna zaczyna się rozpadać w zetknięciu magii.");
+						player.sendPrivateText(NotificationType.SCENE_SETTING,
 					}
 				}
 			}

@@ -1,15 +1,14 @@
 package games.stendhal.server.core.engine.db;
 
-import games.stendhal.server.core.engine.StendhalRPWorld;
-import games.stendhal.server.core.engine.StendhalRPZone;
-
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import org.apache.log4j.Logger;
+
+import games.stendhal.server.core.engine.StendhalRPWorld;
+import games.stendhal.server.core.engine.StendhalRPZone;
 import marauroa.common.game.IRPZone;
 import marauroa.server.db.DBTransaction;
-
-import org.apache.log4j.Logger;
 
 public class StendhalRPZoneDAO {
 	private static Logger logger = Logger.getLogger(StendhalRPZoneDAO.class);
@@ -52,7 +51,7 @@ public class StendhalRPZoneDAO {
 		transaction.execute("DELETE FROM zoneinfo", null);
 		PreparedStatement stmt = transaction.prepareStatement("INSERT INTO zoneinfo " +
 			"(name, level, iterior, x, y, height, width, accessable, readableName, description, colorMethod, color, blendMethod, dangerLevel, weather)" +
-			" VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", null);
+			" VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", null);
 
 		for (IRPZone zone : StendhalRPWorld.get()) {
 			dumpZone(stmt, (StendhalRPZone) zone);

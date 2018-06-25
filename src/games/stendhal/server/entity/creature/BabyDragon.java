@@ -29,9 +29,9 @@ import marauroa.common.game.SyntaxException;
  * They move much faster than sheep
  * <p>
  * Baby dragons attack animals which attack them
- * 
+ *
  * @author kymara (based on sheep by Daniel Herding)
- * 
+ *
  */
 public class BabyDragon extends Pet {
 
@@ -40,11 +40,11 @@ public class BabyDragon extends Pet {
 
 	@Override
 	void setUp() {
-		HP = 1000;
+		HP = 500;
 		incHP = 6;
 		lv_cap = 6;
-		ATK = 20;
-		DEF = 60;
+		ATK = 15;
+		DEF = 40;
 		XP = 100;
 		baseSpeed = 0.9;
 
@@ -94,14 +94,14 @@ public class BabyDragon extends Pet {
 	/**
 	 * Creates a Baby Dragon based on an existing pet RPObject, and assigns it
 	 * to a player.
-	 * 
+	 *
 	 * @param object object containing the data for the dragon
 	 * @param owner
 	 *            The player who should own the baby dragon
 	 */
 	public BabyDragon(final RPObject object, final Player owner) {
 		super(object, owner);
-		
+
 		setRPClass("baby_dragon");
 		put("type", "baby_dragon");
 
@@ -113,12 +113,12 @@ public class BabyDragon extends Pet {
 	List<String> getFoodNames() {
 		return Arrays.asList("szynka", "pizza", "mięso");
 	}
-	
+
 	@Override
 	public boolean canGrow() {
 		return !System.getProperty("stendhal.petleveling", "false").equals("true");
 	}
-	
+
 	/**
 	 * If this pet 'canGrow' into another form it's handled here.
 	 */
@@ -127,23 +127,32 @@ public class BabyDragon extends Pet {
 		if (owner != null) {
 			owner.sendPrivateText("Twój baby dragon wyrósła na purpurowego smoka.");
 		}
+
+		//get important info before anything happens to them.
+		final Player player = this.owner;
+		final String currentTitle = this.getTitle();
+		final int currentXP = this.getXP();
+		final int currentLevel = this.getLevel();
+
 		final PurpleDragon purpledragon = new PurpleDragon(owner);
-		if (owner != null) {
-			owner.setPet(purpledragon);
-		}
 		purpledragon.setPosition(getX(), getY());
 
-		//nicknames carry over otherwise the name should update to reflect new form.
-		if (!this.getTitle().startsWith("baby dragon"))	{
-			purpledragon.setTitle(this.getTitle());
+		if (owner != null) {
+			player.removePet(this);
+			player.setPet(purpledragon);
 		}
-		purpledragon.setXP(this.getXP());
-		purpledragon.setLevel(this.getLevel());
+
+
+		//nicknames carry over otherwise the name should update to reflect new form.
+		if (!currentTitle.startsWith("baby dragon"))	{
+			purpledragon.setTitle(currentTitle);
+		}
+		purpledragon.setXP(currentXP);
+		purpledragon.setLevel(currentLevel);
 
 		// Note: It is save to do this here because we are not directly called
 		// from the NPC logic loop in StendalRPZone. Pet.logic() postpones the
 		// invocation of this method to a Turn Listener.
 		this.getZone().remove(this);
-		this.getZone().add(purpledragon);
 	}
 }

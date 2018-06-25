@@ -14,6 +14,13 @@ package games.stendhal.server.core.engine.transformer;
 
 import static games.stendhal.common.constants.Actions.AWAY;
 import static games.stendhal.common.constants.Actions.GRUMPY;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
 import games.stendhal.common.Debug;
 import games.stendhal.common.FeatureList;
 import games.stendhal.common.Version;
@@ -36,15 +43,8 @@ import games.stendhal.server.entity.slot.PlayerKeyringSlot;
 import games.stendhal.server.entity.slot.PlayerSlot;
 import games.stendhal.server.entity.slot.PlayerTradeSlot;
 import games.stendhal.server.entity.spell.Spell;
-
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-
 import marauroa.common.game.RPObject;
 import marauroa.common.game.RPSlot;
-
-import org.apache.log4j.Logger;
 
 public class PlayerTransformer implements Transformer {
 
@@ -173,10 +173,10 @@ public class PlayerTransformer implements Transformer {
 			logger.error("cannot create player", e);
 		}
 	}
-	
+
 	/**
 	 * Transforms the RPObjects in the spells slots to the real spell objects
-	 * 
+	 *
 	 * @param player
 	 */
 	private void loadSpellsIntoSlots(Player player) {
@@ -204,13 +204,13 @@ public class PlayerTransformer implements Transformer {
 			}
 		}
 	}
-	
+
 	private static Logger logger = Logger.getLogger(PlayerTransformer.class);
-	
+
 	/**
 	 * Places the player (and his/her sheep if there is one) into the world on
 	 * login.
-	 * 
+	 *
 	 * @param object
 	 *            RPObject representing the player
 	 * @param player
@@ -317,10 +317,10 @@ public class PlayerTransformer implements Transformer {
 			pet.notifyWorldAboutChanges();
 		}
 	}
-	
+
 	/**
 	 * Loads the items into the slots of the player on login.
-	 * 
+	 *
 	 * @param player
 	 *            Player
 	 * @param slot
@@ -346,34 +346,34 @@ public class PlayerTransformer implements Transformer {
 						&& (!player.has("adminlevel") || player.getInt("adminlevel") < 20)) {
 					logger.warn("removed admin item " + rpobject.get("name") + " from player " + player.getName());
 					new ItemLogger().destroyOnLogin(player, slot, rpobject);
-					
+
 					continue;
 				}
-				
+
 				Item item = transformer.transform(rpobject);
-				
+
 				// log removed items
 				if (item == null) {
 					int quantity = 1;
 					if (rpobject.has("quantity")) {
 						quantity = rpobject.getInt("quantity");
 					}
-					
+
 					logger.warn("Cannot restore " + quantity + " " + rpobject.get("name")
 							+ " on login of " + player.getName()
 							+ " because this item"
 							+ " was removed from items.xml");
 					new ItemLogger().destroyOnLogin(player, slot, rpobject);
-					
+
 					continue;
 				}
-				
+
 				boundOldItemsToPlayer(player, item);
-				
+
 				newSlot.add(item);
-				
+
 				/* Check if item has attributes that can be activated by a slot.
-				 * 
+				 *
 				 * XXX: Perhaps onEquipped() should be run for all items when
 				 *      player is created.
 				 */
@@ -388,7 +388,7 @@ public class PlayerTransformer implements Transformer {
 	}
 	/**
 	 * binds special items to the player.
-	 * 
+	 *
 	 * @param player
 	 *            Player
 	 * @param item
@@ -425,12 +425,12 @@ public class PlayerTransformer implements Transformer {
 	/**
 	 * Places a domestic animal in the world. If it matches it's owner's zone,
 	 * then try to keep it's position.
-	 * 
+	 *
 	 * @param animal
 	 *            The domestic animal.
 	 * @param player
 	 *            The owner.
-	 * 
+	 *
 	 * @return <code>true</code> if placed.
 	 */
 	protected static boolean placeAnimalIntoWorld(final DomesticAnimal animal,

@@ -1,4 +1,4 @@
-/* $Id: TutorialEventType.java,v 1.29 2012/08/06 21:20:20 kymara Exp $ */
+/* $Id$ */
 /***************************************************************************
  *                   (C) Copyright 2003-2010 - Stendhal                    *
  ***************************************************************************
@@ -14,7 +14,7 @@ package games.stendhal.server.core.events;
 
 /**
  * Event types used in the tutorial.
- * 
+ *
  * @author hendrik
  */
 public enum TutorialEventType {
@@ -65,7 +65,7 @@ public enum TutorialEventType {
 
 	/**
 	 * Creates a new TutorialEventType.
-	 * 
+	 *
 	 * @param message
 	 *            human readable message
 	 */
@@ -75,7 +75,7 @@ public enum TutorialEventType {
 
 	/**
 	 * Gets the descriptive message.
-	 * 
+	 *
 	 * @return message
 	 */
 	String getMessage() {

@@ -12,17 +12,17 @@
  ***************************************************************************/
 package games.stendhal.server.entity.item;
 
+import java.util.Map;
+
 import games.stendhal.common.ItemTools;
 import games.stendhal.common.Rand;
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.entity.player.Player;
 
-import java.util.Map;
-
 /**
  * A present which can be unwrapped.
- * 
+ *
  * @author kymara
  */
 public class Present extends Box {
@@ -33,7 +33,7 @@ public class Present extends Box {
 	
 	/**
 	 * Creates a new present.
-	 * 
+	 *
 	 * @param name
 	 * @param clazz
 	 * @param subclass
@@ -56,7 +56,7 @@ public class Present extends Box {
 
 	/**
 	 * Copy constructor.
-	 * 
+	 *
 	 * @param item
 	 *            item to copy
 	 */

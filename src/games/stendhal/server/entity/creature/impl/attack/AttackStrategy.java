@@ -31,7 +31,7 @@ public interface AttackStrategy extends PositioningStrategy, TargetSelectionStra
 
 	/**
 	 * Can the specified creature do an attack against a specified target?
-	 * 
+	 *
 	 * @param attacker creature doing the attack
 	 * @param target potential target
 	 *
@@ -48,8 +48,8 @@ public interface AttackStrategy extends PositioningStrategy, TargetSelectionStra
 
 	/**
 	 * Get the maximum range of the attacking creature.
-	 * 
-	 * @return maximum range 
+	 *
+	 * @return maximum range
 	 */
 	public int getRange();
 }

@@ -600,7 +600,7 @@ public class StendhalRPRuleProcessor implements IRPRuleProcessor {
 
 	@Override
 	public AccountResult createAccount(final String username, final String password, final String email) {
-		final AccountCreator creator = new AccountCreator(username, password);
+		final AccountCreator creator = new AccountCreator(username, password, email);
 		return creator.create();
 	}
 

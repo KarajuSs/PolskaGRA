@@ -169,9 +169,6 @@ public class Item extends PassiveEntity implements TurnListener, EquipListener,
 
 		// Some items have defense values
 		entity.addAttribute("def", Type.SHORT, Definition.HIDDEN);
-				
-		// New attribute: quality of item. 0, 1, 2, 3(common, rare, epic, legendary)
-		// entity.addAttribute("quality", Type.SHORT, Definition.HIDDEN);
 
 		//Some items can be damaged in combat or during use. This rises the degree of deterioration
 		entity.addAttribute("deterioration", Type.INT, (byte) (Definition.HIDDEN | Definition.VOLATILE));

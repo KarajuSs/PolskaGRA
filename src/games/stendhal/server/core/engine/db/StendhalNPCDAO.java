@@ -11,16 +11,15 @@
  ***************************************************************************/
 package games.stendhal.server.core.engine.db;
 
-import games.stendhal.server.core.engine.SingletonRepository;
-import games.stendhal.server.entity.npc.SpeakerNPC;
-
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import org.apache.log4j.Logger;
+
+import games.stendhal.server.core.engine.SingletonRepository;
+import games.stendhal.server.entity.npc.SpeakerNPC;
 import marauroa.server.db.DBTransaction;
 import marauroa.server.db.TransactionPool;
-
-import org.apache.log4j.Logger;
 
 /**
  * database base access for the NPC dump used on the website
@@ -33,7 +32,7 @@ public class StendhalNPCDAO {
 
 	/**
 	 * dumps the properties of the specified SpeakerNPC into the prepared statement as an operation in a batch.
-	 * 
+	 *
 	 * @param stmt PreparedStatement in batch mode
 	 * @param npc  SpeakerNPC
 	 * @throws SQLException in case a database error is thrown.
@@ -80,7 +79,7 @@ public class StendhalNPCDAO {
 		transaction.execute("DELETE FROM npcs", null);
 		PreparedStatement stmt = transaction.prepareStatement("INSERT INTO npcs " +
 			"(name, title, class, outfit, hp, base_hp, zone, x, y, level, description, job, image)" +
-			" VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", null);
+			" VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", null);
 
 		for (SpeakerNPC npc : SingletonRepository.getNPCList()) {
 			dumpNPC(stmt, npc);

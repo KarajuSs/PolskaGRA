@@ -39,7 +39,7 @@ public class GameEvent {
 		this.event = event;
 		this.params = params;
 	}
-	
+
 	/**
 	 * creates a new GameEvent object
 	 *
@@ -54,7 +54,7 @@ public class GameEvent {
 	}
 
 	/**
-	 * writes the envent to the database
+	 * writes the event to the database
 	 */
 	public void raise() {
 		DBCommand command = new LogGameEventCommand(source, event, params);

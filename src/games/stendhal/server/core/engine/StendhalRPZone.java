@@ -140,9 +140,6 @@ public class StendhalRPZone extends MarauroaRPZone {
 	/** Contains data to verify is someone is in a PK-free area. */
 	public CollisionDetection protectionMap;
 
-	/** Contains data to verify is someone is in a PK-free area. */
-	public CollisionDetection secretMap;
-
 	/** Position of this zone in the world map. */
 	private boolean interior = true;
 
@@ -202,7 +199,6 @@ public class StendhalRPZone extends MarauroaRPZone {
 		contents.addAll(zone.contents);
 		collisionMap = zone.collisionMap;
 		protectionMap  = zone.protectionMap;
-		secretMap  = zone.secretMap;
 
 		this.zoneid = new ID(name);
 	}
@@ -374,7 +370,7 @@ public class StendhalRPZone extends MarauroaRPZone {
 				it.remove();
 			}
 		}
-		
+
 		final TransferContent content = new TransferContent();
 		content.name = name;
 		content.cacheable = true;
@@ -425,12 +421,6 @@ public class StendhalRPZone extends MarauroaRPZone {
 			throws IOException {
 		addToContent(name, protectionLayer.encode());
 		protectionMap.setCollisionData(protectionLayer);
-	}
-
-	public void addSecretLayer(final String name, final LayerDefinition secretLayer)
-			throws IOException {
-		addToContent(name, secretLayer.encode());
-		secretMap.setCollisionData(secretLayer);
 	}
 
 	public void setPosition(final int level, final int x, final int y) {
@@ -545,7 +535,7 @@ public class StendhalRPZone extends MarauroaRPZone {
 
 	/**
 	 * Get the area of the zone, excluding static collisions.
-	 * 
+	 *
 	 * @return free area size
 	 */
 	private int getFreeArea() {
@@ -767,11 +757,6 @@ public class StendhalRPZone extends MarauroaRPZone {
 	public boolean isInProtectionArea(final Entity entity) {
 		final Rectangle2D area = entity.getArea();
 		return protectionMap.collides(area);
-	}
-
-	public boolean isInSecretArea(final Entity entity) {
-		final Rectangle2D area = entity.getArea();
-		return secretMap.collides(area);
 	}
 
 	public boolean leavesZone(final Entity entity, final double x, final double y) {
@@ -1739,12 +1724,12 @@ public class StendhalRPZone extends MarauroaRPZone {
 	public String describe() {
 		return StendhalRPZone.translateZoneName(this.getName());
 	}
-	
+
 	/**
 	 * Generate a precise zone name that can be shown to players (in client
 	 * minimap). For vague zone names, use {@link #describe()}.
-	 * 
-	 * @param zoneName game internal zone name 
+	 *
+	 * @param zoneName game internal zone name
 	 * @return human readable zone name
 	 */
 	private String createReadableName(String zoneName) {
@@ -1754,7 +1739,7 @@ public class StendhalRPZone extends MarauroaRPZone {
 		if (m.matches()) {
 			final String level = m.group(1);
 			String remainder = m.group(2);
-			
+
 			final String[] directions = new String[] {
 					".+_n(\\d?)e(\\d?)($|_).*", "N$1E$2", "_n\\d?e\\d?($|_)", "_",
 					".+_n(\\d?)w(\\d?)($|_).*", "N$1W$2", "_n\\d?w\\d?($|_)", "_",
@@ -1773,7 +1758,7 @@ public class StendhalRPZone extends MarauroaRPZone {
 							directions[i + 3]);
 				}
 			}
-			
+
 			// here we need to capitalize the city name
 			result.append(Grammar.makeUpperCaseWord(remainder.replaceAll("_", " ")));
 			result.append(dirBuf);
@@ -1788,7 +1773,7 @@ public class StendhalRPZone extends MarauroaRPZone {
 			}
 		} else {
 			// As of this writing (2014-01-15), the few zone names that do not
-			// match produce good results with this. 
+			// match produce good results with this.
 			logger.info("no match: " + zoneName);
 			return Grammar.makeUpperCaseWord(zoneName.replaceAll("_", " "));
 		}

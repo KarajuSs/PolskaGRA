@@ -125,7 +125,7 @@ public class Creature extends NPC {
 
 	/** Respawn time in turns */
 	private int respawnTime;
-	
+
 	private Map<String, String> aiProfiles;
 	private IdleBehaviour idler;
 
