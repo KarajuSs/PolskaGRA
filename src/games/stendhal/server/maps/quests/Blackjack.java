@@ -13,6 +13,7 @@
 package games.stendhal.server.maps.quests;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -147,7 +148,7 @@ public class Blackjack extends AbstractQuest {
 	/**
 	 * Deals <i>number</i> cards to the player, if the player is not standing,
 	 * and to the bank, if the bank is not standing.
-	 * @param rpEntity
+	 * @param rpEntity 
 	 *
 	 * @param number
 	 *            The number of cards that each player should draw.
@@ -205,7 +206,7 @@ public class Blackjack extends AbstractQuest {
 	}
 
 	/**
-	 * @param rpEntity
+	 * @param rpEntity 
 	 * @return The text that the dealer should say, or null if he shouldn't say
 	 *         anything.
 	 */
@@ -304,7 +305,7 @@ public class Blackjack extends AbstractQuest {
 
 				addGreeting("Witam przy stoliku do #blackjacka! Możesz tutaj zagrać dla zabicia czasu dopóki prom nie dopłynie. Powiedz #zagraj.");
 				addJob("Byłem krupierem w oberży w Semos, ale straciłem licencję. Ale mój brat Ricardo wciąż tam pracuje.");
-				addReply(
+                addReply(
 						"blackjack",
 						"Blackjack jest prostą grą w karty. Zasady gry są na tablicy na ścianie.");
 				addHelp("Uważaj by gra nie zajęła cię za bardzo, bo możesz przegapić prom! Słuchaj ogłoszeń.");
@@ -326,10 +327,10 @@ public class Blackjack extends AbstractQuest {
 		zone.add(ramon);
 
 		cardValues = new HashMap<String, Integer>();
-		final String[] colors = { CLUBS,
-				DIAMONDS,
+		final String[] colors = { CLUBS, 
+				DIAMONDS, 
 				HEARTS,
-				SPADES };
+				SPADES }; 
 		final String[] pictures = { "J", "Q", "K" };
 		for (final String color : colors) {
 			for (int i = 2; i <= 10; i++) {
@@ -344,9 +345,10 @@ public class Blackjack extends AbstractQuest {
 
 		// increase the timeout, as otherwise the player often
 		// would use their stake because of reacting too slow.
+		
+		ramon.setPlayerChatTimeout(CHAT_TIMEOUT); 
 
 		ramon.add(ConversationStates.ATTENDING, Arrays.asList("play", "graj", "zagraj", "zagram"), null,
-		ramon.setPlayerChatTimeout(CHAT_TIMEOUT);
 				ConversationStates.ATTENDING,
 				"Aby zagrać musisz #postawić conajmniej " + MIN_STAKE
 						+ ", a najwięcej " + MAX_STAKE
@@ -416,7 +418,7 @@ public class Blackjack extends AbstractQuest {
 						}
 					}
 				});
-
+		
 		fillQuestInfo(
 				"Blackjack",
 				"Podczas podróży na wyspę Athor, dla zabicia czasu możesz zagrać w Blackjack",
@@ -432,22 +434,22 @@ public class Blackjack extends AbstractQuest {
 	public String getName() {
 		return "Blackjack";
 	}
-
+	
 	@Override
 	public int getMinLevel() {
 		return 0;
 	}
-
+	
 	@Override
 	public boolean isVisibleOnQuestStatus() {
 		return false;
 	}
-
+	
 	@Override
 	public List<String> getHistory(final Player player) {
 		return new ArrayList<String>();
 	}
-
+	
 	@Override
 	public String getNPCName() {
 		return "Ramon";

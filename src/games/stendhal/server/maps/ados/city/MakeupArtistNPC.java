@@ -12,6 +12,7 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.city;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 

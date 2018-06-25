@@ -12,6 +12,7 @@
  ***************************************************************************/
 package games.stendhal.server.maps.magic.clothing_boutique;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;

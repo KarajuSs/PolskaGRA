@@ -287,6 +287,7 @@ public class RPClassGenerator {
 		}
 
 		// zone storage
+		if (!RPClass.hasRPClass("arrest_warrant")) {
 			ArrestWarrant.generateRPClass();
 		}
 		if (!RPClass.hasRPClass("rented_sign")) {
@@ -352,6 +353,7 @@ public class RPClassGenerator {
 		if (!RPClass.hasRPClass(Events.PLAYER_LOGGED_ON)) {
 			PlayerLoggedOnEvent.generateRPClass();
 		}
+
 		if (!RPClass.hasRPClass(Events.PLAYER_LOGGED_OUT)) {
 			PlayerLoggedOutEvent.generateRPClass();
 		}
@@ -359,6 +361,7 @@ public class RPClassGenerator {
 		if (!RPClass.hasRPClass(Events.REACHED_ACHIEVEMENT)) {
 			ReachedAchievementEvent.generateRPClass();
 		}
+
 		if (!RPClass.hasRPClass(Events.VIEW_CHANGE)) {
 			ViewChangeEvent.generateRPClass();
 		}

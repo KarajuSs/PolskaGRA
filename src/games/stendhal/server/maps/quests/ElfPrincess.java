@@ -52,7 +52,6 @@ import games.stendhal.server.entity.npc.condition.TimePassedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 
-
 /**
  * QUEST: The Elf Princess
  *
@@ -193,34 +192,34 @@ public class ElfPrincess extends AbstractQuest {
 				new PlayerCanEquipItemCondition("orchidea"),
 				// note: older quest slots will pass this automatically, but they are old now.
                 new TimePassedCondition(QUEST_SLOT, 1, 12*MathHelper.MINUTES_IN_ONE_WEEK));
-
+	   	    
 	    // if the player never had a timestamp stored (older quest) we have now added timestamp 1.
 	    // but that was a while ago that we changed it (November 2010?)
 		rose.add(ConversationStates.IDLE,
 			ConversationPhrases.GREETING_MESSAGES,
 			lostFlowerCondition,
+			ConversationStates.QUESTION_1, 
 			"Cześć. Zgubiłeś kwiatek, który dałam ostatnio? Jeżeli potrzebujesz następny to powiedz #tak, ale to strata dla mnie, że muszę dać ci kolejny więc lepiej bądź pewny!",
-			ConversationStates.QUESTION_1,
 			null);
-
+		
 		rose.add(ConversationStates.QUESTION_1,
 				ConversationPhrases.YES_MESSAGES,
 				lostFlowerCondition,
 				ConversationStates.IDLE,
 				"Oto nowe kwiatki dla pięknej pani, ale nie zgub ich.",
 				new MultipleActions(new EquipItemAction("orchidea", 1, true), 
-                        new SetQuestAction(QUEST_SLOT, 0, "got_flower"),
+                        new SetQuestAction(QUEST_SLOT, 0, "got_flower"), 
                         // dock some karma for losing the flower
                         new IncreaseKarmaAction(-20.0), 
                         new SetQuestToTimeStampAction(QUEST_SLOT, 1)));
-
+		
 		rose.add(ConversationStates.QUESTION_1,
 				ConversationPhrases.NO_MESSAGES,
 				lostFlowerCondition,
 				ConversationStates.IDLE,
 				"Nie martw się. Na pewno gdzieś je masz!",
 				null);
-
+	    
         // don't give the flower if the quest state isn't start
         // unless it's been over 12 weeks and are in state got_flower?
 	    rose.add(ConversationStates.IDLE,
@@ -230,7 +229,7 @@ public class ElfPrincess extends AbstractQuest {
 		    					 new NotCondition(lostFlowerCondition)),
 		    	ConversationStates.IDLE,
 		    	"Dziś nie mam nic dla Ciebie, przykro mi. Wyruszam teraz w dalszą drogę. Dowidzenia.",
-		    	null);
+			    null);
 	}
 
 	private void bringFlowerStep() {
@@ -255,9 +254,9 @@ public class ElfPrincess extends AbstractQuest {
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, 0, "got_flower"), new PlayerHasItemWithHimCondition("orchidea")),
 				ConversationStates.ATTENDING, null,
 				new MultipleActions(new DropItemAction("orchidea"), 
-                                    new IncreaseXPAction(5000),
+                                    new IncreaseXPAction(5000), 
                                     new IncreaseKarmaAction(15),
-									addRandomNumberOfItemsAction,
+									addRandomNumberOfItemsAction, 
 									new SetQuestAction(QUEST_SLOT, 0, "flower_brought"),
 									new IncrementQuestAction(QUEST_SLOT, 2, 1)));
 
@@ -310,22 +309,22 @@ public class ElfPrincess extends AbstractQuest {
 		}
 		return res;
 	}
-
+	
 	@Override
 	public String getName() {
 		return "ElfPrincess";
 	}
-
+	
 	@Override
 	public int getMinLevel() {
 		return 60;
 	}
-
+	
 	@Override
 	public boolean isRepeatable(final Player player) {
 		return new QuestInStateCondition(QUEST_SLOT,0,"flower_brought").fire(player,null, null);
 	}
-
+	
 	// The quest may have been completed a few times already and then re-opened as it's repeatable
 	// since this method is used to separate open quests from completed quests, we'll say that being completed
 	// means it's done and not re-opened
@@ -333,7 +332,7 @@ public class ElfPrincess extends AbstractQuest {
 	public boolean isCompleted(final Player player) {
 		return new QuestInStateCondition(QUEST_SLOT,0,"flower_brought").fire(player,null, null);
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.NALWOR_CITY;

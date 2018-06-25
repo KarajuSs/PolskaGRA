@@ -12,6 +12,7 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.meat_market;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;

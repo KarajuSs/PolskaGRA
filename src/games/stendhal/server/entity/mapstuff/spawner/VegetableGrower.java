@@ -69,8 +69,8 @@ public class VegetableGrower extends GrowingPassiveEntityRespawnPoint implements
 	 *
 	 * @param name item name
 	 */
-	public VegetableGrower(final String name, final String vegetableview) {
-		super("items/grower/" + vegetableview + "_grower", "items/grower/" + vegetableview + " grower", "Pick", 1, 1, 1);
+	public VegetableGrower(final String name) {
+		super("items/grower/" + name + "_grower", "items/grower/" + name + " grower", "Pick", 1, 1, 1);
 		vegetableName = name;
 		setDescription("Wygląda na to, że rośnie tutaj "
 				+ Grammar.a_noun(name) + ".");

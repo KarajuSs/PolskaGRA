@@ -12,6 +12,7 @@
  ***************************************************************************/
 package games.stendhal.server.maps.fado.forest;
 
+import java.util.Arrays;
 import java.util.Map;
 
 import games.stendhal.common.Direction;

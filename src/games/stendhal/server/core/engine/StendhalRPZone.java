@@ -172,7 +172,7 @@ public class StendhalRPZone extends MarauroaRPZone {
 
 		collisionMap = new CollisionDetection();
 		protectionMap = new CollisionDetection();
-		secretMap = new CollisionDetection();
+
 		String readable = createReadableName(name);
 		if (!name.equals(readable)) {
 			readableName = readable;

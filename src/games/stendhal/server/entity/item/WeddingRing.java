@@ -289,8 +289,8 @@ public class WeddingRing extends Item {
 			if (zone != null) {
 				for (final Player player : zone.getPlayers()) {
 					if (player.nextTo(container)) {
-						"Błyska światło, gdy obrączka ślubna zaczyna się rozpadać w zetknięciu magii.");
 						player.sendPrivateText(NotificationType.SCENE_SETTING,
+						"Błyska światło, gdy obrączka ślubna zaczyna się rozpadać w zetknięciu magii.");
 					}
 				}
 			}
