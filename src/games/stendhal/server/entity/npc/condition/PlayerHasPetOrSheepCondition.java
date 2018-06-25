@@ -27,7 +27,7 @@ public class PlayerHasPetOrSheepCondition implements ChatCondition {
 
 	@Override
 	public boolean fire(final Player player, final Sentence sentence, final Entity entity) {
-	    return (player.hasPet() || player.hasSheep());
+		return (player.hasPet() || player.hasSheep());
 	}
 
 	@Override

@@ -87,8 +87,8 @@ public class GardenerNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				class SpecialProducerBehaviour extends ProducerBehaviour { 
 					SpecialProducerBehaviour(final List<String> productionActivity,
+				class SpecialProducerBehaviour extends ProducerBehaviour {
                         final String productName, final Map<String, Integer> requiredResourcesPerItem,
 											 final int productionTimePerItem) {
 						super(QUEST_SLOT, productionActivity, productName,
@@ -112,7 +112,7 @@ public class GardenerNPC implements ZoneConfigurator {
                                         + "!");
                                 return false;
 							}
-					    } 
+					    }
 						if (amount > MAX_LUNCHES) {
 							npc.say("Nie mogę wziąć więcej kanapek niż raz na tydzień! Staną się czerstwe!");
 							return false;

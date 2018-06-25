@@ -541,6 +541,7 @@ public abstract class RPEntity extends GuidedEntity {
 		if (has("gender")) {
 			gender = get("gender");
 		}
+
 		if (has("lv_cap")) {
 			lv_cap = getInt("lv_cap");
 		}
@@ -1797,6 +1798,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 			// Find out if the player killed this RPEntity on his own, but
 			// don't overwrite solo with shared.
 			final String killedName = getName();
+
 			if (killedName == null) {
 				logger.warn("This entity returns null as name: " + this);
 			} else {
@@ -1806,6 +1808,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 					killer.setSharedKill(killedName);
 				}
 			}
+
 			SingletonRepository.getAchievementNotifier().onKill(killer);
 			*/
 
@@ -2797,7 +2800,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 	public Item getCloak() {
 		return getEquippedItemClass("cloak", "cloak");
 	}
-	
+
 	public boolean hasRing() {
 		return isEquippedItemClass("finger", "ring")
 				|| isEquippedItemClass("finger", "animation_ring");

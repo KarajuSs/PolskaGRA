@@ -12,6 +12,11 @@
  ***************************************************************************/
 package games.stendhal.server.entity.npc;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
 import games.stendhal.common.Direction;
 import games.stendhal.common.Rand;
 import games.stendhal.common.constants.Events;
@@ -23,18 +28,12 @@ import games.stendhal.server.entity.Entity;
 import games.stendhal.server.entity.RPEntity;
 import games.stendhal.server.entity.item.Corpse;
 import games.stendhal.server.events.SoundEvent;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import marauroa.common.game.Definition;
 import marauroa.common.game.Definition.Type;
 import marauroa.common.game.RPClass;
 import marauroa.common.game.RPEvent;
 import marauroa.common.game.RPObject;
 import marauroa.common.game.SyntaxException;
-
-import org.apache.log4j.Logger;
 
 public abstract class NPC extends RPEntity {
 	/**
@@ -75,7 +74,7 @@ public abstract class NPC extends RPEntity {
     protected int pauseTurns = 0;
     public int pauseTurnsRemaining = 0;
     protected Direction pauseDirection;
-    
+
 	/**
 	 * Possible sound events.
 	 */
@@ -110,7 +109,7 @@ public abstract class NPC extends RPEntity {
 
 	/**
 	 * Set the NPC's idea/thought.
-	 * 
+	 *
 	 * @param idea
 	 *			  The idea mnemonic, or <code>null</code>.
 	 */
@@ -128,16 +127,16 @@ public abstract class NPC extends RPEntity {
 
 	/**
 	 * Set the possible sound events.
-	 * 
+	 *
 	 * @param sounds sound name list
 	 */
 	public void setSounds(List<String> sounds) {
 		this.sounds = sounds;
 	}
-	
+
 	/**
 	 * Get the list of possible sound events.
-	 * 
+	 *
 	 * @return list of sound names
 	 */
 	protected List<String> getSounds() {
@@ -146,7 +145,7 @@ public abstract class NPC extends RPEntity {
 
 	/**
 	 * Get the NPC's idea/thought.
-	 * 
+	 *
 	 * @return The idea mnemonic, or <code>null</code>.
 	 */
 	public String getIdea() {
@@ -168,7 +167,7 @@ public abstract class NPC extends RPEntity {
 	 * <b>Note:</b> When the distance to the destination is less than
 	 * <code>min</code> the path is removed. <b>Warning:</b> The pathfinder
 	 * is not asynchronous, so this thread is blocked until a path is found.
-	 * 
+	 *
 	 * @param destEntity
 	 *			  the destination entity
 	 * @param min
@@ -200,7 +199,7 @@ public abstract class NPC extends RPEntity {
 
 	/**
 	 * Set a random destination as a path.
-	 * 
+	 *
 	 * @param distance
 	 *			  The maximum axis distance to move.
 	 * @param x
@@ -210,7 +209,7 @@ public abstract class NPC extends RPEntity {
 	 */
 	public void setRandomPathFrom(final int x, final int y, final int distance) {
 		setUsesRandomPath(true);
-	    
+
 		final int dist2_1 = distance + distance + 1;
 		final int dx = Rand.rand(dist2_1) - distance;
 		final int dy = Rand.rand(dist2_1) - distance;
@@ -278,16 +277,16 @@ public abstract class NPC extends RPEntity {
             if (hasPath()) {
                 setSpeed(getBaseSpeed());
             }
-            
+
             applyMovement();
         } else {
             if (!stopped()) {
                 stop();
                 if (pauseDirection != null) {
 					setDirection(pauseDirection);
-	            }
+				}
             }
-            
+
             pauseTurnsRemaining -= 1;
         }
 	}
@@ -305,7 +304,7 @@ public abstract class NPC extends RPEntity {
 		        logger.debug("Moving entity " + title + " at " + zone + " " + coords + " does not have a path");
 		    }
 		}
-	    
+
 		maybeMakeSound();
 		checkPause();
         notifyWorldAboutChanges();
@@ -316,25 +315,25 @@ public abstract class NPC extends RPEntity {
      */
     public void moveRandomly() {
         setRandomPathFrom(getX(), getY(), getMovementRange() / 2);
-	}
-    
+    }
+
     @Override
     public void onFinishedPath() {
         super.onFinishedPath();
-        
+
         if (usesRandomPath()) {
             // FIXME: There is a pause when renewing path
             moveRandomly();
         }
-        
+
         pauseTurnsRemaining = pauseTurns;
     }
-    
+
     /**
      * Pause the entity when path is completed.
      * Call setDirection() first to specify which
      * way entity should face during pause.
-     * 
+     *
      * @param pause
      *         Number of turns entity should stay paused
      */
@@ -342,24 +341,24 @@ public abstract class NPC extends RPEntity {
         //setPathCompletedPause(pause, getDirection());
         this.pauseTurns = pause;
     }
-    
+
     public void setPathCompletedPause(final int pause, final Direction dir) {
         this.pauseTurns = pause;
         this.pauseDirection = dir;
     }
-    
+
     /**
 	 * Generate a sound event with the probability of SOUND_PROBABILITY, if
-	 * the previous sound event happened long enough ago. 
+	 * the previous sound event happened long enough ago.
 	 */
 	protected void maybeMakeSound() {
 		maybeMakeSound(SOUND_PROBABILITY);
 	}
-	
+
 	/**
 	 * Generate a sound event with the specified probability, if
 	 * the previous sound event happened long enough ago.
-	 * 
+	 *
 	 * @param probablility sound probability
 	 */
 	protected void maybeMakeSound(int probablility) {

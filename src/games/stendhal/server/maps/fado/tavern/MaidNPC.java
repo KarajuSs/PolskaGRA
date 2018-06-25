@@ -12,6 +12,11 @@
  ***************************************************************************/
 package games.stendhal.server.maps.fado.tavern;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
@@ -19,11 +24,6 @@ import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
-
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Builds the tavern maid NPC.
@@ -85,13 +85,13 @@ public class MaidNPC implements ZoneConfigurator {
 				offers.put("udko", 50);
 				offers.put("chleb", 50);
 				offers.put("kanapka", 150);
-	 
+
 				new SellerAdder().addSeller(this, new SellerBehaviour(offers));
 				addGoodbye("Dowidzenia. Wszyscy, ty i klienci sprawiacie, że praca jest ciężka ...");
 			}
 		};
 
-		tavernMaid.setPlayerChatTimeout(TIME_OUT); 
+		tavernMaid.setPlayerChatTimeout(TIME_OUT);
 		tavernMaid.setEntityClass("oldmaidnpc");
 		tavernMaid.setPosition(10, 16);
 		tavernMaid.initHP(100);

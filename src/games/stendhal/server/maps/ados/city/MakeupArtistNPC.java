@@ -12,6 +12,9 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.city;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -19,10 +22,6 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.OutfitChangerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.OutfitChangerBehaviour;
 import games.stendhal.server.util.TimeUtil;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Creates the NPCs and portals in Ados City.
@@ -64,7 +63,7 @@ public class MakeupArtistNPC implements ZoneConfigurator {
 			protected void createDialog() {
 				addGreeting("Cześć. Czy potrzebujesz mojej #pomocy?");
 				addHelp(getHelpDescription());
-				
+
 				// this is a hint that one of the items Anna wants is a dress (goblin dress)
 				addQuest("Szukasz zabawek dla Anny? Ona kocha moje kostiumy. Może będzie chciała przymierzyć #ubranie. Jeżeli już masz to sądzę, że poczeka aż nie zrobię nowych kostiumów!");
 				addJob("Jestem charakteryzatorką.");

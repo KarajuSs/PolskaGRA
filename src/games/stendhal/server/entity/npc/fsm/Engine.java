@@ -1,6 +1,15 @@
 // $Id$
 package games.stendhal.server.entity.npc.fsm;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
 import games.stendhal.common.Rand;
 import games.stendhal.common.parser.ConversationParser;
 import games.stendhal.common.parser.Expression;
@@ -12,15 +21,6 @@ import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.player.Player;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-
-import org.apache.log4j.Logger;
 
 /**
  * a finite state machine.
@@ -41,7 +41,7 @@ public class Engine {
 
 	/**
 	 * Creates a new FSM.
-	 * 
+	 *
 	 * @param speakerNPC
 	 *            the speaker NPC for which this FSM is created must not be null
 	 */
@@ -74,7 +74,7 @@ public class Engine {
 
 	/**
 	 * Adds a new transition to FSM.
-	 * 
+	 *
 	 * @param state
 	 *            old state
 	 * @param triggerString
@@ -101,7 +101,7 @@ public class Engine {
 
 	/**
 	 * Adds a new transition to FSM.
-	 * 
+	 *
 	 * @param state
 	 *            old state
 	 * @param triggerString
@@ -127,10 +127,10 @@ public class Engine {
 
 		add(triggerExpressions, state, condition, secondary, nextState, reply, action, label);
 	}
-	
+
 	/**
 	 * Adds a new set of transitions to the FSM.
-	 * 
+	 *
 	 * @param state
 	 *            the starting state of the FSM
 	 * @param triggerStrings
@@ -159,10 +159,10 @@ public class Engine {
 		add(triggerExpressions, state, condition, secondary, nextState, reply, action);
 	}
 
-	
+
 	/**
 	 * Adds a new set of transitions to the FSM.
-	 * 
+	 *
 	 * @param state
 	 *            the starting state of the FSM
 	 * @param triggerStrings
@@ -192,11 +192,11 @@ public class Engine {
 
 		add(triggerExpressions, state, condition, secondary, nextState, reply, action, label);
 	}
-	
+
 	/**
 	 * Adds a new transition with explicit ExpressionMatcher to FSM.
 	 *
-	 * @param state 
+	 * @param state
 	 *            the starting state of the FSM
 	 * @param triggerString
 	 *            input for this transition, must not be null
@@ -276,7 +276,7 @@ public class Engine {
 	public void add(Collection<Expression> triggerExpressions, final ConversationStates state, final ChatCondition condition,
 			boolean secondary, final ConversationStates nextState, final String reply, final ChatAction action, final String label) {
 		if (triggerExpressions!=null && !triggerExpressions.isEmpty()) {
-				stateTransitionTable.add(new Transition(state, triggerExpressions, condition, secondary, nextState, reply, action, label));
+			stateTransitionTable.add(new Transition(state, triggerExpressions, condition, secondary, nextState, reply, action, label));
 		}
 	}
 
@@ -307,7 +307,7 @@ public class Engine {
 
 	/**
 	 * remove matches transition
-	 * 
+	 *
 	 * @param label the label of transitions to remove
 	 * @return true, if at least one transition was removed
 	 */
@@ -332,7 +332,7 @@ public class Engine {
 	/**
 	 * Create a collection of trigger expressions from trigger strings
 	 * while checking for duplicate transitions.
-	 * 
+	 *
 	 * @param state
 	 * @param triggerStrings
 	 * @param matcher
@@ -349,42 +349,42 @@ public class Engine {
 		Collection<Expression> triggerExpressions = new ArrayList<Expression>();
 
 		for(final String triggerString : triggerStrings) {
-		// normalise trigger expressions using the conversation parser
-		final Expression triggerExpression = ConversationParser.createTriggerExpression(triggerString, matcher);
+			// normalise trigger expressions using the conversation parser
+			final Expression triggerExpression = ConversationParser.createTriggerExpression(triggerString, matcher);
 
-		// look for already existing rule with identical input parameters
-		final Transition existing = get(state, triggerExpression, condition);
+			// look for already existing rule with identical input parameters
+			final Transition existing = get(state, triggerExpression, condition);
 
-		if (existing != null) {
-			final String existingReply = existing.getReply();
-			final PostTransitionAction existingAction = existing.getAction();
+			if (existing != null) {
+				final String existingReply = existing.getReply();
+				final PostTransitionAction existingAction = existing.getAction();
 
-			// Concatenate the previous and the new reply texts if the new one is not there already.
-			if ((existingReply != null) && (reply != null) && !existingReply.contains(reply)) {
-				existing.setReply(existingReply + " " + reply);
-			} else {
-				existing.setReply(reply);
-			}
+				// Concatenate the previous and the new reply texts if the new one is not there already.
+				if ((existingReply != null) && (reply != null) && !existingReply.contains(reply)) {
+					existing.setReply(existingReply + " " + reply);
+				} else {
+					existing.setReply(reply);
+				}
 
-			// check for ambiguous state transitions
-			if (((action == null) && (existingAction == null))
-					|| ((action != null) && action.equals(existingAction))) {
+				// check for ambiguous state transitions
+				if (((action == null) && (existingAction == null))
+						|| ((action != null) && action.equals(existingAction))) {
 					return null; // no action or equal to an already existing action
-			} else {
-				logger.warn(speakerNPC.getName() + ": Adding ambiguous state transition: " + existing
-				+ " existingAction='" + existingAction + "' newAction='" + action + "'");
+				} else {
+					logger.warn(speakerNPC.getName() + ": Adding ambiguous state transition: " + existing
+					+ " existingAction='" + existingAction + "' newAction='" + action + "'");
+				}
 			}
-		}
 
 			triggerExpressions.add(triggerExpression);
-	}
+		}
 
 		return triggerExpressions;
 	}
 
 	/**
 	 * Gets the current state.
-	 * 
+	 *
 	 * @return current state
 	 */
 	public ConversationStates getCurrentState() {
@@ -393,7 +393,7 @@ public class Engine {
 
 	/**
 	 * Sets the current State without doing a normal transition.
-	 * 
+	 *
 	 * @param currentState
 	 *            new state
 	 */
@@ -403,7 +403,7 @@ public class Engine {
 
 	/**
 	 * Do one transition of the finite state machine.
-	 * 
+	 *
 	 * @param player
 	 *            Player
 	 * @param text
@@ -423,7 +423,7 @@ public class Engine {
 
 	/**
 	 * Do one transition of the finite state machine.
-	 * 
+	 *
 	 * @param player
 	 *            Player
 	 * @param sentence
@@ -459,7 +459,7 @@ public class Engine {
 	/**
 	 * Do one transition of the finite state machine with debugging output and
 	 * reset of the previous response.
-	 * 
+	 *
 	 * @param player
 	 *            Player
 	 * @param text
@@ -494,9 +494,9 @@ public class Engine {
 		public boolean add(final Transition otherTrans) {
 			for(final Transition transition : this) {
 				for(Expression otherTriggerExpr : otherTrans.getTriggers()) {
-				if (transition.matchesNormalizedWithCondition(otherTrans.getState(),
+					if (transition.matchesNormalizedWithCondition(otherTrans.getState(),
 							otherTriggerExpr, otherTrans.getCondition())) {
-					return false;
+						return false;
 					}
 				}
 			}
@@ -573,7 +573,7 @@ public class Engine {
 	/**
 	 * Look for a match between given sentence and transition in the current state.
 	 * TODO mf - refactor match type handling
-	 * 
+	 *
 	 * @param type
 	 * @param sentence
 	 * @param transition
@@ -599,13 +599,13 @@ public class Engine {
 		if (trans.getAction() != null) {
 			trans.getAction().fire(player, sentence, new EventRaiser(speakerNPC));
 		}
-		
+
 		speakerNPC.notifyWorldAboutChanges();
 	}
 
 	/**
 	 * Returns a copy of the transition table.
-	 * 
+	 *
 	 * @return list of transitions
 	 */
 	public List<Transition> getTransitions() {

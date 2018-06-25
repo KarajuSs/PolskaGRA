@@ -12,6 +12,15 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.fishermans_hut;
 
+import java.util.Arrays;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+import org.apache.log4j.Logger;
+
 import games.stendhal.common.Direction;
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.common.grammar.ItemParserResult;
@@ -32,15 +41,6 @@ import games.stendhal.server.entity.npc.behaviour.impl.ProducerBehaviour;
 import games.stendhal.server.entity.npc.condition.QuestActiveCondition;
 import games.stendhal.server.entity.npc.condition.QuestNotActiveCondition;
 import games.stendhal.server.entity.player.Player;
-
-import java.util.Arrays;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
-
-import org.apache.log4j.Logger;
 
 /**
  * Ados Fisherman (Inside / Level 0).
@@ -104,18 +104,18 @@ public class FishermanNPC implements ZoneConfigurator {
 				// make sure peqoud tells player to remind him to get oil back by overriding transactAgreedDeal
 				// override giveProduct so that he doesn't say 'welcome back', which is a greeting,
 				// in the middle of an active conversation.
-				class SpecialProducerBehaviour extends ProducerBehaviour { 
 					SpecialProducerBehaviour(final List<String> productionActivity,
-                        final String productName, final Map<String, Integer> requiredResourcesPerItem,
-											 final int productionTimePerItem) {
+				class SpecialProducerBehaviour extends ProducerBehaviour {
+							final String productName, final Map<String, Integer> requiredResourcesPerItem,
+							final int productionTimePerItem) {
 						super(QUEST_SLOT, productionActivity, productName,
-							  requiredResourcesPerItem, productionTimePerItem, false);
+								requiredResourcesPerItem, productionTimePerItem, false);
 					}
 
 					/**
 					 * Tries to take all the resources required to produce the agreed amount of
 					 * the product from the player. If this is possible, initiates an order.
-					 * 
+					 *
 					 * @param res
 					 *
 					 * @param npc
@@ -156,14 +156,14 @@ public class FishermanNPC implements ZoneConfigurator {
 					 * product. It checks if the NPC is already done with the order. If that is
 					 * the case, the player is given the product. Otherwise, the NPC asks the
 					 * player to come back later.
-					 * 
+					 *
 					 * @param npc
 					 *            The producing NPC
 					 * @param player
 					 *            The player who wants to fetch the product
 					 */
 					@Override
-						public void giveProduct(final EventRaiser npc, final Player player) {
+					public void giveProduct(final EventRaiser npc, final Player player) {
 						final String orderString = player.getQuest(QUEST_SLOT);
 						final String[] order = orderString.split(";");
 						final int numberOfProductItems = Integer.parseInt(order[0]);
@@ -185,7 +185,7 @@ public class FishermanNPC implements ZoneConfigurator {
 							player.equipOrPutOnGround(products);
 							npc.say("Skończone! Oto "
 									+ Grammar.quantityplnoun(numberOfProductItems,
-															 getProductName(), "") + ".");
+											getProductName(), "the") + ".");
 							player.setQuest(QUEST_SLOT, "done");
 							// give some XP as a little bonus for industrious workers
 							player.addXP(numberOfProductItems);
@@ -193,9 +193,9 @@ public class FishermanNPC implements ZoneConfigurator {
 						}
 					}
 				}
-				
 				final ProducerBehaviour behaviour = new SpecialProducerBehaviour(Arrays.asList("make", "zrób"), "olejek",
-				        requiredResources, 10 * 60);
+
+						requiredResources, 10 * 60);
 
 				// we are not using producer adder at all here because that uses Conversations states IDLE and saying 'hi' heavily.
 				// we can't do that here because Pequod uses that all the time in his fishing quest. so player is going to have to #remind
@@ -207,30 +207,30 @@ public class FishermanNPC implements ZoneConfigurator {
 				new QuestNotActiveCondition(behaviour.getQuestSlot()),
 				ConversationStates.ATTENDING, null,
 				new ProducerBehaviourAction(behaviour, "produce") {
-					@Override
+							@Override
 							public void fireRequestOK(final ItemParserResult res, final Player player, final Sentence sentence, final EventRaiser npc) {
-						// Find out how much items we shall produce.
-						if (res.getAmount() > 1000) {
-							logger.warn("Decreasing very large amount of "
-									+ res.getAmount()
-									+ " " + res.getChosenItemName()
 									+ " 1 dla gracza "
 									+ player.getName() + " rozmowy z "
 									+ npc.getName() + " porzekadło " + sentence);
-							res.setAmount(1);
-						}
+								// Find out how much items we shall produce.
+								if (res.getAmount() > 1000) {
+									logger.warn("Decreasing very large amount of "
+											+ res.getAmount()
+											+ " " + res.getChosenItemName()
+									res.setAmount(1);
+								}
 
-						if (behaviour.askForResources(res, npc, player)) {
-							currentBehavRes = res;
-							npc.setCurrentState(ConversationStates.PRODUCTION_OFFERED);
-						}
-					}
-				});
+								if (behaviour.askForResources(res, npc, player)) {
+									currentBehavRes = res;
+									npc.setCurrentState(ConversationStates.PRODUCTION_OFFERED);
+								}
+							}
+						});
 
-		add(ConversationStates.PRODUCTION_OFFERED,
-				ConversationPhrases.YES_MESSAGES, null,
-				ConversationStates.ATTENDING, null,
-				new ChatAction() {
+				add(ConversationStates.PRODUCTION_OFFERED,
+						ConversationPhrases.YES_MESSAGES, null,
+						ConversationStates.ATTENDING, null,
+						new ChatAction() {
 					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
 						behaviour.transactAgreedDeal(currentBehavRes, npc, player);

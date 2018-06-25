@@ -122,7 +122,7 @@ public class EmotionCrystals extends AbstractQuest {
 		if (hasAllCrystals) {
 			res.add("Zdobyłem wszystkie kryształy emocji i powinienem zanieść je do Juliusa w Ados.");
 		}
-		
+
 		if (player.isQuestInState(QUEST_SLOT, 0, "done")) {
 			res.add("Dałem kryształy Juliusowi dla jego żony. Dostałem doświadczenie, karmę i przydatne spodnie kamienne.");
 		}

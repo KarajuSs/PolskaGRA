@@ -12,6 +12,11 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.meat_market;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
@@ -19,12 +24,6 @@ import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.ProducerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.ProducerBehaviour;
-
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 /**
  * Inside Ados meat market.
@@ -84,6 +83,6 @@ public class BlacksheepJoeNPC implements ZoneConfigurator {
 	blacksheepjoe.initHP(100);
 	blacksheepjoe.setDescription("Widzisz Blacksheep Joe. Jest znawcą kiełbasy z serem. Czy próbowałeś jej już?");
 	zone.add(blacksheepjoe);
-		
+
 	}
 }

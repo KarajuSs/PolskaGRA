@@ -102,7 +102,7 @@ public class EventRaiser {
 			((SpeakerNPC) entity).setAttending(rpentity);
 		}
 	}
-	
+
 	/**
 	 * adds an RPEvent
 	 *
