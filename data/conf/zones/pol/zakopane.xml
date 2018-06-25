@@ -1891,7 +1891,7 @@ Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z po
 
 	<!-- Playroom -->
 	<zone name="int_zakopane_playroom" file="interiors/zakopane/playroom.tmx">
-		<configurator class-name="games.stendhal.server.maps.zakopane.playroom.Playroomset"/>
+		<!-- <configurator class-name="games.stendhal.server.maps.zakopane.playroom.Playroomset"/> -->
 		
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
@@ -1907,6 +1907,7 @@ Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z po
 				<parameter name="radius">5</parameter>
 			</implementation>
 		</entity>
+		
 		<portal x="40" y="25" ref="playroom_exit">
 			<destination zone="0_zakopane_c" ref="playroom_entrance"/>
 		</portal>
@@ -2029,13 +2030,13 @@ Aktualne ceny u Gazdy Wojtka:
 			<attribute name="class">notes1</attribute>
 		</entity>
 
-		<portal x="14" y="46" ref="townhall_1_exit">
+		<portal x="14" y="46" ref="townhall_exit">
 			<destination zone="0_zakopane_c" ref="townhall_entrance"/>
 		</portal>
-		<portal x="15" y="46" ref="townhall_2_exit">
+		<portal x="15" y="46" ref="townhall_exit">
 			<destination zone="0_zakopane_c" ref="townhall_entrance"/>
 		</portal>
-		<portal x="16" y="46" ref="townhall_3_exit">
+		<portal x="16" y="46" ref="townhall_exit">
 			<destination zone="0_zakopane_c" ref="townhall_entrance"/>
 		</portal>
 	</zone>
