@@ -30,49 +30,49 @@ import games.stendhal.server.entity.player.Player;
 public class MinTotalCreaturesKilledCondition implements ChatCondition {
 	private final int total;
 
-    /**
+	/**
 	 Default constructor (Defaults to at least 100 total kills)
-     */
-    public MinTotalCreaturesKilledCondition() {
-        this(100);
-    }
+	*/
+	public MinTotalCreaturesKilledCondition() {
+		this(100);
+	}
 
-    /**
+	/**
 	 Constructor
-     *
-     * @param total The target number of kills required
-     */
-    @Dev
-    public MinTotalCreaturesKilledCondition(int total) {
-        this.total = total;
-    }
+	 *
+	 * @param total The target number of kills required
+	 */
+	@Dev
+	public MinTotalCreaturesKilledCondition(int total) {
+		this.total = total;
+	}
 
-    /**
+	/**
 	 Does the checking for number of creatures killed
-     *
-     * @param player The player to check the kills for
-     * @param sentence The sentence the player typed
-     * @param npc The NPC the player is speaking to
-     *
-     * @return True if the player has killed the correct number of creatures or more, false otherwise
-     */
-    @Override
-    public boolean fire(Player player, Sentence sentence, Entity npc) {
-        EntityManager manager = SingletonRepository.getEntityManager();
-        int totalKills = 0;
+	*
+	 * @param player The player to check the kills for
+	 * @param sentence The sentence the player typed
+	 * @param npc The NPC the player is speaking to
+	 *
+	 * @return True if the player has killed the correct number of creatures or more, false otherwise
+	 */
+	@Override
+	public boolean fire(Player player, Sentence sentence, Entity npc) {
+		EntityManager manager = SingletonRepository.getEntityManager();
+		int totalKills = 0;
 
-        for(final Creature c : manager.getCreatures()) {
-            totalKills += player.getSharedKill(c.getName()) + player.getSoloKill(c.getName());
-        }
+		for(final Creature c : manager.getCreatures()) {
+			totalKills += player.getSharedKill(c.getName()) + player.getSoloKill(c.getName());
+		}
 
-        if (totalKills < total) {
-            return false;
-        }
+		if (totalKills < total) {
+			return false;
+		}
 
-        return true;
-    }
+		return true;
+	}
 
-    @Override
+	@Override
 	public String toString() {
 		return "total kills >= " + total;
 	}

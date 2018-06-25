@@ -25,7 +25,7 @@ import java.util.List;
 
 /**
  * AbstractBehaviourAction is the base of ChatActions handling Behaviour requests.
- * 
+ *
  * @param <B> behavior type
  */
 @Dev(category=Category.IGNORE)
@@ -139,5 +139,5 @@ abstract class AbstractBehaviourAction<B extends Behaviour> implements ChatActio
 		return true;
 	}
 
-	
+
 }

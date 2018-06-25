@@ -13,17 +13,18 @@
 package games.stendhal.server.entity.npc.condition;
 
 import static com.google.common.base.Preconditions.checkNotNull;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.config.annotations.Dev;
 import games.stendhal.server.core.config.annotations.Dev.Category;
 import games.stendhal.server.entity.Entity;
 import games.stendhal.server.entity.npc.ChatCondition;
 import games.stendhal.server.entity.player.Player;
-
-import java.util.Arrays;
-import java.util.List;
-
-import org.apache.log4j.Logger;
 
 /**
  * Checking sum of quest creatures kills in player's quest and kills slots..
@@ -118,7 +119,7 @@ public class KilledInSumForQuestCondition implements ChatCondition {
 	public boolean equals(final Object obj) {
 		if (!(obj instanceof KilledInSumForQuestCondition)) {
 			return false;
-	}
+		}
 		KilledInSumForQuestCondition other = (KilledInSumForQuestCondition) obj;
 		return (questIndex == other.questIndex)
 			&& (killsSum == other.killsSum)

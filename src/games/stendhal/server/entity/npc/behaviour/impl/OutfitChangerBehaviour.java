@@ -12,6 +12,11 @@
 
 package games.stendhal.server.entity.npc.behaviour.impl;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import games.stendhal.common.Rand;
 import games.stendhal.common.grammar.ItemParserResult;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -20,17 +25,12 @@ import games.stendhal.server.entity.Outfit;
 import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.player.Player;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 /**
  * Represents the behaviour of a NPC who is able to sell outfits to a player.
  */
 public class OutfitChangerBehaviour extends MerchantBehaviour {
 	public static final int NEVER_WEARS_OFF = -1;
-	
+
 	/** outfit expiry in minutes */
 	private int endurance;
 
@@ -46,27 +46,27 @@ public class OutfitChangerBehaviour extends MerchantBehaviour {
 		// FIXME: Use new outfit system
 		// swimsuits for men
 		outfitTypes.put("trunks", Arrays.asList(
-				new Outfit(null, null, null, 80, null), new Outfit(null, null, null, 81,
-						null), new Outfit(null, null, null, 82, null), new Outfit(
-								null, null, null, 83, null)));
+				new Outfit(null, null, null, 95, null), new Outfit(null, null, null, 96,
+						null), new Outfit(null, null, null, 97, null), new Outfit(
+								null, null, null, 98, null)));
 
 		// swimsuits for women
-		outfitTypes.put("swimsuit", Arrays.asList(new Outfit(null, null, null, 76,
-				null), new Outfit(null, null, null, 77, null), new Outfit(null, null, null,
-				78, null), new Outfit(null, null, null, 79, null)));
+		outfitTypes.put("swimsuit", Arrays.asList(new Outfit(null, null, null, 91,
+				null), new Outfit(null, null, null, 92, null), new Outfit(null, null, null,
+				93, null), new Outfit(null, null, null, 94, null)));
 
-		outfitTypes.put("mask", Arrays.asList(new Outfit(null, 0, 27, null, null),
-				new Outfit(null, 0, 28, null, null), new Outfit(null, 0, 29, null, null),
-				new Outfit(null, 0, 30, null, null), new Outfit(null, 0, 31, null, null),
-				new Outfit(null, 0, 32, null, null)));
+		outfitTypes.put("mask", Arrays.asList(new Outfit(null, 0, 80, null, null),
+				new Outfit(null, 0, 81, null, null), new Outfit(null, 0, 82, null, null),
+				new Outfit(null, 0, 83, null, null), new Outfit(null, 0, 84, null, null),
+				new Outfit(null, 0, 85, null, null)));
 
 		// wedding dress for brides
 		// it seems this must be an array as list even though it's only one item
-		outfitTypes.put("gown", Arrays.asList(new Outfit(6, null, null, 73, null)));
+		outfitTypes.put("gown", Arrays.asList(new Outfit(6, null, null, 88, null)));
 
 		// // wedding suit for grooms
 		// it seems this must be an array as list even though it's only one item
-		outfitTypes.put("suit", Arrays.asList(new Outfit(null, null, null, 72, null)));
+		outfitTypes.put("suit", Arrays.asList(new Outfit(null, null, null, 87, null)));
 	}
 
 	/**

@@ -12,6 +12,8 @@
  ***************************************************************************/
 package games.stendhal.server.entity.npc.behaviour.adder;
 
+import org.apache.log4j.Logger;
+
 import games.stendhal.common.constants.SoundLayer;
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.common.grammar.ItemParserResult;
@@ -36,20 +38,18 @@ import games.stendhal.server.entity.npc.fsm.Engine;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.events.SoundEvent;
 
-import org.apache.log4j.Logger;
 import java.util.Arrays;
-
 public class SellerAdder {
 	private static Logger logger = Logger.getLogger(SellerAdder.class);
 
     private final MerchantsRegister merchantsRegister = SingletonRepository.getMerchantsRegister();
 
-	/**
+    /**
 	 * Behaviour parse result in the current conversation.
 	 * Remark: There is only one conversation between a player and the NPC at any time.
 	 */
 	private ItemParserResult currentBehavRes;
-	
+
 	public void addSeller(final SpeakerNPC npc, final SellerBehaviour behaviour) {
 		addSeller(npc, behaviour, true);
 	}
@@ -58,7 +58,7 @@ public class SellerAdder {
 		final Engine engine = npc.getEngine();
 
 		merchantsRegister.add(npc, sellerBehaviour);
-		
+
 		if (offer) {
 			engine.add(
 					ConversationStates.ATTENDING,

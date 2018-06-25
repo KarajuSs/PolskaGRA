@@ -12,17 +12,16 @@
  ***************************************************************************/
 package games.stendhal.server.entity.npc.behaviour.journal;
 
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.entity.item.Item;
 import games.stendhal.server.entity.npc.behaviour.impl.MultiProducerBehaviour;
 import games.stendhal.server.entity.npc.behaviour.impl.ProducerBehaviour;
 import games.stendhal.server.entity.player.Player;
-
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-
 import marauroa.common.Pair;
 
 public class ProducerRegister {
@@ -49,10 +48,10 @@ public class ProducerRegister {
 	 * Adds an NPC to the NPCList. Does nothing if an NPC with the same name
 	 * already exists. This makes sure that each NPC can be uniquely identified
 	 * by his/her name.
-	 * 
+	 *
 	 * @param npcName
 	 *            The NPC that should be added
-	 * @param behaviour   
+	 * @param behaviour
 	 *            The ProducerBehaviour of that NPC
 	 */
 	public void add(final String npcName, final ProducerBehaviour behaviour) {
