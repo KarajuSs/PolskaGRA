@@ -12,9 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import games.stendhal.common.MathHelper;
 import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
@@ -30,6 +27,9 @@ import games.stendhal.server.entity.npc.condition.QuestNotStartedCondition;
 import games.stendhal.server.entity.npc.condition.TimePassedCondition;
 import games.stendhal.server.entity.player.Player;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * QUEST: Dragon Lair Access
  * <p>
@@ -37,17 +37,17 @@ import games.stendhal.server.entity.player.Player;
  * <ul>
  * <li> Wishman, storm trooper extraordinaire from Blordrough's dark legion, guards the remaining dragons
  * </ul>
- *
+ * 
  * STEPS:
  * <ul>
- * <li> Wishman
+ * <li> Wishman 
  * </ul>
  * <p>
  * REWARD:
  * <ul>
  * <li> admittance to dragon lair
  * </ul>
- *
+ * 
  * REPETITIONS:
  * <ul>
  * <li> after 1 week.
@@ -62,52 +62,52 @@ public class DragonLair extends AbstractQuest {
 		return QUEST_SLOT;
 	}
 	private void step_1() {
-
+		
 		final SpeakerNPC npc = npcs.get("Wishman");
-
+		
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES,
+				ConversationPhrases.QUEST_MESSAGES, 
 				new QuestNotStartedCondition(QUEST_SLOT),
-				ConversationStates.QUEST_OFFERED,
-				"Would you like to visit our dragon lair?",
+				ConversationStates.QUEST_OFFERED, 
+				"Czy chciałbyś odwiedzić legowisko smoków?",
 				null);
-
+				
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES,
+				ConversationPhrases.QUEST_MESSAGES, 
 				new AndCondition(new QuestCompletedCondition(QUEST_SLOT), new NotCondition(new TimePassedCondition(QUEST_SLOT, 1, MathHelper.MINUTES_IN_ONE_WEEK))),
-				ConversationStates.ATTENDING,
+				ConversationStates.ATTENDING, 
 				null,
-				new SayTimeRemainingAction(QUEST_SLOT, 1, MathHelper.MINUTES_IN_ONE_WEEK, "I think they've had enough excitement for a while. Come back in"));
+				new SayTimeRemainingAction(QUEST_SLOT, 1, MathHelper.MINUTES_IN_ONE_WEEK, "Sądzę, że mają już dosyć wrażeń na jakiś czas. Wróć za "));
 
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES,
+				ConversationPhrases.QUEST_MESSAGES, 
 				new AndCondition(new QuestCompletedCondition(QUEST_SLOT), new TimePassedCondition(QUEST_SLOT, 1, MathHelper.MINUTES_IN_ONE_WEEK)),
-				ConversationStates.QUEST_OFFERED,
-				"Be warned, the dragons have started breathing fire! Anyway, would you like to visit our dragons again?",
+				ConversationStates.QUEST_OFFERED, 
+				"Uważaj smoki zaczęły ziać ogniem! Czy chciałbyś ponownie odwiedzić nasze smoki?",
 				null);
-
+		
 		// Player asks for quest while quest is already active
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES,
+				ConversationPhrases.QUEST_MESSAGES, 
 				new QuestActiveCondition(QUEST_SLOT),
-				ConversationStates.ATTENDING,
-				"I have already opened the door to the dragon lair.",
+				ConversationStates.ATTENDING, 
+				"Już otworzyłem drzwi do legowiska smoków.",
 				null);
-
+		
 		npc.add(ConversationStates.QUEST_OFFERED,
 				ConversationPhrases.YES_MESSAGES,
 				null,
 				ConversationStates.ATTENDING,
-				"Great! Enjoy your visit. I know THEY will. Oh, watch out, we have a couple chaos dragonriders exercising our dragons. Don't get in their way!",
+				"Wspaniale! Ciesz się wizytą. Wiem, że oni będą. Aha uważaj. Mamy parę jeźdźców smoków chaosu dowodzących naszymi smokami. Nie wchodź im w drogę!",
 				new SetQuestAction(QUEST_SLOT, "start")); // Portal closes quest
 
-		npc.add(ConversationStates.QUEST_OFFERED,
+		npc.add(ConversationStates.QUEST_OFFERED, 
 				ConversationPhrases.NO_MESSAGES,
 				null,
 				ConversationStates.ATTENDING,
-				"Ok, but our dragons will be sorry you didn't stop in for a visit.",
+				"Dobrze, ale nasze smoki będą zawiedzione jeżeli nie wpadniesz do nich.",
 				new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -5.0));
-
+		
 		// Leave the dragon lair to complete quest
 	}
 
@@ -115,12 +115,12 @@ public class DragonLair extends AbstractQuest {
 	public void addToWorld() {
 		step_1();
 		fillQuestInfo(
-				"Dragon Lair",
-				"Wishman, storm trooper extraordinaire from Blordrough's dark legion, guards the remaining dragons... and lets visitors into their lair.",
+				"Legowisko Smoka",
+				"Wishman, nadzwyczajny żołnierz z Mrocznego Legionu Blordrough, strzeże smoków... i umożliwi Ci do nich dostęp.",
 				true);
 
 	}
-
+	
 	@Override
 	public List<String> getHistory(final Player player) {
 			final List<String> res = new ArrayList<String>();
@@ -129,21 +129,21 @@ public class DragonLair extends AbstractQuest {
 			}
 
 			final String questState = player.getQuest(QUEST_SLOT);
-			res.add("Wishman offered that I may play with his dragons!");
+			res.add("Wishman zaproponował, ·abym zabawił się z jego smokami!");
 			if ("rejected".equals(questState)) {
-				res.add("They look a bit scary to me.");
+				res.add("Dla mnie wyglądają trochę przerażająco");
 				return res;
             }
 
 			if (player.isQuestInState(QUEST_SLOT, 0, "start")) {
-                res.add("Wishman has unlocked the dragon lair.");
-                return res;
-			}
+                res.add("Wishman odblokował legowisko smoków.");
+				return res;
+			} 
 
 			if (isRepeatable(player)) {
-				res.add("Those dragons might need some fun again, I should visit soon.");
+				res.add("Te smoki znów potrzebują zabawy. Powinienem je wkrótce odwiedzić.");
 			} else if (player.isQuestInState(QUEST_SLOT, 0, "done")) {
-				res.add("The dragons have had plenty of excitement recently, Wishman won't let me back in yet.");
+				res.add("Ostatnio smoki miały mnóstwo zabazwy. Wishman jeszcze nie pozwala mi wrócić.");
 			}
 
 			return res;
@@ -152,13 +152,13 @@ public class DragonLair extends AbstractQuest {
 	public String getName() {
 		return "DragonLair";
 	}
-
+	
 	// getting past the assassins to this location needs a higher level; the lair itself is dangerous too
 	@Override
 	public int getMinLevel() {
 		return 100;
 	}
-
+	
 	@Override
 	public boolean isRepeatable(final Player player) {
 		return	new AndCondition(new QuestCompletedCondition(QUEST_SLOT),

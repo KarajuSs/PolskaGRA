@@ -70,7 +70,7 @@ import games.stendhal.server.util.TimeUtil;
  * <li> None.
  * </ul>
  */
-public class StuffForAndrzej extends AbstractQuest {
+public class ZlotaCiupaga extends AbstractQuest {
 
 	private static final int REQUIRED_WAIT_DAYS = 1;
 

@@ -71,7 +71,6 @@ public class SolveWoodcutterTest extends AbstractQuest {
 	private static final String TEMP_QUEST_SLOT = "question_woodcutter_license";
 	private static final String TEST_QUEST_SLOT = "test_woodcutter_license";
 	private static final String KARMA_QUEST_SLOT = "karma_woodcutter_license";
-	private static final int xpreward = 100;
 	private Questions questions;
 
 	private static class Questions {

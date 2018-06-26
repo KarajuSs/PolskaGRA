@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.common.NotificationType;
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.common.parser.Sentence;
@@ -43,10 +39,15 @@ import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 import games.stendhal.server.util.ItemCollection;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
 /**
  * QUEST: CrownForTheWannaBeKing
  *
- * PARTICIPANTS:
+ * PARTICIPANTS: 
  * <ul>
  * <li> Ivan Abe, the wannabe king who lives in Sedah</li>
  * <li> Kendra Mattori, priestess living in Magic City</li>
@@ -61,8 +62,8 @@ import games.stendhal.server.util.ItemCollection;
  *
  * REWARD:
  * <ul>
- * <li> 10,000 XP</li>
- * <li> some karma (10) </li>
+ * <li> 100,000 XP</li>
+ * <li> karma (100) </li>
  * <li> Player's ATK XP is increased by 0.1% of his/her XP.</li>
  * </ul>
  *
@@ -76,7 +77,7 @@ public class CrownForTheWannaBeKing extends AbstractQuest {
 	/**
 	 * required items for the quest.
 	 */
-	protected static final String NEEDED_ITEMS = "gold bar=2;emerald=4;sapphire=3;carbuncle=2;diamond=2;obsidian=1";
+	protected static final String NEEDED_ITEMS = "sztabka złota=2;szmaragd=4;szafir=3;rubin=2;diament=2;obsydian=1";
 
 	/**
 	 * Name of the main NPC for this quest.
@@ -97,26 +98,26 @@ public class CrownForTheWannaBeKing extends AbstractQuest {
 	 * how much ATK XP is given as the reward: formula is player's XP *
 	 * ATK_BONUS_RATE ie. 0.001 = 0.1% of the player's XP
 	 */
-	private static final double ATK_REWARD_RATE = 0.001;
+	private static final double ATK_REWARD_RATE = 0.002;
 
 	/**
 	 * how much XP is given as the reward.
 	 */
-	private static final int XP_REWARD = 10000;
+	private static final int XP_REWARD = 100000;
 
 	@Override
 	public String getSlotName() {
 		return QUEST_SLOT;
 	}
-
+	
 	/**
 	 * initialize the introduction and start of the quest.
 	 */
 	private void step_1() {
 		final SpeakerNPC npc = npcs.get(NPC_NAME);
-		npc.addOffer("I don't sell anything!");
+		npc.addOffer("Niczego nie sprzedaję!");
 		npc.addGoodbye();
-		npc.addJob("My current job is unimportant, I will be the king of Kalavan!");
+		npc.addJob("Moja praca nie jest ważna, ponieważ będę królem Kalavan!");
 
 		/* player says hi before starting the quest */
 		npc.add(ConversationStates.IDLE,
@@ -124,36 +125,36 @@ public class CrownForTheWannaBeKing extends AbstractQuest {
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestNotStartedCondition(QUEST_SLOT)),
 				ConversationStates.ATTENDING,
-				"Greetings. Be quick with your matters, I have a lot of work to do."
-					+ " And next time clean your boots, you are lucky that I'm not the king...yet!",
+				"Pozdrawiam. Szybko, jaką masz do mnie sprawę, bo mam dużo pracy do zrobienia."
+					+ ", a następnym razem wyczyść swoje buty. Masz szczęście, że nie jestem królem...jeszcze!",
 				null);
 
-		npc.addQuest("Hmm you could be useful for my #plan...");
-		npc.addReply("plan",
-					"Soon I will dethrone the king of Kalavan and become the new king! Right now I need myself a new #crown.");
+		npc.addQuest("Hmm mógłbyś się przydać w moim #planie...");
+		npc.addReply(Arrays.asList("plan", "planie"),
+					"Wkrótce zdetronizuję króla Kalavan i zostanę nowym królem! Teraz potrzebuję nowej #korony dla siebie.");
 
 		/* player says crown */
 		npc.add(ConversationStates.ATTENDING,
-				"crown",
+				Arrays.asList("crown", "korony"),
 				new QuestNotStartedCondition(QUEST_SLOT),
 				ConversationStates.QUEST_OFFERED,
-				"Yes, I need jewels and gold for my new crown. Will you help me?",
+				"Tak, potrzebuję klejnotów i złota na moją nową koronę. Pomożesz mi?",
 				null);
 
 		/* player says yes */
 		npc.add(ConversationStates.QUEST_OFFERED,
 				ConversationPhrases.YES_MESSAGES, null,
-				ConversationStates.QUESTION_1, null,
-				new MultipleActions(new SetQuestAction(QUEST_SLOT, NEEDED_ITEMS),
-								    new SayRequiredItemsFromCollectionAction(QUEST_SLOT, "I want my crown to be beautiful and shiny. I need [items]. " +
-								    		"Do you have some of those now with you?")));
+				ConversationStates.QUESTION_1, null, 
+				new MultipleActions(new SetQuestAndModifyKarmaAction(QUEST_SLOT, NEEDED_ITEMS, 5),
+								    new SayRequiredItemsFromCollectionAction(QUEST_SLOT, "Chcę, aby moja korona była piękna i lśniąca. Potrzebuję [items]. " +
+										"Masz coś z tego przy sobie?")));
 
 
 		/* player is not willing to help */
-		npc.add(ConversationStates.QUEST_OFFERED,
+		npc.add(ConversationStates.QUEST_OFFERED, 
 				ConversationPhrases.NO_MESSAGES, null,
-				ConversationStates.IDLE,
-				"Oh you don't want to help me?! Get lost, you are wasting my precious time!",
+				ConversationStates.IDLE, 
+				"Och. Nie chcesz mi pomóc?! Wynoś się stąd marnujesz mój cenny czas!",
 				new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -5.0));
 	}
 
@@ -170,25 +171,25 @@ public class CrownForTheWannaBeKing extends AbstractQuest {
 						new QuestActiveCondition(QUEST_SLOT),
 						new QuestNotInStateCondition(QUEST_SLOT, "reward")),
 				ConversationStates.QUESTION_1,
-				"Oh it's you again. Did you bring me any #items for my new crown?",
+				"Och to znowu ty. Czy przyniosłeś jakieś #przedmioty do mojej korony?",
 				null);
 
 		/* player asks what exactly is missing (says items) */
-		npc.add(ConversationStates.QUESTION_1, "items", null,
+		npc.add(ConversationStates.QUESTION_1, Arrays.asList("items", "przedmioty"), null,
 				ConversationStates.QUESTION_1, null,
-				new SayRequiredItemsFromCollectionAction(QUEST_SLOT, "I need [items]. Did you bring something?"));
+				new SayRequiredItemsFromCollectionAction(QUEST_SLOT, "Potrzebuję [items]. Przyniosłeś coś z tego?"));
 
 
 		/* player says he has a required item with him (says yes) */
 		npc.add(ConversationStates.QUESTION_1,
 				ConversationPhrases.YES_MESSAGES, null,
-				ConversationStates.QUESTION_1, "Fine, what did you bring?",
+				ConversationStates.QUESTION_1, "Świetnie, co przyniosłeś?",
 				null);
 
-		ChatAction completeAction = new MultipleActions(
+		ChatAction completeAction = new  MultipleActions(
 											new SetQuestAction(QUEST_SLOT, "reward"),
-											new SayTextAction("You have served me well, my crown will be the mightiest of them all!"
-											+ " Go to see "+ REWARD_NPC_NAME+ " in the Wizard City to get your #reward."),
+											new SayTextAction("Służyłeś mi dobrze. Moja korona będzie najwspanialsza spośród wszystkich!"
+											+ " Spotkaj się z "+ REWARD_NPC_NAME+ " w mieście magów, aby odebrać swoją #nagrodę."),
 											new IncreaseXPAction(XP_REWARD)
 											);
 		/* add triggers for the item names */
@@ -199,28 +200,28 @@ public class CrownForTheWannaBeKing extends AbstractQuest {
 					ConversationStates.QUESTION_1, null,
 					new CollectRequestedItemsAction(
 							item.getKey(), QUEST_SLOT,
-							"Good, do you have anything else?", "You have already brought that!",
+							"Dobra, masz coś jeszcze? ","Już to przynisłeś!",
 							completeAction, ConversationStates.ATTENDING));
 		}
 
 		/* player says he didn't bring any items (says no) */
 		npc.add(ConversationStates.ATTENDING, ConversationPhrases.NO_MESSAGES,
-				new AndCondition(new QuestActiveCondition(QUEST_SLOT), new QuestNotInStateCondition(QUEST_SLOT, "reward")),
+				new AndCondition(new QuestActiveCondition(QUEST_SLOT), new QuestNotInStateCondition(QUEST_SLOT, "reward")), 
 				ConversationStates.IDLE,
-				"Well don't come back before you find something for me!", null);
+				"Cóż, nie wracaj dopóki nie znajdziesz czegoś dla mnie!", null);
 
 		/* player says he didn't bring any items to different question */
 		npc.add(ConversationStates.QUESTION_1, ConversationPhrases.NO_MESSAGES,
-				new AndCondition(new QuestActiveCondition(QUEST_SLOT), new QuestNotInStateCondition(QUEST_SLOT, "reward")),
+				new AndCondition(new QuestActiveCondition(QUEST_SLOT), new QuestNotInStateCondition(QUEST_SLOT, "reward")), 
 				ConversationStates.IDLE,
-				"Farewell, come back after you have what I need!", null);
+				"Dowidzenia. Wróć gdy zdobędziesz to czego potrzebuję!", null);
 
 
 		/* player says reward */
 		npc.add(ConversationStates.ATTENDING,
-				"reward", null,
-				ConversationStates.IDLE, "As I said, find priestess " + REWARD_NPC_NAME
-					+ " in a temple at the city of wizards. She will give you your reward. Now go, I'm busy!",
+				Arrays.asList("reward", "nagroda", "nagrodę"), null,
+				ConversationStates.IDLE, "Tak jak powiedziałem znajdź kapłankę " + REWARD_NPC_NAME
+					+ " w świątyni w mieście czarodziejów. Ona da Ci nagrodę. Teraz idź już jestem zajęty!",
 				null);
 
 		/*
@@ -234,7 +235,7 @@ public class CrownForTheWannaBeKing extends AbstractQuest {
 								new QuestCompletedCondition(QUEST_SLOT),
 								new QuestInStateCondition(QUEST_SLOT, "reward"))),
 				ConversationStates.IDLE,
-				"My new crown will be ready soon and I will dethrone the king! Mwahahaha!",
+				"Moja nowa korona będzie wkrótce gotowa i zdetronizuję króla! Uhahaha!",
 				null);
 	}
 
@@ -244,15 +245,15 @@ public class CrownForTheWannaBeKing extends AbstractQuest {
 	private void step_3() {
 		final SpeakerNPC npc = npcs.get(REWARD_NPC_NAME);
 
-		npc.add(ConversationStates.ATTENDING, "reward",
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("reward", "nagroda", "nagrodę"),
 				new QuestInStateCondition(QUEST_SLOT, "reward"),
 				ConversationStates.ATTENDING, null,
 				new ChatAction() {
 					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser entity) {
-						entity.say("Oh yes, "
+						entity.say("Och tak "
 									+ NPC_NAME
-									+ " told me to reward you well! I hope you enjoy your increased combat abilities!");
+									+ " powiedział mi, abym Cię dobrze wynagrodziła! Mam nadzieję, że ucieszysz się ze swoich podniesionych umiejętności walki!");
 						rewardPlayer(player);
 						player.setQuest(QUEST_SLOT, "done");
 					}
@@ -265,30 +266,30 @@ public class CrownForTheWannaBeKing extends AbstractQuest {
 	 * @param player
 	 */
 	protected void rewardPlayer(final Player player) {
-		player.addKarma(10.0);
+		player.addKarma(100.0);
 		player.setAtkXP(player.getAtkXP() + (int) (player.getXP() * ATK_REWARD_RATE));
 		player.incAtkXP();
-		player.sendPrivateText(NotificationType.POSITIVE, "You gained " + Integer.toString((int) (player.getXP() * ATK_REWARD_RATE)) + " of attack experience points.");
+		player.sendPrivateText(NotificationType.POSITIVE, "Otrzymałeś " + Integer.toString((int) (player.getXP() * ATK_REWARD_RATE)) + " punktów doświadczenia ataku.");
 	}
-
+	
 	@Override
 	public List<String> getHistory(final Player player) {
 		final List<String> res = new ArrayList<String>();
 		if (!player.hasQuest(QUEST_SLOT)) {
 			return res;
 		}
-		res.add(NPC_NAME + " asked me to help him dethrone King Cozart. To be a King he needs a crown.");
+		res.add(NPC_NAME + " poprosił mnie, abym pomógł mu zdetronizować króla Cozarta. by być królem potrzebuje korony.");
 		final String questState = player.getQuest(QUEST_SLOT);
 		if ("rejected".equals(questState)) {
-			res.add("I think getting involved in these politics is a bad idea.");
+			res.add("Myślę, że angażowanie się w politykę to zły pomysł.");
 		} else if (!"done".equals(questState) && !"reward".equals(questState)) {
 			final ItemCollection missingItems = new ItemCollection();
 			missingItems.addFromQuestStateString(questState);
-			res.add(Grammar.enumerateCollection(missingItems.toStringList()) + " are still needed for the crown.");
-		} else if ("reward".equals(questState)) {
-			res.add("I got the precious gems to make a crown, and " + REWARD_NPC_NAME + " has been instructed to give me my reward.");
+			res.add(Grammar.enumerateCollection(missingItems.toStringList()) + " są nadal potrzebne do korony.");
+		} else if ("reward".equals(questState)) {	
+			res.add("Oddałem drogocenne kamienie do korony, a " + REWARD_NPC_NAME + " została poinformowana aby dać mi nagrodę.");
 		} else {
-			res.add("I got the precious gems to make a crown, and " + REWARD_NPC_NAME + " rewarded me with a boost to my powers.");
+			res.add("Oddałem drogocenne kamienie do korony, a " + REWARD_NPC_NAME + " nagrodziła mnie, podnosząc moje zdolności ataku.");
 		}
 		return res;
 	}
@@ -299,8 +300,8 @@ public class CrownForTheWannaBeKing extends AbstractQuest {
 		step_2();
 		step_3();
 		fillQuestInfo(
-				"Crown for the Wannabe King",
-				NPC_NAME + " wants to rule Kalavan ... and he needs a crown.",
+				"Korona dla Niedoszłego Króla",
+				"Ivan Abe chce rządzić Kalavan ... i potrzebuje korony.",
 				false);
 	}
 
@@ -308,7 +309,7 @@ public class CrownForTheWannaBeKing extends AbstractQuest {
 	public String getName() {
 		return "CrownForTheWannaBeKing";
 	}
-
+	
 	@Override
 	public int getMinLevel() {
 		return 100;
@@ -318,7 +319,7 @@ public class CrownForTheWannaBeKing extends AbstractQuest {
 	public String getNPCName() {
 		return "Ivan Abe";
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.FADO_CAVES;

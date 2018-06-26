@@ -30,39 +30,13 @@ import games.stendhal.server.maps.quests.logic.BringListOfItemsQuestLogic;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * QUEST: Cloak Collector
- * <p>
- * PARTICIPANTS: - Josephine, a young woman who live in Ados/Fado
- * <p>
- * STEPS:
- * <ul>
- * <li> Josephine asks you to bring her a cloak in every colour available on
- * the mainland 
- * <li> You bring cloaks to Josephine 
- * <li> Repeat until Josephine
- * received all cloaks. (Of course you can bring several cloaks at the same
- * time.) 
- * <li> Josephine gives you a reward
- * </ul>
- * <p>
- * REWARD:
- * <ul>
- * <li> black cloak </li>
- * <li> 250,000 XP </li>
- * <li> 50 karma (+5 for accepting, -5 for rejecting) </li>
- * </ul>
- * <p>
- * REPETITIONS: - None.
- */
-public class CloakCollector extends AbstractQuest implements BringListOfItemsQuest {
+public class GoralskiCollector extends AbstractQuest implements BringListOfItemsQuest {
 
-	private static final List<String> NEEDED_CLOAKS = Arrays.asList("peleryna",
-			"peleryna elficka", "płaszcz krasnoludzki", "lazurowy płaszcz elficki", "płaszcz kamienny",
-			"szmaragdowy płaszcz smoczy", "kościany płaszcz smoczy", "płaszcz licha",
-			"płaszcz wampirzy", "lazurowy płaszcz smoczy");
+	private static final List<String> MOUNTAINEER_ITEMS = Arrays.asList("góralski gorset",
+			"chusta góralska", "ciupaga", "góralska spódnica", "góralska biała spódnica",
+			"polska tarcza lekka");
 
-	private static final String QUEST_SLOT = "cloaks_collector";
+	private static final String QUEST_SLOT = "goralski_kolekcjoner1";
 	
 	private BringListOfItemsQuestLogic bringItems;
 	
@@ -82,16 +56,16 @@ public class CloakCollector extends AbstractQuest implements BringListOfItemsQue
 		step_1();
 		setupAbstractQuest();
 		fillQuestInfo(
-				"Płaszcze dla Kolekcjonera",
-				"Josephine szuka płaszczy w wielu kolorach.",
+				"Góralski Kolekcjoner I",
+				"Gazda Bartek jest kolekcjonerem i zbiera wszystkie ubrania związane z góralstwem.",
 				false);
 	}
 
 	private void step_1() {
-		final SpeakerNPC npc = npcs.get("Josephine");
+		final SpeakerNPC npc = npcs.get("Gazda Bartek");
 
 		// player asks about an individual cloak before accepting the quest
-		for(final String itemName : NEEDED_CLOAKS) {
+		for(final String itemName : MOUNTAINEER_ITEMS) {
 			npc.add(ConversationStates.QUEST_OFFERED, itemName, null,
 				ConversationStates.QUEST_OFFERED, null,
 				new ChatAction() {
@@ -99,7 +73,7 @@ public class CloakCollector extends AbstractQuest implements BringListOfItemsQue
 					public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 						Expression obj = sentence.getObject(0);
 						if (obj!=null && !obj.getNormalized().equals(itemName)) {
-							raiser.say("Nie znam " + obj.getOriginal() + ". Możesz podać nazwę innego płaszcza?");
+							raiser.say("Nie znam " + obj.getOriginal() + ". Możesz podać nazwę?");
 						} else {
 							final Item item = SingletonRepository.getEntityManager().getItem(itemName);
 							StringBuilder stringBuilder = new StringBuilder();
@@ -131,12 +105,12 @@ public class CloakCollector extends AbstractQuest implements BringListOfItemsQue
 
 	@Override
 	public SpeakerNPC getNPC() {
-		return npcs.get("Josephine");
+		return npcs.get("Gazda Bartek");
 	}
 
 	@Override
 	public List<String> getNeededItems() {
-		return NEEDED_CLOAKS;
+		return MOUNTAINEER_ITEMS;
 	}
 
 	@Override
@@ -146,7 +120,7 @@ public class CloakCollector extends AbstractQuest implements BringListOfItemsQue
 
 	@Override
 	public List<String> getTriggerPhraseToEnumerateMissingItems() {
-		return Arrays.asList("cloaks", "płaszcze");
+		return Arrays.asList("items", "rzeczy", "przedmioty");
 	}
 
 	@Override
@@ -161,33 +135,33 @@ public class CloakCollector extends AbstractQuest implements BringListOfItemsQue
 
 	@Override
 	public String welcomeBeforeStartingQuest() {
-		return "Cześć przystojniaku! Widzę Ciebie jak moją piękną sukienkę. Kocham #ubrania...";
+		return "Witojże w mej krainie górskiej. Chciałbyś zobaczyć me #'ubrania'.. ?";
 	}
 
 	@Override
 	public String welcomeDuringActiveQuest() {
-		return "Cześć! Przyniosłeś ze sobą jakieś #płaszcze )?";
+		return "Zawsze chciałem poszerzyć swoją kolejcę o kolejne przedmioty związane z góralstwem! Pomógłbyś mi przynosząc pewne #rzeczy ?";
 	}
 	
 	@Override
 	public String welcomeAfterQuestIsCompleted() {
-		return "Witaj znowu, kochany. Płaszcze wciąż wygladają wspaniale. Dziękuję!";
+		return "Góralskie ubrania wyglądają jak nowe. Niepotrzebuję nowszych. Dziękuję!";
 	}
 
 	@Override
 	public String respondToQuest() {
-		return "Teraz mam obsesję na punkcie #płaszczy! Są kolorowe, a jakie wszystkie piękne!";
+		return "Od urodzenia zawsze chciałem zbierać wszystkie #rzeczy góralskie. Chciałem je kolekcjonować!";
 	}
 
 	@Override
 	public String respondToQuestAcception() {
 		// player.addKarma(5.0);
-		return "Wspaniale! Jestem taka podekscytowana!";
+		return "Wspaniale! Będę tutaj czekał jak wrócisz.";
 	}
 
 	@Override
 	public String respondToQuestAfterItHasAlreadyBeenCompleted() {
-		return "Witaj znowu, kochany. Płaszcze wciąż wyglądają wspaniale. Dziękuję!";
+		return "Góralskie ubrania wyglądają jak nowe. Niepotrzebuję nowszych. Dziękuję!";
 	}
 
 	@Override
@@ -198,46 +172,46 @@ public class CloakCollector extends AbstractQuest implements BringListOfItemsQue
 
 	@Override
 	public String askForItemsAfterPlayerSaidHeHasItems() {
-		return "Cudownie! Jakie #płaszcze przyniosłeś mi?";
+		return "Cudownie! Jakie #rzeczy przyniosłeś mi?";
 	}
 
 	@Override
 	public String firstAskForMissingItems(final List<String> missingItems) {
-		return "Chcę " + Grammar.quantityplnoun(missingItems.size(), "cloak", "a")
-				+ ". To jest " + Grammar.enumerateCollection(missingItems)
-				+ ". Przyniosłeś mi jakiś?";
+		return "Chcę " + Grammar.quantityplnoun(missingItems.size(), "item", "a")
+				+ ". To jest #'" + Grammar.enumerateCollection(missingItems)
+				+ "'. Pomógłbyś mi je zdobyć?";
 	}
 
 	@Override
 	public String askForMissingItems(final List<String> missingItems) {
-		return "Chcę " + Grammar.quantityplnoun(missingItems.size(), "cloak", "a")
+		return "Chcę " + Grammar.quantityplnoun(missingItems.size(), "item", "a")
 				+ ". To jest " + Grammar.enumerateCollection(missingItems)
 				+ ". Przyniosłeś mi jakiś?";
 	}
 
 	@Override
 	public String respondToItemBrought() {
-		return "Łał, dziękuję! Co jeszcze mi przyniosłeś?";
+		return "Ohh... Bardzo dziękuję! Co jeszcze przyniosłeś?";
 	}
 
 	@Override
 	public String respondToLastItemBrought() {
-		return "Och, wszystkie wyglądają tak pięknie, dziękuję. Proszę weź ten czarny płaszcz w zamian, nie lubię tego koloru.";
+		return "Dziękuję bardzo.. za te góralskie rzeczy.. Proszę, przyjmij korale, mogą Ci się kiedyś przydać.";
 	}
 
 	@Override
 	public String respondToOfferOfNotExistingItem(final String itemName) {
-		return "Och, jestem rozczarowana. Nie masz " + Grammar.a_noun(itemName) + " ze sobą.";
+		return "Rozczarowałeś mnie... Nie masz " + Grammar.a_noun(itemName) + " przy sobie...";
 	}
 
 	@Override
 	public String respondToOfferOfNotMissingItem() {
-		return "Już przyniosłeś mi ten płaszcz.";
+		return "Już mi to przyniosłeś kiedyś...";
 	}
 
 	@Override
 	public String respondToOfferOfNotNeededItem() {
-		return "To nie jest prawdziwy płaszcz...";
+		return "To nie jest prawdziwa rzecz, o którą prosiłem...";
 	}
 
 	@Override
@@ -247,31 +221,31 @@ public class CloakCollector extends AbstractQuest implements BringListOfItemsQue
 
 	@Override
 	public void rewardPlayer(final Player player) {
-		final Item blackcloak = SingletonRepository.getEntityManager().getItem("czarny płaszcz");
-		blackcloak.setBoundTo(player.getName());
-		player.equipOrPutOnGround(blackcloak);
+		final Item korale = SingletonRepository.getEntityManager().getItem("korale");
+		korale.setBoundTo(player.getName());
+		player.equipOrPutOnGround(korale);
 		player.addKarma(50.0);
-		player.addXP(250000);
+		player.addXP(100000);
 	}
 
 	@Override
 	public String getName() {
-		return "CloakCollector";
+		return "GoralskiCollector";
 	}
 	
 	// You can start collecting just with a simple cloak which you can buy, but maybe not a good idea to send to Fado too early.
 	@Override
 	public int getMinLevel() {
-		return 15;
+		return 80;
 	}
 
 	@Override
 	public String getRegion() {
-		return Region.FADO_CITY;
+		return Region.TATRY_MOUNTAIN;
 	}
 
 	@Override
 	public String getNPCName() {
-		return "Josephine";
+		return "Gazda Bartek";
 	}
 }

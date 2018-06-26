@@ -12,9 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import games.stendhal.common.Direction;
 import games.stendhal.common.MathHelper;
 import games.stendhal.common.parser.Sentence;
@@ -36,47 +33,51 @@ import games.stendhal.server.maps.Region;
 import games.stendhal.server.maps.quests.maze.MazeGenerator;
 import games.stendhal.server.maps.quests.maze.MazeSign;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Maze extends AbstractQuest {
 	/** Minimum time between repeats. */
 	private static final int COOLING_TIME = MathHelper.MINUTES_IN_ONE_HOUR * 24;
 	private MazeSign sign;
 	private MazeGenerator maze = null;
-
+	
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Maze",
-				"Haizen's maze is a great challenge for path finders.",
+				"Labirynt",
+				"Wszystko co potrzebujesz to dobre oko...",
 				false);
 		addMazeSign();
 		setupConversation();
 	}
-
+	
 	@Override
 	public List<String> getHistory(final Player player) {
 			final List<String> res = new ArrayList<String>();
 			if (!player.hasQuest(getSlotName())) {
 				return res;
 			}
-			res.add("Haizen created a magical maze for me to solve.");
+			res.add("Haizen stworzył magiczny labirynt dla mnie do przejścia.");
 
 			if (player.getZone().getName().endsWith("_maze")) {
-				res.add("I am currently trapped in the maze.");
+				res.add("Obecnie jestem uwięziony w labiryncie.");
 			} else {
 				if (!isCompleted(player)) {
-					res.add("I couldn't solve the last maze.");
+					res.add("Nie mogę przejść ostatniego labiryntu.");
 				} else {
-					res.add("I solved the maze!");
+					res.add("Przeszedłem labirynt!");
 				}
 				if (isRepeatable(player)) {
-					res.add("I could have another try to solve a maze now.");
+					res.add("Mógłbym jeszcze raz spróbować przejść labirynt.");
 				} else {
-					res.add("Haizen won't make me a new maze yet.");
+					res.add("Haizen nie ma czasu na stworznie nowego labiryntu dla mnie.");
 				}
 			}
 			final int repetitions = player.getNumberOfRepetitions(getSlotName(), 2);
 			if (repetitions > 1) {
-				res.add("So far I've solved the maze " + repetitions + " times already!");
+				res.add("Do tej pory przeszedłem " + repetitions + " razy labirynt.");
 			}
 
 			return res;
@@ -91,41 +92,41 @@ public class Maze extends AbstractQuest {
 	public String getSlotName() {
 		return "maze";
 	}
-
+	
 	@Override
 	public boolean isRepeatable(Player player) {
 		return new TimePassedCondition(getSlotName(), 1, COOLING_TIME).fire(player, null, null);
 	}
-
+	
 	private SpeakerNPC getNPC() {
 		return npcs.get("Haizen");
 	}
-
+	
 	private void addMazeSign() {
 		setSign(new MazeSign());
 		getSign().setPosition(10, 7);
 		getNPC().getZone().add(getSign());
 	}
-
+	
 	private void setupConversation() {
 		SpeakerNPC npc = getNPC();
-
-		npc.addQuest("I can send you to a #maze you need to find your way out. I keep the a list of the fast and frequent maze solvers in that blue book on the table.");
-
+		
+		npc.addQuest("Mogę pokazać ci #labirynt, z którego będziesz musiał znaleźć drogę wyjścia. W tej niebieskiej księdze znajdziesz imiona rycerzy, którzy najszybciej pokonali drogę i znaleźli wyjście.");
+	
 		npc.add(ConversationStates.ATTENDING,
-				"maze",
+				Arrays.asList("maze", "labirynt"),
 				new TimePassedCondition(getSlotName(), 1, COOLING_TIME),
 				ConversationStates.QUEST_OFFERED,
-				"There will be a portal out in the opposite corner of the maze. I'll also add scrolls to the two other corners you can try to get if you are fast enough. Do you want to try?",
+				"W przeciwległym rogu znajdziesz wyjście z labiryntu. Zwykle w pozostałych rogach umieszczam zwoje, które możesz zabrać o ile pozwoli ci na to czas. Czy chcesz podjąć wyzwanie?",
 				null);
-
+		
 		npc.add(ConversationStates.ATTENDING,
-				"maze",
+				Arrays.asList("maze", "labirynt"),
 				new NotCondition(new TimePassedCondition(getSlotName(), 1, COOLING_TIME)),
 				ConversationStates.ATTENDING,
 				null,
-				new SayTimeRemainingAction(getSlotName(), 1,
-						COOLING_TIME, "I can send you to the maze only once in a day. You can go there again in"));
+				new SayTimeRemainingAction(getSlotName(), 1, 
+						COOLING_TIME, "Mogę wysłać cię do labiryntu tylko raz dziennie. Można tam powrócić za"));
 
 		npc.add(ConversationStates.QUEST_OFFERED,
 				ConversationPhrases.YES_MESSAGES,
@@ -133,15 +134,15 @@ public class Maze extends AbstractQuest {
 				ConversationStates.IDLE,
 				null,
 				new SendToMazeChatAction());
-
+		
 		npc.add(ConversationStates.QUEST_OFFERED,
 				ConversationPhrases.NO_MESSAGES,
 				null,
 				ConversationStates.ATTENDING,
-				"OK. You look like you'd only get lost anyway.",
+				"Dobrze. Wyglądasz jakbyś już się zgubił.",
 				null);
 	}
-
+	
 	private void setSign(MazeSign sign) {
 		this.sign = sign;
 	}
@@ -171,7 +172,7 @@ public class Maze extends AbstractQuest {
 
 	/**
 	 * Access the portal from MazeTest.
-	 *
+	 * 
 	 * @return return portal from the maze
 	 */
 	protected Portal getPortal() {
@@ -182,7 +183,7 @@ public class Maze extends AbstractQuest {
 	public String getNPCName() {
 		return "Haizen";
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.ADOS_SURROUNDS;

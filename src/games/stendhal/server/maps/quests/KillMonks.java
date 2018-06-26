@@ -12,11 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-
 import games.stendhal.common.MathHelper;
 import games.stendhal.common.Rand;
 import games.stendhal.common.grammar.Grammar;
@@ -47,6 +42,12 @@ import games.stendhal.server.entity.npc.condition.TimePassedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 import games.stendhal.server.util.KillsForQuestCounter;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+
 import marauroa.common.Pair;
 
 /**
@@ -58,10 +59,10 @@ import marauroa.common.Pair;
  * </ul>
  *
  * STEPS:<ul>
- * <li> Andy who is sad about the death of his wife, wants revenge for her death
+ * <li> Andy who is sad about the death of his wife, wants revenge for her death 
  * <li> Kill 25 monks and 25 darkmonks for him for reaching his goal
  * </ul>
- *
+ * 
  *
  * REWARD:<ul>
  * <li> 15000 XP
@@ -70,7 +71,7 @@ import marauroa.common.Pair;
  * </ul>
  *
  * REPETITIONS: <ul><li>once in two weeks</ul>
- *
+ * 
  * @author Vanessa Julius, idea by anoyyou
 
  */
@@ -79,39 +80,39 @@ public class KillMonks extends AbstractQuest {
 
 	private static final String QUEST_SLOT = "kill_monks";
 	protected HashMap<String, Pair<Integer, Integer>> creaturestokill = new HashMap<String, Pair<Integer,Integer>>();
-
+	
 	@Override
 	public String getSlotName() {
 		return QUEST_SLOT;
 	}
-
+	
 	public KillMonks() {
 		super();
-
-		 creaturestokill.put("monk",
+		
+		 creaturestokill.put("mnich", 
 				 new Pair<Integer, Integer>(0, 25));
 
-		 creaturestokill.put("darkmonk",
+		 creaturestokill.put("mnich ciemności",
 				 new Pair<Integer, Integer>(0, 25));
-
+		 		
 	}
-
+	
 	private void step_1() {
 		final SpeakerNPC npc = npcs.get("Andy");
 
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES,
+				ConversationPhrases.QUEST_MESSAGES, 
 				new QuestNotStartedCondition(QUEST_SLOT),
 				ConversationStates.QUEST_OFFERED,
-				"My lovely wife was killed when she went to Wo'fol to order some freshmade pizza by Kroip. Some monks stepped into her way and she had no chance. Now I want revenge! May you help me?",
+				"Moja kochana żona została zamordowana, gdy szła do Wo'fol, aby zamówić pizzę u Kroipa. Jacyś mnichowie ją napadli i nie miała szansy. Teraz chcę się zemścić! Może mi pomożesz?",
 				null);
 
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES,
+				ConversationPhrases.QUEST_MESSAGES, 
 				new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT,"killed"),
 						 new TimePassedCondition(QUEST_SLOT, 1, MathHelper.MINUTES_IN_ONE_WEEK*2)),
 				ConversationStates.QUEST_OFFERED,
-				"Those monks are cruel and I still didn't get my revenge. May you help me again please?",
+				"Ci mnichowie są okrutni, a ja wciąż nie mogę dokonać mojej zemsty. Może znów mi pomożesz?",
 				null);
 
 		npc.add(ConversationStates.ATTENDING,
@@ -119,27 +120,27 @@ public class KillMonks extends AbstractQuest {
 				new AndCondition(new NotCondition(new TimePassedCondition(QUEST_SLOT, 1, MathHelper.MINUTES_IN_ONE_WEEK*2)), new QuestStateStartsWithCondition(QUEST_SLOT, "killed")),
 				ConversationStates.ATTENDING,
 				null,
-				new SayTimeRemainingAction(QUEST_SLOT, 1, MathHelper.MINUTES_IN_ONE_WEEK*2, "These monks learned their lesson for now but I could need your help again in"));
-
+				new SayTimeRemainingAction(QUEST_SLOT, 1, MathHelper.MINUTES_IN_ONE_WEEK*2, "Ci mnichowie dostali lekcje, ale możliwe, że znów będę potrzebował twojej pomocy za"));
+	
 
 		final List<ChatAction> actions = new LinkedList<ChatAction>();
 		actions.add(new SetQuestAction(QUEST_SLOT, 0, "start"));
 		actions.add(new IncreaseKarmaAction(5));
 		actions.add(new StartRecordingKillsAction(QUEST_SLOT, 1, creaturestokill));
 
-
+		
 		npc.add(ConversationStates.QUEST_OFFERED,
 				ConversationPhrases.YES_MESSAGES,
 				null,
 				ConversationStates.ATTENDING,
-				"Thank you! Please kill 25 monks and 25 darkmonks in the name of my beloved wife.",
+				"Dziękuję! Zabij 25 mnichów i 25 mnichów ciemności w imię mojej ukochanej żony.",
 				new MultipleActions(actions));
 
-		npc.add(ConversationStates.QUEST_OFFERED,
-				ConversationPhrases.NO_MESSAGES,
+		npc.add(ConversationStates.QUEST_OFFERED, 
+				ConversationPhrases.NO_MESSAGES, 
 				null,
 				ConversationStates.ATTENDING,
-				"That is a pity... Maybe you'll change your mind soon and help a sad man then.",
+				"Co za szkoda... Może kiedyśzmienisz zdanie i pomożesz smutnemu człowiekowi.",
 				new MultipleActions(
 				        new SetQuestAction(QUEST_SLOT, 0, "rejected"),
 				        new DecreaseKarmaAction(5)));
@@ -152,13 +153,13 @@ public class KillMonks extends AbstractQuest {
 	private void step_3() {
 
 		final SpeakerNPC npc = npcs.get("Andy");
-
+		
 		ChatAction addRandomNumberOfItemsAction = new ChatAction() {
 			@Override
 			public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
 				//add random number of soups
 				final StackableItem soup = (StackableItem) SingletonRepository.getEntityManager()
-						.getItem("soup");
+						.getItem("zupa");
 				int amount;
 				// between 1 and 5 soup
 				amount = Rand.rand(4) + 1;
@@ -173,102 +174,86 @@ public class KillMonks extends AbstractQuest {
 		actions.add(new SetQuestAction(QUEST_SLOT, 0, "killed"));
 		actions.add(new SetQuestToTimeStampAction(QUEST_SLOT, 1));
 		actions.add(new IncrementQuestAction(QUEST_SLOT,2,1));
-
+		
 		LinkedList<String> triggers = new LinkedList<String>();
 		triggers.addAll(ConversationPhrases.FINISH_MESSAGES);
-		triggers.addAll(ConversationPhrases.QUEST_MESSAGES);
-		npc.add(ConversationStates.ATTENDING,
+		triggers.addAll(ConversationPhrases.QUEST_MESSAGES);		
+		npc.add(ConversationStates.ATTENDING, 
 				triggers,
 				new AndCondition(
 						new QuestInStateCondition(QUEST_SLOT, 0, "start"),
 						new KilledForQuestCondition(QUEST_SLOT, 1)),
-				ConversationStates.ATTENDING,
-				"Thank you so much! Now I can sleep a bit better. Please take some soup.",
+				ConversationStates.ATTENDING, 
+				"Bardzo dziękuję! Teraz mogę spać trochęspokojniej. Proszęprzyjmij tą zupę.",
 				new MultipleActions(actions));
 
-		npc.add(ConversationStates.ATTENDING,
+		npc.add(ConversationStates.ATTENDING, 
 				triggers,
 				new AndCondition(
 						new QuestInStateCondition(QUEST_SLOT, 0, "start"),
 						new NotCondition(new KilledForQuestCondition(QUEST_SLOT, 1))),
-				ConversationStates.ATTENDING,
-				"Please help me with reaching my goal of taking revenge!",
+				ConversationStates.ATTENDING, 
+				"Proszę pomóż mi w dokonaniu zemsty!",
 				null);
 	}
 
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Kill Monks",
-				"Andy's wife was killed by monks, now he wants revenge on them.",
+				"Zabij Mnichów",
+				"Żona Andiego została zamordowana przez mnichów, a teraz on chce dokonać na nich zemsty.",
 				false);
 		step_1();
 		step_2();
 		step_3();
 	}
-
+	
 	@Override
 	public List<String> getHistory(final Player player) {
-		return getHistory(player, false);
-	}
-
-	@Override
-	public List<String> getFormattedHistory(final Player player) {
-		return getHistory(player, true);
-	}
-
-	private List<String> getHistory(final Player player, boolean formatted) {
 			final List<String> res = new ArrayList<>();
 			if (!player.hasQuest(QUEST_SLOT)) {
 				return res;
 			}
-			res.add("I met Andy in Ados city. He asked me to get revenge for his wife.");
+			res.add("Spotkałem Andiego w mieście Ados. Poprosił mnie o pomszczenie jego żony.");
 			final String questStateFull = player.getQuest(QUEST_SLOT);
 			final String[] parts = questStateFull.split(";");
 			final String questState = parts[0];
 
 			if ("rejected".equals(questState)) {
-				res.add("I rejected his request.");
+				res.add("Odrzuciłem prośbę.");
 			}
 			if ("start".equals(questState)) {
-				res.add("I promised to kill 25 monks and 25 darkmonks to get revenge for Andy's wife.");
-				if (formatted) {
-					res.addAll(howManyWereKilledFormatted(player, parts[1]));
-				} else {
-					res.add(howManyWereKilled(player, parts[1]));
-				}
+				res.add("Obiecałem zabić 25 mnichów i 25 mnichów ciemności, aby dokonać zemsty za żone Andiego.");
+				res.add(howManyWereKilled(player, parts[1]));
 			}
 			if (isCompleted(player)) {
 				if(isRepeatable(player)){
-					res.add("Now, after more than two weeks, I should check on Andy again. Maybe he needs my help!");
+					res.add("Teraz po dwóch tygodniach powinienem odwiedzić Andiego. Może potrzebuje mojej pomocy!");
 				} else {
-					res.add("I've killed some monks and Andy finally can sleep a bit better!");
+					res.add("Zabiłem paru mnichów, a Andi może teraz spać trochę spokojnie!");
 				}
 			}
 			int repetitions = player.getNumberOfRepetitions(getSlotName(), 2);
 			if (repetitions > 0) {
-				res.add("I have taken revenge for Andy "
-						+ Grammar.quantityplnoun(repetitions, "time") + " now.");
+				res.add("Zemściłem się dla Andiego "
+						+ Grammar.quantityplnoun(repetitions, "razy") + ".");
 			}
 			return res;
 	}
 
 	private String howManyWereKilled(final Player player, final String questState) {
 		KillsForQuestCounter killsCounter = new KillsForQuestCounter(questState);
-		int killedMonks = 25 - killsCounter.remainingKills(player, "monk");
-		int killedDarkMonks = 25 - killsCounter.remainingKills(player, "darkmonk");
-		return "I have killed " + Grammar.quantityplnoun(killedMonks, "monk") + " and " + Grammar.quantityplnoun(killedDarkMonks, "darkmonk") + ".";
-	}
-
-	private List<String> howManyWereKilledFormatted(final Player player, final String questState) {
-		KillsForQuestCounter killsCounter = new KillsForQuestCounter(questState);
-		int killedMonks = 25 - killsCounter.remainingKills(player, "monk");
-		int killedDarkMonks = 25 - killsCounter.remainingKills(player, "darkmonk");
-
-		List<String> entries = new ArrayList<>();
-		entries.add("Monks: <tally>" + killedMonks + "</tally>");
-		entries.add("Darkmonks: <tally>" + killedDarkMonks + "</tally>");
-		return entries;
+		int remainingMonks = killsCounter.remainingKills(player, "mnich");
+		int remainingDarkMonks = killsCounter.remainingKills(player, "mnich ciemności");
+		if (remainingMonks > 0 && remainingDarkMonks > 0) {
+			return "Wciąż muszę zabić " + Grammar.quantityplnoun(remainingMonks, "mnich")  + " and " + Grammar.quantityplnoun(remainingDarkMonks, "mnich ciemności") + ".";
+		} else if (remainingMonks > 0) {
+			return "Wciąż muszę zabić " + Grammar.quantityplnoun(remainingMonks, "mnich") + ".";
+		} else if (remainingDarkMonks > 0) {
+			return "Wciąż muszę zabić " + Grammar.quantityplnoun(remainingDarkMonks, "mnich ciemności") + ".";
+		} else {
+			return "Zabiłem 25 mnichów i 25 mnichów ciemności.";
+		}
 	}
 
 	@Override
@@ -276,13 +261,13 @@ public class KillMonks extends AbstractQuest {
 		return "KillMonks";
 
 	}
-
+	
 	@Override
 	public boolean isRepeatable(final Player player) {
 		return new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT,"killed"),
 				 new TimePassedCondition(QUEST_SLOT, 1, MathHelper.MINUTES_IN_ONE_WEEK*2)).fire(player,null, null);
 	}
-
+	
 	@Override
 	public boolean isCompleted(final Player player) {
 		return new QuestStateStartsWithCondition(QUEST_SLOT,"killed").fire(player, null, null);
@@ -292,7 +277,7 @@ public class KillMonks extends AbstractQuest {
 	public String getNPCName() {
 		return "Andy";
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.ADOS_CITY;

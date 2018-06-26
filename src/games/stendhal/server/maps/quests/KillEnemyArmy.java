@@ -69,8 +69,8 @@ import marauroa.common.Pair;
  * REWARD:<ul>
  * <li> 100k of XP, or 300 karma.
  * <li> random moneys - from 10k to 60k, step 10k.
- * <li> 5 karma for killing 100% creatures
- * <li> 5 karma for killing every 50% next creatures
+ * <li> 100 karma for killing 100% creatures
+ * <li> 50 karma for killing every 50% next creatures
  * </ul>
  *
  * REPETITIONS: <ul><li> once a week.</ul>
@@ -81,7 +81,7 @@ import marauroa.common.Pair;
 	private static final String QUEST_NPC = "Despot Halb Errvl";
 	private static final String QUEST_SLOT = "kill_enemy_army";
 	private static final int delay = MathHelper.MINUTES_IN_ONE_WEEK;
-
+	
 	protected HashMap<String, Pair<Integer, String>> enemyForces = new HashMap<String, Pair<Integer,String>>();
 	protected HashMap<String, List<String>> enemys = new HashMap<String, List<String>>();
 
@@ -92,23 +92,24 @@ import marauroa.common.Pair;
 		super();
 		// fill monster types map
 		enemyForces.put("blordrough",
-				new Pair<Integer, String>(50,"Blordrough warriors now live in the Ados tunnels. They are extremely strong in battle, that is why Blordrough captured part of Deniran's territory."));
+				new Pair<Integer, String>(50,"Wojska Blordrough zamieszkują tunele Ados. W bezpośrednim starciu są dużo silniejsi. Dlatego Blordrough opanowały część ziem Deniran."));
 		enemyForces.put("madaram",
-				new Pair<Integer, String>(100,"Their forces are somewhere under Fado. They are hideous."));
-		enemyForces.put("dark elf",
-				new Pair<Integer, String>(100,"Drows, or dark elves as they are commonly called, can be found under Nalwor. They use poison in battles, gathering it from different poisonous creatures."));
-		enemyForces.put("chaos",
-				new Pair<Integer, String>(150,"They are strong and crazy. Only my elite archers hold them from expanding more."));
-		enemyForces.put("mountain dwarf",
-				new Pair<Integer, String>(150,"They are my historical neighbors, living in Semos mines."));
-		enemyForces.put("mountain orc",
-				new Pair<Integer, String>(150,"Stupid creatures, but very strong. Can be found in an abandoned underground keep somewhere near Ados."));
+				new Pair<Integer, String>(100,"Ich siły są gdzieś pod Fado. Są ohydne."));
+		enemyForces.put("mroczne elfy",
+				new Pair<Integer, String>(100,"Mroczne Elfy można znaleźć w podziemiach Nalwor. Używają trucizny w bitwach, którą zbierają z różnych jadowitych stworzeń."));
+		enemyForces.put("chaosy",
+				new Pair<Integer, String>(150,"Są silni i szaleni. Tylko dzięki moim elitarnym łucznikom możemy zapobiec ich ekspansji."));
+		enemyForces.put("górski krasnal",
+				new Pair<Integer, String>(150,"To moi historyczni sąsiedzi, żyjący w kopalniach Semos."));
+		enemyForces.put("górski ork",
+				new Pair<Integer, String>(150,"Głupie stworzenia, ale bardzo silne. Gdzieś w kopalniach Semos można je znaleźć."));
 		enemyForces.put("imperial",
-				new Pair<Integer, String>(200,"They come from their castle in the underground Sedah city, ruled by their Emperor Dalmung."));
-		enemyForces.put("barbarian",
-				new Pair<Integer, String>(200,"Different barbarian tribes live on the surface in the North West area of Ados Mountains. Not dangerous but noisy."));
+				new Pair<Integer, String>(200,"Pochodzą one z zamku w podziemnym mieście Sedah, rządzonej przez ich cesarza Dalmunga."));
+		enemyForces.put("barbarzyńca",
+				new Pair<Integer, String>(200,"Różne plemiona barbarzyńskie żyją na powierzchni w rejonie północno-zachodnim Góry Ados. Nie są niebezpieczne, ale głośne."));
 		enemyForces.put("oni",
-				new Pair<Integer, String>(200,"Very strange race, living in their castle in Fado forest. There are rumors that they have agreed an alliance with the Magic city wizards."));
+				new Pair<Integer, String>(200,"Bardzo dziwny naród, żyjący w swoim zamku w lesie Fado. Istnieją pogłoski, że wchodzą w sojusz z czarodziejami z magicznego miasta."));
+
 
 		/*
 		 * those are not interesting
@@ -127,81 +128,81 @@ import marauroa.common.Pair;
 		 */
 
 		enemys.put("blordrough",
-				Arrays.asList("blordrough quartermaster",
-							  "blordrough corporal",
-							  "blordrough storm trooper"));
-		enemys.put("dark elf",
-				Arrays.asList("child dark elf",
-							  "dark elf archer",
-							  "dark elf",
-							  "dark elf elite archer",
-							  "dark elf captain",
-							  "dark elf knight",
-							  "dark elf general",
-							  "dark elf wizard",
-							  "dark elf viceroy",
-							  "dark elf sacerdotist",
-							  "dark elf admiral",
-							  "dark elf master",
-						"dark elf matronmother"));
-		enemys.put("chaos",
-				Arrays.asList("chaos soldier",
-							  "chaos warrior",
-							  "chaos commander",
-							  "chaos sorcerer",
-							  "chaos dragonrider",
-							  "chaos lord",
-							  "chaos green dragonrider",
-							  "chaos overlord",
-							  "chaos red dragonrider"));
-		enemys.put("mountain dwarf",
-				Arrays.asList("mountain dwarf",
-							  "mountain elder dwarf",
-							  "mountain dwarf guardian",
-							  "mountain hero dwarf",
-							  "mountain leader dwarf",
+				Arrays.asList("blordrough kwatermistrz",
+							  "uzbrojony lider",
+							  "superczłowiek"));
+		enemys.put("mroczne elfy",
+				Arrays.asList("elf mikrus",
+							  "elf ciemności łucznik",
+							  "elf ciemności",
+							  "elf ciemności łucznik elitarny",
+							  "elf ciemności kapitan",
+							  "elf ciemności rycerz",
+							  "elf ciemności generał",
+							  "elf ciemności czarownik",
+							  "elf ciemności królewicz",
+							  "elf ciemności czarnoksiężnik",
+							  "elf ciemności admirał",
+							  "elf ciemności mistrz",
+						"elf ciemności matrona"));
+		enemys.put("chaosy",
+				Arrays.asList("żołnierz chaosu",
+							  "wojownik chaosu",
+							  "komandor chaosu",
+							  "czarnoksiężnik chaosu",
+							  "jeździec smoków chaosu",
+							  "lord chaosu",
+							  "jeździec chaosu na zielonym smoku",
+							  "chaosu lord wywyższony",
+							  "jeździec chaosu na czerwonym smoku"));
+		enemys.put("górski krasnal",
+				Arrays.asList("górski krasnal",
+							  "górski starszy krasnal",
+							  "górski krasnal strażnik",
+							  "górski krasnal bohater",
+							  "górski krasnal lider",
 							  "Dhohr Nuggetcutter",
-							  "giant dwarf",
-							  "dwarf golem"));
-		enemys.put("mountain orc",
-				Arrays.asList("mountain orc",
-							  "mountain orc warrior",
-							  "mountain orc hunter",
-							  "mountain orc chief"));
+							  "gigantyczny krasnal",
+							  "krasnal golem"));
+		enemys.put("górski ork",
+				Arrays.asList("górski ork",
+							  "górski ork wojownik",
+							  "górski ork łowca",
+							  "szef górskich orków"));
 		enemys.put("imperial",
-				Arrays.asList("imperial defender",
-							  "imperial veteran",
-							  "imperial archer",
-							  "imperial priest",
-							  "imperial elite guardian",
-							  "imperial scientist",
-							  "imperial high priest",
-							  "imperial archer leader",
-							  "imperial elite archer",
-							  "imperial leader",
-							  "imperial chief",
-							  "imperial knight",
-							  "imperial commander",
-							  "imperial experiment",
-							  "imperial demon servant",
-							  "imperial mutant",
-							  "imperial general",
-							  "imperial demon lord",
-							  "emperor dalmung",
-							  "imperial general giant"));
+				Arrays.asList("obrońca imperium",
+							  "weteran imperium",
+							  "łucznik imperium",
+							  "kapłan imperium",
+							  "elitarny strażnik imperium",
+							  "uczony imperium",
+							  "wysoki kapłan imperium",
+							  "łucznik imperium lider",
+							  "elitarny łucznik imperium",
+							  "imperialny lider",
+							  "szef żołnierzy imperium",
+							  "rycerz imperium",
+							  "komandor imperium",
+							  "eksperyment imperium",
+							  "imperialny sługa demonów",
+							  "mutant imperium",
+							  "generał imperium",
+							  "imperialny lord demonów",
+							  "cesarz dalmung",
+							  "imperialny generał gigant"));
 		enemys.put("madaram",
-				Arrays.asList("madaram peasant",
-							  "madaram trooper",
-							  "madaram soldier",
-							  "madaram healer",
-							  "madaram axeman",
-							  "madaram queen",
-							  "madaram hero",
-							  "madaram cavalry",
-							  "madaram stalker",
-							  "madaram buster blader",
-							  "madaram archer",
-							  "madaram windwalker",
+				Arrays.asList("madaram wieśniak",
+							  "madaram komandos",
+							  "madaram żołnierz",
+							  "madaram znachor",
+							  "madaram z toporem",
+							  "madaram królowa",
+							  "madaram bohater",
+							  "madaram kawalerzysta",
+							  "madaram myśliwy",
+							  "madaram łamacz mieczy",
+							  "madaram łucznik",
+							  "madaram wietrzny wędrowca",
 							  "kasarkutominubat"));
 		/*
 		 * exclude amazoness ( because they dont want to leave their island? )
@@ -219,19 +220,19 @@ import marauroa.common.Pair;
 						      "amazoness giant"));
 		 */
 		enemys.put("oni",
-				Arrays.asList("oni warrior",
-							  "oni archer",
-							  "oni priest",
-							  "oni king",
-							  "oni queen"));
-		enemys.put("barbarian",
-				Arrays.asList("barbarian",
-						      "barbarian wolf",
-						      "barbarian elite",
-						      "barbarian priest",
-						      "barbarian chaman",
-						      "barbarian leader",
-						      "barbarian king"));
+				Arrays.asList("oni wojownik",
+							  "oni łucznik",
+							  "oni kapłan",
+							  "oni król",
+							  "oni królowa"));
+		enemys.put("barbarzyńca",
+				Arrays.asList("barbarzyńca",
+						      "barbarzyńca wilczur",
+						      "barbarzyńca elitarny",
+						      "barbarzyńca kapłan",
+						      "barbarzyńca szaman",
+						      "barbarzyńca lider",
+						      "król barbarzyńca"));
 	}
 
 	/**
@@ -304,10 +305,10 @@ import marauroa.common.Pair;
 		@Override
 		public void fire(final Player player, final Sentence sentence, final EventRaiser speakerNPC) {
 			final String monstersType = chooseRandomEnemys();
-			speakerNPC.say("I need help to defeat #enemy " + monstersType +
-					" armies. They are a grave concern. Kill at least " + enemyForces.get(monstersType).first()+
-					" of any "+ monstersType +
-					" soldiers and I will reward you.");
+			speakerNPC.say("Potrzebuję pomocy, aby pokonać #wrogą  " + monstersType +
+					" armię. Są poważnym zagrożeniem. Zabij co najmniej " + enemyForces.get(monstersType).first()+
+					" każdego z "+ monstersType +
+					" żołnierzy a wynagrodzę cię.");
 			final HashMap<String, Pair<Integer, Integer>> toKill = new HashMap<String, Pair<Integer, Integer>>();
 			List<String> sortedcreatures = enemys.get(monstersType);
 			player.setQuest(QUEST_SLOT, 0, "start");
@@ -329,23 +330,23 @@ import marauroa.common.Pair;
 			final String monsters = player.getQuest(QUEST_SLOT, 1);
 			int killed=getKilledCreaturesNumber(player);
 			int killsnumber = enemyForces.get(monsters).first();
-			int moneyreward = 10000*Rand.roll1D6();
+			int moneyreward = 10000*(5*killed/killsnumber-1);
 			if(killed == killsnumber) {
 				// player killed no more no less then needed soldiers
-				speakerNPC.say("Good work! Take these " + moneyreward + " coins. And if you need an assassin job again, ask me in one week. My advisors tell me they may try to fight me again.");
+				speakerNPC.say("Dobra robota! Oto zapłata. Gdy będziesz potrzebował znów pracy jako najemnik, wróć za tydzień. Moi zwiadowcy doniosą mi, gdy znowu ktoś odważy się nas zaatakować.");
 			} else {
 				// player killed more then needed soldiers
-				speakerNPC.say("Pretty good! You killed "+(killed-killsnumber)+" extra "+
-						Grammar.plnoun(killed-killsnumber, "soldier")+"! Take these " + moneyreward + " coins, and remember, I may wish you to do this job again in one week!");
+				speakerNPC.say("Bardzo dobrze! Zabiłeś "+(killed-killsnumber)+" extra "+
+						Grammar.plnoun(killed-killsnumber, "soldier")+"! Weź te monety, i pamiętaj, życzę abyś za tydzień wrócił tu spowrotem!");
 			}
-			int karmabonus = 5*(2*killed/killsnumber-1);
+			int karmabonus = 50*(2*killed/killsnumber-1);
 			final StackableItem money = (StackableItem)
 					SingletonRepository.getEntityManager().getItem("money");
 			money.setQuantity(moneyreward);
 
 			player.equipOrPutOnGround(money);
 			player.addKarma(karmabonus);
-
+		
 		}
 	}
 
@@ -364,13 +365,13 @@ import marauroa.common.Pair;
 
 				if(killed==0) {
 					// player killed no creatures but asked about quest again.
-					npc.say("I already explained to you what I need. Are you an idiot, as you can't remember this simple thing about the #enemy " + monsters + " armies?");
+					npc.say("Muszę Ci jeszcze raz objaśniać!! Chyba nie jesteś idiotą. Miałeś rozprawić się z #wrogą " + monsters + " armią!");
 					return;
 				}
 				if(killed < killsnumber) {
 					// player killed less then needed soldiers.
-					npc.say("You killed only "+killed+" "+Grammar.plnoun(killed, player.getQuest(QUEST_SLOT, 1))+
-							". You have to kill at least "+killsnumber+" "+Grammar.plnoun(killed, player.getQuest(QUEST_SLOT, 1)));
+					npc.say("Zabiłeś tylko "+killed+" "+Grammar.plnoun(killed, player.getQuest(QUEST_SLOT, 1))+
+							". Musisz zabić co najmniej "+killsnumber+" "+Grammar.plnoun(killed, player.getQuest(QUEST_SLOT, 1)));
 					return;
 				}
 
@@ -390,8 +391,8 @@ import marauroa.common.Pair;
 				                                            ">: ("+
 				                                            player.getQuest(QUEST_SLOT)+
 				                                            ")");
-				npc.say("I am sorry, I did not pay attention. " +
-						"What I need now:");
+				npc.say("Przepraszam, ale nie zwracałem uwagi. " +
+						"Co teraz potrzebuję:");
 				new GiveQuestAction().fire(player, sentence, npc);
 		}
 	}
@@ -401,7 +402,7 @@ import marauroa.common.Pair;
 	 * add quest state to npc's fsm.
 	 */
 	private void step_1() {
-
+		
 		SpeakerNPC npc = npcs.get(QUEST_NPC);
 
 		// quest can be given
@@ -425,11 +426,11 @@ import marauroa.common.Pair;
 								new TimePassedCondition(QUEST_SLOT, 1, delay))),
 				ConversationStates.ATTENDING,
 				null,
-				new SayTimeRemainingAction(QUEST_SLOT, 1, delay, "You have to check again in"));
+				new SayTimeRemainingAction(QUEST_SLOT, 1, delay, "Musisz sprawdzić ponownie za"));
 
 		// explanations
 		npc.add(ConversationStates.ATTENDING,
-				"enemy",
+				Arrays.asList("enemy", "wróg", "wrogą", "wroga"),
 				new QuestInStateCondition(QUEST_SLOT, 0, "start"),
 				ConversationStates.ATTENDING,
 				null,
@@ -442,10 +443,10 @@ import marauroa.common.Pair;
 
 		// explanations
 		npc.add(ConversationStates.ATTENDING,
-				"enemy",
+				Arrays.asList("enemy", "wróg", "wrogą", "wroga"),
 				new QuestNotInStateCondition(QUEST_SLOT, 0, "start"),
 				ConversationStates.ATTENDING,
-				"Yes, my enemies are everywhere, they want to kill me! I guess you are one of them. Stay away from me!",
+				"Tak, moi wrogowie są wszędzie, chcą mnie zabić! Myślę, że jesteś jednym z nich. Trzymaj się z dala ode mnie!",
 				null);
 
 		// update player's quest slot or blank it if failed...
@@ -465,7 +466,7 @@ import marauroa.common.Pair;
 
 			  // player killed enough enemies.
 		      npc.add(ConversationStates.ATTENDING,
-		    		  ConversationPhrases.QUEST_FINISH_MESSAGES,
+		    		  ConversationPhrases.QUEST_MESSAGES,
 		    		  new AndCondition(
 		    				  new QuestInStateCondition(QUEST_SLOT, 1, enemy),
 		    				  new KilledInSumForQuestCondition(QUEST_SLOT, 2, enemyForces.get(enemy).first())),
@@ -482,7 +483,7 @@ import marauroa.common.Pair;
 
 		      // player killed not enough enemies.
 		      npc.add(ConversationStates.ATTENDING,
-		    		  ConversationPhrases.QUEST_FINISH_MESSAGES,
+		    		  ConversationPhrases.QUEST_MESSAGES,
 		    		  new AndCondition(
 		    				  new QuestInStateCondition(QUEST_SLOT, 1, enemy),
 		    				  new NotCondition(
@@ -500,8 +501,8 @@ import marauroa.common.Pair;
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Kill Enemy Army",
-				"Despot Halb Errvl has a vendetta against any army who opposes him.",
+				"Zabij Wrogą Armię",
+				"Despot Halb Errvl poprosił mnie o zabicie kilku jego wrogów.",
 				true);
 		step_1();
 	}
@@ -521,73 +522,75 @@ import marauroa.common.Pair;
 	public String getName() {
 		return "KillEnemyArmy";
 	}
-
+	
 	@Override
 	public int getMinLevel() {
 		return 80;
-	}
-
+	}	
+	
 	@Override
 	public boolean isRepeatable(final Player player) {
 		return	new AndCondition(new QuestCompletedCondition(QUEST_SLOT),
 						 new TimePassedCondition(QUEST_SLOT,1,delay)).fire(player, null, null);
 	}
-
+	
  	@Override
  	public List<String> getHistory(final Player player) {
  		LinkedList<String> history = new LinkedList<String>();
 		if (!player.hasQuest(QUEST_SLOT)) {
 			return history;
 		}
-
+		
 		if(player.getQuest(QUEST_SLOT, 0).equals("start")) {
 	        final String givenEnemies = player.getQuest(QUEST_SLOT, 1);
-	        final int givenNumber = enemyForces.get(givenEnemies).first();
+	        final int givenNumber = enemyForces.get(givenEnemies).first(); 
 	        // updating firstly
 			if(new KillsQuestSlotNeedUpdateCondition(QUEST_SLOT, 2, enemys.get(givenEnemies), true).fire(player, null, null)) {
 				// still need update??
 			}
 	        final int killedNumber = getKilledCreaturesNumber(player);
-
-			history.add("Despot Halb Errvl asked me to kill "+
+	        
+			history.add("Despot Halb Errvl poprosił mnie o zabicie "+
 					givenNumber+" "+
 					Grammar.plnoun(givenNumber, givenEnemies));
 			String kn = Integer.valueOf(killedNumber).toString();
 			if(killedNumber == 0) {
 				kn="no";
 			}
-			history.add("Currently I have killed "+
+			history.add("Aktualnie zabiłem "+
 					kn+" "+
 					Grammar.plnoun(killedNumber, givenEnemies));
 			if(new KilledInSumForQuestCondition(QUEST_SLOT, 2, givenNumber).fire(player, null, null)) {
-				history.add("I have killed enough creatures to get my reward now.");
+				history.add("Zabiłem wystaczająco dużo potworów, aby dostać moją nagrodę.");
 			} else {
-				history.add(givenNumber-killedNumber+" "+
-						Grammar.plnoun(givenNumber-killedNumber, givenEnemies)+" left to kill.");
+				int enemyleft = givenNumber - killedNumber;
+				history.add("Zostało "+enemyleft+" "+
+						Grammar.plnoun(enemyleft, givenEnemies)+" do zabicia.");	
 			}
 		}
-
+		
 		if(isCompleted(player)) {
-			history.add("I completed Despot's Halb Errvl task and got my reward!");
-		}
+			history.add("Ukończyłem zadanie Despot's Halb Errvl i otrzymałem moja nagrodę!");
+		}	
 		if (isRepeatable(player)) {
-			history.add("Despot Halb Errvl is getting paranoid again about his safety, I can offer my services now.");
-		}
+			history.add("Despot Halb Errvl dostaje znowu paranoi o swoim bezpieczeństwie. Mogę teraz zaoferować swoje usługi.");
+		} 
 		int repetitions = player.getNumberOfRepetitions(getSlotName(), 3);
 		if (repetitions > 0) {
-			history.add("I've bloodthirstily slain "
-					+ Grammar.quantityplnoun(repetitions, "whole army") + " for Despot Halb Errvl.");
+			history.add("Rozgromiłem "
+					+ Grammar.quantityplnoun(repetitions, "całą armię") + " dla Despot Halb Errvl.");
 		}
-		return history;
+		return history; 
  	}
 
 	@Override
 	public String getNPCName() {
 		return "Despot Halb Errvl";
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.SEMOS_SURROUNDS;
 	}
 }
+

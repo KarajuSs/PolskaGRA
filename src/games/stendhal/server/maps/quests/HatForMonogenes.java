@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
 import games.stendhal.server.entity.npc.ChatAction;
 import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
@@ -36,27 +32,31 @@ import games.stendhal.server.entity.npc.condition.QuestNotCompletedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
- * QUEST: Hat For Monogenes
- *
- * PARTICIPANTS:
+ * QUEST: Hat For Monogenes 
+ * 
+ * PARTICIPANTS: 
  * <ul>
  * <li>Monogenes, an old man in Semos city.</li>
  * </ul>
- *
+ * 
  * STEPS:
- * <ul>
+ * <ul> 
  * <li> Monogenes asks you to buy a hat for him.</li>
  * <li> Xin Blanca sells you a leather helmet.</li>
  * <li> Monogenes sees your leather helmet and asks for it and then thanks you.</li>
  * </ul>
- *
- * REWARD:
+ * 
+ * REWARD: 
  * <ul>
  * <li>50 XP</li>
  * <li>Karma: 10</li>
  * </ul>
- *
+ * 
  * REPETITIONS: - None.
  */
 public class HatForMonogenes extends AbstractQuest {
@@ -71,19 +71,19 @@ public class HatForMonogenes extends AbstractQuest {
 	public List<String> getHistory(final Player player) {
 		final List<String> res = new ArrayList<String>();
 		if (player.hasQuest(QUEST_SLOT)) {
-			res.add("I have met Monogenes at the spring in Semos village");
+			res.add("Spotkałem Monogenes na wiosnę w wiosce Semos");
 		}
 		if (!player.hasQuest(QUEST_SLOT)) {
 			return res;
 		}
-		res.add("I have to find a hat, something leather to keep his head warm.");
-		if (player.isQuestInState(QUEST_SLOT, "start")
-				&& player.isEquipped("leather helmet")
+		res.add("Muszę znaleźć jakiś skórzany kapelusz, który trzymałby ciepło.");
+		if (player.isQuestInState(QUEST_SLOT, "start") 
+				&& player.isEquipped("skórzany hełm")
 				|| player.isQuestCompleted(QUEST_SLOT)) {
-			res.add("I have found a hat.");
+			res.add("Znalazłem kapelusz.");
 		}
 		if (player.isQuestCompleted(QUEST_SLOT)) {
-			res.add("I gave the hat to Monogenes to keep his bald head warm.");
+			res.add("Dałem kapelusz Monogenesowi i nagrodził mnie 10 pd.");
 		}
 		return res;
 	}
@@ -94,15 +94,15 @@ public class HatForMonogenes extends AbstractQuest {
 		monogenes.add(ConversationStates.ATTENDING,
 			ConversationPhrases.QUEST_MESSAGES,
 			new QuestNotCompletedCondition(QUEST_SLOT),
-			ConversationStates.QUEST_OFFERED,
-			"Could you bring me a #hat to cover my bald head? Brrrrr! The days here in Semos are really getting colder...",
+			ConversationStates.QUEST_OFFERED, 
+			"Czy mógłbyś przynieść mi #kapelusz do zakrycia mojej łysinki? Brrrrr! Dni w Semos robią się coraz chłodniejsze...",
 			null);
 
 		monogenes.add(ConversationStates.ATTENDING,
 			ConversationPhrases.QUEST_MESSAGES,
 			new QuestCompletedCondition(QUEST_SLOT),
 			ConversationStates.ATTENDING,
-			"Thanks for the offer, good friend, but this hat will last me five winters at least, and it's not like I need more than one.",
+			"Dziękuję za ofertę dobry człowieku, ale ten kapelusz wystarczy mi na pięć zim i nie potrzebuję ich więcej.",
 			null);
 
 		monogenes.add(
@@ -110,15 +110,15 @@ public class HatForMonogenes extends AbstractQuest {
 			ConversationPhrases.YES_MESSAGES,
 			null,
 			ConversationStates.ATTENDING,
-			"Thanks, my good friend. I'll be waiting here for your return!",
-			new SetQuestAction(QUEST_SLOT, "start"));
+			"Dziękuję przyjacielu. Będę tutaj czekał na twój powrót!",
+			new SetQuestAndModifyKarmaAction(QUEST_SLOT, "start", 5.0));
 
 		monogenes.add(
 			ConversationStates.QUEST_OFFERED,
 			ConversationPhrases.NO_MESSAGES,
 			null,
 			ConversationStates.ATTENDING,
-			"You surely have more importants things to do, and little time to do them in. I'll just stay here and freeze to death, I guess... *sniff*",
+			"Jestem pewien, że masz lepsze rzeczy do zrobienia. Będę stał tutaj i zamarzał na śmierć... *sniff*",
 			new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -5.0));
 
 		monogenes.add(
@@ -126,7 +126,7 @@ public class HatForMonogenes extends AbstractQuest {
 			"hat",
 			null,
 			ConversationStates.QUEST_OFFERED,
-			"You don't know what a hat is?! Anything light that can cover my head; like leather, for instance. Now, will you do it?",
+			"Nie wiesz co to jest kapelusz?! Wszystko co może zakryć moją świecącą głowę jak na przykład skóra. Zrobisz to dla mnie?",
 			null);
 	}
 
@@ -137,21 +137,21 @@ public class HatForMonogenes extends AbstractQuest {
 			ConversationPhrases.GREETING_MESSAGES,
 			new AndCondition(new GreetingMatchesNameCondition(monogenes.getName()),
 					new QuestInStateCondition(QUEST_SLOT, "start"),
-					new PlayerHasItemWithHimCondition("leather helmet")),
+					new PlayerHasItemWithHimCondition("skórzany hełm")),
 			ConversationStates.QUEST_ITEM_BROUGHT,
-			"Hey! Is that leather hat for me?", null);
+			"Hej! Czy ten skórzany hełm jest dla mnie?", null);
 
 		monogenes.add(ConversationStates.IDLE,
 			ConversationPhrases.GREETING_MESSAGES,
 			new AndCondition(new GreetingMatchesNameCondition(monogenes.getName()),
 					new QuestInStateCondition(QUEST_SLOT, "start"),
-					new NotCondition(new PlayerHasItemWithHimCondition("leather helmet"))),
+					new NotCondition(new PlayerHasItemWithHimCondition("skórzany hełm"))),
 			ConversationStates.ATTENDING,
-			"Hey, my good friend, remember that leather hat I asked you about before? It's still pretty chilly here...",
+			"Hej mój przyjacielu. Pamiętasz ten skórzany hełm, który mi obiecałeś. Pytałem się o niego wcześniej? Tutaj wciąż jest zimno...",
 			null);
 
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
-		reward.add(new DropItemAction("leather helmet"));
+		reward.add(new DropItemAction("skórzany hełm"));
 		reward.add(new IncreaseXPAction(50));
 		reward.add(new IncreaseKarmaAction(10));
 		reward.add(new SetQuestAction(QUEST_SLOT, "done"));
@@ -161,9 +161,9 @@ public class HatForMonogenes extends AbstractQuest {
 		monogenes.add(
 			ConversationStates.QUEST_ITEM_BROUGHT,
 			ConversationPhrases.YES_MESSAGES,
-			new PlayerHasItemWithHimCondition("leather helmet"),
+			new PlayerHasItemWithHimCondition("skórzany hełm"),
 			ConversationStates.ATTENDING,
-			"Bless you, my good friend! Now my head will stay nice and warm.",
+			"Niech Cię pobłogosławię mój dobry przyjacielu! Teraz mojej głowie będzie wygodnie i ciepło.",
 			new MultipleActions(reward));
 
 		monogenes.add(
@@ -171,25 +171,25 @@ public class HatForMonogenes extends AbstractQuest {
 			ConversationPhrases.NO_MESSAGES,
 			null,
 			ConversationStates.ATTENDING,
-			"I guess someone more fortunate will get his hat today... *sneeze*",
+			"Ktoś miał dzisiaj dużo szczęścia... *Apsik*.",
 			null);
 	}
 
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Hat for Monogenes",
-				"Monogenes wants a hat to help him keep warm during the winter.",
+				"Kapelusz dla Monogenesa",
+				"Monogenes potrzebuje kapelusza, który trzymałby ciepło podczas zimy.",
 				false);
 		createRequestingStep();
 		createBringingStep();
 	}
-
+	
 	@Override
 	public String getName() {
 		return "HatForMonogenes";
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.SEMOS_CITY;

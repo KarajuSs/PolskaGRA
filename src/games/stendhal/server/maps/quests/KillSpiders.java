@@ -12,9 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import games.stendhal.common.MathHelper;
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -35,6 +32,9 @@ import games.stendhal.server.entity.npc.condition.TimePassedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * QUEST: Kill Spiders
  * <p>
@@ -42,7 +42,7 @@ import games.stendhal.server.maps.Region;
  * <ul>
  * <li> Morgrin
  * </ul>
- *
+ * 
  * STEPS:
  * <ul>
  * <li> Groundskeeper Morgrin ask you to clean up the school basement
@@ -55,7 +55,7 @@ import games.stendhal.server.maps.Region;
  * <li> 5000 XP
  * <li> 10 karma in total
  * </ul>
- *
+ * 
  * REPETITIONS:
  * <ul>
  * <li> after 7 days.
@@ -70,35 +70,35 @@ public class KillSpiders extends AbstractQuest {
 	public String getSlotName() {
 		return QUEST_SLOT;
 	}
-
+	
 	private void step_1() {
 		final SpeakerNPC npc = npcs.get("Morgrin");
 
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES,
+				ConversationPhrases.QUEST_MESSAGES, 
 				null,
-				ConversationStates.ATTENDING,
+				ConversationStates.ATTENDING, 
 				null,
 				new ChatAction() {
 					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 						if (!player.hasQuest(QUEST_SLOT) || player.getQuest(QUEST_SLOT).equals("rejected")) {
-							raiser.say("Have you ever been to the basement of the school? The room is full of spiders and some could be dangerous, since the students do experiments! Would you like to help me with this 'little' problem?");
+							raiser.say("Byłeś kiedyś w szkolnej piwnicy? Odkąd studenci eksperymentowali to pokój jest pełen pająków i niektóre mogą być niebezpieczne! Czy mógłbyś mi pomóc z tym 'małym' problemem?");
 							raiser.setCurrentState(ConversationStates.QUEST_OFFERED);
 						}  else if (player.isQuestCompleted(QUEST_SLOT)) {
-							raiser.say("I already asked you to kill all creatures in the basement!");
+							raiser.say("Już Cię wysłałem, abyś zabił wszystkie potwory w piwnicy!");
 						}  else if (player.getQuest(QUEST_SLOT).startsWith("killed;")) {
 							final String[] tokens = player.getQuest(QUEST_SLOT).split(";");
 							final long delay = MathHelper.MILLISECONDS_IN_ONE_WEEK;
 							final long timeRemaining = Long.parseLong(tokens[1]) + delay - System.currentTimeMillis();
 							if (timeRemaining > 0) {
-								raiser.say("Sorry there is nothing to do for you yet. But maybe you could come back later. I have to clean the school once a week.");
+								raiser.say("Przepraszam, ale nic dla Ciebie nie mam. Może mógłbyś wrócić później. Muszę posprzątać szkołę raz w tygodniu.");
 								return;
 							}
-							raiser.say("Would you like to help me again?");
+							raiser.say("Czy mógłbyś mi znowu pomóc?");
 							raiser.setCurrentState(ConversationStates.QUEST_OFFERED);
 						} else {
-							raiser.say("Thanks for your help. Now I'm sleeping well again.");
+							raiser.say("Dziękuję za pomoc. Teraz mogę spać spokojnie.");
 						}
 					}
 				});
@@ -107,19 +107,19 @@ public class KillSpiders extends AbstractQuest {
 		actions.add(new SetQuestAction(QUEST_SLOT, "started"));
 		//actions.add(new StartRecordingKillsAction(QUEST_SLOT,1,"spider", "poisonous spider", "giant spider"));
 
-
+		
 		npc.add(ConversationStates.QUEST_OFFERED,
 				ConversationPhrases.YES_MESSAGES,
 				null,
 				ConversationStates.ATTENDING,
-				"Fine. Go down to the basement and kill all the creatures there!",
+				"Dobrze. Zejdź na dół do piwnicy i zabij tam wszystkie potwory!",
 				new MultipleActions(actions));
 
-		npc.add(ConversationStates.QUEST_OFFERED,
-				ConversationPhrases.NO_MESSAGES,
+		npc.add(ConversationStates.QUEST_OFFERED, 
+				ConversationPhrases.NO_MESSAGES, 
 				null,
 				ConversationStates.ATTENDING,
-				"Ok, I have to find someone else to do this 'little' job!",
+				"Dobrze, muszę znaleźć kogoś innego kto mi pomoże w tej 'małej' robótce!",
 				new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -5.0));
 	}
 
@@ -133,51 +133,51 @@ public class KillSpiders extends AbstractQuest {
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestInStateCondition(QUEST_SLOT, "start")),
-				ConversationStates.ATTENDING,
+				ConversationStates.ATTENDING, 
 				null,
 				new ChatAction() {
 					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-						if (player.hasKilled("spider")
-								&& player.hasKilled("poisonous spider")
-								&& player.hasKilled("giant spider")) {
-							raiser.say("Oh thank you my friend. Here you have something special, I got it from a Magican. Who he was I do not know. What the egg's good for, I do not know. I only know, it could be useful for you.");
+						if (player.hasKilled("pająk")
+								&& player.hasKilled("pająk ptasznik")
+								&& player.hasKilled("królowa pająków")) {
+							raiser.say("Och dziękuję mój przyjacielu. Masz tutaj coś specjalnego mam to od Magów. Kto to był to nie wiem. Dla kogo to jajko było też nie wiem. Wiem tylko tyle, że Tobie może się przydać.");
 							final Item mythegg = SingletonRepository.getEntityManager()
-									.getItem("mythical egg");
+									.getItem("mityczne jajo");
 							mythegg.setBoundTo(player.getName());
 							player.equipOrPutOnGround(mythegg);
 							player.addKarma(5.0);
 							player.addXP(5000);
 							player.setQuest(QUEST_SLOT, "killed;" + System.currentTimeMillis());
 						} else {
-							raiser.say("Go down and kill the creatures, no time left.");
+							raiser.say("Idź na dół i zabij wszystkie potwory, nie zostało Tobie zbyt wiele czasu.");
 						}
 		 			}
 				});
-
+		
 		// support for new quests.
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestInStateCondition(QUEST_SLOT, 0, "started")),
-				ConversationStates.ATTENDING,
+				ConversationStates.ATTENDING, 
 				null,
 				new ChatAction() {
 					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-						if (player.getQuest(QUEST_SLOT, 1).equals("spider") &&
-							player.getQuest(QUEST_SLOT, 2).equals("poisonous spider") &&
-							player.getQuest(QUEST_SLOT, 3).equals("giant spider")
+						if (player.getQuest(QUEST_SLOT, 1).equals("pająk") &&
+							player.getQuest(QUEST_SLOT, 2).equals("pająk ptasznik") &&
+							player.getQuest(QUEST_SLOT, 3).equals("królowa pająków")
 							) {
-							raiser.say("Oh thank you my friend. Here you have something special, I got it from a Magican. Who he was I do not know. What the egg's good for, I do not know. I only know, it could be useful for you.");
+							raiser.say("Och dziękuję mój przyjacielu. Masz tutaj coś specjalnego mam to od Magów. Kto to był to nie wiem. Dla kogo to jajko było też nie wiem. Wiem tylko tyle, że Tobie może się przydać.");
 							final Item mythegg = SingletonRepository.getEntityManager()
-									.getItem("mythical egg");
+									.getItem("mityczne jajo");
 							mythegg.setBoundTo(player.getName());
 							player.equipOrPutOnGround(mythegg);
 							player.addKarma(5.0);
 							player.addXP(5000);
 							player.setQuest(QUEST_SLOT, "killed;" + System.currentTimeMillis());
 						} else {
-							raiser.say("Go down and kill the creatures, no time left.");
+							raiser.say("Idź na dół i zabij wszystkie potwory, nie zostało Tobie zbyt wiele czasu.");
 						}
 		 			}
 				});
@@ -186,8 +186,8 @@ public class KillSpiders extends AbstractQuest {
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Kill spiders",
-				"Morgrin, groundskeeper of magic school, is concerned about spiders in the school basement.",
+				"Zabij Pająki",
+				"Dozorca Morgrin ze szkoły magów chce, abym wyczyścił piwnicę szkolną z pająków.",
 				true);
 		step_1();
 		step_2();
@@ -198,12 +198,12 @@ public class KillSpiders extends AbstractQuest {
 	public String getName() {
 		return "KillSpiders";
 	}
-
+	
 	@Override
 	public int getMinLevel() {
 		return 70;
 	}
-
+	
 	@Override
 	public List<String> getHistory(final Player player) {
  		LinkedList<String> history = new LinkedList<String>();
@@ -213,62 +213,62 @@ public class KillSpiders extends AbstractQuest {
 		final String questState = player.getQuest(QUEST_SLOT, 0);
 
 		if ("rejected".equals(questState)) {
-			history.add("I do not agree to help Morgrin.");
+			history.add("Nie zgadzam się, aby pomóc Morgrin.");
 			return history;
 		}
 		if ("killed".equals(questState)) {
-			history.add("I have killed all spiders in the magic school basement and got a mythical egg.");
+			history.add("Zabiłem wszystkie pająki w piwnicy w szkole magów i dostałem mythical egg.");
 			return history;
 		}
 
 		// we can be here only if player accepted this quest.
-		history.add("I do agree to help Morgrin.");
+		history.add("Zgadzam się, aby pomóc Morgrin.");
 		// checking which spiders player killed.
-		final boolean sp1 = "spider".equals(player.getQuest(QUEST_SLOT, 1));
-		final boolean sp2 = "poisonous spider".equals(player.getQuest(QUEST_SLOT, 2));
-		final boolean sp3 = "giant spider".equals(player.getQuest(QUEST_SLOT, 3));
+		final boolean sp1 = "pająk".equals(player.getQuest(QUEST_SLOT, 1));
+		final boolean sp2 = "pająk ptasznik".equals(player.getQuest(QUEST_SLOT, 2));
+		final boolean sp3 = "królowa pająków".equals(player.getQuest(QUEST_SLOT, 3));
 		final boolean sp = "start".equals(player.getQuest(QUEST_SLOT, 0));
 		if (sp1) {
-			history.add("I have killed a spider in the basement.");
+			history.add("Zabiłem pająka w piwnicy.");
 		}
 		if (sp2) {
-			history.add("I have killed a poisonous spider in the basement.");
-		}
+			history.add("Zabiłem pająka ptasznika w piwnicy.");
+		}			
 		if (sp3) {
-			history.add("I have killed a giant spider in the basement.");
+			history.add("Zabiłem królową pająków w piwnicy.");
 		}
 		if (sp1 && sp2 && sp3) {
-			history.add("I have killed all 3 spiders in the basement. Now I go back to Morgrin to fetch my reward.");
+			history.add("Zabiłem wszystkie 3 pająki w piwnicy. Teraz wracam do Morgrin, aby odebra moją nagrodę.");
 		}
-
+		
 		// here is support for old-style quest
 		if (sp) {
-			final boolean osp1 = player.hasKilled("spider");
-			final boolean osp2 = player.hasKilled("poisonous spider");
-			final boolean osp3 = player.hasKilled("giant spider");
+			final boolean osp1 = player.hasKilled("pająk");
+			final boolean osp2 = player.hasKilled("pająk ptasznik");
+			final boolean osp3 = player.hasKilled("królowa pająków");
 			if (osp1) {
-				history.add("I have killed a spider in the basement.");
+				history.add("Zabiłem pająka w piwnicy.");
 			}
 			if (osp2) {
-				history.add("I have killed a poisonous spider in the basement.");
+				history.add("Zabiłem pająka ptasznika w piwnicy.");
 			}
 			if (osp3) {
-				history.add("I have killed a giant spider in the basement.");
+				history.add("Zabiłem królową pająków w piwnicy.");
 			}
 			if (osp1 && osp2 && osp3) {
-				history.add("I have killed all 3 spiders in the basement. Now I go back to Morgrin to fetch my reward.");
+				history.add("Zabiłem wszystkie 3 pająki w piwnicy. Teraz wracam do Morgrin, aby odebra moją nagrodę.");
 			}
 		}
-
-		return history;
+		
+		return history;		
 	}
-
+	
 	@Override
 	public boolean isRepeatable(final Player player) {
 		return new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT,"killed;"),
 				 new TimePassedCondition(QUEST_SLOT, 1, MathHelper.MINUTES_IN_ONE_WEEK)).fire(player,null, null);
 	}
-
+	
 	@Override
 	public boolean isCompleted(final Player player) {
 		return new QuestStateStartsWithCondition(QUEST_SLOT,"killed;").fire(player, null, null);
@@ -278,7 +278,7 @@ public class KillSpiders extends AbstractQuest {
 	public String getNPCName() {
 		return "Morgrin";
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.FADO_CAVES;

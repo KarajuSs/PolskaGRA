@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
 import games.stendhal.common.MathHelper;
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -44,17 +40,22 @@ import games.stendhal.server.entity.npc.condition.QuestStartedCondition;
 import games.stendhal.server.entity.npc.condition.TimePassedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 import marauroa.common.game.IRPZone;
 
 /**
  * QUEST: FishSoupForHughie
- *
+ * 
  * PARTICIPANTS:
  * <ul>
  * <li> Anastasia, a worried mother in Ados farmhouse</li>
  * <li> Hughie, her son</li>
  * </ul>
- *
+ * 
  * STEPS:
  * <ul>
  * <li> Anastasia asks for some fish soup for her sick boy</li>
@@ -62,15 +63,15 @@ import marauroa.common.game.IRPZone;
  * <li> You give the fish soup to Anastasia.</li>
  * <li> Anastasia rewards you.<li>
  * </ul>
- *
+ * 
  * REWARD:
- * <ul>
+ * <ul> 
  * <li> 10 potions</li>
  * <li> xp </li>
  * <li> Karma: 5</li>
  * </ul>
- *
- * REPETITIONS:
+ * 
+ * REPETITIONS: 
  * <ul>
  * <li> Unlimited, but 7 days of waiting are required between repetitions</li>
  * </ul>
@@ -85,7 +86,7 @@ public class FishSoupForHughie extends AbstractQuest {
 	public String getSlotName() {
 		return QUEST_SLOT;
 	}
-
+	
 	@Override
 	public boolean isCompleted(final Player player) {
 		return player.hasQuest(QUEST_SLOT) && !"start".equals(player.getQuest(QUEST_SLOT)) && !"rejected".equals(player.getQuest(QUEST_SLOT));
@@ -102,22 +103,22 @@ public class FishSoupForHughie extends AbstractQuest {
 		if (!player.hasQuest(QUEST_SLOT)) {
 			return res;
 		}
-		res.add("Anastasia asked me to bring fish soup for her boy Hughie.");
+		res.add("Anastasia poprosiła mnie, żebym przyniósł zupę rybną dla jej syna, Hughiego.");
 		final String questState = player.getQuest(QUEST_SLOT);
 		if ("rejected".equals(questState)) {
-			res.add("I do not want to help Hughie.");
+			res.add("Nie chce pomóc dla Hughiego.");
 			return res;
 		}
-		res.add("I do want to help Hughie and Anastasia.");
-		if (player.isEquipped("fish soup") || isCompleted(player)) {
-			res.add("I have fetched the fish soup needed to heal Hughie.");
+		res.add("Naprawdę chcę pomóc Hughiemu i Anastasii.");
+		if (player.isEquipped("zupa rybna") || isCompleted(player)) {
+			res.add("Mam składniki niezbędne do zrobienia zupy rybnej, która uleczy Hugiego.");
 		}
 		if (isCompleted(player)) {
-			res.add("Hughie ate his soup and Anastasia gave me potions.");
+			res.add("Hughie zjadł swoją zupę, a Anastasia dała mi eliksiry.");
 		}
 		if(isRepeatable(player)){
-			res.add("Its been a while since I checked on Hughie and Anastasia, I should remember to go see them again.");
-		}
+			res.add("Minęło już trochę czasu, odkąd sprawdziłem, co słychać u Hugiego i Anastasii. Muszę pamiętać, żeby znowu zobaczyć się z nimi.");
+		} 
 		return res;
 	}
 
@@ -127,79 +128,79 @@ public class FishSoupForHughie extends AbstractQuest {
 		final SpeakerNPC npc = npcs.get("Anastasia");
 
 		// player returns with the promised fish soup
-		npc.add(ConversationStates.IDLE,
+		npc.add(ConversationStates.IDLE, 
 			ConversationPhrases.GREETING_MESSAGES,
 			new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
-					new QuestInStateCondition(QUEST_SLOT, "start"), new PlayerHasItemWithHimCondition("fish soup")),
-			ConversationStates.QUEST_ITEM_BROUGHT,
-			"Hi, you've got fish soup, I see, is that for Hughie?",
+					new QuestInStateCondition(QUEST_SLOT, "start"), new PlayerHasItemWithHimCondition("zupa rybna")),
+			ConversationStates.QUEST_ITEM_BROUGHT, 
+			"Hej, widzę, że masz zupę rybną, czy ona jest dla Hugiego?",
 			null);
 
 		//player returns without promised fish soup
-		npc.add(ConversationStates.IDLE,
+		npc.add(ConversationStates.IDLE, 
 			ConversationPhrases.GREETING_MESSAGES,
 			new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
-					new QuestInStateCondition(QUEST_SLOT, "start"), new NotCondition(new PlayerHasItemWithHimCondition("fish soup"))),
-			ConversationStates.ATTENDING,
-			"You're back already? Hughie is getting sicker! Don't forget the fish soup for him, please. I promise to reward you.",
+					new QuestInStateCondition(QUEST_SLOT, "start"), new NotCondition(new PlayerHasItemWithHimCondition("zupa rybna"))),
+			ConversationStates.ATTENDING, 
+			"Już wróciłeś? Hugie jest coraz bardziej chory! Nie zapomnij o zupie rybnej dla niego, bardzo Cię proszę! Obiecuję, że sowicie Cię wynagrodzę!",
 			null);
 
 		// first chat of player with Anastasia
-		npc.add(ConversationStates.IDLE,
+		npc.add(ConversationStates.IDLE, 
 			ConversationPhrases.GREETING_MESSAGES,
 			new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 					new QuestNotStartedCondition(QUEST_SLOT)),
-			ConversationStates.ATTENDING, "Hi, I really could do with a #favor, please.",
+			ConversationStates.ATTENDING, "Witam, naprawdę może mi pomóc, proszę.",
 			null);
 
 		// player who is rejected or 'done' but waiting to start again, returns
-		npc.add(ConversationStates.IDLE,
+		npc.add(ConversationStates.IDLE, 
 			ConversationPhrases.GREETING_MESSAGES,
 			new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 					new QuestNotInStateCondition(QUEST_SLOT, "start"),
 					new QuestStartedCondition(QUEST_SLOT)),
 			ConversationStates.ATTENDING,
-			"Hello again.",
+			"Witaj ponownie.", 
 			null);
-
+		
 		// if they ask for quest while on it, remind them
 		npc.add(ConversationStates.ATTENDING,
-			ConversationPhrases.QUEST_MESSAGES,
+			ConversationPhrases.QUEST_MESSAGES, 
 			new QuestInStateCondition(QUEST_SLOT, "start"),
 			ConversationStates.ATTENDING,
-			"You already promised me to bring me some fish soup for Hughie! Please hurry!",
+			"Obiecałeś mi już, że przyniesiesz mi zupę rybną dla Hughiego! Pospiesz się, proszę!",
 			null);
 
 		// first time player asks/ player had rejected
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.QUEST_MESSAGES,
 				new QuestNotStartedCondition(QUEST_SLOT),
-				ConversationStates.QUEST_OFFERED,
-				"My poor boy is sick and the potions I give him aren't working! Please could you fetch him some fish soup?",
+				ConversationStates.QUEST_OFFERED, 
+				"Mój biedny chłopak jest chory, a lekarstwa, które mu podaję, nie działają! Proszę, przyniesiesz dla niego zupę rybną?",
 				null);
-
+		
 		// player returns - enough time has passed
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.QUEST_MESSAGES,
 				new AndCondition(new QuestNotInStateCondition(QUEST_SLOT, "start"), new QuestStartedCondition(QUEST_SLOT), new TimePassedCondition(QUEST_SLOT,REQUIRED_MINUTES)),
-				ConversationStates.QUEST_OFFERED,
-				"My Hughie is getting sick again! Please could you bring another bowl of fish soup? It helped last time.",
+				ConversationStates.QUEST_OFFERED, 
+				"Mój Hughie znowu zaczyna chorować! Możesz przynieść mi jeszcze jedną zupę rybną? Pomóż mi, proszę, ostatni raz!",
 				null);
 
 		// player returns - not enough time has passed
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.QUEST_MESSAGES,
 				new AndCondition(new QuestNotInStateCondition(QUEST_SLOT, "start"), new QuestStartedCondition(QUEST_SLOT), new NotCondition(new TimePassedCondition(QUEST_SLOT,REQUIRED_MINUTES))),
-				ConversationStates.ATTENDING,
-				"Hughie is sleeping off his fever now and I'm hopeful he recovers. Thank you so much.",
+				ConversationStates.ATTENDING, 
+				"Teraz Hugie śpi - ma gorączkę. Mam nadzieję, że wyzdrowieje. Jestem Ci dozgonnie wdzięczna!.",
 				null);
-
+		
 		// player is willing to help
 		npc.add(ConversationStates.QUEST_OFFERED,
 			ConversationPhrases.YES_MESSAGES,
 			null,
 			ConversationStates.ATTENDING,
-			"Thank you! You can ask Florence Bouillabaisse to make you fish soup. I think she's in Ados market somewhere.",
+			"Dziękuję! Możesz poprosić Florence Bouillabaisse, aby ci ugotowała zupę rybną. Myślę, że znajdziesz ją na targu w Ados. ",
 			new SetQuestAction(QUEST_SLOT, "start"));
 
 		// player is not willing to help
@@ -207,46 +208,46 @@ public class FishSoupForHughie extends AbstractQuest {
 			ConversationPhrases.NO_MESSAGES,
 			null,
 			ConversationStates.ATTENDING,
-			"Oh no, please, he's so sick.",
+			"Nie, proszę! On jest naprawdę bardzo chory.",
 			new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -5.0));
 	}
 
 	private void prepareBringingStep() {
 		final SpeakerNPC npc = npcs.get("Anastasia");
 		// player has fish soup and tells Anastasia, yes, it is for her
-
+		
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
-		reward.add(new DropItemAction("fish soup"));
+		reward.add(new DropItemAction("zupa rybna"));
 		reward.add(new IncreaseXPAction(200));
 		reward.add(new SetQuestToTimeStampAction(QUEST_SLOT));
-		reward.add(new IncreaseKarmaAction(5));
-		reward.add(new EquipItemAction("potion",10));
+		reward.add(new IncreaseKarmaAction(10));
+		reward.add(new EquipItemAction("eliksir",10));
 		reward.add(new ChatAction() {
 			@Override
 			public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
 				final Item soup = SingletonRepository.getEntityManager()
-				.getItem("fish soup");
+				.getItem("zupa rybna");
 				final IRPZone zone = SingletonRepository.getRPWorld().getZone("int_ados_farm_house_1");
-				// place on table
+				// place on table 
 				soup.setPosition(32, 5);
 				// only allow Hughie, our npc, to eat the soup
 				soup.setBoundTo("Hughie");
 				zone.add(soup);
 			}
 		});
-
+		
 		npc.add(ConversationStates.QUEST_ITEM_BROUGHT,
-			ConversationPhrases.YES_MESSAGES,
-			new PlayerHasItemWithHimCondition("fish soup"),
-			ConversationStates.ATTENDING, "Thank you! I will always be in your favour. I will feed it to Hughie when he wakes. Please take these potions, they did nothing for him.",
+			ConversationPhrases.YES_MESSAGES, 
+			new PlayerHasItemWithHimCondition("zupa rybna"),
+			ConversationStates.ATTENDING, "Dziękuję! Jestem Ci niesamowicie wdzięczna za Twoją przysługę. Nakarmię Hughiego, gdy się obudzi. Proszę, weź te mikstury - Hughiemu nie pomagają i tak.",
 			new MultipleActions(reward));
 
 		//player said the fish soup was for her but has dropped it from his bag or hands
 		npc.add(ConversationStates.QUEST_ITEM_BROUGHT,
-			ConversationPhrases.YES_MESSAGES,
-			new NotCondition(new PlayerHasItemWithHimCondition("fish soup")),
-			ConversationStates.ATTENDING,
-			"Oh! Where did you put the fish soup?",
+			ConversationPhrases.YES_MESSAGES, 
+			new NotCondition(new PlayerHasItemWithHimCondition("zupa rybna")),
+			ConversationStates.ATTENDING, 
+			"Oh! Gdzie masz zupę rybną?",
 			null);
 
 		// player had fish soup but said it is not for Hughie
@@ -255,15 +256,15 @@ public class FishSoupForHughie extends AbstractQuest {
 			ConversationPhrases.NO_MESSAGES,
 			null,
 			ConversationStates.ATTENDING,
-			"Oh...but my poor boy ... ",
+			"Oh...ale mój biedny chłopczyk...",
 			null);
 	}
 
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Fish Soup For Hughie",
-				"Anastasia's son Hughie is sick and needs something to heal him.",
+				"Zupa Rybna dla Hughie", 
+				"Syn Anastasii, Hugie, jest chory i potrzebuje czegoś, co go wyleczy.", 
 				true);
 		prepareRequestingStep();
 		prepareBringingStep();
@@ -273,7 +274,7 @@ public class FishSoupForHughie extends AbstractQuest {
 	public String getName() {
 		return "Fish Soup For Hughie";
 	}
-
+	
 	@Override
 	public int getMinLevel() {
 		return 10;
@@ -283,7 +284,7 @@ public class FishSoupForHughie extends AbstractQuest {
 	public String getNPCName() {
 		return "Anastasia";
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.ADOS_SURROUNDS;

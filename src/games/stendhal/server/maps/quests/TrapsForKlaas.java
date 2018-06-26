@@ -11,11 +11,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-
 import games.stendhal.server.entity.npc.ChatAction;
 import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
@@ -39,19 +34,24 @@ import games.stendhal.server.entity.npc.condition.TimePassedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * QUEST: Traps for Klaas
- *
+ * 
  * PARTICIPANTS:
  * <ul>
  * <li>Klaas (the Seaman that takes care of Athor's ferry's cargo)</li>
  * </ul>
- *
+ * 
  * STEPS:
  * <ul>
  * <li>Klaas asks you to bring him rodent traps.</li>
  * </ul>
- *
+ * 
  * REWARD:
  * <ul>
  * <li>1000 XP</li>
@@ -60,7 +60,7 @@ import games.stendhal.server.maps.Region;
  * <li>Can sell rodent traps to Klaas</li>
  * <li>Karma: 10</li>
  * </ul>
- *
+ * 
  * REPETITIONS:
  * <ul>
  * <li>Every 24 hours</li>
@@ -69,12 +69,12 @@ import games.stendhal.server.maps.Region;
 public class TrapsForKlaas extends AbstractQuest {
 
 	public final int REQUIRED_TRAPS = 20;
-
+	
     // Time player must wait to repeat quest (1 day)
     private static final int WAIT_TIME = 60 * 24;
 
 	private static final String QUEST_SLOT = "traps_for_klaas";
-
+	
 
 	@Override
 	public List<String> getHistory(final Player player) {
@@ -82,62 +82,62 @@ public class TrapsForKlaas extends AbstractQuest {
 		if (!player.hasQuest(QUEST_SLOT)) {
 			return res;
 		}
-		res.add("I have talked to Klaas.");
+		res.add("Rozmawiałem z Klaasem.");
 		final String questState = player.getQuest(QUEST_SLOT);
 		if ("rejected".equals(questState)) {
-			res.add("I do not care to deal with rodents.");
+			res.add("Nie chcę mieć nic do czynienia z gryzoniami.");
 		}
 		if (player.isQuestInState(QUEST_SLOT, "start", "done")) {
-			res.add("I promised to gather " + REQUIRED_TRAPS + " rodent traps and bring them to Klaas.");
+			res.add("Przyrzekłem zdobyć " + REQUIRED_TRAPS + " pułapki na gryzonie i dostarczyć je Klaasowi.");
 		}
 		if (player.isQuestInState(QUEST_SLOT, 0, "done")) {
-			res.add("I gave the rodent traps to Klaas. I got some experience and antidotes.");
+			res.add("Dałem pułapki na gryzonie Klaasowi. Zdobyłem trochę doświadczenia i antidota.");
 		}
 		if (isRepeatable(player)) {
-		    res.add("I should check if Klaas needs my help again.");
+		    res.add("Powinienem sprawdzić czy Klaas znów nie potrzebuje mojej pomocy.");
 		}
 		return res;
 	}
 
 	private void prepareRequestingStep() {
 		final SpeakerNPC npc = npcs.get("Klaas");
-
+		
 		// Player asks for quest
 		npc.add(ConversationStates.ATTENDING,
-		        ConversationPhrases.QUEST_MESSAGES,
+			ConversationPhrases.QUEST_MESSAGES, 
 		        new AndCondition(
 		                new NotCondition(new QuestActiveCondition(QUEST_SLOT)),
 		                new TimePassedCondition(QUEST_SLOT, 1, WAIT_TIME)
 		                ),
-		        ConversationStates.QUEST_OFFERED,
-		        "The rats down here have been getting into the food storage. Would you help me rid us of the varmints?",
-		        null);
-
+			ConversationStates.QUEST_OFFERED, 
+			"Szczury tutaj dostają się do spichlerza. Czy pomożesz mi w uwolnieniu nas od tego plugastwa?",
+			null);
+		
         // Player requests quest before wait period ended
-        npc.add(ConversationStates.ATTENDING,
-                ConversationPhrases.QUEST_MESSAGES,
+		npc.add(ConversationStates.ATTENDING,
+			ConversationPhrases.QUEST_MESSAGES,
                 new NotCondition(new TimePassedCondition(QUEST_SLOT, 1, WAIT_TIME)),
-                ConversationStates.ATTENDING,
-                null,
-                new SayTimeRemainingAction(QUEST_SLOT, 1, WAIT_TIME, "Thanks for the traps. Now the food will be safe. But I may need your help again in"));
-
+			ConversationStates.ATTENDING,
+			null, 
+                new SayTimeRemainingAction(QUEST_SLOT, 1, WAIT_TIME, "Dziękuje za pułapki. Teraz jedzenie będzie bezpieczne, ale możliwe, że znów będę potrzbował twojej pomocy."));
+		
 		// Player asks for quest after already started
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.QUEST_MESSAGES,
 				new QuestStartedCondition(QUEST_SLOT),
 				ConversationStates.ATTENDING,
-				"I believe I already asked you to get me " + REQUIRED_TRAPS + " rodent traps.",
+				"Wiem, że już się ciebie pytałem o zdobycie " + REQUIRED_TRAPS + " pułapek na gryzonie.",
 				null);
-
+		
 		// Player accepts quest
 		npc.add(
 			ConversationStates.QUEST_OFFERED,
 			ConversationPhrases.YES_MESSAGES,
 			null,
 			ConversationStates.ATTENDING,
-			"Thanks, I need you to bring me bring me " + REQUIRED_TRAPS + " #rodent #traps. Please hurry! We can't afford to lose anymore food.",
-			new SetQuestAction(QUEST_SLOT, "start"));
-
+			"Dziękuję. Potrzebuję, abyś przyniósł mi " + REQUIRED_TRAPS + " #pułapka #na #gryzonie. Proszę pospiesz się! Już nie możemy sobie pozwolić na większą utratę jedzenia.",
+			new SetQuestAndModifyKarmaAction(QUEST_SLOT, "start", 5.0));
+		
 		// Player rejects quest
 		npc.add(
 			ConversationStates.QUEST_OFFERED,
@@ -145,98 +145,98 @@ public class TrapsForKlaas extends AbstractQuest {
 			null,
 			// Klaas walks away
 			ConversationStates.IDLE,
-			"Don't waste my time. I've got to protect the cargo.",
+			"Nie marnuj mojego czasu. Muszę chronić ładunek.",
 			new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -5.0));
-
+		
 		// Player asks about rodent traps
 		npc.add(
 			ConversationStates.ATTENDING,
-			Arrays.asList("rodent trap", "trap", "rodent traps", "traps"),
+			Arrays.asList("rodent trap", "trap", "rodent traps", "traps", "pułapka na gryzonie", "pułapka", "pułapki na gryzonie", "pułapki", "pułapek na gryzonie", "pułapek"),
 			new QuestActiveCondition(QUEST_SLOT),
 			ConversationStates.ATTENDING,
-			"I don't know of anyone who sells 'em. But I did hear a story once about a fella who killed a large rat and discovered a trap snapped shut on its foot.",
+			"Nie znam nikogo kto nimi handluje, ale słyszałem historię o jednym człowieku, który zabił wielkiego szczura i odkrył pułapkę, która zamyka się na jego nogach.",
 			null);
-
+		
 	}
 
 	private void prepareBringingStep() {
 		final SpeakerNPC npc = npcs.get("Klaas");
-
+		
 		// Reward
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
-		reward.add(new DropItemAction("rodent trap", 20));
+		reward.add(new DropItemAction("pułapka na gryzonie", 20));
 		// Replacing "not to apothecary" reward with antidotes until Antivenom Ring quest is done.
-		//reward.add(new EquipItemAction("note to apothecary", 1, true));
-		reward.add(new EquipItemAction("greater antidote", 5));
+		//reward.add(new EquipItemAction("liścik do aptekarza", 1, true));
+		reward.add(new EquipItemAction("mocne antidotum", 5));
 		reward.add(new IncreaseXPAction(1000));
 		reward.add(new IncreaseKarmaAction(10));
         reward.add(new SetQuestAction(QUEST_SLOT, "done"));
         reward.add(new SetQuestToTimeStampAction(QUEST_SLOT, 1));
-
+		
 		// Player has all 20 traps
 		npc.add(ConversationStates.IDLE,
 				ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestActiveCondition(QUEST_SLOT),
-						new PlayerHasItemWithHimCondition("rodent trap")),
-				ConversationStates.QUEST_ITEM_BROUGHT,
-				"Did you bring any traps?",
+						new PlayerHasItemWithHimCondition("pułapka na gryzonie")),
+				ConversationStates.QUEST_ITEM_BROUGHT, 
+				"Przyniosłeś jakieś pułapki?",
 				null);
-
+		
 		// Player is not carrying any traps
 		npc.add(ConversationStates.IDLE,
 				ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestActiveCondition(QUEST_SLOT),
-						new NotCondition(new PlayerHasItemWithHimCondition("rodent trap"))),
-			ConversationStates.ATTENDING,
-			"I could really use those #traps. How can I help you?",
+						new NotCondition(new PlayerHasItemWithHimCondition("pułapka na gryzonie"))),
+			ConversationStates.ATTENDING, 
+			"Mógłbym użyć te #pułapki. W czym mogę ci pomóc?",
 			null);
-
+		
 		// Player is not carrying 20 traps
 		npc.add(ConversationStates.QUEST_ITEM_BROUGHT,
 				ConversationPhrases.YES_MESSAGES,
-				new AndCondition(new PlayerHasItemWithHimCondition("rodent trap"),
-						new NotCondition(new PlayerHasItemWithHimCondition("rodent trap", 20))),
+				new AndCondition(new PlayerHasItemWithHimCondition("pułapka na gryzonie"),
+						new NotCondition(new PlayerHasItemWithHimCondition("pułapka na gryzonie", 20))),
 				ConversationStates.ATTENDING,
-				"I'm sorry but I need 20 #rodent #traps",
+				"Przykro mi, ale potrzebuję 20 #pułapek #na #gryzonie",
 				null);
 
 		npc.add(ConversationStates.QUEST_ITEM_BROUGHT,
 				ConversationPhrases.YES_MESSAGES,
-				new PlayerHasItemWithHimCondition("rodent trap", 20),
+				new PlayerHasItemWithHimCondition("pułapka na gryzonie", 20),
 				ConversationStates.ATTENDING,
 				// Not mentioning apothecary until Antivenom Ring quest is ready
-				"Thanks! I've got to get these set up as quickly as possible. Take these antidotes as a reward.",// I used to know an old #apothecary. Take this note to him. Maybe he can help you out with something.",
+				"Dziękuję! Muszę je teraz przygotować tak szybko jak to możliwe. Weź te antidota jako nagrodę.", // Znam starego #aptekarza. Zabierz do niego ten liścik. Może w czymś ci pomoże.",
 				new MultipleActions(reward));
-
+		
         // Player says did not bring items
-        npc.add(
+		npc.add(
             ConversationStates.QUEST_ITEM_BROUGHT,
             ConversationPhrases.NO_MESSAGES,
-            null,
-            ConversationStates.ATTENDING,
-            "Please hurry! I just found another box of food that's been chewed through.",
-            null);
+			null,
+			ConversationStates.ATTENDING,
+			"Znam starego aptekarza, ale nie wiem gdzie teraz mieszka. Może ktoś w Ados będzie wiedział.",
+			null);
 
 		// Player asks about the apothecary
 		/* Disabling until Antivenom Ring quest is ready
 		npc.add(
 			ConversationStates.ATTENDING,
-			"apothecary",
+			Arrays.asList("apothecary", "aptekarza", "aptekarz"),
 			null,
 			ConversationStates.ATTENDING,
-			"I used to know an old apothecary, but don't know where he has settled down. Perhaps someone in Ados would know.",
+			"Proszę pospiesz się! Odkryłem, że dobrały się do kolejnej skrzyni z jedzeniem.",
 			null);
-
+		
 		// Player has lost note
 		npc.add(ConversationStates.IDLE,
 				ConversationPhrases.GREETING_MESSAGES,
-				new AndCondition(new NotCondition(new PlayerHasItemWithHimCondition("note to apothecary")),
+				new AndCondition(new NotCondition(new PlayerHasItemWithHimCondition("liścik do aptekarza")),
 						new QuestCompletedCondition(QUEST_SLOT),
 						new QuestNotStartedCondition("antivenom_ring")),
 				ConversationStates.ATTENDING,
-				"You lost the note? Well, I guess I can write you up another, but be careful this time.",
+				"Zgubiłeś liścik? Cóż napiszę kolejny, ale bądź ostrożny tym razem.",
 				new EquipItemAction("note to apothecary", 1, true));
 		*/
 	}
@@ -244,8 +244,8 @@ public class TrapsForKlaas extends AbstractQuest {
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Traps for Klaas",
-				"Klaas, the cargo caretaker on the Athor ferry, is in need of some rodent traps.",
+				"Pułapki dla Klaasa",
+				"Klaas opiekun towaru na promie Athor potrzebuje pułapek na gryzonie.",
 				false);
 		prepareRequestingStep();
 		prepareBringingStep();
@@ -262,10 +262,10 @@ public class TrapsForKlaas extends AbstractQuest {
 	}
 
 	public String getTitle() {
-
-		return "TrapsForKlaas";
+		
+		return "Pułapki dla Klaasa";
 	}
-
+	
 	@Override
 	public int getMinLevel() {
 		return 0;
@@ -275,7 +275,7 @@ public class TrapsForKlaas extends AbstractQuest {
 	public String getRegion() {
 		return Region.ATHOR_ISLAND;
 	}
-
+	
 	@Override
 	public String getNPCName() {
 		return "Klaas";

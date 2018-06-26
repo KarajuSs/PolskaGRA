@@ -12,13 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-
-import org.apache.log4j.Logger;
-
 import games.stendhal.server.entity.npc.ChatAction;
 import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
@@ -38,6 +31,13 @@ import games.stendhal.server.entity.npc.condition.QuestInStateCondition;
 import games.stendhal.server.entity.npc.condition.QuestNotStartedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.apache.log4j.Logger;
 
 /**
  * QUEST: The Jailed Barbarian
@@ -71,10 +71,10 @@ import games.stendhal.server.maps.Region;
  * <li>Not repeatable.</li>
  * </ul>
  */
-
+ 
  public class JailedBarbarian extends AbstractQuest {
  	private static final String QUEST_SLOT = "jailedbarb";
-
+ 	
 	private static Logger logger = Logger.getLogger(JailedBarbarian.class);
 
  	@Override
@@ -82,220 +82,220 @@ import games.stendhal.server.maps.Region;
 		return QUEST_SLOT;
 	}
 	private void step1() {
-		final SpeakerNPC npc = npcs.get("Lorenz");
-
+		final SpeakerNPC npc = npcs.get("Lorenz");	
+		
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES,
+				ConversationPhrases.QUEST_MESSAGES, 
 				new QuestNotStartedCondition(QUEST_SLOT),
-				ConversationStates.QUEST_OFFERED,
-				"I need some help to escape from this prison. These ugly Amazonesses! Can you help me please?",
+				ConversationStates.QUEST_OFFERED, 
+				"Potrzebuję pomocy przy ucieczce z tego więzienia. Te wstrętne Amazonki! Czy możesz mi pomóc?",
 				null);
-
+							
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES,
+				ConversationPhrases.QUEST_MESSAGES, 
 				new QuestCompletedCondition(QUEST_SLOT),
 				ConversationStates.ATTENDING,
-				"Thank you for your help! Now I can escape!",
+				"Dziękuję za pomoc! Teraz mogę uciec!",
 				null);
-
+		
 
 		npc.add(ConversationStates.QUEST_OFFERED,
 				ConversationPhrases.YES_MESSAGES, null,
 				ConversationStates.ATTENDING,
-				"Thank you! First I need a #scythe to cut down these ugly flowers. And beware of bringing me an old one! Let me know if you have one!",
-				new SetQuestAction(QUEST_SLOT, "start"));
+				"Dziękuję! Po pierwsze potrzebuję #kosy do wycięcia tych okropnych kwiatków. Tylko nie przynoś mi starej! Daj znać, gdy będziesz ją miał!",
+				new SetQuestAndModifyKarmaAction(QUEST_SLOT, "start", 10.0));
 
 		// Player says no, they've lost karma.
 		npc.add(ConversationStates.QUEST_OFFERED,
 				ConversationPhrases.NO_MESSAGES, null, ConversationStates.IDLE,
-				"So go away and someone who can help me!",
+				"Odejdź ktoś inny mi pomoże!",
 				new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -10.0));
 	}
-
+	
 	private void step2() {
-	final SpeakerNPC npc = npcs.get("Lorenz");
-
+	final SpeakerNPC npc = npcs.get("Lorenz");	
+	
 	    final List<ChatAction> reward = new LinkedList<ChatAction>();
-		reward.add(new DropItemAction("scythe"));
+		reward.add(new DropItemAction("kosa"));
 		reward.add(new IncreaseXPAction(1000));
 		reward.add(new SetQuestAction(QUEST_SLOT, "capture"));
 		reward.add(new IncreaseKarmaAction(10));
-
-		npc.add(ConversationStates.ATTENDING, "scythe",
+		
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("kosa","kosy"),
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "start"),
-				new PlayerHasItemWithHimCondition("scythe")),
-				ConversationStates.ATTENDING,
-				"Thank you!! First part is done! Now I can cut all flowers down! Now please ask Princess Esclara why I am here! I think saying my name should tell her something...",
+				new PlayerHasItemWithHimCondition("kosa")),
+				ConversationStates.ATTENDING, 
+				"Dziękuję!! Pierwszą część mamy za sobą! Teraz mogę ściąć wszystkie te kwiatki! Zapytaj Princess Esclara dlaczego tutaj jestem! Sądzę, że coś powie, gdy podasz jej moje imię...",
 				new MultipleActions(reward));
 
 		npc.add(
-			ConversationStates.ATTENDING, "scythe",
-			new AndCondition(new QuestInStateCondition(QUEST_SLOT, "start"), new NotCondition(new PlayerHasItemWithHimCondition("scythe"))),
+			ConversationStates.ATTENDING, Arrays.asList("kosa","kosy"),
+			new AndCondition(new QuestInStateCondition(QUEST_SLOT, "start"), new NotCondition(new PlayerHasItemWithHimCondition("kosa"))),
 			ConversationStates.ATTENDING,
-			"You don't have a scythe yet! Go and get one and hurry up!",
+			"Nie masz jeszcze kosy! Idź i zdobądź jakąś dla mnie. Pospiesz się!",
 			null);
-
+		
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES,
+				ConversationPhrases.QUEST_MESSAGES, 
 				new QuestInStateCondition(QUEST_SLOT, "start"),
 				ConversationStates.ATTENDING,
-				"I already asked you to bring me a #scythe to cut the flowers down!",
+				"Już się Ciebie pytałem o przyniesienie mi #kosy do ścięcia tych kwiatków!",
 				null);
 	}
-
+	
 	private void step3() {
 	final SpeakerNPC npc = npcs.get("Princess Esclara");
-
+	
 		npc.add(ConversationStates.ATTENDING, "Lorenz",
 				new QuestInStateCondition(QUEST_SLOT, "capture"),
 				ConversationStates.ATTENDING,
-				"You want to know why he is in there? He and his ugly friends dug the #tunnel to our sweet Island! That's why he got jailed!",
+				"Chcesz wiedzieć dlaczego on tutaj jest? On i jego wstrętni przyjaciele kopali #tunel do naszej cudownej wyspy! Dlatego został uwięziony!",
 				new SetQuestAction(QUEST_SLOT, "princess"));
-
-		npc.add(ConversationStates.ATTENDING, "tunnel",
+		
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("tunnel", "tunel"),
 				new QuestInStateCondition(QUEST_SLOT, "princess"),
-				ConversationStates.ATTENDING, "I am angry now and won't speak any more of it! If you want to learn more you'll have to ask him about the #tunnel!",
-				null);
+				ConversationStates.ATTENDING, "Jestem teraz wściekła i nie chce już o tym rozmawiać! Jeżeli chcesz się dowiedzieć więcej to musisz go zapytać o #tunel!",
+				null);	
 
 	}
-
+	
 	private void step4() {
 	final SpeakerNPC npc = npcs.get("Lorenz");
-
-		npc.add(ConversationStates.ATTENDING, "tunnel",
+	
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("tunnel", "tunel"),
 				new QuestInStateCondition(QUEST_SLOT, "princess"),
-				ConversationStates.ATTENDING,
-				"What she drives me nuts, like all the flowers! This makes me hungry, go and get an #egg for me! Just let me know, you got one.",
-				new SetQuestAction(QUEST_SLOT, "egg"));
-
+				ConversationStates.ATTENDING, 
+				"Co chce mnie doprowadzić do szaleństwa jak wszystkie te kwiatki! Robię się głodny. Przynieś #jajo dla mnie! Daj znać, gdy zdobędziesz.",
+				new SetQuestAction(QUEST_SLOT, "jajo"));	
+		
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES,
+				ConversationPhrases.QUEST_MESSAGES, 
 				new QuestInStateCondition(QUEST_SLOT, "capture"),
 				ConversationStates.ATTENDING,
-				"Please go ask Princess Esclara why I am here! I think saying my name should prompt her to tell you",
+				"Proszę zapytaj Princess Esclara dlaczego tutaj jestem! Sądzę, że wypowiadając moje imię sprowokujesz ją do wyjawienia powodu",
 				null);
-
+		
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES,
+				ConversationPhrases.QUEST_MESSAGES, 
 				new QuestInStateCondition(QUEST_SLOT, "princess"),
 				ConversationStates.ATTENDING,
-				"I bet Princess Esclara said I was imprisoned because of the #tunnel ... ",
+				"Założę się, że Princess Esclara powiedziała, że zostałem uwięziony za #tunel ... ",
 				null);
 	}
-
+	
 	private void step5() {
-		final SpeakerNPC npc = npcs.get("Lorenz");
-
+		final SpeakerNPC npc = npcs.get("Lorenz");	
+		
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
-		reward.add(new DropItemAction("egg"));
+		reward.add(new DropItemAction("jajo"));
 		reward.add(new IncreaseXPAction(1000));
 		reward.add(new SetQuestAction(QUEST_SLOT, "jailed"));
-		reward.add(new IncreaseKarmaAction(10));
-
-		npc.add(ConversationStates.ATTENDING, "egg",
-				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "egg"),
-						new PlayerHasItemWithHimCondition("egg")),
-						ConversationStates.ATTENDING,
-						"Thank you again my friend. Now you have to tell Princess Ylflia, in Kalavan Castle, that I am #jailed here. Please hurry up!",
+		reward.add(new IncreaseKarmaAction(10)); 
+		
+		npc.add(ConversationStates.ATTENDING, "jajo",
+				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "jajo"),
+						new PlayerHasItemWithHimCondition("jajo")),
+						ConversationStates.ATTENDING, 
+						"Dziękuję przyjacielu. Teraz musisz powiedzieć Princess Ylflia w Zamku Kalavan, że jestem tutaj #uwięziony. Pospiesz się!",
 						new MultipleActions(reward));
 
 		npc.add(
-			ConversationStates.ATTENDING, "egg",
-			new AndCondition(new QuestInStateCondition(QUEST_SLOT, "egg"), new NotCondition(new PlayerHasItemWithHimCondition("egg"))),
+			ConversationStates.ATTENDING, "jajo",
+			new AndCondition(new QuestInStateCondition(QUEST_SLOT, "jajo"), new NotCondition(new PlayerHasItemWithHimCondition("jajo"))),
 			ConversationStates.ATTENDING,
-			"I cannot see an egg!",
+			"Nie widzę jaja!!",
 			null);
-
+		
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES,
-				new QuestInStateCondition(QUEST_SLOT, "egg"),
+				ConversationPhrases.QUEST_MESSAGES, 
+				new QuestInStateCondition(QUEST_SLOT, "jajo"),
 				ConversationStates.ATTENDING,
-				"I asked you to fetch an #egg for me!",
+				"Prosiłem Ciebie o przyniesienie #jaja!",
 				null);
-
-		npc.add(ConversationStates.ATTENDING, "jailed",
+		
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("jailed", "uwięziony"),
 				new QuestInStateCondition(QUEST_SLOT, "jailed"),
-				ConversationStates.ATTENDING, "I know that *I'm* jailed! I need you to go tell Princess Ylflia that I am here!",
+				ConversationStates.ATTENDING, "Wiem to, *Jestem* uwięziony! Potrzebuję Ciebie, abyś powiedział Princess Ylflia, że jestem tutaj!",
 				null);
-
+		
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES,
+				ConversationPhrases.QUEST_MESSAGES, 
 				new QuestInStateCondition(QUEST_SLOT, "jailed"),
 				ConversationStates.ATTENDING,
-				"I need you to go tell Princess Ylflia that I am #jailed here.",
+				"Potrzebuję Ciebie, abyś poszedł do Princess Ylflia i powiedział, że jestem tutaj #uwięziony.",
 				null);
 	}
-
+	
 	private void step6() {
 	final SpeakerNPC npc = npcs.get("Princess Ylflia");
-
-		npc.add(ConversationStates.ATTENDING, Arrays.asList("jailed", "Lorenz"),
+	
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("jailed", "Lorenz", "uwięziony"),
 				new QuestInStateCondition(QUEST_SLOT, "jailed"),
-				ConversationStates.ATTENDING,
-				"Oh my dear. My father should not know it. Hope he is fine! Thanks for this message! Send him #greetings! You better return to him, he could need more help.",
+				ConversationStates.ATTENDING, 
+				"Och. Mój ojciec nie powinien wiedzieć o tym. Mam nadzieje, że Lorenz ma się dobrze! Dziękuję za wiadomość! Wyślij mu #pozdrowienia! Lepiej wróć do niego. Może potrzebować pomocy.",
 				new SetQuestAction(QUEST_SLOT, "spoken"));
 
-		npc.add(ConversationStates.ATTENDING, "greetings",
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("greetings", "pozdrowienia"),
 				new QuestInStateCondition(QUEST_SLOT, "spoken"),
-				ConversationStates.ATTENDING, "Please, go and give Lorenz my #greetings.",
+				ConversationStates.ATTENDING, "Idź i przekaż Lorenz moje #pozdrowienia.",
 				null);
 
 	}
 
 	private void step7() {
 	final SpeakerNPC npc = npcs.get("Lorenz");
-
-		npc.add(ConversationStates.ATTENDING, "greetings",
+	
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("greetings", "pozdrowienia"),
 				new QuestInStateCondition(QUEST_SLOT, "spoken"),
-				ConversationStates.ATTENDING,
-				"Thanks my friend. Now a final task for you! Bring me a barbarian armor. Without this I cannot escape from here! Go! Go! And let me know when you have the #armor !",
+				ConversationStates.ATTENDING, 
+				"Dziękuję przyjacielu. Teraz ostatnie zadanie! Przynieś mi barbarian armor. Bez tego nie ucieknę stąd! Idź! Idź! I daj znać, gdy zdobędziesz #zbroję!",
 				new SetQuestAction(QUEST_SLOT, "armor"));
-
+		
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES,
+				ConversationPhrases.QUEST_MESSAGES, 
 				new QuestInStateCondition(QUEST_SLOT, "greetings"),
 				ConversationStates.ATTENDING,
-				"I suppose you must have spoken with Princess Ylflia by now ... I do hope she sent her warmest #greetings to me...",
+				"Teraz musisz porozmawiać z Princess Ylflia ... Mam nadzieję, że przesłała swoje najgorętsze #pozdrowienia...",
 				null);
 	}
-
+	
 	private void step8() {
-		final SpeakerNPC npc = npcs.get("Lorenz");
+		final SpeakerNPC npc = npcs.get("Lorenz");	
 
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
-		reward.add(new DropItemAction("barbarian armor"));
+		reward.add(new DropItemAction("zbroja barbarzyńcy"));
 		reward.add(new IncreaseXPAction(50000));
-		reward.add(new EquipItemAction("gold bar", 20));
+		reward.add(new EquipItemAction("sztabka złota", 20));
 		reward.add(new SetQuestAction(QUEST_SLOT, "done"));
-		reward.add(new IncreaseKarmaAction(15));
-
-		npc.add(ConversationStates.ATTENDING, "armor",
+		reward.add(new IncreaseKarmaAction(15)); 
+		
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("armor", "zbroja", "zbroję"),
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "armor"),
-						new PlayerHasItemWithHimCondition("barbarian armor")),
-						ConversationStates.ATTENDING,
-						"Thats all! Now I am prepared for my escape! Here is something I have stolen from Princess Esclara! Do not let her know. And now leave me!",
+						new PlayerHasItemWithHimCondition("zbroja barbarzyńcy")),
+						ConversationStates.ATTENDING, 
+						"To wszystko! Teraz jestem gotowy do mojej ucieczki! Oto coś dla Ciebie. Ukradłem Princess Esclara! Żeby tylko się nie dowiedziała. Teraz zostaw mnie!",
 						new MultipleActions(reward));
 
 		npc.add(
 			ConversationStates.ATTENDING, "armor",
-			new AndCondition(new QuestInStateCondition(QUEST_SLOT, "armor"), new NotCondition(new PlayerHasItemWithHimCondition("barbarian armor"))),
+			new AndCondition(new QuestInStateCondition(QUEST_SLOT, "armor"), new NotCondition(new PlayerHasItemWithHimCondition("zbroja barbarzyńcy"))),
 			ConversationStates.ATTENDING,
-			"You have no barbarian armor with you! Go get one!",
+			"Nie posiadasz zbroi barbarzyńcy przy sobie! Idź i zdobądź!",
 			null);
-
+		
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES,
+				ConversationPhrases.QUEST_MESSAGES, 
 				new QuestInStateCondition(QUEST_SLOT, "armor"),
 				ConversationStates.ATTENDING,
-				"I am waiting for you to bring me a barbarian #armor so I am strong enough to escape.",
+				"Czekam na  #zbroję barbarzyńcy od Ciebie. Teraz jestem dość silny, aby uciec.",
 				null);
 	}
-
+	
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Jailed Barbarian",
-				"Lorenz is a jailed Barbarian on Amazon Island. It's a mystery why he is jailed there, but perhaps he needs help.",
+				"Uwięziony Barbarzyńca",
+				"Lorenz jest uwięzionym barbarzyńcą na Athor Island. Dowiesz się dlaczego jest tam więziony i czy mu jakoś pomożesz?",
 				true);
 		step1();
 		step2();
@@ -306,7 +306,7 @@ import games.stendhal.server.maps.Region;
 		step7();
 		step8();
 	}
-
+	
 	@Override
 	public List<String> getHistory(final Player player) {
 		final List<String> res = new ArrayList<String>();
@@ -314,61 +314,61 @@ import games.stendhal.server.maps.Region;
 			return res;
 		}
 		final String questState = player.getQuest(QUEST_SLOT);
-		res.add("I found my way into Lorenz's hut.");
-		res.add("Lorenz wants a scythe, and not an old one, to cut down the flowers he finds ugly.");
+		res.add("Odnalazłem drogę do chaty Lorenza.");
+		res.add("Lorenz potrzebuje kosę, ale nie starą, aby ściąć kwiaty. Uważa je za brzydkie.");
 		if ("rejected".equals(questState)) {
-			res.add("I don't want to help Lorenz cut down flowers. Whatever he's jailed for, I bet he deserves it.");
+			res.add("Nie chcę pomóc Lorenzowi w  wycięciu kwiatów. Za cokolwiek skazany, założę się, że na to zasłużył.");
 			return res;
-		}
+		} 
 		if ("start".equals(questState)) {
 			return res;
-		}
-		res.add("Lorenz wants me to ask Princess Esclara why he's captured. I must say his name to remind her.");
+		} 
+		res.add("Lorenz chce abym udał się do Princess Esclara z zapytaniem: 'dlaczego on pojmany'. Muszę powiedzieć jej jego imię aby jej przypomnieć.");
 		if ("capture".equals(questState)) {
 			return res;
-		}
-		res.add("The Princess told me Lorenz is jailed for digging that tunnel! So I should tell him, it was the tunnel.");
+		} 
+		res.add("Księżniczka powiedziała mi, że Lorenz jest skazany za kopanie tunelu! Tak więc należy mu powiedzieć, to za tunel.");
 		if ("princess".equals(questState)) {
 			return res;
 		}
-		res.add("Lorenz suddenly got hungry and demanded I bring him an egg. He's really bad tempered.");
+		res.add("Lorenz nagle zgłodniał i zażądał dostarczenia mu jajka. On jest naprawdę wybuchowy.");
 		if ("egg".equals(questState)) {
 			return res;
 		}
-		res.add("Now I have to tell Princess Ylflia, why Lorenz wasn't in touch ... I'm not even sure why he knows her! But anyway, I must say his name to her.");
+		res.add("Teraz muszę powiedzieć Princess Ylflia, dlaczego Lorenz nie było tak długo ... Nie jestem nawet pewien, czy zna ją! Ale i tak muszę powiedzieć jej jego imię.");
 		if ("jailed".equals(questState)) {
 			return res;
 		}
-		res.add("Princess Ylflia begged me to send that barbarian her greetings.");
+		res.add("Princess Ylflia prosił mnie, aby przekazał Lorencowi pozdrowienia.");
 		if ("spoken".equals(questState)) {
 			return res;
 		}
-		res.add("Lorenz finally resolved to try to break free and I need to get him a barbarian armor for that.");
+		res.add("Lorenz w końcu postanowił spróbować uwolnić się. Muszę mu znaleść zbroję barbarzyńy.");
 		if ("armor".equals(questState)) {
 			return res;
 		}
-		res.add("I brought Lorenz the armor! He gave me gold he'd stolen from the Princess and I earned a lot of experience.");
+		res.add("Przyniosłem Lorenzowi zbroje! Dał mi zrabowane złoto Princesin i zarobiłem dużo doświadczenia.");
 		if (isCompleted(player)) {
 			return res;
 		}
 		// if things have gone wrong and the quest state didn't match any of the above, debug a bit:
 		final List<String> debug = new ArrayList<String>();
-		debug.add("Quest state is: " + questState);
-		logger.error("History doesn't have a matching quest state for " + questState);
+		debug.add("Stan zadania to: " + questState);
+		logger.error("Historia nie pasuje do stanu poszukiwania " + questState);
 		return debug;
 	}
-
+	
 	@Override
 	public String getName() {
 		return "JailedBarbarian";
 	}
-
+	
 	// Amazon is dangerous below this level - don't hint to go there
 	@Override
 	public int getMinLevel() {
 		return 70;
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.AMAZON_ISLAND;
@@ -378,4 +378,4 @@ import games.stendhal.server.maps.Region;
 		return "Lorenz";
 	}
 }
-
+ 

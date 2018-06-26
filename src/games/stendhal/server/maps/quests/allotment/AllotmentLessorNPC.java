@@ -97,36 +97,36 @@ public class AllotmentLessorNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				// TODO: this was copy pasted change as needed
-				addGreeting("Heya!");
-				addJob("Um, not sure what you mean. Right now I'm waiting for my mum to get back from the #shops.");
-				addHelp("I have some #news about the bazaar over there.");
-				addOffer("I don't sell stuff, I'm just waiting for my mum. But I have some #news if you wanna hear it.");
+				addGreeting("Cześć!");
+				addJob("Hm, nie mam pojęcia o czym mówisz. Czekam na moją mamę, aż wróci ze #sklepu.");
+				addHelp("Posiadam #informacje o tym bazarze tu obok.");
+				addOffer("Niczego nie sprzedaję. Czekam na moją mamę. Ale mogę ci zdradzić #informacje, jeżeli jesteś ciekawy.");
 				// quest: FindJefsMom , quest sentence given there
-				addReply("news", "Some more shopkeepers will be at the market soon! It'll be cool, it's kind of empty round here at the moment.");
-				addReply("shops", "Yeah she's had to go out of town. All we have here is that flower seller! There's #news about our bazaar, though ...");
-				addGoodbye("See you around.");
+				addReply("informacje", "Doszły mnie słuchy, iż nie długo będzie więcej sprzedawców. Wtedy bazar ożyje, jak na razie jest tam pusto i nie ma ruchu.");
+				addReply("sklepu", "Musiała iść po za miasto. Na tym bazarze obok, jedynym sprzedawcą jest kwiaciarka.Krążą #informacje, że na bazar ma...");
+				addGoodbye("Do zobaczenia.");
 
 				// if player already has one rented ask how may help
 				add(ConversationStates.ATTENDING,
-					Arrays.asList("rent", "allotment"),
+					Arrays.asList("wynajmij", "działkę"),
 					questActive,
 					ConversationStates.QUEST_STARTED,
-					"So what can I do you for? Did you lose your #key or want another one or would you like to know how much #time is left until your allotment expires?",
+					"Co mogę zrobić dla ciebie? Zgubiłeś swój #klucz czy chcesz inny, czy może chcesz dowiedzieć się ile #czasu zostało ci do wygaśnięcia umowy?",
 					null);
 
 				// if allotment not rented and there are available then ask if player wants to rent
 				add(ConversationStates.ATTENDING,
-					Arrays.asList("rent", "allotment"),
+					Arrays.asList("wynajmij", "działkę"),
 					new AndCondition(
 							new NotCondition(questActive),
 							hasAllotments),
 					ConversationStates.QUEST_OFFERED,
-					"Would you like to rent an allotment?",
+					"Chcesz wynająć działkę?",
 					null);
 
 				// if allotment not rented and there are none available then tell player
 				add(ConversationStates.ATTENDING,
-					Arrays.asList("rent", "allotment"),
+					Arrays.asList("wynajmij", "działkę"),
 					new AndCondition(
 							new NotCondition(questActive),
 							new NotCondition(hasAllotments)),
@@ -137,16 +137,16 @@ public class AllotmentLessorNPC implements ZoneConfigurator {
 						public void fire(Player player, Sentence sentence, EventRaiser npc) {
 							long diff = rentHelper.getNextExpiryTime(zone.getName()) - System.currentTimeMillis();
 
-							npc.say("I'm sorry, there aren't any available at the moment. Please come back in about " + TimeUtil.approxTimeUntil((int) (diff / 1000L)) + ".");
 						}
 				});
 
+							npc.say("Jest mi przykro w tym momęcie nie mamy wolnych. Proszę wróć za " + TimeUtil.approxTimeUntil((int) (diff / 1000L)) + ".");
 				// if offer rejected
 				add(ConversationStates.QUEST_OFFERED,
 					ConversationPhrases.NO_MESSAGES,
 					null,
 					ConversationStates.ATTENDING,
-					"Ok, how else may I help you?",
+					"Okey, co mogę jeszcze dla ciebie zrobić?",
 					new SetQuestAction(QUEST_SLOT, 1, "0"));
 
 				// if accepts to rent allotment
@@ -162,17 +162,17 @@ public class AllotmentLessorNPC implements ZoneConfigurator {
 							List<String> allotments = rentHelper.getAvailableAllotments(zone.getName());
 							String reply = Grammar.enumerateCollection(allotments);
 
-							npc.say("Which one would you like? Let's see... " + Grammar.plnoun(allotments.size(), "allotment") + " "
-									+ reply + " are available, or perhaps #none if you've changed your mind.");
+							npc.say("Którą chcesz? Popatrzmy... " + Grammar.plnoun(allotments.size(), "działkę") + " " 
+									+ reply + " są dostępne, chyba, że #nie chesz tej działki.");
 						}
 					});
 
 				// to exit renting/choosing an allotment
 				add(ConversationStates.ANY,
-					"none",
+					"nie",
 					null,
 					ConversationStates.ATTENDING,
-					"Ok.",
+					"tak.",
 					null);
 
 				// do business
@@ -190,24 +190,24 @@ public class AllotmentLessorNPC implements ZoneConfigurator {
 
 							//TODO: get payment
 							if (!rentHelper.isValidAllotment(zone.getName(), allotmentNumber)) {
-								npc.say("I'm afraid that allotment does not exist.");
+								npc.say("Obawiam się, że działka nie istnieje.");
 							} else {
 								if (rentHelper.getAvailableAllotments(zone.getName()).contains(allotmentNumber)) {
 									if(rentHelper.setExpirationTime(zone.getName(), allotmentNumber, player.getName())) {
-										npc.say("Here's your key to allotment " + allotmentNumber + ". You are allowed to use the allotment for the next "
+										npc.say("Oto klucz do działki " + allotmentNumber + ". Otrzymałeś pozwolenie na używanie działki na czas " 
 												+ TimeUtil.approxTimeUntil((int) (AllotmentUtilities.RENTAL_TIME / 1000L)) + ".");
 
 										if (!player.equipToInventoryOnly(rentHelper.getKey(zone.getName(), player.getName()))) {
-											npc.say("Oh, you look a bit overloaded there. I'll keep it safe here until you come back. Just ask about your #allotment.");
+											npc.say("Widzę, że nie masz miejsca w plecaku. Zatrzymam klucz do momentu twojego powrotu. Zapytaj się mnie o #działkę.");
 										}
 
 										new SetQuestAction(QUEST_SLOT, 1, Long.toString(AllotmentUtilities.RENTAL_TIME + System.currentTimeMillis())).fire(player, sentence, npc);
 									} else {
 										// error? shouldn't happen
-										npc.say("Uh oh! There appears to be a problem in the paperwork. Please give me some time to sort it out.");
+										npc.say("Uuuu! Jest jakiś problem w papierach. Proszę daj mi trochę czasu aby naprawić ten problem.");
 									}
 								} else {
-									npc.say("I'm sorry, that allotment is already taken.");
+									npc.say("Jest mi przykro, ale ta działka jest już zajęta.");
 								}
 							}
 						}
@@ -215,7 +215,7 @@ public class AllotmentLessorNPC implements ZoneConfigurator {
 
 				// if player asked about key
 				add(ConversationStates.QUEST_STARTED,
-					"key",
+					"klucz",
 					null,
 					ConversationStates.ATTENDING,
 					"",
@@ -227,19 +227,19 @@ public class AllotmentLessorNPC implements ZoneConfigurator {
 
 							if (key != null) {
 								if (player.equipToInventoryOnly(key)) {
-									npc.say("Here's your key, happy planting.");
+									npc.say("Tu masz swój klucz, miłego sadzenia.");
 								} else {
-									npc.say("You can't carry that right now. Ask me again when you're not carrying so much.");
+									npc.say("Nie masz miejsca w plecaku. Wróć ponownie gdy będziesz miał miejsce.");
 								}
 							} else {
-								npc.say("There must have been a mixup in the paperwork. It appears you haven't rented out an allotment.");
+								npc.say("Musiałeś pomylić się. Osoba o tym imieniu niczego nie wynajeła.");
 							}
 						}
 					});
 
 				// if player asked about remaining time
 				add(ConversationStates.QUEST_STARTED,
-					"time",
+					"czasu",
 					null,
 					ConversationStates.ATTENDING,
 					null,
@@ -247,7 +247,7 @@ public class AllotmentLessorNPC implements ZoneConfigurator {
 					new ChatAction() {
 						@Override
 						public void fire(Player player, Sentence sentence, EventRaiser npc) {
-							npc.say("The time remaining on your rent is " + rentHelper.getTimeLeftPlayer(zone.getName(), player.getName()) + ".");
+							npc.say("Pozostało tobie jeszcze " + rentHelper.getTimeLeftPlayer(zone.getName(), player.getName()) + " czasu.");
 						}
 					});
 
@@ -258,7 +258,7 @@ public class AllotmentLessorNPC implements ZoneConfigurator {
 		npc.setEntityClass("kid6npc");
 		npc.setPosition(85, 11);
 		npc.initHP(100);
-		npc.setDescription("You see jefs clone. He seems like waiting for someone.");
+		npc.setDescription("Oto klon Jefa. Wygląda jakby na kogoś czekał.");
 		zone.add(npc);
 	}
 }

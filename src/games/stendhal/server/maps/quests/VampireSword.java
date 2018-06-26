@@ -188,7 +188,7 @@ public class VampireSword extends AbstractQuest {
 
 		final List<ChatAction> startforging = new LinkedList<ChatAction>();
 		startforging.add(new DropItemAction("czara"));
-		startforging.add(new DropItemAction("żelazo", 10));
+		startforging.add(new DropItemAction("żelazo", 50));
 		startforging.add(new IncreaseKarmaAction(5.0));
 		startforging.add(new SetQuestAction(QUEST_SLOT, "forging;"));
 		startforging.add(new SetQuestToTimeStampAction(QUEST_SLOT, 1));
@@ -266,7 +266,6 @@ public class VampireSword extends AbstractQuest {
 		// Returned too early; still forging
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
-						new QuestStateStartsWithCondition(QUEST_SLOT, "forging;"),
 						new NotCondition(new TimePassedCondition(QUEST_SLOT, 1, REQUIRED_MINUTES))),
 				ConversationStates.IDLE, null,
 				new SayTimeRemainingAction(QUEST_SLOT, 1, REQUIRED_MINUTES, "Jeszcze nie wykułem miecza. Przyjdź za " +
@@ -333,10 +332,10 @@ public class VampireSword extends AbstractQuest {
 		}
 		if (questState.equals("start") && player.isEquipped("czara")
 				|| questState.equals("done")) {
-			res.add("Wziąłem pełną czarę do Hogarata i teraz potrzebuję uzbierać 10 rud żelaza");
+			res.add("Wziąłem pełną czarę do Hogarata i teraz potrzebuję uzbierać 50  żelaza");
 		}
 		if (player.getQuest(QUEST_SLOT).startsWith("forging;")) {
-			res.add("Wziąłem 10 rud żelaza i czarę do Hogarta. Teraz wyrabia mój miecz.");
+			res.add("Wziąłem 50  żelaza i czarę do Hogarta. Teraz wyrabia mój miecz.");
 		}
 		if (questState.equals("done")) {
 			res.add("Nareszcie dostałem krwiopijcę.");

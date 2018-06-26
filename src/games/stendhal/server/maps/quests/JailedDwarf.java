@@ -12,9 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.SpeakerNPC;
@@ -31,11 +28,14 @@ import games.stendhal.server.entity.npc.condition.QuestNotCompletedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * QUEST: Jailed Dwarf
- *
+ * 
  * PARTICIPANTS: - Hunel, the guard of the Dwarf Kingdom's Prison
- *
+ * 
  * STEPS:
  * <ul>
  * <li> You see Hunel locked in the cell. </li>
@@ -44,14 +44,14 @@ import games.stendhal.server.maps.Region;
  * <li> Hunel wants to stay in, he is afraid. </li>
  * <li> You can then sell chaos equipment to Hunel. </li>
  * </ul>
- *
+ * 
  * REWARD:
  * <ul>
  * <li> 2,000 XP </li>
  * <li> some karma (20) </li>
  * <li> everlasting place to sell chaos equipment </li>
  * </ul>
- *
+ * 
  * REPETITIONS: - None.
  */
 public class JailedDwarf extends AbstractQuest {
@@ -72,23 +72,23 @@ public class JailedDwarf extends AbstractQuest {
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestCompletedCondition(QUEST_SLOT)),
 				ConversationStates.ATTENDING,
-				"Hi. As you see, I am still too nervous to leave ...",
+				"Cześć. Jak widzisz wciąż jestem zbyt zdenerwowany, aby wyjść ...",
 				null);
 
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestNotCompletedCondition(QUEST_SLOT),
-						new NotCondition(new PlayerHasItemWithHimCondition("kanmararn prison key"))),
+						new NotCondition(new PlayerHasItemWithHimCondition("klucz do więzienia Kanmararn"))),
 				ConversationStates.IDLE,
-				"Help! The duergars have raided the prison and locked me up! I'm supposed to be the Guard! It's a shambles.",
+				"Pomocy! Duergars najechały na więzienie i zamknęły mnie tutaj! Powinienem być Strażnikiem! To chaos.",
 				new SetQuestAction(QUEST_SLOT, "start"));
 
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestNotCompletedCondition(QUEST_SLOT),
-						new PlayerHasItemWithHimCondition("kanmararn prison key")),
+						new PlayerHasItemWithHimCondition("klucz do więzienia Kanmararn")),
 				ConversationStates.ATTENDING,
-				"You got the key to unlock me! *mumble*  Errrr ... it doesn't look too safe out there for me ... I think I'll just stay here ... perhaps someone could #offer me some good equipment ... ",
+				"Masz klucz, aby mnie wypuścić! *mamrocze*  Errrr ... nie wygląda, aby było tam dla mnie bezpiecznie ... Chyba zostanę tutaj ... może ktoś #zaoferuje mi dobry ekwipunek ... ",
 				new MultipleActions(new SetQuestAction(QUEST_SLOT, "done"),
 						 			 new IncreaseXPAction(2000),
 						 			 new IncreaseKarmaAction(20)));
@@ -97,30 +97,30 @@ public class JailedDwarf extends AbstractQuest {
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Jailed Dwarf",
-				"Down in Kanmararn is an afraid dwarf locked in a cell waiting for visitors. He is supposed to be the guard, but duergars have raided the prison. He might need some armor to survive once out of it.",
+				"Uwięziony Krasnal",
+				"Na dole Kanmararn znajdziesz przrażonego, uwięzionego w celi krasnala czekającego na odwiedziny. Powinien być strażnikiem, ale duergary napadły na więzienie. Może potrzebować zbroi do ucieczki.",
 				true);
 		step_1();
 	}
-
+	
 	@Override
 	public List<String> getHistory(final Player player) {
 			final List<String> res = new ArrayList<String>();
 			if (!player.hasQuest(QUEST_SLOT)) {
 				return res;
 			}
-			res.add("I need to get a key to unlock Hunel.");
+			res.add("Muszę zdobyć klucz aby uwolnić Hunela.");
 			if (isCompleted(player)) {
-				res.add("I killed the Duergar King and got the key to unlock Hunel. But now he's too afraid to leave, wanting to buy more and more armor before he feels safe. Poor Hunel.");
+				res.add("Zabiłem króla Duergars i zdobyłem klucz do celi Hunela. Teraz jest zbyt przestraszony aby wyjść. Kupi każdą ilość zbroi. Biedny Hunel.");
 			}
 			return res;
 	}
-
+	
 	@Override
 	public String getName() {
 		return "JailedDwarf";
 	}
-
+	
 	@Override
 	public int getMinLevel() {
 		return 60;
@@ -130,7 +130,7 @@ public class JailedDwarf extends AbstractQuest {
 	public String getNPCName() {
 		return "Hunel";
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.SEMOS_DUNGEONS;

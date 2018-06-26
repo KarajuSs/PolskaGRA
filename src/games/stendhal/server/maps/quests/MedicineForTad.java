@@ -11,11 +11,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-
 import games.stendhal.server.entity.npc.ChatAction;
 import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
@@ -39,6 +34,11 @@ import games.stendhal.server.entity.npc.condition.QuestStartedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * QUEST: Introduce new players to game <p>PARTICIPANTS:<ul>
  * <li> Tad
@@ -46,7 +46,7 @@ import games.stendhal.server.maps.Region;
  * <li> Ilisa
  * <li> Ketteh Wehoh
  * </ul>
- *
+ * 
  * <p>
  * STEPS:<ul>
  * <li> Tad asks you to buy a flask to give it to Margaret.
@@ -353,7 +353,7 @@ public class MedicineForTad extends AbstractQuest {
 						new GreetingMatchesNameCondition(npc.getName()),
 						new QuestInStateCondition(QUEST_SLOT, 0, STATE_HERB),
 						new NotCondition(new PlayerHasItemWithHimCondition("arandula"))),
-				ConversationStates.ATTENDING,
+				ConversationStates.ATTENDING, 
 				ILISA_TALK_REMIND_HERB, null);
 
 		final List<ChatAction> processStep = new LinkedList<ChatAction>();
@@ -367,7 +367,7 @@ public class MedicineForTad extends AbstractQuest {
 						new GreetingMatchesNameCondition(npc.getName()),
 						new QuestInStateCondition(QUEST_SLOT, 0, STATE_HERB),
 						new PlayerHasItemWithHimCondition("arandula")),
-				ConversationStates.ATTENDING,
+				ConversationStates.ATTENDING, 
 				ILISA_TALK_PREPARE_MEDICINE,
 				new MultipleActions(processStep));
 
@@ -390,7 +390,7 @@ public class MedicineForTad extends AbstractQuest {
 		final List<ChatAction> processStep = new LinkedList<ChatAction>();
 		processStep.add(new IncreaseXPAction(200));
 		processStep.add(new SetQuestAction(QUEST_SLOT, 0, STATE_DONE));
-
+		
 		npc.add(ConversationStates.IDLE,
 				ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(
@@ -399,23 +399,23 @@ public class MedicineForTad extends AbstractQuest {
 				ConversationStates.ATTENDING,
 				TAD_TALK_COMPLETE_QUEST,
 				new MultipleActions(processStep));
-
+	
 		/*
 		 * if player has not finished this quest, ketteh will remind player about him.
 		 * if player has not started, and not finished, ketteh will ask if player has met him.
 		 */
 		npc = npcs.get("Ketteh Wehoh");
 
-        npc.add(ConversationStates.ATTENDING,
+        npc.add(ConversationStates.ATTENDING, 
         		ConversationPhrases.GOODBYE_MESSAGES,
         		new AndCondition(
         				new QuestStartedCondition(QUEST_SLOT),
-        				new QuestNotCompletedCondition(QUEST_SLOT)),
+        					     new QuestNotCompletedCondition(QUEST_SLOT)),
                 ConversationStates.IDLE,
                 KETTEH_TALK_BYE_REMINDS_OF_TAD,
                 null);
 
-        npc.add(ConversationStates.ATTENDING,
+        npc.add(ConversationStates.ATTENDING, 
         		ConversationPhrases.GOODBYE_MESSAGES,
         		new QuestNotStartedCondition(QUEST_SLOT),
                 ConversationStates.IDLE,

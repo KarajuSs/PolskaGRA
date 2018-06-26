@@ -12,12 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-
 import games.stendhal.common.Rand;
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -35,6 +29,12 @@ import games.stendhal.server.entity.npc.condition.GreetingMatchesNameCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.entity.status.PoisonStatus;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * QUEST: Find the seven cherubs that are all around the world.
  *
@@ -47,7 +47,7 @@ import games.stendhal.server.entity.status.PoisonStatus;
  * <li> Uriel </li>
  * <li> Zophiel </li>
  * <li> Azazel </li>
- *
+ * 
  * STEPS:
  * <ul>
  * <li> Find them and they will reward you. </li>
@@ -55,7 +55,7 @@ import games.stendhal.server.entity.status.PoisonStatus;
  *
  * REWARD:
  * <ul>
- * <li> 2,000 XP </li>
+ * <li> 20,000 XP </li>
  * <li> some karma (35) </li>
  * <li> either fire sword, golden boots, golden armor, or golden helmet </li>
  * </ul>
@@ -66,22 +66,22 @@ public class SevenCherubs extends AbstractQuest {
 	private static final String QUEST_SLOT = "seven_cherubs";
 
 	private final HashMap<String, String> cherubsHistory = new HashMap<String,String>();
-
+	
 	private void fillHistoryMap() {
-		cherubsHistory.put("Cherubiel", "I met Cherubiel in Semos Village.");
-		cherubsHistory.put("Ophaniel",  "I met Ophaniel by Orril River.");
-		cherubsHistory.put("Gabriel",   "I met Gabriel in Nalwor City.");
-		cherubsHistory.put("Raphael",   "I met Raphael between Orril River and the bridge to Fado.");
-		cherubsHistory.put("Zophiel",   "I met Zophiel on Semos Mountain.");
-		cherubsHistory.put("Azazel",    "I met Azazel by Ados Rock.");
-		cherubsHistory.put("Uriel",     "I met Uriel on Orril Mountain.");
+		cherubsHistory.put("Cherubiel", "Spotkałem Cherubiel w wiosce Semos.");
+		cherubsHistory.put("Ophaniel",  "Spotkałem Ophaniel nad rzeką Orril.");
+		cherubsHistory.put("Gabriel",   "Spotkałem Gabriel w mieście Nalwor.");
+		cherubsHistory.put("Raphael",   "Spotkałem Raphael pomiędzy rzeką Orril, a mostem do Fado.");
+		cherubsHistory.put("Zophiel",   "Spotkałem Zophiel na górze Semos.");
+		cherubsHistory.put("Azazel",    "Spotkałem Azazel na Ados Rock.");
+		cherubsHistory.put("Uriel",     "Spotkałem Uriel na górze Orril.");		
 	}
 
 	@Override
 	public String getSlotName() {
 		return QUEST_SLOT;
 	}
-
+	
 	@Override
 	public boolean isCompleted(final Player player) {
 		if (!player.hasQuest(QUEST_SLOT)) {
@@ -104,13 +104,13 @@ public class SevenCherubs extends AbstractQuest {
 				if (!cherub.trim().equals("")) {
 					if (first) {
 						first = false;
-						res.add("I have started finding the seven cherubs");
+						res.add("Zacząłem szukać siedmiu aniołków");
 					}
 					res.add(cherubsHistory.get(cherub));
 				}
 			}
 			if (isCompleted(player)) {
-				res.add("Done! I have found every one!");
+				res.add("Zrobione! Znalazłem je wszystkie!");
 			}
 		}
 		return res;
@@ -160,9 +160,9 @@ public class SevenCherubs extends AbstractQuest {
 
 						if (list.contains(raiser.getName())) {
 							if (left > -1) {
-								raiser.say("Seek out the other cherubim to get thy reward!");
+								raiser.say("Poszukaj innych aniołków, aby dostać nagrodę!");
 							} else {
-								raiser.say("Thou hast sought and found each of the seven cherubim! Now, mighty art thou with the rewards so earn'd.");
+								raiser.say("Szukałeś i znalazłeś wszystkie aniołki! W nagrodę dostałeś potężny artefakt.");
 							}
 						} else {
 							player.setQuest(QUEST_SLOT, npcDoneText + ";"
@@ -172,16 +172,16 @@ public class SevenCherubs extends AbstractQuest {
 							player.getStatusList().removeAll(PoisonStatus.class);
 
 							if (left > 0) {
-								raiser.say("Well done! You only need to find "
+								raiser.say("Bardzo dobrze! Potrzebujesz znaleźć jeszcze "
 												+ (7 - list.size())
-												+ " more. Fare thee well!");
+												+ " aniołków. Żegnaj!");
 								if (raiser.getZone().getName().equals("0_semos_village_w")) {
 									player.addXP(20);
 								} else {
 									player.addXP((7 - left + 1) * 200);
 								}
 							} else {
-								raiser.say("Thou hast proven thyself brave enough to bear this mighty relic!");
+								raiser.say("Udowodniłeś, że jesteś w stanie nosić ten potężny artefakt!");
 
 								/*
 								 * Proposal by Daniel Herding (mort): once
@@ -208,12 +208,12 @@ public class SevenCherubs extends AbstractQuest {
 								 * it).
 								 *
 								 */
-								final String[] items = { "golden boots", "golden armor", "golden helmet" };
+								final String[] items = { "złote buty", "złota zbroja", "złoty hełm" };
 								final Item item = SingletonRepository.getEntityManager()
 									.getItem(items[Rand.rand(items.length)]);
 								item.setBoundTo(player.getName());
 								player.equipOrPutOnGround(item);
-								player.addXP(2000);
+								player.addXP(20000);
 								player.addKarma(35);
 							}
 						}
@@ -229,8 +229,8 @@ public class SevenCherubs extends AbstractQuest {
 		final StendhalRPWorld world = SingletonRepository.getRPWorld();
 		fillHistoryMap();
 		fillQuestInfo(
-				"Seven Cherubs",
-				"Seven cherubs stay on this world, and finding them all is rewarded with a prize.",
+				"Siedem Aniołków",
+				"Siedem aniołków znajduje się na świecie. Za znalezienie ich jest wysoka nagroda.",
 				false);
 		StendhalRPZone zone;
 		SpeakerNPC npc;

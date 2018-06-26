@@ -12,9 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.entity.npc.ChatAction;
 import games.stendhal.server.entity.npc.ConversationPhrases;
@@ -30,27 +27,30 @@ import games.stendhal.server.entity.npc.condition.QuestNotCompletedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * QUEST: Learn about Karma
- *
+ * 
  * PARTICIPANTS:
  * <ul>
  * <li>Sarzina, the friendly wizardess who also sells potions in Fado</li>
  * </ul>
- *
+ * 
  * STEPS:
  * <ul>
  * <li>Sarzina asks if you are a helpful person</li>
  * <li>You get good or bad karma depending on what you say</li>
  * <li>You get the chance to learn about karma and find out what yours is.</li>
  * </ul>
- *
+ * 
  * REWARD:
  * <ul>
  * <li>Some Karma</li>
  * <li>Knowledge</li>
  * </ul>
- *
+ * 
  * REPETITIONS:
  * <ul>
  * <li>Can always learn about karma but not get the bonus each time</li>
@@ -71,36 +71,36 @@ public class LearnAboutKarma extends AbstractQuest {
 		if (!player.hasQuest(QUEST_SLOT)) {
 			return res;
 		}
-		res.add("I have met Sarzina in a hut in Fado and asked about a quest.");
+		res.add("Spotkałem Sarzina w domku w Fado i zapytałem ją o zadanie.");
 		final String questState = player.getQuest(QUEST_SLOT);
 		if (questState.equals("done")) {
-			res.add("Sarzina told me about karma and that I can come back to be reminded of how it works any time.");
+			res.add("Sarzina powiedziała mi o karmie i o tym, że mogę wrócić, aby przypomnieć sobie jak to działa.");
 		}
 		return res;
 	}
 
 	private void step1() {
 		final SpeakerNPC npc = npcs.get("Sarzina");
-
+		
 		npc.add(ConversationStates.ATTENDING,
-			ConversationPhrases.QUEST_MESSAGES,
+			ConversationPhrases.QUEST_MESSAGES, 
 			new QuestNotCompletedCondition(QUEST_SLOT),
-			ConversationStates.QUEST_OFFERED,
-			"Are you someone who likes to help others?", null);
+			ConversationStates.QUEST_OFFERED, 
+			"Czy jesteś tym, który lubi pomagać innym?", null);
 
 		npc.add(ConversationStates.ATTENDING,
 			ConversationPhrases.QUEST_MESSAGES,
 			new QuestCompletedCondition(QUEST_SLOT),
-			ConversationStates.ATTENDING,
-			"If you want to get good #karma all you have to do is be helpful to others. I know a hunter girl called Sally who needs wood, and "
-			+ "I know another girl called Annie who loves icecream, well, I know many people who needs tasks doing for them regularly and I'm sure if you help them you will be rewarded, that's how karma works after all.", null);
+			ConversationStates.ATTENDING, 
+			"Jeśli chcesz by towarzyszyła ci dobra #karma jedyne co musisz robić, to pomagać innym. Znam dziewczę o imieniu Sally, która potrzebuje drewna, " 
+			+ "i znam inne dziewczę co zwie się Annie, która uwielbia lody. Cóż, znam wielu mieszkańców tej krainy, którzy stale potrzebować będą pomocy. Jestem pewna, że jeśli im pomożesz czeka cię sowita zapłata.", null);
 
 		// player is willing to help other people
 		// player gets a little karma bonus
 		npc.add(ConversationStates.QUEST_OFFERED,
 			ConversationPhrases.YES_MESSAGES, null,
 			ConversationStates.ATTENDING,
-			"Wonderful! You must have good #karma.",
+			"Wyśmienicie! Musi cię otaczać dobra #karma.",
 			new MultipleActions(
 					new SetQuestAction(QUEST_SLOT, "done"),
 					new EnableFeatureAction("karma_indicator")));
@@ -110,9 +110,9 @@ public class LearnAboutKarma extends AbstractQuest {
 		npc.add(ConversationStates.QUEST_OFFERED,
 			ConversationPhrases.NO_MESSAGES, null,
 			ConversationStates.ATTENDING,
-			"I knew it ... you probably have bad #karma.",
+			"Wiedziałam ... pewnie otacza cię zła #karma.",
 			new MultipleActions(
-					new DecreaseKarmaAction(10.0),
+					new DecreaseKarmaAction(10.0), 
 					new SetQuestAction(QUEST_SLOT, "done"),
 					new EnableFeatureAction("karma_indicator")));
 
@@ -122,9 +122,9 @@ public class LearnAboutKarma extends AbstractQuest {
 			"karma",
 			new QuestCompletedCondition(QUEST_SLOT),
 			ConversationStates.QUESTION_1,
-			"When you do a good thing like a #task for someone else, you get good karma. Good karma means you're likely to "
-			+ "do well in battle and when fishing or searching for something like gold. "
-			+ "Do you want to know what your karma is now?",
+			"Gdy robisz dobre rzeczy dla innych takie jak #zadania dostajesz dobrą karmę. Dobra karma oznacza, że " 
+			+ " będzie ci się powodzić w bitwach, w łowieniu ryb, poszukiwaniu złota i drogocennych kamieni. " 
+			+ " Chcesz wiedzieć jaką masz teraz karmę?",
 			null);
 
 		// Player wants to know what karma is, but has not yet completed the
@@ -133,7 +133,7 @@ public class LearnAboutKarma extends AbstractQuest {
 				"karma",
 				new QuestNotCompletedCondition(QUEST_SLOT),
 				ConversationStates.QUEST_OFFERED,
-				"Are you someone who likes to help others?", null);
+				"Jesteś tym, który lubi pomagać innym?", null);
 
 		// player wants to know what his own karma is
 		npc.add(ConversationStates.QUESTION_1,
@@ -143,23 +143,23 @@ public class LearnAboutKarma extends AbstractQuest {
 				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
 					final long roundedkarma = Math.round(player.getKarma());
-					final String Yk = "Your karma ";
-					final String canseekarma = "Now you can always see your karma,";
+					final String Yk = "Twoja karma ";
+					final String canseekarma = "Teraz zobaczymy jakiego koloru jest twoja karma. ";
 					final String rk = Long.toString(roundedkarma);
                     if (roundedkarma > 499 ) {
-                        npc.say(Yk+"is unbelievably high, "+rk+"! You must have done many good things! " + canseekarma + " it's 'in the blue'." );
+                        npc.say(Yk+"jest niesamowicie wysoka, "+rk+"! Musiałeś zrobić bardzo dużo dobrych uczynków. " + canseekarma + " Jest na niebiesko." );
                     } else if (roundedkarma > 99) {
-                        npc.say(Yk+"is great, "+rk+". " + canseekarma + " it's 'in the blue' right now.");
+                        npc.say(Yk+"jest wysoka, "+rk+". " + canseekarma + " Jest jeszcze na niebiesko.");
                     } else if (roundedkarma > 5) {
-                    	npc.say(Yk+"of "+rk+" is good. " + canseekarma + " and you should try to keep yours out of the 'red'.");
+                    	npc.say(Yk+"wynosi "+rk+" jest dobra. " + canseekarma + " Musisz uważać zbliża się do koloru czerwonego.");
                     } else if (roundedkarma > -5) {
-                        npc.say(Yk+"is "+rk+". " + canseekarma + " and yours is roughly in the middle of the scale.");
+                        npc.say(Yk+"wynosi "+rk+". " + canseekarma + " Znajduje się w połowie skali.");
                     } else if (roundedkarma > -99) {
-                        npc.say(Yk+"of "+rk+" is not very good. " + canseekarma + " if you had good karma it would show as blue.");
+                        npc.say(Yk+"to "+rk+" jest zła. " + canseekarma + " Postaraj się aby była na niebiesko.");
                     } else if (roundedkarma > -499) {
-                        npc.say(Yk+"is terrible, "+rk+"! " + canseekarma + " and yours is well 'in the red'.");
+                        npc.say(Yk+"jest straszna, "+rk+"! " + canseekarma + " Jest na czerwono.");
                     } else {
-                    	npc.say(Yk+"is disastrous, "+rk+"!!! " + canseekarma + " and yours hardly even registers on the scale. You must have done some bad things... ");
+                    	npc.say(Yk+"jest katasrofalna, "+rk+"!!! " + canseekarma + " Zabrakło skali dla niej. Musisz być bardzo złym człowiekiem... ");
                     }
 				}
 			});
@@ -167,27 +167,27 @@ public class LearnAboutKarma extends AbstractQuest {
 		// player doesn't want to know what his own karma is
 		npc.add(ConversationStates.QUESTION_1, ConversationPhrases.NO_MESSAGES,
 			null, ConversationStates.ATTENDING,
-			"Fair enough! I could help you another way?", null);
-
+			"Zatem, mogę ci jeszcze jakoś pomóc?", null);
+		
 		npc.add(ConversationStates.QUESTION_1, ConversationPhrases.QUEST_MESSAGES,
 				null, ConversationStates.QUESTION_1,
-				"If you ask around for tasks, and you complete them, you'll increase your karma. Do you want to know what your karma is now?", null);
+				"Jeśli popytasz o zadania tu i tam, wypełnisz je, wówczas twoja karma urośnie. Chcesz wiedzieć jaką masz teraz karmę?", null);
 	}
 
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Learn About Karma",
-				"Sarzina will teach about Karma.",
+				"Nauka o Karmie", 
+				"Sarzina nauczy mnie o Karmie.", 
 				false);
 		step1();
 	}
-
+	
 	@Override
 	public String getName() {
 		return "LearnAboutKarma";
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.FADO_CITY;

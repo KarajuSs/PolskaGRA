@@ -12,12 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.common.MathHelper;
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.events.TeleportListener;
@@ -46,20 +40,24 @@ import games.stendhal.server.entity.npc.condition.SystemPropertyCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * A kind of paper chase.
  *
  * @author hendrik
  */
 public class PaperChase extends AbstractQuest implements TeleportListener {
-	private static final String QUEST_SLOT = "paper_chase_20[year]";
-	private static final String FAME_TYPE = QUEST_SLOT.substring(QUEST_SLOT.length() - 1);
-
+	private static final String QUEST_SLOT = "paper_chase_2015";
 	private static final int TELEPORT_PENALTY_IN_MINUTES = 10;
 
 	private static final List<String> NPC_IDLE = Arrays.asList("Tad", "Haunchy Meatoch", "Pdiddi", "Ketteh Wehoh");
 
-	private List<String> points = Arrays.asList("Nishiya", "Marcus", "Eheneumniranin", "Balduin", "Rachel", "Fritz",
+	private List<String> points = Arrays.asList("Nishiya", "Marcus", "Eheneumniranin", "Balduin", "Rachel", "Fritz", 
 												"Alice Farmer", "Elisabeth", "Sue", "Old Mother Helena", "Hazel",
 												"Captain Brownbeard", "Jane", "Seremela", "Phalk", "Fidorea");
 
@@ -72,43 +70,39 @@ public class PaperChase extends AbstractQuest implements TeleportListener {
 
 	private void setupGreetings() {
 		// Each greeting is said by the previous NPC to point to the NPC in the key.
-		greetings.put("Marcus", "My sheep knew that you were on the way to me. ");
-		greetings.put("Eheneumniranin", "Long time ago that someone visited me here. Nice that you found me. ");
-		greetings.put("Balduin", "Ahh, you found me while gathering sheaves of grain with my sickle. Great! ");
-		greetings.put("Rachel", "It's windy here, isn't it? Hope the latest hint how to find me wasn't too easy. ");
-		greetings.put("Fritz", "Oh I love customers of Ados bank! They are so sweet! ");
-		greetings.put("Alice Farmer", "Smelling fish here, right? That's the spirit of the ocean! ");
-		greetings.put("Elisabeth", "Fantastic vacation so far and so much to explore! ");
-		greetings.put("Sue", "I love chocolate! You found me, maybe you can bring me a bar next time. ");
-		greetings.put("Old Mother Helena", "All of these flowers around give me a warm feeling. Hope you enjoy them too, thanks for visiting me! ");
-		greetings.put("Hazel", "Oh hello, so nice that you found me here. Come and join me again soon to let me cook some nice soup for you. ");
-		greetings.put("Captain Brownbeard", "The museum really is a lovely place to work at. Wonderful that you found me here. ");
-		greetings.put("Jane", "Yaaarrrr! My boatey will bring you over the sea, the sea! *sing* ");
-		greetings.put("Seremela", "It's hot here at the beach, hope you used some suntan cream. ");
-		greetings.put("Phalk", "Beautiful flowers in this city here! Unfortunately those elves don't appreciate them much. ");
-		greetings.put("Fidorea", "Young warrior, you did great things on your journey! Now return to finish it. You must be thirsty! ");
+		greetings.put("Adena", "Czekałem już na ciebie :) ");
+		greetings.put("Valo", "Ahh już jesteś! Zgaduję, że piękny zapach moich warzyw przyprowadził cię tutaj. ");
+		greetings.put("Balduin", "Oh znalazłeś drogę w tym pięknym starym kościele Ados. ");
+		greetings.put("Gaston", "Wietrznie tutaj? Mam nadziej, że ostatnia wskazówka jak mnie znaleść nie była zbyt łatwa. ");
+		greetings.put("Lobelia", "Bonjour! Widzę, że dotarłeś do mnie przez te ulice mojego rodzinnego miasta szczurów. ");
+		greetings.put("Ortiv Milquetoast", "Czyż te kwiatki nie są piękne, podejdź i przyjrzyj się im dokładnie! ");
+		greetings.put("Pam", "Uh, ah! Uff to ty. Masz mnie! ");
+		greetings.put("Old Mother Helena", "Wiedziałam, że ktoś mnie znajdzie na plaży! ");
+		greetings.put("Imorgen", "Oh witaj. Miło, że mnie tutaj znalazłeś. Wróć i przyłącz się kiedyś, aby spróbować mojej zupy. ");
+		greetings.put("Anastasia", "*śpiewa* jakieś zioła do kocioła, trochę więcej i trochę więcej *śpiewa*... ");
+		greetings.put("Vulcanus", "Ciii Hughie próbuje spać... ");
+		greetings.put("Wrvil", "Czy wiedziałeś, że moje imię pochodzi z greki? ");
+		greetings.put("Fidorea", "*Hau!* Znalazełeś mnie tutaj. Ładnie!");
 	}
-
+	
 
 	private void setupTexts() {
-		texts.put("Marcus", "The next person you should find takes care of thieves and other criminals. "
-				  + "He works in a fort near Semos.");
-		texts.put("Eheneumniranin", "You'll have to find the half sickling elf on Ados farm, next. He is always busy while gathering grain.");
-		texts.put("Balduin", "The next person on your trail sits on top of a really windy mountain.");
-		texts.put("Rachel", "The next lady to find works in a bank and can tell you all about her job.");
-		texts.put("Fritz", "Please go and find the old fisherman in Ados who can tell you great stories about fish. He also has a daughter named Caroline.");
-		texts.put("Alice Farmer", "The next person you'll have to seek out is on vacation in Ados, together with her whole family. She also knows everything about food and drinks.");
-		texts.put("Elisabeth", "Now you have to find a young girl who plays on a playground in Kirdneh and loves chocolate.");
-		texts.put("Sue", "Please go and find the nice gardener who owns some greenhouses with tomatoes inside near Kalavan.");
-		texts.put("Old Mother Helena", "Now please go and try to find a nice old woman who is really famous for her soups which can keep you warm and healthy. She might ask you about them first, just try to put her off for now :)");
-		texts.put("Hazel", "I know a really nice lady who can help you next. She works in a museum and loves her job.");
-		texts.put("Captain Brownbeard", "Now you have to travel on a ferry and talk to an old salt who will lead you to the next person to meet up with.");
-		texts.put("Jane", "Harrr yarrr the next lady enjoys a sunbath together with her husband on Athor beach.");
-		texts.put("Seremela", "It's not long ago that the next person you have to find opened a beautiful flowershop. I've seen lots of long eared creatures walking around her, hidden in a city which lays in a forest.");
-		texts.put("Phalk", "The next person you have to find is an old warrior who guards the mines, north to Semos.");
-		texts.put("Fidorea", "The final person to talk to, is the one who started all this.");
+		texts.put("Adena", "Następna osoba, którą powinieneś spotkać prowadzi swój własny interes. "
+				  + "Sprzedaje świeże warzywa i jedzenie z farm, które są niedaleko Semos.");
+		texts.put("Valo", "Następna osoba na twojej trasie żyje i pracuje w kościele. Może on sporządzić użyteczne mikstury dla ciebie.");
+		texts.put("Balduin", "Następna osoba na twoje drodze siedzi na szczycie wietrznej góry.");
+		texts.put("Gaston", "Następna osoba jest naprawdę dobrym piekarzem i może stworzyć dobre jedzenie z masła i czekolady. Oba jego imionai jedzenie, które tworzy są w obcym dla mnie języku.");
+		texts.put("Lobelia", "Następna mistyczna osoba rozgląda się uważnie dookoła siebie i wie dużo o twoich przyszłych podróżach...");
+		texts.put("Ortiv Milquetoast", "Będziesz potrzebował trochę opanowania ponieważ nasepna osoba naprawdę boi się Zabójców i Bandytów.");
+		texts.put("Pam", "Następna dama kocha kąpiele słoneczne na specjalnej wyspied i jest dobrą przyjaciółką Zary."); 
+		texts.put("Old Mother Helena", "Teraz idź i spróbuj znaleść miłą starszą pani, która jest bardzo sławna ze względu na swoje zupy, które są pożywne i smaczne.");
+		texts.put("Imorgen", "Hobby następnej osoby, którą musisz znaleść jest śpiew i picie specjalnych mistycznych mikstur. Mieszka w otoczeniu drzew w małej chatce razem ze swoją babcią.");
+		texts.put("Anastasia", "Proszę idź i poszukaj pani, która opiekuje się chorym synem. Mieszkają oni w malowniczej wsi.");
+		texts.put("Vulcanus", "Teraz musisz znaleść syna boga, który przywita cię po grecku.");
+		texts.put("Wrvil", "Teraz spotkaj się z mężem barmanki, która jest znana ze swoich mocnych napojów.");
+		texts.put("Fidorea", "Ostatnia osobą z którą musisz porozmawiać to ta, która to wszystko zaczęła.");
 	}
-
+	
 	/**
 	 * Handles all normal points in this paper chase (without the first and last.
 	 * one)
@@ -128,7 +122,7 @@ public class PaperChase extends AbstractQuest implements TeleportListener {
 
 			// player does not have this quest or finished it
 			if (questState == null) {
-				raiser.say("Please talk to Fidorea in the Mine Town north of Semos to start the paper chase.");
+				raiser.say("Porozmawiaj z Fidorea w Mine Town, aby zacząć paper chase.");
 				return;
 			}
 
@@ -136,12 +130,12 @@ public class PaperChase extends AbstractQuest implements TeleportListener {
 
 			// is the player supposed to speak to another NPC?
 			if (!nextNPC.equals(state)) {
-				raiser.say("What do you say? \"" + texts.get(nextNPC) + "\" That's obviously not me.");
+				raiser.say("Co powiedziałeś? \"" + texts.get(nextNPC) + "\" To pomyłka.");
 				return;
 			}
 
 			// send player to the next NPC and record it in quest state
-			raiser.say(greetings.get(next) + texts.get(next) + " Good luck!");
+			raiser.say(greetings.get(next) + texts.get(next) + " Powodzenia!");
 			player.setQuest(QUEST_SLOT, 0, next);
 			player.addXP((idx + 1) * 10);
 		}
@@ -173,7 +167,7 @@ public class PaperChase extends AbstractQuest implements TeleportListener {
 
 
 	private void createHallOfFameSign() {
-		loadSignFromHallOfFame = new LoadSignFromHallOfFameAction(null, "Those who travelled the world on behalf of Fidorea:\n", FAME_TYPE, 2000, true);
+		loadSignFromHallOfFame = new LoadSignFromHallOfFameAction(null, "Ci którzy podróżowali po świecie zachowaniem Fidorea:\n", "P", 2000, true);
 		loadSignFromHallOfFame.fire(null, null, null);
 	}
 
@@ -191,7 +185,7 @@ public class PaperChase extends AbstractQuest implements TeleportListener {
 		SpeakerNPC npc = npcs.get("Fidorea");
 
 		ChatAction startAction = new MultipleActions(
-			new SetQuestAction(QUEST_SLOT, 0, points.get(0)),
+			new SetQuestAction(QUEST_SLOT, 0, points.get(0)), 
 			new SetQuestToPlayerAgeAction(QUEST_SLOT, 1),
 			new SetQuestToYearAction(QUEST_SLOT, 2));
 
@@ -201,22 +195,22 @@ public class PaperChase extends AbstractQuest implements TeleportListener {
 			ConversationPhrases.QUEST_MESSAGES,
 			new AndCondition(new QuestStartedCondition(QUEST_SLOT), new SystemPropertyCondition("stendhal.minetown")),
 			ConversationStates.ATTENDING,
-			"I have nothing to do for you. But thanks for asking.",
+			"Nic nie mogę dla Ciebie zrobić. Dziękuję, że pytałeś.",
 			null);
 		npc.add(
 			ConversationStates.ATTENDING,
 			ConversationPhrases.QUEST_MESSAGES,
 			new AndCondition(new QuestNotStartedCondition(QUEST_SLOT), new SystemPropertyCondition("stendhal.minetown")),
 			ConversationStates.QUEST_OFFERED,
-			"Those who had to stay at home because of their duties, have prepared a #paper #chase.",
+			"Ci, którzy zostali w domu ze względu na obowiązek przygotowania #paper #chase.",
 			null);
 		npc.add(
 			ConversationStates.QUEST_OFFERED,
 			Arrays.asList("paper", "chase"),
 			new SystemPropertyCondition("stendhal.minetown"),
 			ConversationStates.ATTENDING,
-			"You must ask every person on the trail about the #paper #chase. Your journey starts in Semos Village, where you find a sheep loving and sheep selling man. "
-			+ "And just a warning: you may teleport on your journey, but every teleport will count as " + TELEPORT_PENALTY_IN_MINUTES + " minutes on the high score sign.",
+			"Musisz zapytać się każdej osoby po drodze o #paper #chase. Na początku musisz pójść Semos Road, aby odnaleść młodego chłopca, który ostrzega wojowników o niebezpieczeństwu w Faiumoni."
+			+ "Ostrzegam: możesz się teleportować podczas podróży, ale każdy teleport będzie kosztował dodatkowe " + TELEPORT_PENALTY_IN_MINUTES + " minut w punktacji.",
 			startAction);
 
 
@@ -226,29 +220,29 @@ public class PaperChase extends AbstractQuest implements TeleportListener {
 		}
 
 		// Fidorea does the post processing of this quest
-		npc.add(ConversationStates.ATTENDING, Arrays.asList("paper", "chase"),
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("paper", "chase"), 
 				new AndCondition(new QuestNotStartedCondition(QUEST_SLOT), new SystemPropertyCondition("stendhal.minetown")),
-			ConversationStates.ATTENDING, "Oh, that is a nice #quest.", null);
-		npc.add(ConversationStates.ATTENDING, Arrays.asList("paper", "chase"),
+			ConversationStates.ATTENDING, "Oh to dobre #zadanie.", null);
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("paper", "chase"), 
 			new AndCondition(
-					new QuestStartedCondition(QUEST_SLOT),
+					new QuestStartedCondition(QUEST_SLOT), 
 					new QuestNotInStateCondition(QUEST_SLOT, 0, "Fidorea"),
 					new QuestNotInStateCondition(QUEST_SLOT, 0, "done"),
 					new SystemPropertyCondition("stendhal.minetown")),
-			ConversationStates.ATTENDING, "I guess you still have to talk to some people.", null);
+			ConversationStates.ATTENDING, "Sądzę, że wciąż musisz pogadać z kilkoma osobami.", null);
 
 		ChatAction reward = new MultipleActions(
-			new IncreaseKarmaAction(15),
-			new IncreaseXPAction(400),
+			new IncreaseKarmaAction(15), 
+			new IncreaseXPAction(400), 
 			new SetQuestAction(QUEST_SLOT, 0, "done"),
-			new EquipItemAction("empty scroll", 5),
-			new SetHallOfFameToAgeDiffAction(QUEST_SLOT, 1, FAME_TYPE),
+			new EquipItemAction("niezapisany zwój", 5),
+			new SetHallOfFameToAgeDiffAction(QUEST_SLOT, 1, "P"),
 			loadSignFromHallOfFame);
-
-		npc.add(ConversationStates.ATTENDING, Arrays.asList("paper", "chase"),
+	
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("paper", "chase"), 
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, 0, "Fidorea"), new SystemPropertyCondition("stendhal.minetown")),
-			ConversationStates.ATTENDING,
-			"Very good. You did the complete quest, talking to all those people around the world. I will add your name to the sign for everyone to see. And here are some magic scrolls as reward. They will help you on further travels.",
+			ConversationStates.ATTENDING, 
+			"Bardzo dobrze. Ukończyłeś zadanie rozmawiając ze wszystkimi osobami na świecie. Zapiszę Twoje imię, aby każdy mógł je poznać. Tutaj w nagrodę kilka magicznych zwojów. Pomogą Tobie w podróżach.",
 			reward);
 	}
 
@@ -257,7 +251,7 @@ public class PaperChase extends AbstractQuest implements TeleportListener {
 	public void addToWorld() {
 		fillQuestInfo(
 				"Paper Chase",
-				"Some rumours are going around in Faiumoni. Maybe some of the guys who live around there know something.",
+				"Plotki głoszą, że odbywa się w okolicach Faiumoni. Może ktoś kto mieszka w pobliżu będzie coś wiedział.",
 				false);
 		setupGreetings();
 		setupTexts();
@@ -270,12 +264,12 @@ public class PaperChase extends AbstractQuest implements TeleportListener {
 	public String getName() {
 		return "PaperChase";
 	}
-
+	
 	@Override
 	public boolean isVisibleOnQuestStatus() {
 		return false;
 	}
-
+	
 	@Override
 	public List<String> getHistory(final Player player) {
 		return new ArrayList<String>();
@@ -299,7 +293,7 @@ public class PaperChase extends AbstractQuest implements TeleportListener {
 	public String getNPCName() {
 		return "Fidorea";
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.SEMOS_SURROUNDS;

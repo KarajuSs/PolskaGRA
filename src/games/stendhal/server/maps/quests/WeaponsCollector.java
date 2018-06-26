@@ -12,9 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.Arrays;
-import java.util.List;
-
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.entity.item.Item;
@@ -24,6 +21,9 @@ import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 import games.stendhal.server.maps.quests.logic.BringListOfItemsQuest;
 import games.stendhal.server.maps.quests.logic.BringListOfItemsQuestLogic;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * QUEST: The Weapons Collector
@@ -54,14 +54,14 @@ import games.stendhal.server.maps.quests.logic.BringListOfItemsQuestLogic;
 public class WeaponsCollector extends AbstractQuest implements
 		BringListOfItemsQuest {
 
-	private static final List<String> neededWeapons = Arrays.asList("bardiche",
-			"battle axe", "broadsword", "flail", "halberd", "katana",
-			"golden mace", "scimitar", "scythe", "war hammer");
+	private static final List<String> neededWeapons = Arrays.asList("berdysz",
+			"miecz zaczepny", "pałasz", "kiścień", "miecz", "katana",
+			"złoty buzdygan", "bułat", "kosa", "miecz elficki");
 
 	private static final String QUEST_SLOT = "weapons_collector";
 
-	private BringListOfItemsQuestLogic bringItems;
-
+  private BringListOfItemsQuestLogic bringItems;
+	
 	@Override
 	public List<String> getHistory(final Player player) {
 		return bringItems.getHistory(player);
@@ -69,9 +69,9 @@ public class WeaponsCollector extends AbstractQuest implements
 
 	@Override
 	public void addToWorld() {
-		fillQuestInfo(
-				"Weapon Collector",
-				"Balduin, the hermit who is living on Ados rock, wants to expand his weapons collection.",
+			fillQuestInfo(
+				"Kolekcjoner Broni",
+				"Balduin, pustelnik, który żyje w górach Ados, ma ekscytujące wyzwanie dla Ciebie.",
 				true);
 		setupAbstractQuest();
 	}
@@ -99,7 +99,7 @@ public class WeaponsCollector extends AbstractQuest implements
 
 	@Override
 	public List<String> getTriggerPhraseToEnumerateMissingItems() {
-		return Arrays.asList("collection");
+		return Arrays.asList("collection", "kolekcji", "kolekcja");
 	}
 
 	@Override
@@ -114,114 +114,114 @@ public class WeaponsCollector extends AbstractQuest implements
 
 	@Override
 	public String welcomeBeforeStartingQuest() {
-		return "Greetings. I am Balduin. Are you interested in weapons? "
-				+ "I certainly am, I have been collecting them since I was "
-				+ "young. Maybe you can do a little #task for me.";
+		return "Pozdrawiam. Jestem Balduin. Interesujesz się bronią? "
+				+ "Kolekcjonowałem ją odkąd byłem "
+				+ "młody. Może zrobisz dla mnie małe #zadanie.";
 	}
 
 	@Override
 	public String welcomeDuringActiveQuest() {
-		return "Welcome back. I hope you have come to help me with my #collection.";
+		return "Witaj ponownie. Mam nadzieję, że przyszedłeś, aby mi pomóc w uzupełnieniu mojej #kolekcji.";
 	}
 
 	@Override
 	public String welcomeAfterQuestIsCompleted() {
-		return "Welcome! Thanks again for completing my collection.";
+		return "Witam! Jeszcze raz dziękuję za skompletowanie mojej kolekcji.";
 	}
 
 	@Override
 	public boolean shouldWelcomeAfterQuestIsCompleted() {
 		// because of WeaponsCollector2
-		return false;
+		return false; 
 	}
 
 	@Override
 	public String respondToQuest() {
-		return "Although I have collected weapons for such a long time, I "
-				+ "still don't have everything I want. I need "
-				+ "help to complete my #collection.";
+		return "Kolekcjonowałem broń od dłuższego czasu "
+				+ "wciąż nie mam tego czego chcę. Czy mógłbyś mi "
+				+ "pomóc w skompletowaniu mojej #kolekcji?";
 	}
 
 	@Override
 	public String respondToQuestAfterItHasAlreadyBeenCompleted() {
-		return "My collection is now complete! Thanks again.";
+		return "Moja kolekcja jest już skompletowana! Jeszcze raz dziękuję.";
 	}
 
 	@Override
 	public String respondToQuestAcception() {
-		return "If you help me to complete my collection, I will give you "
-				+ "something very interesting and useful in exchange. Bye";
+		return "Jeżeli pomożesz mi w skompletowaniu mojej kolekcji to dam Tobie "
+				+ "coś bardzo interesującego i użytecznego na wymianę. Dowidzenia";
 	}
 
 	@Override
 	public String respondToQuestRefusal() {
-		return "Well, maybe someone else will happen by and help me. Bye";
+		return "Cóż. Może ktoś inny mi pomoże. Dowidzenia";
 	}
 
 	@Override
 	public String askForMissingItems(final List<String> missingItems) {
-		return "There " + Grammar.isare(missingItems.size()) + " "
+		return "Wciąż brakuje mi " + Grammar.isare(missingItems.size()) + " "
 				+ Grammar.quantityplnoun(missingItems.size(), "weapon", "a")
-				+ " still missing from my collection: "
+				+ " w mojej kolekcji: "
 				+ Grammar.enumerateCollection(missingItems)
-				+ ". Do you have anything of that nature with you?";
+				+ ". Czy masz coś ze sobą?";
 	}
 	@Override
 	public String firstAskForMissingItems(final List<String> missingItems) {
-		return "There " + Grammar.isare(missingItems.size()) + " "
+		return "Brakuje mi " + Grammar.isare(missingItems.size()) + " "
 				+ Grammar.quantityplnoun(missingItems.size(), "weapon", "a")
-				+ " missing from my collection: "
+				+ " z mojej kolekcji: "
 				+ Grammar.enumerateCollection(missingItems)
-				+ ". Will you bring them to me?";
+				+ ". Przyniesiesz mi je?";
 	}
 
 
 	@Override
 	public String respondToPlayerSayingHeHasNoItems(final List<String> missingItems) {
-		return "Let me know as soon as you find "
-				+ Grammar.itthem(missingItems.size()) + ". Farewell.";
+		return "Daj mi znać jeżeli coś znajdziesz "
+				+ Grammar.itthem(missingItems.size()) + ". Żegnaj.";
 	}
 
 	@Override
 	public String askForItemsAfterPlayerSaidHeHasItems() {
-		return "What is it that you found?";
+		return "Co dla mnie znalazłeś?";
 	}
 
 	@Override
 	public String respondToItemBrought() {
-		return "Thank you very much! Do you have anything else for me?";
+		return "Bardzo dziękuję! Masz coś jeszcze dla mnie?";
 	}
 
 	@Override
 	public String respondToLastItemBrought() {
-		return "At last, my collection is complete! Thank you very much; "
-				+ "here, take this #'ice sword' in exchange!";
+		return "Nareszcie moja kolekcja jest kompletna! Dziękuję bardzo i "
+				+ "weź ten #miecz #lodowy w zamian!";
 	}
 
 	@Override
 	public void rewardPlayer(final Player player) {
-		final Item iceSword = SingletonRepository.getEntityManager().getItem("ice sword");
+		final Item iceSword = SingletonRepository.getEntityManager().getItem("miecz lodowy");
 		iceSword.setBoundTo(player.getName());
 		player.equipOrPutOnGround(iceSword);
-		player.addXP(5000);
+		player.addXP(50000);
 		player.addKarma(30);
 	}
 
 	@Override
 	public String respondToOfferOfNotExistingItem(final String itemName) {
-		return "I may be old, but I'm not senile, and you clearly don't have "
+		return "Może jestem stary, ale nic nie masz "
 				+ Grammar.a_noun(itemName)
-				+ ". What do you really have for me?";
+				+ ". Czego tak naprawdę chcesz ode mnie?";
 	}
 
 	@Override
 	public String respondToOfferOfNotMissingItem() {
-		return "I already have that one. Do you have any other weapon for me?";
+		return "Mam już to. Czy masz dla mnie inną broń?";
 	}
 
 	@Override
 	public String respondToOfferOfNotNeededItem() {
-		return "Oh, that is not an interesting weapon";
+		return "To nie jest interesująca broń";
 	}
 
 	@Override
@@ -229,7 +229,7 @@ public class WeaponsCollector extends AbstractQuest implements
 		return "WeaponsCollector";
 	}
 
-	// it can be a long quest so they can always start it before they can necessarily finish all
+ 	// it can be a long quest so they can always start it before they can necessarily finish all
 	@Override
 	public int getMinLevel() {
 		return 30;
@@ -239,7 +239,7 @@ public class WeaponsCollector extends AbstractQuest implements
 	public String getNPCName() {
 		return "Balduin";
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.ADOS_SURROUNDS;

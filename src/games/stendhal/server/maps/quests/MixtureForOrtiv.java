@@ -12,11 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.server.entity.npc.ChatAction;
 import games.stendhal.server.entity.npc.ConversationPhrases;
@@ -43,14 +38,19 @@ import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 import games.stendhal.server.util.ItemCollection;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
 /**
  * QUEST: Mixture for Ortiv
- *
+ * 
  * PARTICIPANTS:
  * <ul>
  * <li>Ortiv Milquetoast, the retired teacher who lives in the Kirdneh River house</li>
  * </ul>
- *
+ * 
  * STEPS:
  * <ul>
  * <li>Ortiv asks you for some ingredients for a mixture which will help him to keep the assassins and bandits in the cellar</li>
@@ -58,14 +58,14 @@ import games.stendhal.server.util.ItemCollection;
  * <li>Take the ingredients back to Ortiv</li>
  * <li>Ortiv gives you a reward</li>
  * </ul>
- *
+ * 
  * REWARD:
  * <ul>
  * <li>karma +35</li>
  * <li>5000 XP</li>
  * <li>a bounded assassin dagger</li>
  * </ul>
- *
+ * 
  * REPETITIONS:
  * <ul>
  * <li>None</li>
@@ -80,7 +80,7 @@ public class MixtureForOrtiv extends AbstractQuest {
 	/**
 	 * required items for the quest.
 	 */
-	protected static final String NEEDED_ITEMS = "flask=1;arandula=2;red lionfish=10;kokuda=1;toadstool=12;licorice=2;apple=10;wine=30;garlic=2;pestle and mortar=1";
+	protected static final String NEEDED_ITEMS = "flasza=1;arandula=2;skrzydlica=10;kokuda=1;muchomor=12;lukrecja=2;jabłko=10;napój z winogron=30;czosnek=2;moździerz z tłuczkiem=1";
 
 	@Override
 	public List<String> getHistory(final Player player) {
@@ -88,16 +88,16 @@ public class MixtureForOrtiv extends AbstractQuest {
 		if (!player.hasQuest(QUEST_SLOT)) {
 			return res;
 		}
-		res.add("I met Ortiv Milquetoast, a retired teacher in his house at Kirdneh River and asked him for a quest.");
+		res.add("Spotkałem Ortiv Milquetoast emerytowanego nauczyciela w jego domku w Kirdneh River.");
 		final String questState = player.getQuest(QUEST_SLOT);
 		if ("rejected".equals(questState)) {
-			res.add("I don't want to help Ortiv at the moment. He should go out and take the ingredients by himself.");
+			res.add("Nie chcę teraz pomagać Ortivowi. Powinien sam poszukać składników.");
 		} else if (!"done".equals(questState)) {
 			final ItemCollection missingItems = new ItemCollection();
 			missingItems.addFromQuestStateString(questState);
-			res.add("I still need to bring Ortiv " + Grammar.enumerateCollection(missingItems.toStringList()) + ".");
+			res.add("Wciąż muszę przynieść dla Ortiv " + Grammar.enumerateCollection(missingItems.toStringList()) + ".");
 		} else {
-			res.add("I helped Ortiv. Now he can sleep safe again in his bed. He rewarded me with some XP and an assassin dagger for my use.");
+			res.add("Pomogłem dla Ortiv. Teraz może spać bezpiecznie w swoim łóżku. On nagrodził mnie podniesieniem XP i sztyletem mordercy.");
 		}
 		return res;
 	}
@@ -110,21 +110,21 @@ public class MixtureForOrtiv extends AbstractQuest {
 					new LevelGreaterThanCondition(2),
 					new QuestNotStartedCondition(QUEST_SLOT),
 					new NotCondition(new QuestInStateCondition(QUEST_SLOT,"rejected"))),
-			ConversationStates.QUESTION_1,
-			"Ohh a stranger found my hidden house, welcome! Maybe you can help me with something?", null);
+			ConversationStates.QUESTION_1, 
+			"Oh obcy znalazł mój dom. Witaj! Możesz mi w czymś pomóc?", null);
 
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 			new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestInStateCondition(QUEST_SLOT,"rejected")),
-			ConversationStates.QUEST_OFFERED,
-			"Hey, did you think about helping me again? Will you do it?", null);
+			ConversationStates.QUEST_OFFERED, 
+			"Hej czy myślałeś o ponownej pomocy? Zrobisz to?", null);
 
 		npc.add(
 			ConversationStates.QUESTION_1,
 			ConversationPhrases.YES_MESSAGES,
 			new QuestNotStartedCondition(QUEST_SLOT),
 			ConversationStates.ATTENDING,
-			"I currently work on a mixture to keep the rowdy gang downstairs... Maybe you can help me later with getting me some of the #ingredients I'll need.",
+			"Aktualnie pracuję nad miksturą trzymającą szajkę tam na dole... Może później mi pomożesz w zdobyciu #składników, których potrzebuję.",
 			null);
 
 		npc.add(
@@ -132,15 +132,15 @@ public class MixtureForOrtiv extends AbstractQuest {
 			ConversationPhrases.NO_MESSAGES,
 			new QuestNotStartedCondition(QUEST_SLOT),
 			ConversationStates.ATTENDING,
-			"I currently work on a mixture to keep the rowdy gang downstairs... Maybe you can help me later with getting me some of the #ingredients I'll need.",
+			"Aktualnie pracuję nad miksturą trzymającą szajkę tam na dole... Może później mi pomożesz w zdobyciu #składników, których potrzebuję.",
 			null);
 
 		npc.add(
 			ConversationStates.ATTENDING,
-			"ingredients",
+			Arrays.asList("ingredients", "składników", "składniki"),
 			new QuestNotStartedCondition(QUEST_SLOT),
 			ConversationStates.QUEST_OFFERED,
-			"I was a teacher for alchemy once, now I try to mix something together. I need some ingredients for that and hope that you will help me. Will you?",
+			"Byłem nauczyciele alchemi, a teraz próbuję coś zmieszać razem. Potrzebuję składników na to i nadziei, że mi pomożesz. Pomożesz?",
 			null);
 
 		npc.add(
@@ -149,68 +149,68 @@ public class MixtureForOrtiv extends AbstractQuest {
 			null,
 			ConversationStates.ATTENDING,
 			null,
-			new MultipleActions(new SetQuestAction(QUEST_SLOT, NEEDED_ITEMS),
-							    new SayRequiredItemsFromCollectionAction(QUEST_SLOT, "Oh that would be wonderful, stranger! You might save my life! Please bring me [items].")));
+			new MultipleActions(new SetQuestAndModifyKarmaAction(QUEST_SLOT, NEEDED_ITEMS, 5.0),
+							    new SayRequiredItemsFromCollectionAction(QUEST_SLOT, "Oh to wspaniale nieznajomy! Możliwe, że uratowałeś mi tym życie! Proszę przynieś mi te składniki: [items].")));
 
 		npc.add(
 			ConversationStates.QUEST_OFFERED,
 			ConversationPhrases.NO_MESSAGES,
 			null,
 			ConversationStates.ATTENDING,
-			"I thought you would maybe help me... But I was wrong, obviously... So wrong as with my students while I was a teacher...",
+			"Mysłałem, że mi pomożesz... Ale myliłem się, niestety... ",
 			new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -5.0));
 
-		npc.addReply("apple", "Apples are the favourite food of assassins. I saw some apple trees on the east " +
-				"of semos and near to Orril and Nalwor river.");
+		npc.addReply("jabłko", "Jabłka są ulubionym przysmakiem zabójców. Widziałem parę jabłoni na wschód " +
+				"Semos blisko Orril i Nalwor river.");
 
-			npc.addReply("flask", "I've heard of a young woman in Semos who sells them.");
+			npc.addReply("flasza", "Słyszałem o młodej kobiecie w Semos, która je sprzedaje.");
 
-			npc.addReply("toadstool", "Toadstools are quite poisonous. I've heard that some hunters in the forests ate a few" +
-					" and felt sick for days.");
+			npc.addReply("muchomor", "Toadstools są trujące. Słyszałem, że jacyś myśliwi raz je zjedli" +
+					" i przez kilka dni byli chorzy.");
 
-			npc.addReply("arandula", "North of Semos, near the tree grove, grows a herb called arandula as some of my old friends told me.");
+			npc.addReply("arandula", "Na północ od Semos, nie daleko wzgórza z drzewami rosną zioła zwane arandula. Powiedzieli mi to moi przyjaciele.");
 
-			npc.addReply("red lionfish","Red lionfish are hard to find...They are clad in white stripes alternated with red, maroon, " +
-					"or brown. I've heard about a place in Faiumoni where you can fish for some but be careful, every spine of the lionfish is venomous!");
+			npc.addReply("skrzydlica","Skrzydlica jest ciężka do znalezienia...jest okryta białymi prążkami na przemian z czerwonymi, zielonymi " +
+					" lub brązowymi. Słyszałem o miejscach w Faiumoni gdzie możesz ją złowić, ale uważaj. Każdy kolec jest trujący!");
+			
+			npc.addReply("kokuda","Kokuda ciężko jest znaleść. Byłbym wdzięczny, gdybyś zdobył jakąś z wyspy Athor...");
 
-			npc.addReply("kokuda","Kokuda is really hard to find. I'm glad if you can try to get one from Athor island...");
-
-			npc.addReply("licorice", "There is a nice little bar in magic city in which a young girl sells this lovely tasting sweet.");
-
-			npc.addReply("wine", "Mhhhmm there isn't anything better than mixing stuff together while enjoying a glass of red wine *cough* but I need it of course for my mixture as well... I bet, you can buy wine somewhere, maybe in a tavern or a bar...");
-
-			npc.addReply("garlic", "I know, assassins and bandits aren't vampires, but I'll try to use it against them as well. There is a nice gardener in the Kalavan City Gardens who may sell some of her own grown garlic.");
-
-			npc.addReply(Arrays.asList("pestle","mortar","pestle and mortar"), "Perhaps some baker or cook would use one of those.");
+			npc.addReply("lukrecja", "To małe ciągotki, które w mieście magów sprzedaje młoda dziewczyna. Są wspaniałe i słodkie.");
+			
+			npc.addReply("napój z winogron", "Hmm nie ma nic lepszego niż połączenie dwóch rzeczy razem podczas delektowania się szklanką tego napoju *kaszlnięcie*, ale potrzebuję też mikstury... Założe się, że możesz kupić go w tawernie lub pubie...");
+			
+			npc.addReply("czosnek", "Znam zabójców i bandytów i nie są wampirami, ale staram się używać tego także przeciwko nim. Jest miła ogrodniczka w Kalavan City Gardens, która może sprzedać kilka główek jej hodowli.");
+			
+			npc.addReply(Arrays.asList("pestle","mortar","moździerz","moździerz z tłuczkiem"), "Może jakiś piekarz lub kucharz używa tego.");
 	}
 
 	private void prepareBringingStep() {
 		final SpeakerNPC npc = npcs.get("Ortiv Milquetoast");
-
+	
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestActiveCondition(QUEST_SLOT)),
 				ConversationStates.QUESTION_2,
-				"Hello again! I'm glad to see you. Did you bring me any #ingredients for my mixture?",
+				"Witaj ponownie! Cieszę się, że cię widzę. Przyniosłeś #składniki do mojej mikstury?",
 				null);
-
+		
 		/* player asks what exactly is missing (says ingredients) */
-		npc.add(ConversationStates.QUESTION_2, "ingredients", null,
+		npc.add(ConversationStates.QUESTION_2, Arrays.asList("ingredients", "składników", "składniki"), null,
 				ConversationStates.QUESTION_2, null,
-				new SayRequiredItemsFromCollectionAction(QUEST_SLOT, "I need [items]. Did you bring something?"));
+				new SayRequiredItemsFromCollectionAction(QUEST_SLOT, "Potrzebuję [items]. Przyniosłeś coś?"));
 
 		/* player says he has a required item with him (says yes) */
 		npc.add(ConversationStates.QUESTION_2,
 				ConversationPhrases.YES_MESSAGES, null,
-				ConversationStates.QUESTION_2, "Awesome, what did you bring?",
+				ConversationStates.QUESTION_2, "Wspaniale co jeszcze przynisłeś?",
 				null);
 
 		ChatAction completeAction = new  MultipleActions(
 				new SetQuestAction(QUEST_SLOT, "done"),
-				new SayTextAction("Thank you so much! Now I can start mixing the mixture which will hopefully keep me safe inside of my own house without the assassins and bandits comming up from downstairs. Here is an assassin dagger for you. I had to take it away from one of my students in the class once and now you can maybe fight and win against them."),
+				new SayTextAction("Dziękuję bardzo! Teraz mogę zacząć mieszanie mikstury, która, miejmy nadzieję jest bezpieczna wewnątrz mojego własnego domu, bez morderców i bandytów, pochodzących z dołu. Poniżej znajduje się sztylet zabójcy dla Ciebie. Musiałam zabrać go jednemu z moich uczniów w klasie."),
 				new IncreaseXPAction(5000),
 				new IncreaseKarmaAction(25),
-				new EquipItemAction("assassin dagger", 1 ,true)
+				new EquipItemAction("sztylet mordercy", 1 ,true)
 				);
 		/* add triggers for the item names */
 		final ItemCollection items = new ItemCollection();
@@ -220,7 +220,7 @@ public class MixtureForOrtiv extends AbstractQuest {
 					ConversationStates.QUESTION_2, null,
 					new CollectRequestedItemsAction(
 							item.getKey(), QUEST_SLOT,
-							"Wonderful! Did you bring anything else with you?", "You brought me that ingredient already.",
+							"Cudownie! Przyniosłeś coś jeszcze ze sobą?", "Już przyniosłeś mi ten składnik.",
 							completeAction, ConversationStates.ATTENDING));
 		}
 
@@ -228,7 +228,7 @@ public class MixtureForOrtiv extends AbstractQuest {
 		npc.add(ConversationStates.ATTENDING, ConversationPhrases.NO_MESSAGES,
 				new QuestActiveCondition(QUEST_SLOT),
 				ConversationStates.ATTENDING,
-				"Ok, well I have to be a bit more patient then. Just let me know if I can #help you somehow instead.",
+				"Dobrze muszę być trochę cierpliwy. Daj mi znać jeżeli będę mógł jakoś #pomóc.", 
 				null);
 
 		/* player says he didn't bring any items to different question */
@@ -236,22 +236,22 @@ public class MixtureForOrtiv extends AbstractQuest {
 				ConversationPhrases.NO_MESSAGES,
 				new QuestActiveCondition(QUEST_SLOT),
 				ConversationStates.ATTENDING,
-				"Ok, well I have to be a bit more patient then. Just let me know if I can #help you somehow instead.", null);
+				"Dobrze, muszę być trochę cierpliwy. Daj mi znać jeżeli będę mógł jakoś #pomóc.", null);
 
-		npc.add(ConversationStates.IDLE,
+		npc.add(ConversationStates.IDLE, 
 				ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestCompletedCondition(QUEST_SLOT)),
-				ConversationStates.ATTENDING,
-				"Thank you so much! I can sleep safely and calm again now! You rescued me!", null);
+				ConversationStates.ATTENDING, 
+				"Dziękuję bardzo! Mogę teraz spać bezpiecznie! Uratowałeś mnie!", null);
 	}
-
+	
 
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Mixture for Ortiv",
-				"Ortiv needs some ingredients for a mixture which will help him to keep the assassins and bandits in the cellar.",
+				"Mikstura dla Ortiva",
+				"Ortiv poprosił mnie o składniki do jego mikstury, która pomoże mu trzymać zabójców i bandytów w piwnicy.",
 				true);
 		prepareRequestingStep();
 		prepareBringingStep();
@@ -268,15 +268,15 @@ public class MixtureForOrtiv extends AbstractQuest {
 	}
 
 	public String getTitle() {
-
-		return "Mixture for Ortiv";
+		
+		return "Mikstua dla Ortiva";
 	}
 
 	@Override
 	public String getNPCName() {
 		return "Ortiv Milquetoast";
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.KIRDNEH;

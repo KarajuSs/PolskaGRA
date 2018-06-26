@@ -165,9 +165,9 @@ public class ReverseArrow extends AbstractQuest implements
 		public void onTurnReached(final int currentTurn) {
 			if (checkBoard() && moveCount <= MAX_MOVES) {
 				if (player.isQuestCompleted(QUEST_SLOT)) {
-					npc.say("Congratulations, you solved the quiz again. But unfortunately I don't have any further rewards for you.");
+					npc.say("Gratulacje znowu rozwiązałeś zadanie, ale nie mam dla ciebie nagrody.");
 				} else {
-					npc.say("Congratulations, you solved the quiz.");
+					npc.say("Gratulacje rozwiązałeś zadanie.");
 					final StackableItem money = (StackableItem) SingletonRepository.getEntityManager().getItem(
 									"money");
 					money.setQuantity(50);
@@ -179,12 +179,12 @@ public class ReverseArrow extends AbstractQuest implements
 				if (!player.isQuestCompleted(QUEST_SLOT)) {
 					player.setQuest(QUEST_SLOT, "failed");
 				}
-				npc.say("I am sorry. This does not look like an arrow pointing upwards to me.");
+				npc.say("To nie wygląda jak strzałka skierowana w górę do mnie.");
 			}
 
 			// teleport the player out after 2 seconds of delay
 			SingletonRepository.getTurnNotifier().notifyInTurns(6,
-					new FinishNotifier(true, player));
+					new FinishNotifier(true, player)); 
 		}
 	}
 
@@ -242,12 +242,12 @@ public class ReverseArrow extends AbstractQuest implements
 
 				if (playerZone.equals(zone)) {
 					if (counter > 0) {
-						npc.say("You have " + counter + " seconds left.");
+						npc.say("Zostało Tobie " + counter + " sekundę.");
 						counter = counter - 10;
 						SingletonRepository.getTurnNotifier().notifyInTurns(10 * 3, this);
 					} else {
 						// teleport the player out
-						npc.say("Sorry, your time is up.");
+						npc.say("Przepraszam, ale twój czas się skończył.");
 						SingletonRepository.getTurnNotifier().notifyInTurns(1,
 								new FinishNotifier(true, player));
 						// need to do this on the next turn
@@ -269,7 +269,7 @@ public class ReverseArrow extends AbstractQuest implements
 		@Override
 		public boolean onUsed(final RPEntity user) {
 			boolean success = super.onUsed(user);
-
+			
 			if (user instanceof Player) {
 				start((Player) user);
 			} else {
@@ -310,7 +310,7 @@ public class ReverseArrow extends AbstractQuest implements
 	 *            y-position
 	 */
 	private void addTokenToWorld(final int x, final int y) {
-		final Token token = (Token) SingletonRepository.getEntityManager().getItem("arrow game token");
+		final Token token = (Token) SingletonRepository.getEntityManager().getItem("wskaźnik");
 		token.setPosition(x, y);
 		token.setTokenMoveListener(this);
 		zone.add(token, false);
@@ -357,7 +357,7 @@ public class ReverseArrow extends AbstractQuest implements
 	private void step1CreateNPC() {
 		npc = new GamblosSpeakerNPC("Gamblos");
 
-		npc.setEntityClass("noimagenpc"); /* oldwizardnpc */
+		npc.setEntityClass("oldwizardnpc"); 
 		npc.setPosition(13, 7);
 		npc.setDirection(Direction.DOWN);
 		npc.initHP(100);
@@ -386,27 +386,27 @@ public class ReverseArrow extends AbstractQuest implements
 
 		@Override
 		protected void createDialog() {
-			add(ConversationStates.IDLE,
+			add(ConversationStates.IDLE, 
 					ConversationPhrases.GREETING_MESSAGES,
 					new AndCondition(new GreetingMatchesNameCondition(getName()),
-							new QuestCompletedCondition(QUEST_SLOT)),
-					ConversationStates.ATTENDING,
+							new QuestCompletedCondition(QUEST_SLOT)), 
+					ConversationStates.ATTENDING, 
 					null,
-					new SayTextAction("Hi again, [name]. I remember that you solved this problem already. You can do it again, of course."));
-
-			add(ConversationStates.IDLE,
+					new SayTextAction("Witaj ponownie [name]. Pamiętam, że rozwiązałeś już ten problem. Oczywiście możesz to zrobić ponownie."));
+			
+			add(ConversationStates.IDLE, 
 					ConversationPhrases.GREETING_MESSAGES,
 					new AndCondition(new GreetingMatchesNameCondition(getName()),
-							new QuestNotCompletedCondition(QUEST_SLOT)),
-					ConversationStates.ATTENDING,
-					"Hi, welcome to our small game. Your task is to let this arrow point upwards, by moving up to three tokens.",
+							new QuestNotCompletedCondition(QUEST_SLOT)), 
+					ConversationStates.ATTENDING, 
+					"Cześć. Witam w naszej małej grze. Twoim zadaniem jest skierowanie tej strzałki do góry poprzez przemieszczenie trzech krążków.",
 					null);
-
-			addHelp("You have to stand next to a token in order to move it.");
-			addJob("I am the supervisor for this task.");
-			addGoodbye("It was nice to meet you.");
-			addQuest("Your task in this game is to reverse the direction of this arrow moving only 3 tokens within "
-					+ TIME + " seconds.");
+			
+			addHelp("Musisz stanąć obok krążka, aby go przesunąć.");
+			addJob("Jestem opiekunem tego zadania.");
+			addGoodbye("Miło było Cię poznać.");
+			addQuest("Twoim zadaniem w tej grze jest odwrócenie kierunku strzałki przesuwając tylko 3 krążki w "
+					+ TIME + " sekundę.");
 		}
 
 		@Override
@@ -437,7 +437,7 @@ public class ReverseArrow extends AbstractQuest implements
 
 		final Sign sign = new Sign();
 		sign.setPosition(97, 102);
-		sign.setText("If the door is closed, you will have to wait a short time until the last player finishes his task.");
+		sign.setText("Jeżeli drzwi są zamknięte to będziesz musiał chwilę poczekać dopóki ostatni gracz nie skończy swojego zadania.");
 		entranceZone.add(sign);
 	}
 
@@ -459,17 +459,17 @@ public class ReverseArrow extends AbstractQuest implements
 		moveCount++;
 
 		if (moveCount < MAX_MOVES) {
-			npc.say("This was your " + Grammar.ordered(moveCount) + " move.");
+			npc.say("To był twój " + Grammar.ordered(moveCount) + " ruch.");
 		} else if (moveCount == MAX_MOVES) {
-			npc.say("This was your " + Grammar.ordered(moveCount)
-					+ " and final move. Let me check your work.");
+			npc.say("To był twój " + Grammar.ordered(moveCount)
+					+ " i ostatni ruch. Pozwól mi sprawdzić twoją pracę.");
 			// notify in 2 seconds
-			SingletonRepository.getTurnNotifier().notifyInTurns(6, new ReverseArrowCheck());
+			SingletonRepository.getTurnNotifier().notifyInTurns(6, new ReverseArrowCheck()); 
 			if (timer != null) {
 				SingletonRepository.getTurnNotifier().dontNotify(timer);
 			}
 		} else {
-			npc.say("Sorry, you may only do " + MAX_MOVES + " moves");
+			npc.say("Przepraszam, ale możesz zrobić tylko " + MAX_MOVES + " ruchy");
 		}
 	}
 
@@ -523,15 +523,15 @@ public class ReverseArrow extends AbstractQuest implements
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Reverse Arrow",
-				"Gamblos has a fun puzzle to solve.",
+				"Odwrócona Strzała",
+				"Sądzisz, że możesz rozwiązać tą małą zagadkę? Pośpiesz się masz kilka sekund.",
 				false);
 
 		SingletonRepository.getLoginNotifier().addListener(this);
 
 		step_1();
 	}
-
+	
 	@Override
 	public List<String> getHistory(final Player player) {
 			final List<String> res = new ArrayList<String>();
@@ -539,12 +539,12 @@ public class ReverseArrow extends AbstractQuest implements
 				return res;
 			}
 			final String questState = player.getQuest(QUEST_SLOT);
-			res.add("Gamblos challenged me with a puzzle.");
+			res.add("Gamblos zadał mi zagadkę.");
 			if ("failed".equals(questState)) {
-				res.add("I couldn't solve the puzzle.");
-			}
+				res.add("Nie rozwiązałem zagadki.");
+			} 
 			if (isCompleted(player)) {
-				res.add("I solved the puzzle!");
+				res.add("Ułożyłem puzle poprawnie.");
 			}
 			return res;
 	}
@@ -553,7 +553,7 @@ public class ReverseArrow extends AbstractQuest implements
 	public String getNPCName() {
 		return "Gamblos";
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.SEMOS_SURROUNDS;

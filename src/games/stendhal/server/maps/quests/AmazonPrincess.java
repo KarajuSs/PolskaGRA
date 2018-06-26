@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import games.stendhal.common.Rand;
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.common.parser.Sentence;
@@ -42,6 +38,10 @@ import games.stendhal.server.entity.npc.condition.QuestStateStartsWithCondition;
 import games.stendhal.server.entity.npc.condition.TimePassedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * QUEST: The Amazon Princess
@@ -76,29 +76,29 @@ public class AmazonPrincess extends AbstractQuest {
 
 	// The delay between repeating quests is 60 minutes
 	private static final int REQUIRED_MINUTES = 60;
-	private static final List<String> triggers = Arrays.asList("drink", "pina colada", "cocktail", "cheers", "pina");
+	private static final List<String> triggers = Arrays.asList("drink", "napój","napój z oliwką");
 
 
 	private void offerQuestStep() {
 		final SpeakerNPC npc = npcs.get("Princess Esclara");
 npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES,
+				ConversationPhrases.QUEST_MESSAGES, 
 				new QuestNotStartedCondition(QUEST_SLOT),
-				ConversationStates.QUEST_OFFERED,
-				"I'm looking for a drink, should be an exotic one. Can you bring me one?",
+				ConversationStates.QUEST_OFFERED, 
+				"Napiłabym się drinka, powinien być egzotyczny. Czy możesz mi go przynieść?",
 				null);
 npc.add(ConversationStates.ATTENDING,
 		ConversationPhrases.QUEST_MESSAGES,
 		new QuestCompletedCondition(QUEST_SLOT),
 		ConversationStates.ATTENDING,
-		"I'm drunken now thank you!",
+		"Nie jestem teraz spragniona dziękuję!",
 		null);
 
 npc.add(ConversationStates.ATTENDING,
 		ConversationPhrases.QUEST_MESSAGES,
 		new AndCondition(new TimePassedCondition(QUEST_SLOT, 1, REQUIRED_MINUTES), new QuestStateStartsWithCondition(QUEST_SLOT, "drinking;")),
 		ConversationStates.QUEST_OFFERED,
-		"The last cocktail you brought me was so lovely. Will you bring me another?",
+		"Ostatni napój, który mi kupiłeś był wspaniały. Przyniesiesz mi następny?",
 		null);
 
 npc.add(ConversationStates.ATTENDING,
@@ -106,25 +106,25 @@ npc.add(ConversationStates.ATTENDING,
 		new AndCondition(new NotCondition(new TimePassedCondition(QUEST_SLOT, 1, REQUIRED_MINUTES)), new QuestStateStartsWithCondition(QUEST_SLOT, "drinking;")),
 		ConversationStates.ATTENDING,
 		null,
-		new SayTimeRemainingAction(QUEST_SLOT, 1, REQUIRED_MINUTES, "I'm sure I'll be too drunk to have another for at least "));
-
+		new SayTimeRemainingAction(QUEST_SLOT, 1, REQUIRED_MINUTES, "Jestem pełna, aby wypić następny napój przez co najmniej "));
+		
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.QUEST_MESSAGES, null,
 				ConversationStates.ATTENDING,
-				"I like these exotic drinks, I forget the name of my favourite one.",
+				"Kocham te egzotyczne napoje ale zapomniałam nazwę mojego ulubionego.",
 				null);
 
 // Player agrees to get the drink
 		npc.add(ConversationStates.QUEST_OFFERED,
 				ConversationPhrases.YES_MESSAGES, null,
 				ConversationStates.ATTENDING,
-				"Thank you! If you have found some, say #drink to me so I know you have it. I'll be sure to give you a nice reward.",
+				"Dziękuję! Jeżeli go znajdziesz to powiedz #napój a będę wiedziała, że go masz. W zamian dam Ci nagrodę.",
 				new SetQuestAction(QUEST_SLOT, "start"));
 
 		// Player says no, they've lost karma.
 		npc.add(ConversationStates.QUEST_OFFERED,
 				ConversationPhrases.NO_MESSAGES, null, ConversationStates.IDLE,
-				"Oh, never mind. Bye then.",
+				"Oh nie ważne. Dowidzenia.",
 				new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -10.0));
 	}
 
@@ -137,41 +137,41 @@ npc.add(ConversationStates.ATTENDING,
 		final SpeakerNPC npc = npcs.get("Princess Esclara");
 		npc.add(
 			ConversationStates.ATTENDING, triggers,
-			new AndCondition(new QuestInStateCondition(QUEST_SLOT, "start"), new PlayerHasItemWithHimCondition("pina colada")),
-			ConversationStates.ATTENDING,
+			new AndCondition(new QuestInStateCondition(QUEST_SLOT, "start"), new PlayerHasItemWithHimCondition("napój z oliwką")),
+			ConversationStates.ATTENDING, 
 			null,
 			new MultipleActions(
-						new DropItemAction("pina colada"),
+						new DropItemAction("napój z oliwką"), 
 						new ChatAction() {
 							@Override
 							public void fire(final Player player,
 									final Sentence sentence,
 									final EventRaiser npc) {
 								int pieAmount = Rand.roll1D6() + 1;
-								new EquipItemAction("fish pie", pieAmount, true).fire(player, sentence, npc);
-								npc.say("Thank you!! Take " +
+								new EquipItemAction("tarta z rybnym nadzieniem", pieAmount, true).fire(player, sentence, npc);
+								npc.say("Dziękuję!! Weź tą " +
 										Grammar.thisthese(pieAmount) + " " +
-										Grammar.quantityplnoun(pieAmount, "fish pie", "") +
-										" from my cook, and this kiss, from me.");
-								new SetQuestAndModifyKarmaAction(getSlotName(), "drinking;"
+										Grammar.quantityplnoun(pieAmount, "tarta z rybnym nadzieniem", "") + 
+										" z mojej kuchni i pocałunek ode mnie.");
+								new SetQuestAndModifyKarmaAction(getSlotName(), "drinking;" 
 																 + System.currentTimeMillis(), 15.0).fire(player, sentence, npc);
 							}
 						},
-						new InflictStatusOnNPCAction("pina colada")
+						new InflictStatusOnNPCAction("napój z oliwką")
 						));
 
 		npc.add(
 			ConversationStates.ATTENDING, triggers,
-			new AndCondition(new QuestInStateCondition(QUEST_SLOT, "start"), new NotCondition(new PlayerHasItemWithHimCondition("pina colada"))),
+			new AndCondition(new QuestInStateCondition(QUEST_SLOT, "start"), new NotCondition(new PlayerHasItemWithHimCondition("napój z oliwką"))),
 			ConversationStates.ATTENDING,
-			"You don't have any drink I like yet. Go, and you better get an exotic one!",
+			"Nie masz napoju z oliwką. Idź i lepiej dostarcz mi go!",
 			null);
 
 		npc.add(
 			ConversationStates.ATTENDING, triggers,
 			new QuestNotInStateCondition(QUEST_SLOT, "start"),
 			ConversationStates.ATTENDING,
-			"Sometime you could do me a #favour ...", null);
+			"Czasami mógłbyś mi wyświadczyć #przysługę ...", null);
 
 	}
 
@@ -179,7 +179,7 @@ npc.add(ConversationStates.ATTENDING,
 	public void addToWorld() {
 		fillQuestInfo(
 				"Amazon Princess",
-				"A thirsty princess wants a drink.",
+				"Spragniona księżniczka chce pić.",
 				true);
 		offerQuestStep();
 		bringCocktailStep();
@@ -192,23 +192,23 @@ npc.add(ConversationStates.ATTENDING,
 		if (!player.hasQuest(QUEST_SLOT)) {
 			return res;
 		}
-		res.add("Princess Esclara welcomed me to her home on Amazon Island.");
+		res.add("Princess Esclara powitała mnie w domu na Amazon Island.");
 		final String questState = player.getQuest(QUEST_SLOT);
 		if ("rejected".equals(questState)) {
-			res.add("She asked me to fetch her a drink but I didn't think she should have one.");
+			res.add("Prosiła mnie aby dostarczył jej napój z oliwką, ale ja nie wiem czy znajdę czas na to.");
 		}
 		if (player.isQuestInState(QUEST_SLOT, "start") || isCompleted(player)) {
-			res.add("The Princess is thirsty, I promised her an exotic drink, and should tell her 'drink' when I have it.");
+			res.add("Księżniczka jest spragniona, obiecałem jej egzotyczny napój. Powinienem jej powiedzieć, #napój gdy go zdobędę.");
 		}
-		if ("start".equals(questState) && player.isEquipped("pina colada") || isCompleted(player)) {
-			res.add("I found a pina colada for the Princess, I think she'd like that.");
+		if ("start".equals(questState) && player.isEquipped("napój z oliwką") || isCompleted(player)) {
+			res.add("Znalazłem napój z oliwką dla księżniczki.");
 		}
         if (isCompleted(player)) {
             if (isRepeatable(player)) {
-                res.add("I took a pina colada to the Princess, but I'd bet she's ready for another. Maybe I'll get more fish pies.");
+                res.add("Dostarczyłem napój dla księżniczki, ale założę się, że jest gotowa na następny. Może będę miał więcej tart z rybą.");
             } else {
-                res.add("Princess Esclara loved the pina colada I took her, she's not thirsty now. She gave me fish pies and a kiss!!");
-            }
+                res.add("Princess Esclara uwielbia napój z oliwką, dostarczyłem go jej. Dostałem tartę z nadzieniem rybnym i pocałunek!!");
+            }			
 		}
 		return res;
 	}
@@ -222,29 +222,29 @@ npc.add(ConversationStates.ATTENDING,
 	public String getName() {
 		return "AmazonPrincess";
 	}
-
+	
 	// Amazon is dangerous below this level - don't hint to go there
 	@Override
 	public int getMinLevel() {
 		return 70;
 	}
-
+	
 	@Override
 	public boolean isRepeatable(final Player player) {
 		return new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT,"drinking;"),
 				 new TimePassedCondition(QUEST_SLOT, 1, REQUIRED_MINUTES)).fire(player,null, null);
 	}
-
+	
 	@Override
 	public boolean isCompleted(final Player player) {
 		return new QuestStateStartsWithCondition(QUEST_SLOT,"drinking;").fire(player, null, null);
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.AMAZON_ISLAND;
 	}
-
+	
 	@Override
 	public String getNPCName() {
 		return "Princess Esclara";

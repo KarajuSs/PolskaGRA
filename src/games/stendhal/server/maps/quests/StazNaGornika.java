@@ -74,7 +74,7 @@ public class StazNaGornika extends AbstractQuest {
 
 	// TODO: use standard conditions and actions
 
-	private final List<String> speciesList = Arrays.asList("szmaragd", "szafir",
+	private final List<String> speciesList = Arrays.asList("szmaragd", "szafir", "ametyst", "kryształ ametystu",
 			"rubin", "obsydian", "diament", "bursztyn", "ruda żelaza", "ruda srebra", "bryłka złota", "bryłka mithrilu", "sztabka srebra", "sztabka mithrilu", "sztabka złota");
 
 	private int currentSpeciesNo;

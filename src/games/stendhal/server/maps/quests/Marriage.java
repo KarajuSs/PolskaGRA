@@ -12,11 +12,11 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.List;
-
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 import games.stendhal.server.maps.quests.marriage.MarriageQuestChain;
+
+import java.util.List;
 
 /**
  * QUEST: Marriage
@@ -41,41 +41,41 @@ import games.stendhal.server.maps.quests.marriage.MarriageQuestChain;
  * <li> When they go to the Hotel they choose a lovers room
  * <li> Champagne and fruit baskets is put in their bag (room if possible)
  * <li> They leave the lovers room when desired with another marked scroll
- *
+ * 
  * <p>
  * REWARD:
  * <li> Wedding Ring that teleports you to your spouse if worn - 1500 XP in
  * total
  * <li> nice food in the lovers room
  * <p>
- *
+ * 
  * REPETITIONS:
  * <li> None.
- *
+ * 
  * @author kymara
  */
 public class Marriage extends AbstractQuest {
 	private static final String QUEST_SLOT = "marriage";
-	private MarriageQuestChain marriage = null;
+  private MarriageQuestChain marriage = null;
 
 
 	@Override
 	public String getSlotName() {
 		return QUEST_SLOT;
 	}
-
-
+	
+	
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Marriage",
-				"Lucky ones who find a partner they want to share their life with can get married in Fado Church.",
+				"Ślub",
+				"Czy znalzłeś partenra, z którym chciałbyś spędzić życie w Faiumoni? To zrób kolejny większy krok i zwiąż się z nim!",
 				false);
 		marriage = new MarriageQuestChain();
 		marriage.addToWorld();
 	}
-
-	@Override
+	
+		@Override
 	public List<String> getHistory(final Player player) {
 		return marriage.getHistory(player);
 	}
@@ -84,7 +84,7 @@ public class Marriage extends AbstractQuest {
 	public String getName() {
 		return "Marriage";
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.FADO_CITY;

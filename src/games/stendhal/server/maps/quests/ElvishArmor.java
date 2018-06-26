@@ -12,9 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.Arrays;
-import java.util.List;
-
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
@@ -26,26 +23,29 @@ import games.stendhal.server.maps.Region;
 import games.stendhal.server.maps.quests.logic.BringListOfItemsQuest;
 import games.stendhal.server.maps.quests.logic.BringListOfItemsQuestLogic;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * QUEST: ElvishArmor
- *
+ * 
  * PARTICIPANTS:
  * <ul>
  * <li> Lupos, an albino elf who live in Fado Forest</li>
  * </ul>
- *
+ * 
  * STEPS:
  * <ul>
  * <li> Lupos wants to see every piece of elvish equipment you can bring him</li>
  * </ul>
- *
+ * 
  * REWARD:
  * <ul>
  * <li> 20000 XP</li>
  * <li> Karma:25</li>
  * <li> ability to sell elvish stuff and also drow sword</li>
  * </ul>
- *
+ * 
  * REPETITIONS:
  * <ul>
  * <li> None.</li>
@@ -55,18 +55,18 @@ public class ElvishArmor extends AbstractQuest implements
 		BringListOfItemsQuest {
 
 	private static final String QUEST_SLOT = "elvish_armor";
-
+	
 	private BringListOfItemsQuestLogic bringItems;
-
+	
 	private static final List<String> NEEDEDITEMS = Arrays.asList(
-			"elvish armor", "elvish legs", "elvish boots", "elvish sword",
-			"elvish cloak", "elvish shield");
+			"zbroja elficka", "spodnie elfickie", "buty elfickie", "miecz elficki",
+			"płaszcz elficki", "tarcza elficka");
 
 	@Override
 	public String getSlotName() {
 		return QUEST_SLOT;
 	}
-
+	
 	@Override
 	public List<String> getHistory(final Player player) {
 		return bringItems.getHistory(player);
@@ -82,8 +82,8 @@ public class ElvishArmor extends AbstractQuest implements
   	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Elvish Armor",
-				"Lupos, an Albino elf, wants to get the knowledge of how he can make elvish armor parts himself. Therefore he asks young travellers to bring him some examples.",
+				"Zbroja Elficka",
+				"Lupos elf Albinos chce zdobyć więdze o produkcji elvish armor. Pyta młodych podróżnych o przyniesienie kilku próbek.",
 				true);
 		offerSteps();
 		setupAbstractQuest();
@@ -101,12 +101,12 @@ public class ElvishArmor extends AbstractQuest implements
 
 	@Override
 	public List<String> getTriggerPhraseToEnumerateMissingItems() {
-		return Arrays.asList("equipment");
+		return Arrays.asList("equipment", "rynsztunku");
 	}
 
 	@Override
 	public List<String> getAdditionalTriggerPhraseForQuest() {
-		return Arrays.asList("secrets");
+		return Arrays.asList("secrets", "sekretów");
 	}
 
 	@Override
@@ -121,90 +121,91 @@ public class ElvishArmor extends AbstractQuest implements
 
 	@Override
 	public String welcomeBeforeStartingQuest() {
-		return "Greetings, traveller. I see that you have come far to be here. "
-			+ "I am interested in anyone who has encountered our kin, the green elves of Nalwor. They guard their #secrets closely.";
+		return "Witaj wędrowcze, widzę że przyszedłeś z bardzo daleka. "
+			+ "Interesuję się każdym kto widział naszych pobratymców, zielonych elfów z Nalwor. Pilnują swoich #sekretów";
 	}
 
 	@Override
 	public String respondToQuest() {
-		return "They won't share knowledge of how to create the green armor, shields and the like. You would call them elvish items. "
-			+ "I wonder if a traveller like you could bring me any?";
+		return "Nie chcą ujawnić wiedzy jak stworzyć zieloną zbroję, tarcze i inne. Wolą je nazywać elfiszami. "
+			+ "Zastanawiam się czy przybysz taki jak ty mógłby mi przynieść dowolny elfisz?";
 	}
 
 	@Override
 	public String respondToQuestAcception() {
-		return "The secrets of the green elves shall be ours at last! Bring me all elvish equipment you can find, I'll reward you well!";
+		return "Sekrety zielonych elfów w końcu byłyby nareszcie nasze! Przynieś mi wszystkie elfisze jakie znajdziesz. Dobrze Cię wynagrodzę!";
 	}
 
 	@Override
 	public String respondToQuestRefusal() {
-		return "Another unhelpful soul, I see.";
+		return "Widzę, że jesteś niechętny do pomocy.";
 	}
 
 	@Override
 	public String welcomeDuringActiveQuest() {
-		return "Hello! I hope your search for elvish #equipment is going well?";
+		return "Witam! Mam nadzieję, że dobrze Ci idzie poszukiwanie elfiszowego #rynsztunku?";
 	}
 
 	// this one not actually used here
 	@Override
 	public String firstAskForMissingItems(final List<String> missingItems) {
-		return "I have heard descriptions of "
+		return "Słyszałem opisy "
 								+ Grammar.quantityplnoun(missingItems.size(), "item", "a")
-								+ " in all. They are: "
+								+ " są to: "
 								+ Grammar.enumerateCollection(missingItems)
-								+ ". Will you collect them?";
+								+ ". Przyniesiesz mi je?";
 	}
 
 	@Override
 	public String askForMissingItems(final List<String> missingItems) {
-		return "I have heard descriptions of "
+		return "Słyszałem opisy "
 								+ Grammar.quantityplnoun(missingItems.size(), "item", "a")
-								+ " in all. They are: "
+								+ " są to: "
 								+ Grammar.enumerateCollection(missingItems)
-								+ ". Have you looted any?";
+								+ ". Obrabowałeś kogoś?";
 	}
 
 	@Override
 	public String askForItemsAfterPlayerSaidHeHasItems() {
-		return "Felicitations! What #equipment did you pillage?";
+		return "Wyśmienicie! Jaki #rynsztunek zrabowałeś?";
 	}
 
 	@Override
 	public String respondToItemBrought() {
-		return "Excellent work. Is there more that you plundered?";
+		return "Doskonała robota. Zrabowałeś coś jeszcze?";
 	}
 
 
 	@Override
 	public String respondToLastItemBrought() {
-		return "I will study these! The albino elves owe you a debt of thanks.";
+		return "Zbadam to! Albino elfy mają dług wdzięczności wobec Ciebie.";
 	}
-
+								
 	@Override
 	public String respondToOfferOfNotExistingItem(final String itemName) {
-		return "Liar! You don't really have "
+		return "Kłamca! Nie masz "
 										+ Grammar.a_noun(itemName)
-										+ " with you.";
+										+ " ze sobą.";
 	}
 	@Override
 	public String respondToOfferOfNotMissingItem() {
-		return "You've already brought that elvish item to me.";
+		return "Już mi przyniosłeś ten elfisz rynsztunek.";
 	}
 
 	@Override
 	public String respondToOfferOfNotNeededItem() {
-		return	"I don't think that's a piece of elvish armor...";
+		return	"Nie sądzę, aby to był fragment elfisz zbroi...";
 	}
 
 	@Override
 	public String respondToPlayerSayingHeHasNoItems(final List<String> missingItems) {
-		return "I understand, the green elves protect themselves well. If there's anything else I can do for you, just say.";
+		return "Rozumiem, że zielone elfy dobrze się chronią. Jeżeli mógłbym coś innego dla Ciebie zrobić to powiedz.";
 	}
 
 	@Override
 	public String respondToQuestAfterItHasAlreadyBeenCompleted() {
-		return "I'm now busy studying the properties of the elvish armor you brought me. It really is intriguing. Until I can reproduce it, I would buy similar items from you.";
+		return "Jestem teraz zajęty badaniem właściwości elfickich części zbroi, które mi przyniosłeś. To intrygujące. Dopóki nie będę ich produkował to będę je skupywał od Ciebie."
+         + "Liczę na twoje zangażowanie."; 
 	}
 
 	@Override
@@ -215,7 +216,7 @@ public class ElvishArmor extends AbstractQuest implements
 
 	@Override
 	public String welcomeAfterQuestIsCompleted() {
-		return "Greetings again, old friend.";
+		return "Pozdrawiam stary przyjacielu.";
 	}
 
 	// the bring list of items quest doesn't include this logic:
@@ -232,7 +233,7 @@ public class ElvishArmor extends AbstractQuest implements
 				ConversationPhrases.OFFER_MESSAGES,
 				new QuestCompletedCondition(QUEST_SLOT),
 				ConversationStates.ATTENDING,
-				"If you have found any more elvish items, I'd be glad if you would #sell them to me. I would buy elvish armor, shield, legs, boots, cloak or sword. I would also buy a drow sword if you have one.",
+				"Jeżeli znajdziesz więcej elfiszów to będę wdzięczny gdybyś mógł mi je #sprzedać. Kupię elficką: zbroję, spodnie, buty, płaszcz lub miecz. Kupiłbym także miecz elfów ciemności jeżeli będziesz miał.",
 				null);
 
 
@@ -241,7 +242,7 @@ public class ElvishArmor extends AbstractQuest implements
 				ConversationPhrases.OFFER_MESSAGES,
 				new QuestActiveCondition(QUEST_SLOT),
 				ConversationStates.ATTENDING,
-				"I don't think I trust you well enough yet ... ", null);
+				"Nie sądzę, abym mógł Tobie zaufać ... ", null);
 	}
 
 
@@ -260,7 +261,7 @@ public class ElvishArmor extends AbstractQuest implements
 	public String getNPCName() {
 		return "Lupos";
 	}
-
+	
 	// it's technically in Fado forest but much nearer Kirdneh city
 	@Override
 	public String getRegion() {

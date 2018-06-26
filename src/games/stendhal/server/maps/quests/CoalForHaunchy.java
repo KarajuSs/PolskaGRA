@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import games.stendhal.common.Rand;
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.common.parser.Sentence;
@@ -42,6 +38,10 @@ import games.stendhal.server.entity.npc.condition.QuestStateStartsWithCondition;
 import games.stendhal.server.entity.npc.condition.TimePassedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * QUEST: Coal for Haunchy
@@ -70,7 +70,7 @@ import games.stendhal.server.maps.Region;
  * <ul>
  * <li>You can repeat it each 2 days.</li>
  * </ul>
- *
+ * 
  * @author Vanessa Julius and storyteller
  */
 public class CoalForHaunchy extends AbstractQuest {
@@ -82,21 +82,21 @@ public class CoalForHaunchy extends AbstractQuest {
 
 	private void offerQuestStep() {
 		final SpeakerNPC npc = npcs.get("Haunchy Meatoch");
-
+		
 		// player says quest when he has not ever done the quest before (rejected or just new)
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES,
+				ConversationPhrases.QUEST_MESSAGES, 
 				new QuestNotStartedCondition(QUEST_SLOT),
-				ConversationStates.QUEST_OFFERED,
-				"I cannot use wood for this huge BBQ. To keep the heat I need some really old stone coal but there isn't much left. The problem is, that I can't fetch it myself because my steaks would burn then so I have to stay here. Can you bring me 25 pieces of #coal for my BBQ please?",
+				ConversationStates.QUEST_OFFERED, 
+				"Nie mogę wykorzystać polan do tego wielkiego grilla. Aby utrzymać temperaturę potrzebuję węgla, ale nie zostało go dużo. Problem w tym, że nie mogę go zdobyć ponieważ moje steki mogłby się spalić i dlatego muszę tu zostać. Czy mógłbyś przynieść mi 25 kawałków #węgla do mojego grilla?",
 				null);
 
 		npc.add(
 				ConversationStates.QUEST_OFFERED,
-				Arrays.asList("coal"),
+				Arrays.asList("węgiel","węgla"),
 				null,
 				ConversationStates.QUEST_OFFERED,
-				"Coal isn't easy to find. You normally can find it somewhere in the ground but perhaps you are lucky and find some in the old Semos Mine tunnels...",
+				"Węgiel nie jest łatwo znaleść. Normalnie możesz go znaleść pod ziemią, ale może będziesz miał szczęście i znajdziesz w tunelach starej kopalni Semos...",
 				null);
 
         // player has completed the quest (doesn't happen here)
@@ -104,7 +104,7 @@ public class CoalForHaunchy extends AbstractQuest {
 				ConversationPhrases.QUEST_MESSAGES,
 				new QuestCompletedCondition(QUEST_SLOT),
 				ConversationStates.ATTENDING,
-				"I can go on with grilling my tasty steaks now! Thank you!",
+				"Mogę teraz grilować moje pyszne steki! Dziękuję!",
 				null);
 
 		// player asks about quest which he has done already and he is allowed to repeat it
@@ -112,52 +112,52 @@ public class CoalForHaunchy extends AbstractQuest {
 				ConversationPhrases.QUEST_MESSAGES,
 				new AndCondition(new TimePassedCondition(QUEST_SLOT, 1, REQUIRED_MINUTES), new QuestStateStartsWithCondition(QUEST_SLOT, "waiting;")),
 				ConversationStates.QUEST_OFFERED,
-				"The last coal you brought me is mostly gone again. Will you bring me some more?",
+				"Ostatnio węgiel, który mi przyniosłeś już wykorzystałem. Przyniesiesz mi go więcej?",
 				null);
-
+		
 		// player asks about quest which he has done already but it is not time to repeat it
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.QUEST_MESSAGES,
 				new AndCondition(new NotCondition(new TimePassedCondition(QUEST_SLOT, 1, REQUIRED_MINUTES)), new QuestStateStartsWithCondition(QUEST_SLOT, "waiting;")),
 				ConversationStates.ATTENDING,
 				null,
-				new SayTimeRemainingAction(QUEST_SLOT, 1, REQUIRED_MINUTES, "The coal amount behind my counter is still high enough. I will not need more for"));
+				new SayTimeRemainingAction(QUEST_SLOT, 1, REQUIRED_MINUTES, "Zapas węgla jest wystarczająco spory. Nie będę potrzebował go w ciągu "));
 
 		// Player agrees to get the coal, increase 5 karma
 		npc.add(ConversationStates.QUEST_OFFERED,
 				ConversationPhrases.YES_MESSAGES, null,
 				ConversationStates.ATTENDING,
-				"Thank you! If you have found 25 pieces, say #coal to me so I know you have it. I'll be sure to give you a nice and tasty reward.",
+				"Dziękuję! Jeżeli znalazłeś 25 kawałków to powiedz mi #węgiel to będę widział, że masz. Będę wtedy pewien, że będę mógł ci dać pyszną nagrodę.",
 				new SetQuestAndModifyKarmaAction(QUEST_SLOT, "start", 5));
 
 		// Player says no, they've lost karma.
 		npc.add(ConversationStates.QUEST_OFFERED,
 				ConversationPhrases.NO_MESSAGES, null, ConversationStates.IDLE,
-				"Oh, never mind. I thought you love BBQs like I do. Bye then.",
+				"Oh nie ważne. Myślałem, że kochasz grillowane steki jak ja. Żegnaj.",
 				new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -10.0));
 	}
 
 	/*
 	 * Get Coal Step :
 	 * Players will get some coal in Semos Mine and with buying some from other players.
-	 *
+	 * 
 	 */
 	private void bringCoalStep() {
 		final SpeakerNPC npc = npcs.get("Haunchy Meatoch");
-
+		
 		final List<String> triggers = new ArrayList<String>();
-		triggers.add("coal");
+		triggers.add("węgiel");
 		triggers.add("stone coal");
 		triggers.addAll(ConversationPhrases.QUEST_MESSAGES);
 
 		// player asks about quest or says coal when they are supposed to bring some coal and they have it
 		npc.add(
 				ConversationStates.ATTENDING, triggers,
-				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "start"), new PlayerHasItemWithHimCondition("coal",25)),
-				ConversationStates.ATTENDING,
+				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "start"), new PlayerHasItemWithHimCondition("węgiel",25)),
+				ConversationStates.ATTENDING, 
 				null,
 				new MultipleActions(
-						new DropItemAction("coal",25),
+						new DropItemAction("węgiel",25), 
 						new IncreaseXPAction(200),
 						new IncreaseKarmaAction(20),
 						new ChatAction() {
@@ -166,10 +166,10 @@ public class CoalForHaunchy extends AbstractQuest {
 									final Sentence sentence,
 									final EventRaiser npc) {
 								int grilledsteakAmount = Rand.rand(4) + 1;
-								new EquipItemAction("grilled steak", grilledsteakAmount, true).fire(player, sentence, npc);
-								npc.say("Thank you!! Take " + Grammar.thisthese(grilledsteakAmount) + " " +
-										Grammar.quantityNumberStrNoun(grilledsteakAmount, "grilled steak") + " from my grill!");
-								new SetQuestAndModifyKarmaAction(getSlotName(), "waiting;"
+								new EquipItemAction("grillowany stek", grilledsteakAmount, true).fire(player, sentence, npc);
+								npc.say("Dziękuję!! Przyjmij te " + Grammar.thisthese(grilledsteakAmount) + " " +
+										Grammar.quantityNumberStrNoun(grilledsteakAmount, "grillowany stek") + " z mojego grilla!");
+								new SetQuestAndModifyKarmaAction(getSlotName(), "waiting;" 
 										+ System.currentTimeMillis(), 10.0).fire(player, sentence, npc);
 							}
 						}));
@@ -177,24 +177,24 @@ public class CoalForHaunchy extends AbstractQuest {
 		// player asks about quest or says coal when they are supposed to bring some coal and they don't have it
 		npc.add(
 				ConversationStates.ATTENDING, triggers,
-				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "start"), new NotCondition(new PlayerHasItemWithHimCondition("coal",25))),
+				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "start"), new NotCondition(new PlayerHasItemWithHimCondition("węgiel",25))),
 				ConversationStates.ATTENDING,
-				"You don't have the coal amount which I need yet. Go and pick some more pieces up, please.",
+				"Nie masz wystaczającej ilości węgla. Proszę idź i wydobądź kilka kawałków.",
 				null);
 
 		npc.add(
 				ConversationStates.ATTENDING,
-				Arrays.asList("coal","stone coal"),
+				Arrays.asList("węgiel","stone coal"),
 				new QuestNotInStateCondition(QUEST_SLOT,"start"),
 				ConversationStates.ATTENDING,
-				"Sometime you could do me a #favour ...", null);
+				"Czasami mógłbyś mi wyświadczyć #przysługę ...", null);
 	}
 
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Coal for Haunchy",
-				"Haunchy Meatoch is afraid of his BBQ grillfire. Will his coal last till the steaks are ready or will he need some more?",
+				"Węgiel dla Haunchy",
+				"Haunchy Meatoch boi się o swój ogień w grillu. Czy zapas węgla wystarczy nim jego steki będą gotowe czy będzie potrzebowal więcej?",
 				true);
 		offerQuestStep();
 		bringCoalStep();
@@ -207,23 +207,23 @@ public class CoalForHaunchy extends AbstractQuest {
 		if (!player.hasQuest(QUEST_SLOT)) {
 			return res;
 		}
-		res.add("Haunchy Meatoch welcomed me to the Ados market.");
+		res.add("Haunchy Meatoch powitał mnie na rynku w Ados.");
 		final String questState = player.getQuest(QUEST_SLOT);
 		if ("rejected".equals(questState)) {
-			res.add("He asked me to fetch him some pieces of coal but I don't have time to collect some.");
+			res.add("Poprosił mnie o dostarzenie kilku kawałków węgla, ale nie mam czasu na ich zbieranie.");
 		}
 		if (player.isQuestInState(QUEST_SLOT, "start") || isCompleted(player)) {
-			res.add("The BBQ grill-heat is low and I promised Haunchy to help him out with 25 pieces of coal.");
+			res.add("Ze względu, że płomień w grillu jest bardzo mały to przyrzekłem Haunchy, że pomogę mu zdobyć 25 kawałków węgla.");
 		}
-		if ("start".equals(questState) && player.isEquipped("coal",25) || isCompleted(player)) {
-			res.add("I found 25 pieces of coal for the Haunchy and think he will be happy.");
+		if ("start".equals(questState) && player.isEquipped("węgiel",25) || isCompleted(player)) {
+			res.add("Znalazłem 25 kawałków węgla dla Haunchy. Sądzę, że się ucieszy.");
 		}
 		if (isCompleted(player)) {
 			if (isRepeatable(player)) {
-				res.add("I took 25 pieces of coal to the Haunchy, but I'd bet his amount is low again and needs more. Maybe I'll get more grilled tasty steaks.");
+				res.add("Wziąłem 25 kawałków węgla do Haunchy, ale założe się to mało i będze potrzebował więcej. Może wezmę więcej pszynych steków z grilla.");
 			} else {
-				res.add("Haunchy Meatoch was really happy when I gave him the coal, he has enough for now. He gave me some of the best steaks which I ever ate!");
-			}
+				res.add("Haunchy Meatoch był zadowolony, gdy dałem mu węgiel. Ma go teraz wystarczająco dużo. Dał mi kilka pysznych steków jakich w życiu nie jadłem!");
+			}			
 		}
 		return res;
 	}
@@ -248,7 +248,7 @@ public class CoalForHaunchy extends AbstractQuest {
 	public boolean isCompleted(final Player player) {
 		return new QuestStateStartsWithCondition(QUEST_SLOT,"waiting;").fire(player, null, null);
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.ADOS_CITY;

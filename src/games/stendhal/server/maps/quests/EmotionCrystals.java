@@ -11,11 +11,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.server.entity.npc.ChatAction;
 import games.stendhal.server.entity.npc.ConversationPhrases;
@@ -42,6 +37,11 @@ import games.stendhal.server.entity.npc.condition.QuestNotStartedCondition;
 import games.stendhal.server.entity.npc.condition.TimePassedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * QUEST: Emotion Crystals
@@ -122,7 +122,7 @@ public class EmotionCrystals extends AbstractQuest {
 		if (hasAllCrystals) {
 			res.add("Zdobyłem wszystkie kryształy emocji i powinienem zanieść je do Juliusa w Ados.");
 		}
-
+		
 		if (player.isQuestInState(QUEST_SLOT, 0, "done")) {
 			res.add("Dałem kryształy Juliusowi dla jego żony. Dostałem doświadczenie, karmę i przydatne spodnie kamienne.");
 		}
@@ -368,7 +368,7 @@ public class EmotionCrystals extends AbstractQuest {
 		for (String color : crystalColors) {
 			rewardAction.add(new DropItemAction(color + " kryształ emocji"));
 		}
-		rewardAction.add(new EquipItemAction("kamienne spodnie", 1, true));
+		rewardAction.add(new EquipItemAction("spodnie kamienne", 1, true));
 		rewardAction.add(new IncreaseXPAction(2000));
 		rewardAction.add(new IncreaseKarmaAction(15));
 		rewardAction.add(new SetQuestAction(QUEST_SLOT, 0, "done"));
@@ -384,7 +384,7 @@ public class EmotionCrystals extends AbstractQuest {
 						new PlayerHasItemWithHimCondition("różowy kryształ emocji"),
 						new PlayerHasItemWithHimCondition("niebieski kryształ emocji")),
 				ConversationStates.QUEST_ITEM_BROUGHT,
-				"Przyniosłeś kryształy?",
+				"Przyniosłeś kryształ?",
 				null);
 
 		// Player is not carrying all the crystals

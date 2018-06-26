@@ -17,7 +17,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import games.stendhal.common.Rand;
-import games.stendhal.common.grammar.Grammar;
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.entity.item.StackableItem;
@@ -102,37 +101,37 @@ public class FindJefsMom extends AbstractQuest {
 			ConversationPhrases.QUEST_MESSAGES,
 			new OrCondition(new QuestNotStartedCondition(QUEST_SLOT), new QuestInStateCondition(QUEST_SLOT, 0, "rejected")),
 			ConversationStates.QUEST_OFFERED,
-			"I miss my mother! She wanted to go to the market but didn't return so far. Can you watch out for her please?",
+			"Tęsknię za moją mamusią! Chciała pójść na rynek i do tej pory nie wróciła. Mógłbyś jej poszukać?",
 			null);
 
 		// player asks about quest which he has done already and he is allowed to repeat it
 				npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES,
+				ConversationPhrases.QUEST_MESSAGES, 
 				new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT, "done"), new TimePassedCondition(QUEST_SLOT, 1, REQUIRED_MINUTES)),
-				ConversationStates.QUEST_OFFERED,
-				"It is a long time ago that you watched out for my mum. May I ask you to take a look at her again and tell me if she is still fine, please?",
+				ConversationStates.QUEST_OFFERED, 
+				"Minęło już trochę czasu, odkąd rozglądałeś się za moją mamą. Czy mogę Cię prosić, abyś poszukał jej raz jeszcze i powiedział mi, czy miewa się dobrze, ok?",
 				null);
 
 		// player asks about quest but time didn't pass yet
-		npc.add(ConversationStates.ATTENDING,
+		npc.add(ConversationStates.ATTENDING, 
 				ConversationPhrases.QUEST_MESSAGES,
-				new AndCondition(new NotCondition(new TimePassedCondition(QUEST_SLOT, 1,REQUIRED_MINUTES))),
+				new AndCondition(new NotCondition(new TimePassedCondition(QUEST_SLOT, 1,REQUIRED_MINUTES))), 
 				ConversationStates.ATTENDING,
 				null,
-				new SayTimeRemainingAction(QUEST_SLOT, 1, REQUIRED_MINUTES, "I don't want to disturb my mum at the moment, it seems like she needs some time on herself, so you don't have to look out for her currently. You can ask me again in"));
+				new SayTimeRemainingAction(QUEST_SLOT, 1, REQUIRED_MINUTES, "Nie chcę przeszkadzać mojej mamie, nim nie wróci z powrotem, więc nie musisz jej nic przekazać. Może zapytaj mnie raz jeszcze puźniej..."));
 
 
 		// Player agrees to find mum
 		npc.add(ConversationStates.QUEST_OFFERED,
 			ConversationPhrases.YES_MESSAGES, null,
 			ConversationStates.ATTENDING,
-			"Thank you so much! I hope that my #mum is ok and will return soon! Please tell her my name, #Jef, to prove that I sent you to her. If you have found her, return to me please and I'll give you something for your efforts.",
+			"Dziękuję Ci bardzo! Mam nadzieję, że #mama trzyma się świetnie i prędko wróci! Proszę, powiedz jej moje imię, #Jef, żeby udownodnić, że to ja Cię do niej wysłałem. Jeśli znajdziesz ją i wrócisz do mnie, dam Ci coś w zamian, żeby pokazać Ci, jak wdzięczny jestem.",
 			new MultipleActions(new SetQuestAction(QUEST_SLOT, 0, "start")));
 
 		// Player says no, they've lost karma.
 		npc.add(ConversationStates.QUEST_OFFERED,
 			ConversationPhrases.NO_MESSAGES, null, ConversationStates.IDLE,
-			"Oh. Ok. I can understand you... You look like a busy hero so I'll not try to convince you of helping me out.",
+			"Oh. Dobrze. Nie potrafię Cię zrozumieć... Wyglądasz na przepracowanego bohatera, więc nie będę Cię prosić o pomoc.",
 			new MultipleActions(new SetQuestAction(QUEST_SLOT, 0, "rejected"),
 					new DecreaseKarmaAction(10.0)));
 
@@ -142,23 +141,23 @@ public class FindJefsMom extends AbstractQuest {
 				ConversationPhrases.QUEST_MESSAGES,
 				new QuestActiveCondition(QUEST_SLOT),
 				ConversationStates.ATTENDING,
-				"I hope that you will find my mum soon and tell me, if she is #fine after.",
+				"Mam nadzieję, że znajdziesz mamę szybko i powiesz mi, czy jest #cała i #zdrowa.",
 				null);
 
 		npc.add(
 				ConversationStates.ATTENDING,
-				Arrays.asList("mum", "mother", "mom"),
+				Arrays.asList("mum", "mother", "mom", "mama"),
 				null,
 				ConversationStates.ATTENDING,
-				"My mother Amber left me for buying some food on the market, but she didn't return #yet.",
+				"Moja mama Amber poszła na rynek coś kupić do jedzenia. Niestety #jeszcze nie wróciła.",
 				null);
 
 		npc.add(
 				ConversationStates.ATTENDING,
-				"yet",
+				"jeszcze",
 				null,
 				ConversationStates.ATTENDING,
-				"The only thing I know is, that she had a little argument with her boyfriend, #Roger #Frampton earlier...",
+				"Moja mama, Amber, zostawiła mnie tu, żeby kupić coś do jedzenia na rynku, ale wciąż nie wraca. Jedyne co wiem to to, że wcześniej zerwała ze swoim chłopakiem. Nazywał się #Roger #Frampton. Znajdziesz ją?",
 				null);
 
 		npc.add(
@@ -166,7 +165,7 @@ public class FindJefsMom extends AbstractQuest {
 				"Jef",
 				null,
 				ConversationStates.ATTENDING,
-				"Yes, that is me :)",
+				"Tak, to ja :) Mamusia powiedziała mi kiedyś, że tak kocha to imię, że zdecydowała się mi je dać :) To jak, poszukasz jej dla mnie?",
 				null);
 
 		npc.add(
@@ -174,7 +173,7 @@ public class FindJefsMom extends AbstractQuest {
 				Arrays.asList("Roger Frampton", "Roger", "Frampton"),
 				null,
 				ConversationStates.ATTENDING,
-				"Maybe Roger has some guess about where she went to. I'm not sure where he is either, I just know he sells houses somewhere here in Kirdneh.",
+				"Był ukochanym mamy, nim się rozstali. Może on ma jakieś informacje, co się z nią teraz dzieje? Obecnie on sprzedaje domy gdzieś w Kirdneh. To jak poszukasz mamusi?",
 				null);
 
 	}
@@ -185,45 +184,45 @@ public class FindJefsMom extends AbstractQuest {
         // give the flower if it's at least 5 days since the player activated the quest the last time, and set the time slot again
 		amber.add(ConversationStates.ATTENDING, "Jef",
 			new AndCondition(new QuestInStateCondition(QUEST_SLOT, 0,"start"),
-							 new PlayerCanEquipItemCondition("zantedeschia")),
-
-			ConversationStates.IDLE,
-			"Oh I see :) My son Jef asked you to take a look after me. He is such a nice and gentle boy! Please give him this zantedeschia here. I love these flowers! Please give it to him and tell him that I'm #fine.",
-			new MultipleActions(new EquipItemAction("zantedeschia", 1, true),
-                                new SetQuestAction(QUEST_SLOT, 0, "found_mom")));
-
+							 new PlayerCanEquipItemCondition("bielikrasa")),
+                          
+			ConversationStates.IDLE, 
+			"O, rozumiem. :) Mój syn Jef poprosił Cię, żebyś mnie poszukał. Co za kochany i troskliwy chłopiec! Proszę, daj mu tę bielikrasę. Kocham te kwiaty! Bedzie wiedział, że ze mną wszystko #w #porządku, jeśli mu ją dasz!",
+			new MultipleActions(new EquipItemAction("bielikrasa", 1, true), 
+                                new SetQuestAction(QUEST_SLOT, 0, "found_mom"))); 
+                             
 
 		// don't put the flower on the ground - if player has no space, tell them
 		amber.add(ConversationStates.ATTENDING, "Jef",
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, 0, "start"),
-								 new NotCondition(new PlayerCanEquipItemCondition("zantedeschia"))),
-				ConversationStates.IDLE,
-				"Oh, I wanted to give you a flower for my son to show him that I'm fine, but as I see now, you don't have enough space for equipping it. Please return to me when you will have made some space in your bags!",
+								 new NotCondition(new PlayerCanEquipItemCondition("bielikrasa"))),
+				ConversationStates.IDLE, 
+				"Oh, chciałam dać Ci kwiatek dla mojego syna, żeby pokazać mu, że ze mną wszystko w porządku, ale widzę, że nie masz już miejsca w torbie. Wróć do mnie, jak będziesz mieć nieco miejsca w plecaku!",
 				null);
 
         // don't give the flower if the quest state isn't start
 	    amber.add(ConversationStates.ATTENDING, "Jef",
 		     	new AndCondition(new NotCondition(new QuestActiveCondition(QUEST_SLOT))),
 		    	ConversationStates.IDLE,
-		    	"I don't trust you. Your voice shivered while you told me my sons name. I bet he is fine and happy and safe.",
+		    	"Nie ufam Ci. Twój głos drżał, gdy wymieniałeś imię mojego syna. Założę się, że ma się świetnie i jest bezpieczny.", 
 		    	null);
 
 	    amber.add(ConversationStates.ATTENDING, "Jef",
 	    		new AndCondition(
 	    				new QuestInStateCondition(QUEST_SLOT, "found_mom"),
-	    				new PlayerHasItemWithHimCondition("zantedeschia")),
+	    				new PlayerHasItemWithHimCondition("bielikrasa")),
 	    		ConversationStates.IDLE,
-	    		"Please give that flower to my son and let him know that I am #fine.",
+	    		"Proszę daj ten kwiatek mojemu synowi i daj mu znać, że u mnie wszystko #dobrze.",
 	    		null);
-
+	    
 	    // replace flower if lost
-	    amber.add(ConversationStates.ATTENDING, Arrays.asList("Jef", "flower", "zantedeschia"),
+	    amber.add(ConversationStates.ATTENDING, Arrays.asList("Jef", "flower", "zantedeschia", "kwiat", "bielikrasa"),
 	    		new AndCondition(
 	    				new QuestInStateCondition(QUEST_SLOT, 0, "found_mom"),
-	    				new NotCondition(new PlayerHasItemWithHimCondition("zantedeschia"))),
+	    				new NotCondition(new PlayerHasItemWithHimCondition("bielikrasa"))),
 	    		ConversationStates.IDLE,
-	    		"Oh you lost the flower? I'm afraid I don't have anymore. Speak with Jenny, by the windmill. She may be able to help you.",
-	    		null);
+	    		"Oh zgubiłeś kwiatek? Obawiam się, że już ich nie mam. Porozmaiwaj z Jenny przy młynie. Może będzie mogła ci pomóc.",
+	    		null); 
 
 	}
 
@@ -235,20 +234,20 @@ public class FindJefsMom extends AbstractQuest {
 			public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
 				//add random number of red lionfish
 				final StackableItem red_lionfish = (StackableItem) SingletonRepository.getEntityManager()
-						.getItem("red lionfish");
+						.getItem("skrzydlica");
 				int redlionfishamount;
 				redlionfishamount = Rand.roll1D6();
 				red_lionfish.setQuantity(redlionfishamount);
 				player.equipOrPutOnGround(red_lionfish);
-				npc.say("Thank you! Take " + Grammar.thisthese(redlionfishamount) + " " +  Grammar.quantityplnoun(redlionfishamount,"red lionfish","") + "! I got some from a guy who visited Amazon island some time ago, maybe you need " + Grammar.itthem(redlionfishamount) + " for something.");
+				npc.say("Dziękuję! Weź te " + Integer.toString(redlionfishamount) + " ryby! Mam kilka od pewnego gościa, który odwiedził wyspę Amazonek jakiś czas temu, może będziesz ich potrzebować.");
 
 			}
 		};
 		npc.add(ConversationStates.ATTENDING,
-				Arrays.asList("flower", "zantedeschia", "fine", "amber", "done"),
-				new AndCondition(new QuestInStateCondition(QUEST_SLOT, 0, "found_mom"), new PlayerHasItemWithHimCondition("zantedeschia")),
+				Arrays.asList("flower", "zantedeschia", "fine", "amber", "done", "cała", "zdrowa", "dobrze", "kwiat", "bielikrasa"),
+				new AndCondition(new QuestInStateCondition(QUEST_SLOT, 0, "found_mom"), new PlayerHasItemWithHimCondition("bielikrasa")),
 				ConversationStates.ATTENDING, null,
-				new MultipleActions(new DropItemAction("zantedeschia"),
+				new MultipleActions(new DropItemAction("bielikrasa"), 
                                     new IncreaseXPAction(800),
                                     new IncreaseKarmaAction(15),
 									addRandomNumberOfItemsAction,
@@ -262,8 +261,8 @@ public class FindJefsMom extends AbstractQuest {
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Find Jefs mother",
-				"Jef, a young boy in Kirdneh city, waits for his mum Amber who didn't return yet from the market.",
+				"Znajdź matkę Jefa",
+				"Jef, mały chłopiec w Kirdneh, czeka na swoją mamę Amber, która nie wróciła z zakupów na rynku.",
 				false);
 		offerQuestStep();
 		findMomStep();
@@ -276,25 +275,25 @@ public class FindJefsMom extends AbstractQuest {
 		if (!player.hasQuest(QUEST_SLOT)) {
 			return res;
 		}
-		res.add("I found Jef in Kirdneh city. He waits there for his mum.");
+		res.add("Znalazłem Jefa w Kirdneh. Czeka tam na swoją mamę.");
         final String questStateFull = player.getQuest(QUEST_SLOT);
         final String[] parts = questStateFull.split(";");
         final String questState = parts[0];
 
         if ("rejected".equals(questState)) {
-			res.add("Finding his mum somewhere costs me too much time at the moment, that is why I rejected his request to find her.");
+			res.add("Znalezienie jego mamy kosztuje mnie teraz zbyt wiele czasu, dlatego musiałem odrzucić jego prośbę o pomoc w znalezieniu jej.");
 		}
 		if ("start".equals(questState)) {
-			res.add("Jef asked me to take a look at his mother Amber who didn't return from the market yet. I hope she will listen to me after I told her the name of her son, Jef.");
+			res.add("Jef poprosił mnie, żebym rozejrzał się za jego matką, Amber, która nie wróciła z zakupów na rynku. Mam nadzieję, że wysłucha mnie, gdy powiem imię jej syna - Jefa.");
 		}
 		if ("found_mom".equals(questState)) {
-			res.add("I found Amber, Jef's mother, while she walked around somewhere in Fado forest. She gave me a flower for her son and told me, that I have to tell him that she is fine.");
+			res.add("Znalazłem Amber, mamę Jefa, kiedy spacerowała gdzieś w lesie Fado. Dała mi kwiaty dla swojego syna i powiedziała mi, że te kwiaty powiedzą mu, że z nią wszystko w porządku.");
 		}
-        if (isCompleted(player)) {
+		if ("done".equals(questState)) {
             if (isRepeatable(player)) {
-                res.add("Its been a while since I checked on Jef's mother and should ask Jef, if he wants me to take a look after her again.");
+                res.add("Przyniosłem Jefowi bielikrasę, a on bardzo się ucieszył, gdy dowiedził się, że jego mama, Amber, trzyma się dobrze. Chociaż Jef nie chce, żebym pilnował jej znowu, tzeba zapytać go, czy nie zmienił zdania.");
             } else {
-                res.add("I told Jef that his mother is fine. He wants to leave his mother alone for some time now.");
+                res.add("Przyniosłem Jefowi bielikrasę, a on bardzo się ucieszył, gdy dowiedział się, że jego mama, Amber, trzyma się dobrze. Chce zostawić mamę samą na jakiś czas.");
             }
 		}
 
@@ -313,7 +312,7 @@ public class FindJefsMom extends AbstractQuest {
 		return new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT,"done"),
 				 new TimePassedCondition(QUEST_SLOT, 1, REQUIRED_MINUTES)).fire(player,null, null);
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.KIRDNEH;

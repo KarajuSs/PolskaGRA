@@ -83,7 +83,7 @@ public class BowsForOuchit extends AbstractQuest {
 				ConversationPhrases.QUEST_MESSAGES,
 				new QuestNotStartedCondition(QUEST_SLOT),
 				ConversationStates.QUESTION_1,
-				"Are you here to help me a bit?",
+				"Czy jesteś tu, aby mi pomóc?",
 				null);
 
 		/*
@@ -93,8 +93,8 @@ public class BowsForOuchit extends AbstractQuest {
 				ConversationPhrases.YES_MESSAGES,
 				new QuestNotStartedCondition(QUEST_SLOT),
 				ConversationStates.QUEST_OFFERED,
-				"Good! I sell bows and arrows. It would be great if you could " +
-				"bring me 10 pieces of #wood. Can you bring me the wood?",
+				"Dobrze! Sprzedaję łuki i strzały. Byłoby super gdybyś mógł " +
+				"przynieść 10 sztuk #polan. Możesz mi przynieść drewno?",
 				null);
 
 		/*
@@ -104,7 +104,7 @@ public class BowsForOuchit extends AbstractQuest {
 				ConversationPhrases.NO_MESSAGES,
 				new QuestNotStartedCondition(QUEST_SLOT),
 				ConversationStates.IDLE,
-				"Oh ok, bye.",
+				"Ehhh... dowidzenia.",
 				null);
 
 		/*
@@ -114,18 +114,18 @@ public class BowsForOuchit extends AbstractQuest {
 				ConversationPhrases.YES_MESSAGES,
 				new QuestNotStartedCondition(QUEST_SLOT),
 				ConversationStates.ATTENDING,
-				"Nice :-) Come back when you have them and say #wood.",
+				"Wspaniale! Jak wrócisz z nim powiedz #polano.",
 				new SetQuestAndModifyKarmaAction(QUEST_SLOT, "wood", 2.0));
 
 		/*
 		 * Player asks about wood.
 		 */
 		npc.add(ConversationStates.QUEST_OFFERED,
-				"wood",
+				"polano",
 				new QuestNotStartedCondition(QUEST_SLOT),
 				ConversationStates.QUEST_OFFERED,
-				"Wood is a great item with many purposes. Of course you will " +
-				"find some pieces in a forest. Will you bring me 10 pieces?",
+				"Drzewo jest potrzebne do różnych rzeczy, znajdziesz go...  " +
+				"najlepiej spytaj Drwala koło Zakopanego. Przyniesiesz mi 10 sztuk?",
 				null);
 
 		/*
@@ -135,7 +135,7 @@ public class BowsForOuchit extends AbstractQuest {
 				ConversationPhrases.NO_MESSAGES,
 				new QuestNotStartedCondition(QUEST_SLOT),
 				ConversationStates.IDLE,
-				"Ok, you can come back later if you want. Bye for now.",
+				"Dobrze, możesz wrócić później, jeżeli chcesz. Do zobaczenia.",
 				null);
 	}
 
@@ -145,7 +145,7 @@ public class BowsForOuchit extends AbstractQuest {
 		 * get a reference to the Ouchit NPC
 		 */
 		SpeakerNPC npc = npcs.get("Ouchit");
-
+		
 		/*
 		 * Player asks about quest, remind what they're doing
 		 */
@@ -153,20 +153,20 @@ public class BowsForOuchit extends AbstractQuest {
 				ConversationPhrases.QUEST_MESSAGES,
 				new QuestInStateCondition(QUEST_SLOT,"wood"),
 				ConversationStates.ATTENDING,
-				"I'm waiting for you to bring me 10 pieces of #wood.",
+				"Czekam na ciebie, aż mi przyniesiesz 10 sztuk drzewa.",
 				null);
-
+		
 		/*
 		 * Player asks about wood, but hasn't collected any - remind them.
 		 */
 		npc.add(ConversationStates.ATTENDING,
-				"wood",
+				"polano",
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT,"wood"),
-								 new NotCondition (new PlayerHasItemWithHimCondition("wood",10))),
+								 new NotCondition (new PlayerHasItemWithHimCondition("polano",10))),
 				ConversationStates.ATTENDING,
-				"Wood is a great item with many purposes. Of course you will " +
-				"find some pieces in a forest. Please remember to come back when you " +
-				"have ten pieces for me, and say #wood.",
+				"Drzewo jest surowcem potrzebnym do wielu rzeczy. Jestem pewien, " +
+				"że znajdziesz w lesie. Lepiej porozmawiaj z drwalem koło Zakopanego." +
+				"I nie zapomnij powiedzieć #'polano', gdy wrócisz z nim.",
 				null);
 
 		/*
@@ -174,19 +174,19 @@ public class BowsForOuchit extends AbstractQuest {
 ask for horse hair.
 		 */
 		npc.add(ConversationStates.ATTENDING,
-				"wood",
+				"polano",
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT,"wood"),
-								new PlayerHasItemWithHimCondition("wood",10)),
+								new PlayerHasItemWithHimCondition("polano",10)),
 				ConversationStates.ATTENDING,
-				"Great, now I can make new arrows. But for the bows I need " +
-				"bowstrings. Please go to #Karl. I know he has horses and if " +
-				"you tell him my name he will give you #'horse hairs' from a horsetail.",
-				new MultipleActions(new SetQuestAndModifyKarmaAction(QUEST_SLOT, "hair", 2.0), new DropItemAction("wood", 10)));
+				"Bardzo dobrze, teraz mogę zrobić nowe strzały. Ale do łuku, który robię potrzebuję " +
+				"cięciwę. Proszę idź do #Karl. Wiem, że posiada konie " +
+				"powiedz moje imię, a da ci końskiego włosa. Z niego zrobię cięciwę.",
+				new MultipleActions(new SetQuestAndModifyKarmaAction(QUEST_SLOT, "hair", 2.0), new DropItemAction("polano", 10)));
 
 		/*
 		 * For simplicity, respond to 'Karl' at any time.
 		 */
-		npc.addReply("Karl", "Karl is a farmer, east of Semos. He has many pets on his farm.");
+		npc.addReply("Karl", "Karl jest rolnikiem mieszkającym na wschód od Semos. Posiada sporo zwierząt na swojej farmie.");
 	}
 
 	public void getHairStep() {
@@ -199,11 +199,11 @@ ask for horse hair.
 		npc.add(ConversationStates.ATTENDING,
 				"Ouchit",
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT,"hair"),
-								new NotCondition (new PlayerHasItemWithHimCondition("horse hair",1))),
+								new NotCondition (new PlayerHasItemWithHimCondition("koński włos",1))),
 				ConversationStates.ATTENDING,
-				"Hello, hello! Ouchit needs more horse hairs from my horses? " +
-				"No problem, here you are. Send Ouchit greetings from me.",
-				new EquipItemAction("horse hair"));
+				"Witam, witam! Ouchit potrzebuje więcej włosia z moich koni? " +
+				"Nie ma problemu. Weź to i przekaż Ouchitowi serdeczne pozdrowienia ode mnie.",
+				new EquipItemAction("koński włos"));
 
 	}
 
@@ -221,43 +221,43 @@ ask for horse hair.
 				ConversationPhrases.QUEST_MESSAGES,
 				new QuestInStateCondition(QUEST_SLOT,"hair"),
 				ConversationStates.ATTENDING,
-				"I'm waiting for you to bring me some #'horse hairs'.",
+				"Czekam tu na ciebie, abyś przyniósł mi #'włosie końskie'.",
 				null);
-
+		
 		/*
 		 * Player asks about horse hair, but hasn't collected any - remind them.
 		 */
 		npc.add(ConversationStates.ATTENDING,
-				Arrays.asList("hair", "horse", "horse hairs"),
+				Arrays.asList("hair", "horse", "włosie końskie", "włosie", "końskie", "koński włos"),
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT,"hair"),
-								new NotCondition (new PlayerHasItemWithHimCondition("horse hair"))),
+								new NotCondition (new PlayerHasItemWithHimCondition("koński włos"))),
 				ConversationStates.ATTENDING,
-				"Horse hairs can be used as a bowstring. Please fetch me some from #Karl.",
+				"Włos koński stosowany może być do cięciwy, a dostaniesz go od #Karl.",
 				null);
 
 		/*
 		 * These actions are part of the reward
 		 */
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
-		reward.add(new DropItemAction("horse hair"));
-		reward.add(new EquipItemAction("scale armor", 1, true));
-		reward.add(new EquipItemAction("chain legs", 1, true));
-		reward.add(new IncreaseXPAction(100));
+		reward.add(new EquipItemAction("zbroja łuskowa", 1, true));
+		reward.add(new EquipItemAction("spodnie nabijane ćwiekami", 1, true));
+		reward.add(new IncreaseXPAction(500));
+		reward.add(new DropItemAction("koński włos"));
 		reward.add(new SetQuestAndModifyKarmaAction(QUEST_SLOT, "done", 10.0));
-
+		
 		/*
 		 * Player asks about horse hair, and has collected some - take it
 and ask for horse hair.
 		 */
 		npc.add(ConversationStates.ATTENDING,
-				Arrays.asList("hair", "horse", "horse hairs"),
+				Arrays.asList("hair", "horse", "horse hairs", "włosie końskie", "włosie", "końskie"),
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT,"hair"),
-								new PlayerHasItemWithHimCondition("horse hair")),
+								new PlayerHasItemWithHimCondition("koński włos")),
 				ConversationStates.ATTENDING,
-				"Yay, you got the horse hairs. Thanks a lot. Karl is really nice. Here, " +
-				"take this for your work. Someone left it here and I don't need those things.",
+				"Wspaniale, masz włos koński. Dziękuję bardzo. Karl jest bardzo miły. Proszę, " +
+				"zostawił tutaj ten... Mi nie jest to potrzebne, a tobie może się przydać.",
 				new MultipleActions(reward));
-
+		
 		/*
 		 * Player asks about quest, and it is finished
 		 */
@@ -265,9 +265,9 @@ and ask for horse hair.
 				ConversationPhrases.QUEST_MESSAGES,
 				new QuestCompletedCondition(QUEST_SLOT),
 				ConversationStates.ATTENDING,
-				"Thanks for your help. If I can #offer you anything just ask.",
+				"Dziękuję za twoją pomoc. Jeżeli mogę zaoferować coś po prostu zapytaj o ofertę.",
 				null);
-
+		
 	}
 
 	@Override
@@ -277,8 +277,8 @@ and ask for horse hair.
 		getHairStep();
 		bringHairStep();
 		fillQuestInfo(
-				"Bows for Ouchit",
-				"Ouchit is running out of bows and arrows to sell!",
+				"Łuki dla Ouchita",
+				"Ouchit zajmuje się robieniem łuków! Potrzebuje pomocy od Ciebie i Karla.",
 				false);
 	}
 
@@ -289,25 +289,25 @@ and ask for horse hair.
 			return res;
 		}
 		final String questState = player.getQuest(QUEST_SLOT);
-		res.add("Ouchit asked me for help to replenish his stocks of bows and arrows.");
+		res.add("Ouchit poprosił mnie o pomoc w celu uzupełnienia jego zapasów w łuki i strzały.");
 		if (player.isQuestInState(QUEST_SLOT, "wood", "hair", "done")) {
-			res.add("First I must fetch Ouchit 10 pieces of wood.");
+			res.add("Najpierw muszę pszynieść Ouchit 10 sztuk drewna.");
 		}
-		if(player.isEquipped("wood", 10) && "wood".equals(questState)) {
-			res.add("I've got the wood to take to Ouchit.");
+		if(player.isEquipped("polano", 10) && "polano".equals(questState)) {
+			res.add("Pszyniosłem drewno dla Ouchit");
 		}
 		if(player.isQuestInState(QUEST_SLOT, "hair", "done")) {
-			res.add("Next I need to get some horse hairs, which Ouchit uses as bowstrings. I'm told the farmer Karl will help me.");
+			res.add("Muszę zdobyć trochę włosów konia, które Ouchit potrzebuje do cięciwy. Powiedziano mi, że rolnik Karl mi pomoże.");
 		}
-		if(player.isEquipped("horse hair") && "hair".equals(questState) || isCompleted(player)) {
-			res.add("Karl was kind and gave me some horse hairs.");
+		if(player.isEquipped("koński włos") && "hair".equals(questState) || isCompleted(player)) {
+			res.add("Karl był miły i dał mi włos koński.");
 		}
 		if (isCompleted(player)) {
-			res.add("Ouchit gave me some new equipment as thanks for helping him.");
+			res.add("Ouchit dał mi nowy ekwipunek i podziękował za pomoc mu.");
 		}
 		return res;
 	}
-
+	
 	@Override
 	public String getSlotName() {
 		return QUEST_SLOT;
@@ -317,12 +317,12 @@ and ask for horse hair.
 	public String getName() {
 		return "BowsForOuchit";
 	}
-
+	
 	@Override
 	public int getMinLevel() {
 		return 0;
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.SEMOS_CITY;

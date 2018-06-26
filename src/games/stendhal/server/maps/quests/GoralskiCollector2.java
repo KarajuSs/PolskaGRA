@@ -34,47 +34,13 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * QUEST: The Weapons Collector Part 2
- * <p>
- * PARTICIPANTS:
- * <ul>
- * <li> Balduin, a hermit living on a mountain between Semos and Ados
- * </ul>
- * <p>
- * STEPS:
- * <ul>
- * <li> Balduin asks you for some new weapons.
- * <li> You get one of the weapons somehow, e.g. by killing a monster.
- * <li> You bring the weapon up the mountain and give it to Balduin.
- * <li> Repeat until Balduin received all weapons. (Of course you can bring up
- * several weapons at the same time.)
- * <li> Balduin gives you a pair of swords in exchange.
- * </ul>
- * REWARD:
- * <ul>
- * <li> rhand sword and lhand sword
- * <li> 3000 XP
- * <li> 60 karma
- * </ul>
- * REPETITIONS:
- * <ul>
- * <li> None.
- * </ul>
- */
-public class WeaponsCollector2 extends AbstractQuest {
+public class GoralskiCollector2 extends AbstractQuest {
 
-	private static final String QUEST_SLOT = "weapons_collector2";
+	private static final String QUEST_SLOT = "goralski_kolekcjoner2";
 
 	
-	private static final List<String> neededWeapons = Arrays.asList(
-			// fairly rare from glow_monster in haunted house
-			"złoty kiścień",
-			// rare from monk on mountain
-			"kij", 
-			// rare from devil_queen on mountain
-			"półtorak" 
-	);
+	private static final List<String> neededGoral = Arrays.asList("góralski kapelusz", "cuha góralska", "portki bukowe",
+								       "złota ciupaga", "kierpce", "polska tarcza kolcza");
 
 	@Override
 	public String getSlotName() {
@@ -82,11 +48,11 @@ public class WeaponsCollector2 extends AbstractQuest {
 	}
 
 	public List<String> getNeededItems() {
-		return neededWeapons;
+		return neededGoral;
 	}
 
 	public SpeakerNPC getNPC() {
-		return npcs.get("Balduin");
+		return npcs.get("Gazda Bartek");
 	}
 
 	/**
@@ -99,7 +65,7 @@ public class WeaponsCollector2 extends AbstractQuest {
 	 *            If true, sets a # character in front of every name
 	 * @return A list of weapon names
 	 */
-	private List<String> missingWeapons(final Player player, final boolean hash) {
+	private List<String> missingGoral(final Player player, final boolean hash) {
 		final List<String> result = new LinkedList<String>();
 
 		String doneText = player.getQuest(QUEST_SLOT);
@@ -107,7 +73,7 @@ public class WeaponsCollector2 extends AbstractQuest {
 			doneText = "";
 		}
 		final List<String> done = Arrays.asList(doneText.split(";"));
-		for (String weapon : neededWeapons) {
+		for (String weapon : neededGoral) {
 			if (!done.contains(weapon)) {
 				if (hash) {
 					weapon = "#" + weapon;
@@ -125,7 +91,7 @@ public class WeaponsCollector2 extends AbstractQuest {
 		npc.add(ConversationStates.IDLE,
 				ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
-						new QuestCompletedCondition("weapons_collector"),
+						new QuestCompletedCondition("goralski_kolekcjoner1"),
 						new QuestNotStartedCondition(QUEST_SLOT)),
 				ConversationStates.ATTENDING,
 				"Pozdrawiam Cię stary przyjacielu. Jeżeli sobie życzysz to mam następne #zadanie dla Ciebie.",
@@ -133,18 +99,18 @@ public class WeaponsCollector2 extends AbstractQuest {
 
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.QUEST_MESSAGES, 
-				new AndCondition(new QuestCompletedCondition("weapons_collector"), new QuestNotStartedCondition(QUEST_SLOT)),
+				new AndCondition(new QuestCompletedCondition("goralski_kolekcjoner1"), new QuestNotStartedCondition(QUEST_SLOT)),
 				ConversationStates.QUEST_2_OFFERED, 
 				null, 
 				new ChatAction() {
 					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 							if (player.isQuestCompleted(QUEST_SLOT)) {
-								raiser.say("Moja kolekcja jest już kompletne! Dziękuję ponownie.");
+								raiser.say("Moja góralska kolekcja jest już kompletna! Dziękuję ponownie.");
 								raiser.setCurrentState(ConversationStates.ATTENDING);
 							} else {
-								raiser.say("Poprzedni wojownicy do tej części opisywali dziwne nowe potwory z bronią, której nigdy nie widziałem. "
-										+ "Czy mógłbyś pokonać te potwory i przynieść mi ich broń?");
+								raiser.say("Chciałbym, abyś ponownie dla mnie przyniósł góralskie przedmioty. "
+										+ "Tym razem chodzi mi dokładnie o góralskie ubrania męskie. Dałbyś radę?");
 							}
 						}
 				});
@@ -158,8 +124,8 @@ public class WeaponsCollector2 extends AbstractQuest {
 				new ChatAction() {
 					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-						raiser.say("Cudownie. Teraz lista ( #list ) jest krótsza, ale ryzyko może być większe. "
-								+ "Jeżeli wrócisz bezpiecznie to będę miał nagrodę dla Ciebie.");
+						raiser.say("Cudownie! Teraz #'lista', spójrz na nią, potrzebuję właśnie takich przedmiotów. "
+								+ "Jeżeli wrócisz bezpiecznie to będę miał specjalną nagrodę dla Ciebie.");
 						player.setQuest(QUEST_SLOT, "");
 					}
 				});
@@ -174,19 +140,19 @@ public class WeaponsCollector2 extends AbstractQuest {
 
 		// player asks what exactly is missing
 		npc.add(ConversationStates.ATTENDING, 
-				Arrays.asList("list", "listą"), 
+				Arrays.asList("list", "listą", "lista"), 
 				new QuestActiveCondition(QUEST_SLOT), 
 				ConversationStates.QUESTION_2, 
 				null,
 				new ChatAction() {
 					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-						final List<String> needed = missingWeapons(player, true);
+						final List<String> needed = missingGoral(player, true);
 						raiser.say("Oto "
 								+ Grammar.isare(needed.size())
 								+ " "
-								+ Grammar.quantityplnoun(needed.size(), "weapon", "a")
-								+ " w mojej nowej kolekcji wciąż brakuje: "
+								+ Grammar.quantityplnoun(needed.size(), "items", "a")
+								+ " w mojej nowej kolekcji ubrań brakuje wciąż: "
 								+ Grammar.enumerateCollection(needed)
 								+ ". Czy masz coś takiego przy sobie?");
 					}
@@ -201,10 +167,10 @@ public class WeaponsCollector2 extends AbstractQuest {
 				new ChatAction() {
 					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-						final List<String> missing = missingWeapons(player, false);
+						final List<String> missing = missingGoral(player, false);
 						raiser.say("Powiadom mnie jeśli coś znajdziesz "
 								+ Grammar.itthem(missing.size())
-								+ ". Żegnaj.");
+								+ ". Dowidzenia.");
 					}
 				});
 
@@ -216,7 +182,7 @@ public class WeaponsCollector2 extends AbstractQuest {
 				"Co znalazłeś?",
 				null);
 
-		for(final String itemName : neededWeapons) {
+		for(final String itemName : neededGoral) {
 			npc.add(ConversationStates.QUESTION_2, 
 				itemName, 
 				null,
@@ -225,7 +191,7 @@ public class WeaponsCollector2 extends AbstractQuest {
 				new ChatAction() {
 					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-						List<String> missing = missingWeapons(player, false);
+						List<String> missing = missingGoral(player, false);
 
 						if (missing.contains(itemName)) {
 							if (player.drop(itemName)) {
@@ -234,22 +200,18 @@ public class WeaponsCollector2 extends AbstractQuest {
 								player.setQuest(QUEST_SLOT, doneText + ";" + itemName);
 
 								// check if the player has brought all weapons
-								missing = missingWeapons(player, true);
+								missing = missingGoral(player, true);
 
 								if (!missing.isEmpty()) {
 									raiser.say("Dziękuję bardzo! Masz coś jeszcze dla mnie?");
 								} else {
-									final Item lhandsword = SingletonRepository.getEntityManager().getItem(
-											"miecz leworęczny");
-									lhandsword.setBoundTo(player.getName());
-									player.equipOrPutOnGround(lhandsword);
-									final Item rhandsword = SingletonRepository.getEntityManager().getItem(
-											"miecz praworęczny");
-									rhandsword.setBoundTo(player.getName());
-									player.equipOrPutOnGround(rhandsword);
-									player.addXP(50000);
-									player.addKarma(60);
-									raiser.say("W końcu moja kolekcja jest kompletna! Dziękuję bardzo. Weź w zamian te 2 miecze!");
+									final Item pas = SingletonRepository.getEntityManager().getItem(
+											"pas zbójecki");
+									pas.setBoundTo(player.getName());
+									player.equipOrPutOnGround(pas);
+									player.addXP(200000);
+									player.addKarma(50);
+									raiser.say("W końcu moja kolekcja jest kompletna! Dziękuję bardzo. Spójrz tylko na ten #'pas zbójecki', czyż nie jest on piękny? Proszę weź go... przyda Ci się pewnie.");
 									player.setQuest(QUEST_SLOT, "done");
 									player.notifyWorldAboutChanges();
 									raiser.setCurrentState(ConversationStates.ATTENDING);
@@ -268,7 +230,7 @@ public class WeaponsCollector2 extends AbstractQuest {
 	}
 
 	private void step_2() {
-		// Just find some of the weapons somewhere and bring them to Balduin.
+		// Just find some of the weapons somewhere and bring them to Gazda Bartek.
 	}
 
 	private void step_3() {
@@ -304,8 +266,8 @@ public class WeaponsCollector2 extends AbstractQuest {
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Kolekcjoner Broni 2",
-				"Balduin, pustelnik, który żyje w górach Ados, ma nowe ekscytujące wyzwanie dla Ciebie.",
+				"Góralski Kolekcjoner II",
+				"Gazda Bartek potrzebuje nowych ubrań góralskich - tym razem męskie! Jego kolekcja naprawdę musi być duża.. chyba.",
 				true);
 		step_1();
 		step_2();
@@ -320,31 +282,31 @@ public class WeaponsCollector2 extends AbstractQuest {
 				return res;
 			}
 			if (!isCompleted(player)) {
-				res.add("Jestem na etapie gromadzenia broni dla Balduin, potrzebuje jeszcze " + Grammar.enumerateCollection(missingWeapons(player, false)) + ".");
+				res.add("Jestem na etapie gromadzenia przedmiotów dla Gazdy Bartka, potrzebuje jeszcze " + Grammar.enumerateCollection(missingGoral(player, false)) + ".");
 			} else {
-				res.add("Znalazłem wszystkie bronie, o które prosił Balduin a on mnie wynagrodził parą mieczy.");
+				res.add("Znalazłem wszystkie góralskie przedmioty, o które prosił Gazda Bartek, a on wynagrodził mnie przepięknym pasem zbójeckim.");
 			}
 			return res;
 	}
 	
 	@Override
 	public String getName() {
-		return "WeaponsCollector2";
+		return "GoralskiCollector2";
 	}
 	
 	// it can be a long quest so they can always start it before they can necessarily finish all
 	@Override
 	public int getMinLevel() {
-		return 60;
+		return 100;
 	}
 
 	@Override
 	public String getNPCName() {
-		return "Balduin";
+		return "Gazda Bartek";
 	}
 	
 	@Override
 	public String getRegion() {
-		return Region.ADOS_SURROUNDS;
+		return Region.TATRY_MOUNTAIN;
 	}
 }

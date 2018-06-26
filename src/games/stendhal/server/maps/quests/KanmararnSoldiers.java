@@ -12,13 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-
-import org.apache.log4j.Logger;
-
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -51,8 +44,16 @@ import games.stendhal.server.entity.npc.condition.QuestNotCompletedCondition;
 import games.stendhal.server.entity.npc.condition.QuestNotInStateCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 import marauroa.common.game.RPObject;
 import marauroa.common.game.SlotIsFullException;
+
+import org.apache.log4j.Logger;
 
 /**
  * QUEST:
@@ -114,7 +115,7 @@ public class KanmararnSoldiers extends AbstractQuest {
 	public String getSlotName() {
 		return QUEST_SLOT;
 	}
-
+	
 	/**
 	 * A CorpseRefiller checks, in regular intervals, if the given corpse.
 	 *
@@ -227,21 +228,21 @@ public class KanmararnSoldiers extends AbstractQuest {
 		final SpeakerNPC henry = npcs.get("Henry");
 
 		henry.add(ConversationStates.ATTENDING,
-			ConversationPhrases.QUEST_MESSAGES,
+			ConversationPhrases.QUEST_MESSAGES, 
 			new AndCondition(new QuestNotCompletedCondition(QUEST_SLOT),
 							 new QuestNotInStateCondition(QUEST_SLOT,"map")),
-			ConversationStates.QUEST_OFFERED,
-			"Znajdź moją #drużynę Peter, Tom i Charles. Udowodnij, że ich znalazłeś a ja Cię wynagrodzę. Zrobisz to?",
+			ConversationStates.QUEST_OFFERED, 
+			"Znajdź moją #drużynę Peter, Tom i Charles. Udowodnij, że ich znalazłeś a ja Cię wynagrodzę. Zrobisz to?", 
 			null);
-
+		
 		henry.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES,
+				ConversationPhrases.QUEST_MESSAGES, 
 				new OrCondition(new QuestCompletedCondition(QUEST_SLOT),
 								 new QuestInStateCondition(QUEST_SLOT,"map")),
-				ConversationStates.ATTENDING,
-				"Jestem smutny, że większość moich przyjaciół nie żyje.",
+				ConversationStates.ATTENDING, 
+				"Jestem smutny, że większość moich przyjaciół nie żyje.", 
 				null);
-
+		
 		henry.add(ConversationStates.QUEST_OFFERED,
 			ConversationPhrases.YES_MESSAGES, null,
 			ConversationStates.ATTENDING,
@@ -269,14 +270,14 @@ public class KanmararnSoldiers extends AbstractQuest {
 				ConversationStates.ATTENDING,
 				"Dobrze. Rozumiem. Też się boje #krasnali.", 
 				new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -5.0));
-
+		
 		final List<ChatAction> actions = new LinkedList<ChatAction>();
 		actions.add(new IncreaseXPAction(2500));
 		actions.add(new DropInfostringItemAction("skórzane spodnie","tom"));
 		actions.add(new DropInfostringItemAction("zbroja łuskowa","peter"));
-		actions.add(new IncreaseKarmaAction(15.0));
+		actions.add(new IncreaseKarmaAction(15.0));	
 		actions.add(new GiveMapAction(false));
-
+		
 		henry.add(ConversationStates.IDLE,
 				ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(henry.getName()),
@@ -285,7 +286,7 @@ public class KanmararnSoldiers extends AbstractQuest {
 						new PlayerHasInfostringItemWithHimCondition("karteczka", "charles"),
 						new PlayerHasInfostringItemWithHimCondition("zbroja łuskowa", "peter")),
 				ConversationStates.ATTENDING,
-				"Och nie! Peter, Tom i Charles nie żyją? *płacz*. W każdym razie oto twoja nagroda i zatrzymaj IOU.",
+				"Och nie! Peter, Tom i Charles nie żyją? *płacz*. W każdym razie oto twoja nagroda i zatrzymaj IOU.", 
 				new MultipleActions(actions));
 
 		henry.add(ConversationStates.IDLE,
@@ -303,19 +304,19 @@ public class KanmararnSoldiers extends AbstractQuest {
 
 		henry.add(ConversationStates.ATTENDING, Arrays.asList("map", "group", "help", "mapa", "pomoc"), 
 				new OrCondition(
-					new	QuestCompletedCondition(QUEST_SLOT),
+					new	QuestCompletedCondition(QUEST_SLOT), 
 					new AndCondition(new HenryQuestCompletedCondition(),
 					new PlayerOwnsItemIncludingBankCondition("mapa"))),
 				ConversationStates.ATTENDING,
 				"Jestem smutny, bo większość moich przyjaciół nie żyje.", null);
 
-		henry.add(ConversationStates.ATTENDING, Arrays.asList("map", "mapa"),
+		henry.add(ConversationStates.ATTENDING, Arrays.asList("map", "mapa"), 
 				new AndCondition(
-					new	QuestNotCompletedCondition(QUEST_SLOT),
+					new	QuestNotCompletedCondition(QUEST_SLOT), 
 					new HenryQuestCompletedCondition(),
 					new NotCondition(new PlayerOwnsItemIncludingBankCondition("mapa"))),
 				ConversationStates.ATTENDING,
-				"Na szczęście narysowałem kopię mapy, ale proszę nie zgub jej.",
+				"Na szczęście narysowałem kopię mapy, ale proszę nie zgub jej.", 
 				new GiveMapAction(true));
 
 		henry.add(ConversationStates.ATTENDING, Arrays.asList("map", "mapa"),
@@ -333,7 +334,7 @@ public class KanmararnSoldiers extends AbstractQuest {
 		// Now we create the corpse of the second NPC
 		final Corpse tom = new Corpse("youngsoldiernpc", 5, 47);
 		// he died first
-		tom.setStage(4);
+		tom.setStage(4); 
 		tom.setName("Tom");
 		tom.setKiller("patrol krasnali");
 		// Add our new Ex-NPC to the game world
@@ -347,7 +348,7 @@ public class KanmararnSoldiers extends AbstractQuest {
 		// Now we create the corpse of the third NPC
 		final Corpse charles = new Corpse("youngsoldiernpc", 94, 5);
 		// he died second
-		charles.setStage(3);
+		charles.setStage(3); 
 		charles.setName("Charles");
 		charles.setKiller("patrol krasnali");
 		// Add our new Ex-NPC to the game world
@@ -360,7 +361,7 @@ public class KanmararnSoldiers extends AbstractQuest {
 		// Now we create the corpse of the fourth NPC
 		final Corpse peter = new Corpse("youngsoldiernpc", 11, 63);
 		// he died recently
-		peter.setStage(2);
+		peter.setStage(2); 
 		peter.setName("Peter");
 		peter.setKiller("patrol krasnali");
 		// Add our new Ex-NPC to the game world
@@ -404,7 +405,7 @@ public class KanmararnSoldiers extends AbstractQuest {
 		actions.add(new DropInfostringItemAction("mapa","Henry"));
 		actions.add(new SetQuestAndModifyKarmaAction(QUEST_SLOT, "done", 15.0));	
 		actions.add(new EquipItemAction("buty mainiocyjskie", 1, true));
-
+		
 		james.add(ConversationStates.ATTENDING, 
 				Arrays.asList("map", "henry", "mapa"),
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "map"),
@@ -413,7 +414,7 @@ public class KanmararnSoldiers extends AbstractQuest {
 				"Mapa! Cudownie! Dziękuję. Oto twoja nagroda. Zdobyłem te buty, gdy byłem w #dreamscape.",
 				new MultipleActions(actions));
 
-		james.add(ConversationStates.ATTENDING,
+		james.add(ConversationStates.ATTENDING, 
 				Arrays.asList("map", "henry", "mapa"),
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "map"),
 								new NotCondition(new PlayerHasInfostringItemWithHimCondition("mapa", "henry"))),
@@ -421,21 +422,21 @@ public class KanmararnSoldiers extends AbstractQuest {
 				"Cóż, gdzie jest mapa?",
 				null);
 
-		james.add(ConversationStates.ATTENDING, ConversationPhrases.QUEST_MESSAGES,
+		james.add(ConversationStates.ATTENDING, ConversationPhrases.QUEST_MESSAGES, 
 				new QuestCompletedCondition(QUEST_SLOT),
 				ConversationStates.ATTENDING,
 				"Dziękuję za przyniesienie mapy!", null);
-
-		james.add(ConversationStates.ATTENDING, ConversationPhrases.HELP_MESSAGES,
+		
+		james.add(ConversationStates.ATTENDING, ConversationPhrases.HELP_MESSAGES, 
 				new QuestCompletedCondition(QUEST_SLOT),
 				ConversationStates.ATTENDING,
 				"Dziękuję za przyniesienie mapy!", null);
-
+		
 		james.add(ConversationStates.ATTENDING, Arrays.asList("map", "henry",
-				 "group", "one", "mapa", "drużyna"),
-				new QuestCompletedCondition(QUEST_SLOT),
-				ConversationStates.ATTENDING,
-				"Dziękuję za przyniesienie mapy!", null);
+			 "group", "one", "mapa", "drużyna"),
+			new QuestCompletedCondition(QUEST_SLOT),
+			ConversationStates.ATTENDING,
+			"Dziękuję za przyniesienie mapy!", null);
 	}
 
 	@Override
@@ -448,7 +449,7 @@ public class KanmararnSoldiers extends AbstractQuest {
 		prepareCorpses();
 		prepareSergeant();
 	}
-
+	
 	@Override
 	public List<String> getHistory(final Player player) {
 			final List<String> res = new ArrayList<String>();
@@ -483,7 +484,7 @@ public class KanmararnSoldiers extends AbstractQuest {
 	public String getName() {
 		return "KanmararnSoldiers";
 	}
-
+	
 	@Override
 	public int getMinLevel() {
 		return 40;
@@ -493,7 +494,7 @@ public class KanmararnSoldiers extends AbstractQuest {
 	public String getNPCName() {
 		return "Henry";
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.SEMOS_DUNGEONS;

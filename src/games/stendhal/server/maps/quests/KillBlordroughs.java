@@ -12,13 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-
-import org.apache.log4j.Logger;
-
 import games.stendhal.common.MathHelper;
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.common.parser.Sentence;
@@ -34,6 +27,13 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.util.TimeUtil;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
 
 /**
  * QUEST: KillBlordroughs
@@ -47,32 +47,32 @@ import games.stendhal.server.util.TimeUtil;
  * <li> Despot asking you to kill 100 blordrough warriors.
  * <li> Kill them and go back to Despot for your reward.
  * </ul>
- *
+ * 
  *
  * REWARD:<ul>
  * <li> 500k XP
  * <li> 50k moneys
- * <li> 5 karma for killing 100 creatures
- * <li> 5 karma for killing every 50 next creatures
+ * <li> 100 karma for killing 100 creatures
+ * <li> 50 karma for killing every 50 next creatures
  * </ul>
  *
  * REPETITIONS: <ul><li> once a week.</ul>
  */
 
  public class KillBlordroughs extends AbstractQuest {
-
+	 
 	private static final String QUEST_NPC = "Despot Halb Errvl";
 	private static final String QUEST_SLOT = "kill_blordroughs";
-	private final long questdelay = MathHelper.MILLISECONDS_IN_ONE_WEEK;
+	private final long questdelay = MathHelper.MILLISECONDS_IN_ONE_WEEK;	
 	protected final int killsnumber = 100;
-	private SpeakerNPC npc;
+	private SpeakerNPC npc;	
 	private static Logger logger = Logger.getLogger(KillBlordroughs.class);
-
+	
 	protected static List<String> BLORDROUGHS = Arrays.asList(
-			"blordrough quartermaster",
-			"blordrough corporal",
-			"blordrough storm trooper");
-
+			"blordrough kwatermistrz",
+			"uzbrojony lider",
+			"superczłowiek");
+	
 	/**
 	 * function returns list of blordrough creatures.
 	 * @return - list of blordrough creatures
@@ -88,7 +88,7 @@ import games.stendhal.server.util.TimeUtil;
 		}
 		return blordroughs;
 	}
-
+	
 	/**
 	 * function checking if quest is active for player or no.
 	 * @param player - player for who we will check quest state.
@@ -100,11 +100,11 @@ import games.stendhal.server.util.TimeUtil;
 		}
 		return false;
 	}
-
+	
 	/**
 	 * function decides, if quest can be given to player
 	 * @param player - player for which we will check quest slot
-	 * @param currenttime
+	 * @param currenttime 
 	 * @return - true if player can get quest.
 	 */
 	private boolean questCanBeGiven(final Player player, final Long currenttime) {
@@ -113,7 +113,7 @@ import games.stendhal.server.util.TimeUtil;
 		}
 		if (player.getQuest(QUEST_SLOT, 0).equals("done")) {
 			final String questLast = player.getQuest(QUEST_SLOT, 1);
-			final Long time = currenttime -
+			final Long time = currenttime - 
 				Long.parseLong(questLast);
 			if (time > questdelay) {
 				return true;
@@ -121,11 +121,11 @@ import games.stendhal.server.util.TimeUtil;
 		}
 		return false;
 	}
-
+	
 	/**
 	 * function will return NPC answer how much time remains.
 	 * @param player - chatting player.
-	 * @param currenttime
+	 * @param currenttime 
 	 * @return - NPC's reply string
 	 */
 	private String getNPCTextReply(final Player player, final Long currenttime) {
@@ -136,32 +136,32 @@ import games.stendhal.server.util.TimeUtil;
 					questdelay - currenttime;
 
 			if (timeRemaining > 0) {
-				reply = "Please check back in "
+				reply = "Proszę sprawdź za "
 						+ TimeUtil.approxTimeUntil((int) (timeRemaining / 1000L))
 						+ ".";
 			} else {
 				// something wrong.
-				reply = "I dont want to decide about you now.";
+				reply = "Nie chcę decydować za ciebie.";
 				logger.error("wrong time count	for player "+player.getName()+": "+
-						"current time is "+currenttime+
-						", last quest time is "+questLast,
+						"aktualny czas to "+currenttime+
+						", czas ukończenia zadania to "+questLast, 
 						new Throwable());
 			}
 		}
 		return reply;
 	}
-
+	
 	/**
 	 * function returns difference between recorded number of blordrough creatures
 	 *     and currently killed creatures numbers.
-	 * @param player - player for who we counting this
+	 * @param player - player for who we counting this 
 	 * @return - number of killed blordrough creatures
 	 */
 	private int getKilledCreaturesNumber(final Player player) {
 		int count = 0;
 		String temp;
-		int solo;
-		int shared;
+		int solo; 
+		int shared; 
 		int recsolo;
 		int recshared;
 		final LinkedList<Creature> blordroughs = getBlordroughs();
@@ -186,7 +186,7 @@ import games.stendhal.server.util.TimeUtil;
 			} else {
 				solo = Integer.parseInt(temp);
 			}
-
+			
 			temp = player.getKeyedSlot("!kills", "shared."+tempName);
 			if (temp==null) {
 				shared = 0;
@@ -198,14 +198,14 @@ import games.stendhal.server.util.TimeUtil;
 		}
 		return count;
 	}
-
+	
 	/**
 	 * function will update player quest slot.
 	 * @param player - player for which we will record quest.
 	 */
 	private void writeQuestRecord(final Player player) {
 		StringBuilder sb = new StringBuilder();
-		LinkedList<Creature> sortedcreatures = getBlordroughs();
+		LinkedList<Creature> sortedcreatures = getBlordroughs();		
 		sb.append("given");
 		for (int i=0; i<sortedcreatures.size(); i++) {
 			String temp;
@@ -217,28 +217,28 @@ import games.stendhal.server.util.TimeUtil;
 			} else {
 				solo = Integer.parseInt(temp);
 			}
-
+			
 			temp = player.getKeyedSlot("!kills", "shared."+sortedcreatures.get(i).getName());
 			if (temp==null) {
 				shared = 0;
 			} else {
 				shared = Integer.parseInt(temp);
 			}
-
+				
 			sb.append(";"+solo);
-			sb.append(";"+shared);
+			sb.append(";"+shared);			
 		}
 		//player.sendPrivateText(sb.toString());
 		player.setQuest(QUEST_SLOT, sb.toString());
 	}
-
+	
 	/**
 	 * function will complete quest and reward player.
 	 * @param player - player to be rewarded.
 	 * @param killed - number of killed creatures.
 	 */
 	private void rewardPlayer(final Player player, int killed) {
-		int karmabonus = 5*(2*killed/killsnumber-1);
+		int karmabonus = 50*(2*killed/killsnumber-1);
 		final StackableItem money = (StackableItem) SingletonRepository.getEntityManager()
 			.getItem("money");
 		money.setQuantity(50000);
@@ -247,7 +247,7 @@ import games.stendhal.server.util.TimeUtil;
 		player.addKarma(karmabonus);
 		player.addXP(500000);
 	}
-
+	 
 	/**
 	 * class for quest talking.
 	 */
@@ -260,54 +260,54 @@ import games.stendhal.server.util.TimeUtil;
 
 				if(killed==0) {
 					// player killed no creatures but asked about quest again.
-					npc.say("I already explained to you what i need. Are you an idiot, as you cant remember this simple thing about #blordroughs?");
+					npc.say("Już wyjaśniłem ci czego pragnę. Czy jesteś tak tępy aby nie pamiętać o zabiciu żołnierzy #blordroughs?");
 					return;
 				}
 				if(killed < killsnumber) {
 					// player killed less then needed soldiers.
-					npc.say("You killed only "+killed+" blordrough "+Grammar.plnoun(killed, "soldier")+".");
+					npc.say("Zabiłeś tylko "+killed+" blordrough "+Grammar.plnoun(killed, "żołnierzy")+".");
 					return;
 				}
 				if(killed == killsnumber) {
 					// player killed no more no less then needed soldiers
-					npc.say("Good work! Take this moneys. And if you will need assassin job again, ask me in one week. I think they will try to fight me again.");
+					npc.say("Dobra robota! Tu są pieniądze. Jeżeli podoba ci sią praca u mnie, powróć tu za tydzień. Myślę iż w ciągu tego czasu zbiorą ponownie armię aby nas zaatakować.");
 				} else {
 					// player killed more then needed soldiers
-					npc.say("Pretty good! You killed "+(killed-killsnumber)+" extra "+
-							Grammar.plnoun(killed-killsnumber, "soldier")+"! Take this moneys, and remember, i may wish you to do this job again in one week!");
-				}
+					npc.say("Bardzo dobrze! Zabiłeś "+(killed-killsnumber)+" więcej "+
+							Grammar.plnoun(killed-killsnumber, "żołnierzy")+"! Oto zapłata, ale  pamiętaj, że za tydzień możesz wykonać zadanie ponownie!");
+				}				
 				rewardPlayer(player, killed);
 			} else {
 				final Long currtime = System.currentTimeMillis();
 				if (questCanBeGiven(player, currtime)) {
 					// will give quest to player.
-					npc.say("I need help in battles with #Blordrough warriors. They really annoying me. Kill at least 100 of any blordrough soldiers and i will reward you.");
-					writeQuestRecord(player);
+					npc.say("Potrzebuję pomocy w walce z #wojskami #blordrough . Są bardzo dokuczliwi. Zabij przynajmniej 100 blordrough żołnierzy, a ja zrewanżuję się w zamian.");
+					writeQuestRecord(player);					
 				} else {
 					npc.say(getNPCTextReply(player, currtime));
 				}
 			}
 		}
 	}
-
+	
 	/**
 	 * add quest state to npc's fsm.
 	 */
-	private void step_1() {
-		npc.add(ConversationStates.ATTENDING,
+	private void step_1() {	
+		npc.add(ConversationStates.ATTENDING, 
 				Arrays.asList("Blordrough","blordrough","blordroughs"),
-				null,
-				ConversationStates.ATTENDING,
-				"My Mithrilbourgh army have great losses in battles with Blordrough soldiers. They coming from side of Ados tunnels.",
+				null, 
+				ConversationStates.ATTENDING, 
+				"Moja armia mithrilbourgh ma duże straty w walkach z żołnierzami blordrough. Podchodzą nas tunelami od strony Ados.",
 				null);
-		npc.add(ConversationStates.ATTENDING,
+		npc.add(ConversationStates.ATTENDING, 
 				ConversationPhrases.QUEST_MESSAGES,
-				null,
-				ConversationStates.ATTENDING,
+				null, 
+				ConversationStates.ATTENDING, 
 				null,
 				new QuestAction());
-	}
-
+	}	 
+	 
 	/**
 	 * add quest to the Stendhal world.
 	 */
@@ -315,18 +315,18 @@ import games.stendhal.server.util.TimeUtil;
 	public void addToWorld() {
 		npc = npcs.get(QUEST_NPC);
 		fillQuestInfo(
-				"Kill Blordroughs",
-				"Despot Halb Errvl wants some Blordrough warriors killed.",
+				"Zabij Blordroughtów",
+				"Despota Halb Errvl chce abyś zabił kilku żołnierzy Blordroughtów.",
 				true);
 		step_1();
 	}
-
+	
 	@Override
 	public List<String> getHistory(final Player player) {
 		// not currently an active quest
 		return new ArrayList<String>();
 	}
-
+	
 	/**
 	 * return name of quest slot.
 	 */
@@ -334,7 +334,7 @@ import games.stendhal.server.util.TimeUtil;
 	public String getSlotName() {
 		return QUEST_SLOT;
 	}
-
+	 
 	/**
 	 * return name of quest.
 	 */
@@ -348,4 +348,4 @@ import games.stendhal.server.util.TimeUtil;
 		return "Despot Halb Errvl";
 	}
 }
-
+ 

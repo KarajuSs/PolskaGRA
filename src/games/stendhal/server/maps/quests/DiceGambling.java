@@ -12,11 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -31,6 +26,13 @@ import games.stendhal.server.entity.npc.condition.NotCondition;
 import games.stendhal.server.entity.npc.condition.PlayerHasItemWithHimCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import marauroa.common.Pair;
 
 public class DiceGambling extends AbstractQuest {
@@ -56,7 +58,7 @@ public class DiceGambling extends AbstractQuest {
 		Sign blackboard = new Sign();
 		blackboard.setPosition(25, 0);
 		blackboard.setEntityClass("blackboard");
-		StringBuilder prizelistBuffer = new StringBuilder("PRIZES:\n");
+		StringBuilder prizelistBuffer = new StringBuilder("NAGRODY:\n");
 		for (int i = 18; i >= 13; i--) {
 			prizelistBuffer.append("\n" + i + ": " + prizes.get(i).first());
 		}
@@ -66,83 +68,83 @@ public class DiceGambling extends AbstractQuest {
 		blackboard = new Sign();
 		blackboard.setPosition(26, 0);
 		blackboard.setEntityClass("blackboard");
-		prizelistBuffer = new StringBuilder("PRIZES:\n");
+		prizelistBuffer = new StringBuilder("NAGRODY:\n");
 		for (int i = 12; i >= 7; i--) {
 			prizelistBuffer.append("\n" + i + ": " + prizes.get(i).first());
 		}
 		blackboard.setText(prizelistBuffer.toString());
 		zone.add(blackboard);
 
-		ricardo.add(ConversationStates.ATTENDING, "play", null,
+		ricardo.add(ConversationStates.ATTENDING, Arrays.asList("play", "graj", "zagraj", "gramy", "zagram"), null,
 				ConversationStates.QUESTION_1,
-				"In order to play, you have to stake " + STAKE
-						+ " gold. Do you want to pay?", null);
+				"Aby zagrać musisz obstawić " + STAKE
+						+ " złota. Chcesz zapłacić?", null);
 
 		ricardo.add(ConversationStates.QUESTION_1,
 			ConversationPhrases.YES_MESSAGES,
 			new PlayerHasItemWithHimCondition("money", STAKE),
 			ConversationStates.ATTENDING,
-			"OK, here are the dice. Just throw them when you're ready. Good luck!",
+			"Dobrze, oto kości do gry. Rzuć je na stół, gdy będziesz gotowy. Powodzenia!",
 			new ChatAction() {
 				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
 					player.drop("money", STAKE);
 					final Dice dice = (Dice) SingletonRepository.getEntityManager()
-							.getItem("dice");
+							.getItem("kości do gry");
 					dice.setCroupierNPC((CroupierNPC) npc.getEntity());
 					player.equipOrPutOnGround(dice);
 				}
 			});
-
+		
 		ricardo.add(ConversationStates.QUESTION_1,
-			ConversationPhrases.YES_MESSAGES,
+			ConversationPhrases.YES_MESSAGES, 
 			new NotCondition(new PlayerHasItemWithHimCondition("money", STAKE)),
 			ConversationStates.ATTENDING,
-			"Hey! You don't have enough money!", null);
+			"Hej! Nie masz pieniędzy!", null);
 
 		ricardo.add(
 			ConversationStates.QUESTION_1,
 			ConversationPhrases.NO_MESSAGES,
 			null,
 			ConversationStates.ATTENDING,
-			"Coward! How will you ever become a hero when you risk nothing?",
+			"Tchórz! Jak chcesz zostać bohaterem skoro boisz się zaryzykować?",
 			null);
-
+		
 		fillQuestInfo(
-				"Dice Gambling",
-				"Try your luck at Semos Tavern's gambling table.",
+				"Hazard Koścmi",
+				"Spróbuj szczęścia w kości w Semos's Tavern.",
 				true);
 	}
 
 	private Map <Integer, Pair<String, String>> initPrices() {
 		Map<Integer, Pair<String, String>> map = new HashMap<Integer, Pair<String, String>>();
-		map.put(3, new Pair<String, String>("blue shield",
-				"Dude, you are one unlucky guy! I feel so sorry for you! Here, take this blue shield."));
-		map.put(7, new Pair<String, String>("beer",
-				"That's enough for a consolation prize, a bottle of beer."));
-		map.put(8, new Pair<String, String>("wine",
-				"You have won this delicious glass of wine!"));
-		map.put(9, new Pair<String, String>("studded shield",
-				"Take this simple shield as a reward."));
-		map.put(10, new Pair<String, String>("chain legs",
-				"I hope you have a use for these chain legs."));
-		map.put(11,	new Pair<String, String>("antidote",
-			   "This antidote will serve you well when you fight against poisonous creatures."));
-		map.put(12, new Pair<String, String>("sandwich",
-				"You have won a tasty sandwich!"));
-		map.put(13, new Pair<String, String>("cheeseydog",
-				"Take this tasty cheesydog!"));
-		map.put(14, new Pair<String, String>("home scroll",
-		"You have won this very useful home scroll!"));
-		map.put(15,	new Pair<String, String>("greater potion",
-				"You have won a greater potion, but with your luck you'll probably never have to use it!"));
-		map.put(16,	new Pair<String, String>("longbow",
-		"You could be a formidable archer with this prize of a longbow!"));
-		map.put(17,	new Pair<String, String>("red cloak",
-		"You're going to look great in this fashionable red cloak!"));
-		map.put(18, new Pair<String, String>("magic chain helmet",
-				"You have hit the JACKPOT! A magic chain helmet!"));
-
+		map.put(3, new Pair<String, String>("lazurowa tarcza",
+				"Facet, jesteś jednym wielkim pechowcem! Tak mi przykro! Weź tą tarczę lazurową."));
+		map.put(7, new Pair<String, String>("sok z chmielu",
+				"Oto nagroda pocieszenia, sok z chmielu."));
+		map.put(8, new Pair<String, String>("napój z winogron",
+				"Wygrałeś ten wyborny napój z winogron!"));
+		map.put(9, new Pair<String, String>("tarcza ćwiekowa",
+				"Weź tą zwykłą tarczę jako nagrodę."));
+		map.put(10, new Pair<String, String>("spodnie kolcze",
+				"Mam nadzieję, że przydadzą się Tobie te spodnie kolcze."));
+		map.put(11,	new Pair<String, String>("antidotum",
+			   "To antidotum  przyda Ci się, gdy będziesz walczył z zatruwającymi potworami."));
+		map.put(12, new Pair<String, String>("kanapka",
+				"Wygrałeś pyszną kanapkę!"));
+		map.put(13, new Pair<String, String>("hotdog z serem",
+				"Weź ten smaczny hotdog z serem."));
+		map.put(14, new Pair<String, String>("zwój semos",
+				"Wygrałeś ten użyteczny zwój semos!"));
+		map.put(15,	new Pair<String, String>("duży eliksir",
+				"Wygrałeś duży eliksir, ale z Twoim szczęściem pewnie nigdy go nie użyjesz!"));
+		map.put(16, new Pair<String, String>("długi łuk",
+				"Z tą nagrodą możesz być budzącym grozę łucznikiem!"));
+		map.put(17,	new Pair<String, String>("płaszcz karmazynowy",
+				"Wyglądasz niesamowicie w tym modnym karmazynowym płaszczu!"));
+		map.put(18, new Pair<String, String>("hełm zabójcy",
+				"Trafiłeś JACKPOT! Hełm zabójcy!"));
+		
 		return map;
 	}
 
@@ -150,17 +152,17 @@ public class DiceGambling extends AbstractQuest {
 	public String getName() {
 		return "DiceGambling";
 	}
-
+	
 	@Override
 	public boolean isVisibleOnQuestStatus() {
 		return false;
 	}
-
+	
 	@Override
 	public List<String> getHistory(final Player player) {
 		return new ArrayList<String>();
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.SEMOS_CITY;

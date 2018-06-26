@@ -12,9 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.SpeakerNPC;
@@ -28,28 +25,32 @@ import games.stendhal.server.entity.npc.condition.QuestNotCompletedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * QUEST: Learn about Orbs
- *
+ * 
  * PARTICIPANTS:
  * <ul>
  * <li>Ilisa, the summon healer in Semos temple</li>
  * </ul>
- *
+ * 
  * STEPS:
  * <ul>
  * <li>Ilisa offers to teach you about orbs</li>
  * <li>You use the orb</li>
  * <li>You tell her if you were successful.</li>
  * </ul>
- *
+ * 
  * REWARD:
  * <ul>
  * <li>50 XP</li>
  * <li>Ability to use orb in semos temple which teleports you outside into city</li>
  * <li>Ability to use other orbs e.g. in orril lich palace</li>
  * </ul>
- *
+ * 
  * REPETITIONS:
  * <ul>
  * <li>Can always learn about orbs but not get the xp each time</li>
@@ -60,7 +61,7 @@ public class LearnAboutOrbs extends AbstractQuest {
 	private static final String QUEST_SLOT = "learn_scrying";
 
 
-
+	
 	@Override
 	public String getSlotName() {
 		return QUEST_SLOT;
@@ -72,72 +73,72 @@ public class LearnAboutOrbs extends AbstractQuest {
 		if (!player.hasQuest(QUEST_SLOT)) {
 			return res;
 		}
-		res.add("I have met Ilisa in Semos Temple.");
+		res.add("Spotkałem Ilisa w świątyni w Semos.");
 		final String questState = player.getQuest(QUEST_SLOT);
 		if (questState.equals("done")) {
-			res.add("Ilisa taught me how to use orbs. I must be careful as they could send me somewhere dangerous.");
+			res.add("Ilisa pokazała mi jak używać kul. Muszę uważać, ponieważ mogą mnie wysłać w inne niebezpieczne miejsce.");
 		}
 		return res;
 	}
 
 	private void step1() {
 		final SpeakerNPC npc = npcs.get("Ilisa");
-
+		
 		npc.add(ConversationStates.ATTENDING,
-			ConversationPhrases.QUEST_MESSAGES,
+			ConversationPhrases.QUEST_MESSAGES, 
 			new QuestNotCompletedCondition(QUEST_SLOT),
-			ConversationStates.QUEST_OFFERED,
-			"Some orbs have special properties. I can teach you how to #use an orb, like the one on this table.", null);
+			ConversationStates.QUEST_OFFERED, 
+			"Pewne kule mają specjalne właściwości. Mogłabym Cię nauczyć jak #używać kuli jak ta co leży na stole.", null);
 
 		npc.add(ConversationStates.ATTENDING,
 			ConversationPhrases.QUEST_MESSAGES,
 			new QuestCompletedCondition(QUEST_SLOT),
-			ConversationStates.ATTENDING,
-			"I can remind you how to #use orbs.", null);
+			ConversationStates.ATTENDING, 
+			"Mogę Ci przypomnieć jak #używać kuli.", null);
 
 		// player interested in orb
 		npc.add(ConversationStates.QUEST_OFFERED,
-			"use",
+			Arrays.asList("use", "używać"), 
 			new LevelGreaterThanCondition(10),
 			ConversationStates.QUESTION_1,
-			"Just right click on the orb and select Use. Did you get any message?",
+			"Naciśnij prawy przycisk i wybierz Użyj. Dostałeś jakąś wiadomość?",
 			null);
 
 		// player interested in orb but level < 10
 		npc.add(ConversationStates.QUEST_OFFERED,
-			"use",
+			Arrays.asList("use", "używać"), 
 			new NotCondition(new LevelGreaterThanCondition(10)),
 			ConversationStates.ATTENDING,
-			"Oh oh, I just noticed you are still new here. Perhaps you better come back when you have more experience. Until then if you need any #help just ask!",
+			"Aha, Dostałam wiadomość, że wciąż jesteś tutaj nowy. Może wróć później, gdy będziesz miał więcej doświadczenia. Na razie jeżeli potrzebujesz #pomocy to pytaj!",
 			null);
 
 		// player wants reminder on Use
 		npc.add(
 			ConversationStates.ATTENDING,
-			"use",
+			Arrays.asList("use", "używać"),
 			null,
 			ConversationStates.ATTENDING,
-			"Just right click on part of the orb, and select Use.",
+			"Naciśnij prawy przycisk na kuli i wybierz Użyj.",
 			null);
 
 		// player got message from orb
 		npc.add(ConversationStates.QUESTION_1,
 			ConversationPhrases.YES_MESSAGES, null,
 			ConversationStates.ATTENDING,
-			"You're a natural! Now that you have learned to use that orb, it will teleport you to a place of magical significance. So don't use it unless you will be able to find your way back!",
+			"Jesteś naturalny! Teraz jak nauczyłeś się korzystać z kuli to możesz się przenieść do miejsca pełnego magi. Nie używaj go dopóki nie będziesz mógł znaleźć drogi powrotnej!",
 			new MultipleActions(new IncreaseXPAction(50), new SetQuestAction(QUEST_SLOT, "done")));
 
 		// player didn't get message, try again
 		npc.add(ConversationStates.QUESTION_1, ConversationPhrases.NO_MESSAGES,
 			null, ConversationStates.QUESTION_1,
-			"Well, you would need to stand next to it. Move closer, do you get a message now?", null);
+			"Cóż musisz stanąć obok. Podejdź blisko. Dostałeś wiadomość?", null);
 	}
 
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Learn About Orbs",
-				"Ilisa will teach about using Orbs.",
+				"Nauka o Kulach",
+				"Ilisa nauczy mnie o Kulach.",
 				false);
 		step1();
 
@@ -147,12 +148,12 @@ public class LearnAboutOrbs extends AbstractQuest {
 	public String getName() {
 		return "LearnAboutOrbs";
 	}
-
+	
 	@Override
 	public int getMinLevel() {
 		return 11;
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.SEMOS_CITY;

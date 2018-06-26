@@ -12,11 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.entity.npc.ChatAction;
@@ -34,19 +29,24 @@ import games.stendhal.server.entity.npc.condition.QuestNotStartedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * QUEST: Fisherman's license Collector
- *
+ * 
  * PARTICIPANTS:
  * <ul>
  * <li> Santiago the fisherman</li>
  * </ul>
- *
+ * 
  * STEPS:
  * <ul>
  * <li> The player must bring all kinds of fishes to the fisherman</li>
  * </ul>
- *
+ * 
  * REWARD:
  * <ul>
  * <li> 2000 XP</li>
@@ -71,9 +71,9 @@ public class FishermansLicenseCollector extends AbstractQuest {
 	public String getSlotName() {
 		return QUEST_SLOT;
 	}
-
-	private static final List<String> neededFish =
-		Arrays.asList("trout", "perch", "mackerel", "cod", "roach", "char", "clownfish", "surgeonfish");
+	
+	private static final List<String> neededFish = 
+		Arrays.asList("pstrąg", "okoń", "makrela", "dorsz", "płotka", "palia alpejska", "błazenek", "pokolec");
 
 	/**
 	 * Returns a list of the names of all fish that the given player still has
@@ -117,37 +117,37 @@ public class FishermansLicenseCollector extends AbstractQuest {
 					new QuestCompletedCondition(FishermansLicenseQuiz.QUEST_SLOT),
 					new QuestNotStartedCondition(QUEST_SLOT)),
 			ConversationStates.ATTENDING,
-			"Hello again! The second part of your #exam is waiting for you!",
+			"Witaj znowu! Druga część twojego #egzaminu czeka na Ciebie!",
 			null);
 
 		// player is willing to help
 		npc.add(ConversationStates.QUEST_2_OFFERED,
 			ConversationPhrases.YES_MESSAGES, null,
 			ConversationStates.ATTENDING,
-			"You have to bring me one fish of each #species so that I can see what you have learned so far.",
+			"Przynieś mi rybę po jednej z każdego #rodzaju, abym wiedział, że je znasz.",
 			new SetQuestAction(QUEST_SLOT, ""));
 
 		// player is not willing to help
 		npc.add(ConversationStates.QUEST_2_OFFERED,
 			ConversationPhrases.NO_MESSAGES, null,
 			ConversationStates.ATTENDING,
-			"It's okay, then you can excercise a bit more.",
+			"Dobrze możesz poćwiczyć trochę dłużej.",
 			new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -5.0));
 
 		// player asks what exactly is missing
-		npc.add(ConversationStates.ATTENDING, "species",
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("species", "rodzaju", "rodzaj"),
 			new QuestActiveCondition(QUEST_SLOT),
 			ConversationStates.QUESTION_2, null,
 			new ChatAction() {
 				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					final List<String> needed = missingFish(player, true);
-					raiser.say("There " + Grammar.isare(needed.size())
+					raiser.say("Oto " + Grammar.isare(needed.size())
 							+ " "
-							+ Grammar.quantityplnoun(needed.size(), "fish", "one")
-							+ " still missing: "
+							+ Grammar.quantityplnoun(needed.size(), "fish", "jeden")
+							+ " wciąż brakuje: "
 							+ Grammar.enumerateCollection(needed)
-							+ ". Do you have such fish with you?");
+							+ ". Czy masz przy sobie którąś z tych ryb?");
 				}
 			});
 
@@ -157,15 +157,15 @@ public class FishermansLicenseCollector extends AbstractQuest {
 				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					final List<String> missing = missingFish(player, false);
-					raiser.say("Let me know as soon as you find "
-							+ Grammar.itthem(missing.size()) + ". Goodbye.");
+					raiser.say("Daj mi znać, gdy znajdziesz "
+							+ Grammar.itthem(missing.size()) + ". Dowidzenia.");
 				}
 			});
 
 		// player says he has a required fish with him
 		npc.add(ConversationStates.QUESTION_2,
 			ConversationPhrases.YES_MESSAGES, null,
-			ConversationStates.QUESTION_2, "Which fish did you catch?",
+			ConversationStates.QUESTION_2, "Jaką rybę złapałeś?",
 			null);
 
 		for(final String itemName : neededFish) {
@@ -186,11 +186,11 @@ public class FishermansLicenseCollector extends AbstractQuest {
 								missing = missingFish(player, true);
 
 								if (!missing.isEmpty()) {
-									raiser.say("This fish is looking very good! Do you have another one for me?");
+									raiser.say("Ta ryba wygląda nieźle! Masz inną dla mnie?");
 								} else {
 									player.addXP(2000);
 									player.addKarma(25);
-									raiser.say("You did a great job! Now you are a real fisherman and you will be much more successful when you catch fish!");
+									raiser.say("Wykonałeś dobrą robotę! Teraz jesteś prawdziwym rybakiem i będziesz lepszym, gdy złowisz rybę!");
 									player.setQuest(QUEST_SLOT, "done");
 									// once there are other ways to increase your
 									// fishing skills, increase the old skills
@@ -199,12 +199,12 @@ public class FishermansLicenseCollector extends AbstractQuest {
 									player.notifyWorldAboutChanges();
 								}
 							} else {
-								raiser.say("Don't try to cheat! I know that you don't have "
+								raiser.say("Nie próbuj mnie oszukać! Wiem, że nie masz "
 										+ Grammar.a_noun(itemName)
-										+ ". What do you really have for me?");
+										+ ". Co masz dla mnie?");
 							}
 						} else {
-							raiser.say("You cannot cheat in this exam! I know that you already gave this fish to me. Do you have other fish for me?");
+							raiser.say("Nie możesz oszukiwać na tym egzaminie! Wiem, że już mi dałeś tą rybę. Masz inną rybę dla mnie?");
 						}
 					}
 				});
@@ -225,7 +225,7 @@ public class FishermansLicenseCollector extends AbstractQuest {
 			new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 					new QuestActiveCondition(QUEST_SLOT)),
 			ConversationStates.ATTENDING,
-			"Welcome back. I hope you were not lazy and that you brought me some other fish #species.",
+			"Witaj znowu. Mam nadzieję, że się nie ociągałeś i przyniosłeś mi inny #rodzaj ryby.",
 			null);
 
 		// player returns after finishing the quest
@@ -235,42 +235,42 @@ public class FishermansLicenseCollector extends AbstractQuest {
 			new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 					new QuestCompletedCondition(QUEST_SLOT)),
 			ConversationStates.ATTENDING,
-			"Welcome fisherman! Nice to see you again. I wish you luck for fishing.",
+			"Witaj rybaku! Miło Cię znowu widzieć. Życzę szczęścia w łowieniu ryb.",
 			null);
 	}
 
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Fishermans License part 2",
-				"Santiago will grant a fishermans license to those who can prove their skills.",
+				"Karta Rybacka część 2",
+				"Jesteś prawdziwym rybakiem? Jeżeli tak to spróbuj przekonać rybaka Santiago o swoich umiejętnościach przynosząć mu rybę z każdego rodzaju.",
 				true);
 		step_1();
 		step_2();
 		step_3();
 	}
 
-
+	
 	@Override
 	public List<String> getHistory(final Player player) {
 			final List<String> res = new ArrayList<String>();
 			if (!player.hasQuest(QUEST_SLOT)) {
 				return res;
 			}
-			res.add("The second part of my fishing exam is to take Santiago many species of fish.");
+			res.add("Druga część egzaminu Santiago to połów  wiele gatunków ryb.");
 			if (!isCompleted(player)) {
-				res.add("I still need to bring " + Grammar.enumerateCollection(missingFish(player, false)) + " for Santiago to inspect.");
+				res.add("Wciąż muszę przynieść " + Grammar.enumerateCollection(missingFish(player, false)) + " dla Santiago do sprawdzenia.");
 			} else {
-				res.add("I brought every fish Santiago wanted and now I'm a real fisherman! I will have more success when I fish.");
+				res.add("Przyniosłem wszystkie gatunki ryb jakie Santiago chciał, a teraz jestem prawdziwym rybakiem! Będę miał więcej sukcesów podczas połowów.");
 			}
 			return res;
 	}
-
+	
 	@Override
 	public String getName() {
 		return "FishermansLicenseCollector";
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.ADOS_CITY;

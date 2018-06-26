@@ -234,7 +234,7 @@ public class MeetHayunn extends AbstractQuest {
 	public void addToWorld() {
 		fillQuestInfo(
 				"Spotkanie Hayunna Naratha",
-				"Hayunn Naratha może nauczyć młodych bohaterów podstaw świata PolskaGRA.",
+				"Hayunn Naratha może nauczyć młodych bohaterów podstaw świata PolskaGra.",
 				false);
 		prepareHayunn();
 	}

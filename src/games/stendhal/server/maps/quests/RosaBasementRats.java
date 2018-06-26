@@ -1,4 +1,3 @@
-/* $Id$ */
 /***************************************************************************
  *                   (C) Copyright 2003-2011 - Stendhal                    *
  ***************************************************************************
@@ -10,6 +9,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+// Based on CleanStorageSpace.
 package games.stendhal.server.maps.quests;
 
 import games.stendhal.server.entity.npc.ChatAction;
@@ -57,84 +57,84 @@ import marauroa.common.Pair;
  * REPETITIONS:
  * <li> None.
  */
-public class CleanStorageSpace extends AbstractQuest {
-	private static final String QUEST_SLOT = "clean_storage";
+public class RosaBasementRats extends AbstractQuest {
+	private static final String QUEST_SLOT = "pomoc_w_tawernie_rosa";
 
 	@Override
 	public String getSlotName() {
 		return QUEST_SLOT;
 	}
-	
+
 	@Override
 	public List<String> getHistory(final Player player) {
 		final List<String> res = new ArrayList<String>();
 		if (!player.hasQuest(QUEST_SLOT)) {
 			return res;
 		}
-		res.add("Spotkałem Eonna w jej domu obok piekarni.");
+		res.add("Spotkałem Rose w karczmie Gdańskiej.");
 		final String questState = player.getQuest(QUEST_SLOT, 0);
 		if ("rejected".equals(questState)) {
-			res.add("Nie chcę wyczyścić jej piwnicy z potworów.");
-		return res;	
+			res.add("Odmówiłem Rosie pomocy.");
+		return res;
 		}
-		res.add("Obiecałem Eonna zabić szczury i węże w piwnicy.");
-		if ("start".equals(questState) && player.hasKilled("szczur") && player.hasKilled("szczur jaskiniowy") && player.hasKilled("wąż") || "done".equals(questState)) {
-		res.add("Wyczyściłem piwnicę Eonny z gryzoni i węży.");
+		res.add("Postanowiłem pomóc Rosie.");
+		if (("start".equals(questState) && player.hasKilled("rat") && player.hasKilled("szczur jaskiniowy") && player.hasKilled("wąż")) || "done".equals(questState)) {
+			res.add("Piwnica została oczyszczona z gryzoni i węży.");
 		}
 		if ("done".equals(questState)) {
-			res.add("Eonna podziękowała mi i nazwała mnie swoim bohaterem.");
+			res.add("Rosa jest zadowolona.");
 		}
 		return res;
 	}
-	
+
 	private void step_1() {
-		final SpeakerNPC npc = npcs.get("Eonna");
+		final SpeakerNPC npc = npcs.get("Rosa");
 
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.QUEST_MESSAGES, 
 				new QuestNotStartedCondition(QUEST_SLOT),
 				ConversationStates.QUEST_OFFERED,
-				"Moja #piwnica jest pełna szczurów. Pomożesz mi?",
+				"Właściciel tej tawerny kazał mi poszukać jakiegoś bohatera aby mógł się pozbyć tych gryzoni i węży w naszej #'piwnicy', które się tam zalęgły. Pomożesz mi?",
 				null);
 
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.QUEST_MESSAGES, 
 				new QuestActiveCondition(QUEST_SLOT),
 				ConversationStates.ATTENDING, 
-				"Dziękuję jeszcze raz! Sądzę, że na dole jest nadal czysto.", null);
+				"Pięknie dziękuję! Myślę, że na dole jest nadal czysto.", null);
 
 		final List<ChatAction> start = new LinkedList<ChatAction>();
-		
+				
 		final HashMap<String, Pair<Integer, Integer>> toKill = 
 			new HashMap<String, Pair<Integer, Integer>>();
 		// first number is required solo kills, second is required shared kills
-		toKill.put("szczur", new Pair<Integer, Integer>(0,1));
-		toKill.put("szczur jaskiniowy", new Pair<Integer, Integer>(0,1));
+		toKill.put("szczur", new Pair<Integer, Integer>(0,8));
+		toKill.put("szczur jaskiniowy", new Pair<Integer, Integer>(0,5));
 		toKill.put("wąż", new Pair<Integer, Integer>(0,1));
 
 		start.add(new IncreaseKarmaAction(2.0));
 		start.add(new SetQuestAction(QUEST_SLOT, 0, "start"));
 		start.add(new StartRecordingKillsAction(QUEST_SLOT, 1, toKill));
-		
+
 		npc.add(
 				ConversationStates.QUEST_OFFERED,
 				ConversationPhrases.YES_MESSAGES,
 				null,
 				ConversationStates.ATTENDING,
-				"Och, dziękuję! Poczekam tutaj, a jeżeli spróbują uciec to uderzę je moją miotłą!",
+				"Dobrze, będę tutaj na Ciebie oczekiwała jak wrócisz. ",
 				new MultipleActions(start));
 
 		npc.add(ConversationStates.QUEST_OFFERED, ConversationPhrases.NO_MESSAGES, null,
 				ConversationStates.ATTENDING,
-				"*chlip* Cóż może ktoś inny będzie moim bohaterem...",
-				new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -2.0));
+				"Cóż może ktoś inny będzie moim bohaterem...",
+				new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -10.0));
 
 		npc.add(
 				ConversationStates.QUEST_OFFERED,
 				Arrays.asList("piwnica", "piwnicy", "basement", "storage space"),
 				null,
 				ConversationStates.QUEST_OFFERED,
-				"Tak, idź na dół po schodach. Tam jest cała gromada obrzydliwych szczurów. Chyba widziałam tam też węża. Powinieneś uważać... wciąż chcesz mi pomóc?",
+				"Zejście do naszej piwnicy w tawernie znajduje się po prawej stronie, schodami w dół... Powinieneś tam uważać, jest tam strasznie dużo szczurów i bodajże widziałam węże... pomożesz mi?",
 				null);
 	}
 
@@ -144,11 +144,10 @@ public class CleanStorageSpace extends AbstractQuest {
 
 	private void step_3() {
 
-		final SpeakerNPC npc = npcs.get("Eonna");
-		
+		final SpeakerNPC npc = npcs.get("Rosa");
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
 		reward.add(new IncreaseKarmaAction(10.0));
-		reward.add(new IncreaseXPAction(500));
+		reward.add(new IncreaseXPAction(550));
 		reward.add(new SetQuestAction(QUEST_SLOT, "done"));
 
 		// the player returns to Eonna after having started the quest.
@@ -163,7 +162,7 @@ public class CleanStorageSpace extends AbstractQuest {
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestInStateCondition(QUEST_SLOT, 0, "start"), new NotCondition(new KilledForQuestCondition(QUEST_SLOT, 1))),
 				ConversationStates.QUEST_STARTED,
-				"Nie pamiętasz, że obiecałeś mi pomóc w oczyszczeniu mojej #piwnicy ze szczurów?",
+				"Nie pamiętasz, obiecałeś oczyścić tą #piwnice ze szczurów?",
 				null);
 
 		npc.add(
@@ -178,8 +177,8 @@ public class CleanStorageSpace extends AbstractQuest {
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Porządki w Piwnicy",
-				"Eonna posiada piwnicę, w której zagnieździły się szczury i węże. Potrzebuje mnie, prawdziwego bohatera, abym pomógł jej.",
+				"Pomoc Rosie",
+				"Piwnica w karczmie Gdańskiej jest pełna szczurów. Rosa poprosiła mnie abym pozbył się tych szczurów.",
 				false);
 		step_1();
 		step_2();
@@ -188,21 +187,20 @@ public class CleanStorageSpace extends AbstractQuest {
 
 	@Override
 	public String getName() {
-		return "CleanStorageSpace";
+		return "RosaBasementRats";
 	}
-	
-	@Override
+
+		@Override
 	public int getMinLevel() {
 		return 0;
 	}
-	
-	@Override
-	public String getRegion() {
-		return Region.SEMOS_CITY;
-	}
 
 	@Override
+	public String getRegion() {
+		return Region.GDANSK_CITY;
+	}
+	@Override
 	public String getNPCName() {
-		return "Eonna";
+		return "Adaś";
 	}
 }

@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.entity.item.StackableItem;
@@ -28,12 +24,16 @@ import games.stendhal.server.maps.Region;
 import games.stendhal.server.maps.quests.logic.BringListOfItemsQuest;
 import games.stendhal.server.maps.quests.logic.BringListOfItemsQuestLogic;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * QUEST: Toys Collector
- *
+ * 
  * PARTICIPANTS: <ul>
  * <li> Anna, a girl who live in Ados </ul>
- *
+ * 
  * STEPS:
  * <ul><li> Anna asks for some toys
  * <li> You guess she might like a teddy, dice or dress
@@ -53,10 +53,10 @@ public class ToysCollector extends AbstractQuest implements
 		BringListOfItemsQuest {
 
 	private static final String QUEST_SLOT = "toys_collector";
-
-	private static final List<String> neededToys =
-		Arrays.asList("teddy", "dice", "dress");
-
+	
+	private static final List<String> neededToys = 
+		Arrays.asList("pluszowy miś", "kości do gry", "koszula");
+		
 	// don't want to use the standard history for this kind of quest for anna as we dont want to say what she needs.
 	@Override
 	public List<String> getHistory(final Player player) {
@@ -66,9 +66,9 @@ public class ToysCollector extends AbstractQuest implements
 			}
 			final String questState = player.getQuest(QUEST_SLOT);
 			if (!"done".equals(questState)) {
-				res.add("Anna wants some toys and I need to think about what might make a little girl happy!");
+				res.add("Anna chce coś do zabawy. Muszę pomyśleć co ją uszczęśliwi!");
 			} else {
-				res.add("I got some fun toys for Anna, Jens and George to play with.");
+				res.add("Mam kilka zabawek dla Anna, Jens i George do zabawy.");
 			}
 			return res;
 	}
@@ -82,8 +82,8 @@ public class ToysCollector extends AbstractQuest implements
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Toys Collector",
-				"Anna is bored, and searches for toys for her and her friends to play with.",
+				"Kolekcjoner Zabawek",
+				"Spróbuj znaleść zabawki dla Anny i jej przyjaciół.",
 				false);
 		setupAbstractQuest();
 		specialStuff();
@@ -95,7 +95,7 @@ public class ToysCollector extends AbstractQuest implements
 				ConversationPhrases.NO_MESSAGES,
 				new QuestNotCompletedCondition(QUEST_SLOT),
 				ConversationStates.IDLE,
-				"Then you should go away before I get in trouble for talking to you. Bye.",
+				"Powinieneś odejść nim wpadnę w tarapaty za rozmowę z tobą. Dowidzenia.",
 				null);
 	}
 
@@ -121,7 +121,7 @@ public class ToysCollector extends AbstractQuest implements
 
 	@Override
 	public List<String> getAdditionalTriggerPhraseForQuest() {
-		return Arrays.asList("toys");
+		return Arrays.asList("toys", "zabawki");
 	}
 
 	@Override
@@ -131,17 +131,17 @@ public class ToysCollector extends AbstractQuest implements
 
 	@Override
 	public String welcomeBeforeStartingQuest() {
-		return "Mummy said, we are not allowed to talk to strangers. But I'm bored. I want some #toys!";
+		return "Mama powiedziała, że nie powinniśmy rozmawiać z obcymi. Ona martwi się o zaginioną dziewczynkę, ale ja się nudzę. Chcę jakieś #zabawki ( #toys )!";
 	}
 
 	@Override
 	public String welcomeDuringActiveQuest() {
-		return "Hello! I'm still bored. Did you bring me toys?";
+		return "Cześć! Wciąż się nudzę. Przyniosłeś mi zabawki?";
 	}
 
 	@Override
 	public String welcomeAfterQuestIsCompleted() {
-		return "Hi! I'm busy playing with my toys, no grown ups allowed.";
+		return "Cześć! Jestem zajęta zabawą moimi zabawkami.";
 	}
 
 	@Override
@@ -151,59 +151,59 @@ public class ToysCollector extends AbstractQuest implements
 
 	@Override
 	public String respondToQuest() {
-		return "I'm not sure what toys, but whatever would be fun for me to play with! Will you bring me some please?";
+		return "Nie jestem pewna jakie zabawki! Przyniesiesz mi coś? Proszę.";
 	}
 
 	@Override
 	public String respondToQuestAfterItHasAlreadyBeenCompleted() {
-		return "The toys are great! Thanks!";
+		return "Zabawki są wspaniałe! Dziękuję!";
 	}
 
 	@Override
 	public String respondToQuestAcception() {
-		return "Hooray! How exciting. See you soon.";
+		return "Huuraa! Ale zabawa. Do zobaczenia.";
 	}
 
 	@Override
 	public String respondToQuestRefusal() {
-		return "Oh ... you're mean.";
+		return "Och ... masz na myśli.";
 	}
-
+	
 	// not used
 	@Override
 	public String firstAskForMissingItems(final List<String> missingItems) {
-		return "I'm not sure what toys, but whatever would be fun for me to play with! Will you bring me some please?";
+		return "Nie jestem pewna jakie zabawki! Przyniesiesz mi coś? Proszę";
 	}
-
+	
 	@Override
 	public String askForMissingItems(final List<String> missingItems) {
-		return "What toys did you bring?";
+		return "Jakie zabawki mi przyniosłeś?";
 	}
 
 	@Override
 	public String respondToPlayerSayingHeHasNoItems(final List<String> missingItems) {
-		return "Okay then. Come back later.";
+		return "Dobrze. Wróć później.";
 	}
 
 	@Override
 	public String askForItemsAfterPlayerSaidHeHasItems() {
-		return "What did you bring?!";
+		return "Co mi przyniosłeś?!";
 	}
 
 	@Override
 	public String respondToItemBrought() {
-		return "Thank you very much! What else did you bring?";
+		return "Dziękuję bardzo! Co jeszcze mi przyniosłeś";
 	}
 
 	@Override
 	public String respondToLastItemBrought() {
-		return "These toys will keep me happy for ages! Please take these pies. Arlindo baked them for us but I think you should have them.";
+		return "Te zabawki będą mnie bawić przez lata! Proszę weź te placki. Arlindo upiekł je dla nas, ale chyba ty powinieneś je mieć.";
 	}
 
 	@Override
 	public void rewardPlayer(final Player player) {
 		final StackableItem pie = (StackableItem) SingletonRepository.getEntityManager().getItem(
-				"pie");
+				"tarta");
 		pie.setQuantity(3);
 		player.equipOrPutOnGround(pie);
 		player.addXP(100);
@@ -212,25 +212,25 @@ public class ToysCollector extends AbstractQuest implements
 
 	@Override
 	public String respondToOfferOfNotExistingItem(final String itemName) {
-		return "Hey! It's bad to lie! You don't have "
-				+ Grammar.a_noun(itemName) + " with you.";
+		return "Hej! To kłamstwo! Nie masz ze sobą "
+				+ Grammar.a_noun(itemName) + ".";
 	}
 
 	@Override
 	public String respondToOfferOfNotMissingItem() {
-		return "I already have that toy!";
+		return "Mam już tą zabawkę!";
 	}
 
 	@Override
 	public String respondToOfferOfNotNeededItem() {
-		return "That's not a good toy!";
+		return "To nie najlepsza zabawka!";
 	}
 
 	@Override
 	public String getName() {
 		return "ToysCollector";
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.ADOS_CITY;

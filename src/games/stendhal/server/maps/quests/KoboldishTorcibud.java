@@ -12,14 +12,7 @@
  ***************************************************************************/
 
 package games.stendhal.server.maps.quests;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-
-import org.apache.log4j.Logger;
-
+ 
 import games.stendhal.common.MathHelper;
 import games.stendhal.common.Rand;
 import games.stendhal.common.grammar.Grammar;
@@ -56,14 +49,22 @@ import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 import games.stendhal.server.util.ItemCollection;
 import games.stendhal.server.util.TimeUtil;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
 import marauroa.common.game.IRPZone;
+
+import org.apache.log4j.Logger;
 
 /**
  * QUEST: V.S.O.P. Koboldish Torcibud
  * <p>
  * PARTICIPANTS: <ul><li> Wrviliza, the Kobold Barmaid in Wo'fol bar </ul>
  * <p>
- * STEPS: <ul><li> Wrviliza will ask some items and ingredients
+ * STEPS: <ul><li> Wrviliza will ask some items and ingredients 
  * to refurbish her stock of supplies for making her famous koboldish torcibud
  * <li> gather the items and ingredients and bring them to the bar
  * <li> some bottles of V.S.O.P. Koboldish Torcibud will be put on the bar counter
@@ -85,7 +86,7 @@ import marauroa.common.game.IRPZone;
  * @author omero
  */
 public class KoboldishTorcibud extends AbstractQuest {
-
+ 
     private static Logger logger = Logger.getLogger(KoboldishTorcibud.class);
 
     /**
@@ -112,20 +113,20 @@ public class KoboldishTorcibud extends AbstractQuest {
     // a template of the items that wrviliza will ask for the quest,
     // it is only used to initialize the triggers in phase_2.
     private static final String REQUIRED_ITEMS_TEMPLATE =
-        "eared bottle=0;" +
-        "slim bottle=0;" +
+        "butla czwórniaczka=0;" +
+        "wąska butelka=0;" +
         "mandragora=0;" +
-        "artichoke=0;" +
+        "karczoch=0;" +
         "arandula=0;" +
         "sclaria=0;" +
         "kekik=0;" +
-        "fierywater=0";
+        "ekstrakt litworowy=0";
 
     @Override
     public void addToWorld() {
         fillQuestInfo(
             "Koboldish Torcibud",
-            "Wrviliza needs some stuff to prepare her famous Koboldish Torcibud.",
+            "Wrviliza potrzebuje składników do przygotowania jej sławnej Nalewki Litworowej.",
             true);
         phase_1();
         phase_2();
@@ -140,7 +141,7 @@ public class KoboldishTorcibud extends AbstractQuest {
             return res;
         }
 
-        res.add("I made acquaintance with Wrviliza, the kobold barmaid in Wo'fol bar.");
+        res.add("Zawarłem znajomość z koboldką Wrviliza barmankąw barze w Wo'fol.");
 
         /**
          * NOTE:
@@ -148,15 +149,15 @@ public class KoboldishTorcibud extends AbstractQuest {
          */
         final String questState = player.getQuest(QUEST_SLOT, 0);
         logger.debug("Quest state: <" + questState + ">");
-
+        
         if ("rejected".equals(questState)) {
-            res.add("She asked me to help her replenish her stock of supplies for preparing her Koboldish Torcibud, "
-                + " but I had more pressing matters to attend.");
+            res.add("Poprosiła mnie o pomoc w remoncie jej magazynu na zapasy potrzebne do zrobienia jej Nalewki Litworowej, "
+                + " ale mam pilne sprawy do załatwienia.");
         } else if ("done".equals(questState)) {
-            res.add("I helped her replenish her stock of supplies for preparing her Koboldish Torcibud.");
+            res.add("Pomogłem w remoncie jej magazynu na zapasy, z których przygotowuje swój Nalewkę Litworową.");
             if (isRepeatable(player)) {
                 // enough time has passed, inform that the quest can be taken now.
-                res.add("I might ask her again if she needs more stuff for her stock of supplies.");
+                res.add("Może zapytam ją ponownie czy nie potrzebuje więcej rzeczy do jej magazynu na zapasy.");
             } else {
                 // inform about how much time has to pass before the quest can be taken again.
                 long timestamp;
@@ -166,7 +167,7 @@ public class KoboldishTorcibud extends AbstractQuest {
                     timestamp = 0;
                 }
                 final long timeRemaining = timestamp - System.currentTimeMillis();
-                res.add("Her stock of supplies will be fine for " + TimeUtil.approxTimeUntil((int) (timeRemaining / 1000L)) + ".");
+                res.add("Jej magazyn na zapasy będzie zaopatrzony na " + TimeUtil.approxTimeUntil((int) (timeRemaining / 1000L)) + ".");
             }
         } else {
             final ItemCollection missingItems = new ItemCollection();
@@ -177,18 +178,18 @@ public class KoboldishTorcibud extends AbstractQuest {
              * Do not use player.getQuest(QUEST_SLOT, 0) as that would only retrieve the first token pair.
              */
             missingItems.addFromQuestStateString(player.getQuest(QUEST_SLOT));
-            res.add("I'm helping her replenish her stock of supplies for preparing her Koboldish Torcibud."
-                + " I still have to bring her " + Grammar.enumerateCollection(missingItems.toStringList()));
+            res.add("Pomagam jej w uzupełnieniu magazynu w zapasy potrzebne do sporządzenia Nalewki Litworowej."
+                + " Wciąż mam do dostarczenia jej " + Grammar.enumerateCollection(missingItems.toStringListWithHash()));
         }
 
         return res;
     }
-
+ 
     @Override
     public String getSlotName() {
         return QUEST_SLOT;
     }
-
+ 
     @Override
         public String getName() {
         return "KoboldishTorcibud";
@@ -199,7 +200,7 @@ public class KoboldishTorcibud extends AbstractQuest {
         public int getMinLevel() {
         return 18;
     }
-
+    
 	@Override
 	public String getRegion() {
 		return Region.SEMOS_MINES;
@@ -239,21 +240,21 @@ public class KoboldishTorcibud extends AbstractQuest {
 		int required_mandragora = Rand.randUniform(1,3) + pLevel / FACTOR_MANDRAGORA;
 
         return
-            "eared bottle=" + required_bottle_eared + ";" +
-            "slim bottle=" + required_bottle_slim + ";" +
+            "butla czwórniaczka=" + required_bottle_eared + ";" +
+            "wąska butelka=" + required_bottle_slim + ";" +
             "mandragora=" + required_mandragora + ";" +
-            "artichoke=" + Rand.roll1D6() + ";" +
+            "karczoch=" + Rand.roll1D6() + ";" +
             "arandula=" + Rand.roll1D6() + ";" +
             "sclaria=" + Rand.roll1D6() + ";" +
             "kekik=" + Rand.roll1D6() + ";" +
-            "fierywater=" + Rand.roll1D6() + ";";
+            "ekstrakt litworowy=" + Rand.roll1D6() + ";";
     }
 
     /**
      * The player meets the Kobold Barmaid Wrviliza and possibly gets a quest from her
      */
     public void phase_1() {
-
+     
         final SpeakerNPC npc = npcs.get("Wrviliza");
 
         // Player sends his greetings and never asked for a quest is handled in NPC class
@@ -264,7 +265,7 @@ public class KoboldishTorcibud extends AbstractQuest {
             new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
             		new QuestInStateCondition(QUEST_SLOT, "rejected")),
             ConversationStates.QUEST_OFFERED,
-            "Wroff! Welcome back wanderer... Are you back to help me gather #stuff to make good #torcibud this time?",
+            "Hau! Witam ponownie... Wróciłeś, aby mi pomóc w przyniesieniu #składników d zrobienia dobrej #nalewki?",
             null);
 
         // Player asks for a quest
@@ -272,7 +273,7 @@ public class KoboldishTorcibud extends AbstractQuest {
             ConversationPhrases.QUEST_MESSAGES,
             new QuestNotStartedCondition(QUEST_SLOT),
             ConversationStates.QUEST_OFFERED,
-            "Wrof! My stock of supplies for preparing koboldish #torcibud is running thin. Would you help me getting some #stuff?",
+            "Hau! Mój magazyn z zapasami do przygotowania litworowej #nalewki kurczy się. Czy chcesz mi pomóc z uzupełnieniem #składników?",
             null
         );
 
@@ -283,7 +284,7 @@ public class KoboldishTorcibud extends AbstractQuest {
                 new QuestCompletedCondition(QUEST_SLOT),
                 new TimeReachedCondition(QUEST_SLOT, 1)),
             ConversationStates.QUEST_OFFERED,
-            "Wroff! Indeed I'd need some #stuff for making some more koboldish #torcibud. Will you help?",
+            "Hau! W rzeczy samej/ Potrzebuję paru #składników do zrobienia litworowej #nalewki. Pomożesz mi?",
             null);
 
         // Player has done the quest already but it's too early to get another
@@ -294,14 +295,14 @@ public class KoboldishTorcibud extends AbstractQuest {
                 new NotCondition(new TimeReachedCondition(QUEST_SLOT, 1))),
             ConversationStates.ATTENDING, null,
             new SayTimeRemainingUntilTimeReachedAction(QUEST_SLOT, 1,
-                "Wrof! Thank you but my stock of supplies for making good #torcibud will be fine for"));
+                "Hau! Dziękuję mój magazyn z zapasami do zrobienia dobrej #nalewki wystarczy na"));
 
         // Player is curious about torcibud when offered the quest
         npc.add(ConversationStates.QUEST_OFFERED,
-            "torcibud",
+            "nalewki",
             new QuestNotStartedCondition(QUEST_SLOT),
             ConversationStates.QUEST_OFFERED,
-            "Wruff. I will make more when I have enough #stuff! Are you going to help?",
+            "Hau. Zrobię jeszcze jedną, gdy będę mieć wystaczająco dużo #składników!",
             null);
 
         // Player is curious about stuff, ingredients or supplies when offered the quest
@@ -310,12 +311,12 @@ public class KoboldishTorcibud extends AbstractQuest {
         // as it should only hint what's kind of things are needed.
         // some details about the required items are given only once the quest has been accepted.
         npc.add(ConversationStates.QUEST_OFFERED,
-            Arrays.asList("stuff","ingredients","supplies"),
+            Arrays.asList("stuff","ingredients","supplies", "składnik", "składników", "składnikami"),
             new OrCondition(
                 new QuestNotStartedCondition(QUEST_SLOT),
                 new QuestInStateCondition(QUEST_SLOT, "rejected")),
             ConversationStates.QUEST_OFFERED,
-            "Wrof! Some bottles, artichokes, a few herbs and fierywater... Things like that. So, will you help?",
+            "Hau! Kilka butelek, karczoch, pare ziół i ekstrakt litworowy... Coś takiego. Pomożesz mi?",
             null);
 
         // Player accepts the quest and gets to know what Wrviliza needs (switch to phase_2)
@@ -325,16 +326,16 @@ public class KoboldishTorcibud extends AbstractQuest {
             new MultipleActions(
             		new ChatAction() {
             			@Override
-						public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
+            			public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
             				int pLevel = player.getLevel();
             				player.setQuest(QUEST_SLOT, getRequiredItemsCollection(pLevel));
             			}
             		},
-            		// here we have been careful to say the items from the collection only after the quest slot was set,
+            		// here we have been careful to say the items from the collection only after the quest slot was set, 
             		// because in this quest, the amounts depend on level, above.
             		new SayRequiredItemsFromCollectionAction(
                         QUEST_SLOT,
-                        "Wroff! Right now, I need [items]. Do you by chance have anything of that with you already?")));
+                        "Hau! Teraz potrzebuję [items]. Czy przypadkiem nie masz czegoś ze sobą?")));
 
         // Player is not inclined to comply with the request and has not already rejected it once
         npc.add(ConversationStates.QUEST_OFFERED,
@@ -343,7 +344,7 @@ public class KoboldishTorcibud extends AbstractQuest {
                 new QuestNotActiveCondition(QUEST_SLOT),
                 new QuestNotInStateCondition(QUEST_SLOT, "rejected")),
             ConversationStates.ATTENDING,
-            "Wruff... I guess I will have to ask to someone with a better attitude!",
+            "Hau... Sądzę, że będę musiała się zapytać kogoś pozytywnie nastawionego!",
             new MultipleActions(
             		new SetQuestAction(QUEST_SLOT, "rejected"),
             		new DecreaseKarmaAction(20.0)));
@@ -355,7 +356,7 @@ public class KoboldishTorcibud extends AbstractQuest {
             ConversationPhrases.NO_MESSAGES,
             new QuestInStateCondition(QUEST_SLOT, "rejected"),
             ConversationStates.IDLE,
-            "Wruff... I guess you will wander around with a dry gulch then...",
+            "Hau... Sądze, że można iść suchym wąwozem, a następnie...",
             new MultipleActions(
             		new SetQuestAction(QUEST_SLOT, "rejected"),
             		new DecreaseKarmaAction(20.0)));
@@ -374,26 +375,26 @@ public class KoboldishTorcibud extends AbstractQuest {
             new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
             		new QuestActiveCondition(QUEST_SLOT)),
             ConversationStates.QUESTION_1,
-            "Wrof! Welcome back. Did you gather any #stuff for me?",
+            "Hau! Witaj ponownie. Przyniosłeś jakiś #składnik dla mnie?",
             null);
 
         // Player is curious about artichokes
         npc.add(ConversationStates.ATTENDING,
-            Arrays.asList("artichoke","artichokes"),
+            Arrays.asList("artichoke","artichokes","karczoch"),
             new QuestActiveCondition(QUEST_SLOT),
             ConversationStates.ATTENDING,
-            "Wrof! Not so common vegetables,"
-                + " but I know that there are some being grown outside a farm"
-                + " near Semos city.",
+            "Hau! Nie tak popularne warzywa,"
+                + " ale wiem, że rosną jakieś na farmie"
+                + " blisko miasta Semos.",
             null);
 
         // Player is curious about fierywater
         npc.add(ConversationStates.ATTENDING,
-            Arrays.asList("fierywater"),
+            Arrays.asList("ekstrakt litworowy"),
             new QuestActiveCondition(QUEST_SLOT),
             ConversationStates.ATTENDING,
-            "Wroof! Powerful fluid, that is."
-                + " I buy mine in Ados market whenever I got the time to make a trip there.",
+            "Hau! To jest potężny płyn."
+                + " Kupuję mój na bazarze w Ados, gdy tylko mam czas na podróż.",
             null);
 
         // Player is curious about herbs
@@ -401,7 +402,7 @@ public class KoboldishTorcibud extends AbstractQuest {
             Arrays.asList("arandula","sclaria","kekik"),
             new QuestActiveCondition(QUEST_SLOT),
             ConversationStates.ATTENDING,
-            "Wrof! Common herb that grow outside in the plains or woods... Easy to spot!",
+            "Hau! Zioło rośnie na równinach lub w lasach... Łatwo znaleść!",
             null);
 
         // Player is curious about mandragora
@@ -409,43 +410,43 @@ public class KoboldishTorcibud extends AbstractQuest {
             Arrays.asList("mandragora"),
             new QuestActiveCondition(QUEST_SLOT),
             ConversationStates.ATTENDING,
-            "Wrof! All I know is that it is rare root that grows better outside in the woods,"
-                + " expecially near places soaked with magic..."
-                + " Not easy to spot either!",
+            "Hau! Jedyne co wiem, to że jest rzadkim korzeniem rosnącym w lesie"
+                + " szczególnie blisko miejsc nasiąkniętych magią..."
+                + " Nie jest łatwo go znaleść!",
             null);
 
         // Player says stuff to be reminded of what is still missing
         npc.add(ConversationStates.QUESTION_1,
-            "stuff", null,
+            Arrays.asList("stuff", "składnik"), null,
             ConversationStates.QUESTION_1,
             null,
             new SayRequiredItemsFromCollectionAction(
                 QUEST_SLOT,
-                "Wrof! I still need [items]. Did you bring anything of that sort?"));
+                "Hau! Wciąż potrzebuję [items]. Przyniosłeś coś?"));
 
         // Player answers yes when asked if he has brought any items
         npc.add(ConversationStates.QUESTION_1,
             ConversationPhrases.YES_MESSAGES, null,
             ConversationStates.QUESTION_1,
-            "Fine, what did you bring?",
+            "Dobrze co przyniosłeś?",
             null);
-
+    
         // Player answers no when asked if he has brought any items
         npc.add(ConversationStates.QUESTION_1,
             ConversationPhrases.NO_MESSAGES,
             new QuestNotCompletedCondition(QUEST_SLOT),
             ConversationStates.ATTENDING,
-            "Wruf! Take your time... No hurry!",
+            "Hau! Nie spiesz się... nie ma pośpiechu! Co cię tutaj sprowadziło?",
             null);
 
         // create the ChatAction to reward the player
         ChatAction addRewardAction = new ChatAction() {
             @Override
-			public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
+            public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
                 final StackableItem
                     koboldish_torcibud_vsop = (StackableItem)
                         SingletonRepository
-                            .getEntityManager().getItem("vsop koboldish torcibud");
+                            .getEntityManager().getItem("leżakowana nalewka litworowa");
                 final int torcibud_bottles = 1 + Rand.roll1D6();
                 koboldish_torcibud_vsop.setQuantity(torcibud_bottles);
                 koboldish_torcibud_vsop.setBoundTo(player.getName());
@@ -460,9 +461,9 @@ public class KoboldishTorcibud extends AbstractQuest {
                 zone.add(koboldish_torcibud_vsop);
 
                 npc.say(
-                    "Wrof! Here take "
+                    "Hau! Weź "
                     + Integer.toString(torcibud_bottles)
-                    + " bottles of my V.S.O.P. Koboldish Torcibud with my best wishes for you!");
+                    + " butelkę mojej leżakowanej nalewki litworowej z najlepszymi życzeniami ode mnie!");
             }
         };
 
@@ -484,8 +485,8 @@ public class KoboldishTorcibud extends AbstractQuest {
                 new CollectRequestedItemsAction(
                 		item.getKey(),
                         QUEST_SLOT,
-                        "Wroff! do you have anything else?",
-                        "Wruff! You have already brought that to me!",
+                        "Hau! Masz coś jeszcze?",
+                        "Hau! Już mi to przyniosłeś!",
                         completeAction, ConversationStates.ATTENDING));
         }
     }

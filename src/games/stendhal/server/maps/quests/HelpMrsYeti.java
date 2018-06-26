@@ -12,13 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-
-import org.apache.log4j.Logger;
-
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.entity.creature.Pet;
 import games.stendhal.server.entity.npc.ChatAction;
@@ -47,6 +40,13 @@ import games.stendhal.server.entity.npc.condition.TimePassedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
 /**
  * QUEST: Mrs Yeti Needs Help
  *
@@ -61,13 +61,13 @@ import games.stendhal.server.maps.Region;
  * Mrs. Yeti lifes in a cave somewhere in semos mountain. She is mournful, because Mr. Yeti turn away from her. Thats why she ask the player for help. She like to have a special potion and some other stuff as a present for her husband.
  *
  * There is only one witch who, who can make the special potion. Mrs. Yeti tell the player where she lives. The player go for the witch. Once he found her, she tell the player, that she will help, but need some ingriedents.
- *
+ * 
  * When the player is bringing in the collected stuff, she has to tell him, that her magic knife is damaged and she need a new one and send the player to a blacksmith. He has to craft a new magic knife for the witch.
- *
+ * 
  * The blacksmith is willing to help. But need some stuff too, to craft the magic knife. He sends the player to collect it. The player brings in the needed items and the blacksmith could start make the knife, but he is too hungry to start it right now. Player has to bring him some food and he starts crafting the knife. But the player has to wait a bit until he is ready with it.
- *
+ * 
  * After bring the knife to the witch, he tell the player that she forgot an important item. The player has to get it and bring it to here. After a while the special potion is ready. And the player can bring it to Mrs. Yeti.
- *
+ * 
  * Mrs. Yeti is very happy about the special potion. But she needs some other things to make her husband happy. The player has to collect a baby dragon for her. After player bring the baby dragon to her, she is happy as never befor.
  *
  * REWARD:
@@ -85,44 +85,44 @@ import games.stendhal.server.maps.Region;
 
  public class HelpMrsYeti extends AbstractQuest {
 
- 	private static final String QUEST_SLOT = "mrsyeti";
+	private static final String QUEST_SLOT = "mrsyeti";
 	private static final int DELAY_IN_MINUTES = 60*24;
-
+ 
 	private static Logger logger = Logger.getLogger(HelpMrsYeti.class);
 
- 	@Override
+	@Override
 	public String getSlotName() {
 		return QUEST_SLOT;
 	}
-
+	
 	private void startQuest() {
-		final SpeakerNPC npc = npcs.get("Mrs. Yeti");
+		final SpeakerNPC npc = npcs.get("Mrs. Yeti");	
 
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES,
+				ConversationPhrases.QUEST_MESSAGES, 
 				new QuestNotStartedCondition(QUEST_SLOT),
-				ConversationStates.QUEST_OFFERED,
-				"I am mournful, because Mr Yeti turns away from me. I need a special potion to make him happy and some present to please him. Will you help?",
+				ConversationStates.QUEST_OFFERED, 
+				"Jam jest w rozpaczy wielkiej, gdyż mąż mój Pan Yeti opuścił me progi. Trza mi mocnego eliksiru by na powrót szczęśliwym go uczynić i jakiś podarek by go obłaskawić. Czy mi pomożesz?",
 				null);
 
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES,
+				ConversationPhrases.QUEST_MESSAGES, 
 				new QuestCompletedCondition(QUEST_SLOT),
 				ConversationStates.ATTENDING,
-				"Thank you for your help! Now Mr Yeti and I are very happy again.",
+				"Dziękuję ci za pomoc! Nareszcie ja i Pan Yeti w pełni szczęścia pozostaniemy.",
 				null);
 
 
 		npc.add(ConversationStates.QUEST_OFFERED,
 				ConversationPhrases.YES_MESSAGES, null,
 				ConversationStates.ATTENDING,
-				"Thank you for your help! You need to go to Salva Mattori in the magic city for the #potion.",
-				new SetQuestAction(QUEST_SLOT, "start"));
+				"Dziękuję ci za chęci! Musisz prędko udać się do Salva Mattori w magicznym mieście po #eliksir miłości.",
+				new SetQuestAndModifyKarmaAction(QUEST_SLOT, "start", 10.0));
 
 		// Player says no, they've lost karma.
 		npc.add(ConversationStates.QUEST_OFFERED,
 				ConversationPhrases.NO_MESSAGES, null, ConversationStates.IDLE,
-				"Oh, you are so heartless.",
+				"Och, jakiś ty bezduszny...",
 				new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -10.0));
 	}
 
@@ -135,170 +135,170 @@ import games.stendhal.server.maps.Region;
 	// black pearl
 	final SpeakerNPC npc = npcs.get("Salva Mattori");
 
-    	npc.add(ConversationStates.ATTENDING, "potion",
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("eliksir", "potion"),
 				new QuestInStateCondition(QUEST_SLOT, "start"),
-			    ConversationStates.ATTENDING, "I will help you make this potion, Mrs Yeti is an old friend of mine. But the blade on "
-				+ "my magic knife has snapped yet again. I need another. I get mine from Hackim Easso of Semos City, will you go to him and "
-				+ "ask him to make another knife? Just say my name: #salva",
+				ConversationStates.ATTENDING, "Pomogę ci i wykonam dla ciebie ten eliksir, gdyż Pani Yeti jest moją starą znajomą. Ale ostrze "
+				+ " mojego magicznego mieczyka znów się ukruszyło. Potrzebuję nowego. Swój dostałam od Hackima Easso z Semos, czy pójdziesz do niego i "
+				+ " poprosisz o nowy? Powiedz tylko moje imię: #Salva",
 				new SetQuestAction(QUEST_SLOT, "hackim"));
 
 		npc.add(
-			ConversationStates.ATTENDING, Arrays.asList("salva","knife"),
-			new NotCondition(new QuestInStateCondition(QUEST_SLOT, "knife")),
+			ConversationStates.ATTENDING, Arrays.asList("salva","mieczyk","nóż"),
+			new NotCondition(new QuestInStateCondition(QUEST_SLOT, "mieczyk")),
 			ConversationStates.ATTENDING,
-			"You need to go to Hackim Easso and ask him about a magic knife for #salva before I can help you.",
+			"Zanim ci pomogę musisz się udać do Hackima Easso i poprosić go o magiczny mieczyk dla mnie.",
 			null);
 
-	    npc.add(ConversationStates.ATTENDING,  Arrays.asList("salva","knife","potion"),
-				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "knife"),
-				new PlayerHasItemWithHimCondition("knife")),
-				ConversationStates.ATTENDING, "Very good! Now I need the items to make the love #potion. I need 3 lilia flowers, 1 sprig of kokuda, 1 glass of wine and 1 black pearl. Please bring them all together at once and then ask me to make the #potion.",
-				new MultipleActions(new SetQuestAction(QUEST_SLOT, "potion"), new DropItemAction("knife")));
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("salva","mieczyk","eliksir", "eliksir","nóż"),
+				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "mieczyk"),
+				new PlayerHasItemWithHimCondition("mieczyk")),
+				ConversationStates.ATTENDING, "Bardzo dobrze! Teraz potrzebuję kilku rzeczy, aby przygotować ci miłosny #eliksir. Potrzebuję 3 kwiaty lilii, 1 kokudę, 1 kieliszek napoju z winogron i 1 czarną perłę. Przynieś mi wszystko za jednym razem, a przygotuję ci #eliksir.",
+				new MultipleActions(new SetQuestAction(QUEST_SLOT, "eliksir"), new DropItemAction("mieczyk")));
 
-	    npc.add(ConversationStates.ATTENDING,  Arrays.asList("salva","knife","potion"),
-				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "knife"),
-				new NotCondition(new PlayerHasItemWithHimCondition("knife"))),
-				ConversationStates.ATTENDING, "I see you have been to Hackim, but where is the magic knife?",
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("salva","mieczyk","eliksir","potion"),
+				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "mieczyk"),
+				new NotCondition(new PlayerHasItemWithHimCondition("mieczyk"))),
+				ConversationStates.ATTENDING, "Rozumiem, że byłe s już u Hackima? Gdzie masz magiczny mieczyk?",
 				null);
 
 		final List<ChatAction> potionactions = new LinkedList<ChatAction>();
 		potionactions.add(new DropItemAction("lilia",3));
 		potionactions.add(new DropItemAction("kokuda"));
-		potionactions.add(new DropItemAction("wine"));
-		potionactions.add(new DropItemAction("black pearl"));
-		potionactions.add(new EquipItemAction("love potion"));
+		potionactions.add(new DropItemAction("napój z winogron"));
+		potionactions.add(new DropItemAction("czarna perła"));
+		potionactions.add(new EquipItemAction("eliksir miłości"));
 		potionactions.add(new IncreaseXPAction(100));
 		potionactions.add(new SetQuestAction(QUEST_SLOT, "gotpotion"));
 
 		// don't make player wait for potion - could add this in later if wanted
-		npc.add(ConversationStates.ATTENDING,  Arrays.asList("salva","potion"),
-				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "potion"),
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("salva","eliksir", "eliksir"),
+				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "eliksir"),
 								 new PlayerHasItemWithHimCondition("lilia",3),
 								 new PlayerHasItemWithHimCondition("kokuda"),
-								 new PlayerHasItemWithHimCondition("wine"),
-								 new PlayerHasItemWithHimCondition("black pearl")),
-				ConversationStates.ATTENDING, "I see you have all the items for the potion. *mutters magic words* And now, ta da! You have the love potion. Wish Mrs Yeti good luck from me!",
+								 new PlayerHasItemWithHimCondition("napój z winogron"),
+								 new PlayerHasItemWithHimCondition("czarna perła")),
+				ConversationStates.ATTENDING, "Widzę, że masz wszystko o co cię prosiłam. Odsuń się nieco, a ja wyszepczę tajemne zaklęcie... O! Proszę! Oto gotowy eliksir miłosny. Życz ode mnie Pani Yeti wiele szczęścia!",
 				new MultipleActions(potionactions));
 
-		npc.add(ConversationStates.ATTENDING,  Arrays.asList("salva","potion"),
-				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "potion"),
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("salva","potion","eliksir"),
+				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "eliksir"),
 								 new NotCondition(
 												  new AndCondition(new PlayerHasItemWithHimCondition("lilia",3),
 																   new PlayerHasItemWithHimCondition("kokuda"),
-																   new PlayerHasItemWithHimCondition("wine"),
-																   new PlayerHasItemWithHimCondition("black pearl")))),
-				ConversationStates.ATTENDING, "I need 3 lilia flowers, 1 sprig of kokuda, 1 glass of wine and 1 black pearl to make the love potion. Please bring them all together at once. Thanks!", null);
+																   new PlayerHasItemWithHimCondition("napój z winogron"),
+																   new PlayerHasItemWithHimCondition("czarna perła")))),
+				ConversationStates.ATTENDING, "Potrzebuję 3 kwiaty lilii, 1 kokudę, 1 kieliszek wina i 1 czarną perłę, aby przygotować miłosny eliksir. Proszę przynieś mi wszystko naraz. Dziękuję!", null);
 
 
 	}
 
 	private void makeMagicKnife() {
-		// although the player does end up just taking an ordinary knife to salva, this step must be completed
+		// although the player does end up just taking an ordinary knife to salva, this step must be completed 
 		// (must be in quest state 'knife' when they take the knife)
 	final SpeakerNPC npc = npcs.get("Hackim Easso");
 		npc.add(ConversationStates.ATTENDING, "salva",
 				new QuestInStateCondition(QUEST_SLOT, "hackim"),
-			    ConversationStates.ATTENDING, "Salva needs another magic knife does she? Ok, I can help you but not while I am so hungry. "
-				+ "I need food! Bring me 5 #pies and I will help you!",
+				ConversationStates.ATTENDING, "Salva potrzebuje kolejny magiczny mieczyk? No cóż, oczywiście, że ci pomogę. Jestem jednak bardzo głodny. "
+				+ "Muszę coś zjeść! Przynieś mi 5 #tart to ci pomogę!",
 				new SetQuestAndModifyKarmaAction(QUEST_SLOT, "pies", 1.0));
 
-	    npc.add(ConversationStates.ATTENDING, Arrays.asList("salva", "pies"),
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("salva", "pies", "placek", "tart"),
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "pies"),
-				new PlayerHasItemWithHimCondition("pie",5)),
-				ConversationStates.ATTENDING, "Ah, thank you very much! Now I will tell you a little secret of mine. I am not a blacksmith, "
-				+ "only an assistant. I can't make knives at all! But I sell Salva a normal knife and is happy enough with that! So just take her "
-				+ "a plain knife like you could buy from Xin Blanca in Semos Tavern. I'll tell her I made it! Oh and thanks for the pies!!!",
-				new MultipleActions(new SetQuestAndModifyKarmaAction(QUEST_SLOT, "knife", 1.0), new DropItemAction("pie",5)));
+				new PlayerHasItemWithHimCondition("tarta",5)),
+				ConversationStates.ATTENDING, "Pięknie ci dziękuję! Zdradzę ci mały sekret. Otóż tak na prawdę nie jestem jeszcze kowalem, "
+				+ "tylko zwykłym czeladnikiem. Nie potrafię zrobić miecza! Sprzedałem Salvie zwykły mieczyk, ale taki jej był potrzebny! Więc zanieś jej "
+				+ "zwykły mieczyk jaki można kupić od Xin Blanca w Tawernie w Semos. Ja jej powiem, że jest mojej roboty! A! I dziękuję za tartę!!!",
+				new MultipleActions(new SetQuestAndModifyKarmaAction(QUEST_SLOT, "mieczyk", 1.0), new DropItemAction("tarta",5)));
 
-	    npc.add(ConversationStates.ATTENDING, Arrays.asList("salva", "pies"),
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("salva", "pies", "placek", "tarta"),
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "pies"),
-				new NotCondition(new PlayerHasItemWithHimCondition("pie",5))),
-				ConversationStates.ATTENDING, "Arlindo from Ados makes the best meat and vegetable pies. Please remember to bring me 5, I am hungry!",
+				new NotCondition(new PlayerHasItemWithHimCondition("tarta",5))),
+				ConversationStates.ATTENDING, "Arlindo z Ados robi najlepszą tartę. Nie zapomnij przynieść mi pięciu sztuk, jestem bardzo głodny!",
 				null);
 
 	}
 
 	private void bringPotion() {
 	final SpeakerNPC npc = npcs.get("Mrs. Yeti");
-		final String extraTrigger = "potion";
-	    List<String> questTrigger;
-	    questTrigger = new LinkedList<String>(ConversationPhrases.QUEST_MESSAGES);
+		final String extraTrigger = "eliksir";
+		List<String> questTrigger;
+		questTrigger = new LinkedList<String>(ConversationPhrases.QUEST_MESSAGES);
 		questTrigger.add(extraTrigger);
 
-	    final List<ChatAction> tookpotionactions = new LinkedList<ChatAction>();
-		tookpotionactions.add(new DropItemAction("love potion"));
+		final List<ChatAction> tookpotionactions = new LinkedList<ChatAction>();
+		tookpotionactions.add(new DropItemAction("eliksir miłości"));
 		tookpotionactions.add(new IncreaseKarmaAction(10.0));
 		tookpotionactions.add(new IncreaseXPAction(1000));
 		tookpotionactions.add(new SetQuestAction(QUEST_SLOT, "dragon"));
 
 		npc.add(ConversationStates.ATTENDING, questTrigger,
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "gotpotion"),
-				new PlayerHasItemWithHimCondition("love potion")),
-				ConversationStates.ATTENDING, "Thank you! That looks so powerful I almost love you from smelling it! But don't worry I will save it for my husband. But he won't take it without some other temptation. I think he'd like a baby #dragon, if you'd be so kind as to bring one.",
+				new PlayerHasItemWithHimCondition("eliksir miłości")),
+				ConversationStates.ATTENDING, "Dziękuję! Wygląda, że jest mocny. Gotowa byłam zakochać się w tobie, gdy tylko wyczułam zapach eliksiru! Ale nie obawiaj się, zachowam go wyłącznie dla męża. Ale nie przyjmie go ode mnie jeżli go wcześniej nie obłaskawię. Wiem, że bardzo lubi małe #smoki. Gdybyś był tak miły i przyprowadził mi jednego.", 
 				new MultipleActions(tookpotionactions));
 
 		npc.add(
 			ConversationStates.ATTENDING, questTrigger,
-			new AndCondition(new QuestInStateCondition(QUEST_SLOT, "gotpotion"), new NotCondition(new PlayerHasItemWithHimCondition("love potion"))),
+			new AndCondition(new QuestInStateCondition(QUEST_SLOT, "gotpotion"), new NotCondition(new PlayerHasItemWithHimCondition("eliksir miłości"))),
 			ConversationStates.ATTENDING,
-			"What did you do with the love potion?",
+			"Gdzie żeś zapodział mój eliksir miłosny?",
 			null);
-
+		
 		npc.add(ConversationStates.ATTENDING,
-				questTrigger,
-				new OrCondition(new QuestInStateCondition(QUEST_SLOT, "start"),
-								new QuestInStateCondition(QUEST_SLOT, "pies"),
-								new QuestInStateCondition(QUEST_SLOT, "knife")),
+				questTrigger, 
+				new OrCondition(new QuestInStateCondition(QUEST_SLOT, "start"), 
+								new QuestInStateCondition(QUEST_SLOT, "pies"), 
+								new QuestInStateCondition(QUEST_SLOT, "mieczyk")),
 				ConversationStates.ATTENDING,
-				"I am waiting for you to return with a love potion. Please ask Salva Mattori in the magic city about: #potion.",
+				"Czekam byś przyniósł mi eliksir miłosny. Poproś Salvę Mattori z magicznego miasta o miłosny #eliksir.",
 				null);
 	}
 
 	private void bringDragon() {
 	final SpeakerNPC npc = npcs.get("Mrs. Yeti");
 
-	    final String extraTrigger = "dragon";
-	    List<String> questTrigger;
-	    questTrigger = new LinkedList<String>(ConversationPhrases.QUEST_MESSAGES);
+		final String extraTrigger = "smoki";
+		List<String> questTrigger;
+		questTrigger = new LinkedList<String>(ConversationPhrases.QUEST_MESSAGES);
 		questTrigger.add(extraTrigger);
 
 		// easy to check if they have a pet or sheep at all
-	    npc.add(
+		npc.add(
 			ConversationStates.ATTENDING, questTrigger,
-			new AndCondition(new QuestInStateCondition(QUEST_SLOT, "dragon"),
+			new AndCondition(new QuestInStateCondition(QUEST_SLOT, "dragon"), 
 							 new NotCondition(new PlayerHasPetOrSheepCondition())),
 			ConversationStates.ATTENDING,
-			"You can get a baby dragon only if you have a mythical egg. Those, you must get from Morgrin at the wizard school. "
-			+ "Then Terry in Semos caves will hatch it.",
+			"Możesz zdobyć małego smoka tylko posiadając mityczne jajo. Możesz je zdobyć od Morgrina ze szkoły magicznej. "
+			+ "Terry z jaskiń pod Semos wyhoduje ci z niego smoka.",
 			null);
 
 		// if they have any pet or sheep, then check if it's a baby dragon
 		npc.add(
 			ConversationStates.ATTENDING, questTrigger,
-			new AndCondition(new QuestInStateCondition(QUEST_SLOT, "dragon"),
+			new AndCondition(new QuestInStateCondition(QUEST_SLOT, "dragon"), 
 							 new PlayerHasPetOrSheepCondition()),
 			ConversationStates.ATTENDING,
 			null,
 			new ChatAction() {
 				@Override
 				public void fire(final Player player, final Sentence sentence,
-								 final EventRaiser npc) {
+								final EventRaiser npc) {
 					if(!player.hasPet()){
-						npc.say("That's a cute sheep you have there, but I need a baby dragon for Mr Yeti. Try Morgrin at the magic school.");
+						npc.say("Jaką miĹłą owieczkę prowadzisz. Ja jednak potrzebuję małego smoka dla pana Yeti. Porozmawiaj z Morgrinem ze szkoły magicznej.");
 						return;
 					}
 					Pet pet = player.getPet();
 					String petType = pet.get("type");
 					if("baby_dragon".equals(petType)) {
 						player.removePet(pet);
-						npc.say("Ah you brought the baby dragon! It will make such a wonderful stew. Baby dragon stew is my speciality and Mr Yeti loves it! You've made us both very happy! Come back in a day to see me for a #reward.");
+						npc.say("Przyprowadziłeś małego smoka! Będzie z niego pyszny gulasz! Gulasz z małego smoka to moja specjalność, a pan Yeti uwielbia go! Uczyniłeś nas wielce szczęśliwymi! Wróć tu następnego dnia, a otrzymasz #nagrodę.");
 						player.addKarma(5.0);
 						player.addXP(500);
 						pet.delayedDamage(pet.getHP(), "Mrs. Yeti");
 						player.setQuest(QUEST_SLOT,"reward;"+System.currentTimeMillis());
 						player.notifyWorldAboutChanges();
 					} else {
-						npc.say("That's a cute pet you have there, but I need a baby dragon for Mr Yeti. Try Morgrin at the magic school.");
+						npc.say("Jakie miłe zwierzątko prowadzisz. Ja jednak potrzebuję małego smoka dla pana Yeti. Porozmawiaj z Morgrinem ze szkoły magicznej.");
 					}
 				}
 			});
@@ -309,38 +309,38 @@ import games.stendhal.server.maps.Region;
 
 	final SpeakerNPC npc = npcs.get("Mrs. Yeti");
 
-	    final String extraTrigger = "reward";
-	    List<String> questTrigger;
-	    questTrigger = new LinkedList<String>(ConversationPhrases.QUEST_MESSAGES);
+		final String extraTrigger = "nagroda";
+		List<String> questTrigger;
+		questTrigger = new LinkedList<String>(ConversationPhrases.QUEST_MESSAGES);
 		questTrigger.add(extraTrigger);
 
-	    npc.add(
+		npc.add(
 			ConversationStates.ATTENDING, questTrigger,
-			new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT, "reward"),
+			new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT, "reward"), 
 							 // delay is in minutes, last parameter is argument of timestamp
 							 new NotCondition(new TimePassedCondition(QUEST_SLOT,1,DELAY_IN_MINUTES))),
 			ConversationStates.ATTENDING,
 			null,
-			new SayTimeRemainingAction(QUEST_SLOT,1,DELAY_IN_MINUTES,"Hello I am still busy with that baby dragon stew for Mr Yeti. You can get your reward in"));
+			new SayTimeRemainingAction(QUEST_SLOT,1,DELAY_IN_MINUTES,"Witaj! Szykuję mojemu mężowi gulasz z małego smoka, a nagrodą dla ciebie zajmę się dopiero za "));
 
 
 		npc.add(
 			ConversationStates.ATTENDING, questTrigger,
-			new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT, "reward"),
-							 // delay is in minutes, last parameter is argument of timestamp
-							 new TimePassedCondition(QUEST_SLOT,1,DELAY_IN_MINUTES)),
+			new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT, "reward"), 
+							// delay is in minutes, last parameter is argument of timestamp
+							new TimePassedCondition(QUEST_SLOT,1,DELAY_IN_MINUTES)),
 			ConversationStates.ATTENDING,
-			"Thank you! To say thank you, I'd like to offer you the chance to always #buy #roach from me cheaply. I have so much of it and perhaps you have a use for it.",
+			"Dziękuję! Aby ci się odwdzięczyć chcę ci zaoferować możliwość kupna ryb. Powiedz #kupię #płotka, a sprzedam ci tanio. Mam ich mnóstwo, a ty pewnie z nich zrobisz użytek.",
 			new MultipleActions(new SetQuestAction(QUEST_SLOT,"done"), new IncreaseXPAction(1000)));
 
 	}
 
-
+	
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Help Mrs Yeti",
-				"Mrs Yeti is really unhappy with her current lovelife because her husband turned away from her. Now the couple is in deep trouble. Just a special love potion can help Mrs Yeti to get her husband back.",
+				"Pomoc Mrs Yeti",
+				"Mrs Yeti jest nieszczęśliwa z miłością swojego życia, ponieważ jej mąż odwrócił się od niej. Teraz para jest w dużych kłopotach. Tylko specjalny napój miłosny może pomóc Mrs Yeti, aby odzyskać męża. Pomożesz jej?",
 				true);
 		startQuest();
 		makePotion();
@@ -350,73 +350,73 @@ import games.stendhal.server.maps.Region;
 		getReward();
 	}
 
-	@Override
+  @Override
 	public List<String> getHistory(final Player player) {
 			final List<String> res = new ArrayList<String>();
 			if (!player.hasQuest(QUEST_SLOT)) {
 				return res;
 			}
 			final String questState = player.getQuest(QUEST_SLOT);
-			res.add("I met Mrs. Yeti in icy caves below Semos Mountain.");
-			res.add("Mrs. Yeti asked me to go to Salva Mattori for a special love potion for her husband.");
+			res.add("Spotkałem panią Yeti w lodowych jaskiniach poniżej Semos Mountain.");
+			res.add("Pani Yeti poprosiła mnie, aby przynieść od Salvy Mattori specjalny eliksir miłości dla jej męża.");
 			if ("rejected".equals(questState)) {
-				res.add("I don't want to help with soppy love stories..");
+				res.add("Nie chcę, mieszać się w historie miłosne ..");
 				return res;
-			}
+			} 
 			if ("start".equals(questState)) {
 				return res;
-			}
-			res.add("Salva Mattori needs a magic knife from Hackim Easso to make her potion.");
+			} 
+			res.add("Salva Mattori potrzebuje magiczny mieczyk od Hackim Easso, wtedy da mi napój.");
 			if ("hackim".equals(questState)) {
 				return res;
-			}
-			res.add("Hackim is hungry and wants 5 meat pies before he helps me.");
+			} 
+			res.add("Hackim jest głodny i chce 5 tart zanim mi pomoże.");
 			if ("pies".equals(questState)) {
 				return res;
-			}
-			res.add("Hackim said I should go buy a standard knife like from Xin Blanca!! Apparently he tricked Salva all these years into believing they are magic, I better not let on...");
+			} 
+			res.add("Hackim powiedział abym kupił zwykły mieczyk u Xin Blanca! Najwyraźniej nabirał Salvę przez te wszystkie lata. Ona wierzyła, że są magiczne...");
 			if ("knife".equals(questState)) {
 				return res;
-			}
-			res.add("The love potion requires 3 lilia flowers, 1 sprig of kokuda, 1 glass of wine and 1 black pearl.");
+			} 
+			res.add("Eliksir miłości wymaga 3 kwiaty lili, 1 gałązka kokudy, 1 szklanka napoju z winogron i 1 czarną perłę.");
 			if ("potion".equals(questState)) {
 				return res;
-			}
-			res.add("I must take the love potion in its heart shaped bottle, to Mrs. Yeti.");
+			} 
+			res.add("Muszę zanieść eliksir miłości do pani Yeti.");
 			if ("gotpotion".equals(questState)) {
 				return res;
-			}
-			res.add("Mrs. Yeti needs something else to tempt her husband with and has asked me to bring a baby dragon.");
+			} 
+			res.add("Pani Yeti potrzebuje czegoś, co udobrucha jej męża i poprosiła mnie, abym przyprowadził małego smoka.");
 			if ("dragon".equals(questState)) {
 				return res;
-			}
-			res.add("Oh my! She killed my dragon to make stew! That wasn't the kind of treat I thought she had in mind!");
+			} 
+			res.add("Ojej! Ona zabiła tego smoka aby zrobić gulasz!");
 			if (questState.startsWith("reward")) {
 				if (new TimePassedCondition(QUEST_SLOT,1,DELAY_IN_MINUTES).fire(player, null, null)) {
-					res.add("Mrs. Yeti told me to come back in a day to collect my reward and it's already been long enough.");
+					res.add("Pani Yeti kazał mi wrócić za dzień, aby odebrać nagrodę to wydaje się tak odległe.");
 				} else {
-					res.add("Mrs. Yeti told me to come back in a day to collect my reward so I need to wait.");
+					res.add("Pani Yeti kazała mi wrócić za dzień, aby odebrać nagrodę, więc muszę czekać.");
 				}
 				return res;
-			}
-			res.add("Mrs. Yeti is really pleased with the outcome of my help and now she'll sell me roach very cheaply.");
+			} 
+			res.add("Pani Yeti jest bardzo zadowolona z wyniku mojej pomocy, a teraz sprzeda mi płotki bardzo tanio.");
 			if (isCompleted(player)) {
 				return res;
 			}
-
+			
 			// if things have gone wrong and the quest state didn't match any of the above, debug a bit:
 			final List<String> debug = new ArrayList<String>();
-			debug.add("Quest state is: " + questState);
-			logger.error("History doesn't have a matching quest state for " + questState);
+			debug.add("Stan zadania to: " + questState);
+			logger.error("Historia nie pasuje do stanu poszukiwania " + questState);
 			return debug;
 	}
-
+	
 	@Override
 	public String getName() {
 		return "HelpMrsYeti";
 	}
 
-	@Override
+		@Override
 	public int getMinLevel() {
 		return 60;
 	}
@@ -425,7 +425,7 @@ import games.stendhal.server.maps.Region;
 	public String getNPCName() {
 		return "Mrs. Yeti";
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.SEMOS_YETI_CAVE;

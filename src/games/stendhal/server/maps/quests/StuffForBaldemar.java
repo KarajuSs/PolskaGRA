@@ -37,12 +37,12 @@ import games.stendhal.server.util.TimeUtil;
 
 /**
  * QUEST: The mithril shield forging.
- *
+ * 
  * PARTICIPANTS:
  * <ul>
  * <li> Baldemar, mithrilbourgh elite wizard, will forge a mithril shield.
  * </ul>
- *
+ * 
  * STEPS:
  * <ul>
  * <li> Baldemar tells you about shield.
@@ -52,15 +52,15 @@ import games.stendhal.server.util.TimeUtil;
  * <li> Baldemar checks if you have ever killed a black giant alone, or not
  * <li> Baldemar forges the shield for you
  * </ul>
- *
+ * 
  * REWARD:
  * <ul>
  * <li> mithril shield
  * <li> 95000 XP
  * <li> some karma (25)
  * </ul>
- *
- *
+ * 
+ * 
  * REPETITIONS:
  * <ul>
  * <li> None.
@@ -68,11 +68,11 @@ import games.stendhal.server.util.TimeUtil;
  */
 public class StuffForBaldemar extends AbstractQuest {
 
-	static final String TALK_NEED_KILL_GIANT = "This shield can only be given to those who have killed a black giant, and without the help of others.";
+	static final String TALK_NEED_KILL_GIANT = "Tą tarczę mogą otrzymać ci co zabili czarnego giganta bez pomocy innych osób.";
 
-	private static final String I_WILL_NEED_MANY_THINGS = "I will need many, many things: ";
+	private static final String I_WILL_NEED_MANY_THINGS = "Będę potrzebował wiele, wiele rzeczy: ";
 
-	private static final String IN_EXACT_ORDER = "Come back when you have them in the same #exact order!";
+	private static final String IN_EXACT_ORDER = "Wróć, gdy będziesz miał wszystko #dokładnie w tej kolejności!";
 
 	private static final int REQUIRED_MINUTES = 10;
 
@@ -83,30 +83,30 @@ public class StuffForBaldemar extends AbstractQuest {
 	private final BringOrderedListOfItemsQuestLogic questLogic = new BringOrderedListOfItemsQuestLogic();
 
 	public StuffForBaldemar() {
-		itemCollector.require().item("mithril bar").pieces(20)
-				.bySaying("I cannot #forge it without the missing %s. After all, this IS a mithril shield.");
-		itemCollector.require().item("obsidian")
-				.bySaying("I need several gems to grind into dust to mix with the mithril. I need %s still.");
-		itemCollector.require().item("diamond")
-				.bySaying("I need several gems to grind into dust to mix with the mithril. I need %s still.");
-		itemCollector.require().item("emerald").pieces(5)
-				.bySaying("I need several gems to grind into dust to mix with the mithril. I need %s still.");
-		itemCollector.require().item("carbuncle").pieces(10)
-				.bySaying("I need several gems to grind into dust to mix with the mithril. I need %s still.");
-		itemCollector.require().item("sapphire").pieces(10)
-				.bySaying("I need several gems to grind into dust to mix with the mithril. I need %s still.");
-		itemCollector.require().item("black shield").bySaying("I need %s to form the framework for your new shield.");
-		itemCollector.require().item("magic plate shield")
-				.bySaying("I need %s for the pieces and parts for your new shield.");
-		itemCollector.require().item("gold bar").pieces(10)
-				.bySaying("I need %s to melt down with the mithril and iron.");
-		itemCollector.require().item("iron").pieces(20).bySaying("I need %s to melt down with the mithril and gold.");
-		itemCollector.require().item("black pearl").pieces(10)
-				.bySaying("I need %s to crush into fine powder to sprinkle onto shield to give it a nice sheen.");
+		itemCollector.require().item("sztabka mithrilu").pieces(20)
+				.bySaying("Nie mogę #wykuć bez brakujących %s. Po wszystkim będzie TO tarcza z mithrilu.");
+		itemCollector.require().item("obsydian")
+				.bySaying("Potrzebuję kilku kamieni, aby zmiażdżyć je na proszek i wymieszać z mithrilem. Wciąż potrzebuję %s.");
+		itemCollector.require().item("diament")
+				.bySaying("Potrzebuję kilku kamieni, aby zmiażdżyć je na proszek i wymieszać z mithrilem. Wciąż potrzebuję %s.");
+		itemCollector.require().item("szmaragd").pieces(5)
+				.bySaying("Potrzebuję kilku kamieni, aby zmiażdżyć je na proszek i wymieszać z mithrilem. Wciąż potrzebuję %s.");
+		itemCollector.require().item("rubin").pieces(10)
+				.bySaying("Potrzebuję kilku kamieni, aby zmiażdżyć je na proszek i wymieszać z mithrilem. Wciąż potrzebuję %s.");
+		itemCollector.require().item("szafir").pieces(10)
+				.bySaying("Potrzebuję kilku kamieni, aby zmiażdżyć je na proszek i wymieszać z mithrilem. Wciąż potrzebuję %s.");
+		itemCollector.require().item("czarna tarcza").bySaying("Potrzebuję %s, aby uformować konstrukcję dla twojej nowej tarczy.");
+		itemCollector.require().item("magiczna tarcza płytowa")
+				.bySaying("Potrzebuję %s na kawałki i części do twojej nowej tarczy.");
+		itemCollector.require().item("sztabka złota").pieces(10)
+				.bySaying("Potrzebuję %s, aby połączyć z mithrilem i żelazem.");
+		itemCollector.require().item("żelazo").pieces(20).bySaying("Potrzebuję %s, aby połączyć z mithrilem i złotem.");
+		itemCollector.require().item("czarna perła").pieces(10)
+				.bySaying("Potrzebuję %s, aby zmielić na proszek do posypania na tarczę, aby dawała ładny połysk.");
 		itemCollector.require().item("shuriken").pieces(20).bySaying(
-				"I need %s to melt down with the mithril, gold and iron. It is a 'secret' ingredient that only you and I know about. ;)");
-		itemCollector.require().item("marbles").pieces(15).bySaying("My son wants some new toys. I need %s still.");
-		itemCollector.require().item("snowglobe").bySaying("I just LOVE those trinkets from Athor. I need %s still.");
+				"Potrzebuję %s, aby przetopić z mithrilem, złotem i żelazem. To 'tajny' składnik, o którym wie tylko ty i ja. ;)");
+		itemCollector.require().item("kolorowe kulki").pieces(15).bySaying("Mój syn potrzebuje nowych zabawek. Wciąż potrzebuję %s.");
+		itemCollector.require().item("zima zaklęta w kuli").bySaying("KOCHAM te błyskotki z Athor. Wciąż potrzebuję %s.");
 
 		questLogic.setItemCollector(itemCollector);
 		questLogic.setQuest(this);
@@ -127,12 +127,12 @@ public class StuffForBaldemar extends AbstractQuest {
 				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					if (!player.hasQuest(QUEST_SLOT) || "rejected".equals(player.getQuest(QUEST_SLOT))) {
-						raiser.say("I can forge a shield made from mithril along with several other items. Would you like me to do that?");
+						raiser.say("ogę wykuć tarczę zrobioną z mithrilu z kilkoma innymi rzeczami. Czy chciałbyś, abym ją wykonał?");
 					} else if (player.isQuestCompleted(QUEST_SLOT)) {
-						raiser.say("I would prefer you left me to my entertainment.");
+						raiser.say("Wolałbym, abyś pozwolił mi się trochę rozerwać.");
 						raiser.setCurrentState(ConversationStates.ATTENDING);
 					} else {
-						raiser.say("Why are you bothering me when you haven't completed your quest yet?");
+						raiser.say("Dlaczego mi przeszkadzasz skoro jeszcze nie ukończyłeś swojego zadania?");
 						raiser.setCurrentState(ConversationStates.ATTENDING);
 					}
 				}
@@ -156,11 +156,11 @@ public class StuffForBaldemar extends AbstractQuest {
 			ConversationPhrases.NO_MESSAGES,
 			null,
 			ConversationStates.IDLE,
-			"I can't believe you are going to pass up this opportunity! You must be daft!!!",
+			"Nie mogę uwierzyć, że nie chcesz skorzystać z tej okazji! Musisz być szalony!!!",
 			new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -10.0));
 
-		npc.addReply("exact",
-			"As I have listed them here, you must provide them in that order.");
+		npc.addReply(Arrays.asList("exact", "dokładnie"),
+			"Jak już powiedziałem. Musisz mi dać dokładnie w tej kolejności.");
 	}
 
 	private void step_2() {
@@ -179,13 +179,13 @@ public class StuffForBaldemar extends AbstractQuest {
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					boolean missingSomething = questLogic.proceedItems(player, raiser);
 
-					if (player.hasKilledSolo("black giant") && !missingSomething) {
-						raiser.say("You've brought everything I need to forge the shield. Come back in "
+					if (player.hasKilledSolo("czarny olbrzym") && !missingSomething) {
+						raiser.say("Przyniosłeś wszystko. Teraz wykuję tarczę. Wróć za "
 							+ REQUIRED_MINUTES
-							+ " minutes and it will be ready.");
+							+ " minutę" + ", a będzie gotowa.");
 						player.setQuest(QUEST_SLOT, "forging;" + System.currentTimeMillis());
 					} else {
-						if (!player.hasKilledSolo("black giant") && !missingSomething) {
+						if (!player.hasKilledSolo("czarny olbrzym") && !missingSomething) {
 							raiser.say(TALK_NEED_KILL_GIANT);
 						}
 
@@ -202,19 +202,19 @@ public class StuffForBaldemar extends AbstractQuest {
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 
 					final String[] tokens = player.getQuest(QUEST_SLOT).split(";");
-
-					final long delay = REQUIRED_MINUTES * MathHelper.MILLISECONDS_IN_ONE_MINUTE;
+					
+					final long delay = REQUIRED_MINUTES * MathHelper.MILLISECONDS_IN_ONE_MINUTE; 
 					final long timeRemaining = Long.parseLong(tokens[1]) + delay
 							- System.currentTimeMillis();
 
 					if (timeRemaining > 0L) {
-						raiser.say("I haven't finished forging your shield. Please check back in "
+						raiser.say("Jeszcze nie wykułem twojej tarczy. Sprawdź za "
 							+ TimeUtil.approxTimeUntil((int) (timeRemaining / 1000L))
 							+ ".");
 						return;
 					}
 
-					raiser.say("I have finished forging your new mithril shield. Enjoy. Now I will see what Trillium has stored behind the counter for me. ;)");
+					raiser.say("Skończyłem wykuwanie twojej nowej tarczy z mithrilu. Ciesz się. Teraz pójdę sprawdzić co Trillium położyła za ladą dla mnie. ;)");
 					player.addXP(95000);
 					player.addKarma(25);
 					final Item mithrilshield = SingletonRepository.getEntityManager().getItem("mithril shield");
@@ -226,7 +226,7 @@ public class StuffForBaldemar extends AbstractQuest {
 			});
 
 		npc.add(ConversationStates.ATTENDING,
-			Arrays.asList("forge", "missing"),
+			Arrays.asList("forge", "missing", "wykuć", "brakuje"),
 			new QuestStateStartsWithCondition(QUEST_SLOT, "start;"),
 			ConversationStates.ATTENDING,
 			null,
@@ -235,9 +235,9 @@ public class StuffForBaldemar extends AbstractQuest {
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					final String questState = player.getQuest(QUEST_SLOT);
 					if (!broughtAllItems(questState)) {
-						raiser.say("I need " + questLogic.itemsStillNeeded(player) + ".");
+						raiser.say("Będę potrzebował " + questLogic.itemsStillNeeded(player) + ".");
 					} else {
-						if(!player.hasKilledSolo("black giant")) {
+						if(!player.hasKilledSolo("czarny olbrzym")) {
 							raiser.say(TALK_NEED_KILL_GIANT);
 						}
 					}
@@ -248,8 +248,8 @@ public class StuffForBaldemar extends AbstractQuest {
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Stuff for Baldemar",
-				"Baldemar, a friendly mithrilbourgh elite wizard, will forge a special shield.",
+				"Rzeczy dla Baldemara",
+				"Baldemar przyjazny, elitarny czarodziej mithrilbourghtó wykuje dla ciebie specjalną tarczę.",
 				false);
 		step_1();
 		step_2();
@@ -268,29 +268,29 @@ public class StuffForBaldemar extends AbstractQuest {
 			return res;
 		}
 		final String questState = player.getQuest(QUEST_SLOT);
-		res.add("I met Baldemar in the magic theater.");
+		res.add("Spotkałem Baldemar w  magic theater.");
 		if (questState.equals("rejected")) {
-			res.add("I'm not interested in his ideas about shields made from mithril.");
+			res.add("Nie jestem zainteresowany tarczą wykonaną z mithrilu.");
 			return res;
 		}
-		res.add("Baldemar asked me to bring him many things.");
+		res.add("Baldemar zapytał mnie o przyniesienie wielu rzeczy.");
 		if (questState.startsWith("start") && !broughtAllItems(questState)) {
 			String suffix = ".";
 			if (questLogic.neededItemsWithAmounts(player).size() > 1) {
-				suffix = ", in this order.";
+				suffix = " w tej kolejności.";
 			}
-			res.add("I still need to bring " + questLogic.itemsStillNeeded(player) + suffix);
+			res.add("Wciąż potrzebuję przynieść " + questLogic.itemsStillNeeded(player) + suffix);
 		} else if (broughtAllItems(questState) || !questState.startsWith("start")) {
-			res.add("I took all the special items to Baldemar.");
+			res.add("Zaniosłem wszystkie specjalne przedmioty do Baldemara.");
 		}
 		if (broughtAllItems(questState) && !player.hasKilledSolo("black giant")) {
 			res.add("I will need to bravely face a black giant alone, before I am worthy of this shield.");
 		}
 		if (questState.startsWith("forging")) {
-			res.add("Baldemar is forging my mithril shield!");
+			res.add("Baldemar wykuwa dla mnie tarczę z mithrilu!");
 		}
 		if (isCompleted(player)) {
-			res.add("I brought Baldemar many items, killed a black giant solo, and he forged me a mithril shield.");
+			res.add("Dostarczyłem Baldemarowi potrzebne surowce, zabiłem sam czarnego olbrzyma. W nagrodę dostałem tarcze z mithrilu.");
 		}
 		return res;
 	}

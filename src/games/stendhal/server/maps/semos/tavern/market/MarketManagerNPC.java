@@ -12,18 +12,17 @@
  ***************************************************************************/
 package games.stendhal.server.maps.semos.tavern.market;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 import games.stendhal.common.Direction;
 import games.stendhal.server.entity.RPEntity;
-import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.condition.NotCondition;
 import games.stendhal.server.entity.npc.condition.TextHasParameterCondition;
 import games.stendhal.server.entity.trade.Offer;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 public final class MarketManagerNPC extends SpeakerNPC {
 	

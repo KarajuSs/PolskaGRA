@@ -12,12 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.common.MathHelper;
 import games.stendhal.common.Rand;
 import games.stendhal.common.grammar.Grammar;
@@ -51,6 +45,12 @@ import games.stendhal.server.entity.npc.condition.TimePassedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 /**
  * QUEST: Weekly Item Fetch Quest.
  * <p>
@@ -62,9 +62,9 @@ import games.stendhal.server.maps.Region;
  * <li> talk to Museum Curator to get a quest to fetch a rare item
  * <li> bring the item to the Museum Curator
  * <li> if you cannot bring it in 6 weeks she offers you the chance to fetch
- *
+ * 
  * another instead </ul>
- *
+ * 
  * REWARD:
  * <ul><li> xp
  * <li> between 100 and 600 money
@@ -77,13 +77,13 @@ import games.stendhal.server.maps.Region;
 public class WeeklyItemQuest extends AbstractQuest {
 
 	private static final String QUEST_SLOT = "weekly_item";
-
+	
 	/** How long until the player can give up and start another quest */
-	private static final int expireDelay = MathHelper.MINUTES_IN_ONE_WEEK * 6;
-
+	private static final int expireDelay = MathHelper.MINUTES_IN_ONE_WEEK * 6; 
+	
 	/** How often the quest may be repeated */
-	private static final int delay = MathHelper.MINUTES_IN_ONE_WEEK;
-
+	private static final int delay = MathHelper.MINUTES_IN_ONE_WEEK; 
+	
 	/**
 	 * All items which are hard enough to find but not tooo hard and not in Daily quest. If you want to do
 	 * it better, go ahead. *
@@ -92,169 +92,169 @@ public class WeeklyItemQuest extends AbstractQuest {
 
 	private static void buildItemsMap() {
 		items = new HashMap<String, Integer>();
-
+		
 		// armor
-		items.put("barbarian armor",1);
-		items.put("chaos armor",1);
-		items.put("dwarvish armor",1);
-		items.put("golden armor",1);
-		items.put("ice armor",1);
-		items.put("magic plate armor",1);
-		items.put("mainio armor",1);
-		items.put("shadow armor",1);
-		items.put("stone armor",1);
-		items.put("xeno armor",1);
+		items.put("zbroja barbarzyńcy",1);
+		items.put("zbroja chaosu",1);
+		items.put("zbroja krasnoludzka",1);
+		items.put("złota zbroja",1);
+		items.put("lodowa zbroja",1);
+		items.put("magiczna zbroja płytowa",1);
+		items.put("zbroja mainiocyjska",1);
+		items.put("zbroja cieni",1);
+		items.put("kamienna zbroja",1);
+		items.put("zbroja xenocyjska",1);
 
 		// axe
-		items.put("golden twoside axe",1);
-		items.put("magic twoside axe",1);
+		items.put("topór oburęczny złoty",1);
+		items.put("topór oburęczny magiczny",1);
 
 		// boots
-		items.put("chaos boots",1);
-		items.put("golden boots",1);
-		items.put("mainio boots",1);
-		items.put("shadow boots",1);
-		items.put("steel boots",1);
-		items.put("stone boots",1);
-		items.put("xeno boots",1);
+		items.put("buty chaosu",1);
+		items.put("złote buty",1);
+		items.put("buty mainiocyjskie",1);
+		items.put("buty cieni",1);
+		items.put("buty żelazne",1);
+		items.put("buty kamienne",1);
+		items.put("buty xenocyjskie",1);
 
 
 		// cloak
-		items.put("blue dragon cloak",1);
-		items.put("blue striped cloak",1);
-		items.put("chaos cloak",1);
-		items.put("golden cloak",1);
-		items.put("mainio cloak",1);
-		items.put("red dragon cloak",1);
-		items.put("shadow cloak",1);
-		items.put("xeno cloak",1);
+		items.put("lazurowy płaszcz smoczy",1);
+		items.put("prążkowany płaszcz lazurowy",1);
+		items.put("płaszcz chaosu",1);
+		items.put("złoty płaszcz",1);
+		items.put("płaszcz mainiocyjski",1);
+		items.put("karmazynowy płaszcz smoczy",1);
+		items.put("płaszcz cieni",1);
+		items.put("płaszcz xenocyjski",1);
 
 		// club
-		items.put("skull staff",1);
+		items.put("kij z czaszką",1);
 
 		// drinks
-		items.put("mega potion",5);
-		items.put("fish soup",3);
+		items.put("wielki eliksir",5);
+		items.put("zupa rybna",3);
 
 		// helmet
-		items.put("chaos helmet",1);
-		items.put("golden helmet",1);
-		items.put("horned golden helmet",1);
-		items.put("mainio helmet",1);
-		items.put("shadow helmet",1);
+		items.put("hełm chaosu",1);
+		items.put("złoty hełm",1);
+		items.put("złoty hełm wikingów",1);
+		items.put("hełm mainiocyjski",1);
+		items.put("hełm cieni",1);
 
 		// jewellery
-		items.put("diamond",1);
-		items.put("obsidian",1);
+		items.put("diament",1);
+		items.put("obsydian",1);
 
 		// legs
-		items.put("chaos legs",1);
-		items.put("dwarvish legs",1);
-		items.put("golden legs",1);
-		items.put("mainio legs",1);
-		items.put("shadow legs",1);
-		items.put("xeno legs",1);
+		items.put("spodnie chaosu",1);
+		items.put("spodnie krasnoludzkie",1);
+		items.put("złote spodnie",1);
+		items.put("spodnie mainiocyjskie",1);
+		items.put("spodnie cieni",1);
+		items.put("spodnie xenocyjskie",1);
 
 		// misc
-		items.put("giant heart",5);
+		items.put("serce olbrzyma",5);
 
 		// resource
-		items.put("mithril bar",1);
-		items.put("mithril nugget",1);
-		items.put("silk gland",7);
+		items.put("sztabka mithrilu",3);
+		items.put("bryłka mithrilu",5);
+		items.put("gruczoł przędzy",7);
 
 		// special
-		items.put("lucky charm",1);
-		items.put("mythical egg",1);
+		items.put("czterolistna koniczyna",1);
+		items.put("mityczne jajo",1);
 
 		// shield
-		items.put("chaos shield",1);
-		items.put("golden shield",1);
-		items.put("green dragon shield",1);
-		items.put("magic plate shield",1);
-		items.put("mainio shield",1);
-		items.put("shadow shield",1);
-		items.put("xeno shield",1);
+		items.put("tarcza chaosu",1);
+		items.put("złota tarcza",1);
+		items.put("szmaragdowa tarcza smocza",1);
+		items.put("magiczna tarcza płytowa",1);
+		items.put("tarcza mainiocyjska",1);
+		items.put("tarcza cieni",1);
+		items.put("tarcza xenocyjska",1);
 
 		// sword
-		items.put("assassin dagger",1);
-		items.put("buster",1);
-		items.put("chaos sword",1);
-		items.put("dark dagger",1);
-		items.put("demon sword",1);
-		items.put("drow sword",1);
-		items.put("fire sword",1);
-		items.put("great sword",1);
-		items.put("hell dagger",1);
-		items.put("ice sword",1);
-		items.put("immortal sword",1);
-		items.put("night dagger",1);
-		items.put("xeno sword",1);
+		items.put("sztylet mordercy",1);
+		items.put("pogromca",1);
+		items.put("miecz chaosu",1);
+		items.put("sztylet mroku",1);
+		items.put("miecz demonów",1);
+		items.put("miecz elfów ciemności",1);
+		items.put("miecz ognisty",1);
+		items.put("półtorak",1);
+		items.put("piekielny sztylet",1);
+		items.put("miecz lodowy",1);
+		items.put("miecz nieśmiertelnych",1);
+		items.put("czarny sztylet",1);
+		items.put("miecz xenocyjski",1);
 
 	}
-
+	
 	private ChatAction startQuestAction() {
 		// common place to get the start quest actions as we can both starts it and abort and start again
-
+		
 		final List<ChatAction> actions = new LinkedList<ChatAction>();
-		actions.add(new StartRecordingRandomItemCollectionAction(QUEST_SLOT,0,items,"I want Kirdneh's museum to be the greatest in the land! Please fetch [item]"
-				+ " and say #complete, once you've brought it."));
+		actions.add(new StartRecordingRandomItemCollectionAction(QUEST_SLOT,0,items,"Chcę, aby muzeum w Kirdneh było największe w krainie! Dostarcz mi [item]"
+				+ " i powiedz #'załatwione', gdy przyniesiesz."));	
 		actions.add(new SetQuestToTimeStampAction(QUEST_SLOT, 1));
-
+		
 		return new MultipleActions(actions);
 	}
-
+	
 	private void getQuest() {
 		final SpeakerNPC npc = npcs.get("Hazel");
 		npc.add(ConversationStates.ATTENDING, ConversationPhrases.QUEST_MESSAGES,
 				new AndCondition(new QuestActiveCondition(QUEST_SLOT),
-								 new NotCondition(new TimePassedCondition(QUEST_SLOT,1,expireDelay))),
+								 new NotCondition(new TimePassedCondition(QUEST_SLOT,1,expireDelay))), 
 				ConversationStates.ATTENDING,
 				null,
-				new SayRequiredItemAction(QUEST_SLOT,0,"You're already on a quest to bring the museum [item]"
-						+ ". Please say #complete if you have it with you."));
-
+				new SayRequiredItemAction(QUEST_SLOT,0,"Już masz zadanie przyniesienia do muzeum [item]"
+						+ ". Powiedz #zakończone jeżeli będziesz miał  ze sobą."));
+		
 		npc.add(ConversationStates.ATTENDING, ConversationPhrases.QUEST_MESSAGES,
 				new AndCondition(new QuestActiveCondition(QUEST_SLOT),
-								 new TimePassedCondition(QUEST_SLOT,1,expireDelay)),
+								 new TimePassedCondition(QUEST_SLOT,1,expireDelay)), 
 				ConversationStates.ATTENDING,
 				null,
-				new SayRequiredItemAction(QUEST_SLOT,0,"You're already on a quest to bring the museum [item]"
-						+ ". Please say #complete if you have it with you. But, perhaps that is now too rare an item. I can give you #another task, or you can return with what I first asked you."));
-
+				new SayRequiredItemAction(QUEST_SLOT,0,"Już masz zadanie przyniesienia do muzeum [item]"
+						+ ". Powiedz #zakończone jeżeli będziesz miał  ze sobą. Być może teraz ten przedmiot występuje rzadko. Mogę dać Tobie #inne zadanie lub możesz wrócić z tym, o które prosiłem Cię wcześniej."));
+	
 		npc.add(ConversationStates.ATTENDING, ConversationPhrases.QUEST_MESSAGES,
 				new AndCondition(new QuestCompletedCondition(QUEST_SLOT),
-								 new NotCondition(new TimePassedCondition(QUEST_SLOT,1,delay))),
+								 new NotCondition(new TimePassedCondition(QUEST_SLOT,1,delay))), 
 				ConversationStates.ATTENDING,
 				null,
-				new SayTimeRemainingAction(QUEST_SLOT,1, delay, "The museum can only afford to send you to fetch an item once a week. Please check back in"));
-
+				new SayTimeRemainingAction(QUEST_SLOT,1, delay, "Muzeum może Cię prosić o przyniesienie przedmiotu tylko raz w tygodniu. Wróć za "));
+		
 		npc.add(ConversationStates.ATTENDING, ConversationPhrases.QUEST_MESSAGES,
 				new OrCondition(new QuestNotStartedCondition(QUEST_SLOT),
 								new AndCondition(new QuestCompletedCondition(QUEST_SLOT),
-												 new TimePassedCondition(QUEST_SLOT,1,delay))),
+												 new TimePassedCondition(QUEST_SLOT,1,delay))), 
 				ConversationStates.ATTENDING,
 				null,
 				startQuestAction());
 	}
-
+	
 	private void completeQuest() {
 		final SpeakerNPC npc = npcs.get("Hazel");
-
+		
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.FINISH_MESSAGES,
 				new QuestNotStartedCondition(QUEST_SLOT),
-				ConversationStates.ATTENDING,
-				"I don't remember giving you any #task yet.",
+				ConversationStates.ATTENDING, 
+				"Nie pamiętam, abym dawał Tobie #zadanie.",
 				null);
-
+		
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.FINISH_MESSAGES,
 				new QuestCompletedCondition(QUEST_SLOT),
-				ConversationStates.ATTENDING,
-				"You already completed the last quest I had given to you.",
+				ConversationStates.ATTENDING, 
+				"Już ukończyłeś ostatnie zadanie, które Ci dałem.",
 				null);
-
+		
 		final List<ChatAction> actions = new LinkedList<ChatAction>();
 		actions.add(new DropRecordedItemAction(QUEST_SLOT,0));
 		actions.add(new SetQuestToTimeStampAction(QUEST_SLOT, 1));
@@ -271,107 +271,107 @@ public class WeeklyItemQuest extends AbstractQuest {
 				goldamount = 100 * Rand.roll1D6();
 				money.setQuantity(goldamount);
 				player.equipOrPutOnGround(money);
-				raiser.say("Wonderful! Here is " + Integer.toString(goldamount) + " money to cover your expenses.");
+				raiser.say("Wspaniale! Oto " + Integer.toString(goldamount) + " money na pokrycie wydatków.");
 			}
 		});
-
+		
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.FINISH_MESSAGES,
+				ConversationPhrases.FINISH_MESSAGES, 
 				new AndCondition(new QuestActiveCondition(QUEST_SLOT),
 								 new PlayerHasRecordedItemWithHimCondition(QUEST_SLOT,0)),
-				ConversationStates.ATTENDING,
+				ConversationStates.ATTENDING, 
 				null,
 				new MultipleActions(actions));
-
+		
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.FINISH_MESSAGES,
 				new AndCondition(new QuestActiveCondition(QUEST_SLOT),
 								 new NotCondition(new PlayerHasRecordedItemWithHimCondition(QUEST_SLOT,0))),
-				ConversationStates.ATTENDING,
+				ConversationStates.ATTENDING, 
 				null,
-				new SayRequiredItemAction(QUEST_SLOT,0,"You don't seem to have [item]"
-						+ " with you. Please get it and say #complete only then."));
-
+				new SayRequiredItemAction(QUEST_SLOT,0,"Nie masz ze sobą [item]"
+						+ " Zdobądź i powiedz wtedy #zakończone."));
+		
 	}
-
+	
 	private void abortQuest() {
 		final SpeakerNPC npc = npcs.get("Hazel");
-
+		
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.ABORT_MESSAGES,
 				new AndCondition(new QuestActiveCondition(QUEST_SLOT),
-						 		 new TimePassedCondition(QUEST_SLOT,1,expireDelay)),
-				ConversationStates.ATTENDING,
-				null,
+						 		 new TimePassedCondition(QUEST_SLOT,1,expireDelay)), 
+				ConversationStates.ATTENDING, 
+				null, 
 				startQuestAction());
-
+		
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.ABORT_MESSAGES,
 				new AndCondition(new QuestActiveCondition(QUEST_SLOT),
-						 		 new NotCondition(new TimePassedCondition(QUEST_SLOT,1,expireDelay))),
-				ConversationStates.ATTENDING,
-				"It hasn't been long since you've started your quest, you shouldn't give up so soon.",
+						 		 new NotCondition(new TimePassedCondition(QUEST_SLOT,1,expireDelay))), 
+				ConversationStates.ATTENDING, 
+				"Nie minęło tak dużo czasu od rozpoczęcia zadania. Nie powinieneś się tak szybko poddawać.", 
 				null);
-
+		
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.ABORT_MESSAGES,
 				new QuestNotActiveCondition(QUEST_SLOT),
-				ConversationStates.ATTENDING,
-				"I'm afraid I didn't send you on a #quest yet.",
+				ConversationStates.ATTENDING, 
+				"Obawiam się, że jeszcze nie dałem Tobie #zadania.", 
 				null);
-
+		
 	}
 
 	@Override
 	public String getSlotName() {
 		return QUEST_SLOT;
 	}
-
+	
 	@Override
 	public List<String> getHistory(final Player player) {
 		final List<String> res = new ArrayList<String>();
 		if (!player.hasQuest(QUEST_SLOT)) {
 			return res;
 		}
-		res.add("I have met Hazel, the curator of Kirdneh museum.");
+		res.add("Spotkałem Hazela kuratora muzeum Kirdneh.");
 		final String questState = player.getQuest(QUEST_SLOT);
 		if ("rejected".equals(questState)) {
-			res.add("I do not want to help Kirdneh museum become the greatest in the land.");
+			res.add("Nie chcę pomagać muzeum w Kirdneh i stać się największym w kraju.");
 			return res;
 		}
-		res.add("I want to help Kirdneh museum become the greatest in the land.");
+		res.add("Chcę pomóc muzeum w Kirdneh i stać się największymw kraju.");
 		if (player.hasQuest(QUEST_SLOT) && !player.isQuestCompleted(QUEST_SLOT)) {
 			String questItem = player.getRequiredItemName(QUEST_SLOT,0);
 			int amount = player.getRequiredItemQuantity(QUEST_SLOT,0);
 			if (!player.isEquipped(questItem, amount)) {
-				res.add(String.format("I have been asked to find " +Grammar.quantityplnoun(amount, questItem, "a") + " for Kirdneh museum."));
+				res.add(String.format("Zostałem poproszony, aby przynieść " +Grammar.quantityplnoun(amount, questItem, "") + " do muzeum w Kirdneh."));
 			} else {
-				res.add(String.format("I have " + Grammar.quantityplnoun(amount, questItem, "a") + " for Kirdneh museum and need to take it."));
+				res.add(String.format("Mam " + Grammar.quantityplnoun(amount, questItem, "a") + " dla muzeum w Kirdneh. Muszę to im zanieść."));
 			}
 		}
 		if (isRepeatable(player)) {
-			res.add("I took the valuable item to Hazel and the museum can now afford to send me to find another.");
+			res.add("Zaniosłem wartościowy przedmiot do Hazela i muzeum zleciło mi znalezienie następnego.");
 		} else if (isCompleted(player)) {
-			res.add("I took the valuable item to Hazel within the last 7 days.");
+			res.add("Pomogłem muzeum. Za 7 dni zajrze tam znów. Byś może potrzebować będą mojej pomocy.");
 		}
 		// add to history how often player helped Hazel so far
 		final int repetitions = player.getNumberOfRepetitions(getSlotName(), 2);
 		if (repetitions > 0) {
-			res.add("I've brought exhibits for the museum on "
-					+ Grammar.quantityplnoun(repetitions, "occasion") + " so far.");
+			res.add("Przyniosłem już "
+					+ Grammar.quantityplnoun(repetitions, "") + " eksponatów do muzeum.");
 		}
 
 		return res;
 	}
-
+	
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Kirdneh museum needs help!",
-				"Hazel, the curator of the Kirdneh Museum, wants as many rare exhibits as she can afford.",
+				"Muzeum Kirdneh potrzebuje pomocy!",
+				"Hazel, kurator Muzeum Kirdneh, chce aby było one największym w kraju i potrzebuje mojej pomocy raz na tydzień.",
 				true);
 		buildItemsMap();
-
+		
 		getQuest();
 		completeQuest();
 		abortQuest();
@@ -381,19 +381,19 @@ public class WeeklyItemQuest extends AbstractQuest {
 	public String getName() {
 		return "WeeklyItemQuest";
 	}
-
+	
 	// the items requested are pretty hard to get, so it's not worth prompting player to go till they are higher level.
 	@Override
 	public int getMinLevel() {
 		return 60;
 	}
-
+	
 	@Override
 	public boolean isRepeatable(final Player player) {
 		return	new AndCondition(new QuestCompletedCondition(QUEST_SLOT),
 						 new TimePassedCondition(QUEST_SLOT,1,delay)).fire(player, null, null);
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.KIRDNEH;

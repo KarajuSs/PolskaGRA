@@ -12,13 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-
-import org.apache.log4j.Logger;
-
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.entity.npc.ChatAction;
@@ -40,14 +33,21 @@ import games.stendhal.server.entity.npc.condition.TriggerInListCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
 /**
  * QUEST: Find Ghosts
- *
- * PARTICIPANTS:
+ * 
+ * PARTICIPANTS: 
  * <ul>
  * <li> Carena</li>
  * </ul>
- *
+ * 
  * STEPS:
  * <ul>
  * <li> Carena asks you to find the 4 other spirits on Faiumoni</li>
@@ -56,15 +56,15 @@ import games.stendhal.server.maps.Region;
  * <li> Carena checks you have met them, then gives reward</li>
  * <li> Note: you can meet the ghosts before you started the quest with her</li>
  * </ul>
- *
- * REWARD:
+ * 
+ * REWARD: 
  * <ul>
- * <li> base HP bonus of 50</li>
+ * <li> base HP bonus of 100</li>
  * <li> 5000 XP</li>
  * <li> Karma: 15</li>
  * </ul>
- *
- * REPETITIONS:
+ * 
+ * REPETITIONS: 
  * <ul>
  * <li> None.</li>
  * </ul>
@@ -74,15 +74,15 @@ public class FindGhosts extends AbstractQuest {
 	private static Logger logger = Logger.getLogger(FindGhosts.class);
 
 	public static final String QUEST_SLOT = "find_ghosts";
-
-	private static final List<String> NEEDED_SPIRITS =
+	
+	private static final List<String> NEEDED_SPIRITS = 
 		Arrays.asList("mary", "ben", "zak", "goran");
 
 	@Override
 	public String getSlotName() {
 		return QUEST_SLOT;
 	}
-
+	
 	private List<String> missingNames(final Player player) {
 		if (!player.hasQuest(QUEST_SLOT)) {
 			return NEEDED_SPIRITS;
@@ -113,28 +113,28 @@ public class FindGhosts extends AbstractQuest {
 			ConversationPhrases.QUEST_MESSAGES,
 			new OrCondition(new QuestNotStartedCondition(QUEST_SLOT), new QuestInStateCondition(QUEST_SLOT, "rejected")),
 			ConversationStates.QUEST_OFFERED,
-			"I feel so lonely. I only ever see creatures and alive people. If I knew about #spirits like me, I would feel better.",
+			"Czuję się taka samotna. Spotykam tylko potwory i żywych ludzi. Jeżeli wiedziałabym o innych #duchach to poczułabym się lepiej.",
 			null);
 
 		npc.add(ConversationStates.ATTENDING,
 			ConversationPhrases.QUEST_MESSAGES,
 			new QuestActiveCondition(QUEST_SLOT),
 			ConversationStates.ATTENDING,
-			"I want help to find other spirits like me. Please find them, then come back and tell me their names.",
+			"Potrzebuję pomocy w znalezieniu innych duchów takich jak ja. Proszę znajdź je i powiedz mi ich imiona.",
 			null);
 
 		npc.add(ConversationStates.ATTENDING,
 			ConversationPhrases.QUEST_MESSAGES,
 			new QuestCompletedCondition(QUEST_SLOT),
 			ConversationStates.ATTENDING,
-			"Thank you! I feel better now that I know the names of other spirits on Faiumoni.",
+			"Dziękuję! Czuję się teraz lepiej znając imiona innych duchów na Faiumoni.",
 			null);
 
 		npc.add(ConversationStates.QUEST_OFFERED,
-			ConversationPhrases.YES_MESSAGES,
+			ConversationPhrases.YES_MESSAGES, 
 			null,
 			ConversationStates.ATTENDING,
-			"That's lovely of you. Good luck searching for them.",
+			"To wspaniale z twojej strony. Powodzenia w szukaniu ich.",
 			new SetQuestAction(QUEST_SLOT, "looking:said"));
 
 		npc.add(
@@ -142,15 +142,15 @@ public class FindGhosts extends AbstractQuest {
 			ConversationPhrases.NO_MESSAGES,
 			null,
 			ConversationStates.ATTENDING,
-			"Oh. Never mind. Perhaps since I'm only a ghost I couldn't offer you much reward anyway.",
+			"Och nieważne. Może dlatego, że jestem duchem to nie mogę zaoferować Ci lepszej nagrody.",
 			new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -15.0));
 
 		npc.add(
 			ConversationStates.QUEST_OFFERED,
-			Arrays.asList("spirits", "spirit"),
+			Arrays.asList("spirits", "spirit", "duch", "duchy", "duchach"),
 			null,
 			ConversationStates.QUEST_OFFERED,
-			"I sense that there are 4 other spirits, but if only I knew their names I could contact them. Will you find them, then come back and tell me their names?",
+			"Czuję, że są 4 inne duchy. Gdybym znała ich imiona to mogłabym się z nimi skontaktować. Znajdziesz je i powiesz mi ich imiona?",
 			null);
 	}
 
@@ -169,7 +169,7 @@ public class FindGhosts extends AbstractQuest {
 			new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestActiveCondition(QUEST_SLOT)),
 			ConversationStates.QUESTION_1,
-			"If you found any #spirits, please tell me their name.", null);
+			"Jeżeli znajdziesz #duchy to proszę wyjaw mi ich imiona.", null);
 
 		for(final String spiritName : NEEDED_SPIRITS) {
 			npc.add(ConversationStates.QUESTION_1, spiritName, null,
@@ -179,7 +179,7 @@ public class FindGhosts extends AbstractQuest {
 					public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
 						final String name = spiritName;
 
-						// although all names are stored as lower case from now on,
+						// although all names are stored as lower case from now on, 
 						// older versions did not,
 						// so we have to be compatible with them
 						final String npcQuestText = player.getQuest(QUEST_SLOT).toLowerCase();
@@ -193,7 +193,7 @@ public class FindGhosts extends AbstractQuest {
 							// compatibility with broken quests
 							logger.warn("Player " + player.getTitle() + " found with find_ghosts quest slot in state " + player.getQuest(QUEST_SLOT) + " - now setting this to done.");
 							player.setQuest(QUEST_SLOT, "done");
-							npc.say("Sorry, it looks like you have already found them after all. I got confused");
+							npc.say("Wygląda na to, że po tym wszystkim już je znalazłeś. Czuję się zakłopotana.");
 							player.notifyWorldAboutChanges();
 							npc.setCurrentState(ConversationStates.ATTENDING);
 							return;
@@ -209,13 +209,13 @@ public class FindGhosts extends AbstractQuest {
 							// we haven't said the name yet so we add it to the list
 							player.setQuest(QUEST_SLOT, lookingStr
 									+ ":" + saidStr + ";" + name);
-							reply = "Thank you.";
+							reply = "Dziękuje.";
 						} else if (!looking.contains(name)) {
 							// we have said it was a valid name but haven't met them
-							reply = "I don't believe you've spoken with any spirit of that name.";
+							reply = "Nie wierzę, że rozmawiałeś z duchem o tym imieniu.";
 						} else if (!isMissing && said.contains(name)) {
 							// we have said the name so we are stupid!
-							reply = "You've told me that name already, thanks.";
+							reply = "Mówiłeś mi już o tym duchu.";
 						} else {
 							assert false;
 						}
@@ -224,14 +224,14 @@ public class FindGhosts extends AbstractQuest {
 						missing = missingNames(player);
 
 						if (!missing.isEmpty()) {
-							reply += " If you met any other spirits, please tell me their name.";
+							reply += " Jeżeli spotkasz inne duchy to proszę powiedz mi ich imiona.";
 							npc.say(reply);
 						} else {
-							player.setBaseHP(50 + player.getBaseHP());
-							player.heal(50, true);
+							player.setBaseHP(100 + player.getBaseHP());
+							player.heal(100, true);
 							player.addXP(5000);
 							player.addKarma(15);
-							reply += " Now that I know those 4 names, perhaps I can even reach the spirits with my mind. I can't give you anything of material value, but I have given you a boost to your basic wellbeing, which will last forever. May you live long, and prosper.";
+							reply += " Znam teraz 4 inne duchy. Może teraz będę mogła się skontaktować z nimi za pomocą telepatii. Nie mogłam dać Ci nic z materialnych rzeczy i dlatego zwiększyłam twoją żywotność. Będziesz mógł żyć dłużej.";
 							npc.say(reply);
 							player.setQuest(QUEST_SLOT, "done");
 							player.notifyWorldAboutChanges();
@@ -245,7 +245,7 @@ public class FindGhosts extends AbstractQuest {
 		triggers.add(ConversationPhrases.NO_EXPRESSION);
 		triggers.addAll(ConversationPhrases.GOODBYE_MESSAGES);
 		npc.add(ConversationStates.QUESTION_1, triggers, null,
-				ConversationStates.IDLE, "No problem, come back later.", null);
+				ConversationStates.IDLE, "Nie ma problemu. Wróć później.", null);
 
 		// player says something which isn't in the needed spirits list.
 		npc.add(
@@ -253,31 +253,31 @@ public class FindGhosts extends AbstractQuest {
 			"",
 			new NotCondition(new TriggerInListCondition(NEEDED_SPIRITS)),
 			ConversationStates.QUESTION_1,
-			"Sorry, I don't understand you. What name are you trying to say?",
+			"Przepraszam, ale nie rozumiem Ciebie. Jakie to było imię?",
 			null);
 
 		npc.add(
 			ConversationStates.QUESTION_1,
-			Arrays.asList("spirits", "spirit"),
+			Arrays.asList("spirits", "spirit", "duch", "duchy", "duchach"),
 			null,
 			ConversationStates.QUESTION_1,
-			"I seek to know more about other spirits who are dead but stalk the earthly world as ghosts. Please tell me any names you know.",
+			"Szukam czegoś więcej o innych duchach, które są martwe i utknęły na ziemi właśnie jako duchy. Proszę wyjaw mi ich imiona.",
 			null);
 
 		// the player goes to Carena and says hi, and has no quest or is completed.
-		npc.add(ConversationStates.IDLE,
+		npc.add(ConversationStates.IDLE, 
 				ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new NotCondition(new QuestActiveCondition(QUEST_SLOT))),
-				ConversationStates.ATTENDING, "Wooouhhhhhh!",
+				ConversationStates.ATTENDING, "Ałłłuuuuuuu!", 
 				null);
 	}
 
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Find Ghosts",
-				"Once upon a time, some travellers talked about some spirits which they visited on their way through Faiumoni. One of them, a young ghost called Carena, is hidden somewhere around Ados and needs some help...",
+				"Poszukiwania Duchów",
+				"Pewnego razu paru podróżnych rozmawiało z duchami, które odwiedziły ich podczas podróży przez Faiumoni. Jeden z nich młody duch zwany Carena ukryty gdzieś w okolicach Ados potrzebuje pomocy...",
 				true);
 		askingStep();
 		findingStep();
@@ -290,24 +290,24 @@ public class FindGhosts extends AbstractQuest {
 			if (!player.hasQuest(QUEST_SLOT)) {
 				return res;
 			}
-			res.add("Carena is lonely and wants to know about other spirits in the world. I must find them all and tell her each name.");
+			res.add("Carena jest samotna i chce wiedzieć o innych duchach na świecie. Muszę znaleźć je wszystkie i powiedzieć jej, ich imiona.");
 			if ("rejected".equals(player.getQuest(QUEST_SLOT))) {
-				res.add("Uh, no thanks, ghosts are creepy.");
+				res.add("Uh, nie dzięki, duchy są straszne.");
 				return res;
 			}
 			if (!isCompleted(player)) {
-				res.add("I have " + missingNames(player).size() + " " + Grammar.plnoun(missingNames(player).size(), "ghost") + " left to tell Carena about.");
+				res.add("Znalazłem " + missingNames(player).size() + " " + Grammar.plnoun(missingNames(player).size(), "ghost") + " aby powiedzieć Carenie.");
 			} else {
-				res.add("Carena was comforted to hear the names of other spirits like her. She gave me a boost to my basic health which will last forever, like her.");
+				res.add("Carena ucieszyła się, że są inne duchy na świecie. Za moje zaangażowanie podniosła moją żywotność.");
 			}
 			return res;
 	}
-
+	
 	@Override
 	public String getName() {
 		return "FindGhosts";
 	}
-
+	
 	@Override
 	public int getMinLevel() {
 		return 10;
@@ -317,7 +317,7 @@ public class FindGhosts extends AbstractQuest {
 	public String getNPCName() {
 		return "Carena";
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.ADOS_CITY;

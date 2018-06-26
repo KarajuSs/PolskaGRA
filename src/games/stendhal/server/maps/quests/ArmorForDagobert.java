@@ -12,11 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-
 import games.stendhal.server.entity.npc.ChatAction;
 import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
@@ -39,6 +34,11 @@ import games.stendhal.server.entity.npc.condition.QuestNotCompletedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * QUEST: Armor for Dagobert
  *
@@ -57,7 +57,7 @@ import games.stendhal.server.maps.Region;
  * REWARD:
  * <ul>
  * <li>50 XP</li>
- * <li>80 gold</li>
+ * <li>100 gold</li>
  * <li>Karma: 10</li>
  * <li>Access to vault</li>
  * </ul>
@@ -71,7 +71,7 @@ public class ArmorForDagobert extends AbstractQuest {
 
 	private static final String QUEST_SLOT = "armor_dagobert";
 
-
+	
 
 	@Override
 	public List<String> getHistory(final Player player) {
@@ -79,19 +79,19 @@ public class ArmorForDagobert extends AbstractQuest {
 		if (!player.hasQuest(QUEST_SLOT)) {
 			return res;
 		}
-		res.add("I have met Dagobert. He is the consultant at the bank in Semos.");
+		res.add("Spotkałem Dagobert. Jest konsultantem w banku w Semos.");
 		final String questState = player.getQuest(QUEST_SLOT);
 		if ("rejected".equals(questState)) {
-			res.add("He asked me to find a leather cuirass but I rejected his request.");
+			res.add("Poprosił mnie o znalezienie skórzanego kirysu, ale odrzuciłem jego proźbę.");
 		}
 		if (player.isQuestInState(QUEST_SLOT, "start", "done")) {
-			res.add("I promised to find a leather cuirass for him because he has been robbed.");
+			res.add("Przyrzekłem, że znajdę dla niego skórzany kirys ponieważ został okradziony.");
 		}
-		if ("start".equals(questState) && (player.isEquipped("leather cuirass") || player.isEquipped("pauldroned leather cuirass")) || "done".equals(questState)) {
-			res.add("I found a leather cuirass and will take it to Dagobert.");
+		if ("start".equals(questState) && (player.isEquipped("skórzany kirys") || player.isEquipped("skórzany kirys z naramiennikami")) || "done".equals(questState)) {
+			res.add("Znalazłem skórzany kirys i zabiorę go do Dagoberta.");
 		}
 		if ("done".equals(questState)) {
-			res.add("I took the leather cuirass to Dagobert. As a little thank you, he will allow me to use a private vault.");
+			res.add("Wziąłem skórzany kirys do Dagoberta. Podziękował i dał mi nagrodę.");
 		}
 		return res;
 	}
@@ -103,16 +103,16 @@ public class ArmorForDagobert extends AbstractQuest {
 			ConversationStates.ATTENDING,
 			ConversationPhrases.QUEST_MESSAGES,
 			new QuestNotCompletedCondition(QUEST_SLOT),
-			ConversationStates.QUEST_OFFERED,
-			"I'm so afraid of being robbed. I don't have any protection. Do you think you can help me?",
+			ConversationStates.QUEST_OFFERED, 
+			"Obawiam się, że zostałem okradziony. Nie mam żadnej ochrony. Czy mógłbyś mi pomóc?",
 			null);
 
 		npc.add(
 			ConversationStates.ATTENDING,
 			ConversationPhrases.QUEST_MESSAGES,
 			new QuestCompletedCondition(QUEST_SLOT),
-			ConversationStates.ATTENDING,
-			"Thank you very much for the armor, but I don't have any other task for you.",
+			ConversationStates.ATTENDING, 
+			"Dziękuję za zbroję, ale nie mam więcej zadań dla Ciebie.",
 			null);
 
 		// player is willing to help
@@ -121,7 +121,7 @@ public class ArmorForDagobert extends AbstractQuest {
 			ConversationPhrases.YES_MESSAGES,
 			null,
 			ConversationStates.ATTENDING,
-			"Once I had a nice #'leather cuirass', but it was destroyed during the last robbery. If you find a new one, I'll give you a reward.",
+			"Raz miałem #'skórzany kirys', ale został zniszczony podczas ostatniej kradzieży. Jeżeli znajdziesz nowy to dam Tobie nagrodę.",
 			new SetQuestAction(QUEST_SLOT, "start"));
 
 		// player is not willing to help
@@ -129,16 +129,16 @@ public class ArmorForDagobert extends AbstractQuest {
 			ConversationStates.QUEST_OFFERED,
 			ConversationPhrases.NO_MESSAGES, null,
 			ConversationStates.ATTENDING,
-			"Well, then I guess I'll just duck and cover.",
+			"Cóż będę musiał się ukryć..",
 			new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -5.0));
 
 		// player wants to know what a leather cuirass is
 		npc.add(
 			ConversationStates.ATTENDING,
-			Arrays.asList("leather cuirass", "leather", "cuirass"),
+			Arrays.asList("skórzany kirys", "leather", "cuirass"),
 			null,
 			ConversationStates.ATTENDING,
-			"A leather cuirass is the traditional cyclops armor. Some cyclopes are living in the dungeon deep under the city.",
+			"Skórzany kirys jest tradycyjną zbroją cyklopów. Kilka cyklopów mieszka w podziemiach głęboko pod miastem.",
 			null);
 	}
 
@@ -148,53 +148,53 @@ public class ArmorForDagobert extends AbstractQuest {
 		// player returns while quest is still active
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 			new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
-				new QuestInStateCondition(QUEST_SLOT, "start"),
+				new QuestInStateCondition(QUEST_SLOT, "start"), 
 				new OrCondition(
-					new PlayerHasItemWithHimCondition("leather cuirass"),
-					new PlayerHasItemWithHimCondition("pauldroned leather cuirass"))),
-			ConversationStates.QUEST_ITEM_BROUGHT,
-			"Excuse me, please! I have noticed the leather cuirass you're carrying. Is it for me?",
+					new PlayerHasItemWithHimCondition("skórzany kirys"),
+					new PlayerHasItemWithHimCondition("skórzany kirys z naramiennikami"))),
+			ConversationStates.QUEST_ITEM_BROUGHT, 
+			"Przepraszam! Zauważyłem, że masz przy sobie skórzany kirys. Jest dla mnie?",
 			null);
 
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 			new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
-				new QuestInStateCondition(QUEST_SLOT, "start"),
+				new QuestInStateCondition(QUEST_SLOT, "start"),  
 				new NotCondition(new OrCondition(
-					new PlayerHasItemWithHimCondition("leather cuirass"),
-					new PlayerHasItemWithHimCondition("pauldroned leather cuirass")))),
-			ConversationStates.ATTENDING,
-			"Luckily I haven't been robbed while you were away. I would be glad to receive a leather cuirass. Anyway, how can I #help you?",
+					new PlayerHasItemWithHimCondition("skórzany kirys"),
+					new PlayerHasItemWithHimCondition("skórzany kirys z naramiennikami")))),
+			ConversationStates.ATTENDING, 
+			"Na szczęście nie zostałem obrabowany, gdy Ciebie nie było. Chciałbym się odwdzięczyć za zbroję. Poza tym może potrzebujesz #pomocy?",
 			null);
 
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
-		reward.add(new EquipItemAction("money", 80));
-		reward.add(new IncreaseXPAction(50));
+		reward.add(new EquipItemAction("money", 100));
+		reward.add(new IncreaseXPAction(500));
 		reward.add(new SetQuestAction(QUEST_SLOT, "done"));
 		reward.add(new IncreaseKarmaAction(10));
 
 		final List<ChatAction> reward1 = new LinkedList<ChatAction>(reward);
-		reward1.add(new DropItemAction("leather cuirass"));
+		reward1.add(new DropItemAction("skórzany kirys"));
 
 		npc.add(
 			ConversationStates.QUEST_ITEM_BROUGHT,
 			ConversationPhrases.YES_MESSAGES,
 			// make sure the player isn't cheating by putting the armor
 			// away and then saying "yes"
-			new PlayerHasItemWithHimCondition("leather cuirass"),
-			ConversationStates.ATTENDING, "Oh, I am so thankful! Here is some gold I found ... ehm ... somewhere. Now that you have proven yourself a trusted customer, you may have access to your own private banking #vault any time you like.",
+			new PlayerHasItemWithHimCondition("skórzany kirys"), 
+			ConversationStates.ATTENDING, "Oh, jestem Ci tak wdzięczny, proszę weź to złoto, które znalazłem...ehm..gdzieś.",
 			new MultipleActions(reward1));
 
 		final List<ChatAction> reward2 = new LinkedList<ChatAction>(reward);
-		reward2.add(new DropItemAction("pauldroned leather cuirass"));
+		reward2.add(new DropItemAction("skórzany kirys z naramiennikami"));
 		npc.add(
 			ConversationStates.QUEST_ITEM_BROUGHT,
 			ConversationPhrases.YES_MESSAGES,
 			// make sure the player isn't cheating by putting the armor
 			// away and then saying "yes"
 			new AndCondition(
-				new NotCondition(new PlayerHasItemWithHimCondition("leather cuirass")),
-				new PlayerHasItemWithHimCondition("pauldroned leather cuirass")),
-			ConversationStates.ATTENDING, "Oh, I am so thankful! Here is some gold I found ... ehm ... somewhere. Now that you have proven yourself a trusted customer, you may have access to your own private banking #vault any time you like.",
+				new NotCondition(new PlayerHasItemWithHimCondition("skórzany kirys")),
+				new PlayerHasItemWithHimCondition("skórzany kirys z naramiennikami")), 
+			ConversationStates.ATTENDING, "Oh, jestem Ci tak wdzięczny, proszę weź to złoto, które znalazłem...ehm..gdzieś. Teraz gdy udowodniłeś, że jesteś zaufanym klientem, możesz mieć dostęp do prywatnej skrzyni bankowej kiedy tylko zechcesz.",
 			new MultipleActions(reward2));
 
 		npc.add(
@@ -202,15 +202,15 @@ public class ArmorForDagobert extends AbstractQuest {
 			ConversationPhrases.NO_MESSAGES,
 			null,
 			ConversationStates.ATTENDING,
-			"Well then, I hope you find another one which you can give to me before I get robbed again.",
+			"Cóż mam nadzieję, że znajdziesz i dasz mi inny nim zostanę ponownie obrabowany.",
 			null);
 	}
 
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Armor For Dagobert",
-				"Dagobert, the consultant at the bank of Semos, needs protection.",
+				"Zbroja dla Dagoberta",
+				"Dagobert konsultant w banku w Semos poprosił mnie o znalezienie dla niego skórzanego kirysu.",
 				false);
 		prepareRequestingStep();
 		prepareBringingStep();
@@ -225,17 +225,17 @@ public class ArmorForDagobert extends AbstractQuest {
 	public String getName() {
 		return "ArmorForDagobert";
 	}
-
+	
 	@Override
 	public int getMinLevel() {
 		return 0;
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.SEMOS_CITY;
 	}
-
+	
 	@Override
 	public String getNPCName() {
 		return "Dagobert";

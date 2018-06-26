@@ -12,12 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.common.MathHelper;
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.server.entity.npc.ChatAction;
@@ -47,6 +41,12 @@ import games.stendhal.server.entity.npc.condition.TimePassedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 /**
  * QUEST: Zoo Food
  * <p>
@@ -55,7 +55,7 @@ import games.stendhal.server.maps.Region;
  * <li> Katinka, the keeper at the Ados Wildlife Refuge
  * <li> Dr.Feelgood, the veterinary
  * </ul>
- *
+ * 
  * STEPS:
  * <ul>
  * <li> Katinka asks you for food for the animals.
@@ -64,10 +64,10 @@ import games.stendhal.server.maps.Region;
  * <li> Katinka thanks you.
  * <li> You can then buy cheap medicine from Dr. Feelgood.
  * </ul>
- *
+ * 
  * REWARD: <ul>
- * <li> 200 XP
- * <li> 7 Karma
+ * <li> 200 XP 
+ * <li> 7 Karma 
  * <li> Supply for cheap medicine and free pet healing for one week
  * </ul>
  * REPETITIONS: - Once per week.
@@ -83,34 +83,34 @@ public class ZooFood extends AbstractQuest {
 	public String getSlotName() {
 		return QUEST_SLOT;
 	}
-
+	
 	@Override
 	public List<String> getHistory(final Player player) {
 		final List<String> res = new ArrayList<String>();
 		if (!player.hasQuest(QUEST_SLOT)) {
 			return res;
 		}
-		res.add("I have met Katinka at the zoo.");
+		res.add("Spotkałem Katinkę w zoo");
 		final String questState = player.getQuest(QUEST_SLOT);
 		if (questState.equals("rejected")) {
-			res.add("I do not have the time for smelly animals and their food issues.");
+			res.add("Nie mam czasu na zwierzęta i ich problemy z jedzeniem");
 			return res;
 		}
-		res.add("I don't want to see those poor animals die! I'll help get the food!");
+		res.add("Nie chcę widzieć jak te biedne zwierzęta umierają! Pomogę im w zdobyciu jedzenia!");
 		if (questState.startsWith("start;")) {
 			String questItem = player.getRequiredItemName(QUEST_SLOT,1);
 			int amount = player.getRequiredItemQuantity(QUEST_SLOT,1);
 			if (!player.isEquipped(questItem, amount)) {
-				res.add(String.format("I have been asked to fetch " +Grammar.quantityplnoun(amount, questItem, "a") + " for the animals."));
+				res.add(String.format("Zostałem poproszony, aby przynieść " +Grammar.quantityplnoun(amount, questItem, "a") + " dla zwierząt."));
 			} else {
-				res.add(String.format("I have " +Grammar.quantityplnoun(amount, questItem, "a") + " to feed the animals, and need to take it."));
+				res.add(String.format("Mam " +Grammar.quantityplnoun(amount, questItem, "a") + " dla zwierząt, muszę to zanieść do schroniska w Ados."));
 			}
 		}
 		if (isCompleted(player)) {
 			if(new TimePassedCondition(QUEST_SLOT, 1, DELAY).fire(player, null, null)) {
-				res.add("The animals are hungry again! I need to ask Katinka what they need.");
+				res.add("Zwierzęta znów są głodne! Muszę zapytać Katinki czego potrzebują.");
 			} else {
-				res.add("The animals are not hungry! Yay, me!");
+				res.add("Zwierzęta nie są głodne!");
 			}
 		}
 		return res;
@@ -124,78 +124,78 @@ public class ZooFood extends AbstractQuest {
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestNotStartedCondition(QUEST_SLOT)),
 				ConversationStates.ATTENDING,
-				"Welcome to the Ados Wildlife Refuge! We rescue animals from being slaughtered by evil adventurers. But we need help... maybe you could do a #task for us?",
+				"Witam w schronisku dla dzikich zwierząt w Ados! Mamy wiele zwierząt do wykarmienia. Potrzebujemy pomocy... mam dla ciebie #zadanie do zrobienia.",
 				null
 		);
 
         // Player returns within one week of completing quest
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
-						new QuestCompletedCondition(QUEST_SLOT),
+						new QuestCompletedCondition(QUEST_SLOT), 
 						new NotCondition(new TimePassedCondition(QUEST_SLOT, 1, DELAY))),
-				ConversationStates.ATTENDING, "Welcome back to the Ados Wildlife Refuge! Thanks again for rescuing our animals!",
+                ConversationStates.ATTENDING, "Witam ponownie w schronisku dla dzikich zwierząt w Ados! Jeszcze raz dziękuję za uratowanie naszych zwierząt!",
 				null
 		);
 
         // Player returns and longer than a week has passed, ask to help again
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
-						new QuestCompletedCondition(QUEST_SLOT),
+						new QuestCompletedCondition(QUEST_SLOT), 
 						new TimePassedCondition(QUEST_SLOT, 1, DELAY)),
-				ConversationStates.QUEST_OFFERED, "Welcome back to the Ados Wildlife "
-                + "Refuge! Our animals are hungry again, can you bring some more food please?",
+				ConversationStates.QUEST_OFFERED, "Witam ponownie w schronisku dla dzikich zwierząt w Ados. "
+                + " Nasze zwierzęta są znowu głodne, pomożesz ponownie?",
                 null);
 
 
         // Player has never done the zoo quest, player asks what the task was
 		npc.add(ConversationStates.ATTENDING, ConversationPhrases.QUEST_MESSAGES,
-				new QuestNotCompletedCondition(QUEST_SLOT),
-				ConversationStates.QUEST_OFFERED, "Our animals are hungry. We need " +
-						"more food to feed them. Can you help us?",
+				new QuestNotCompletedCondition(QUEST_SLOT), 
+				ConversationStates.QUEST_OFFERED, "Nasze zwierzęta sę głodne. Potrzebujemy więcej " +
+						"jedzenia do ich wykarmienia. Pomożesz nam?",
 				null);
 
-	    final Map<String,Integer> items = new HashMap<String, Integer>();
-	    items.put("apple",5);
-	    items.put("bread",3);
-	    items.put("button mushroom",5);
-	    items.put("carrot",5);
-	    items.put("cheese",10);
-	    items.put("cherry",5);
-	    items.put("egg",5);
-		items.put("grain",20);
-	    items.put("ham",10);
-	    items.put("honey",5);
-		items.put("meat",15);
-		items.put("porcini",5);
-		items.put("roach",3);
-		items.put("salad",10);
-		items.put("spinach",5);
+	    final Map<String,Integer> items = new HashMap<String, Integer>();		
+		items.put("jabłko",10);
+		items.put("chleb",3);
+		items.put("pieczarka",8);
+		items.put("marchew",10);
+		items.put("ser",10);
+		items.put("wisienka",5);
+		items.put("jajo",5);
+		items.put("zboże",20);
+		items.put("szynka",10); 
+		items.put("miód",5); 
+		items.put("mięso",15);
+		items.put("borowik",5);
+		items.put("płotka",3);
+		items.put("sałata",10);
+		items.put("szpinak",7);
 
 
-
+		
         // Player has done quest before and agrees to help again
 		npc.add(ConversationStates.QUEST_OFFERED, ConversationPhrases.YES_MESSAGES,
 				null,
 				ConversationStates.ATTENDING, null,
-                new MultipleActions(new SetQuestAction(QUEST_SLOT, "start;"),
-				new StartRecordingRandomItemCollectionAction(QUEST_SLOT, 1, items, "Oh, thank you! Please help us by"
-                + " bringing [item] as soon as you can."))
+                new MultipleActions(new SetQuestAndModifyKarmaAction(QUEST_SLOT, "start;", 2.0),
+				new StartRecordingRandomItemCollectionAction(QUEST_SLOT, 1, items, "Dziękuję! Proszę" 
+                + " przynieś [item] lub tyle ile dasz rady."))
 		);
 
 
 		// player is not willing to help
-		npc.add(ConversationStates.QUEST_OFFERED, ConversationPhrases.NO_MESSAGES,
+		npc.add(ConversationStates.QUEST_OFFERED, ConversationPhrases.NO_MESSAGES, 
 				null,
-				ConversationStates.ATTENDING, "Oh dear... I guess we're going to have to feed them with the deer...",
+				ConversationStates.ATTENDING, "Och... Chyba będziemy musieli nakarmić je jeleniami...",
 				new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -5.0)
 		);
-
+		
         // Player returns within one week of completing quest
 		npc.add(ConversationStates.ATTENDING, ConversationPhrases.QUEST_MESSAGES,
-				new AndCondition(new QuestCompletedCondition(QUEST_SLOT),
+				new AndCondition(new QuestCompletedCondition(QUEST_SLOT), 
                                  new NotCondition(new TimePassedCondition(QUEST_SLOT, 1, DELAY))),
-				ConversationStates.ATTENDING, null,
-				new SayTimeRemainingAction(QUEST_SLOT, 1, DELAY, "Thanks, we have enough food to feed the animals here for another"));
+				ConversationStates.ATTENDING, null, 
+				new SayTimeRemainingAction(QUEST_SLOT, 1, DELAY,  "Dziękuję, ale nie mamy teraz problemów."));
 
 	}
 
@@ -212,8 +212,8 @@ public class ZooFood extends AbstractQuest {
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestInStateCondition(QUEST_SLOT, "start")),
 				ConversationStates.QUEST_ITEM_BROUGHT,
-				"Welcome back! Have you brought the "
-						+ Grammar.quantityplnoun(REQUIRED_HAM, "ham", "") + "?",
+				"Witaj ponownie! Czy przyniosłeś nam "
+						+ Grammar.quantityplnoun(REQUIRED_HAM, "szynka") + "?",
 			new SetQuestAction(QUEST_SLOT,"start;ham=10"));
 
 		// player returns while quest is active
@@ -222,29 +222,29 @@ public class ZooFood extends AbstractQuest {
 						new QuestStateStartsWithCondition(QUEST_SLOT, "start;")),
 				ConversationStates.QUEST_ITEM_BROUGHT,
 				null,
-				new SayRequiredItemAction(QUEST_SLOT, 1, "Welcome back! Have you brought the [item]?"));
+				new SayRequiredItemAction(QUEST_SLOT, 1, "Witaj ponownie! Czy przyniosłeś nam [item]?"));
 
 		final List<ChatAction> actions = new LinkedList<ChatAction>();
 		actions.add(new DropRecordedItemAction(QUEST_SLOT,1));
 		actions.add(new SetQuestAndModifyKarmaAction(QUEST_SLOT, "done;1", 5.0));
 		actions.add(new SetQuestToTimeStampAction(QUEST_SLOT, 1));
 		actions.add(new IncreaseXPAction(200));
-
+	
 		npc.add(ConversationStates.QUEST_ITEM_BROUGHT,
-			ConversationPhrases.YES_MESSAGES,
+			ConversationPhrases.YES_MESSAGES, 
 			new PlayerHasRecordedItemWithHimCondition(QUEST_SLOT,1),
-			ConversationStates.ATTENDING, "Thank you! You have rescued our rare animals.",
+			ConversationStates.ATTENDING, "Dziękuję! Uratowałeś nasze rzadkie zwierzęta.",
 			new MultipleActions(actions));
 
         npc.add(ConversationStates.QUEST_ITEM_BROUGHT,
         		ConversationPhrases.YES_MESSAGES,
         		new NotCondition(new PlayerHasRecordedItemWithHimCondition(QUEST_SLOT,1)),
         		ConversationStates.ATTENDING, null,
-        		new SayRequiredItemAction(QUEST_SLOT, 1, "*sigh* I SPECIFICALLY said that we need [item]!")
+        		new SayRequiredItemAction(QUEST_SLOT, 1, "*westchnienie* SPECCJALNIE powiedziałam, że potrzebujemy [item]!")
         		);
 
 		npc.add(ConversationStates.QUEST_ITEM_BROUGHT, ConversationPhrases.NO_MESSAGES, null,
-				ConversationStates.ATTENDING, "Well, hurry up! These rare animals are starving!",
+				ConversationStates.ATTENDING, "Pospiesz się! Te rzadkie zwierzęta umierają z głodu!",
 				null);
 	}
 
@@ -254,9 +254,9 @@ public class ZooFood extends AbstractQuest {
 		// player returns while quest is still active
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
-						new QuestCompletedCondition(QUEST_SLOT),
+						new QuestCompletedCondition(QUEST_SLOT), 
 						new NotCondition(new TimePassedCondition(QUEST_SLOT, 1, DELAY))),
-			ConversationStates.ATTENDING, "Hello! Now that the animals have enough food, they don't get sick that easily, and I have time for other things. How can I help you?",
+			ConversationStates.ATTENDING, "Cześć! Teraz zwierzęta mają wystarczająco dużo jedzenia. Już nie chorują tak łatwo i mam czas na inne rzeczy. W czym mogę pomóc?",
 				null
 		);
 
@@ -265,7 +265,7 @@ public class ZooFood extends AbstractQuest {
 						new OrCondition(new QuestNotCompletedCondition(QUEST_SLOT),
 								new AndCondition(new QuestCompletedCondition(QUEST_SLOT), new TimePassedCondition(QUEST_SLOT, 1, DELAY))
 						)),
-				ConversationStates.IDLE, "Sorry, can't stop to chat. The animals are all sick because they don't have enough food. See yourself out, won't you?",
+				ConversationStates.IDLE, "Przepraszam, ale nie mogę teraz rozmawiać. Wszystkie zwierzęta są chore ponieważ nie mają jedzenia. Nie chciałbyś się rozejrzeć?",
 				null
 		);
 	}
@@ -273,8 +273,8 @@ public class ZooFood extends AbstractQuest {
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Zoo Food",
-				"The animals at the zoo are hungry and need some food!",
+				"Jedzenie dla Zoo",
+				"Zwierzęta w zoo są głodne! Muszę dostarczyć im coś do jedzenia!",
 				true);
 		step_1();
 		step_2();
@@ -286,9 +286,9 @@ public class ZooFood extends AbstractQuest {
 	public String getName() {
 		return "ZooFood";
 	}
-
+	
 	@Override
-    public boolean isRepeatable(final Player player) {
+	public boolean isRepeatable(final Player player) {
 		return	new AndCondition(new QuestCompletedCondition(QUEST_SLOT),
 						 new TimePassedCondition(QUEST_SLOT,1,DELAY)).fire(player, null, null);
 	}
@@ -297,7 +297,7 @@ public class ZooFood extends AbstractQuest {
 	public String getNPCName() {
 		return "Katinka";
 	}
-
+	
 	@Override
 	public String getRegion() {
 		return Region.ADOS_SURROUNDS;

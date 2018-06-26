@@ -77,8 +77,6 @@ public class ZlotaCiupagaWas extends AbstractQuest {
 
 	private static final String QUEST_SLOT = "zlota_ciupaga_was";
 
-	private static final String KILL_DARK_ELVES_QUEST_SLOT = "kill_dark_elves";
-
 	private static final String NAGRODA_WIELKOLUDA_QUEST_SLOT = "nagroda_wielkoluda";
 
 	@Override

@@ -176,7 +176,7 @@ public class AllotmentUtilities implements TurnListener {
 			ExpirationTracker tracker = (ExpirationTracker) e;
 			if (tracker.getPlayerName().equals(player)) {
 
-				final GateKey key = (GateKey) SingletonRepository.getEntityManager().getItem("gate key");
+				final GateKey key = (GateKey) SingletonRepository.getEntityManager().getItem("klucz do bramy");
 				key.setup(ALLOTMENT_PREFIX + tracker.getIdentifier(), tracker.getExpirationTime());
 
 				return key;
@@ -326,7 +326,7 @@ public class AllotmentUtilities implements TurnListener {
 								for (Player player : getPlayers(zoneName)) {
 									if (player.getArea().intersects(allotment.getArea())) {
 										player.teleport(getZone(zoneName), tracker.getX(), tracker.getY(), null, null);
-										player.sendPrivateText("The rental time has expired. You will now be excorted out of the allotment. Thank you for your cooperation.");
+										player.sendPrivateText("Czas wynajęcia upłynoł. Zostaniesz usunięty z tej działki. Dziękuje za współpracę.");
 									}
 
 									if (player.getName().equals(tracker.getPlayerName())) {
@@ -341,7 +341,7 @@ public class AllotmentUtilities implements TurnListener {
 							Player player = SingletonRepository.getRuleProcessor().getPlayer(tracker.getPlayerName());
 
 							if (player != null) {
-								player.sendPrivateText("This is just to notify you that the allotment that you rented has expired.");
+								player.sendPrivateText("Chcę cię poinformować, że umowa o działkę wygasła.");
 							} else {
 								//TODO: schedule a message at login
 							}
@@ -374,7 +374,7 @@ public class AllotmentUtilities implements TurnListener {
 							if (allotment.has("name") && name.equals(allotment.getName())) {
 								for (Player player : getPlayers(zoneName)) {
 									if (player.getArea().intersects(allotment.getArea())) {
-										player.sendPrivateText("You have " + WARN_TIME + " minutes left before your rental time expires. You are kindly asked to finish up and exit in an orderly fashion. Kind regards, Semos Allotment Rentals Staff.");
+										player.sendPrivateText("Zostało tobie " + WARN_TIME + " minut zanim umowa wygaśnie. Prosimy o zakończenie wszelkich prac na działce i pozostawienie jej w należytym porządku. Z poważaniem, Zarząd Przydziału Działek Semos.");
 									}
 
 									if (player.getName().equals(tracker.getPlayerName())) {
@@ -389,7 +389,7 @@ public class AllotmentUtilities implements TurnListener {
 							Player player = SingletonRepository.getRuleProcessor().getPlayer(tracker.getPlayerName());
 
 							if (player != null) {
-								player.sendPrivateText("This is just to notify you that the allotment that you rented is going to expire in " + WARN_TIME + "minutes.");
+								player.sendPrivateText("Informuję cię, że umowa o działkę wygasa za " + WARN_TIME + "minut.");
 							}
 						}
 					}

@@ -46,13 +46,13 @@ import org.apache.log4j.Logger;
  * <p>
  * PARTICIPANTS:
  * <ul>
- * <li> Leander (the baker in Semos)
+ * <li> Ernest (the baker in Semos)
  * <li> NPC's all over the world (as customers)
  * </ul>
  * 
  * STEPS:
  * <ul>
- * <li> Leander gives you a pizza and tells you who ordered it, and how much
+ * <li> Ernest gives you a pizza and tells you who ordered it, and how much
  * time you have to deliver.
  * <li> As a gimmick, you get a pizza delivery uniform.
  * <li> You walk to the customer and say "pizza".
@@ -74,12 +74,12 @@ import org.apache.log4j.Logger;
  * chance to do the current delivery on time.
  * </ul>
  */
-public class PizzaDelivery extends AbstractQuest {
-	private static final Logger logger = Logger.getLogger(PizzaDelivery.class);
+public class Pizza extends AbstractQuest {
+	private static final Logger logger = Logger.getLogger(Pizza.class);
 	// FIXME: return to "final" after outfit testing is finished
 	private static Outfit UNIFORM;
 	
-	public PizzaDelivery() {
+	public Pizza() {
 		UNIFORM = new Outfit(null, null, null, Integer.valueOf(75), null);
 	}
 
@@ -158,7 +158,7 @@ public class PizzaDelivery extends AbstractQuest {
 		}
 	}
 
-	private static final String QUEST_SLOT = "pizza_delivery";
+	private static final String QUEST_SLOT = "dostawca_pizzy2";
 
 	private static Map<String, CustomerData> customerDB;
 
@@ -176,57 +176,57 @@ public class PizzaDelivery extends AbstractQuest {
 			return res;
 		}
 		final String questState = player.getQuest(QUEST_SLOT);
-		res.add("Spotkałem Leander i zgodził się pomóc przy roznoszeniu pizzy.");
+		res.add("Spotkałem Ernesta i zgodził się pomóc przy roznoszeniu pizzy.");
 		if (!"done".equals(questState)) {
 			final String[] questData = questState.split(";");
 			final String customerName = questData[0];
 			final CustomerData customerData = customerDB.get(customerName);
-			res.add("Leander dał mi " + customerData.flavor + " dla " + customerName + ".");
-			res.add("Leander powiedział do mnie: \"" + customerData.npcDescription + "\"");
+			res.add("Ernest dał mi " + customerData.flavor + " dla " + customerName + ".");
+			res.add("Ernest powiedział do mnie: \"" + customerData.npcDescription + "\"");
 			if (!isDeliveryTooLate(player)) {
-				res.add("Jeśli pośpiesze sie doniosę pizze jeszcze gorąco.");
+				res.add("Jeśli pośpiesze się, doniosę pizze jeszcze gorąco.");
 			} else {
 				res.add("Pizza jest już zimna.");
 			}
 		} else {
-			res.add("Mam przy sobie pizzę, którą ostatnio dał mi Leander.");
+			res.add("Mam przy sobie pizzę, którą ostatnio dał mi Ernest.");
 		}
 		return res;
 	}
 
-	// Don't add Sally here, as it would conflict with Leander telling
+	// Don't add Sally here, as it would conflict with Ernest telling
 	// about his daughter.
 	private static void buildCustomerDatabase() {
 		customerDB = new HashMap<String, CustomerData>();
 
-		customerDB.put("Balduin",
+		customerDB.put("Malteis",
 			new CustomerData(
-				"Balduin jest pustelnikiem, który żyje na górze między Semos, a Ados.",
+				"Malteis jest rycerzem naszego miasteczka, żyje na wschód od centrum miasta.",
 				"Pizza Prosciutto",
 				// minutes to deliver. Tested by mort: 6:30
 				// min, with killing some orcs.
-				7,  
+				5,  
 				// tip when delivered on time. Quite
 				// high because you can't do much
 				// senseful on top of the hill and must
 				// walk down again.
-				200,
+				100,
 				// experience gain for delivery
-				300, 
+				150, 
 				"Dziękuję! Zastanawiam się jakim sposobem udało Ci się dostarczyć pizzę tak szybko. Weź te %d monet jako napiwek. Tutaj nie mam ich jak wydać!",
 				"Brrr. ta %s nie jest gorąca. Dziękuję, że próbowaleś.", 
 				10));
 
-		customerDB.put("Cyk",
+		customerDB.put("Stary Baca",
 			new CustomerData(
-				"Cyk jest na wakacjach na Athor Island. łatwo go rozpoznasz po niebieskich włosach.",
+				"Stary Baca powinieneś go znaleźć gdzieś w okolicach kościeliska na zachód od zakopane. Łatwo go rozpoznać, posiada laskę oraz siwe włosy jak i siwą brodę, nosi zarówno góralską czapkę.",
 				"Pizza Hawaii",
 				// minutes to deliver. You need about 6 min
 				// to Eliza, up to 12 min to wait for the
 				// ferry, 5 min for the crossing, and 0.5
 				// min from the docks to the beach, so you
 				// need a bit of luck for this one.
-				20, 
+				15, 
 				// tip when delivered on time
 				300, 
 				// experience gain for delivery
@@ -235,147 +235,147 @@ public class PizzaDelivery extends AbstractQuest {
 				"Przyszła zimna, ale czego się mogłem spodziewać skoro pizza jest z piekarni daleko stąd... Dzięki.",
 				20));
 
-		customerDB.put("Eliza",
+		customerDB.put("Kazimierz",
 			new CustomerData(
-				"Eliza pracuje dla przewoźnika na Athor Island. Znajdziesz ją w porcie na południu od bagien w Ados.",
+				"Kazimierz, zwany kiedyś jako #'Bankier Kazimierz', znajduje się aktualnie w naszym banku.",
 				"Pizza del Mare",
 				// minutes to deliver. Tested by mort: 6
 				// min, ignoring slow animals and not
 				// walking through the swamps.
-				7, 
+				3, 
 				// tip when delivered on time.
-				170, 
+				50, 
 				// experience gain for delivery
-				300, 
+				100, 
 				"Nieprawdopodobne! Wciąż gorąca! Kup coś sobie za %d złota!",
 				"Co za szkoda. Przyszła zimna. W każdym razie dziękuję!",
 				20));
 
-		customerDB.put("Fidorea",
+		customerDB.put("Aligern",
 			new CustomerData(
-				"Fidorea mieszka w mieście Ados. Ona jest charakteryzatorką.",
+				"Aligern mieszka w chatce na plaży w Gdańsku.",
 				"Pizza Napoli",
 				// minutes to deliver. Tested by mort: about
 				// 6 min, outrunning all enemies.
-				7,  
+				2,  
 				// tip when delivered on time
-				150, 
+				25, 
 				// experience gain for delivery
-				200, 
+				75, 
 				"Dziękuję bardzo! Urodziłeś się wprost do roznoszenia pizzy. Trzymaj %d złota jako napiwek!",
 				"Brr. Zimna pizza.",
 				15));
 
-		customerDB.put("Haizen",
+		customerDB.put("Wielkolud",
 			new CustomerData(
-				"Haizen jest magiem, który mieszka w domku niedaleko drogi do Ados.",
+				"Wielkolud jest najwyższym człowiekiem mieszkającym na tutejszej Ziemi. Chodzi w okolicach północno-wschodnich regionach kościeliska.",
 				"Pizza Diavolo",
 				// minutes to deliver. Tested by kymara:
 				// exactly 3 min.
-				4,  
+				8,  
 				// tip when delivered on time
-				80, 
+				160, 
 				// experience gain for delivery
-				150, 
+				220, 
 				"Ach, moja %s! I jest świeżo wyjęta z pieca! Weź te %d monet jako napiwek!",
 				"Mam nadzieję, że następnym razem dostanę gorącą pizzę.",
 				10));
 
 		customerDB.put(
-			"Jenny",
+			"Ratownik Mariusz",
 			new CustomerData(
-				"Jenny jest właścicielką młyna niedaleko Semos.",
+				"Ratownik Mariusz jest ratownikiem, chodzi po pólnocno-wschodnich regionach zakopane.",
 				"Pizza Margherita",
 				// minutes to deliver. Tested by mort: can
 				// be done in 1:15 min, with no real danger.
-				2,  
-				// tip when delivered on time
-				20, 
-				// experience gain for delivery
-				50, 
-				"Ach, przyniosłeś mi %s! Bardzo miło! Weź te %d monet jako napiwek!",
-				"Co za szkoda. Twój serwis pizzy nie umie dostarczyć gorącej pizzy choć piekarnia jest tuż za rogiem.",
-				2));
-
-		customerDB.put("Jynath",
-			new CustomerData(
-				"Jynath jest wiedźmą, która mieszka w małym domku na południe od zamku Or'ril.",
-				"Pizza Funghi",
-				// minutes to deliver. Tested by mort: 5:30
-				// min, leaving the slow monsters on the way
-				// behind.
-				6,  
+				7,  
 				// tip when delivered on time
 				140, 
 				// experience gain for delivery
 				200, 
+				"Ach, przyniosłeś mi %s! Bardzo miło! Weź te %d monet jako napiwek!",
+				"Co za szkoda. Twój serwis pizzy nie umie dostarczyć gorącej pizzy choć piekarnia jest tuż za rogiem.",
+				15));
+
+		customerDB.put("Jerzy",
+			new CustomerData(
+				"Jerzy jest naszym złotnikiem. Powinieneś go odnaleźć, mieszka nie daleko naszej piekarni.",
+				"Pizza Funghi",
+				// minutes to deliver. Tested by mort: 5:30
+				// min, leaving the slow monsters on the way
+				// behind.
+				1,  
+				// tip when delivered on time
+				10, 
+				// experience gain for delivery
+				30, 
 				"Och. Nie  spodziewałam się tak wcześnie pizzy. Super! Zazwyczaj nie daje napiwków, ale dla Ciebie zrobię wyjątek. Weź %d złota.",
 				"Niedobrze... Będę musiała użyć extra silnego zaklęcia, aby pizza była gorąca.",
-				5));
+				2));
 
-		customerDB.put("Katinka",
+		customerDB.put("Farmer Mścisław",
 			new CustomerData(
-				"Katinka opiekuje się zwierzętami w schronisku dla zwierząt w Ados.",
+				"Farmer Mścisław posiada własną farmę w północno-zachodnich częściach miasta Gdańsk.",
 				"Pizza Vegetale",
 				// minutes to deliver. Tested by kymara in
 				// 3:25 min, leaving behind the orcs.
-				4,  
+				2,  
 				// tip when delivered on time
-				100, 
-				// experience gain for delivery
-				200, 
-				"A! Moja %s! Weź %d złota jako napiwek!",
-				"Ee. Nie cierpię zimnej pizzy. Chyba nakarmię nią zwierzęta.",
-				10));
-
-		customerDB.put("Marcus", 
-			new CustomerData(
-				"Marcus jest strażnikiem z więzienia w Semos.", "Pizza Tonno",
-				// minutes to deliver. Tested by kymara: takes longer than before due to fence in village
-				3, 
-				// tip when delivered on time. A bit higher than Jenny
-				// because you can't do anything else in the jail and need
-				// to walk out again.
 				25, 
 				// experience gain for delivery
 				100, 
-				"Ach, moja %s! Oto twój napiwek: %d złota.",
-				"Nareszcie! Dlaczego zajęło to Tobie tyle czasu?",
+				"A! Moja %s! Weź %d złota jako napiwek!",
+				"Ee. Nie cierpię zimnej pizzy. Chyba nakarmię nią zwierzęta.",
 				2));
 
-		customerDB.put("Nishiya",
+		customerDB.put("Janek", 
 			new CustomerData(
-				"Nishiya zajmuje się sprzedażą owiec. Znajdziesz go na zachód stąd.",
+				"Janek jest przewoźnikiem pomiędzy Krakowem, a Warszawą. Znajdziesz go w okolicach wschodnich Krakówa", "Pizza Tonno",
+				// minutes to deliver. Tested by kymara: takes longer than before due to fence in village
+				10, 
+				// tip when delivered on time. A bit higher than Jenny
+				// because you can't do anything else in the jail and need
+				// to walk out again.
+				150, 
+				// experience gain for delivery
+				350, 
+				"Ach, moja %s! Oto twój napiwek: %d złota.",
+				"Nareszcie! Dlaczego zajęło to Tobie tyle czasu?",
+				20));
+
+		customerDB.put("Staszek",
+			new CustomerData(
+				"Staszek jest przewoźnikiem między Gdańskiem, a Warszawą. Zawsze go widuję przy swoim porcie na północ stąd.",
 				"Pizza Pasta",
 				// minutes to deliver. Tested by mort: easy
 				// to do in less than 1 min.
-				1,  
+				2,  
 				// tip when delivered on time
-				10, 
+				30, 
 				// experience gain for delivery
-				25,  
+				75,  
 				"Dziękuję! Szybki jesteś. Weź te %d złota jako napiwek!",
 				"Niedobrze. Przyniosłeś zimną. W każdym razie dziękuję.",
-				0));
+				2));
 
-		customerDB.put("Ouchit",
+		customerDB.put("Gazda Wojtek",
 			new CustomerData(
-				"Ouchit jest handlarzem broni. Wynajmuje pokój w rogu tawerny.",
+				"Gazda Wojtek jest burmistrzem miasta Zakopane. Powinieneś go łatwo znaleźć.",
 				"Pizza Quattro Stagioni",
 				// minutes to deliver. Tested by mort: can
 				// be done in 45 sec with no danger.
-				1,  
+				3,  
 				// tip when delivered on time
-				10, 
+				50, 
 				// experience gain for delivery
-				25,  
+				105,  
 				"Dziękuję! Dobrze jest mieć usługę pizzy zaraz za rogiem. Weź %d monet!",
 				"Powinienem osobiście kupić pizzę, Byłoby szybciej.",
-				0));
+				5));
 
-		customerDB.put("Ramon",
+		customerDB.put("Bercik",
 			new CustomerData(
-				"Ramon pracuje jako krupier blackjacka na promie na wyspę Athor.",
+				"Bercik jest egzaminatorem. Znajdziesz go w pewnym budynku na południowo-wschodnich okolic kościeliska.",
 				"Pizza Bolognese",
 				// minutes to deliver. You need about 6 mins
 				// to Eliza, and once you board the ferry,
@@ -383,34 +383,34 @@ public class PizzaDelivery extends AbstractQuest {
 				// luck, you need to wait up to 12 mins for
 				// the ferry to arrive at the mainland, so
 				// you need a bit of luck for this one.
-				14, 
+				5, 
 				// tip when delivered on time
-				250, 
+				100, 
 				// experience gain for delivery
-				400, 
+				175, 
 				"Dziękuję bardzo! Nareszcie dostałem lepsze jedzenie niż to które gotuje Laura. Weź te %d złota jako napiwek!",
 				"Niedobrze. Jest zimna. Miałem nadzieje, że dostanę coś lepszego niż okrętowe jedzenie.",
-				20));
+				10));
 
-		customerDB.put("Tor'Koom",
+		customerDB.put("Cheng",
 			new CustomerData(
-				"Tor'Koom jest orkiem, który żyje w podziemiach pod miastem. Owce są jego ulubionym jedzeniem.",
+				"Cheng jest handlarzem rzadkich minerałów. Podobno znajduje się jeszcze w sukiennicach. Powinieneś go łatwo rozpoznać, ubiera się tylko w ciemne ubrania.",
 				// "Pizza sheep" in Italian ;)
 				"Pizza Pecora", 
 				// minutes to deliver. Tested by kymara:
 				// done in about 8 min, with lots of monsters getting in your way.
-				9, 
+				14, 
 				// tip when delivered on time
-				170,
+				200,
 				// experience gain for delivery
-				300, 
+				400, 
 				"Pychota %s! Weź %d pieniędzy!",
 				"Grrr. Pizza zimna. Ruszasz sie jak owca.",
 				15));
 				
-    customerDB.put("Martin Farmer",
+    customerDB.put("Gazda Jędrzej",
 				new CustomerData(
-					"Martin Farmer jest na urlopie Ados City. Musisz iść stąd na wschód.",
+					"Gazda Jędrzej jest góralem. Musisz go szukać gdzieś na wzgórzu wschodniej części Zakopane.",
 					"Pizza Fiorentina",
 					// minutes to deliver. Time for Fidorea was 7, so 8 should be ok for martin
 					8,  
@@ -551,10 +551,10 @@ public class PizzaDelivery extends AbstractQuest {
 	}
 
 	private void prepareBaker() {
-		final SpeakerNPC leander = npcs.get("Leander");
+		final SpeakerNPC Ernest = npcs.get("Ernest");
 
 		// haven't done the pizza quest before or already delivered the last one, ok to wear pizza outfit
-		leander.add(ConversationStates.ATTENDING,
+		Ernest.add(ConversationStates.ATTENDING,
 				ConversationPhrases.QUEST_MESSAGES,
 				new AndCondition(new OutfitCompatibleWithClothesCondition(), new QuestNotActiveCondition(QUEST_SLOT)),
 				ConversationStates.QUEST_OFFERED, 
@@ -562,7 +562,7 @@ public class PizzaDelivery extends AbstractQuest {
 				null);
 		
 		// haven't done the pizza quest before or already delivered the last one, outfit would be incompatible with pizza outfit
-		leander.add(ConversationStates.ATTENDING,
+		Ernest.add(ConversationStates.ATTENDING,
 				ConversationPhrases.QUEST_MESSAGES,
 				new AndCondition(new NotCondition(new OutfitCompatibleWithClothesCondition()), new QuestNotActiveCondition(QUEST_SLOT)),
 				ConversationStates.ATTENDING, 
@@ -570,7 +570,7 @@ public class PizzaDelivery extends AbstractQuest {
 				null);
 		
 		// pizza quest is active: check if the delivery is too late already or not
-		leander.add(ConversationStates.ATTENDING,
+		Ernest.add(ConversationStates.ATTENDING,
 			ConversationPhrases.QUEST_MESSAGES, new QuestActiveCondition(QUEST_SLOT),
 			ConversationStates.QUEST_OFFERED, null,
 			new ChatAction() {
@@ -600,7 +600,7 @@ public class PizzaDelivery extends AbstractQuest {
 				}
 			});
 
-		leander.add(ConversationStates.QUEST_OFFERED,
+		Ernest.add(ConversationStates.QUEST_OFFERED,
 			ConversationPhrases.YES_MESSAGES, null,
 			ConversationStates.ATTENDING, null,
 			new ChatAction() {
@@ -610,12 +610,12 @@ public class PizzaDelivery extends AbstractQuest {
 				}
 			});
 
-		leander.add(
+		Ernest.add(
 			ConversationStates.QUEST_OFFERED,
 			ConversationPhrases.NO_MESSAGES,
 			null,
 			ConversationStates.ATTENDING,
-			"Niedobrze. Mam nadzieję, że moja córka #Sally szybko wróci z obozu, aby pomóc mi w dostawach.",
+			"Niedobrze. Będę musiał chyba poszukać bardziej odpowiedzialnej osoby do dostarczania pizzy.",
 			new ChatAction() {
 				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
@@ -625,7 +625,7 @@ public class PizzaDelivery extends AbstractQuest {
 
 		for (final String name : customerDB.keySet()) {
 			final CustomerData data = customerDB.get(name);
-			leander.addReply(name, data.npcDescription);
+			Ernest.addReply(name, data.npcDescription);
 		}
 	}
 
@@ -651,7 +651,7 @@ public class PizzaDelivery extends AbstractQuest {
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Dostawa Pizzy",
+				"Dostawca Pizzy",
 				"*Mniam!* Wspaniale pachnie. Jest gorąca... Pospiesz się z dostawą!",
 				false);
 		buildCustomerDatabase();
@@ -661,16 +661,16 @@ public class PizzaDelivery extends AbstractQuest {
 
 	@Override
 	public String getName() {
-		return "PizzaDelivery";
+		return "DostawcaPizzy2";
 	}
 	
 	@Override
 	public String getRegion() {
-		return Region.SEMOS_CITY;
+		return Region.GDANSK_CITY;
 	}
 
 	@Override
 	public String getNPCName() {
-		return "Leander";
+		return "Ernest";
 	}
 }
