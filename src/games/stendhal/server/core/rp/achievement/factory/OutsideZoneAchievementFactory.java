@@ -44,13 +44,13 @@ public class OutsideZoneAchievementFactory extends AbstractAchievementFactory {
 		list.add(createAchievement("zone.outside.kikareukin", "Podniebna wieża", "Odwiedził wszystkie obszary w regionie Kikareukin", 
 									Achievement.HARD_BASE_SCORE, true,
 									new PlayerVisitedZonesInRegionCondition("kikareukin", Boolean.TRUE, Boolean.TRUE)));
-		list.add(createAchievement("zone.outside.krakow", "Królewskie miasto", "Odwiedził wszystkie obszary w regionie Kraków", 
+		/**list.add(createAchievement("zone.outside.krakow", "Królewskie miasto", "Odwiedził wszystkie obszary w regionie Kraków", 
 									Achievement.HARD_BASE_SCORE, true,
-									new PlayerVisitedZonesInRegionCondition("krakow", Boolean.TRUE, Boolean.TRUE)));
+									new PlayerVisitedZonesInRegionCondition("krakow", Boolean.TRUE, Boolean.TRUE)));*/
 		list.add(createAchievement("zone.outside.zakopane", "Zimowa kraina", "Odwiedził wszystkie obszary w regionie Zakopane", 
 									Achievement.HARD_BASE_SCORE, true,
 									new PlayerVisitedZonesInRegionCondition("zakopane", Boolean.TRUE, Boolean.TRUE)));
-		list.add(createAchievement("zone.outside.gdansk", "Nadmorska kraina", "Odwiedził wszystkie obszary w regionie Gdańsk", 
+		/**list.add(createAchievement("zone.outside.gdansk", "Nadmorska kraina", "Odwiedził wszystkie obszary w regionie Gdańsk", 
 									Achievement.HARD_BASE_SCORE, true,
 									new PlayerVisitedZonesInRegionCondition("gdansk", Boolean.TRUE, Boolean.TRUE)));
 		list.add(createAchievement("zone.outside.wieliczka", "Kraina soli", "Odwiedził wszystkie obszary w regionie Wieliczka", 
@@ -58,15 +58,15 @@ public class OutsideZoneAchievementFactory extends AbstractAchievementFactory {
 									new PlayerVisitedZonesInRegionCondition("wieliczka", Boolean.TRUE, Boolean.TRUE)));
 		list.add(createAchievement("zone.outside.desert", "Wszędzie piasek?!", "Odwiedził wszystkie obszary w regionie pustynnym", 
 									Achievement.MEDIUM_BASE_SCORE, true,
-									new PlayerVisitedZonesInRegionCondition("desert", Boolean.TRUE, Boolean.TRUE)));
+									new PlayerVisitedZonesInRegionCondition("desert", Boolean.TRUE, Boolean.TRUE)));*/
 	
 		//All interior zone achievements
 
 		//Special zone achievements
 		list.add(createAchievement("zone.special.bank", "Depozyt", "Odwiedził wszystkie banki", 
 									Achievement.MEDIUM_BASE_SCORE, true,
-									new PlayerVisitedZonesCondition("int_semos_bank", "int_nalwor_bank", "int_kirdneh_bank","int_gdansk_bank", 
-																	"int_fado_bank", "int_magic_bank", "int_ados_bank", "int_zakopane_bank_0")));
+									new PlayerVisitedZonesCondition("int_semos_bank", "int_nalwor_bank", "int_kirdneh_bank"/**, "int_gdansk_bank"*/, 
+																	"int_fado_bank", "int_magic_bank", "int_ados_bank"/**, "int_zakopane_bank_0"*/)));
 		return list;
 	}
 

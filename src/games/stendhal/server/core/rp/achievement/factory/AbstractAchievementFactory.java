@@ -74,7 +74,7 @@ public abstract class AbstractAchievementFactory {
 		list.add(new UndergroundZoneAchievementFactory());
 		list.add(new KirdnehItemAchievementFactory());
 		list.add(new ZakopaneItemQuestAchievementsFactory());
-		list.add(new GdanskJewelleryQuestAchievementFactory());
+		//list.add(new GdanskJewelleryQuestAchievementFactory());
 		return list;
 	}
 

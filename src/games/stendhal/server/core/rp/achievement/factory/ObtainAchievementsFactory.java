@@ -8,6 +8,7 @@ import games.stendhal.server.core.rp.achievement.Achievement;
 import games.stendhal.server.core.rp.achievement.Category;
 import games.stendhal.server.entity.npc.condition.PlayerGotNumberOfItemsFromWellCondition;
 import games.stendhal.server.entity.npc.condition.PlayerHasHarvestedNumberOfItemsCondition;
+import games.stendhal.server.entity.npc.condition.PlayerMinedNumberOfItemsCondition;
 import games.stendhal.server.entity.npc.condition.QuestCompletedCondition;
 
 /**
@@ -57,9 +58,9 @@ public class ObtainAchievementsFactory extends AbstractAchievementFactory {
 				new QuestCompletedCondition("ultimate_collector")));
 				
 		//goralski kolekcjoner quest achievement
-		achievements.add(createAchievement("quest.special.goralcollector", "Góralski kolekcjoner", "Ukończył ostatnie zadanie u góralskiego kolekcjonera", 
-				Achievement.HARD_BASE_SCORE, true,
-				new QuestCompletedCondition("goralski_kolekcjoner3")));
+		//achievements.add(createAchievement("quest.special.goralcollector", "Góralski kolekcjoner", "Ukończył ostatnie zadanie u góralskiego kolekcjonera", 
+		//		Achievement.HARD_BASE_SCORE, true,
+		//		new QuestCompletedCondition("goralski_kolekcjoner3")));
 				
 		
 

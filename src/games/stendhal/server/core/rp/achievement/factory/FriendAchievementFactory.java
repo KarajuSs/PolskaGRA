@@ -69,25 +69,25 @@ public class FriendAchievementFactory extends AbstractAchievementFactory {
 
 		// quests about finding people
 		achievements.add(createAchievement("friend.quests.find", "Prywatny detektyw", "Znalazł wszystkie zagubione i ukrywające się aniołki",
-												Achievement.HARD_BASE_SCORE, true,
-												new AndCondition(
-														// Rat Children (Agnus)
-														new QuestCompletedCondition("find_rat_kids"),
-														// Find Ghosts (Carena)
-														new QuestCompletedCondition("find_ghosts"),
-														// Meet Angels (any of the cherubs)
-														new ChatCondition() {
-															@Override
-															public boolean fire(final Player player, final Sentence sentence, final Entity entity) {
-																if (!player.hasQuest("seven_cherubs")) {
-																	return false;
-																}
-																final String npcDoneText = player.getQuest("seven_cherubs");
-																final String[] done = npcDoneText.split(";");
-																final int left = 7 - done.length;
-																return left < 0;
-															}
-														})));
+				Achievement.HARD_BASE_SCORE, true,
+				new AndCondition(
+						// Rat Children (Agnus)
+						new QuestCompletedCondition("find_rat_kids"),
+						// Find Ghosts (Carena)
+						new QuestCompletedCondition("find_ghosts"),
+						// Meet Angels (any of the cherubs)
+						new ChatCondition() {
+							@Override
+							public boolean fire(final Player player, final Sentence sentence, final Entity entity) {
+								if (!player.hasQuest("seven_cherubs")) {
+									return false;
+								}
+								final String npcDoneText = player.getQuest("seven_cherubs");
+								final String[] done = npcDoneText.split(";");
+								final int left = 7 - done.length;
+								return left < 0;
+							}
+						})));
 		
 		// earn over 250 karma
 		achievements.add(createAchievement("friend.karma.250", "Dobry samarytanin", "Zdobył 250 karmy",
