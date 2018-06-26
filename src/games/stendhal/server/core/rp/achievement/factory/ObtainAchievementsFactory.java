@@ -27,26 +27,41 @@ public class ObtainAchievementsFactory extends AbstractAchievementFactory {
 		final List<Achievement> achievements = new LinkedList<Achievement>();
 
 		// Wishing well achievement
-		achievements.add(createAchievement("obtain.wish", "A wish came true", "Get an item from the wishing well",
+		achievements.add(createAchievement("obtain.wish", "Niech spełni się życzenie", "Zdobył przedmiot ze studni życzeń",
 				Achievement.EASY_BASE_SCORE, true,
 				new PlayerGotNumberOfItemsFromWellCondition(0)));
 
 		// Vegetable harvest achievement
-		achievements.add(createAchievement("obtain.harvest.vegetable", "Farmer", "Harvest 3 of all vegetables that grow in Faiumoni",
+		achievements.add(createAchievement("obtain.harvest.vegetable", "Farmer", "Zebrał 8 z pośród wszystkich warzyw rosnących w Faiumoni",
 				Achievement.EASY_BASE_SCORE, true,
-				new PlayerHasHarvestedNumberOfItemsCondition(3, "carrot", "salad", "broccoli", "cauliflower", "leek",
-						"onion", "courgette", "spinach", "collard", "garlic", "artichoke")));
+				new PlayerHasHarvestedNumberOfItemsCondition(8, "marchew", "sałata", "brokuł", "kalafior", "por",
+						"cebula", "cukinia", "szpinak", "kapusta", "czosnek", "karczoch")));
 
 		// Fishing achievement
-		achievements.add(createAchievement("obtain.fish", "Fisherman", "Catch 15 of each type of fish",
+		achievements.add(createAchievement("obtain.fish", "Rybak", "Złapał po 15 ryb każdego rodzaju",
 				Achievement.MEDIUM_BASE_SCORE, true,
-				new PlayerHasHarvestedNumberOfItemsCondition(15, "char", "clownfish", "cod", "mackerel", "perch",
-						"red lionfish", "roach", "surgeonfish", "trout")));
+				new PlayerHasHarvestedNumberOfItemsCondition(15, "palia alpejska", "błazenek", "dorsz", "makrela", "okoń",
+						"skrzydlica", "płotka", "pokolec", "pstrąg")));
+						
+		achievements.add(createAchievement("obtain.prawdziwydrwal", "Prawdziwy Drwal", "Wyciął 100 polan",
+				Achievement.MEDIUM_BASE_SCORE, true,
+				new PlayerHasHarvestedNumberOfItemsCondition(100, "polano")));
+				
+		achievements.add(createAchievement("obtain.gornik", "Górnik z krwi i kości", "Wydobył 50 każdego rodzaju kamienia szlachetnego",
+				Achievement.HARD_BASE_SCORE, true,
+				new PlayerMinedNumberOfItemsCondition(50, "bryłka złota", "bryłka mithrilu", "kryształ ametystu", "kryształ rubinu", "kryształ szafiru", "kryształ szmaragdu", "kryształ obsydianu")));
 
 		//ultimate collector quest achievement
-		achievements.add(createAchievement("quest.special.collector", "Ultimate Collector", "Finish ultimate collector quest",
+		achievements.add(createAchievement("quest.special.collector", "Największy kolekcjoner", "Ukończył zadanie największego kolekcjonera", 
 				Achievement.HARD_BASE_SCORE, true,
 				new QuestCompletedCondition("ultimate_collector")));
+				
+		//goralski kolekcjoner quest achievement
+		achievements.add(createAchievement("quest.special.goralcollector", "Góralski kolekcjoner", "Ukończył ostatnie zadanie u góralskiego kolekcjonera", 
+				Achievement.HARD_BASE_SCORE, true,
+				new QuestCompletedCondition("goralski_kolekcjoner3")));
+				
+		
 
 		return achievements;
 	}

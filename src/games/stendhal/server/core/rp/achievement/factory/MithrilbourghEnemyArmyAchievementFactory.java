@@ -35,7 +35,7 @@ public class MithrilbourghEnemyArmyAchievementFactory extends AbstractAchievemen
 		// final int INDEX = 3;
 
 		/* Disabled until ready to implement
-		achievements.add(createAchievement("quest.special.weekly_army.0005", "Sergeant", "Finish Kill Enemy Army quest 5 times",
+		achievements.add(createAchievement("quest.special.weekly_army.0005", "Sergeant", "Ukończ zadanie Kill Enemy Army 5 razy",
 				Achievement.MEDIUM_BASE_SCORE, false,
 				new QuestStateGreaterThanCondition("kill_enemy_army", INDEX, 4)));*/
 

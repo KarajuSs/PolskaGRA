@@ -22,21 +22,33 @@ public class InteriorZoneAchievementFactory extends AbstractAchievementFactory {
 	public Collection<Achievement> createAchievements() {
 		Collection<Achievement> list = new LinkedList<Achievement>();
 		//All below ground achievements
-		list.add(createAchievement("zone.interior.semos", "Home maker", "Visit all interior zones in the Semos region",
+		list.add(createAchievement("zone.interior.semos", "Domownik", "Odwiedził wszystkie pomieszczenia w regionie Semos",
 									Achievement.MEDIUM_BASE_SCORE, true,
 									new PlayerVisitedZonesInRegionCondition("semos", Boolean.FALSE, Boolean.FALSE)));
-		list.add(createAchievement("zone.interior.nalwor", "Elf visitor", "Visit all interior zones in the Nalwor region",
+		list.add(createAchievement("zone.interior.nalwor", "Gość elfów", "Odwiedził wszystkie pomieszczenia w regionie Nalwor",
 									Achievement.MEDIUM_BASE_SCORE, true,
 									new PlayerVisitedZonesInRegionCondition("nalwor", Boolean.FALSE, Boolean.FALSE)));
-		list.add(createAchievement("zone.interior.ados", "Up town guy", "Visit all accessible interior zones in the Ados region",
+		list.add(createAchievement("zone.interior.ados", "Gość centrum", "Odwiedził wszystkie pomieszczenia w regionie Ados",
 									Achievement.MEDIUM_BASE_SCORE, true,
 									new PlayerVisitedZonesInRegionCondition("ados", Boolean.FALSE, Boolean.FALSE)));
-		list.add(createAchievement("zone.interior.wofolcity", "Kobold City", "Visit all interior zones in Wo'fol",
+		list.add(createAchievement("zone.interior.wofolcity", "Miasto Kobold", "Odwiedził wszystkie pomieszczenia w regionie Wo'fol",
 									Achievement.MEDIUM_BASE_SCORE, true,
 									new PlayerVisitedZonesInRegionCondition("wofol city", Boolean.FALSE, Boolean.FALSE)));
-		list.add(createAchievement("zone.interior.magiccity", "Magic City", "Visit all interior zones in the underground Magic city",
+		list.add(createAchievement("zone.interior.magiccity", "Magiczne Miasto", "Odwiedził wszystkie pomieszczenia w podziemnym mieście Magic",
 									Achievement.MEDIUM_BASE_SCORE, true,
 									new PlayerVisitedZonesInRegionCondition("magic city", Boolean.FALSE, Boolean.FALSE)));
+		//list.add(createAchievement("zone.interior.krakowcity", "Miasto Kraków", "Odwiedził wszystkie pomieszczenia w regionie Krakowa",
+		//							Achievement.MEDIUM_BASE_SCORE, true,
+		//							new PlayerVisitedZonesInRegionCondition("krakow city", Boolean.FALSE, Boolean.FALSE)));
+		//list.add(createAchievement("zone.interior.wieliczkacity", "Miasto Wieliczka", "Odwiedził wszystkie pomieszczenia w regionie Wieliczki",
+		//							Achievement.MEDIUM_BASE_SCORE, true,
+		//							new PlayerVisitedZonesInRegionCondition("wieliczka city", Boolean.FALSE, Boolean.FALSE)));
+		list.add(createAchievement("zone.interior.zakopanecity", "Miasto Zakopane", "Odwiedził wszystkie pomieszczenia w regionie Zakopanego",
+									Achievement.MEDIUM_BASE_SCORE, true,
+									new PlayerVisitedZonesInRegionCondition("zakopane city", Boolean.FALSE, Boolean.FALSE)));
+		//list.add(createAchievement("zone.interior.gdanskcity", "Miasto Gdańsk", "Odwiedził wszystkie pomieszczenia w regionie Gdańska",
+		//							Achievement.MEDIUM_BASE_SCORE, true,
+		//							new PlayerVisitedZonesInRegionCondition("gdansk city", Boolean.FALSE, Boolean.FALSE)));
 		return list;
 	}
 

@@ -17,11 +17,11 @@ public class KirdnehItemAchievementFactory extends AbstractAchievementFactory {
 	@Override
 	public Collection<Achievement> createAchievements() {
 		LinkedList<Achievement> achievements = new LinkedList<Achievement>();
-		achievements.add(createAchievement("quest.special.weekly_item.0005", "Archaeologist", "Finish weekly item quest 5 times",
+		achievements.add(createAchievement("quest.special.weekly_item.0005", "Archeolog", "Ukończył tygodniowe zadanie na przedmiot 5 razy",
 				Achievement.HARD_BASE_SCORE, true, new QuestStateGreaterThanCondition("weekly_item", 2, 4)));
-		achievements.add(createAchievement("quest.special.weekly_item.0050", "Senior Archaeologist", "Finish weekly item quest 50 times",
+		achievements.add(createAchievement("quest.special.weekly_item.0050", "Starszy Archeolog", "Ukończył tygodniowe zadanie na przedmiot 50 razy", 
 				Achievement.HARD_BASE_SCORE, true, new QuestStateGreaterThanCondition("weekly_item", 2, 49)));
-		achievements.add(createAchievement("quest.special.weekly_item.0100", "Master Archaeologist", "Finish weekly item quest 100 times",
+		achievements.add(createAchievement("quest.special.weekly_item.0100", "Mistrz Archeolog", "Ukończył tygodniowe zadanie na przedmiot 100 razy", 
 				Achievement.HARD_BASE_SCORE, true, new QuestStateGreaterThanCondition("weekly_item", 2, 99)));
 		return achievements;
 	}

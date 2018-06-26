@@ -42,7 +42,7 @@ public class FriendAchievementFactory extends AbstractAchievementFactory {
 	    // TODO: add Pacifist achievement for not participating in pvp for 6 months or more (last_pvp_action_time)
 
 		// Befriend Susi and complete quests for all children
-		achievements.add(createAchievement("friend.quests.children", "Childrens' friend", "Complete quests for all children",
+		achievements.add(createAchievement("friend.quests.children", "Przyjaciel dzieci", "Ukończył zadania wszystkich dzieci",
 				Achievement.MEDIUM_BASE_SCORE, true,
 				new AndCondition(
 						// Susi Quest is never set to done, therefore we check just if the quest has been started (condition "anyFriends" from FoundGirl.java)
@@ -68,29 +68,29 @@ public class FriendAchievementFactory extends AbstractAchievementFactory {
 						new QuestCompletedCondition("coded_message")))));
 
 		// quests about finding people
-		achievements.add(createAchievement("friend.quests.find", "Private Detective", "Find all lost and hidden people",
-				Achievement.HARD_BASE_SCORE, true,
-				new AndCondition(
-						// Rat Children (Agnus)
-						new QuestCompletedCondition("find_rat_kids"),
-						// Find Ghosts (Carena)
-						new QuestCompletedCondition("find_ghosts"),
-						// Meet Angels (any of the cherubs)
-						new ChatCondition() {
-							@Override
-							public boolean fire(final Player player, final Sentence sentence, final Entity entity) {
-								if (!player.hasQuest("seven_cherubs")) {
-									return false;
-								}
-								final String npcDoneText = player.getQuest("seven_cherubs");
-								final String[] done = npcDoneText.split(";");
-								final int left = 7 - done.length;
-								return left < 0;
-							}
-						})));
-
+		achievements.add(createAchievement("friend.quests.find", "Prywatny detektyw", "Znalazł wszystkie zagubione i ukrywające się aniołki",
+												Achievement.HARD_BASE_SCORE, true,
+												new AndCondition(
+														// Rat Children (Agnus)
+														new QuestCompletedCondition("find_rat_kids"),
+														// Find Ghosts (Carena)
+														new QuestCompletedCondition("find_ghosts"),
+														// Meet Angels (any of the cherubs)
+														new ChatCondition() {
+															@Override
+															public boolean fire(final Player player, final Sentence sentence, final Entity entity) {
+																if (!player.hasQuest("seven_cherubs")) {
+																	return false;
+																}
+																final String npcDoneText = player.getQuest("seven_cherubs");
+																final String[] done = npcDoneText.split(";");
+																final int left = 7 - done.length;
+																return left < 0;
+															}
+														})));
+		
 		// earn over 250 karma
-		achievements.add(createAchievement("friend.karma.250", "Good Samaritan", "Earn a very good karma",
+		achievements.add(createAchievement("friend.karma.250", "Dobry samarytanin", "Zdobył 250 karmy",
 				Achievement.MEDIUM_BASE_SCORE, true,
 				new ChatCondition() {
 			@Override
@@ -99,9 +99,9 @@ public class FriendAchievementFactory extends AbstractAchievementFactory {
 			}
 		}));
 
-		// meet Santa Claus and Easter Bunny
-		achievements.add(createAchievement("friend.meet.seasonal", "Still Believing", "Meet Santa Claus and Easter Bunny",
-												Achievement.EASY_BASE_SCORE, true, new AndCondition(new QuestWithPrefixCompletedCondition("meet_santa_"), new QuestWithPrefixCompletedCondition("meet_bunny_"))));
+		// meet Santa Claus, Easter Bunny and Guslarz
+		achievements.add(createAchievement("friend.meet.seasonal", "Wciąż wierzy", "Spotkał Świętego Mikołaja, zajączka Wielkanocnego i Guślarza",
+												Achievement.EASY_BASE_SCORE, true, new AndCondition(new QuestWithPrefixCompletedCondition("meet_santa_"), new QuestWithPrefixCompletedCondition("meet_bunny_"), new QuestWithPrefixCompletedCondition("meet_guslarz_"))));
 
 		return achievements;
 	}

@@ -34,22 +34,30 @@ public class ExperienceAchievementFactory extends AbstractAchievementFactory {
 	@Override
 	public Collection<Achievement> createAchievements() {
 		List<Achievement> xpAchievements = new LinkedList<Achievement>();
-		xpAchievements.add(createAchievement("xp.level.010", "Greenhorn", "Reach level 10", Achievement.EASY_BASE_SCORE, true,
-												new LevelGreaterThanCondition(9)));
-		xpAchievements.add(createAchievement("xp.level.050", "Novice", "Reach level 50", Achievement.EASY_BASE_SCORE, true,
+		xpAchievements.add(createAchievement("xp.level.000", "Parobek", "Osiągnął poziom 0", Achievement.EASY_BASE_SCORE, true,
+												new LevelGreaterThanCondition(-1)));
+		xpAchievements.add(createAchievement("xp.level.050", "Chłop", "Osiągnął poziom 50", Achievement.EASY_BASE_SCORE, true,
 												new LevelGreaterThanCondition(49)));
-		xpAchievements.add(createAchievement("xp.level.100", "Apprentice", "Reach level 100", Achievement.EASY_BASE_SCORE, true,
+		xpAchievements.add(createAchievement("xp.level.100", "Kmieć", "Osiągnął poziom 100", Achievement.EASY_BASE_SCORE, true,
 												new LevelGreaterThanCondition(99)));
-		xpAchievements.add(createAchievement("xp.level.200", "Adventurer", "Reach level 200", Achievement.MEDIUM_BASE_SCORE, true,
+		xpAchievements.add(createAchievement("xp.level.150", "Miszczanin", "Osiągnął poziom 150", Achievement.EASY_BASE_SCORE, true,
+												new LevelGreaterThanCondition(149)));
+		xpAchievements.add(createAchievement("xp.level.200", "Szlachcic", "Osiągnął poziom 200", Achievement.MEDIUM_BASE_SCORE, true,
 												new LevelGreaterThanCondition(199)));
-		xpAchievements.add(createAchievement("xp.level.300", "Experienced Adventurer", "Reach level 300", Achievement.MEDIUM_BASE_SCORE, true,
+		xpAchievements.add(createAchievement("xp.level.250", "Rycerz", "Osiągnął poziom 250", Achievement.MEDIUM_BASE_SCORE, true,
+												new LevelGreaterThanCondition(249)));
+		xpAchievements.add(createAchievement("xp.level.300", "Baronet", "Osiągnął poziom 300", Achievement.MEDIUM_BASE_SCORE, true,
 												new LevelGreaterThanCondition(299)));
-		xpAchievements.add(createAchievement("xp.level.400", "Master Adventurer", "Reach level 400", Achievement.MEDIUM_BASE_SCORE, true,
+		xpAchievements.add(createAchievement("xp.level.350", "Baron", "Osiągnął poziom 350", Achievement.MEDIUM_BASE_SCORE, true,
+												new LevelGreaterThanCondition(349)));
+		xpAchievements.add(createAchievement("xp.level.400", "Wicehrabia", "Osiągnął poziom 400", Achievement.HARD_BASE_SCORE, true,
 												new LevelGreaterThanCondition(399)));
-		xpAchievements.add(createAchievement("xp.level.500", "Stendhal Master", "Reach level 500", Achievement.HARD_BASE_SCORE, true,
+		xpAchievements.add(createAchievement("xp.level.450", "Hrabia", "Osiągnął poziom 450", Achievement.HARD_BASE_SCORE, true,
+												new LevelGreaterThanCondition(449)));
+		xpAchievements.add(createAchievement("xp.level.500", "Magnat", "Osiągnął poziom 500", Achievement.HARD_BASE_SCORE, true,
 												new LevelGreaterThanCondition(499)));
-		xpAchievements.add(createAchievement("xp.level.597", "Stendhal High Master", "Reach level 597", Achievement.HARD_BASE_SCORE, true,
-												new LevelGreaterThanCondition(596)));
+		xpAchievements.add(createAchievement("xp.level.550", "Książe", "Osiągnął poziom 550", Achievement.HARD_BASE_SCORE, true,
+												new LevelGreaterThanCondition(549)));
 		return xpAchievements;
 	}
 

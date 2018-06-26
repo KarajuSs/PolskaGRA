@@ -22,21 +22,30 @@ public class UndergroundZoneAchievementFactory extends AbstractAchievementFactor
 	public Collection<Achievement> createAchievements() {
 		Collection<Achievement> list = new LinkedList<Achievement>();
 		//All below ground achievements
-		list.add(createAchievement("zone.underground.semos", "Canary", "Visit all underground zones in the Semos region",
+		list.add(createAchievement("zone.underground.semos", "Kanarek", "Odwiedził wszystkie podziemne obszary w regionie Semos", 
 									Achievement.MEDIUM_BASE_SCORE, true,
 									new PlayerVisitedZonesInRegionCondition("semos", Boolean.TRUE, Boolean.FALSE)));
-		list.add(createAchievement("zone.underground.nalwor", "Fear not drows nor hell", "Visit all underground zones in the Nalwor region",
+		list.add(createAchievement("zone.underground.nalwor", "Nie boi się piękła", "Odwiedził wszystkie podziemne obszary w regionie Nalwor", 
 									Achievement.MEDIUM_BASE_SCORE, true,
 									new PlayerVisitedZonesInRegionCondition("nalwor", Boolean.TRUE, Boolean.FALSE)));
-		list.add(createAchievement("zone.underground.athor", "Labyrinth Solver", "Visit all underground zones in the Athor region",
+		list.add(createAchievement("zone.underground.athor", "Wielbiciel labiryntów", "Odwiedził wszystkie podziemne obszary w regionie Athor", 
 									Achievement.MEDIUM_BASE_SCORE, true,
 									new PlayerVisitedZonesInRegionCondition("athor", Boolean.TRUE, Boolean.FALSE)));
-		list.add(createAchievement("zone.underground.amazon", "Human Mole", "Visit all underground zones in the Amazon region",
+		list.add(createAchievement("zone.underground.amazon", "Człowiek kret", "Odwiedził wszystkie podziemne obszary w regionie Amazon", 
 									Achievement.MEDIUM_BASE_SCORE, true,
-									new PlayerVisitedZonesInRegionCondition("amazon", Boolean.TRUE, Boolean.FALSE)));
-		list.add(createAchievement("zone.underground.ados", "Deep Dweller", "Visit all underground zones in the Ados region",
+									new PlayerVisitedZonesInRegionCondition("amazon", Boolean.TRUE, Boolean.FALSE)));		
+		list.add(createAchievement("zone.underground.ados", "Kopacz", "Odwiedził wszystkie podziemne obszary w regionie Ados",
 									Achievement.MEDIUM_BASE_SCORE, true,
 									new PlayerVisitedZonesInRegionCondition("ados", Boolean.TRUE, Boolean.FALSE)));
+		list.add(createAchievement("zone.underground.krakow", "Szperacz", "Odwiedził wszystkie podziemne obszary w regionie Kraków", 
+									Achievement.MEDIUM_BASE_SCORE, true,
+									new PlayerVisitedZonesInRegionCondition("krakow", Boolean.TRUE, Boolean.FALSE)));		
+		list.add(createAchievement("zone.underground.zakopane", "Grotołaz", "Odwiedził wszystkie podziemne obszary w regionie Zakopane", 
+									Achievement.MEDIUM_BASE_SCORE, true,
+									new PlayerVisitedZonesInRegionCondition("zakopane", Boolean.TRUE, Boolean.FALSE)));
+		list.add(createAchievement("zone.underground.wieliczka", "Solny Zbieracz", "Odwiedził wszystkie podziemne obszary w regionie Wieliczka", 
+									Achievement.MEDIUM_BASE_SCORE, true,
+									new PlayerVisitedZonesInRegionCondition("wieliczka", Boolean.TRUE, Boolean.FALSE)));	
 		return list;
 	}
 

@@ -24,15 +24,15 @@ public class AdosItemQuestAchievementsFactory extends AbstractAchievementFactory
 	public Collection<Achievement> createAchievements() {
 		List<Achievement> achievements = new LinkedList<Achievement>();
 		//daily item quest achievements
-		achievements.add(createAchievement("quest.special.daily_item.0010", "Ados' Supporter", "Finish daily item quest 10 times",
+		achievements.add(createAchievement("quest.special.daily_item.0010", "Pomocnik Ados", "Ukończył codzienne zadanie na przedmiot 10 razy",
 												Achievement.EASY_BASE_SCORE, true, new QuestStateGreaterThanCondition("daily_item", 2, 9)));
-		achievements.add(createAchievement("quest.special.daily_item.0050", "Ados' Provider", "Finish daily item quest 50 times",
+		achievements.add(createAchievement("quest.special.daily_item.0050", "Dostawca Ados", "Ukończył codzienne zadanie na przedmiot 50 razy",
 												Achievement.EASY_BASE_SCORE, true, new QuestStateGreaterThanCondition("daily_item", 2, 49)));
-		achievements.add(createAchievement("quest.special.daily_item.0100", "Ados' Supplier", "Finish daily item quest 100 times",
+		achievements.add(createAchievement("quest.special.daily_item.0100", "Główny Dostawca Ados", "Ukończył codzienne zadanie na przedmiot 100 razy",
 												Achievement.MEDIUM_BASE_SCORE, true, new QuestStateGreaterThanCondition("daily_item", 2, 99)));
-		achievements.add(createAchievement("quest.special.daily_item.0250", "Ados' Stockpiler", "Finish daily item quest 250 times",
+		achievements.add(createAchievement("quest.special.daily_item.0250", "Magazynier Ados", "Ukończył codzienne zadanie na przedmiot 250 razy",
 												Achievement.MEDIUM_BASE_SCORE, true, new QuestStateGreaterThanCondition("daily_item", 2, 249)));
-		achievements.add(createAchievement("quest.special.daily_item.0500", "Ados' Hoarder", "Finish daily item quest 500 times",
+		achievements.add(createAchievement("quest.special.daily_item.0500", "Skarbnik Ados", "Ukończył codzienne zadanie na przedmiot 500 razy",
 												Achievement.HARD_BASE_SCORE, true, new QuestStateGreaterThanCondition("daily_item", 2, 499)));
 		return achievements;
 	}

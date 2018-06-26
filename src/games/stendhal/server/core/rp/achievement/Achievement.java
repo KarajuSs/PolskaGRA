@@ -31,6 +31,8 @@ public class Achievement {
 	/** base score for difficult achievements */
 	public static final int HARD_BASE_SCORE = 5;
 
+	public static final int LEGENDARY_BASE_SCORE = 10;
+
 	private final String identifier;
 
 	private final String title;

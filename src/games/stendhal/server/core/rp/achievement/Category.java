@@ -46,6 +46,10 @@ public enum Category {
 	QUEST_SEMOS_MONSTER,
 	/** kirdneh item quest */
 	QUEST_KIRDNEH_ITEM,
+	/** zakopane items quest */
+	QUEST_ZAKOPANE_ITEMS,
+	/** gdansk jewellery quest */
+	QUEST_GDANSK_JEWELLERY,
 	/** mithrilbourgh kill enemy army quest */
 	QUEST_MITHRILBOURGH_ENEMY_ARMY;
 

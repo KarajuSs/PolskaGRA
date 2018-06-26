@@ -60,6 +60,7 @@ public abstract class AbstractAchievementFactory {
 		List<AbstractAchievementFactory> list = new LinkedList<AbstractAchievementFactory>();
 		//add new created factories here
 		list.add(new AdosItemQuestAchievementsFactory());
+		list.add(new AgeAchievementFactory());
 		list.add(new ExperienceAchievementFactory());
 		list.add(new FightingAchievementFactory());
 		list.add(new FriendAchievementFactory());
@@ -72,6 +73,8 @@ public abstract class AbstractAchievementFactory {
 		list.add(new SemosMonsterQuestAchievementFactory());
 		list.add(new UndergroundZoneAchievementFactory());
 		list.add(new KirdnehItemAchievementFactory());
+		list.add(new ZakopaneItemQuestAchievementsFactory());
+		list.add(new GdanskJewelleryQuestAchievementFactory());
 		return list;
 	}
 

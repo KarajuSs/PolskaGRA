@@ -34,32 +34,38 @@ public class QuestAchievementFactory extends AbstractAchievementFactory {
 		List<Achievement> questAchievements = new LinkedList<Achievement>();
 
 		//elf princess quest achievement
-		questAchievements.add(createAchievement("quest.special.elf_princess.0025", "Faiumoni's Casanova", "Finish elf princess quest 25 times",
+		questAchievements.add(createAchievement("quest.special.elf_princess.0025", "Kasanowa Faiumoni", "Ukończył zadanie u księżniczki elfów 25 razy", 
 												Achievement.MEDIUM_BASE_SCORE, true, new QuestStateGreaterThanCondition("elf_princess", 2, 24)));
 
 		//Maze
-		questAchievements.add(createAchievement("quest.special.maze", "Pathfinder", "Finish the maze",
+		questAchievements.add(createAchievement("quest.special.maze", "Kierunkowskaz", "Ukończył labirynt", 
 				Achievement.EASY_BASE_SCORE, true, new QuestStateGreaterThanCondition("maze", 2, 0)));
-		questAchievements.add(createAchievement("quest.deathmatch", "Deathmatch Hero", "Earn 100,000 points in deathmatch",
+		questAchievements.add(createAchievement("quest.deathmatch", "Bohater Deathmatcha", "Zdobył 100,000 punktów na deathmatchu",
 				Achievement.MEDIUM_BASE_SCORE, true, new QuestStateGreaterThanCondition("deathmatch_score", 0, 100000)));
 
 		// Ados Deathmatch
-		// disabled. Currently the wrong index is being checked (it would be index 6)
+		// disabled. Currently the wrong index is being checked (it would be index 6) 
 		// and as per bug report https://sourceforge.net/tracker/?func=detail&aid=3148365&group_id=1111&atid=101111 the count is not saved anyway
-		// questAchievements.add(createAchievement("quest.special.dm.025", "Gladiator", "Fight 25 Deathmatches",
+		//questAchievements.add(createAchievement("quest.special.dm.025", "Gladiator", "Walczył na 25 Deathmatchach",
 		//		Achievement.HARD_BASE_SCORE, true, new QuestStateGreaterThanCondition("deathmatch", 1, 24)));
-
+		
 		// have completed all quests in Semos City?
-		questAchievements.add(createAchievement("quest.special.semos", "Aide to Semos folk", "Complete all quests in Semos City",
+		questAchievements.add(createAchievement("quest.special.semos", "Przyjaciel Semos", "Ukończył wszystkie zadania w mieście Semos",
 				Achievement.MEDIUM_BASE_SCORE, true, new QuestsInRegionCompletedCondition(Region.SEMOS_CITY)));
-
+		
 		// have completed all quests in Ados City?
-		questAchievements.add(createAchievement("quest.special.ados", "Helper of Ados city dwellers", "Complete all quests in Ados City",
+		questAchievements.add(createAchievement("quest.special.ados", "Przyjaciel Ados", "Ukończył wszystkie zadania w mieście Ados",
 				Achievement.MEDIUM_BASE_SCORE, true, new QuestsInRegionCompletedCondition(Region.ADOS_CITY)));
-
+		
 		// complete nearly all the quests in the game?
-		questAchievements.add(createAchievement("quest.count.80", "Quest Junkie","Complete at least 80 quests",
-				Achievement.MEDIUM_BASE_SCORE, true, new QuestCountCompletedCondition(80)));
+		questAchievements.add(createAchievement("quest.count.50", "Pierwsze zlecenia","Ukończyl conajmniej 50 zadań",
+				Achievement.EASY_BASE_SCORE, true, new QuestCountCompletedCondition(50)));
+		questAchievements.add(createAchievement("quest.count.100", "Duuuuuużo ukończonych zadań","Ukończyl conajmniej 100 zadań",
+				Achievement.MEDIUM_BASE_SCORE, true, new QuestCountCompletedCondition(100)));
+		questAchievements.add(createAchievement("quest.count.150", "Jeszcze więcej zadań?","Ukończyl conajmniej 150 zadań",
+				Achievement.HARD_BASE_SCORE, true, new QuestCountCompletedCondition(150)));
+		questAchievements.add(createAchievement("quest.count.200", "Pogromca zadań","Ukończyl conajmniej 200 zadań",
+				Achievement.LEGENDARY_BASE_SCORE, true, new QuestCountCompletedCondition(200)));
 
 		return questAchievements;
 	}
