@@ -176,6 +176,68 @@ public class StendhalQuestSystem {
 		loadQuest(new WizardBank());
 		loadQuest(new ZekielsPracticalTestQuest());
 		loadQuest(new ZooFood());
+		/** Questy ze świata POL */
+		///////////////////////////
+		/** 					**\
+		 *       ZAKOPANE		 *
+		\**	                    **/
+		loadQuest(new GazdaWojtekDailyItemQuest());
+		//loadQuest(new HelpKrasnolud());
+		loadQuest(new HerbsForJadzka());
+		loadQuest(new KillDragons());
+		loadQuest(new KillHerszt());
+		//loadQuest(new Labirynt());
+		loadQuest(new MeetFryderyk());
+		loadQuest(new MeetPietrek());
+		//loadQuest(new Oscypek());
+		loadQuest(new PomocChlopcowi());
+		//loadQuest(new Ratownik());
+		loadQuest(new ScytheForFryderyk());
+		loadQuest(new StuffForAndrzej());
+		loadQuest(new ZakopaneClouds());
+		//loadQuest(new ZlotaCiupagaDwaWasy());
+		loadQuest(new ZlotyRog());
+		/** 					**\
+		 *         TATRY 		 *
+		\**	                    **/
+		//          NIC         //
+		/** 					**\
+		 *      KOŚCIELISKO 	 *
+		\**	                    **/
+		//loadQuest(new BramaZrc());
+		//loadQuest(new PierscienRycerza());
+		//loadQuest(new ProzbaWielkoluda());
+		//loadQuest(new StazNaGornika());
+		//loadQuest(new ZagadkiBrzezdoma());
+		/** 					**\
+		 *        KRAKÓW		 *
+		\**	                    **/
+		//loadQuest(new SolveWoodcutterTest());
+		//loadQuest(new PierscienBarona());
+		//loadQuest(new WawelBrama());
+		/** 					**\
+		 *     DRAGON_KNIGHTS	 *
+		\**	                    **/
+		//loadQuest(new PierscienMagnata());
+		//loadQuest(new PierscienMieszczanina());
+		/** 					**\
+		 *         DESERT		 *
+		\**	                    **/
+		//loadQuest(new ZlotaCiupagaWas());
+		/** 					**\
+		 *         GDAŃSK		 *
+		\**	                    **/
+		//loadQuest(new AligernQuest());
+		//loadQuest(new DailyMuseumGdanskQuest());
+		//loadQuest(new DzikiiWilki());
+		//loadQuest(new RosaBasementRats());
+		/**						**\
+		 *         INNE  	 	 *
+		\**	                    **/
+		//loadQuest(new BiletTurystyczny());
+		//loadQuest(new DragonsGuard());
+		//loadQuest(new MeetGuslarz());
+		//loadQuest(new WhereDragon());
 
 		if (System.getProperty("stendhal.christmas") != null) {
 			loadQuest(new GoodiesForRudolph());
@@ -234,7 +296,7 @@ public class StendhalQuestSystem {
 		sb.append(questInfo.getName() + " : ");
 		sb.append(questInfo.getDescription() + "\r\n");
 		if (questInfo.getSuggestedMinLevel() > player.getLevel()) {
-			sb.append("(This task may be too dangerous for your level of experience)\r\n");
+			sb.append("(To zadanie może być zbyt niebezpieczne jak na twój poziom doświadczenia)\r\n");
 		}
 
 		final List<String> history = quest.getHistory(player);
@@ -258,7 +320,7 @@ public class StendhalQuestSystem {
 		final StringBuilder sb = new StringBuilder();
 
 		// Open quests
-		sb.append("\r\n#'Open Quests': ");
+		sb.append("\r\n#'Otwarte zadania': ");
 		boolean first = true;
 		for (final IQuest quest : quests) {
 			if (quest.isStarted(player) && !quest.isCompleted(player)) {
@@ -271,7 +333,7 @@ public class StendhalQuestSystem {
 		}
 
 		// Completed Quests
-		sb.append("\r\n#'Completed Quests': ");
+		sb.append("\r\n#'Ukończone zadania': ");
 		first = true;
 		for (final IQuest quest : quests) {
 			if (quest.isCompleted(player)) {
@@ -313,7 +375,7 @@ public class StendhalQuestSystem {
 		final StringBuilder sb = new StringBuilder();
 
 		// Open quests
-		sb.append("\r\n#'Open Quests': ");
+		sb.append("\r\n#'Otwarte zadania': ");
 
 		for (final IQuest quest : quests) {
 			if (quest.isStarted(player) && !quest.isCompleted(player)) {
@@ -322,7 +384,7 @@ public class StendhalQuestSystem {
 		}
 
 		// Completed Quests
-		sb.append("\n#'Completed Quests': ");
+		sb.append("\n#'Ukończone zadania': ");
 		for (final IQuest quest : quests) {
 			if (quest.isCompleted(player)) {
 				sb.append("\r\n" + quest.getName() + " (" + quest.getSlotName() + "): " + player.getQuest(quest.getSlotName()));
@@ -427,7 +489,7 @@ public class StendhalQuestSystem {
 			if (questInfo.getName().equals(questName)
 					&& (questInfo.getSuggestedMinLevel() > player.getLevel())
 					&& !quest.isCompleted(player)) {
-				return "This task may be too dangerous for your level of experience.";
+				return "To zadanie może być zbyt niebezpieczne jak na twój poziom doświadczenia.";
 			}
 		}
 		return "";
