@@ -56,9 +56,9 @@
 		</equipable>
 	</item>
 
-	<item name="srebrny sztylet">
+	<item name="srebrny sztylecik">
 		<type class="necklace" subclass="amulet_silver" tileid="-1"/>
-		<description>Oto srebrny sztylet, który być może ochroni cię przed złem.</description>
+		<description>Oto srebrny sztylecik, który być może ochroni cię przed złem.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
 			<def value="8"/>

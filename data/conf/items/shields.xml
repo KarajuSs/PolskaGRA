@@ -7,8 +7,8 @@
 		<description>Oto czarna tarcza. Jej ciemność na pewno cię obroni.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="37"/>
-			<min_level value="222"/>
+			<def value="42"/>
+			<min_level value="200"/>
 		</attributes>
 		<weight value="34.0"/>
 		<value value="518616"/>
@@ -29,8 +29,8 @@
 		<description>Oto lazurowa tarcza. Czujesz jakby jej nie było, ale broni bardzo dobrze.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="29"/>
-			<min_level value="145"/>
+			<def value="30"/>
+			<min_level value="25"/>
 		</attributes>
 		<weight value="24.0"/>
 		<value value="186768"/>
@@ -51,7 +51,7 @@
 		<description>Puklerz to najprostsza tarcza. Może ochronić cię przed mieczami i maczugami, ale na silniejszą broń lepiej jej nie wystawiać.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="10"/>
+			<def value="6"/>
 		</attributes>
 		<weight value="12.0"/>
 		<value value="1512"/>
@@ -70,8 +70,8 @@
 		<description>Oto tarcza chaosu. Jej czarujący wygląd ogłupia twoich przeciwników.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="30"/>
-			<min_level value="150"/>
+			<def value="39"/>
+			<min_level value="60"/>
 		</attributes>
 		<weight value="34.0"/>
 		<value value="415233"/>
@@ -91,7 +91,7 @@
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
 			<def value="24"/>
-			<min_level value="120"/>
+			<min_level value="15"/>
 		</attributes>
 		<weight value="24.0"/>
 		<value value="96768"/>
@@ -110,8 +110,8 @@
 		<description>Oto tarcza elficka. Wygląda jak jeden wielki liść, ale ma niezwykłe właściwości.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="34"/>
-			<min_level value="204"/>
+			<def value="32"/>
+			<min_level value="30"/>
 		</attributes>
 		<weight value="34.0"/>
 		<value value="275128"/>
@@ -131,8 +131,8 @@
 		<description>Oto wzmocniona lwia tarcza. Będzie cię dobrze chronić.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="26"/>
-			<min_level value="130"/>
+			<def value="20"/>
+			<min_level value="5"/>
 		</attributes>
 		<weight value="24.0"/>
 		<value value="56000"/>
@@ -151,8 +151,8 @@
 		<description>Oto złota tarcza, czy może być obroną ostateczną?</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="23"/>
-			<min_level value="115"/>
+			<def value="34"/>
+			<min_level value="50"/>
 		</attributes>
 		<weight value="34.0"/>
 		<value value="275128"/>
@@ -171,8 +171,8 @@
 		<description>Oto szmaragdowa tarcza smocza, przerażająca i silna.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="33"/>
-			<min_level value="198"/>
+			<def value="35"/>
+			<min_level value="40"/>
 		</attributes>
 		<weight value="14.0"/>
 		<value value="300000"/>
@@ -192,8 +192,7 @@
 		<description>Oto lwia tarcza. Wystarczająco ciężka, aby bronić cię przed silniejszymi obrażeniami.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="19"/>
-			<min_level value="76"/>
+			<def value="16"/>
 		</attributes>
 		<weight value="24.0"/>
 		<value value="28672"/>
@@ -212,8 +211,8 @@
 		<description>Oto magiczna tarcza płytowa. Ma magiczną jakość i jest piękna.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="39"/>
-			<min_level value="234"/>
+			<def value="40"/>
+			<min_level value="100"/>
 		</attributes>
 		<weight value="24.0"/>
 		<value value="448000"/>
@@ -236,8 +235,8 @@
 		<description>Oto tarcza mainiocyjska. Nie masz pojęcia z czego jest zrobiona, ale będzie cię dobrze chronić.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="31"/>
-			<min_level value="186"/>
+			<def value="37"/>
+			<min_level value="50"/>
 		</attributes>
 		<weight value="34.0"/>
 		<value value="365233"/>
@@ -256,8 +255,8 @@
 		<description>Oto tarcza z mithrilu. Możesz być pewny, że będzie dla ciebie dobrą ochroną.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="40"/>
-			<min_level value="240"/>
+			<def value="45"/>
+			<min_level value="250"/>
 		</attributes>
 		<weight value="30.0"/>
 		<value value="718616"/>
@@ -278,8 +277,7 @@
 		<description>Oto tarcza płytowa. Jest w dobrym stanie i może być trochę warta.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="15"/>
-			<min_level value="60"/>
+			<def value="14"/>
 		</attributes>
 		<weight value="24.0"/>
 		<value value="19208"/>
@@ -298,8 +296,8 @@
 		<description>Oto karmazynowa tarcza. Jest na niej sporo krwi po bestiach.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="23"/>
-			<min_level value="115"/>
+			<def value="27"/>
+			<min_level value="20"/>
 		</attributes>
 		<weight value="24.0"/>
 		<value value="136768"/>
@@ -318,8 +316,8 @@
 		<description>Oto tarcza cieni. Wygląda na to że absorbuje światło.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="32"/>
-			<min_level value="192"/>
+			<def value="36"/>
+			<min_level value="50"/>
 		</attributes>
 		<weight value="34.0"/>
 		<value value="326592"/>
@@ -340,8 +338,8 @@
 		<description>Oto tarcza z czaszką. Troszkę straszna, nieprawdaż?</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="25"/>
-			<min_level value="125"/>
+			<def value="22"/>
+			<min_level value="10"/>
 		</attributes>
 		<weight value="24.0"/>
 		<value value="74536"/>
@@ -362,7 +360,7 @@
 		<description>Oto tarcza ćwiekowa. Jest mała, ale dobra.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="13"/>
+			<def value="12"/>
 		</attributes>
 		<weight value="15.0"/>
 		<value value="12096"/>
@@ -381,8 +379,7 @@
 		<description>Oto tarcza jednorożca. Jest przepiękna i daje wspaniałą obronę.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="20"/>
-			<min_level value="100"/>
+			<def value="18"/>
 		</attributes>
 		<weight value="24.0"/>
 		<value value="40824"/>
@@ -403,7 +400,7 @@
 		<description>Drewniana tarcza zrobiona jest z drogiego i ciężkiego drewna, ale wciąż może cię chronić.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="11"/>
+			<def value="10"/>
 		</attributes>
 		<weight value="12.0"/>
 		<value value="7000"/>
@@ -423,8 +420,8 @@
 		<description>Oto tarcza xenocyjska, w kolorach potwora z którego wypadła.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="38"/>
-			<min_level value="228"/>
+			<def value="41"/>
+			<min_level value="150"/>
 		</attributes>
 		<weight value="22.0"/>
 		<value value="488000"/>
@@ -443,7 +440,7 @@
 		<description>Oto tarcza piaskowa. Zapewne bogowie zesłali pioruna, który uderzył w piach, a pustynni jeźdźcy zrobili tarczę z tego co znaleźli w tym miejscu.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="12"/>
+			<def value="11"/>
 		</attributes>
 		<weight value="12.0"/>
 		<value value="1512"/>
@@ -462,8 +459,8 @@
 		<description>Oto tarcza barbarzyńcy. Można się nią bronić i atakować!</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="1"/>
-			<def value="14"/>
+			<atk value="2"/>
+			<def value="12"/>
 		</attributes>
 		<weight value="15.0"/>
 		<value value="12096"/>
@@ -483,8 +480,7 @@
 		<description>Oto polska tarcza drewniana. Jej barwy podnoszą morale.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="19"/>
-			<min_level value="76"/>
+			<def value="17"/>
 		</attributes>
 		<weight value="12.0"/>
 		<value value="1512"/>
@@ -504,8 +500,8 @@
 		<description>Oto lodowa tarcza. Nie wystawiaj jej na słońce.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="16"/>
-			<min_level value="64"/>
+			<def value="18"/>
+			<min_level value="20"/>
 		</attributes>
 		<weight value="12.0"/>
 		<value value="1512"/>
@@ -526,9 +522,8 @@
 		<description>Oto ognista tarcza. Niech jej płomień ogarnie twoich wrogów.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="3"/>
-			<def value="36"/>
-			<min_level value="216"/>
+			<def value="19"/>
+			<min_level value="30"/>
 		</attributes>
 		<weight value="12.0"/>
 		<value value="1512"/>
@@ -549,8 +544,7 @@
 		<description>Oto polska tarcza kolcza. Odpiera wiele rodzajów ataku.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="22"/>
-			<min_level value="110"/>
+			<def value="19"/>
 		</attributes>
 		<weight value="12.0"/>
 		<value value="1512"/>
@@ -569,8 +563,7 @@
 		<description>Oto polska tarcza lekka. Dość łatwo się ją nosi, ale obronę daje znaczną.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="17"/>
-			<min_level value="68"/>
+			<def value="22"/>
 		</attributes>
 		<weight value="12.0"/>
 		<value value="1512"/>
@@ -590,8 +583,7 @@
 		<description>Oto tarcza jaśniejąca. Troszkę straszna, nieprawdaż?</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="35"/>
-			<min_level value="210"/>
+			<def value="23"/>
 		</attributes>
 		<weight value="12.0"/>
 		<value value="1512"/>
@@ -613,8 +605,7 @@
 		<description>To polska płytowa tarcza. Jest sporo warta.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="21"/>
-			<min_level value="105"/>
+			<def value="25"/>
 		</attributes>
 		<weight value="12.0"/>
 		<value value="1512"/>
@@ -634,8 +625,8 @@
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
 			<atk value="2"/>
-			<def value="18"/>
-			<min_level value="72"/>
+			<def value="25"/>
+			<min_level value="40"/>
 		</attributes>
 		<weight value="24.0"/>
 		<value value="96768"/>
@@ -658,8 +649,7 @@
 		<description>Oto tarcza licha. Wstrętny stwór upuścił ją.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="27"/>
-			<min_level value="135"/>
+			<def value="28"/>
 		</attributes>
 		<weight value="12.0"/>
 		<value value="1512"/>
@@ -679,7 +669,6 @@
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
 			<def value="28"/>
-			<min_level value="140"/>
 		</attributes>
 		<weight value="12.0"/>
 		<value value="1512"/>

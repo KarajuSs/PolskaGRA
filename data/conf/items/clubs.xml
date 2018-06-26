@@ -7,10 +7,10 @@
 		<description>Widzisz młot chaosu. Straszliwa broń.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="63"/>
-			<def value="4"/>
-			<rate value="6"/>
-			<min_level value="248"/>
+			<atk value="42"/>
+			<rate value="8"/>
+			<lifesteal value="0.3"/>
+			<min_level value="80"/>
 		</attributes>
 		<weight value="8.0"/>
 		<value value="463050"/>
@@ -30,7 +30,8 @@
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
 			<atk value="6"/>
-			<rate value="3"/>
+			<rate value="4"/>
+			<undroppableondeath value="1" />
 		</attributes>
 		<weight value="2.0"/>
 		<value value="2700"/>
@@ -49,10 +50,9 @@
 		<description>Widzisz maczuge cierniową. Kolce jej są pełne krwi. Jest bardzo potężna, ale jeśli chcesz jej używac to musisz tchnąć w nią trochę życia.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="65"/>
-			<rate value="6"/>
+			<atk value="48"/>
+			<rate value="7"/>
 			<lifesteal value="-0.1"/>
-			<min_level value="150"/>
 		</attributes>
 		<weight value="8.0"/>
 		<value value="691200"/>
@@ -73,7 +73,6 @@
 		<attributes>
 			<atk value="22"/>
 			<rate value="4"/>
-			<min_level value="100"/>
 		</attributes>
 		<weight value="8.0"/>
 		<value value="48992"/>
@@ -113,10 +112,9 @@
 		<description>Widzisz wartościowy złoty pyrlik. Ta złota broń może dla kogoś dużo znaczyć.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="19"/>
-			<def value="1"/>
-			<rate value="4"/>
-			<min_level value="84"/>
+			<atk value="36"/>
+			<rate value="9"/>
+			<min_level value="15"/>
 		</attributes>
 		<weight value="8.0"/>
 		<value value="259200"/>
@@ -135,9 +133,8 @@
 		<description>Widzisz błyszczący złoty buzdygan. Jest wystarczająco ostry, aby zadać obrażenia.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="11"/>
-			<rate value="3"/>
-			<min_level value="57"/>
+			<atk value="22"/>
+			<rate value="8"/>
 		</attributes>
 		<weight value="8.0"/>
 		<value value="66550"/>
@@ -157,10 +154,9 @@
 		<description>Widzisz górniczy pyrlik. Jest wystaczający, aby zadać dobre obrażenia, ale jest powolny.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="15"/>
-			<def value="1"/>
-			<rate value="4"/>
-			<min_level value="60"/>
+			<atk value="31"/>
+			<rate value="9"/>
+			<min_level value="10"/>
 		</attributes>
 		<weight value="8.0"/>
 		<value value="165505"/>
@@ -179,10 +175,9 @@
 		<description>Widzisz lodowy młot bojowy. Ostatni właściciel musiał być ogromny żeby go unieść. Bez obaw, nie skruszy się.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="42"/>
-			<def value="1"/>
-			<rate value="5"/>
-			<min_level value="188"/>
+			<atk value="45"/>
+			<rate value="10"/>
+			<min_level value="60"/>
 		</attributes>
 		<weight value="8.0"/>
 		<value value="455625"/>
@@ -202,9 +197,8 @@
 		<description>Widzisz buzdygan. Jest trochę stary, bo używany od lat.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="9"/>
-			<rate value="3"/>
-			<min_level value="36"/>
+			<atk value="16"/>
+			<rate value="6"/>
 		</attributes>
 		<weight value="8.0"/>
 		<value value="34133"/>
@@ -225,7 +219,7 @@
 		<attributes>
 			<atk value="15"/>
 			<rate value="3"/>
-			<min_level value="88"/>
+			<min_level value="13"/>
 		</attributes>
 		<weight value="8.0"/>
 		<value value="111607"/>
@@ -245,13 +239,11 @@
 		<description>Oto niewymownie zmyślny kij przywoływania nieumarłych. Jeśli się wsłuchasz być może usłyszysz krzyk duszy poprzedniego właściciela.</description>
 		<implementation class-name="games.stendhal.server.entity.item.NecroStaff"/>
 		<attributes>
-			<atk value="21"/>
-			<def value="3"/>
-			<rate value="3"/>
+			<atk value="8"/>
+			<rate value="5"/>
 		</attributes>
 		<weight value="0.2"/>
 		<value value="8533"/>
-		<damage type="fire"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
@@ -267,13 +259,12 @@
 		<description>Widzisz rod of the GM. Jest ona zarezerwowana dla tych którzy posiadają specjalne moce. Bądź ostrożny, aby nie dostała się ona w niepowołane ręce.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="10"/>
+			<atk value="100"/>
 			<def value="100"/>
-			<rate value="6"/>
+			<rate value="2"/>
 		</attributes>
 		<weight value="0.01"/>
 		<value value="10000000"/>
-		<damage type="ice"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
@@ -291,8 +282,9 @@
 		<attributes>
 			<atk value="7"/>
 			<def value="2"/>
-			<rate value="3"/>
-			<min_level value="24"/>
+			<rate value="7"/>
+			<lifesteal value="0.05"/>
+			<min_level value="8"/>
 		</attributes>
 		<weight value="8.0"/>
 		<value value="76057"/>
@@ -333,10 +325,9 @@
 		<description>Widzisz kropacz. Może atakować szybciej niż inne maczugi, a kolce jakimi jest nabity zadają okropne rany.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="23"/>
-			<def value="2"/>
-			<rate value="4"/>
-			<min_level value="108"/>
+			<atk value="40"/>
+			<rate value="6"/>
+			<min_level value="120"/>
 		</attributes>
 		<weight value="2.0"/>
 		<value value="533333"/>
@@ -355,10 +346,9 @@
 		<description>Widzisz młot wulkanów. Ludzie mówią, że to broń bogów, ale jest wolna jak ślimak.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="65"/>
-			<def value="4"/>
-			<rate value="6"/>
-			<min_level value="276"/>
+			<atk value="48"/>
+			<rate value="9"/>
+			<min_level value="90"/>
 		</attributes>
 		<weight value="8.0"/>
 		<value value="614400"/>
@@ -378,10 +368,9 @@
 		<description>Widzisz ogromny młot bojowy. Wygląda na to że jest mocny, ale ciężki i dla tego powolny.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="47"/>
-			<def value="3"/>
-			<rate value="6"/>
-			<min_level value="172"/>
+			<atk value="38"/>
+			<rate value="9"/>
+			<min_level value="35"/>
 		</attributes>
 		<weight value="8.0"/>
 		<value value="304844"/>

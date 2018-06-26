@@ -7,8 +7,8 @@
 		<description>Oto śnieżka. Raczej lepsza do zabawy niż do walki.</description>
 		<implementation class-name="games.stendhal.server.entity.item.NoStatsStackableItem"/>
 		<attributes>
-			<atk value="4"/>
-			<range value="2"/>
+			<atk value="-1"/>
+			<range value="8"/>
 			<quantity value="1"/>
 			<max_quantity value="99"/>
 			<min_level value="20"/>
@@ -53,7 +53,7 @@
 		<description>To jest strzałka. Musisz być blisko, żeby użyc jej jako broń.</description>
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
-			<atk value="5"/>
+			<atk value="2"/>
 			<range value="2"/>
 			<quantity value="1"/>
 			<max_quantity value="2147483647"/>
@@ -76,7 +76,7 @@
 		<description>Oto płonąca strzałka. Musisz być blisko kogoś aby w niego trafić. </description>
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
-			<atk value="7"/>
+			<atk value="4"/>
 			<range value="2"/>
 			<quantity value="1"/>
 			<max_quantity value="2147483647"/>
@@ -101,7 +101,7 @@
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
 			<atk value="6"/>
-			<range value="2"/>
+			<range value="3"/>
 			<quantity value="1"/>
 			<max_quantity value="2147483647"/>
 			<min_level value="40"/>
@@ -123,8 +123,8 @@
 		<description>Oto płonący shuriken. Rzucając nim uwalniasz diabelską moc.</description>
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
-			<atk value="8"/>
-			<range value="2"/>
+			<atk value="12"/>
+			<range value="3"/>
 			<quantity value="1"/>
 			<max_quantity value="2147483647"/>
 		</attributes>
@@ -146,8 +146,8 @@
 		<description>Widzisz włócznię. Tą prymitywną, drewnianą bronią możesz atakować z dystansu.</description>
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
-			<atk value="8"/>
-			<range value="2"/>
+			<atk value="10"/>
+			<range value="4"/>
 			<quantity value="1"/>
 			<max_quantity value="2147483647"/>
 			<min_level value="10"/>
@@ -169,8 +169,8 @@
 		<description>Oto kamienie. Jeśli tylko nauczysz się nimi miotać, będziesz mógł atakować z daleka.</description>
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
-			<atk value="5"/>
-			<range value="2"/>
+			<atk value="11"/>
+			<range value="6"/>
 			<quantity value="1"/>
 			<max_quantity value="99"/>
 			<min_level value="10"/>

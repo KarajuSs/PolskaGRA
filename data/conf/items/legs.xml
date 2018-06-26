@@ -7,8 +7,8 @@
 		<description>Oto para czarnych spodni.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="18"/>
-			<min_level value="144"/>
+			<def value="15"/>
+			<min_level value="200"/>
 		</attributes>
 		<weight value="25.0"/>
 		<value value="23625"/>
@@ -28,8 +28,8 @@
 		<description>Oto nowe, lśniące spodnie lazurowe.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="10"/>
-			<min_level value="70"/>
+			<def value="7"/>
+			<min_level value="10"/>
 		</attributes>
 		<weight value="12.0"/>
 		<value value="1512"/>
@@ -47,8 +47,7 @@
 		<description>Oto dobre spodnie kolcze. Powinny chronić cię przed lekkimi atakami.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="8"/>
-			<min_level value="56"/>
+			<def value="4"/>
 		</attributes>
 		<weight value="15.0"/>
 		<value value="448"/>
@@ -67,7 +66,7 @@
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
 			<def value="11"/>
-			<min_level value="88"/>
+			<min_level value="40"/>
 		</attributes>
 		<weight value="25.0"/>
 		<value value="9317"/>
@@ -105,7 +104,7 @@
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
 			<def value="6"/>
-			<min_level value="42"/>
+			<min_level value="5"/>
 		</attributes>
 		<weight value="12.0"/>
 		<value value="1512"/>
@@ -124,8 +123,8 @@
 		<description>Oto lśniące, mocne złote spodnie.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="7"/>
-			<min_level value="49"/>
+			<def value="8"/>
+			<min_level value="15"/>
 		</attributes>
 		<weight value="25.0"/>
 		<value value="3584"/>
@@ -143,8 +142,8 @@
 		<description>Widzisz piękne spodnie nabijane klejnotami. Wielki rubin jako zapinka dodaje im szyku.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="10"/>
-			<min_level value="70"/>
+			<def value="13"/>
+			<min_level value="50"/>
 		</attributes>
 		<weight value="25.0"/>
 		<value value="15017"/>
@@ -163,7 +162,7 @@
 		<description>Oto skórzane spodnie. Nie dają zbytniej ochrony, ale przynajmniej nie będziesz biegał z gołym tyłkiem.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="3"/>
+			<def value="1"/>
 		</attributes>
 		<weight value="10.0"/>
 		<value value="7"/>
@@ -181,8 +180,8 @@
 		<description>Oto spodnie mainiocyjskie. Może i są śmieszne ale dają dużo obrony.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="16"/>
-			<min_level value="128"/>
+			<def value="10"/>
+			<min_level value="30"/>
 		</attributes>
 		<weight value="25.0"/>
 		<value value="7317"/>
@@ -200,8 +199,8 @@
 		<description>Oto para spodni z mithrilu. Na pewno dobrze będą ci służyć.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="19"/>
-			<min_level value="152"/>
+			<def value="18"/>
+			<min_level value="200"/>
 		</attributes>
 		<weight value="22.0"/>
 		<value value="53625"/>
@@ -221,8 +220,7 @@
 		<description>Oto spodnie karmazynowe.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="13"/>
-			<min_level value="104"/>
+			<def value="5"/>
 		</attributes>
 		<weight value="12.0"/>
 		<value value="1512"/>
@@ -240,8 +238,8 @@
 		<description>Oto spodnie cieni. Ich waga jest niesamowita.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="14"/>
-			<min_level value="112"/>
+			<def value="9"/>
+			<min_level value="20"/>
 		</attributes>
 		<weight value="25.0"/>
 		<value value="5103"/>
@@ -300,8 +298,8 @@
 		<description>Oto spodnie xenocyjskie. Silne i nowe spodnie.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="17"/>
-			<min_level value="136"/>
+			<def value="11"/>
+			<min_level value="40"/>
 		</attributes>
 		<weight value="25.0"/>
 		<value value="10017"/>
@@ -319,8 +317,7 @@
 		<description>Oto spodnie barbarzyńcy. Co on w nie wycierał?</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="11"/>
-			<min_level value="88"/>
+			<def value="6"/>
 		</attributes>
 		<weight value="12.0"/>
 		<value value="1512"/>
@@ -340,8 +337,8 @@
 		<description>Oto spodnie zabójcy.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="12"/>
-			<min_level value="96"/>
+			<def value="14"/>
+			<min_level value="200"/>
 		</attributes>
 		<weight value="25.0"/>
 		<value value="23625"/>
@@ -359,7 +356,7 @@
 		<description>Oto góralska biała spódnica. W sam raz na jakąś uroczystość.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="1"/>
+			<def value="2"/>
 		</attributes>
 		<weight value="12.0"/>
 		<value value="56"/>
@@ -379,7 +376,7 @@
 		<description>Oto góralska spódnica. Unosi się jak kręcisz się w kółko.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="1"/>
+			<def value="2"/>
 		</attributes>
 		<weight value="12.0"/>
 		<value value="56"/>
@@ -399,7 +396,7 @@
 		<description>Oto portki bukowe. Ciepłe i trochę się wrzynają.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="2"/>
+			<def value="3"/>
 		</attributes>
 		<weight value="12.0"/>
 		<value value="56"/>
@@ -417,8 +414,7 @@
 		<description>Oto przewiewne i wygodne spodnie pustynne.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="5"/>
-			<min_level value="35"/>
+			<def value="4"/>
 		</attributes>
 		<weight value="10.0"/>
 		<value value="7"/>

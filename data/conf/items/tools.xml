@@ -38,9 +38,9 @@
 		</equipable>
 	</item>
 
-	<item name="gumka do czyszczenia zwoi">
+	<item name="zwój czyszczący">
 		<type class="tool" subclass="scrolleraser" tileid="-1"/>
-		<description>Oto gumka do czyszczenia zwoi. Weź zwój zapisany do drugiej dłoni, aby wyczyścić go.</description>
+		<description>Oto zwój czyszczący. Weź zwój zapisany do drugiej dłoni, aby wyczyścić go.</description>
 		<implementation class-name="games.stendhal.server.entity.item.FoodMill"/>
 		<attributes>
 		</attributes>
@@ -164,13 +164,11 @@
 		</equipable>
 	</item>
 
-	<!-- disabled <item name="łopata">
+	<item name="łopata">
 		<type class="tool" subclass="shovel" tileid="-1"/>
 		<description>Oto łopata. Być może dzięki niej wykopiesz kiedyś skarb.</description>
-		<implementation class-name="games.stendhal.server.entity.item.AreaUseItem"/>
-		<attributes>
-			<menu value="Kop|Użyj"/>
-		</attributes>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes/>
 		<weight value="10.0"/>
 		<value value="1"/>
 		<equipable>
@@ -181,7 +179,7 @@
 			<slot name="lhand"/>
 			<slot name="rhand"/>
 		</equipable>
-	</item> -->
+	</item>
 
 	<item name="lina">
 		<type class="tool" subclass="rope" tileid="-1"/>
