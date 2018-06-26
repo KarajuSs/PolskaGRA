@@ -158,7 +158,7 @@
 		<description>To strzała płonąca. Grot tej strzały na pewno pokona twoich przeciwników, kiedy masz ją z łukiem.</description>
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
-			<atk value="5"/>
+			<atk value="6"/>
 			<range value="4"/>
 			<quantity value="1"/>
 			<max_quantity value="2147483647"/>
@@ -243,7 +243,7 @@
 		<description>Oto bełt płonący. Użyty z kuszą bywa zabójczy.</description>
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
-			<atk value="6"/>
+			<atk value="7"/>
 			<range value="5"/>
 			<quantity value="1"/>
 			<max_quantity value="2147483647"/>
