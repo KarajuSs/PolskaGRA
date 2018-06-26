@@ -23,8 +23,8 @@
 	<property name="build_server_script" value="${buildroot}/build_server_script"/>
 	<property name="build_server_xmlconf" value="${buildroot}/build_server_xmlconf"/>
 
-	<property name="build_stendhaltools" value="${buildroot}/build_stendhaltools"/>
-	<property name="build_stendhaltextclient" value="${buildroot}/build_stendhaltextclient"/>
+	<property name="build_polskagratools" value="${buildroot}/build_polskagratools"/>
+	<property name="build_polskagratextclient" value="${buildroot}/build_polskagratextclient"/>
 
 	<property name="build_client" value="${buildroot}/build_client"/>
 	
@@ -140,8 +140,8 @@
 		<delete dir="${buildroot}/build_server_quests" />
 		<delete dir="${buildroot}/build_server_xmlconf" />
 		<delete dir="${build_tests}" />
-		<delete dir="${buildroot}/build_stendhaltools" />
-		<delete dir="${buildroot}/build_stendhaltextclient" />
+		<delete dir="${buildroot}/build_polskagratools" />
+		<delete dir="${buildroot}/build_polskagratextclient" />
 		<delete dir="${buildroot}/buildbot" />
 		<delete dir="${build_tests_report}" />
 		<delete dir="${build_cobertura}"/>
@@ -731,10 +731,10 @@
 		<delete dir="${buildroot}/polskagra-${version}-src"/>
 	</target>
 
-	<target name="compile_stendhaltools" description="compiles the stendhal build tools">
-		<mkdir dir="${build_stendhaltools}"/>
+	<target name="compile_polskagratools" description="compiles the polskagra build tools">
+		<mkdir dir="${build_polskagratools}"/>
 
-		<javac srcdir="${src}" destdir="${build_stendhaltools}" source="1.7" target="1.7" debug="${javac.debug}" debuglevel="${javac.debuglevel}" deprecation="${javac.deprecation}" includeantruntime="true">
+		<javac srcdir="${src}" destdir="${build_polskagratools}" source="1.7" target="1.7" debug="${javac.debug}" debuglevel="${javac.debuglevel}" deprecation="${javac.deprecation}" includeantruntime="true">
 			<include name="games/stendhal/tools/**/*.java"/>
 			<include name="games/stendhal/tools/*.java"/>
 			<compilerarg value="-encoding"/>
@@ -753,10 +753,10 @@
 		</javac>
 	</target>
 
-	<target name="compile_stendhaltextclient" description="compiles the stendhal text client ">
-		<mkdir dir="${build_stendhaltextclient}"/>
+	<target name="compile_polskagratextclient" description="compiles the stendhal text client ">
+		<mkdir dir="${build_polskagratextclient}"/>
 
-		<javac srcdir="${src}" destdir="${build_stendhaltextclient}" source="1.7" target="1.7" debug="${javac.debug}" debuglevel="${javac.debuglevel}" deprecation="${javac.deprecation}" includeantruntime="false">
+		<javac srcdir="${src}" destdir="${build_polskagratextclient}" source="1.7" target="1.7" debug="${javac.debug}" debuglevel="${javac.debuglevel}" deprecation="${javac.deprecation}" includeantruntime="false">
 			<include name="games/stendhal/bot/textclient/*.java"/>
 			<compilerarg value="-encoding"/>
 			<compilerarg value="utf-8"/>
@@ -774,10 +774,10 @@
 		</javac>
 	</target>
 
-	<target name="rendermaps" description="Converts the *.tmx files to PNG images scaled 1:16" depends="compile_stendhaltools">
+	<target name="rendermaps" description="Converts the *.tmx files to PNG images scaled 1:16" depends="compile_polskagratools">
 		<taskdef name="maprenderer" classname="games.stendhal.tools.MapRenderer">
 			<classpath>
-				<pathelement path="${build_stendhaltools}"/>
+				<pathelement path="${build_polskagratools}"/>
 				<pathelement path="${tiled_jar}"/>
 			</classpath>
 		</taskdef>
@@ -791,10 +791,10 @@
 			</fileset>
 		</maprenderer>
 	</target>
-	<target name="renderatlas" description="Generates the files for the Stendhal Atlas" depends="compile_stendhaltools">
+	<target name="renderatlas" description="Generates the files for the Stendhal Atlas" depends="compile_polskagratools">
 		<taskdef name="maprenderer" classname="games.stendhal.tools.MapRenderer">
 			<classpath>
-				<pathelement path="${build_stendhaltools}"/>
+				<pathelement path="${build_polskagratools}"/>
 				<pathelement path="${tiled_jar}"/>
 			</classpath>
 		</taskdef>
@@ -825,10 +825,10 @@
 		</maprenderer>
 	</target>
 
-	<target name="updatemaps" description="Load and save TMX files to fix tilesets changes." depends="compile_stendhaltools">
+	<target name="updatemaps" description="Load and save TMX files to fix tilesets changes." depends="compile_polskagratools">
 		<taskdef name="mapupdater" classname="games.stendhal.tools.MapUpdater">
 			<classpath>
-				<pathelement path="${build_stendhaltools}"/>
+				<pathelement path="${build_polskagratools}"/>
 				<pathelement path="${tiled_jar}"/>
 			</classpath>
 		</taskdef>
@@ -884,11 +884,11 @@
 	<!-- TODO maraurora.jar-->
 	</target>
 
-	<target name="signupdates" description="signs updates" depends="compile_stendhaltools,jardiff" unless="exclude.signing">
+	<target name="signupdates" description="signs updates" depends="compile_polskagratools,jardiff" unless="exclude.signing">
 		<taskdef name="updatesigner" classname="games.stendhal.tools.updateprop.UpdateSigner">
 			<classpath>
 				<pathelement path="."/>
-				<pathelement path="${build_stendhaltools}"/>
+				<pathelement path="${build_polskagratools}"/>
 			</classpath>
 		</taskdef>
 
@@ -926,7 +926,7 @@
 		<fail message="Test failure detected, check test results." if="test.failure" />
 	</target>
 
-	<target name="compile_tests" description="Compile all tests" depends="server_build, client_build, compile_stendhaltools, compile_stendhaltextclient, postman">
+	<target name="compile_tests" description="Compile all tests" depends="server_build, client_build, compile_polskagratools, compile_polskagratextclient, postman">
 		<mkdir dir="${build_tests}"/>
 
 		<copy todir="${build_tests}">
@@ -944,8 +944,8 @@
 			<compilerarg value="-Xlint:unchecked"/>
 
 			<classpath>
-				<pathelement path="${build_stendhaltools}"/>
-				<pathelement path="${build_stendhaltextclient}"/>
+				<pathelement path="${build_polskagratools}"/>
+				<pathelement path="${build_polskagratextclient}"/>
 				<pathelement path="${build_client}"/>
 				<pathelement path="${build_server}"/>
 				<pathelement path="${build_server_maps}"/>
@@ -999,8 +999,8 @@ d = 9017093486007323270605414717455737376618092805104733236083857811315606869372
 					<pathelement path="${build_client}"/>
 					<pathelement path="${build_server}"/>
 					<pathelement path="${build_server_maps}"/>
-					<pathelement path="${build_stendhaltools}"/>
-					<pathelement path="${build_stendhaltextclient}"/>
+					<pathelement path="${build_polskagratools}"/>
+					<pathelement path="${build_polskagratextclient}"/>
 					<pathelement path="${build_server_script}"/>
 					<pathelement path="${build_postman}"/>
 					<pathelement path="${easymock_jar}"/>
