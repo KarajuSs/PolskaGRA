@@ -20,7 +20,7 @@ package games.stendhal.server.core.events;
 public enum TutorialEventType {
 
 	FIRST_LOGIN(
-			"Witaj w PolskaOnLine. Możesz się poruszać używając klawiszy strzałek na klawiaturze lub klikając myszką."),
+			"Witaj w PolskaGRA. Możesz się poruszać używając klawiszy strzałek na klawiaturze lub klikając myszką."),
 	FIRST_MOVE(
 			"Możesz porozmawiać z Pietrkiem mówiąc \"cześć\"."),
 	RETURN_GUARDHOUSE(
@@ -60,7 +60,9 @@ public enum TutorialEventType {
 	TIMED_OUTFIT(
 			"Podoba się Tobie swój własny wygląd? Jeżeli nie to możesz go zmienić. Naciśnij na sobie prawy przycisk myszy i wybierz \"Ustaw wygląd\", aby poeksperymentować z nowymi fryzurami, twarzami, ubraniami i ciałem."),
 	TIMED_RULES(
-			"Dziękujemy zostanie z nami. Ze względu, że grasz już dość długo to ważne, abyś przeczytał regulamin. Wpisz #/rules a otworzy się przeglądarka z regulaminem.");
+			"Dziękujemy zostanie z nami. Ze względu, że grasz już dość długo to ważne, abyś przeczytał regulamin. Wpisz #/rules a otworzy się przeglądarka z regulaminem."),
+	NEW_RELEASE(
+			"Witamy Cię serdecznie w nowej wersji PolskaGRA! Sporo zmieniło się od ostatniego Twojego zalogowania do gry!");
 	private String message;
 
 	/**

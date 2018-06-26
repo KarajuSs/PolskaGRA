@@ -54,7 +54,7 @@ public class StichardRallmanNPC implements ZoneConfigurator {
 				addReply(Arrays.asList("wolnego", "wolnym", "free", "wolnego oprogramowania"),
 					"#'Wolne oprogramowanie' oznacza wolność tworzenia, a nie tylko brak opłat. Aby zrozumieć koncepcję to powinieneś się zastanowić nad #'wolnością' jak w #'wolności słowa', a nie jak w ''darmowym piwie''.");
 				addReply(Arrays.asList("pol", "polska", "polskagra", "gra", "polskaonline"),
-					"PolskaGRA jest właśnie #'wolnym oprogramowaniem' na licencji #'GNU GPL'. Możesz ją uruchamiać, kopiować, dystrybuować, studiować, zmieniać i poprawiać to oprogramowanie.");
+					"PolskaGRA, PolskaOnLine, Stendhal są właśnie #'wolnym oprogramowaniem' na licencji #'GNU GPL'. Możesz ją uruchamiać, kopiować, dystrybuować, studiować, zmieniać i poprawiać to oprogramowanie.");
 				addReply("gnu", "http://www.gnu.org/");
 				addReply("gpl", "http://www.gnu.org/licenses/gpl.html");
 

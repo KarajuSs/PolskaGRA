@@ -42,7 +42,7 @@ public class TutorialNotifier {
 			// change)
 			// but we delay it for 2 seconds so that the player has some time to
 			// recognize the event
-			new DelayedPlayerTextSender(player, "Tutorial: " + type.getMessage(), NotificationType.TUTORIAL, 2);
+			new DelayedPlayerTextSender(player, "Przewodnik: " + type.getMessage(), NotificationType.TUTORIAL, 2);
 
 		}
 	}
@@ -66,7 +66,7 @@ public class TutorialNotifier {
 	public static void move(final Player player) {
 		final StendhalRPZone zone = player.getZone();
 		if (zone != null) {
-			if (zone.getName().equals("int_semos_guard_house")) {
+			if (zone.getName().equals("int_zakopane_home")) {
 				process(player, TutorialEventType.FIRST_MOVE);
 			}
 		}
@@ -84,7 +84,7 @@ public class TutorialNotifier {
 	 */
 	public static void zoneChange(final Player player, final String sourceZone,
 			final String destinationZone) {
-		if (sourceZone.equals("0_semos_village_w") && destinationZone.equals("int_semos_guard_house")) {
+		if (sourceZone.equals("0_zakopane_s") && destinationZone.equals("int_zakopane_home")) {
 			process(player, TutorialEventType.RETURN_GUARDHOUSE);
 		} else if (destinationZone.equals("0_semos_city")) {
 			process(player, TutorialEventType.VISIT_SEMOS_CITY);
@@ -178,7 +178,7 @@ public class TutorialNotifier {
 	 *            Player
 	 */
 	public static void newrelease(final Player player) {
-		// process(player, TutorialEventType.NEW_RELEASE77);
+		process(player, TutorialEventType.NEW_RELEASE);
 	}
 
 	/**

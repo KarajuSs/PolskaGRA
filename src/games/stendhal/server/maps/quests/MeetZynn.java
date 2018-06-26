@@ -123,12 +123,12 @@ public class MeetZynn extends AbstractQuest {
 		npc
 				.addReply(
 						Arrays.asList("get", "zdobyć", "zdobędziesz"),
-						"Mapę PolskaOnLine możesz zobaczyć na stronie #http://www.login.polskaonline.org/strona/kraina-pras%C5%82owia%C5%84ska jeżeli chcesz. Nie spodziewaj się, że będą na niej oznaczone potwory!");
+						"Mapę PolskaGRA możesz zobaczyć na stronie #http://www.polskagra.net/strona/kraina-pras%C5%82owia%C5%84ska jeżeli chcesz. Nie spodziewaj się, że będą na niej oznaczone potwory!");
 
 		npc
 				.addReply(
 						"SPPOL",
-						"SPPOL znaczy System Pozycjonowania PolskaOnLine. Możesz zapytać #Io w Świątyni o szczegóły jak to działa. W zasadzie pozwala Tobie ustalić dokładną lokację siebie lub przyjaciela.");
+						"SPPOL znaczy System Pozycjonowania PolskaGRA. Możesz zapytać #Io w Świątyni o szczegóły jak to działa. W zasadzie pozwala Tobie ustalić dokładną lokację siebie lub przyjaciela.");
 
 		npc
 				.addReply(

@@ -271,7 +271,7 @@ public final class AchievementNotifier {
 			StringBuilder sb = new StringBuilder();
 			sb.append("Zdobyłeś ");
 			sb.append(Integer.valueOf(reached.size()));
-			sb.append(" "+Grammar.plnoun(reached.size(), "sprawność")+". W celu poznania szczegółów sprawdź #http://www.gra.polskaonline.org.");
+			sb.append(" "+Grammar.plnoun(reached.size(), "sprawność")+". W celu poznania szczegółów sprawdź #'http://www.polskagra.net.'");
 			player.sendPrivateText(sb.toString());
 		}
 	}
