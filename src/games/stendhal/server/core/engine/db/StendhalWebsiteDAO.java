@@ -138,9 +138,9 @@ public class StendhalWebsiteDAO {
 			+ " admin=[admin], sentence='[sentence]', age=[age], gender='[gender]', level=[level],"
 			+ " outfit=[outfit], outfit_colors='[outfit_colors]', xp=[xp], money='[money]',"
 			+ " married='[married]', atk='[atk]', def='[def]', hp='[hp]', karma='[karma]',"
-			+ " head='[head]', cloak='[cloak]',"
+			+ " neck='[neck]', head='[head]', cloak='[cloak]',"
 			+ " lhand='[lhand]', armor='[armor]', rhand='[rhand]',"
-			+ " legs='[legs]', finger='[finger]', feet='[feet]',"
+			+ " legs='[legs]', glove='[glove]', finger='[finger]', fingerb='[fingerb]', feet='[feet]',"
 			+ " lastseen='[lastseen]', zone='[zone]'"
 			+ " WHERE name='[name]'";
 
@@ -206,13 +206,13 @@ public class StendhalWebsiteDAO {
 		final String query = "INSERT INTO character_stats"
 			+ " (name, admin, sentence, age, gender, level,"
 			+ " outfit, outfit_colors, xp, money, married, atk, def, hp,"
-			+ " karma, head, cloak, lhand, armor, rhand,"
-			+ " legs, finger, feet, zone, lastseen)"
+			+ " karma, neck, head, cloak, lhand, armor, rhand,"
+			+ " legs, glove, finger, fingerb, feet, zone, lastseen)"
 			+ " VALUES ('[name]', '[admin]', '[sentence]', '[age]', '[gender]', '[level]',"
 			+ " '[outfit]', '[outfit_colors]', '[xp]', '[money]', '[married]',"
-			+ " '[atk]', '[def]', '[hp]', '[karma]', '[head]', '[cloak]',"
-			+ " '[lhand]', '[armor]', '[rhand]', '[legs]', '[finger]',"
-			+ " '[feet]', '[zone]','[lastseen]')";
+			+ " '[atk]', '[def]', '[hp]', '[karma]', '[neck]', '[head]', '[cloak]',"
+			+ " '[lhand]', '[armor]', '[rhand]', '[legs]', '[glove]', '[finger]',"
+			+ " '[fingerb]', '[feet]', '[zone]','[lastseen]')";
 		Map<String, Object> params = getParamsFromPlayer(player);
 		logger.debug("storeCharacter is running: " + query);
 		transaction.execute(query, params);
