@@ -27,8 +27,8 @@
 		<description>Oto rzadki lecz potężnej mocy berdysz.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="3"/>
 			<atk value="33"/>
+			<def value="3"/>
 			<rate value="9"/>
 			<min_level value="10"/>
 		</attributes>
@@ -49,8 +49,8 @@
 		<description>Oto topór bojowy. Świetnie wykonany i mimo swoich lat wciąż ostry.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="1"/>
 			<atk value="15"/>
+			<def value="2"/>
 			<rate value="6"/>
 		</attributes>
 		<weight value="3.0"/>
@@ -70,8 +70,8 @@
 		<description>Widzisz czarną halabardę. Jest ogromnie ciężka, ale mimo powolnych ruchów potrafisz zadawać nią mocne ciosy.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="5"/>
 			<atk value="57"/>
+			<def value="5"/>
 			<rate value="9"/>
 			<min_level value="150"/>
 		</attributes>
@@ -93,9 +93,8 @@
 		<description>Oto czarna kosa. Jej atak jest niesamowity, ale nada się jako narzędzie rolnicze.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="3"/>
-			<atk value="42"/>
-			<rate value="6"/>
+			<atk value="36"/>
+			<rate value="4"/>
 			<min_level value="200"/>
 		</attributes>
 		<weight value="10.0"/>
@@ -116,8 +115,8 @@
 		<description>Widzisz topór chaosu. Jego rękojeść wydaje się zlepiona z wielu metali. Dzierżąc go czujesz się nieswojo.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="3"/>
 			<atk value="52"/>
+			<def value="3"/>
 			<rate value="8"/>
 			<lifesteal value="0.2"/>
 			<min_level value="200"/>
@@ -139,8 +138,8 @@
 		<description>Widzisz topór Durina, jest to wielka nagroda od krasnali.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="3"/>
 			<atk value="47"/>
+			<def value="3"/>
 			<rate value="9"/>
 			<min_level value="60"/>
 		</attributes>
@@ -157,13 +156,13 @@
 		</equipable>
 	</item>
 
-	<item name="ciężki topór obosieczny">
+	<item name="złoty topór obosieczny">
 		<type class="axe" subclass="golden_twosided_poleaxe" tileid="-1"/>
-		<description>Oto ciężki topór obosieczny. Trudno na niego trafić.</description>
+		<description>Oto złoty topór obosieczny. Trudno na niego trafić.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="3"/>
 			<atk value="35"/>
+			<def value="3"/>
 			<rate value="7"/>
 			<min_level value="50"/>
 		</attributes>
@@ -185,8 +184,8 @@
 		<description>Oto halabarda. Ma ostrze zatknięte na końcu dzidy. Krawędzie ma ostre, a rany zadaje ciężkie.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="4"/>
 			<atk value="40"/>
+			<def value="4"/>
 			<rate value="10"/>
 			<min_level value="25"/>
 		</attributes>
@@ -271,9 +270,9 @@
 		<description>Oto kosa. Wygląda na niebezpieczną broń, ale może przydać się przy sianokosach.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="19"/>
+			<atk value="18"/>
 			<rate value="5"/>
-			<min_level value="20"/>
+			<min_level value="40"/>
 		</attributes>
 		<weight value="10.0"/>
 		<value value="68590"/>
@@ -332,8 +331,8 @@
 		<description>Oto świetnie wykuty topór obosieczny.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="3"/>
 			<atk value="29"/>
+			<def value="3"/>
 			<rate value="7"/>
 			<min_level value="30"/>
 		</attributes>
@@ -374,9 +373,9 @@
 		<description>Oto prawdziwa góralska ciupaga!</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="2"/>
 			<atk value="19"/>
-			<rate value="3"/>
+			<def value="2"/>
+			<rate value="4"/>
 			<min_level value="50"/>
 		</attributes>
 		<weight value="0.5"/>
@@ -396,8 +395,9 @@
 		<description>Oto prawdziwa złota góralska ciupaga!</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="23"/>
-			<rate value="2"/>
+			<atk value="21"/>
+			<def value="2"/>
+			<rate value="4"/>
 			<min_level value="150"/>
 		</attributes>
 		<weight value="0.5"/>
@@ -417,10 +417,10 @@
 		<description>Oto prawdziwa złota góralska ciupaga z wąsem!</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="3"/>
 			<atk value="23"/>
-			<rate value="2"/>
-			<lifesteal value="0.1"/>
+			<def value="3"/>
+			<rate value="3"/>
+			<lifesteal value="0.01"/>
 			<min_level value="200"/>
 		</attributes>
 		<weight value="0.5"/>
@@ -437,17 +437,18 @@
 
 	<item name="złota ciupaga z dwoma wąsami">
 		<type class="axe" subclass="zlota_ciupaga2" tileid="-1"/>
-		<description>Oto prawdziwa złota góralska ciupaga z dwoma wąsami!</description>
+		<description>Oto prawdziwa złota góralska ciupaga z dwoma wąsami! Wąsy posiadają jakieś magiczne właściwości, im więcej wąsów na ciupadze tym szybsza ona jest!</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="3"/>
-			<lifesteal value="0.02"/>
 			<atk value="25"/>
-			<rate value="2"/>
+			<def value="3"/>
+			<rate value="3"/>
+			<lifesteal value="0.02"/>
 			<min_level value="250"/>
 		</attributes>
 		<weight value="0.5"/>
 		<value value="5716"/>
+		<damage type="light"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
@@ -460,17 +461,18 @@
 
 	<item name="złota ciupaga z trzema wąsami">
 		<type class="axe" subclass="zlota_ciupaga3" tileid="-1"/>
-		<description>Oto prawdziwa złota góralska ciupaga z trzema wąsami!</description>
+		<description>Oto prawdziwa złota góralska ciupaga z trzema wąsami! Trzy wąsy na jednej złotej ciupadze to rzadkość! Tą broń otacza jakaś magiczna aura.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="3"/>
-			<lifesteal value="0.03"/>
-			<atk value="26"/>
+			<atk value="25"/>
+			<def value="4"/>
 			<rate value="2"/>
+			<lifesteal value="0.03"/>
 			<min_level value="350"/>
 		</attributes>
 		<weight value="0.5"/>
 		<value value="5716"/>
+		<damage type="light"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
