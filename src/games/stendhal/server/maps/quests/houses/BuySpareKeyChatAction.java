@@ -22,7 +22,7 @@ import games.stendhal.server.entity.npc.ChatAction;
 import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.player.Player;
 
-/** The sale of a spare key has been agreed, player meets conditions,
+/** The sale of a spare key has been agreed, player meets conditions, 
  * here is the action to simply sell it. */
 final class BuySpareKeyChatAction extends HouseChatAction implements ChatAction {
 
@@ -37,28 +37,28 @@ final class BuySpareKeyChatAction extends HouseChatAction implements ChatAction 
 
 			final String housenumber = player.getQuest(questslot);
 			final Item key = SingletonRepository.getEntityManager().getItem(
-																			"house key");
+																			"klucz do drzwi");
 			final int number = MathHelper.parseInt(housenumber);
 			final HousePortal houseportal = HouseUtilities.getHousePortal(number);
 
 			if (houseportal == null) {
 				// something bad happened
-				raiser.say("Sorry something bad happened. I'm terribly embarassed.");
+				raiser.say("Przepraszam, ale stało się coś złego. Jest mi bardzo przykro.");
 				return;
 			}
-
+			
 			final int locknumber = houseportal.getLockNumber();
 			final String doorId = houseportal.getDoorId();
 			((HouseKey) key).setup(doorId, locknumber, player.getName());
 
 			if (player.equipToInventoryOnly(key)) {
 				player.drop("money", HouseChatAction.COST_OF_SPARE_KEY);
-				raiser.say("Here you go, a spare key to your house. Please remember, only give spare keys to people you #really, #really, trust! Anyone with a spare key can access your chest, and tell anyone that you give a key to, to let you know if they lose it. If that happens, you should #change your locks.");
+				raiser.say("Proszę oto zapasowy klucz do twojego domu. Pamiętaj, aby dawać zapasowy klucz osobom, którym #naprawdę, #naprawdę ufasz! Każdy z zapasowym kluczem ma dostęp do twojej skrzyni. Nie zapomnij powiedzieć osobom, którym dałeś klucz, żeby dali Tobie znać, gdy zgubią klucz. Jeżeli się to zdarzy to powinieneś #zmienić zamki.");
 			} else {
-				raiser.say("Sorry, you can't carry more keys!");
+				raiser.say("Nie możesz wziąć więcej kluczy!");
 			}
 		} else {
-			raiser.say("You do not have enough money for another key!");
+			raiser.say("Nie masz wystarczająco dużo pieniędzy na następny klucz!");
 		}
 	}
 }

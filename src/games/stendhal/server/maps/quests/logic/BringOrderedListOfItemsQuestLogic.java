@@ -66,7 +66,7 @@ public class BringOrderedListOfItemsQuestLogic {
 		StringBuilder all = new StringBuilder();
 		for (int i = 0; i < neededItemsWithAmounts.size(); i++) {
 			if (i != 0 && i == neededItemsWithAmounts.size() - 1) {
-				all.append(" and ");
+				all.append(" i ");
 			}
 			all.append(neededItemsWithAmounts.get(i));
 			if (i < neededItemsWithAmounts.size() - 2) {

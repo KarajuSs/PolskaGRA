@@ -11,10 +11,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests.revivalweeks;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-
 import games.stendhal.common.Direction;
 import games.stendhal.common.MathHelper;
 import games.stendhal.common.grammar.Grammar;
@@ -41,6 +37,11 @@ import games.stendhal.server.entity.npc.condition.QuestInStateCondition;
 import games.stendhal.server.entity.npc.condition.QuestSmallerThanCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.util.TimeUtil;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 import marauroa.server.db.command.DBCommandQueue;
 
 /**
@@ -51,7 +52,7 @@ import marauroa.server.db.command.DBCommandQueue;
 public class SokobanGame implements LoadableContent, SokobanListener {
 	private static final String QUEST_SLOT = "sokoban_20[year]";
 	private static final String FAME_TYPE = "S";
-
+	
 	/** start, done */
 	private static final int QUEST_IDX_STATUS = 0;
 	/** level */
@@ -80,7 +81,7 @@ public class SokobanGame implements LoadableContent, SokobanListener {
 		Sign sign = new Sign();
 		sign.setPosition(50, 119);
 		zone.add(sign);
-		loadSignFromHallOfFame = new LoadSignFromHallOfFameAction(null, "Best pushers:\n", FAME_TYPE, 2000, false);
+		loadSignFromHallOfFame = new LoadSignFromHallOfFameAction(null, "Najlepsi:\n", FAME_TYPE, 2000, false);
 		loadSignFromHallOfFame.setSign(sign);
 		loadSignFromHallOfFame.fire(null, null, null);
 
@@ -99,26 +100,26 @@ public class SokobanGame implements LoadableContent, SokobanListener {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hello, let's #play a game.");
-				addJob("I am the manager of this game field.");
-				addHelp("Push the pumpins to their target. Say #leave, if you got stuck.");
-				addQuest("Let's #play a game.");
+				addGreeting("Witaj. #Zagrajmy w grę.");
+				addJob("Prowadzę tą grę.");
+				addHelp("Pchnij dynie na ich miejsce. Powiedx #wyjście jeśli utkniesz.");
+				addQuest("#Zagrajmy w grę.");
 
 				add(ConversationStates.ATTENDING,
-					Arrays.asList("play"),
+					Arrays.asList("play", "graj", "zagrajmy"),
 					new NotCondition(new AvailabilityCondition(board)),
 					ConversationStates.ATTENDING,
-					"Please wait a little until the current game is completed.",
+					"Proszę poczekaj chwilę, aż zakończy się aktualna gra.",
 					null);
 
 				add(ConversationStates.ATTENDING,
-						Arrays.asList("play"),
+						Arrays.asList("play", "graj", "zagrajmy"),
 						new AndCondition(
 							new QuestInStateCondition(
 								QUEST_SLOT, QUEST_IDX_LAST_SUCCESSFUL_LEVEL, Integer.toString(board.getLevelCount())),
 							new AvailabilityCondition(board)),
 						ConversationStates.ATTENDING,
-						"Wow! You finished all levels. I have run out of ideas.",
+						"Łał! Ukończyłeś wszystkie poziomy. Już nie mam pomysłów.",
 						null);
 
 				List<ChatAction> playActions = new LinkedList<ChatAction>();
@@ -127,13 +128,13 @@ public class SokobanGame implements LoadableContent, SokobanListener {
 				playActions.add(new PlayAction(board));
 
 				add(ConversationStates.ATTENDING,
-					Arrays.asList("play"),
+					Arrays.asList("play", "graj", "zagrajmy"),
 					new AndCondition(
 						new QuestSmallerThanCondition(
 							QUEST_SLOT, QUEST_IDX_LAST_SUCCESSFUL_LEVEL, board.getLevelCount(), true),
 						new AvailabilityCondition(board)),
 					ConversationStates.IDLE,
-					"Good luck. If you get stuck and want to retry, just say #leave.",
+					"Powodzenia. Jeśli utkniesz lub będziesz chciał ponowiść to powiedz #wyjście.",
 					new MultipleActions(playActions));
 			}
 		};
@@ -195,7 +196,7 @@ public class SokobanGame implements LoadableContent, SokobanListener {
 		totalTime = totalTime + timeDiff;
 		player.setQuest(QUEST_SLOT, "done;" + level + ";" + totalTime + ";0");
 
-		npc.say("Congratulations " + playerName + ", you completed the "
+		npc.say("Gratulacje " + playerName + " ukończyłeś "
 				+ Grammar.ordered(level) + " level in "
 				+ TimeUtil.approxTimeUntil(timeDiff));
 
@@ -214,7 +215,7 @@ public class SokobanGame implements LoadableContent, SokobanListener {
 		StendhalRPAction.placeat(npc.getZone(), player, npc.getX() - 2, npc.getY() + 1);
 		player.setDirection(Direction.RIGHT);
 
-		npc.say("I am sorry " + playerName + ", you have been too slow.");
+		npc.say("Przykro mi " + playerName + ", ale byłeś zbyt wolny.");
 	}
 
 

@@ -11,9 +11,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests.captureflag;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.npc.ConversationStates;
@@ -23,19 +20,23 @@ import games.stendhal.server.entity.npc.condition.NotCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.quests.AbstractQuest;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * sets the capture the flag quest up.
  *
  * @author hendrik, sjtsp
  */
 public class CaptureFlagQuest extends AbstractQuest {
-
+	
 	/** name for the internal slot to store quest data */
 	private static final String SLOT_NAME = "capture_the_flag";
-
+	
 	/** player visible name for the quest */
 	private static final String QUEST_NAME = "CaptureTheFlag";
-
+	
 	private StendhalRPZone zone = null;
 
 	@Override
@@ -64,90 +65,90 @@ public class CaptureFlagQuest extends AbstractQuest {
 			@Override
 			protected void createDialog() {
 
-				addGreeting("Hi, thanks for helping out with Capture the Flag (CTF) testing.  You can #play, #stop, and request #flag and #arrows.");
+				addGreeting("Cześć. Dziękuję w testach w Zdobycie Flagi (ZF).  Możesz #zagrć, #zatrzymać, zarządać #flagi i #strzał.");
 
-				addJob("We are helping to test ideas to make CTF fun.");
-
-				addHelp("You can test CTF with other players.  One of you puts a #flag in your hand.  The others equips fumble arrows (and bow), and tags (left-clicks) the flag carrier, to make the carrier drop.  Note that attacking does not work - you have to left-click each time.");
-
+				addJob("Pomagamy w testowaniu pomysłów, aby ZF było lepsze.");
+				
+				addHelp("Możesz sprawdzić ZF z innymi wojownikami.  Gdy jeden z was da tobie #flagę do ręki.  Inni otrzymają strzały pogrzebania (i łuk), a do wstawiania flagi używa się lewego przycisku.  Zauważ, że atakowanie nie działa - jedyne co musisz robić to naciskać tylko lewy przycisk.");
+				
 				// TODO: count the number of *full* matches that player has participated in
 				add(ConversationStates.ATTENDING,
-					"play",
+					Arrays.asList("play", "zagrać", "zagraj"),
 					new NotCondition(new PlayingCTFCondition()),
 					ConversationStates.ATTENDING,
-					"Ok, now other players can tag you, if you have the flag and they have special arrows.  Have fun.  Let me know if you need #help",
+					"Teraz inni wojownicy mogą cię oznaczyć o ile masz flagę, a oni specjalne strzały.  Miłej zabawy.  Daj znać jeżeli będziesz potrzebował #pomocy",
 					new JoinCaptureFlagAction());
 				add(ConversationStates.ATTENDING,
-					"play",
+					Arrays.asList("play", "zagrać", "zagraj"),
 					new PlayingCTFCondition(),
 					ConversationStates.ATTENDING,
-					"You are already playing.",
+					"Już grasz.",
 					null);
-
+				
 				add(ConversationStates.ATTENDING,
-					"stop",
+					Arrays.asList("stop", "zatrzymaj"),
 					new PlayingCTFCondition(),
 					ConversationStates.ATTENDING,
-					"Thanks for playing.  Come back again.  Please provide feedback in arianne IRC or the wiki",
+					"Dziękuję za grę.  Wróć ponownie.  Wyślij nam opinie",
 					new LeaveCaptureFlagAction());
 				add(ConversationStates.ATTENDING,
-						"stop",
+						Arrays.asList("stop", "zatrzymaj"),
 						new NotCondition(new PlayingCTFCondition()),
 						ConversationStates.ATTENDING,
-						"You are not playing right now.",
+						"Nie grasz teraz.",
 						null);
 
 				add(ConversationStates.ATTENDING,
-					"flag",
+					Arrays.asList("flag", "flagi", "flaga"),
 					new PlayingCTFCondition(),
 					ConversationStates.ATTENDING,
-					"Here you go.",
+					"Oto ona.",
 					new ProvideCTFFlagsAction());
 				add(ConversationStates.ATTENDING,
-						"flag",
+						Arrays.asList("flag", "flagi", "flaga"),
 						new NotCondition(new PlayingCTFCondition()),
 						ConversationStates.ATTENDING,
-						"You must #play to be able to receive a test flag.",
+						"Musisz #zagrać, aby otrzymać testową flagę.",
 						null);
-
+				
 				// TODO: just use a compound action for all types of ammo
 				add(ConversationStates.ATTENDING,
-					"snowballs",
+					Arrays.asList("snowballs", "śnieżki"),
 					new PlayingCTFCondition(),
 					ConversationStates.ATTENDING,
-					"Here you go.  Sorry all the arrows look the same right now.  You'll have to look at them to see which type they are.",
+					"Oto ona.  Teraz wszystkie strzały wyglądają tak samo.  Musisz teraz na nie spojrzeć, aby zobaczyć jakich używasz.",
 					new EquipItemAction("fumble arrow", 100));
 				add(ConversationStates.ATTENDING,
-						"snowballs",
+						Arrays.asList("snowballs", "śnieżki"),
 						new NotCondition(new PlayingCTFCondition()),
 						ConversationStates.ATTENDING,
-						"You must #play to be able to get more arrows.",
+						"Musisz #zagrać, aby zdobyć więcej strzał.",
 						null);
 
 				// TODO: just use a compound action for all types of ammo
 				add(ConversationStates.ATTENDING,
-					"snowballs",
+					Arrays.asList("snowballs", "śnieżki"),
 					new PlayingCTFCondition(),
 					ConversationStates.ATTENDING,
-					"Here you go.  Sorry all the snowballs look the same right now.  You'll have to look at them to see which type they are.",
-					new EquipItemAction("fumble snowball", 100));
+					"Oto ona.  Wszystkie śnieżki wyglądają tak samo.  usisz teraz na nie spojrzeć, aby zobaczyć jakich używasz.",
+					new EquipItemAction("śnieżka pogrzebania", 100));
 				add(ConversationStates.ATTENDING,
-						"snowballs",
+						Arrays.asList("snowballs", "śnieżki"),
 						new NotCondition(new PlayingCTFCondition()),
 						ConversationStates.ATTENDING,
-						"You must #play to be able to get more arrows.",
+						"Musisz #zagrać, aby zdobyć więcej strzał.",
 						null);
-
+				
 				// TODO: remove from game, remove all ctf gear, ...
 				// TODO: the cleanup needs to happen even if player logs out, or walks away (different code path)
 				addGoodbye();
 			}
 		};
 
-		npc.setEntityClass("oldheronpc");
+		npc.setEntityClass("oldheronpc"); // TODO: different sprite
 		npc.setPosition(100, 119);
 		npc.initHP(100);
-		npc.setDescription("You see Thumb"); // TODO: Describe NPC
+		npc.setDescription("Oto Thumb"); // TODO: Describe NPC
 		zone.add(npc);
 	}
 

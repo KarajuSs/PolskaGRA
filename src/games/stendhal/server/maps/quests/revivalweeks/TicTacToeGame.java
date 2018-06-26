@@ -12,8 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests.revivalweeks;
 
-import java.util.Arrays;
-
 import games.stendhal.common.Direction;
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -28,6 +26,8 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.action.NPCSetDirection;
 import games.stendhal.server.entity.npc.condition.GreetingMatchesNameCondition;
 import games.stendhal.server.entity.player.Player;
+
+import java.util.Arrays;
 
 /**
  * A Tic Tac Toe game for two players
@@ -62,38 +62,38 @@ public class TicTacToeGame implements LoadableContent {
 
 			@Override
 			protected void createDialog() {
-				add(ConversationStates.IDLE,
+				add(ConversationStates.IDLE, 
 						ConversationPhrases.GREETING_MESSAGES,
 						new GreetingMatchesNameCondition(getName()), true,
 						ConversationStates.IDLE,
-						"Hi, welcome to our small game of Tic Tac Toe. Your task is to fill a row "
-						+ "(vertical, horizontal, diagonal) with the same type of tokens. "
-						+ "You need an opponent to #play against.",
+						"Cześć! Witam w naszej małej grze Tic Tac Toe. Zadaniem jest wypełnieniem rzędu "
+						+ "(pionowo, poziomu lub po przekątnej) tymi samymi krążkami. "
+						+ "Potrzebujesz rywala, aby #zagrać.",
 						null);
 
-				add(ConversationStates.IDLE,
-						ConversationPhrases.HELP_MESSAGES,
+				add(ConversationStates.IDLE, 
+						ConversationPhrases.HELP_MESSAGES, 
 						ConversationStates.IDLE,
-						"You have to stand next to a token in order to move it.",
+						"Musisz stanąć obok krążka, aby go przesunąć.",
 						null);
-				add(ConversationStates.IDLE,
-						ConversationPhrases.JOB_MESSAGES,
+				add(ConversationStates.IDLE, 
+						ConversationPhrases.JOB_MESSAGES, 
 						ConversationStates.IDLE,
-						"I am the supervisor of this game.",
+						"Jestem opiekunem tej gry.",
 						null);
-				add(ConversationStates.IDLE,
-						ConversationPhrases.GOODBYE_MESSAGES,
+				add(ConversationStates.IDLE, 
+						ConversationPhrases.GOODBYE_MESSAGES, 
 						ConversationStates.IDLE,
-						"It was nice to meet you.",
+						"Miło było Cię poznać.",
 						new NPCSetDirection(Direction.DOWN));
 				add(ConversationStates.IDLE,
-						Arrays.asList("play", "game", "yes"),
+						Arrays.asList("play", "game", "yes", "zagrać", "graj", "tak"),
 						ConversationStates.IDLE,
 						null,
 						new PlayAction(board));
 			}
 		};
-		paul.setEntityClass("paulnpc");
+		paul.setEntityClass("paulnpc"); 
 		paul.setPosition(84, 112);
 		paul.setDirection(Direction.DOWN);
 		zone.add(paul);
@@ -118,7 +118,7 @@ public class TicTacToeGame implements LoadableContent {
 		@Override
 		public void fire(Player player, Sentence sentence, EventRaiser npc) {
 			if (board.isGameActive()) {
-				npc.say("Sorry, " + player.getName() + " there is already a game in progress. Please wait a little.");
+				npc.say("Przepraszam, ale " + player.getName() + " już gra. Poczekaj chwilę.");
 				return;
 			}
 
@@ -128,15 +128,15 @@ public class TicTacToeGame implements LoadableContent {
 
 			if (board.getPlayers().isEmpty()) {
 				lastPlayerAdded = System.currentTimeMillis();
-				npc.say("Okay, " + player.getName() + " you are registered for the next game. Does anyone want to #play against " + player.getName() + "?");
+				npc.say("Dobrze " + player.getName() + " jesteś następny do kolejnej gry. Czy ktoś chce #zagrać przeciwko " + player.getName() + "?"); 
 				board.getPlayers().add(player.getName());
 			} else {
 				if (board.getPlayers().get(0).equals(player.getName())) {
-					npc.say("Okay " + player.getName() + ", you are registered for the next game. Does anyone want to #play against " + player.getName() + "?");
+					npc.say("Dobrze " + player.getName() + " jesteś następny do kolejnej gry. Czy ktoś chce #zagrać przeciwko " + player.getName() + "?");
 					return;
 				}
 
-				npc.say(board.getPlayers().get(0) + ", you are playing the blue X and you will go first. " + player.getName() + ", you are playing the red O. May the best man win!");
+				npc.say(board.getPlayers().get(0) + " grasz niebieskimi X i zaczynasz pierwszy. " + player.getName() + " grasz czerwonymi O. Niech wygra lepszy!");
 				board.startGame();
 				board.getPlayers().add(player.getName());
 			}

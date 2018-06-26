@@ -12,8 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests.houses;
 
-import java.util.Arrays;
-
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.entity.Entity;
 import games.stendhal.server.entity.npc.ChatCondition;
@@ -23,9 +21,11 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.condition.NotCondition;
 import games.stendhal.server.entity.player.Player;
 
+import java.util.Arrays;
+
 /**
  * Base class for dialogue shared by all houseseller NPCs.
- *
+ * 
  */
 abstract class HouseSellerNPCBase extends SpeakerNPC {
 
@@ -39,15 +39,15 @@ abstract class HouseSellerNPCBase extends SpeakerNPC {
 	private static final int DEPRECIATION_PERCENTAGE = 40;
 
 	private final String location;
-
+	
 	private final HouseTax houseTax;
-	/**
+	/**	
 	 *	Creates NPC dialog for house sellers.
 	 * @param name
 	 *            the name of the NPC
 	 * @param location
 	 *            where are the houses?
-	 * @param houseTax
+	 * @param houseTax 
 	 * 		      class which controls house tax, and confiscation of houses
 	*/
 	HouseSellerNPCBase(final String name, final String location, final HouseTax houseTax) {
@@ -56,105 +56,105 @@ abstract class HouseSellerNPCBase extends SpeakerNPC {
 		this.houseTax =  houseTax;
 		createDialogNowWeKnowLocation();
 	}
-
+	
 	@Override
 	protected abstract void createPath();
-
+	
 	private void createDialogNowWeKnowLocation() {
 		addGreeting(null, new HouseSellerGreetingAction(QUEST_SLOT));
-
+		
 			// quest slot 'house' is started so player owns a house
-		add(ConversationStates.ATTENDING,
-			Arrays.asList("cost", "house", "buy", "purchase"),
+		add(ConversationStates.ATTENDING, 
+			Arrays.asList("cost", "house", "buy", "purchase", "koszt", "dom", "kupić", "cenę"),
 			new PlayerOwnsHouseCondition(),
-			ConversationStates.ATTENDING,
-			"As you already know, the cost of a new house is "
+			ConversationStates.ATTENDING, 
+			"Jak wiesz koszt nowego domu wynosi "
 				+ getCost()
-			+ " money. But you cannot own more than one house, the market is too demanding for that! You cannot own another house until you #resell the one you already own.",
+			+ " money, ale nie możesz kupić więcej niż jednego domu, ponieważ na rynku jest duży popyt na takie domki! Nie możesz nabyć następnego domku dopóki go nie #odsprzedaż.",
 			null);
-
+		
 		// we need to warn people who buy spare keys about the house
 		// being accessible to other players with a key
 		add(ConversationStates.QUESTION_1,
 			ConversationPhrases.YES_MESSAGES,
 			null,
 			ConversationStates.QUESTION_2,
-			"Before we go on, I must warn you that anyone with a key to your house can enter it, and access the items in the chest in your house. Do you still wish to buy a spare key?",
+			"Przedtem muszę cię ostrzec, że każdy kto posiada klucz do Twojego domu będzie miał dostęp do przedmiotów w skrzyni znajdującej się w nim. Czy nadal chcesz kupić zapasowy klucz?",
 			null);
 
 		// player wants spare keys and is OK with house being accessible
 		// to other person.
 		add(ConversationStates.QUESTION_2,
-			ConversationPhrases.YES_MESSAGES,
+			ConversationPhrases.YES_MESSAGES, 
 			null,
-			ConversationStates.ATTENDING,
+			ConversationStates.ATTENDING, 
 			null,
 			new BuySpareKeyChatAction(QUEST_SLOT));
-
+			
 		// refused offer to buy spare key for security reasons
 		add(ConversationStates.QUESTION_2,
 			ConversationPhrases.NO_MESSAGES,
 			null,
 				ConversationStates.ATTENDING,
-			"That is wise of you. It is certainly better to restrict use of your house to those you can really trust.",
+			"Mądra decyzja. Najlepiej ograniczyć korzystanie z domu do osób, którym naprawdę ufasz.",
 			null);
-
-		// refused offer to buy spare key
+		
+		// refused offer to buy spare key 
 		add(ConversationStates.QUESTION_1,
 				ConversationPhrases.NO_MESSAGES,
 			null,
 			ConversationStates.ATTENDING,
-			"No problem! Just so you know, if you need to #change your locks, I can do that, and you can also #resell your house to me if you want to.",
+			"Żaden problem! Jeżeli potrzebujesz #wymienić zamki to mogę to zrobić, a także możesz mi #sprzedać swój dom o ile chcesz.",
 			null);
 
 		// player is eligible to resell a house
-		add(ConversationStates.ATTENDING,
-			Arrays.asList("resell", "sell"),
+		add(ConversationStates.ATTENDING, 
+			Arrays.asList("resell", "sell", "odsprzedać", "sprzedać"),
 			new PlayerOwnsHouseCondition(),
-				ConversationStates.QUESTION_3,
-			"The state will pay you "
+				ConversationStates.QUESTION_3, 
+			"Miasto płaci "
 			+ Integer.toString(DEPRECIATION_PERCENTAGE)
-			+ " percent of the price you paid for your house, minus any taxes you owe. You should remember to collect any belongings from your house before you sell it. Do you really want to sell your house to the state?",
+			+ " procent ceny, którą zapłaciłeś za swój dom minus podatki. Powinieneś zapamiętać, aby przed sprzedażą zabrać z domu wszelkie przedmioty. Czy nadal chcesz sprzedać dom pośrednikowi?",
 			null);
-
+		
 		// player is not eligible to resell a house
-		add(ConversationStates.ATTENDING,
-			Arrays.asList("resell", "sell"),
+		add(ConversationStates.ATTENDING, 
+			Arrays.asList("resell", "sell", "odsprzedać", "sprzedać"),
 			new NotCondition(new PlayerOwnsHouseCondition()),
-			ConversationStates.ATTENDING,
-			"You don't own any house at the moment. If you want to buy one please ask about the #cost.",
+			ConversationStates.ATTENDING, 
+			"W tym momencie nie posiadasz żadnego domu. Jeżeli chcesz kupić to zapytaj o jego #koszt.",
 			null);
-
+		
 		add(ConversationStates.QUESTION_3,
 			ConversationPhrases.YES_MESSAGES,
 			null,
 				ConversationStates.ATTENDING,
 			null,
 			new ResellHouseAction(getCost(), QUEST_SLOT, DEPRECIATION_PERCENTAGE, houseTax));
-
+		
 		// refused offer to resell a house
 		add(ConversationStates.QUESTION_3,
 			ConversationPhrases.NO_MESSAGES,
 			null,
 			ConversationStates.ATTENDING,
-			"Well, I'm glad you changed your mind.",
+			"Ciesze się, że zmieniłeś zdanie.",
 			null);
-
+		
 		// player is eligible to change locks
-		add(ConversationStates.ATTENDING,
-			"change",
+		add(ConversationStates.ATTENDING, 
+			Arrays.asList("change", "zmieniłeś", "zmień", "wymienić"),
 			new PlayerOwnsHouseCondition(),
-			ConversationStates.SERVICE_OFFERED,
-			"If you are at all worried about the security of your house or, don't trust anyone you gave a spare key to, "
-			+ "it is wise to change your locks. Do you want me to change your house lock and give you a new key now?",
+			ConversationStates.SERVICE_OFFERED, 
+			"Jeżeli boisz się o bezpieczeństwo domu lub nie ufasz osobom którym dałeś zapasowy klucz, "
+			+ "to mądrze jest zmienić zamki. Czy chcesz, abym wymienił zamki w Twoim domu i dał Tobie nowy klucz?",
 			null);
 
 		// player is not eligible to change locks
-		add(ConversationStates.ATTENDING,
-			"change",
+		add(ConversationStates.ATTENDING, 
+			Arrays.asList("change", "zmieniłeś", "zmień", "wymienić"),
 			new NotCondition(new PlayerOwnsHouseCondition()),
-			ConversationStates.ATTENDING,
-			"You don't own any house at the moment. If you want to buy one please ask about the #cost.",
+			ConversationStates.ATTENDING, 
+			"W tym momencie nie posiadasz żadnego domu. Jeżeli chcesz kupić to zapytaj o jego #koszt.",
 			null);
 
 		// accepted offer to change locks
@@ -165,30 +165,30 @@ abstract class HouseSellerNPCBase extends SpeakerNPC {
 			null,
 			new ChangeLockAction(QUEST_SLOT));
 
-		// refused offer to change locks
+		// refused offer to change locks 
 		add(ConversationStates.SERVICE_OFFERED,
 			ConversationPhrases.NO_MESSAGES,
 			null,
 			ConversationStates.ATTENDING,
-			"OK, if you're really sure. Please let me know if I can help with anything else.",
+			"Dobrze jeżeli jesteś pewien. Daj znać jeżeli mógłbym pomóc w czymś jeszcze.",
 			null);
 
 		add(ConversationStates.ANY,
-			Arrays.asList("available", "unbought", "unsold"),
-			null,
+			Arrays.asList("available", "unbought", "unsold", "dostępny", "niekupiony", "niesprzedany"),
+			null, 
 			ConversationStates.ATTENDING,
 			null,
 			new ListUnboughtHousesAction(location));
 
 		addReply(
-				 "buy",
-				 "You should really enquire the #cost before you ask to buy. And check our brochure, #https://stendhalgame.org/wiki/StendhalHouses.");
-		addReply("really",
-				 "That's right, really, really, really. Really.");
-		addOffer("I sell houses, please look at #https://stendhalgame.org/wiki/StendhalHouses for examples of how they look inside. Then ask about the #cost when you are ready.");
-		addHelp("You may be eligible to buy a house if there are any #available. If you can pay the #cost, I'll give you a key. As a house owner you can buy spare keys to give your friends. See #https://stendhalgame.org/wiki/StendhalHouses for pictures inside the houses and more details.");
-		addQuest("You may buy houses from me, please ask the #cost if you are interested. Perhaps you would first like to view our brochure, #https://stendhalgame.org/wiki/StendhalHouses.");
-		addGoodbye("Goodbye.");
+				 Arrays.asList("buy", "kupię", "kupić"),
+				 "Powinieneś się dowiedzieć o #cenę przed kupnem i sprawdzić naszą broszurę #http://www.polskagra.net/");
+		addReply(Arrays.asList("really", "naprawdę"),
+				 "Tak jest naprawdę, naprawdę, naprawdę. Naprawdę.");
+		addOffer("Sprzedaję domy, aby zobaczyć jak wyglądają wejdź na stronę #http://www.polskagra.net/ i przekonaj się. Później zapytaj mnie o #cenę, gdy będziesz gotowy.");
+		addHelp("Możesz kupić dom o ile będzie dostępny. Jeżeli będziesz mógł zapłacić #cenę to dam Tobie klucz. Jako właściciel domu będziesz mógł kupować dodatkowe klucze do niego i dawać przyjaciołom. Wejdź na #http://www.polskagra.net/ i zobacz wnętrza domów oraz więcej szczegółów.");
+		addQuest("Możesz kupić u mnie domy. Zapytaj mnie o #cenę jeżeli jesteś zainteresowany. Może chcesz najpierw zobaczyć naszą broszurę http://www.polskagra.net/");
+		addGoodbye("Dowidzenia.");
 	}
 
 	protected abstract int getCost();

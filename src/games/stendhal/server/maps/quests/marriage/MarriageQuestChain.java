@@ -12,14 +12,14 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests.marriage;
 
+import games.stendhal.common.Rand;
+import games.stendhal.server.entity.player.Player;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-
-import games.stendhal.common.Rand;
-import games.stendhal.server.entity.player.Player;
 
 
 /**
@@ -45,17 +45,17 @@ import games.stendhal.server.entity.player.Player;
  * <li> When they go to the Hotel they choose a lovers room
  * <li> Champagne and fruit baskets is put in their bag (room if possible)
  * <li> They leave the lovers room when desired with another marked scroll
- *
+ * 
  * <p>
  * REWARD:
  * <li> Wedding Ring that teleports you to your spouse if worn - 1500 XP in
  * total
  * <li> nice food in the lovers room
  * <p>
- *
+ * 
  * REPETITIONS:
  * <li> None.
- *
+ * 
  * @author kymara
  */
 public class MarriageQuestChain  {
@@ -67,7 +67,7 @@ public class MarriageQuestChain  {
 	public void addToWorld() {
 		new Engagement(marriage).addToWorld();
 		new MakeRings(marriage).addToWorld();
-		new GetOutfits(marriage).addToWorld();
+		new GetOutfits(marriage).addToWorld();	
 		new Marriage(marriage).addToWorld();
 		new Honeymoon(marriage).addToWorld();
 		new Divorce(marriage).addToWorld();
@@ -79,36 +79,36 @@ public class MarriageQuestChain  {
 			return res;
 		}
 		final String questState = player.getQuest(marriage.getQuestSlot());
-		res.add("Me and " + getSpouseOrNickname(player) + " met Sister Benedicta and confirmed our engagement to marry.");
-		res.add("We must each make a wedding ring to give the other, which Ognir will help with.");
+		res.add("Ja i " + getSpouseOrNickname(player) + " porozmawialiśmy z Sister Benedicta i potwierdziliśmy nasze zaręczyny.");
+		res.add("Każdy z nas musi zrobć ślubną obrączkę, by użyć jej podczas ceremonii. Ognir nam pomoże.");
 		if ("engaged".equals(questState)) {
 			return res;
-		}
-		res.add("Ognir took the gold I had collected and agreed to forge a wedding ring that I can give to " + getSpouseOrNickname(player)  + ".");
+		} 
+		res.add("Ognir zabrał złoto, które zgromadziłem i zgodził się odlać obrączkę, którą dam  " + getSpouseOrNickname(player)  + ".");
 		if (questState.startsWith("forging")) {
 			return res;
-		}
-		res.add("I collected my ring from Ognir. He hinted we could get special outfits from Timothy and Tamara in Fado Hotel.");
+		} 
+		res.add("Zabrałem mój pierścionek od Ognira. Napomknął, że moglibyśmy dostać specjalne stroje u Tymoteusza i Tamary w hotelu w Fado.");
 		if ("engaged_with_ring".equals(questState)) {
-	        res.add("Now I just have to make sure that " + getSpouseOrNickname(player) + " makes a ring, and then we can go to church together.");
+	        res.add("Teraz muszę się tylko upewnić, że " + getSpouseOrNickname(player) + "zrobił pierścionek i będziemy mogli udać się razem do kościoła.");
 			return res;
-		}
-		res.add("I married " + getSpouseOrNickname(player) + " in a lovely ceremony in Fado Church.");
+		} 
+		res.add("Poślubiłem " + getSpouseOrNickname(player) + " na miłej ceremonii w kościele w Fado.");
 		if ("just_married".equals(questState)) {
-			res.add("We have not yet taken our honeymoon, we should ask Linda about that.");
+			res.add("Nie odbyliśmy jeszcze podróży poślubnej, powinniśmy o nią zapytać Lindę.");
 			return res;
-		}
-		res.add(getSpouseOrNickname(player) + " and I had a great honeymoon in Fado Hotel, helped by Linda.");
+		} 
+		res.add(getSpouseOrNickname(player) + " i ja spędziliśmy wspaniały miesiąc miodowy w Hotelu Fado! Pomogła nam w tym Linda.");
 		if ("done".equals(questState)) {
 			return res;
 		}
 		// if things have gone wrong and the quest state didn't match any of the above, debug a bit:
 		final List<String> debug = new ArrayList<String>();
-		debug.add("Quest state is: " + questState);
-		logger.error("History doesn't have a matching quest state for player " + player.getTitle() + " in quest state " + questState);
+		debug.add("Stan zadania to: " + questState);
+		logger.error("Historia nie pasuje do stanu gracza " + player.getTitle() + " w stanie zadania " + questState);
 		return debug;
 	}
-
+	
 	private String getSpouseOrNickname(final Player player) {
 		String spouse = player.getQuest(marriage.getSpouseQuestSlot());
 		if(spouse == null) {

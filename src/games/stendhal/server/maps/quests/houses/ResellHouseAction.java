@@ -1,9 +1,7 @@
 /**
- *
+ * 
  */
 package games.stendhal.server.maps.quests.houses;
-
-import org.apache.log4j.Logger;
 
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -12,6 +10,8 @@ import games.stendhal.server.entity.mapstuff.portal.HousePortal;
 import games.stendhal.server.entity.npc.ChatAction;
 import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.player.Player;
+
+import org.apache.log4j.Logger;
 
 final class ResellHouseAction implements ChatAction {
 
@@ -37,28 +37,42 @@ final class ResellHouseAction implements ChatAction {
 
 		// we need to find out where this house is so we know how much to refund them
 		final String claimedHouse = player.getQuest(questSlot);
-
+	
 		try {
 
+			int housecost = 100000;
 			final int id = Integer.parseInt(claimedHouse);
 			final HousePortal portal = HouseUtilities.getHousePortal(id);
-
-			final int refund = (cost * depreciationPercentage) / 100 - houseTax.getTaxDebt(portal);
+			
+			if (id > 0 && id < 26) {
+				housecost = 100000;
+			} else if (id > 25 && id < 50) {
+				housecost = 120000;
+			} else if(id > 49 && id < 78) {
+				housecost = 120000;
+			} else if (id > 100 && id < 109) {
+				housecost = 100000;
+			} else if (id > 200 && id < 216) {
+				housecost = 500000;
+			} else {
+				housecost = 100000;
+			}
+			final int refund = (housecost * depreciationPercentage) / 100 - houseTax.getTaxDebt(portal);
 
 			final StackableItem money = (StackableItem) SingletonRepository.getEntityManager().getItem("money");
 			money.setQuantity(refund);
 			player.equipOrPutOnGround(money);
-
+	
 			portal.changeLock();
 			portal.setOwner("");
 			// the player has sold the house. clear the slot
 			player.removeQuest(questSlot);
-			raiser.say("Thanks, here is your " + Integer.toString(refund)
-					   + " money owed, from the house value, minus any owed taxes. Now that you don't own a house "
-					   + "you would be free to buy another if you want to.");
+			raiser.say("Dziękuję oto " + Integer.toString(refund)
+					   + " money ze sprzedaży domu, wartość domu minus podatki. Teraz nie masz własnego domu "
+					   + "możesz teraz kupić inny o ile chcesz.");
 		} catch (final NumberFormatException e) {
 			logger.error("Invalid number in house slot", e);
-			raiser.say("Sorry, something bad happened. I'm terribly embarassed.");
+			raiser.say("Przepraszam, ale stało się coś złego. Jest mi bardzo przykro.");
 			return;
 		}
 	}

@@ -53,25 +53,25 @@ public class PhotographerChatAction implements ChatAction {
 		this.zone = zone;
 	}
 
-	private static final String[] CAPTIONS = new String[] {
-		" meeting Balduin",
-		" starting the adventure",
-		" exploring Semos Dungeon",
-		" visiting the Semos Temple",
-		" meeting Jenny",
-		" discovering the Gnome village",
-		" visiting Ados",
-		" discovering a huge tower",
-		" sneaking into Ados Wildlife Refuge",
-		" looking out of the wizzard tower",
-		" providing ice cream",
-		" visiting hell",
-		" looking around",
-		" getting to the top of the tower",
-		" visiting elves",
-		" visiting oni",
-		" relaxing at a camp fire"
-	};
+	public String[] CAPTIONS = new String[] {
+			" spotkanie Balduin",
+			" starting the adventure",
+			" exploring Semos Dungeon",
+			" visiting the Semos Temple",
+			" spotkanie Jenny",
+			" discovering the Gnome village",
+			" visiting Ados",
+			" discovering a huge tower",
+			" sneaking into Ados Wildlife Refuge",
+			" looking out of the wizzard tower",
+			" providing ice cream",
+			" visiting hell",
+			" looking around",
+			" getting to the top of the tower",
+			" visiting elves",
+			" visiting oni",
+			" relaxing at a camp fire"
+		};
 
 	@Override
 	public void fire(Player player, Sentence sentence, EventRaiser npc) {
@@ -194,7 +194,7 @@ public class PhotographerChatAction implements ChatAction {
 	 *
 	 * @param outfit outfit of player
 	 * @param i background index
-	 * @return
+	 * @return 
 	 */
 	private String generateUrl(String outfit, int i) {
 		try {

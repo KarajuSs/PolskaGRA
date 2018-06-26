@@ -12,8 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests.marriage;
 
-import java.awt.Rectangle;
-
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -28,6 +26,9 @@ import games.stendhal.server.entity.npc.NPCList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.util.Area;
+
+import java.awt.Rectangle;
+import java.util.Arrays;
 
 class Marriage {
 	private final NPCList npcs = SingletonRepository.getNPCList();
@@ -46,18 +47,18 @@ class Marriage {
 
 		/**
 		 * Creates a priest NPC who can celebrate marriages between two players.
-		 *
+		 * 
 		 * Note: in this class, the Player variables are called groom and bride.
 		 * However, the game doesn't know the concept of genders. The player who
 		 * initiates the wedding is just called groom, the other bride.
-		 *
+		 * 
 		 * @author daniel
-		 *
+		 * 
 		 */
 
 		priest = npcs.get("Priest");
 		priest.add(ConversationStates.ATTENDING,
-					"marry",
+					Arrays.asList("marry", "poślub"),
 					new ChatCondition() {
 						@Override
 						public boolean fire(final Player player, final Sentence sentence,
@@ -65,12 +66,12 @@ class Marriage {
 							return player.hasQuest(marriage.getQuestSlot())
 									&& player.getQuest(marriage.getQuestSlot()).startsWith(
 											"engaged")
-									&& player.isEquipped("wedding ring");
+									&& player.isEquipped("obrączka ślubna");
 						}
 					},
 					// TODO: make sure the pair getting married are engaged to each
 					// other, if this is desired.
-					ConversationStates.ATTENDING,
+					ConversationStates.ATTENDING, 
 					null,
 					new ChatAction() {
 
@@ -79,9 +80,9 @@ class Marriage {
 								final EventRaiser npc) {
 							// find out whom the player wants to marry.
 							final String brideName = sentence.getSubjectName();
-
+	
 							if (brideName == null) {
-								npc.say("You have to tell me who you want to marry.");
+								npc.say("Powinieneś mi powiedzieć kogo chcesz poślubić.");
 							} else {
 								startMarriage((SpeakerNPC) npc.getEntity(), player, brideName);
 							}
@@ -89,9 +90,9 @@ class Marriage {
 					});
 
 		priest.add(ConversationStates.QUESTION_1,
-					ConversationPhrases.YES_MESSAGES,
+					ConversationPhrases.YES_MESSAGES, 
 					null,
-					ConversationStates.QUESTION_2,
+					ConversationStates.QUESTION_2, 
 					null,
 					new ChatAction() {
 
@@ -103,16 +104,16 @@ class Marriage {
 					});
 
 		priest.add(ConversationStates.QUESTION_1,
-					ConversationPhrases.NO_MESSAGES,
-					null,
+					ConversationPhrases.NO_MESSAGES, 
+					null, 
 					ConversationStates.IDLE,
-					"What a pity! Goodbye!",
+					"Co za szkoda! Dowidzenia!", 
 					null);
 
 		priest.add(ConversationStates.QUESTION_2,
-					ConversationPhrases.YES_MESSAGES,
+					ConversationPhrases.YES_MESSAGES, 
 					null,
-					ConversationStates.ATTENDING,
+					ConversationStates.ATTENDING, 
 					null,
 					new ChatAction() {
 
@@ -124,43 +125,43 @@ class Marriage {
 					});
 
 		priest.add(ConversationStates.QUESTION_2,
-					ConversationPhrases.NO_MESSAGES,
-					null,
+					ConversationPhrases.NO_MESSAGES, 
+					null, 
 					ConversationStates.IDLE,
-					"What a pity! Goodbye!",
+					"Co za szkoda! Dowidzenia!", 
 					null);
 
 		// What he responds to marry if you haven't fulfilled all objectives
 		// before hand
 		priest.add(ConversationStates.ATTENDING,
-					"marry",
+					Arrays.asList("marry", "poślub"),
 					new ChatCondition() {
 						@Override
 						public boolean fire(final Player player, final Sentence sentence,
 								final Entity npc) {
-							return (!player.hasQuest(marriage.getQuestSlot())
-									|| (player.hasQuest(marriage.getQuestSlot())	&& player.getQuest(marriage.getQuestSlot()).startsWith("engaged") && !player.isEquipped("wedding ring")));
+							return (!player.hasQuest(marriage.getQuestSlot()) 
+									|| (player.hasQuest(marriage.getQuestSlot())	&& player.getQuest(marriage.getQuestSlot()).startsWith("engaged") && !player.isEquipped("obrączka ślubna")));
 						}
 					},
 					ConversationStates.ATTENDING,
-					"You're not ready to be married yet. Come back when you are properly engaged, and bring your wedding ring. And try to remember not to leave your partner behind ....",
+					"Nie jesteś jeszcze gotowy, aby wziąć ślub. Wróć, gdy się zaręczysz i przyniesiesz obrączkę ślubną. Spróbuj nie zostawiać swojego partnera z tyłu ...",
 					null);
 
 		// What he responds to marry if you are already married
-		priest.add(ConversationStates.ATTENDING,
-				"marry",
+		priest.add(ConversationStates.ATTENDING, 
+				Arrays.asList("marry", "poślub"),
 				new ChatCondition() {
 					@Override
 					public boolean fire(final Player player, final Sentence sentence,
 							final Entity npc) {
 						return (player.isQuestCompleted(marriage.getQuestSlot()));
 					}
-				},
+				}, 
 				ConversationStates.ATTENDING,
-				"You're married already, so you cannot marry again.",
+				"Jesteś już żonaty i nie możesz wziąć ślubu jeszcze raz.", 
 				null);
 	}
-
+	
 	private void startMarriage(final SpeakerNPC priest, final Player player,
 			final String partnerName) {
 		final StendhalRPZone churchZone = priest.getZone();
@@ -170,38 +171,38 @@ class Marriage {
 		bride = SingletonRepository.getRuleProcessor().getPlayer(partnerName);
 
 		if (!inFrontOfAltar.contains(groom)) {
-			priest.say("You must step in front of the altar if you want to marry.");
+			priest.say("Musisz stanąć przed ołtarzem jeżeli chcesz wziąć ślub.");
 		} else if (marriage.isMarried(groom)) {
-			priest.say("You are married already, " + groom.getName()
-					+ "! You can't marry again.");
+			priest.say("Jesteś już żonaty z " + groom.getName()
+					+ "! Nie możesz jeszcze raz wziąć ślubu.");
 		} else if ((bride == null) || !inFrontOfAltar.contains(bride)) {
-			priest.say("You must bring your partner to the altar if you want to marry.");
+			priest.say("Musisz przyprowadzić swojego partnera przed ołtarz, aby go poślubić.");
 		} else if (bride.getName().equals(groom.getName())) {
-			priest.say("You can't marry yourself!");
+			priest.say("Nie możesz wziąć ślubu ze sobą!");
 		} else if (marriage.isMarried(bride)) {
-			priest.say("You are married already, " + bride.getName()
-					+ "! You can't marry again.");
+			priest.say("Jesteś już żonaty " + bride.getName()
+					+ "! Nie możesz jeszcze raz wziąć ślubu.");
 		} else if (!bride.hasQuest(marriage.getQuestSlot())) {
-			priest.say(bride.getName() + " isn't engaged.");
+			priest.say(bride.getName() + " nie jest zaręczony.");
 		} else if (bride.hasQuest(marriage.getQuestSlot())
 				&& !bride.getQuest(marriage.getQuestSlot()).startsWith("engaged")) {
-			priest.say(bride.getName() + " isn't engaged.");
-		}  else if (!bride.isEquipped("wedding ring")) {
+			priest.say(bride.getName() + " nie jest zaręczony.");
+		}  else if (!bride.isEquipped("obrączka ślubna")) {
 			priest.say(bride.getName()
-					+ " hasn't got a wedding ring to give you.");
+					+ " nie może dać tobie obrączki ślubnej.");
 		} else {
 			askGroom();
 		}
 	}
 
 	private void askGroom() {
-		priest.say(groom.getName() + ", do you really want to marry "
+		priest.say(groom.getName() + " czy chcesz poślubić "
 				+ bride.getName() + "?");
 		priest.setCurrentState(ConversationStates.QUESTION_1);
 	}
 
 	private void askBride() {
-		priest.say(bride.getName() + ", do you really want to marry "
+		priest.say(bride.getName() + " czy chcesz poślubić "
 				+ groom.getName() + "?");
 		priest.setCurrentState(ConversationStates.QUESTION_2);
 		priest.setAttending(bride);
@@ -209,11 +210,11 @@ class Marriage {
 
 	private void finishMarriage() {
 		exchangeRings();
-		priest.say("Congratulations, "
+		priest.say("Gratulacje "
 				+ groom.getName()
-				+ " and "
+				+ " i "
 				+ bride.getName()
-				+ ", you are now married! I don't really approve of this, but if you would like a honeymoon, go ask Linda in the hotel. Just say 'honeymoon' to her and she will understand.");
+				+ " jesteście związani świętym węzłem małżeńskim! Nie popieram tego, ale jeżeli chcecie spędzić noc poślubną, to zapytajcie Lindy w hotelu. Powiedzcie jej 'honeymoon', a ona zrozumie.");
 		// Memorize that the two married so that they can't just marry other
 		// persons
 		groom.setQuest(marriage.getSpouseQuestSlot(), bride.getName());
@@ -228,9 +229,9 @@ class Marriage {
 
 	private void giveRing(final Player player, final Player partner) {
 		// players bring their own golden rings
-		player.drop("wedding ring");
+		player.drop("obrączka ślubna");
 		final Item ring = SingletonRepository.getEntityManager().getItem(
-				"wedding ring");
+				"obrączka ślubna");
 		ring.setInfoString(partner.getName());
 		ring.setBoundTo(player.getName());
 		player.equipOrPutOnGround(ring);

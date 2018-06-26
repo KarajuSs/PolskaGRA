@@ -35,13 +35,13 @@ public class DadNPC implements LoadableContent {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hi there.");
-				addJob("I'm on vacation now for the Mine Town Revival Weeks. But I still need to finish some work before my daughter #Susi and I can enjoy the party.");
-				addHelp("My daughter Susi is all excited about the Mine Town Revival Weeks. But I am really concerned that something bad may happen to her again. So she will have to wait until I finish my work.");
-				addReply("susi", "My daughter Susi is all excited about the Mine Town Revival Weeks. But I am really concerned that something bad may happen to her again. So she will have to wait until I finish my work.");
-				addOffer("Sorry I do not have anything to offer you. I have to walk #Susi home to Ados once the party is over.");
-				addQuest("Go meet my daughter #Susi, she'd love to make friends.");
-				addGoodbye("Bye, nice to meet you.");
+				addGreeting("Witam.");
+				addJob("Jestem na urlopie, aby zobaczyć Mine Town Revival Weeks, ale wciąż muszę dokończyć parę spraw nim moja córka #Susi i ja będziemy mogli zabawić się na festynie.");
+				addHelp("Moja córka Susi jest podekscytowana Mine Town Revival Weeks, ale martwię się, że znów coś może pójść źle i dlatego musi poczekać dopóki nie skończę mojej pracy.");
+				addReply("susi", "Moja córka Susi jest podekscytowana Mine Town Revival Weeks, ale martwię się, że znów coś może pójść źle i dlatego musi poczekać dopóki nie skończę mojej pracy.");
+				addOffer("Nie mam nic dla Ciebie. Muszę odprowadzić #Susi do domu w Ados, gdy festyn się skończy.");
+				addQuest("Idź do mojej córki #Susi. Ona uwielbia poznawać nowych ludzi.");
+				addGoodbye("Dowidzenia. Miło było Cię spotkać.");
 			}
 		};
 

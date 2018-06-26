@@ -12,8 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests.marriage;
 
-import java.util.Arrays;
-
 import games.stendhal.common.MathHelper;
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -34,6 +32,8 @@ import games.stendhal.server.entity.npc.condition.QuestStateStartsWithCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.util.TimeUtil;
 
+import java.util.Arrays;
+
 class MakeRings {
 	private static final int REQUIRED_GOLD = 10;
 
@@ -52,9 +52,9 @@ class MakeRings {
 		final SpeakerNPC npc = npcs.get("Ognir");
 
 		npc.add(ConversationStates.ATTENDING,
-				Arrays.asList("wedding ring", "wedding"),
+				Arrays.asList("obrączka ślubna","obrączka", "wedding", "pierścionek ślubny", "ślub"),
 				new QuestStateStartsWithCondition(marriage.getQuestSlot(), "engaged"),
-				ConversationStates.QUEST_ITEM_QUESTION,
+				ConversationStates.QUEST_ITEM_QUESTION, 
 				null,
 				new ChatAction() {
 					@Override
@@ -62,76 +62,76 @@ class MakeRings {
 						if (player.isQuestInState(marriage.getQuestSlot(), "engaged_with_ring")) {
 							// player has wedding ring already. just remind to
 							// get spouse to get one and hint to get dressed.
-							npc.say("Looking forward to your wedding? Make sure your fiancee gets a wedding ring made for you, too! Oh and remember to get #dressed up for the big day.");
+							npc.say("Planujesz ślub? Upewnij się, że twoja narzeczona zdobyła obrączkę ślubną także dla Ciebie! Och i pamiętaj, aby się ubrać ( #dressed ) na wielki dzień.");
 							npc.setCurrentState(ConversationStates.INFORMATION_2);
 						} else {
 							// says you'll need a ring
-							npc.say("I need "
+							npc.say("Potrzebuję "
 									+ REQUIRED_GOLD
-									+ " gold bars and a fee of "
+									+ " szatabek złota i "
 									+ REQUIRED_MONEY
-									+ " money, to make a wedding ring for your fiancee. Do you have it?");
+									+ " money, aby wykonać obrączkę ślubną dla twojej narzeczonej. Czy masz to?");
 						}
 					}
 				});
 
 		// response to wedding ring enquiry if you are not engaged
 		npc.add(ConversationStates.ATTENDING,
-				Arrays.asList("wedding ring", "wedding"),
+				Arrays.asList("obrączka ślubna","obrączka", "wedding", "pierścionek ślubny", "ślub"),
 				new QuestNotStartedCondition(marriage.getQuestSlot()),
 				ConversationStates.ATTENDING,
-				"I'd forge a wedding ring for you to give your partner, if you were engaged to someone. If you want to get engaged, speak to the nun outside the church.",
+				"Wyrabiam obrączkę ślubną dla Ciebie, abyś dał swojemu partnerowi o ile jesteś z kimś zaręczony. Jeżeli chcesz się zaręczyć to porozmawiaj z zakonnicą, która stoi przed kościołem.",
 				null);
 
 		// response to wedding ring enquiry when you're already married
 		npc.add(ConversationStates.ATTENDING,
-				Arrays.asList("wedding ring", "wedding"),
-				new AndCondition(new QuestCompletedCondition(marriage.getQuestSlot()), new PlayerHasItemWithHimCondition("wedding ring")),
+				Arrays.asList("obrączka ślubna", "wedding", "pierścionek ślubny", "ślub"),
+				new AndCondition(new QuestCompletedCondition(marriage.getQuestSlot()), new PlayerHasItemWithHimCondition("obrączka ślubna")),
 				ConversationStates.ATTENDING,
-				"I hope you're still happily married! If you are having trouble and want a divorce, speak to the clerk in Ados Town Hall.",
+				"Mam nadzieję, że wciąż jesteście szczęśliwym małżeństwem inaczej nie rozumiem po co Tobie następny pierścionek... Jeżeli macie problemy i chcecie rozwodu to porozmawiajcie z urzędnikiem ratuszu w Ados.",
 				null);
 
 		// response to wedding ring enquiry when you're already married and not wearing ring
 		npc.add(ConversationStates.ATTENDING,
-				Arrays.asList("wedding ring", "wedding"),
-				new AndCondition(new QuestCompletedCondition(marriage.getQuestSlot()), new NotCondition(new PlayerHasItemWithHimCondition("wedding ring"))),
+				Arrays.asList("obrączka ślubna", "wedding", "pierścionek ślubny", "ślub"),
+				new AndCondition(new QuestCompletedCondition(marriage.getQuestSlot()), new NotCondition(new PlayerHasItemWithHimCondition("obrączka ślubna"))),
 				ConversationStates.QUEST_ITEM_QUESTION,
-				"Uh oh! You haven't got your wedding ring on! I can forge you another for " + REQUIRED_GOLD
-									+ " gold bars and a fee of "
+				"Nie masz swojej obrączki ślubnej! Mogę zrobić następną za " + REQUIRED_GOLD
+									+ " sztabek złota i "
 									+ REQUIRED_MONEY
-									+ " money, do you want another?",
+									+ " money, czy potrzebujesz następną?",
 				null);
 
 		// response to wedding ring enquiry when you're married but not taken honeymoon
 		npc.add(ConversationStates.ATTENDING,
-				Arrays.asList("wedding ring", "wedding"),
+				Arrays.asList("obrączka ślubna", "wedding", "pierścionek ślubny", "ślub"),
 				new QuestInStateCondition(marriage.getQuestSlot(), "just_married"),
 				ConversationStates.ATTENDING,
-				"Congratulations on your recent wedding! Don't forget to ask Linda in Fado Hotel about your honeymoon.",
+				"Gratulacje z okazji ślubu! Nie zapomnijcie zapytać Lindy w Fado Hotel o wasz miesiąc miodowy.",
 				null);
 
 		// Here the behaviour is defined for if you make a wedding ring enquiry to Ognir and your
 		// ring is being made
-	 	npc.add(ConversationStates.ATTENDING,
-				Arrays.asList("wedding ring", "wedding"),
+	 	npc.add(ConversationStates.ATTENDING, 
+				Arrays.asList("obrączka ślubna", "wedding", "pierścionek ślubny", "ślub"),
 		 		new QuestStateStartsWithCondition(marriage.getQuestSlot(), "forging"),
-				ConversationStates.IDLE,
-		 		null,
+				ConversationStates.IDLE, 
+		 		null, 
 				new ChatAction() {
 	 				@Override
-					public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
+	 				public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
 	 					final String[] tokens = player.getQuest(marriage.getQuestSlot()).split(";");
-						final long delayInMIlliSeconds = REQUIRED_MINUTES * MathHelper.MILLISECONDS_IN_ONE_MINUTE;
+						final long delayInMIlliSeconds = REQUIRED_MINUTES * MathHelper.MILLISECONDS_IN_ONE_MINUTE; 
 						final long timeRemaining = (Long.parseLong(tokens[1]) + delayInMIlliSeconds)
 								- System.currentTimeMillis();
 						// ring is not ready yet
 						if (timeRemaining > 0L) {
-							npc.say("I haven't finished making the wedding ring. Please check back in "
+							npc.say("Jeszcze nie zrobiłem obrączki ślubnej. Wróć za "
 									+ TimeUtil.approxTimeUntil((int) (timeRemaining / 1000L))
-									+ ". Bye for now.");
+									+ ". Dowidzenia.");
 							return;
 						}
-						/*The ring is ready now. It was either forging ready for a wedding or
+						/*The ring is ready now. It was either forging ready for a wedding or 
 						 * forging again because a married player lost theirs.
 						 * In each case we bind to the player. If player is engaged the rings get swapped at marriage ceremony
 						 * If this is a forgingagain we must set the infostring to spouse name so the ring works
@@ -139,14 +139,14 @@ class MakeRings {
 						 * If this is for an engaged player, npc gives a hitn about getting dressed for big day
 						 */
 						final Item weddingRing = SingletonRepository.getEntityManager().getItem(
-								"wedding ring");
+								"obrączka ślubna");
 						weddingRing.setBoundTo(player.getName());
 						if (player.getQuest(marriage.getQuestSlot()).startsWith("forgingagain")) {
-							npc.say("I've finished making your replacement wedding ring. Do try to be more careful next time!");
+							npc.say("Skończyłem pracę nad następną obrączką ślubną. Następnym razem bądź ostrożniejszy!");
 							weddingRing.setInfoString(player.getQuest(marriage.getSpouseQuestSlot()));
 							player.setQuest(marriage.getQuestSlot(), "done");
-						} else {
-							npc.say("I'm pleased to say, the wedding ring for your fiancee is finished! Make sure one is made for you, too! *psst* just a little #hint for the wedding day ...");
+						} else {							
+							npc.say("Zostałem poproszony, aby przekazać, że obrączka ślubna dla twojej narzeczonej jest już skończona! Upewnij się, że jedna jest dla Ciebie! *psst* jeszcze mała rada ( #hint ) na dzień ślubu ...");
 							player.setQuest(marriage.getQuestSlot(), "engaged_with_ring");
 							player.addXP(500);
 						}
@@ -159,20 +159,20 @@ class MakeRings {
 
 		// player says yes, they want a wedding ring made
 		npc.add(ConversationStates.QUEST_ITEM_QUESTION,
-				ConversationPhrases.YES_MESSAGES,
+				ConversationPhrases.YES_MESSAGES, 
 				null,
-				ConversationStates.ATTENDING,
+				ConversationStates.ATTENDING, 
 				null,
 				new ChatAction() {
 					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
-						if ((player.isEquipped("gold bar", REQUIRED_GOLD))
+						if ((player.isEquipped("sztabka złota", REQUIRED_GOLD))
 								&& (player.isEquipped("money", REQUIRED_MONEY))) {
-							player.drop("gold bar", REQUIRED_GOLD);
+							player.drop("sztabka złota", REQUIRED_GOLD);
 							player.drop("money", REQUIRED_MONEY);
-							npc.say("Good, come back in "
+							npc.say("Dobrze wróć za "
 									+ REQUIRED_MINUTES
-									+ " minutes and it will be ready. Goodbye until then.");
+									+ " minutę" + ", a będzie gotowa. Dowidzenia.");
 							if (player.isQuestCompleted(marriage.getQuestSlot())) {
 								player.setQuest(marriage.getQuestSlot(), "forgingagain;"	+ System.currentTimeMillis());
 							} else {
@@ -182,7 +182,7 @@ class MakeRings {
 							npc.setCurrentState(ConversationStates.IDLE);
 						} else {
 							// player said they had the money and/or gold but they lied
-							npc.say("Come back when you have both the money and the gold.");
+							npc.say("Wróć, gdy będziesz miał pieniądze i złoto.");
 						}
 					}
 				});
@@ -192,15 +192,15 @@ class MakeRings {
 				ConversationPhrases.NO_MESSAGES,
 				null,
 				ConversationStates.ATTENDING,
-				"No problem, just come back when you have both the money and the gold.",
+				"Nie ma problemu, wróć, gdy będziesz miał pieniądze i złoto.",
 				null);
 
 		// Just a little hint about getting dressed for the wedding.
 		npc.add(ConversationStates.INFORMATION_2,
-				Arrays.asList("dressed", "hint", "dress"),
+				Arrays.asList("dressed", "hint", "dress", "ubrana", "podpowiedź", "sukienka"),
 				null,
 				ConversationStates.ATTENDING,
-				"When my wife and I got married we went to Fado hotel and hired special clothes. The dressing rooms are on your right when you go in, look for the wooden door. Good luck!",
+				"Gdy moja żona i ja mieliśmy wziąć ślub to poszliśmy do hotelu w Fado i wypożyczyliśmy specjalne ubrania. Przebieralnia jest po prawej stronie od wejścia. Idź tam i szukaj drewnianych drzwi. Powodzenia!",
 				null);
 
 	}

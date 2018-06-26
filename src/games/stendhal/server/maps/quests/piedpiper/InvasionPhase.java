@@ -12,14 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests.piedpiper;
 
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Observable;
-import java.util.Observer;
-
 import games.stendhal.common.Rand;
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.common.parser.Sentence;
@@ -37,6 +29,14 @@ import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.player.Player;
 
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Observable;
+import java.util.Observer;
+
 public class InvasionPhase extends TPPQuest {
 
 	private final int minPhaseChangeTime;
@@ -45,51 +45,51 @@ public class InvasionPhase extends TPPQuest {
 
 	private void addConversations(final SpeakerNPC mainNPC) {
 		TPP_Phase myphase = INVASION;
-
+		
 		// Player asking about rats at invasion time.
 		mainNPC.add(
-				ConversationStates.ATTENDING,
-				Arrays.asList("rats", "rats!"),
+				ConversationStates.ATTENDING, 
+				Arrays.asList("rats", "rats!", "szczurów", "szczurów!"),
 				new TPPQuestInPhaseCondition(myphase),
-				ConversationStates.ATTENDING,
-				null,
+				ConversationStates.ATTENDING, 
+				null, 
 				new ChatAction() {
 					@Override
 					public void fire(Player player, Sentence sentence, EventRaiser npc) {
-						npc.say("There " + Grammar.isare(TPPQuestHelperFunctions.getRats().size()) +
-								" still about "+Integer.toString(TPPQuestHelperFunctions.getRats().size())+
-								" rats alive.");
+						npc.say("Wciąż jest " + Grammar.isare(TPPQuestHelperFunctions.getRats().size()) + 
+								" około "+Integer.toString(TPPQuestHelperFunctions.getRats().size())+
+								" żywych szczurów.");
 					}
 				});
-
+		
 		//Player asked about details at invasion time.
 		mainNPC.add(
-				ConversationStates.ATTENDING,
-				"details",
+				ConversationStates.ATTENDING, 
+				Arrays.asList("details", "szczegóły"),
 				new TPPQuestInPhaseCondition(myphase),
-				ConversationStates.ATTENDING,
-				"Ados is being invaded by rats! "+
-				  "I dont want to either reward you or "+
-				  "explain details to you now,"+
-				  " until all rats are dead.",
+				ConversationStates.ATTENDING, 
+				"Ados jest zaatakowane przez szczury! "+
+				  "Nie chcę cię teraz nagrodzić czy "+
+				  "wyjaśnić szczegóły tobie"+
+				  " póki wszystkie szczury nie będą martwe.", 
 				null);
-
+		
 		// Player asked about reward at invasion time.
 		mainNPC.add(
-				ConversationStates.ATTENDING,
-				"reward",
+				ConversationStates.ATTENDING, 
+				Arrays.asList("reward", "nagroda", "nagrodę"),
 				new TPPQuestInPhaseCondition(myphase),
-				ConversationStates.ATTENDING,
-				"Ados is being invaded by rats! "+
-				  "I dont want to reward you now, "+
-				  " until all rats are dead.",
+				ConversationStates.ATTENDING, 
+				"Ados jest zaatakowane przez szczury! "+
+				  "Nie chcę cię teraz nagrodzić "+
+				  " póki wszystkie szczury nie będą martwe.", 
 				null);
 	}
 
 	/**
 	 * Create InvasionPhase.
-	 *
-	 * @param timings
+	 * 
+	 * @param timings 
 	 */
 	public InvasionPhase(Map<String, Integer> timings) {
 		super(timings);
@@ -104,15 +104,15 @@ public class InvasionPhase extends TPPQuest {
 	public int getMinTimeOut() {
 		return minPhaseChangeTime;
 	}
-
+	
 
 	@Override
 	public int getMaxTimeOut() {
 		return maxPhaseChangeTime;
 	}
-
-
-
+	
+	
+	
 	/**
 	 * rats invasion starts :-)
 	 * Iterate through each zone and select the min and max rat count based on zone size
@@ -144,7 +144,7 @@ public class InvasionPhase extends TPPQuest {
 					continue;
 				} else if (zone.getName().startsWith("0")) {
 					// If we can't make it here, we can't make it anywhere ...
-					// just checking the 0 level zones atm
+					// just checking the 0 level zones atm	
 					// the rat is not in the zone yet so we can't call the smaller version of the searchPath method
 					final List<Node> path = Path.searchPath(zone, x, y, zone.getWidth()/2,
 							zone.getHeight()/2, (64+64)*2);
@@ -152,15 +152,15 @@ public class InvasionPhase extends TPPQuest {
 						logger.debug("RATS " + zone.getName() + " " + x + " " + y + " no path to " + zone.getWidth()/2 + " " + zone.getHeight()/2);
 						continue;
 					}
-				}
+				} 
 				// spawn creature
 				rat.registerObjectsForNotification(ratsObserver);
 				/* -- commented because of these noises reflects on all archrats in game -- */
 				// add unique noises to humanoids
-				if (tempCreature.getName().equals("archrat")) {
+				if (tempCreature.getName().equals("archiszczur")) {
 					final LinkedList<String> ll = new LinkedList<String>(
-							Arrays.asList("We will capture Ados!",
-							"Our revenge will awesome!"));
+							Arrays.asList("Ocalimy Ados!",
+							"Nasza zemsta bądzie słodka!"));
 					LinkedHashMap<String, LinkedList<String>> lhm =
 						new LinkedHashMap<String, LinkedList<String>>();
 					// add to all states except death.
@@ -169,13 +169,13 @@ public class InvasionPhase extends TPPQuest {
 					lhm.put("follow", ll);
 					rat.setNoises(lhm);
 				}
-
+				
 				StendhalRPAction.placeat(zone, rat, x, y);
 				rats.add(rat);
 			}
 		}
 	}
-
+	
 	/**
 	 * function to control amount of alive rats.
 	 * @param dead
@@ -190,35 +190,35 @@ public class InvasionPhase extends TPPQuest {
 					new LinkedList<String>(Arrays.asList("pied piper")));
 		}
     }
-
+	
 	/**
 	 *  Rats are dead :-)
 	 */
 
 	@Override
 	public String getSwitchingToDefPhaseMessage() {
-		final String text = "Mayor Chalmers shouts: No #rats in Ados survived, "+
-				            "only those who always lived in the "+
-				            "haunted house. "+
-				            "Rat hunters are welcome to get their #reward.";
+		final String text = "Mayor Chalmers krzyczy: żaden #szczur w Ados nie przetrwał, "+
+							"zostały tylko te, które od zawsze mieszkały w "+
+							"nawiedzonym domu. "+
+							"Zapraszam pogromców szczurów, aby ich #wynagrodzić.";
 		return(text);
 	}
-
+	
 	/**
 	 *  Rats now living under all buildings. Need to call Pied Piper :-)
 	 */
 	@Override
 	public String getSwitchingToNextPhaseMessage() {
 		final String text =
-			"Mayor Chalmers shouts: Suddenly, #rats have captured the city, "+
-		  //"Mayor Chalmers shouts: The #rats left as suddenly as they arrived. "+
-		  //"Perhaps they have returned to the sewers. "+
-			"I now need to call the Pied Piper, a rat exterminator. "+
-			"Anyway, thanks to all who tried to clean up Ados, "+
-			" you are welcome to get your #reward.";
+			"Mayor Chalmers krzyczy: Nagle #szczury opanowały miasto "+
+			//"Mayor Chalmers krzyczy: #Szczury zniknęły tak nagle, jak się pojawiły. "+
+			//"Możliwe, że powróciły do kanałów. "+
+			"Muszę wezwać szczurzego eksterminatora Pied Piper. "+
+			"Swoją drogą dziękuję wszystkim, którzy pomogli oczyścić Ados i "+
+			"zapraszam Was do odebrania #nagrody.";
 		return(text);
-	}
-
+	}	
+	
 	/**
 	 * removing rats from the world
 	 */
@@ -241,18 +241,18 @@ public class InvasionPhase extends TPPQuest {
 			}
 		}
 	}
-
+	
 	/**
-	 * Red alert! Rats in the Ados city!
-	 *
+	 *  Red alert! Rats in the Ados city!
+	 * 
 	 * @return Ados mayor's call for help message
 	 */
 	protected String ratsProblem() {
-		final String text = "Mayor Chalmers shouts: Ados City is being invaded by #rats!"+
-			              " Anyone who will help to clean up the city, will be rewarded!";
+		final String text = "Mayor Chalmers krzyczy: Miasto Ados zostało zaatakowane przez #szczury!"+
+			              " Każdy kto pomoże oczyścić miasto zostanie nagrodzony!";
 		return(text);
 	}
-
+	
 	@Override
 	public void prepare() {
 		summonRats();
@@ -272,7 +272,7 @@ public class InvasionPhase extends TPPQuest {
 		removeAllRats();
 		super.phaseToNextPhase(nextPhase, comments);
 	}
-
+	
     /**
      *  Implementation of Observer interface.
      *  Update function will record the fact of rat's killing
@@ -292,8 +292,8 @@ public class InvasionPhase extends TPPQuest {
 	        	}
 	        }
 	    }
-	}
-
+	}	
+	
 	/**
 	 *  method for making records about killing rats
 	 *  in player's quest slot.
@@ -337,13 +337,13 @@ public class InvasionPhase extends TPPQuest {
 		}
 		player.setQuest(QUEST_SLOT, i+1, Integer.toString(kills));
 	}
-
+	
 
 	@Override
 	public TPP_Phase getPhase() {
 		return TPP_Phase.TPP_INVASION;
 	}
+	
 
-
-
+	
 }

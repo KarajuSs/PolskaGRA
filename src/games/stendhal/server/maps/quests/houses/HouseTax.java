@@ -12,12 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests.houses;
 
-import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.List;
-
-import org.apache.log4j.Logger;
-
 import games.stendhal.common.MathHelper;
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.common.parser.Sentence;
@@ -34,11 +28,18 @@ import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.player.Player;
+
+import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.List;
+
 import marauroa.server.db.DBTransaction;
 import marauroa.server.db.command.AbstractDBCommand;
 import marauroa.server.db.command.DBCommandQueue;
 import marauroa.server.game.db.CharacterDAO;
 import marauroa.server.game.db.DAORegister;
+
+import org.apache.log4j.Logger;
 
 /**
  * House tax, and confiscation of houses.
@@ -157,17 +158,17 @@ class HouseTax implements TurnListener {
 					String remainder;
 					if (payments == MAX_UNPAID_TAXES) {
 						// Give a final warning if appropriate
-						remainder = " This is your final warning, if you do not pay your taxes within a month then "
-							+ "your house will be made available for others to buy, and the locks will be changed. "
-							+ "You will be unable to access your house or its chest.";
+						remainder = " To jest ostatnie ostrzeżenie. Jeżeli nie zapłacisz podatków w przeciągu miesiąca to "
+							+ "twój dom będzie dopuszczony do sprzedaży, a zamki zostaną zmienione. " 
+							+ "Nie będziesz mógł się dostać do domu, ani do skrzyni.";
 
 					} else {
-						remainder = " Pay promptly, as I charge interest on debts owed. And if you fail to pay for "
-							+ Integer.toString(MAX_UNPAID_TAXES + 1) + " months, your house will be repossessed.";
+						remainder = " Płać punktualnie, ponieważ będą rosły koszty zadłużenia. Jeżeli nie zapłacisz za " 
+							+ Integer.toString(MAX_UNPAID_TAXES + 1) + "  miesięcy to twój dom zostanie sprzedany."; 
 					}
-					notifyIfNeeded(owner, "You owe " +  Integer.toString(getTaxDebt(payments)) + " money in house tax for "
-							+ Grammar.quantityplnoun(payments, "month", "one")
-							+ ". You may come to Ados Townhall to pay your debt." + remainder);
+					notifyIfNeeded(owner, "Jesteś dłużny " +  Integer.toString(getTaxDebt(payments)) + " money za podatek od nieruchomości za " 
+							+ Grammar.quantityplnoun(payments, "month", "one") 
+							+ ". Możesz przyjść do ratusza w Ados, aby uregulować dług." + remainder);
 				}
 			}
 		}
@@ -179,8 +180,8 @@ class HouseTax implements TurnListener {
 	 * @param portal the door of the house to confiscate
 	 */
 	private void confiscate(final HousePortal portal) {
-		notifyIfNeeded(portal.getOwner(), "You have neglected to pay your house taxes for too long. "
-					   + "Your house has been repossessed to cover the debt to the state.");
+		notifyIfNeeded(portal.getOwner(), "Zwlekałeś z zapłatą podatku od nieruchomości zbyt długo. "
+					   + "Twój dom został przejęty przez pośrednika na pokrycie długów.");
 		logger.info("repossessed " + portal.getDoorId() + ", which used to belong to " + portal.getOwner());
 		portal.changeLock();
 		portal.setOwner("");
@@ -199,10 +200,10 @@ class HouseTax implements TurnListener {
 	private void setupTaxman() {
 		final SpeakerNPC taxman = SingletonRepository.getNPCList().get("Mr Taxman");
 
-		taxman.addReply("tax", "All house owners must #pay taxes to the state.");
+		taxman.addReply(Arrays.asList("tax", "podatek"),"Wszyscy właściciele domów muszą #płacić podatki pośrednikowi.");
 
 		taxman.add(ConversationStates.ATTENDING,
-				"pay",
+				Arrays.asList("pay", "płacić", "zapłacić"),
 				new ChatCondition() {
 					@Override
 					public boolean fire(final Player player, final Sentence sentence, final Entity npc) {
@@ -210,20 +211,20 @@ class HouseTax implements TurnListener {
 					}
 		},
 		ConversationStates.QUESTION_1,
-		"Do you want to pay your taxes now?",
+		"Czy chcesz teraz zapłacić podatki?", 
 		null);
 
 		taxman.add(ConversationStates.ATTENDING,
-				   Arrays.asList("pay", "payment"),
+				   Arrays.asList("pay", "payment", "płacić", "zapłata", "zapłacić"),
 				   new ChatCondition() {
 					   @Override
-					public boolean fire(final Player player, final Sentence sentence, final Entity npc) {
+					   public boolean fire(final Player player, final Sentence sentence, final Entity npc) {
 						   return getUnpaidTaxPeriods(player) <= 0;
 					   }
 				   },
 				   ConversationStates.ATTENDING,
-				   "According to my records you don't currently owe any tax. House owners will get notified by "
-				   + "myself through the postman as soon as they owe money.",
+				   "Sprawdziłem moje zapiski i na razie nie jesteś nic winny. Właściciele domów są informowani przez "
+				   + "postman, gdy przyjdzie czas zapłaty.", 
 				   null);
 
 		taxman.add(ConversationStates.QUESTION_1,
@@ -240,19 +241,19 @@ class HouseTax implements TurnListener {
 							player.drop("money", cost);
 							setTaxesPaid(player, periods);
 							StringBuilder msg = new StringBuilder();
-							msg.append("Thank you! You have paid your taxes of ");
+							msg.append("Dziękuję! Zapłaciłeś podatki w wysokości ");
 							msg.append(cost);
-							msg.append(" money for the last ");
+							msg.append(" money za ostatnie ");
 							if (periods > 1) {
 								msg.append(periods);
-								msg.append(" months.");
+								msg.append(" miesięcy.");
 							} else {
-								msg.append("month.");
+								msg.append("miesiąc.");
 							}
 							npc.say(msg.toString());
 						} else {
-							npc.say("You don't have enough money to pay your taxes. You need at least "
-									+ cost + " money. Don't delay or the interest on what you owe will increase.");
+							npc.say("Nie masz tyle money, aby zapłacić podatki. Potrzebujesz co najmniej " 
+									+ cost + " money. Nie zwlekaj, albo dług wzrośnie.");
 						}
 				}
 			});
@@ -261,7 +262,7 @@ class HouseTax implements TurnListener {
 				   ConversationPhrases.NO_MESSAGES,
 				   null,
 				   ConversationStates.ATTENDING,
-				   "Very well, but don't delay too long, as the interest on what you owe will increase.",
+				   "Bardzo dobrze, ale nie zwlekaj zbyt długo, albo dług wzrośnie.",
 				   null);
 	}
 

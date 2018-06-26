@@ -1,11 +1,7 @@
 /**
- *
+ * 
  */
 package games.stendhal.server.maps.quests.houses;
-
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 
 import games.stendhal.common.parser.ExpressionType;
 import games.stendhal.common.parser.JokerExprMatcher;
@@ -18,6 +14,10 @@ import games.stendhal.server.entity.npc.condition.NotCondition;
 import games.stendhal.server.entity.npc.condition.QuestCompletedCondition;
 import games.stendhal.server.entity.npc.condition.QuestNotStartedCondition;
 import games.stendhal.server.entity.npc.condition.TextHasNumberCondition;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 final class AdosHouseSeller extends HouseSellerNPCBase {
 	/** Cost to buy house in ados. */
@@ -35,26 +35,26 @@ final class AdosHouseSeller extends HouseSellerNPCBase {
 	}
 
 	private void init() {
-		// Other than the condition that you must not already own a house, there are a number of conditions a player must satisfy.
-		// For definiteness we will check these conditions in a set order.
+		// Other than the condition that you must not already own a house, there are a number of conditions a player must satisfy. 
+		// For definiteness we will check these conditions in a set order. 
 		// So then the NPC doesn't have to choose which reason to reject the player for (appears as a WARN from engine if he has to choose)
-
+		
 		// player is not old enough
-		add(ConversationStates.ATTENDING,
-				 Arrays.asList("cost", "house", "buy", "purchase"),
+		add(ConversationStates.ATTENDING, 
+				 Arrays.asList("cost", "house", "buy", "purchase", "koszt", "dom", "kupić", "cenę", "cena"),
 				 new NotCondition(new AgeGreaterThanCondition(HouseSellerNPCBase.REQUIRED_AGE)),
 				 ConversationStates.ATTENDING,
-				 "The cost of a new house in Ados is "
+				 "Cena za nowy dom w Ados to "
 				 + getCost()
-				 + " money. But I am afraid I cannot trust you with house ownership just yet, come back when you have spent at least "
-				 + Integer.toString((HouseSellerNPCBase.REQUIRED_AGE / 60)) + " hours on Faiumoni.",
+				 + " money. Ale obawiam się, że nie mogę ci jeszcze zaufać, wróć kiedy spędzisz przynajmniej " 
+				 + Integer.toString((HouseSellerNPCBase.REQUIRED_AGE / 60)) + " godzin w Faiumoni.",
 					null);
-
-
+		
+		
 		// player doesn't have a house and is old enough but has not done required quests
-		add(ConversationStates.ATTENDING,
-				 Arrays.asList("cost", "house", "buy", "purchase"),
-				 new AndCondition(new AgeGreaterThanCondition(HouseSellerNPCBase.REQUIRED_AGE),
+		add(ConversationStates.ATTENDING, 
+				 Arrays.asList("cost", "house", "buy", "purchase", "koszt", "dom", "kupić", "cenę", "cena"),
+				 new AndCondition(new AgeGreaterThanCondition(HouseSellerNPCBase.REQUIRED_AGE), 
 								  new QuestNotStartedCondition(HouseSellerNPCBase.QUEST_SLOT),
 								  new NotCondition(
 													  new AndCondition(
@@ -64,49 +64,49 @@ final class AdosHouseSeller extends HouseSellerNPCBase {
 																	   new QuestCompletedCondition(AdosHouseSeller.FISHROD_QUEST_SLOT),
 																	   new QuestCompletedCondition(AdosHouseSeller.GHOSTS_QUEST_SLOT),
 																	   new QuestCompletedCondition(AdosHouseSeller.ZARA_QUEST_SLOT)))),
-				 ConversationStates.ATTENDING,
-				 "The cost of a new house in Ados is "
+				 ConversationStates.ATTENDING, 
+				 "Koszt nowego domu w Ados wynosi "
 				 + getCost()
-				 + " money. But I am afraid I cannot sell you a house yet as you must first prove yourself a worthy #citizen.",
+				 + " money. Ale obawiam się, że nie mogę sprzedać Tobie domu, jeszcze trzeba udowodnić #obywatelstwo.",
 				 null);
-
+		
 		// player is eligible to buy a house
-		add(ConversationStates.ATTENDING,
-					Arrays.asList("cost", "house", "buy", "purchase"),
-				 new AndCondition(new QuestNotStartedCondition(HouseSellerNPCBase.QUEST_SLOT),
-								  new AgeGreaterThanCondition(HouseSellerNPCBase.REQUIRED_AGE),
+		add(ConversationStates.ATTENDING, 
+					Arrays.asList("cost", "house", "buy", "purchase", "koszt", "dom", "kupić", "cenę", "cena"),
+				 new AndCondition(new QuestNotStartedCondition(HouseSellerNPCBase.QUEST_SLOT), 
+								  new AgeGreaterThanCondition(HouseSellerNPCBase.REQUIRED_AGE), 
 								  new QuestCompletedCondition(AdosHouseSeller.DAILY_ITEM_QUEST_SLOT),
 								  new QuestCompletedCondition(AdosHouseSeller.ANNA_QUEST_SLOT),
 								  new QuestCompletedCondition(AdosHouseSeller.KEYRING_QUEST_SLOT),
 								  new QuestCompletedCondition(AdosHouseSeller.FISHROD_QUEST_SLOT),
 								  new QuestCompletedCondition(AdosHouseSeller.GHOSTS_QUEST_SLOT),
 								  new QuestCompletedCondition(AdosHouseSeller.ZARA_QUEST_SLOT)),
-				 ConversationStates.QUEST_OFFERED,
-				 "The cost of a new house in Ados is "
+				 ConversationStates.QUEST_OFFERED, 
+				 "Nowy dom w Ados kosztuje "
 				 + getCost()
-				 + " money. Also, you must pay a house tax of " + HouseTax.BASE_TAX
-				 + " money, every month. If you have a house in mind, please tell me the number now. I will check availability. "
-				 + "The Ados houses are numbered from "
-				 + getLowestHouseNumber() + " to " + getHighestHouseNumber() + ".",
+				 + " money. Ponadto trzeba zapłacić podatek " + HouseTax.BASE_TAX
+				 + " money, co miesiąc. Jeśli masz jakiś dom na oku powiedz jego numer, sprawdzę czy jest wolny. "
+				 + "Domy w Ados mają numery od "
+				 + getLowestHouseNumber() + " do " + getHighestHouseNumber() + ".",
 				 null);
-
+		
 		// handle house numbers getLowestHouseNumber() - getHighestHouseNumber()
 		addMatching(ConversationStates.QUEST_OFFERED,
 				 // match for all numbers as trigger expression
 				ExpressionType.NUMERAL, new JokerExprMatcher(),
 				new TextHasNumberCondition(getLowestHouseNumber(), getHighestHouseNumber()),
-				ConversationStates.ATTENDING,
+				ConversationStates.ATTENDING, 
 				null,
 				new BuyHouseChatAction(getCost(), QUEST_SLOT));
+		
+		addJob("Jestem agentem nieruchomości, po prostu sprzedaje domy w Ados. Zapytaj o #cenę jeżeli jesteś zainteresowany. Nasz katalog domów znajduje się na  #http://www.polskagra.net/");
+		addReply(Arrays.asList("citizen", "obywatelstwo"), "Przeprowadzam nieformalną ankietę wśród mieszkańców. A mówię o moim przyjacielu Joshua, burmistrzu Ados, małej dziewczynce Anna, rybaku Pequod, pięknej Zara, a nawet o duchu Carena. Wspólnie wydadzą wiarygodną opinie.");
 
-		addJob("I'm an estate agent. In simple terms, I sell houses for the city of Ados. Please ask about the #cost if you are interested. Our brochure is at #https://stendhalgame.org/wiki/StendhalHouses.");
-		addReply("citizen", "I conduct an informal survey amongst the Ados residents. If you have helped everyone in Ados, I see no reason why they shouldn't recommend you. I speak with my friend Joshua, the Mayor, the little girl Anna, Pequod the fisherman, Zara, and I even commune with Carena, of the spirit world. Together they give a reliable opinion.");
-
-		setDescription("You see a smart looking man.");
+		setDescription("Wygląda na inteligentnego.");
 		setEntityClass("estateagent2npc");
 		setPosition(37, 13);
 		initHP(100);
-
+		
 	}
 
 	@Override

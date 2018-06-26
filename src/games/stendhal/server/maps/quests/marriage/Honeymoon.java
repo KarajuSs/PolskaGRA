@@ -12,8 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests.marriage;
 
-import java.awt.Rectangle;
-
 import games.stendhal.common.Direction;
 import games.stendhal.common.NotificationType;
 import games.stendhal.common.parser.ExpressionType;
@@ -31,6 +29,9 @@ import games.stendhal.server.entity.npc.condition.TextHasNumberCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.util.Area;
 
+import java.awt.Rectangle;
+import java.util.Arrays;
+
 class Honeymoon {
 	private final NPCList npcs = SingletonRepository.getNPCList();
 	private MarriageQuestInfo marriage;
@@ -44,7 +45,7 @@ class Honeymoon {
 		// tell her you want a honeymoon
 		linda.add(
 				ConversationStates.ATTENDING,
-				"honeymoon",
+				Arrays.asList("honeymoon", "miesiąc miodowy"),
 				null,
 				ConversationStates.QUESTION_1, null,
 				new ChatAction() {
@@ -59,26 +60,26 @@ class Honeymoon {
                         husband = player;
                         partnerName = husband.getQuest(marriage.getSpouseQuestSlot());
                         wife = SingletonRepository.getRuleProcessor().getPlayer(partnerName);
-
+                        
 						if (!(player.hasQuest(marriage.getQuestSlot())) || !("just_married".equals(player.getQuest(marriage.getQuestSlot())))) {
 							// person is not just married
-							npc.say("Sorry, our honeymoon suites are only available for just married customers.");
+							npc.say("Przepraszam, ale nasze apartamenty na miesiąc miodowy są dostępne tylko dla klientów po ślubie.");
 							npc.setCurrentState(ConversationStates.ATTENDING);
-						} else if (wife == null) {
+						} else if (wife == null) { 
 							//wife is not online
-                            npc.say("Come back when " + partnerName + " is with you - you're meant to have your honeymoon together!");
+                            npc.say("Wróć, gdy " + partnerName + " będzie z tobą - powinniście być razem podczas miesiąca miodowego!");
                             npc.setCurrentState(ConversationStates.IDLE);
                         } else if (!(wife.hasQuest(marriage.getQuestSlot())
                                      && wife.getQuest(marriage.getSpouseQuestSlot()).equals(husband.getName()))) {
                         	//wife is not married to this husband
-                            npc.say("Oh dear, this is embarassing. You seem to be married, but " + partnerName + " is not married to you.");
+                            npc.say("Och, ale kłopotliwa sytuacja. Powinniście być małżeństwem, ale " + partnerName + " nie wziął ślubu z tobą.");
                             npc.setCurrentState(ConversationStates.ATTENDING);
                         } else if (!hotelReception.contains(wife)) {
                         	//  wife has not bothered to come to reception desk
-                            npc.say("Could you get " + partnerName + " to come to the reception desk, please. Then please read our catalogue here and tell me the room number that you would like.");
-                        }  else {
+                            npc.say("Czy mógłbyś poprosić " + partnerName + ", aby podeszła do recepcji i zapoznała się z naszym katalogiem. Później powiedz, który pokój wybraliście.");
+                        }  else { 
                         	//wife and husband fulfill all conditions
-							npc.say("How lovely! Please read our catalogue here and tell me the room number that you would like.");
+							npc.say("Jak słodko! Proszę zobaczcie nasz katalog i powiedzcie mi numer pokoju, który chcecie.");
 						}
 					}
 				});
@@ -96,7 +97,7 @@ class Honeymoon {
                         final StendhalRPZone zone = SingletonRepository.getRPWorld().getZone(
                                                                                        "int_fado_lovers_room_" + room);
 						if (zone.getPlayers().size() > 0) {
-							npc.say("Sorry, that room is currently occupied, would you give me your next choice please?");
+							npc.say("Przykro mi, ale ten pokój jest teraz zajęty. Moglibyście podać inny numer?");
 							npc.setCurrentState(ConversationStates.QUESTION_1);
 						} else {
 
@@ -108,28 +109,28 @@ class Honeymoon {
 							wife = SingletonRepository.getRuleProcessor().getPlayer(
                                                                                 partnerName);
 							final StackableItem invite1 = (StackableItem) SingletonRepository.getEntityManager().getItem(
-																												  "invitation scroll");
+																												  "zwój weselny");
 							invite1.setQuantity(1);
                             final StackableItem invite2 = (StackableItem) SingletonRepository.getEntityManager().getItem(
-                                                                                                                  "invitation scroll");
+                                                                                                                  "zwój weselny");
                             invite2.setQuantity(1);
-                            //
+                            // 
 							invite1.setInfoString("honeymoon," + partnerName);
 							invite2.setInfoString("honeymoon," + husband.getTitle());
 							if (wife.equipToInventoryOnly(invite1) &&  husband.equipToInventoryOnly(invite2)) {
-								npc.say("Great choice! I will arrange that now.");
+								npc.say("Dobry wybór! Teraz zorganizuje to."); 
 								husband.setQuest(marriage.getQuestSlot(), "done");
 								wife.setQuest(marriage.getQuestSlot(), "done");
 								wife.teleport(zone, 5, 5, Direction.DOWN, player);
 								husband.teleport(zone, 6, 5, Direction.DOWN, player);
-								final String scrollmessage = "Linda tells you: Use the scroll in your bag to return to the hotel, our special honeymoon suites are so private that they don't use normal entrances and exits!";
+								final String scrollmessage = "Linda powiedziała Tobie: Użyj zwoju w plecaku, aby powrócić do hotelu. Nasze specjalne apartamenty na miesiąc miodowy są prywatne i nie ma w nich normalnych wejść i wyjść!";
 								wife.sendPrivateText(NotificationType.PRIVMSG, scrollmessage);
                                 husband.sendPrivateText(NotificationType.PRIVMSG, scrollmessage);
 								wife.notifyWorldAboutChanges();
 								husband.notifyWorldAboutChanges();
 								npc.setCurrentState(ConversationStates.IDLE);
 							} else {
-								npc.say("You each need one space in your bags to take a scroll. Please make a space and then ask me again. Thank you.");
+								npc.say("Każdy z was potrzebuje jednego miejsca w plecaku, aby wziąć zwój. Proszę zróbcie miejsce i zapytajcie mnie ponownie. Dziękuję.");
 							}
 						}
 					}

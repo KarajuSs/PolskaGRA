@@ -10,7 +10,7 @@ import games.stendhal.server.entity.player.Player;
 
 /**
  * throw two flags on the ground after a player has requested them
- *
+ * 
  * NOTE: i thought this should be separate, because we could check that
  *       player is able to have a flag (playing, ...).  but it's too
  *       late for that check by the time this is fired ...
@@ -26,7 +26,7 @@ public class ProvideCTFFlagsAction implements ChatAction {
 		// TODO: should do some checks first
 
 		// will put it in player's hand, or on ground
-		new EquipItemAction("flag").fire(player,  sentence, npc);
+		new EquipItemAction("flaga").fire(player,  sentence, npc);
 
 	}
 }

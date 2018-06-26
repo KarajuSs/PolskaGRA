@@ -96,34 +96,34 @@ public class FoundGirl implements LoadableContent {
 		// greeting
 		addGreetingDependingOnQuestState();
 
-		npc.addJob("I am just a litte girl waiting for my father to take me out of the house. We will have lots of fun here at the #Mine #Town #Revival #Weeks!");
-		npc.addGoodbye("Have fun!");
-		npc.addHelp("Just have fun.");
-		npc.addOffer("I can offer you my #friendship.");
+		npc.addJob("Jestem dziewczynką czekającą na mojego tatę, aby zabrał mnie do domu. Świetnie się bawiliśmy na #Mine #Town #Revival #Weeks!");
+		npc.addGoodbye("Miłej zabawy!");
+		npc.addHelp("Baw się dobrze.");
+		npc.addOffer("Mogę zaoferować moją #przyjaźń.");
 
 		// Revival Weeks
 		npc.add(
 			ConversationStates.ATTENDING,
-			Arrays.asList("Mine", "Town", "Revival", "Weeks", "Mine Town",
+			Arrays.asList("Mine", "Town", "Revival", "Weeks", "Mine Town", 
 					"Mine Town Revival", "Mine Town Revival Weeks", "Mine Town", "Revival Weeks"),
 			ConversationStates.ATTENDING,
-			"During the Revival Weeks we #celebrate the old and now mostly dead Mine Town north of Semos City. "
-			+ "The party was cancelled a few years ago because the people of Ados were searching for me after I got lost. "
-			+ "Now that I am found we can party again!",
+			"Podczas Revival Weeks #świętujemy stary i prawie martwy Mine Town. "
+			+ "Kilka lat temu festyn został odwołany poniewż mieszkańcy Ados szukali mnie, gdy się zgubiłam. "
+			+ "Teraz, gdy się odnalazłam to możemy znowu świętować!",
 			null);
 		npc.add(
 			ConversationStates.ATTENDING,
-			Arrays.asList("celebrate", "celebration", "party"),
+			Arrays.asList("celebrate", "celebration", "party", "świętujemy"),
 			ConversationStates.ATTENDING,
-			"You can get a mask from Fidorea just outside this house or you can try to solve a difficult puzzle in the other house. Or just play a game of Tic Tac Toe against your #friends or ask Maltos about a nice game.",
+			"Możesz zdobyć kostium od Saskia na zewnątrz tego domku lub spróbować rozwiązać trudną zagadkę w innym domku, albo zagrać w grę Tic Tac Toe z #przyjaciółmi.",
 			null);
 
 		// friends
 		npc.add(
-			ConversationStates.ATTENDING, Arrays.asList("friend", "friends", "friendship"),
-			new QuestInStateCondition("susi", Integer.toString(Calendar.getInstance().get(Calendar.YEAR))),
+			ConversationStates.ATTENDING, Arrays.asList("friend", "friends", "friendship", "przyjaźń", "przyjaciółmi", "przyjaciela"),
+			new QuestInStateCondition("susi", Integer.toString(Calendar.getInstance().get(Calendar.YEAR))), 
 			ConversationStates.ATTENDING,
-			"Thanks for being a friend.", null);
+			"Dziękuję za bycie moim przyjacielem.", null);
 
 		addFirstQuest();
 		addSecondQuest();
@@ -138,14 +138,14 @@ public class FoundGirl implements LoadableContent {
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						noFriends),
 				ConversationStates.ATTENDING,
-				"Guess what, we are having another #Town #Revival #Weeks.", null);
+				"Zgadnij mamy następny #Mine #Town #Revival #Weeks.", null);
 
-		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
+		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES, 
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						anyFriends),
 				ConversationStates.ATTENDING,
-				null, new SayTextAction("Hello [name], nice to meet you again. "
-						+ "Guess what, we are having another #Town #Revival #Weeks."));
+				null, new SayTextAction("Cześć [name] miło było cię znów spotkać. "
+						+ "Zgadnij mamy następny #Mine #Town #Revival #Weeks."));
 		// TODO: Tell old friends about renewal
 	}
 
@@ -154,82 +154,82 @@ public class FoundGirl implements LoadableContent {
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.QUEST_MESSAGES,
 				noFriends,
-				ConversationStates.ATTENDING, "I need a #friend.", null);
+				ConversationStates.ATTENDING, "Szukam #przyjaciela.", null);
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.QUEST_MESSAGES,
 				oldFriends,
-				ConversationStates.ATTENDING, "We should renew our #friendship.", null);
+				ConversationStates.ATTENDING, "Powinniśmy odnowić naszą #przyjaźń.", null);
 		npc.add(
 				ConversationStates.ATTENDING,
 				ConversationPhrases.QUEST_MESSAGES,
 				currentFriends,
 				ConversationStates.ATTENDING,
-				"I have made a lot of friends during the #Town #Revival #Weeks.",
+				"Poznałam wielu przyjaciół podczas #Mine #Town #Revival #Weeks.",
 				null);
 	}
 
 	private void addFirstQuest() {
 		// initial friends quest
 		npc.add(ConversationStates.ATTENDING,
-			Arrays.asList("friend", "friends", "friendship"),
+			Arrays.asList("friend", "friends", "friendship", "przyjaźń", "przyjaciółmi", "przyjaciela"),
 			noFriends,
 			ConversationStates.INFORMATION_1,
-			"Please repeat:\r\n                        \"A circle is round,\"",
+			"Proszę powtórz:\r\n                        \"Kółko jest okrągłe,\"",
 			null);
 		npc.add(ConversationStates.INFORMATION_1,
 			"",
-			new TriggerExactlyInListCondition("A circle is round,", "A circle is round"),
-			ConversationStates.INFORMATION_2, "\"it has no end.\"",
+			new TriggerExactlyInListCondition("Kółko jest okrągłe,", "Kółko jest okrągłe"),
+			ConversationStates.INFORMATION_2, "\"nie ma końca.\"",
 			null);
-		npc.add(ConversationStates.INFORMATION_2,
+		npc.add(ConversationStates.INFORMATION_2, 
 			"",
-			new TriggerExactlyInListCondition("it has no end.", "it has no end"),
+			new TriggerExactlyInListCondition("nie ma końca.", "nie ma końca"),
 			ConversationStates.INFORMATION_3,
-			"\"That's how long,\"", null);
-		npc.add(ConversationStates.INFORMATION_3,
+			"\"To jak długie,\"", null);
+		npc.add(ConversationStates.INFORMATION_3, 
 			"",
 			new TriggerExactlyInListCondition(
-				"That's how long,", "That's how long",
-				"Thats how long,", "Thats how long"),
+				"To jak długie,", "To jak długie",
+				"To jak długie,", "To jak długie"),
 			ConversationStates.INFORMATION_4,
-			"\"I will be your friend.\"", null);
+			"\"Będę twoim przyjacielem.\"", null);
 
 		ChatAction reward = new MultipleActions(new IncreaseKarmaAction(10), new IncreaseXPAction(25), new SetQuestToYearAction("susi"));
-		npc.add(ConversationStates.INFORMATION_4,
+		npc.add(ConversationStates.INFORMATION_4, 
 			"",
-			new TriggerExactlyInListCondition("I will be your friend.", "I will be your friend"),
+			new TriggerExactlyInListCondition("Będę twoim przyjacielem.", "Będę twoim przyjacielem"),
 			ConversationStates.ATTENDING,
-			"Yay! We are friends now.",
+			"Fajnie. Jesteśmy teraz przyjaciółmi.",
 			reward);
 	}
 
 	private void addSecondQuest() {
 		npc.add(ConversationStates.ATTENDING,
-				Arrays.asList("friend", "friends", "friendship"),
+				Arrays.asList("friend", "friends", "friendship", "przyjaźń", "przyjaciółmi", "przyjaciela"),
 				oldFriends,
 				ConversationStates.INFORMATION_5,
-				"Please repeat:\r\n                        \"Make new friends,\"",
+				"Proszę powtórz:\r\n                        \"Zdobywajmy przyjaciół,\"",
 				null);
-		npc.add(ConversationStates.INFORMATION_5,
+		npc.add(ConversationStates.INFORMATION_5, 
 				"",
-				new TriggerExactlyInListCondition("Make new friends,", "Make new friends"),
-				ConversationStates.INFORMATION_6, "\"but keep the old.\"",
+				new TriggerExactlyInListCondition("Zdobywajmy przyjaciół,", "Zdobywajmy przyjaciół"),
+				ConversationStates.INFORMATION_6, "\"ale utrzymujmy kontakty ze starymi.\"",
 				null);
 		npc.add(ConversationStates.INFORMATION_6, "",
-				new TriggerExactlyInListCondition("but keep the old.", "but keep the old"),
-				ConversationStates.INFORMATION_7, "\"One is silver,\"",
+				new TriggerExactlyInListCondition("ale utrzymujmy kontakty ze starymi.", "ale utrzymujmy kontakty ze starymi"),
+				ConversationStates.INFORMATION_7, "\"Jeden jest srebrny,\"",
 				null);
 		npc.add(ConversationStates.INFORMATION_7, "",
-				new TriggerExactlyInListCondition("One is silver,", "One is silver"),
-				ConversationStates.INFORMATION_8, "\"And the other gold.\"",
+				new TriggerExactlyInListCondition("Jeden jest srebrny,", "Jeden jest srebrny"),
+				ConversationStates.INFORMATION_8, "\"a inny złoty.\"",
 				null);
 
 		// lowercase "and" is ignored, even in full match mode
 		ChatAction reward = new MultipleActions(new IncreaseKarmaAction(15), new IncreaseXPAction(50), new SetQuestToYearAction("susi"));
 		npc.add(ConversationStates.INFORMATION_8, "",
-				new TriggerExactlyInListCondition("And the other gold.", "And the other gold", "the other gold.", "the other gold"),
+				new TriggerExactlyInListCondition("a inny złoty.", "a inny złoty", "a inny złoty.", "a inny złoty"),
 				ConversationStates.ATTENDING,
-				"Yay! We are even better friends now.",
+				"Fajnie! Jesteśmy teraz lepszymi przyjaciółmi.",
 				reward);
 	}
 

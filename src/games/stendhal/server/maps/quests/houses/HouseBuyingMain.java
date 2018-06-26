@@ -12,8 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests.houses;
 
-import java.util.LinkedList;
-
 import games.stendhal.common.MathHelper;
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -21,6 +19,8 @@ import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.mapstuff.portal.HousePortal;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.player.Player;
+
+import java.util.LinkedList;
 
 /**
  * Controls house buying.
@@ -38,10 +38,12 @@ public class HouseBuyingMain {
 	private static final String ADOS_TOWNHALL = "int_ados_town_hall_3";
 	/** Kirdneh house seller Zone name. */
 	private static final String KIRDNEH_TOWNHALL = "int_kirdneh_townhall";
+	/** Zakopane house seller Zone name.*/
+	private static final String ZAKOPANE_SELLER_HOUSE = "int_zakopane_seller_house";
 
 	/**
 	 * The NPC for Kalavan Houses.
-	 *
+	 *  
 	 * @param zone target zone
 	 */
 	public void createKalavanNPC(StendhalRPZone zone) {
@@ -51,7 +53,7 @@ public class HouseBuyingMain {
 
 	/**
 	 * The NPC for Ados Houses.
-	 *
+	 * 
 	 * @param zone target zone
 	 */
 	public void createAdosNPC(StendhalRPZone zone) {
@@ -61,7 +63,7 @@ public class HouseBuyingMain {
 
 	/**
 	 * The NPC for Kirdneh Houses.
-	 *
+	 * 
 	 * @param zone target zone
 	 */
 	public void createKirdnehNPC(StendhalRPZone zone) {
@@ -71,7 +73,7 @@ public class HouseBuyingMain {
 
 	/**
 	 * The NPC for Athor Apartments.
-	 *
+	 * 
 	 * @param zone target zone
 	 */
 	public void createAthorNPC(StendhalRPZone zone) {
@@ -79,23 +81,33 @@ public class HouseBuyingMain {
 		zone.add(npc);
 	}
 
+	/**
+	 * The NPC for Zakopane House.
+	 * 
+	 * @param zone target zone
+	 */
+	public void createZakopaneNPC(StendhalRPZone zone) {
+		final SpeakerNPC npc = new ZakopaneHouseSeller("Domiesław", "zakopane", houseTax);
+		zone.add(npc);
+	}
+
 	public LinkedList<String> getHistory(final Player player) {
 		LinkedList<String> hist = new LinkedList<String>();
 		if(!player.hasQuest("house")) {
-			hist.add("I've never bought a house.");
+			hist.add("Nigdy nie kupiłem domu.");
 			return(hist);
 		}
-		hist.add("I bought " +  HouseUtilities.getHousePortal(MathHelper.parseInt(player.getQuest("house"))).getDoorId() + ".");
+		hist.add("Kupiłem " +  HouseUtilities.getHousePortal(MathHelper.parseInt(player.getQuest("house"))).getDoorId() + ".");	
 		HousePortal playerHousePortal = HouseUtilities.getPlayersHouse(player);
 		if(playerHousePortal!=null) {
 			int unpaidPeriods = houseTax.getUnpaidTaxPeriods(player);
 			if (unpaidPeriods>0) {
-				hist.add("I owe " + Grammar.quantityplnoun(unpaidPeriods, "month", "one") + " worth of tax.");
+				hist.add("Zalegam z " + Grammar.quantityplnoun(unpaidPeriods, "month", "one") + " podatku.");
 			} else {
-				hist.add("I am up to date with my house tax payments.");
-			}
+				hist.add("Jestem na bieżąco z moimi płatnościami podatku za dom.");
+			}	
 		} else {
-			hist.add("I no longer own that house.");
+			hist.add("Posiadałem już ten dom");
 		}
 		return(hist);
 	}
@@ -103,7 +115,7 @@ public class HouseBuyingMain {
 	public void addToWorld() {
 		// Start collecting taxes as well
 		houseTax = new HouseTax();
-
+		
 		StendhalRPZone zone = SingletonRepository.getRPWorld().getZone(KALAVAN_CITY);
 		createKalavanNPC(zone);
 
@@ -116,8 +128,10 @@ public class HouseBuyingMain {
 		zone = SingletonRepository.getRPWorld().getZone(ATHOR_ISLAND);
 		createAthorNPC(zone);
 
+		zone = SingletonRepository.getRPWorld().getZone(ZAKOPANE_SELLER_HOUSE);
+		createZakopaneNPC(zone);
 	}
-
+	
 	public boolean isCompleted(final Player player) {
 		return HouseUtilities.getPlayersHouse(player)!=null;
 	}

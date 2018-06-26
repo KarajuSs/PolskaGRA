@@ -31,7 +31,7 @@ public class MazeSign extends Sign {
 	 * Update the player list written on the sign.
 	 */
 	public void updatePlayers() {
-		String introduction = "The best maze runners:\n";
+		String introduction = "Najlepsi w pokonywaniu labiryntu:\n";
 		SignFromHallOfFameLoader loader = new SignFromHallOfFameLoader(this, introduction, "M", SIGN_LENGTH, false, true);
 		TurnNotifier.get().notifyInTurns(0, loader);
 	}

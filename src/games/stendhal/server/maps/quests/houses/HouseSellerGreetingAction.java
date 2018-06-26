@@ -27,18 +27,18 @@ final class HouseSellerGreetingAction extends HouseChatAction implements ChatAct
 	@Override
 	public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 		String reply = "";
-
+		
 		if (HouseUtilities.playerOwnsHouse(player)) {
-			reply = " At the cost of "
+			reply = " Za "
 				+ HouseChatAction.COST_OF_SPARE_KEY
-				+ " money you can purchase a spare key for your house. Do you want to buy one now?";
+				+ " money możesz dorobić zapasowy klucz do swojego domu. Czy chcesz dorobić?";
 			raiser.setCurrentState(ConversationStates.QUESTION_1);
 		} else if (player.hasQuest(questslot)) {
 			// the player has lost the house. clear the slot so that he can buy a new one if he wants
 			player.removeQuest(questslot);
 		}
-
-		raiser.say("Hello, " + player.getTitle() + "." + reply);
+		
+		raiser.say("Witaj " + player.getTitle() + "." + reply);
 	}
-
+	
 }

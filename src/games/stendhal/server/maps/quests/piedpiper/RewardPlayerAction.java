@@ -9,7 +9,7 @@ import games.stendhal.server.entity.player.Player;
 
 /**
  *  NPC's actions when player asks for his reward.
- *
+ *  
  */
 public class RewardPlayerAction implements ChatAction, ITPPQuestConstants {
 
@@ -18,7 +18,7 @@ public class RewardPlayerAction implements ChatAction, ITPPQuestConstants {
 		    	final int quantity = TPPQuestHelperFunctions.calculateReward(player);
 		    	// to avoid giving karma without job
 		    	if(quantity==0) {
-		    		mayor.say("You didn't kill any rats which invaded the city, so you don't deserve a reward.");
+		    		mayor.say("Nie zabiłeś żadnego szczura, który zaatakował miasto więc nie zasługujesz na nagrodę.");
 		    		return;
 		    	}
 		    	player.addKarma(5);
@@ -26,7 +26,7 @@ public class RewardPlayerAction implements ChatAction, ITPPQuestConstants {
 		    				.getItem("money");
 		    	moneys.setQuantity(quantity);
 		    	player.equipOrPutOnGround(moneys);
-		    	mayor.say("Please take "+quantity+" money, thank you very much for your help.");
+		    	mayor.say("Proszę przyjmij "+quantity+" money jako podziękowanie za twoją nieocenioną pomoc.");
 		    	player.setQuest(QUEST_SLOT, "done");
 			}
 }

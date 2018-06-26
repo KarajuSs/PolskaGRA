@@ -29,6 +29,8 @@ import games.stendhal.server.entity.npc.condition.PlayerHasItemWithHimCondition;
 import games.stendhal.server.entity.player.Player;
 import marauroa.server.db.command.DBCommandQueue;
 
+import java.util.Arrays;
+
 class Divorce {
 	private final NPCList npcs = SingletonRepository.getNPCList();
 	private MarriageQuestInfo marriage;
@@ -41,27 +43,27 @@ class Divorce {
 
 		/**
 		 * Creates a clerk NPC who can divorce couples.
-		 *
+		 * 
 		 * Note: in this class, the Player variables are called husband and
 		 * wife. However, the game doesn't know the concept of genders. The
 		 * player who initiates the divorce is just called husband, the other
 		 * wife.
-		 *
+		 * 
 		 * @author immibis
-		 *
+		 * 
 		 */
 
 		SpeakerNPC clerk = npcs.get("Wilfred");
 
-		clerk.add(ConversationStates.ATTENDING,
-				"divorce",
+		clerk.add(ConversationStates.ATTENDING, 
+				Arrays.asList("divorce", "rozwód"),
 				new ChatCondition() {
 					@Override
 					public boolean fire(final Player player, final Sentence sentence, final Entity npc) {
 						return (player.isQuestCompleted(marriage.getQuestSlot()))
-								&& player.isEquipped("wedding ring") && player.isEquipped("money",200*player.getLevel());
+								&& player.isEquipped("obrączka ślubna") && player.isEquipped("money",200*player.getLevel());
 					}
-				},
+				}, 
 				ConversationStates.QUESTION_3,
 				null,
 			   	new ChatAction() {
@@ -80,66 +82,67 @@ class Divorce {
 								&& wife.getQuest(marriage.getSpouseQuestSlot()).equals(
 										husband.getName())) {
 							if (wife.isEquipped("money", 200*wife.getLevel())) {
-								additional = partnerName + " has their fee of " + 200*wife.getLevel() + " and will also be charged.";
+								additional = partnerName + " posiada " + 200*wife.getLevel() + " money na opłatę.";
 							} else {
-								additional = partnerName + " doesn't have their fee of " + 200*wife.getLevel() + " and will lose 3% xp instead.";
+								additional = partnerName + " nie posiada " + 200*wife.getLevel() + " money na opłatę i straci zamiast tego 3% doświadczenia.";
 							}
 						}
-						npc.say("There's an offer currently, you can pay to divorce instead of losing xp. It will cost you " + 200* player.getLevel() + " money. " + additional + " Do you want to divorce, and pay the money instead of losing xp?");
+						npc.say("Istnieje możliwość zapłacenia za rozwód zamiast utraty doświadczenia. Będzie cię to kosztować " + 200* player.getLevel() + " money. " + additional + " Czy chcesz wziąć rozwód i zapłacić dodatkową opłatę, która uratuje Ciebie od utraty doświadczenia?");
+					}
+				});
+
+		clerk.add(ConversationStates.ATTENDING, 
+				  Arrays.asList("divorce", "rozwód"),
+				  new ChatCondition() {
+					  @Override
+					  public boolean fire(final Player player, final Sentence sentence, final Entity npc) {
+						  return (player.isQuestCompleted(marriage.getQuestSlot()))
+							  && player.isEquipped("obrączka ślubna") && !player.isEquipped("money",200*player.getLevel());
+					}
+				}, 
+				ConversationStates.QUESTION_3,
+				null,
+			   	new ChatAction() {
+					  @Override
+					public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
+						Player husband;
+						Player wife;
+						String partnerName;
+						String additional = "";
+						husband = player;
+						partnerName = husband.getQuest(marriage.getSpouseQuestSlot());
+						wife = SingletonRepository.getRuleProcessor().getPlayer(partnerName);
+						if ((wife != null)
+							&& wife.hasQuest(marriage.getQuestSlot())
+							&& wife.getQuest(marriage.getSpouseQuestSlot()).equals(
+										                                           husband.getName())) {
+							if (wife.isEquipped("money", 200*wife.getLevel())) {
+								additional = partnerName + " posiada " + 200*wife.getLevel() + " money na opłatę.";
+							} else {
+								additional = partnerName + " nie posiada " + 200*wife.getLevel() + " money na opłatę i straci zamiast tego 3% doświadczenia.";
+							}
+						}
+						npc.say("Istnieje możliwość zapłacenia za rozwód zamiast utraty doświadczenia. Będzie cię to kosztować " + 200* player.getLevel() + " money. " + additional + " Czy chcesz wziąć rozwód i zapłacić dodatkową opłatę, która uratuje Ciebie od utraty doświadczenia?");
 					}
 				});
 
 		clerk.add(ConversationStates.ATTENDING,
-				  "divorce",
-				  new ChatCondition() {
-					  @Override
-					public boolean fire(final Player player, final Sentence sentence, final Entity npc) {
-						  return (player.isQuestCompleted(marriage.getQuestSlot()))
-							  && player.isEquipped("wedding ring") && !player.isEquipped("money",200*player.getLevel());
-					  }
-				  },
-				  ConversationStates.QUESTION_3,
-				  null,
-				  new ChatAction() {
-					  @Override
-					public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
-						  Player husband;
-						  Player wife;
-						  String partnerName;
-						  String additional = "";
-						  husband = player;
-						  partnerName = husband.getQuest(marriage.getSpouseQuestSlot());
-						  wife = SingletonRepository.getRuleProcessor().getPlayer(partnerName);
-						  if ((wife != null)
-							  && wife.hasQuest(marriage.getQuestSlot())
-							  && wife.getQuest(marriage.getSpouseQuestSlot()).equals(
-																					 husband.getName())) {
-							  if (wife.isEquipped("money", 200*wife.getLevel())) {
-								  additional = partnerName + " has their fee of " + 200*wife.getLevel() + " and will also be charged.";
-							  } else {
-								  additional = partnerName + " doesn't have their fee of " + 200*wife.getLevel() + " and will lose 3% xp instead.";
-							  }
-						  }
-						  npc.say("There's an offer currently, you can pay to divorce instead of losing xp. It would cost you " + 200* player.getLevel() + " money, but you do not have sufficent money here with you. " + additional + " You can take the penalty of losing 3% of your xp. Do you want to divorce, and lose the xp?");
-					  }
-				  });
-
-		clerk.add(ConversationStates.ATTENDING,
-					"divorce",
+					Arrays.asList("divorce", "rozwód"),
 					new ChatCondition() {
 						@Override
 						public boolean fire(final Player player, final Sentence sentence, final Entity npc) {
 							return (player.hasQuest(marriage.getQuestSlot())
-									&& player.getQuest(marriage.getQuestSlot()).equals("just_married"))
-									&& player.isEquipped("wedding ring");
+                                    && player.getQuest(marriage.getQuestSlot()).equals("just_married"))
+									&& player.isEquipped("obrączka ślubna");
+
 						}
 					},
 					ConversationStates.QUESTION_3,
-					"I see you haven't been on your honeymoon yet. Are you sure you want to divorce so soon?",
+					"Widzę, że jeszcze nie byłeś na miesiącu miodowym. Czy jesteś pewien, że chcesz wziąć rozwód tak szybko?",
 					null);
 
 		clerk.add(ConversationStates.ATTENDING,
-				"divorce",
+				Arrays.asList("divorce", "rozwód"),
 				new NotCondition(
 					// isMarriedCondition()
 					new ChatCondition() {
@@ -150,11 +153,11 @@ class Divorce {
 						}
 					}
 				), ConversationStates.ATTENDING,
-				"You're not even married. Stop wasting my time!",
+				"Nie wziąłeś nawet ślubu. Przestań marnować mój czas!",
 				null);
 
 		clerk.add(ConversationStates.ATTENDING,
-				"divorce",
+				Arrays.asList("divorce", "rozwód"),
 				new AndCondition(
 					// isMarriedCondition()
 					new ChatCondition() {
@@ -164,24 +167,24 @@ class Divorce {
 									(player.hasQuest(marriage.getQuestSlot()) && player.getQuest(marriage.getQuestSlot()).equals("just_married")));
 						}
 					},
-					new NotCondition(new PlayerHasItemWithHimCondition("wedding ring"))),
+					new NotCondition(new PlayerHasItemWithHimCondition("obrączka ślubna"))),
 				ConversationStates.ATTENDING,
-				"I apologise, but I need your wedding ring in order to divorce you. If you have lost yours, you can go to Ognir to make another.",
+				"Przepraszam, ale potrzebuje Twojej obrączki ślubnej, aby dać Tobie rozwód.",
 				null);
 
 		// If they say no
 		clerk.add(ConversationStates.QUESTION_3,
-				ConversationPhrases.NO_MESSAGES,
+				ConversationPhrases.NO_MESSAGES, 
 				null,
 				ConversationStates.ATTENDING,
-				"I hope you have a happy marriage, then.",
+				"Mam nadzieje, że miałeś szczęśliwe małżeństwo.", 
 				null);
 
 		// If they say yes
 		clerk.add(ConversationStates.QUESTION_3,
-				ConversationPhrases.YES_MESSAGES,
+				ConversationPhrases.YES_MESSAGES, 
 				null,
-				ConversationStates.ATTENDING,
+				ConversationStates.ATTENDING, 
 				null,
 				new ChatAction() {
 					@Override
@@ -198,8 +201,8 @@ class Divorce {
 								&& wife.hasQuest(marriage.getQuestSlot())
 								&& wife.getQuest(marriage.getSpouseQuestSlot()).equals(
 										husband.getName())) {
-							if (wife.isEquipped("wedding ring")) {
-								wife.drop("wedding ring");
+							if (wife.isEquipped("obrączka ślubna")) {
+								wife.drop("obrączka ślubna");
 							}
 							if (wife.isEquipped("money", 200*wife.getLevel())) {
 								wife.drop("money", 200*wife.getLevel());
@@ -209,10 +212,10 @@ class Divorce {
 							}
 							wife.removeQuest(marriage.getQuestSlot());
 							wife.removeQuest(marriage.getSpouseQuestSlot());
-							wife.sendPrivateText(husband.getName() + " has divorced from you.");
-							npc.say("What a pity...what a pity...and you two were married so happily, too...");
+							wife.sendPrivateText(husband.getName() + " rozwiódł się z tobą.");
+							npc.say("Co za szkoda...co za szkoda.... byliście tak szczęśliwi...");
 						} else {
-							DBCommandQueue.get().enqueue(new StoreMessageCommand("Wilfred", partnerName, husband.getName() + " has divorced from you!" , "N"));
+							DBCommandQueue.get().enqueue(new StoreMessageCommand("Wilfred", partnerName, husband.getName() + " rozwiódł się z Tobą!" , "N"));
 						}
 						if (husband.isEquipped("money", 200*husband.getLevel())) {
 							husband.drop("money", 200*husband.getLevel());
@@ -220,10 +223,10 @@ class Divorce {
 							final int xp = (int) (husband.getXP() * 0.03);
 							husband.subXP(xp);
 						}
-						husband.drop("wedding ring");
+						husband.drop("obrączka ślubna");
 						husband.removeQuest(marriage.getQuestSlot());
 						husband.removeQuest(marriage.getSpouseQuestSlot());
-						npc.say("What a pity...what a pity...and you two were married so happily, too...");
+						npc.say("Co za szkoda...co za szkoda..., a byliście tak szczęśliwi...");
 					}
 				});
 	}

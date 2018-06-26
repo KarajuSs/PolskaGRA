@@ -10,12 +10,12 @@ public class DetailsKillingsAction implements ChatAction, ITPPQuestConstants {
 	@Override
 	public void fire(final Player player, final Sentence sentence, final EventRaiser mayor) {
 		if (TPPQuestHelperFunctions.calculateReward(player)==0) {
-			mayor.say("You killed no rats during the #rats invasion. "+
-					  "To get a #reward you have to kill at least "+
-					  "one rat at that time.");
+			mayor.say("Nie zabiłeś żadnych szczurów podczas inwazji #szczurów. "+
+					  "Aby odebrać #nagrodę musisz zabić conajmniej "+
+					  "jednego szczura.");
 			return;
 		}
-		final StringBuilder sb = new StringBuilder("Well, from the last reward, you killed ");
+		final StringBuilder sb = new StringBuilder("Cóż od ostatniej nagrody zabiłeś ");
 		long moneys = 0;
 		int kills = 0;
 		for(int i=0; i<RAT_TYPES.size(); i++) {
@@ -28,16 +28,16 @@ public class DetailsKillingsAction implements ChatAction, ITPPQuestConstants {
 			}
 			// must add 'and' word before last creature in list
 			if(i==(RAT_TYPES.size()-1)) {
-				sb.append("and ");
+				sb.append("i ");
 			}
 
-			sb.append(Grammar.quantityplnoun(kills, RAT_TYPES.get(i), "a"));
+			sb.append(Grammar.quantityplnoun(kills, RAT_TYPES.get(i), ""));
 			sb.append(", ");
 			moneys = moneys + kills*RAT_REWARDS.get(i);
 		}
-		sb.append("so I will give you ");
+		sb.append("cóż dam tobie ");
 		sb.append(moneys);
-		sb.append(" money as a #reward for that job.");
+		sb.append(" money jako #nagrodę za pracę.");
 		mayor.say(sb.toString());
 	}
 

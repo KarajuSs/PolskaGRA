@@ -12,8 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests.revivalweeks;
 
-import java.util.Arrays;
-
 import games.stendhal.common.Direction;
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -27,6 +25,8 @@ import games.stendhal.server.entity.npc.NPCList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.player.Player;
 
+import java.util.Arrays;
+
 /**
  * A Game about Nine switches game for one player
  *
@@ -38,7 +38,7 @@ public class NineSwitchesGame implements LoadableContent {
 	private SpeakerNPC npc;
 
 	private static final int CHAT_TIMEOUT = 60;
-
+	
 	private void addBoard() {
 		board = new NineSwitchesGameBoard(zone, 94, 106);
 	}
@@ -46,36 +46,36 @@ public class NineSwitchesGame implements LoadableContent {
 	private void addNPC() {
 		npc = new SpeakerNPC("Maltos") {
 			@Override
-				protected void createPath() {
+			protected void createPath() {
 					// NPC doesn't move
 					setPath(null);
 			}
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hi, welcome to our small game of nine switches. Your task is to make all arrows point to the right."
-						+ " Easy? Well, there is a #catch.");
-				addReply("catch",
-						" Each switch is linked to its neighbour and will change them as well. You have one minute to solve the puzzle."
-						+ " Do you want to #play?.");
-				addJob("I am the supervisor of this game.");
-				addGoodbye("It was nice to meet you.");
+				addGreeting("Cześć. Witam w naszej małej grze dziewięć przycisków. Twoim zadaniem jest skierowanie wszystkich strzałekw prawo."
+						+ " Łatwe? Cóż jest pewien #haczyk.");
+				addReply(Arrays.asList("catch", "haczyk"), 
+						" Każdy przycisk jest połączony z sąsiednim, który je zmieni. Masz jedną minutę na rozwiązanie zagadki."
+						+ " Czy chcesz #zagrać?.");
+				addJob("Jestem mistrzem tej gry.");
+				addGoodbye("Było miło cię poznać.");
 				add(ConversationStates.ATTENDING,
-						Arrays.asList("play", "play?", "game", "yes"),
+						Arrays.asList("play", "play?", "game", "yes", "zagrać", "zagrać?", "gra", "tak"),
 						ConversationStates.ATTENDING,
-						"Good luck.",
+						"Powodzenia.",
 						new PlayAction(board));
 			}
-
+			
 			@Override
 			protected void onGoodbye(RPEntity player) {
 				setDirection(Direction.DOWN);
 			}
 		};
-		npc.setEntityClass("gamesupervisornpc");
+		npc.setEntityClass("gamesupervisornpc"); 
 		npc.setPlayerChatTimeout(CHAT_TIMEOUT);
 		npc.setPosition(98, 104);
-		npc.setDescription("You see Maltos. Aren't you jealous of his awesome hair?");
+		npc.setDescription("Oto Maltos. Nie jesteś ciekawy jego uczesania?");
 		npc.setDirection(Direction.DOWN);
 		zone.add(npc);
 	}
@@ -98,7 +98,7 @@ public class NineSwitchesGame implements LoadableContent {
 		@Override
 		public void fire(Player player, Sentence sentence, EventRaiser npc) {
 			if (board.getPlayerName() != null) {
-				npc.say("Sorry, " + player.getName() + " there is already a game in progress. Please wait a little.");
+				npc.say("Przykro mi " + player.getName() + ", ale już ktoś gra. Poczekaj na swoją kolej.");
 				return;
 			}
 			board.setPlayerName(player.getName());

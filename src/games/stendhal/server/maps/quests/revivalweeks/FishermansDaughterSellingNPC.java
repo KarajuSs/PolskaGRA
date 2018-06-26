@@ -41,15 +41,15 @@ public class FishermansDaughterSellingNPC implements LoadableContent {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hello, nice to meet you! Welcome at my small Mine Town market stand!");
-				addJob("I have been asked to work here and sell some tasty snacks and drinks during the Mine Town Revival weeks. An awesome chance to gain some cooking skills for my business which I'm working on at the moment!");
-				addHelp("You should go and enjoy the games and party around the Mine Town :) Hope you tested my favourite, the #outfit #colouring already, it's perfect for Halloween days and selfmade costumes :)");
-				addReply(Arrays.asList("outfit", "colouring", "outfit colouring"),
-		        "It's just pefect for Semos Mine Town Revival weeks and Halloween! You can recolour your outfit by right clicking on yourself. Choose Set Outfit and then pick your favourite colour for hair and dress! It's awesome!");
-				addReply("susi", "Oh she is a lovely girl! I met her around here, she is so happy that she can celebrate with all of us again!");
-				addOffer("I sell some snacks and drinks during the Mine Town Weeks. Please take a look at the list close to the stand.");
-				addQuest("I heard that #Susi would love to make friends, she is inside of the house. Or you can ask Fidorea next to me about a little run.");
-				addGoodbye("Bye, hope you'll enjoy the days here!");
+				addGreeting("Cześć miło cię widzieć! Witaj w moim małym kramie w Mine Town!");
+				addJob("Zostałam poproszona o popracowanie tutaj i sprzedawanie pysznych przekąsek i napojów podczas tygodnii Mine Town Revival. To wspaniała szansa na zdobycie umiejętności w gotowaniu w branży, w której teraz pracuję!");
+				addHelp("Powinieneś zobaczyć i pograć w gry w Mine Town :) Mam nadzieję, że sprawdziłeś mój ulubiony #kolorowy #wygląd. Jest doskonały na Halloween i na kostiumy własnego pomysłu :)");
+				addReply(Arrays.asList("outfit", "colouring", "outfit colouring", "kolorowy", "wygląd", "kolorowy wygląd"),
+		        "Nowość przyszła w samą porę na Semos Mine Town Revival weeks i Halloween, Możesz pokolorować swój wygląd naciskając prawy przycisk i wybierając Ustaw Wygląd wybrać swój ulubiony kolor dla włosów i ubrania! To jest niesamowite!");
+				addReply("susi", "Oh jest kochanym dzieckiem! Spotkałam ją tutaj. Jest taka szczęśliwa, że może świętować ze wszystkimi!");
+				addOffer("Sprzedaję przekąski i napoje podczas Mine Town Weeks. Zobacz na listę.");
+				addQuest("Słyszałam, że #Susi lubi poznawać nowych przyjaciół. Jest w domku. Lub możesz zapytać Fidorea o małe bieganie.");
+				addGoodbye("Dowidzenia mam nadzieje, że będziesz się dobrze bawił!");
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("sellrevivalweeks")), false);
 			}
 
