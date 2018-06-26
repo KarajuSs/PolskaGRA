@@ -29,6 +29,7 @@ import games.stendhal.server.entity.item.Item;
 import games.stendhal.server.entity.item.StackableItem;
 import games.stendhal.server.entity.player.Player;
 import marauroa.common.game.IRPZone;
+
 /**
  * Script to make all players stronger and immune to poison before randomly distributing them
  * over all zones of the running server
@@ -99,7 +100,7 @@ public class MoveAndStrengthenOnlinePlayers extends ScriptImpl {
 				}
 
 				private void fillBag(Player player) {
-					String[] items = {"leek", "porcini", "potion", "antidote", "beer", "minor potion", "home scroll", "ados city scroll", "empty scroll"};
+					String[] items = {"por", "borowik", "eliksir", "antidotum", "sok z chmielu", "mały eliksir", "zwój semos", "zwój ados", "niezapisany zwój"};
 					for(String item : items) {
 						StackableItem stackable = (StackableItem) SingletonRepository.getEntityManager().getItem(item);
 						stackable.setQuantity(50);
@@ -111,49 +112,49 @@ public class MoveAndStrengthenOnlinePlayers extends ScriptImpl {
 					StackableItem money = (StackableItem) SingletonRepository.getEntityManager().getItem("money");
 					money.setQuantity(5000);
 					player.equipToInventoryOnly(money);
-					StackableItem potions = (StackableItem) SingletonRepository.getEntityManager().getItem("greater potion");
+					StackableItem potions = (StackableItem) SingletonRepository.getEntityManager().getItem("duży eliksir");
 					potions.setQuantity(5000);
 					player.equipToInventoryOnly(potions);
-					if(!player.isEquipped("chaos dagger")) {
+					if(!player.isEquipped("sztylet chaosu")) {
 						Item first = (Item) player.getSlot("rhand").getFirst();
 						player.drop(first);
-						Item dagger = SingletonRepository.getEntityManager().getItem("chaos dagger");
+						Item dagger = SingletonRepository.getEntityManager().getItem("sztylet chaosu");
 						player.equip("rhand", dagger);
 					}
-					if(!player.isEquipped("chaos shield")) {
+					if(!player.isEquipped("tarcza chaosu")) {
 						Item first = (Item) player.getSlot("lhand").getFirst();
 						player.drop(first);
-						Item shield = SingletonRepository.getEntityManager().getItem("chaos shield");
+						Item shield = SingletonRepository.getEntityManager().getItem("tarcza chaosu");
 						player.equip("lhand", shield);
 					}
-					if(!player.isEquipped("black helmet")) {
+					if(!player.isEquipped("czarny hełm")) {
 						Item first = (Item) player.getSlot("head").getFirst();
 						player.drop(first);
-						Item helmet = SingletonRepository.getEntityManager().getItem("black helmet");
+						Item helmet = SingletonRepository.getEntityManager().getItem("czarny hełm");
 						player.equip("head", helmet);
 					}
-					if(!player.isEquipped("elvish legs")) {
+					if(!player.isEquipped("spodnie elfickie")) {
 						Item first = (Item) player.getSlot("legs").getFirst();
 						player.drop(first);
-						Item legs = SingletonRepository.getEntityManager().getItem("elvish legs");
+						Item legs = SingletonRepository.getEntityManager().getItem("spodnie elfickie");
 						player.equip("legs", legs);
 					}
-					if(!player.isEquipped("killer boots")) {
+					if(!player.isEquipped("buty zabójcy")) {
 						Item first = (Item) player.getSlot("feet").getFirst();
 						player.drop(first);
-						Item boots = SingletonRepository.getEntityManager().getItem("killer boots");
+						Item boots = SingletonRepository.getEntityManager().getItem("buty zabójcy");
 						player.equip("feet", boots);
 					}
-					if(!player.isEquipped("green dragon cloak")) {
+					if(!player.isEquipped("szmaragdowy płaszcz smoczy")) {
 						Item first = (Item) player.getSlot("cloak").getFirst();
 						player.drop(first);
-						Item cloak = SingletonRepository.getEntityManager().getItem("green dragon cloak");
+						Item cloak = SingletonRepository.getEntityManager().getItem("szmaragdowy płaszcz smoczy");
 						player.equip("cloak", cloak);
 					}
 				}
 			});
 		}
-
+		
 	}
 
 }

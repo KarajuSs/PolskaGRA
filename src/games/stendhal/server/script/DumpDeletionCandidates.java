@@ -24,7 +24,7 @@ public class DumpDeletionCandidates extends ScriptImpl {
 
 	@Override
 	public void execute(Player admin, List<String> args) {
-	    admin.sendPrivateText("Important: You need to edit the script to define the highest RPObject number.");
+	    admin.sendPrivateText("Ważne: <musisz wyedytować skrypt, aby zdefiniować najwyższy numer RPObject.");
 		for (int i = 1; i < 0; i++) {
 			RPObject object = null;
 			try {
@@ -43,7 +43,7 @@ public class DumpDeletionCandidates extends ScriptImpl {
 	private void dumpObject(RPObject object) {
 		StringBuilder items = new StringBuilder();
 			final String[] slotsItems = { "bag", "rhand", "lhand", "head", "neck", "armor",
-					"legs", "glove", "feet", "finger", "cloak", "fingerb", "bank", "bank_ados",
+					"legs", "glove", "feet", "finger", "cloak", "fingerb", "pas", "bank", "bank_ados",
 					"zaras_chest_ados", "bank_fado", "bank_nalwor", "spells", "keyring", "money", "trade"};
 
 			for (final String slotName : slotsItems) {

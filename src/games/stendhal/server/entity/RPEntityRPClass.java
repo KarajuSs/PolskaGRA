@@ -113,15 +113,15 @@ public class RPEntityRPClass {
 		entity.addRPSlot("glove", 1, Definition.PRIVATE);
 		entity.addRPSlot("legs", 1, Definition.PRIVATE);
 		entity.addRPSlot("feet", 1, Definition.PRIVATE);
-      entity.addRPSlot("back", 1, Definition.PRIVATE);
-      entity.addRPSlot("pas", 1, Definition.PRIVATE);
-      entity.addRPSlot("belt", 1, Definition.PRIVATE);
-    entity.addRPSlot("money", 1, Definition.PRIVATE);
+			entity.addRPSlot("back", 1, Definition.PRIVATE);
+			entity.addRPSlot("pas", 1, Definition.PRIVATE);
+			entity.addRPSlot("belt", 1, Definition.PRIVATE);
+		entity.addRPSlot("money", 1, Definition.PRIVATE);
 
-    entity.addRPSlot("bag", 12, Definition.PRIVATE);
-    entity.addRPSlot("keyring", 8, Definition.PRIVATE);
+		entity.addRPSlot("bag", 12, Definition.PRIVATE);
+		entity.addRPSlot("keyring", 8, Definition.PRIVATE);
 
-    entity.addRPEvent("attack", Definition.VOLATILE);
+		entity.addRPEvent("attack", Definition.VOLATILE);
     }
 
 }

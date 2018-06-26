@@ -93,6 +93,8 @@ public abstract class RPEntity extends GuidedEntity {
 	private static final float NECKLACE_DEF_MULTIPLIER = 1.0f;
 
 	private static final float GLOVE_DEF_MULTIPLIER = 2.0f;
+	
+	private static final float BELT_DEF_MULTIPLIER = 1.5f;
 
 	/**
 	 * The title attribute name.
@@ -2852,6 +2854,14 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 	public Item getMoney() {
 		return getEquippedItemClass("money", "money");
 	}
+	
+	public boolean hasBelt() {
+		return isEquippedItemClass("pas", "pas");
+	}
+
+	public Item getBelt() {
+		return getEquippedItemClass("pas", "pas");
+	}
 
 	@Override
 	public String describe() {
@@ -2924,6 +2934,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 		int necklace = 0;
 		int ring = 0;
 		int ringb = 0;
+		int pas = 0;
 
 		Item item;
 
@@ -2976,6 +2987,11 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 			item = getGloves();
 			glove = (int) (item.getDefense() / getItemLevelModifier(item));
 		}
+		
+		if (hasBelt()) {
+			item = getBelt();
+			pas = (int) (item.getDefense() / getItemLevelModifier(item));
+		}
 
 		final List<Item> targetWeapons = getWeapons();
 		for (final Item weaponItem : targetWeapons) {
@@ -2987,6 +3003,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 				+ HELMET_DEF_MULTIPLIER * helmet + NECKLACE_DEF_MULTIPLIER * necklace
 				+ LEG_DEF_MULTIPLIER * legs + BOOTS_DEF_MULTIPLIER * boots
 				+ RING_DEF_MULTIPLIER * ring + RING_DEF_MULTIPLIER * ringb
+				+ BELT_DEF_MULTIPLIER * pas
 				+ WEAPON_DEF_MULTIPLIER * weapon;
 	}
 
@@ -3028,6 +3045,9 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 		}
 		if (hasGloves()) {
 			items.add(getGloves());
+		}
+		if (hasBelt()) {
+			items.add(getBelt());
 		}
 		return items;
 	}

@@ -34,6 +34,7 @@ create table if not exists character_stats
   finger varchar(32),
   fingerb varchar(32),
   feet varchar(32),
+  pas varchar(32),
 
   zone varchar(50),
 

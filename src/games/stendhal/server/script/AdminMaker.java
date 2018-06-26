@@ -49,13 +49,13 @@ public class AdminMaker extends ScriptImpl {
 	private static final String TELE_QUEST_SLOT = "AdminMakerTele";
 
 	private final List<String> itemsSingle = Arrays.asList("rod of the gm",
-			"golden shield", "golden armor", "golden cloak",
-			"golden helmet", "golden legs", "golden boots",
-			"hunter crossbow");
+			"złota tarcza", "złota zbroja", "złoty płaszcz",
+			"złoty hełm", "złote spodnie", "złote buty",
+			"kusza łowcy");
 
 	private final List<String> itemsStack = Arrays.asList("money",
-			"greater potion", "greater antidote", "power arrow",
-			"deadly poison");
+			"duży eliksir", "mocne antidotum", "strzała płonąca",
+			"śmiertelna trucizna");
 
 
 	protected class UpgradeAction implements ChatAction {
@@ -124,7 +124,7 @@ public class AdminMaker extends ScriptImpl {
 
 		@Override
 		public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-			raiser.say("I will give you some items, and adjust your level and skills. Also, your keyring is enabled.");
+			raiser.say("Dostaniesz trochę przedmiotów, poziomów i umiejętności oraz odblokowany tobie rzemyk.");
 			xpGain(player);
 			equip(player);
 			admin(player);
@@ -206,7 +206,7 @@ public class AdminMaker extends ScriptImpl {
 
 			// before we send the player off into the unknown give a marked
 			// scroll
-			final Item markedScroll = sandbox.getItem("marked scroll");
+			final Item markedScroll = sandbox.getItem("zwój zapisany");
 			markedScroll.setInfoString(player.getID().getZoneID() + " "
 					+ player.getX() + " " + player.getY());
 			markedScroll.setBoundTo(player.getName());
@@ -216,12 +216,12 @@ public class AdminMaker extends ScriptImpl {
 				if (randomTeleport(player)) {
 					// todo: priv msg doesn't work
 					player.sendPrivateText(player.getTitle()
-							+ " use the scroll to come back here. Use /teleport <playername> <zonename> <x> <y> to beam to a different place.");
+							+ " użyj zwoju, aby wrócić. Użyj /teleport <nazwa_wojownika> <obszar> <x> <y>, aby dostać się do innego miejsca.");
 				} else {
-					raiser.say("oops, looks like you found a bug.");
+					raiser.say("Wygląda na to, że znalazłeś lukę w grze.");
 				}
 			} else {
-				raiser.say("Ask me again when you have room for a scroll.");
+				raiser.say("Zapytaj mnie znowu, gdy będziesz miał miejsce na na zwój.");
 			}
 
 		}
@@ -269,13 +269,13 @@ public class AdminMaker extends ScriptImpl {
 		sandbox.add(npc);
 
 		// Create Dialog
-		npc.behave("greet", "Hi, how can i #help you?");
+		npc.behave("greet", "Cześć. W czym mogę #pomóc?");
 		npc.behave("help",
-				"Perhaps you would like a free power #upgrade and maybe a #random destination?");
+				"Może chciałbyś uwolnić moc #aktualizacji i może #dowolnego celu?");
 		npc.addGoodbye();
-		npc.add(ConversationStates.ATTENDING, "upgrade", null,
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("upgrade", "aktualizacji"), null,
 				ConversationStates.ATTENDING, null, new UpgradeAction());
-		npc.add(ConversationStates.ATTENDING, "random", null,
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("random", "dowolnego"), null,
 				ConversationStates.ATTENDING, null, new TeleportAction());
 
 	}
