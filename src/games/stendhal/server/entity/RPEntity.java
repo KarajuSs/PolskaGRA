@@ -94,7 +94,7 @@ public abstract class RPEntity extends GuidedEntity {
 
 	private static final float GLOVE_DEF_MULTIPLIER = 2.0f;
 	
-	private static final float BELT_DEF_MULTIPLIER = 1.5f;
+	private static final float PAS_DEF_MULTIPLIER = 1.5f;
 
 	/**
 	 * The title attribute name.
@@ -2855,11 +2855,11 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 		return getEquippedItemClass("money", "money");
 	}
 	
-	public boolean hasBelt() {
+	public boolean hasPas() {
 		return isEquippedItemClass("pas", "pas");
 	}
 
-	public Item getBelt() {
+	public Item getPas() {
 		return getEquippedItemClass("pas", "pas");
 	}
 
@@ -2988,8 +2988,8 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 			glove = (int) (item.getDefense() / getItemLevelModifier(item));
 		}
 		
-		if (hasBelt()) {
-			item = getBelt();
+		if (hasPas()) {
+			item = getPas();
 			pas = (int) (item.getDefense() / getItemLevelModifier(item));
 		}
 
@@ -3003,7 +3003,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 				+ HELMET_DEF_MULTIPLIER * helmet + NECKLACE_DEF_MULTIPLIER * necklace
 				+ LEG_DEF_MULTIPLIER * legs + BOOTS_DEF_MULTIPLIER * boots
 				+ RING_DEF_MULTIPLIER * ring + RING_DEF_MULTIPLIER * ringb
-				+ BELT_DEF_MULTIPLIER * pas
+				+ PAS_DEF_MULTIPLIER * pas
 				+ WEAPON_DEF_MULTIPLIER * weapon;
 	}
 
@@ -3046,8 +3046,8 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 		if (hasGloves()) {
 			items.add(getGloves());
 		}
-		if (hasBelt()) {
-			items.add(getBelt());
+		if (hasPas()) {
+			items.add(getPas());
 		}
 		return items;
 	}
