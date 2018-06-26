@@ -118,7 +118,7 @@ public class PlayerTransformer implements Transformer {
 			player.remove(GRUMPY);
 		}
 	}
-	
+
 	public void convertOldfeaturesList(final Player player) {
 		if (player.has("features")) {
 			logger.info("Converting features for " + player.getName() + ": "
@@ -137,7 +137,7 @@ public class PlayerTransformer implements Transformer {
 
 	/**
 	 * Loads the items into the slots of the player on login.
-	 * 
+	 *
 	 * @param player
 	 *            Player
 	 */
@@ -145,7 +145,8 @@ public class PlayerTransformer implements Transformer {
 
 		// load items
 		final String[] slotsItems = { "bag", "rhand", "lhand", "neck", "head", "armor",
-				"legs", "feet", "finger", "fingerb", "glove", "cloak", "back", "pas", "belt", "keyring", "money", "trade" };
+				"legs", "feet", "finger", "fingerb", "glove", "cloak", "back", "pas", "belt",
+				"keyring", "money", "trade" };
 
 		try {
 			for (final String slotName : slotsItems) {
@@ -342,7 +343,7 @@ public class PlayerTransformer implements Transformer {
 		for (final RPObject rpobject : objects) {
 			try {
 				// remove admin items the player does not deserve
-				if (ITEMS_FOR_ADMINS.contains(rpobject.get("name")) 
+				if (ITEMS_FOR_ADMINS.contains(rpobject.get("name"))
 						&& (!player.has("adminlevel") || player.getInt("adminlevel") < 20)) {
 					logger.warn("removed admin item " + rpobject.get("name") + " from player " + player.getName());
 					new ItemLogger().destroyOnLogin(player, slot, rpobject);
@@ -404,7 +405,7 @@ public class PlayerTransformer implements Transformer {
 	}
 
 
-	
+
 	public static final String DEFAULT_ENTRY_ZONE = "int_zakopane_home";
 	public static final String RESET_ENTRY_ZONE = "int_zakopane_home";
 

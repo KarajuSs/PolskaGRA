@@ -22,7 +22,7 @@ public final class Constants {
 	 */
 	// TODO: let the slots decide that themselves
 	public static final String[] CARRYING_SLOTS = { "bag", "neck", "head", "cloak",
-			"lhand", "armor", "rhand", "finger", "legs", "keyring", "magicbag", "back", "pas", "belt",
+			"lhand", "armor", "rhand", "finger", "legs", "keyring", "back", "pas", "belt",
 			"fingerb", "feet", "glove", "money" };
 
 }

@@ -182,7 +182,7 @@ public abstract class UpdateConverter {
      */
     public static void updatePlayerRPObject(final RPObject object) {
     	final String[] slotsNormal = { "bag", "rhand", "lhand", "head", "neck", "armor",
-    			"legs", "glove", "feet", "finger", "cloak", "fingerb", "bank", "bank_ados",
+    			"legs", "glove", "feet", "finger", "cloak", "fingerb", "pas", "bank", "bank_ados",
     			"zaras_chest_ados", "bank_fado", "bank_nalwor", "spells",
     			"keyring", "money", "trade" };
 
@@ -330,7 +330,7 @@ public abstract class UpdateConverter {
 		if (object.has("outfit_org") && !object.has("outfit_expire_age")) {
 			object.put("outfit_expire_age", 0);
 		}
-		
+
 		// port to 29.2
 		if (!object.has("gender")) {
 			object.put("gender", "M");
