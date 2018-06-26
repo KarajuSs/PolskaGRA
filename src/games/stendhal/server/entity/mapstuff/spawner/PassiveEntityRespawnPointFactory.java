@@ -14,6 +14,7 @@ package games.stendhal.server.entity.mapstuff.spawner;
 
 import java.util.Arrays;
 
+
 import org.apache.log4j.Logger;
 
 import marauroa.common.game.IRPZone.ID;
@@ -22,8 +23,7 @@ import marauroa.common.game.IRPZone.ID;
  * creates a PassiveEntityRespawnPoint.
  */
 public class PassiveEntityRespawnPointFactory {
-	private static Logger logger = Logger
-			.getLogger(PassiveEntityRespawnPointFactory.class);
+	private static Logger logger = Logger.getLogger(PassiveEntityRespawnPointFactory.class);
 
 	/**
 	 * creates a PassiveEntityRespawnPoint.
@@ -350,7 +350,7 @@ public class PassiveEntityRespawnPointFactory {
 		}
 		return passiveEntityrespawnPoint;
 	}
-
+	
 	private static PassiveEntityRespawnPoint createGrain(final int type) {
 		PassiveEntityRespawnPoint passiveEntityrespawnPoint;
 		switch (type) {

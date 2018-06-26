@@ -348,7 +348,7 @@ class OutfitDialog extends JDialog {
 		});
 		cancelButton.setMnemonic(KeyEvent.VK_C);
 		buttonBox.add(cancelButton);
-		JButton okButton = new JButton("PolskaGRA - Zmień wygląd");
+		JButton okButton = new JButton("Zmień wygląd");
 		okButton.setMnemonic(KeyEvent.VK_A);
 		okButton.addActionListener(new ActionListener() {
 			@Override

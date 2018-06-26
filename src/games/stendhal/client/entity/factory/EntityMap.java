@@ -61,7 +61,6 @@ import games.stendhal.client.entity.Wall;
  * eclass represents a subtype of type
  * <p>
  * EntityMap encapsulates the implementation
- *
  */
 public final class EntityMap {
 	private static Map<Triple<String, String, String>, Class< ? extends IEntity>> entityMap = new HashMap<Triple<String, String, String>, Class< ? extends IEntity>>();
@@ -86,6 +85,8 @@ public final class EntityMap {
 		register("baby_dragon", null, null, Pet.class);
 		register("purple_dragon", null, null, Pet.class);
 		register("cat", null, null, Pet.class);
+		register("owczarek", null, null, Pet.class);
+		register("owczarek_podhalanski", null, null, Pet.class);
 		register("pet", null, null, Pet.class);
 
 		register("npc", null, null, NPC.class);
@@ -104,6 +105,18 @@ public final class EntityMap {
 		register("gold_source", null, null, StatefulEntity.class);
 		register("fish_source", null, null, StatefulEntity.class);
 		register("well_source", null, null, StatefulEntity.class);
+		register("source_ametyst", null, null, StatefulEntity.class);
+		register("source_carbuncle", null, null, StatefulEntity.class);
+		register("source_emerald", null, null, StatefulEntity.class);
+		register("source_gold", null, null, StatefulEntity.class);
+		register("source_iron", null, null, StatefulEntity.class);
+		register("source_mithril", null, null, StatefulEntity.class);
+		register("source_obsidian", null, null, StatefulEntity.class);
+		register("source_salt", null, null, StatefulEntity.class);
+		register("source_sapphire", null, null, StatefulEntity.class);
+		register("source_silver", null, null, StatefulEntity.class);
+		register("source_sulfur", null, null, StatefulEntity.class);
+		register("wood_source", null, null, StatefulEntity.class);
 		// deprecated end
 
 		register("area", null, null, InvisibleEntity.class);
@@ -138,6 +151,7 @@ public final class EntityMap {
 		register("item", "money", null, StackableItem.class);
 		register("item", "missile", null, StackableItem.class);
 		register("item", "ammunition", null, StackableItem.class);
+		register("item", "magia", null, StackableItem.class);
 		register("item", "container", null, StackableItem.class);
 		register("item", "special", null, StackableItem.class);
 		register("item", "special", "mithril clasp", Item.class);
@@ -191,7 +205,6 @@ public final class EntityMap {
 	 *            the subtype of type such as book, drink, food , ,
 	 *            small_animal, huge_animal
 	 * @param subClass
-	 *
 	 * @return the java class of the Entity belonging to type and eclass
 	 */
 	public static Class< ? extends IEntity> getClass(final String type,
@@ -207,7 +220,6 @@ public final class EntityMap {
 					null, null));
 		}
 		if (result == null) {
-
 			Logger.getLogger(EntityMap.class).error("no class for " + type + "," + eclass + "," + subClass);
 		}
 		// System.out.println(type + "," + eclass + "," + subClass);
