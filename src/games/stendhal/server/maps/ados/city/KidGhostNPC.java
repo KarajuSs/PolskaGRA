@@ -12,11 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.city;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -29,6 +24,11 @@ import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.condition.GreetingMatchesNameCondition;
 import games.stendhal.server.entity.player.Player;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds a Ghost NPC.
@@ -79,7 +79,7 @@ public class KidGhostNPC implements ZoneConfigurator {
 			    	null,
 			    	new ChatAction() {
 			    		@Override
-						public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
+			    		public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
 			    			if (!player.hasQuest("find_ghosts")) {
 			    				player.setQuest("find_ghosts", "looking:said");
 			    			}
@@ -99,12 +99,12 @@ public class KidGhostNPC implements ZoneConfigurator {
 							}
 			    			final List<String> list = Arrays.asList(lookStr.split(";"));
 						    if (list.contains(npc.getName()) || player.isQuestCompleted("find_ghosts")) {
-							    npc.say("Hello again. I'm glad you remember me. I'll just keep walking here till I have someone to play with.");
+								npc.say("Cześć. Cieszę się, że mnie pamiętasz. Przechadzam się tędy i czekam, aż ktoś się ze mną pobawi.");
 							} else {
 							    player.setQuest("find_ghosts", lookStr
 									    + ";" + npc.getName()
 									    + ":" + saidStr);
-							    npc.say("Hello! Hardly anyone speaks to me. The other children pretend I don't exist. I hope you remember me.");
+								npc.say("Cześć! Każdemu jest ciężko ze mną rozmawiać. Inne dzieci udają, że nie istnieję. Mam nadzieję, że mnie pamiętasz.");
 							    player.addXP(100);
 							    player.addKarma(10);
 							}
@@ -113,7 +113,7 @@ public class KidGhostNPC implements ZoneConfigurator {
 			}
 		};
 
-		ghost.setDescription("You see a ghostly figure of a small boy.");
+		ghost.setDescription("Oto duch małego chłopca.");
 		ghost.setResistance(0);
 		ghost.setEntityClass("kid7npc");
 		// He is a ghost so he is see through

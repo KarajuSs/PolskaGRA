@@ -60,17 +60,17 @@ public class WallSoldier2NPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hello, welcome to the beautifull city of Ados!");
-				addJob("Together with the other soldiers here, we are guarding the south wall of the city.");
-				addHelp("I am afraid I cannot help you. Better ask Julius an the main city entrance.");
-				addGoodbye("Have a nice day.");
+				addGreeting("Cześć i witaj w mieście Ados!");
+				addJob("Praca? Czy czasem nie jesteś ślepy? Jestem strażnikiem! Czy to nie jest oczywiste? Teraz ruszaj się, obywatelu. Nie mam czasu na pogawędkę.");
+				addHelp("Jeżeli potrzebujesz mapy Ados oraz poprowadził Ciebie wokół miasta, to tylko żołnierz Julius, który znajduje się blisko bramy miasta.");
+				addGoodbye("Mam nadzieje, że dobrze bawisz się w Ados.");
 			}
 		};
 
 		npc.setEntityClass("youngsoldiernpc");
 		npc.setPosition(80, 73);
 		npc.initHP(100);
-		npc.setDescription("You see Hermius, a soldier who guards the city wall of Ados.");
+		npc.setDescription("Oto Hermius, żołnierz, który strzeże mury miasta Ados.");
 		zone.add(npc);
 	}
 }

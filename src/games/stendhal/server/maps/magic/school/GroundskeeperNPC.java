@@ -12,16 +12,16 @@
  ***************************************************************************/
 package games.stendhal.server.maps.magic.school;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds the groundskeeper NPC.
@@ -65,19 +65,19 @@ public class GroundskeeperNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hello my friend. Nice day for walking isn't it?");
-				addReply(ConversationPhrases.NO_MESSAGES, "Oh sorry. Hope tomorrow your day is a better one.");
-				addReply(ConversationPhrases.YES_MESSAGES, "Fine fine, I hope you enjoy your day.");
-				addJob("My job is to clean up school, repair broken things! That's enough to do for a whole day!");
-				addHelp("I can not help you, I am busy all the day. But you could help me with a 'little' #task!");
-				addGoodbye("Bye.");
+				addGreeting("Cześć przyjacielu. Miły dzień na spacer nieprawdaż?");
+				addReply(ConversationPhrases.NO_MESSAGES, "Och przepraszam. Może jutro będziesz miał lepszy dzień.");
+				addReply(ConversationPhrases.YES_MESSAGES, "Dobrze, dobrze. Mam nadzieję, że cieszysz się dniem.");
+				addJob("Moją pracą jest sprzątanie szkoły i naprawa zepsutych rzeczy! Mam dużo pracy!");
+				addHelp("Nie mogę Tobie pomóc. Jestem zajęty przez cały dzień, ale ty mógłbyś mi pomóc w małym #zadaniu!");
+				addGoodbye("Dowidzenia.");
 			}
 		};
 
 		groundskeeperNPC.setEntityClass("groundskeepernpc");
 		groundskeeperNPC.setPosition(35, 13);
 		groundskeeperNPC.initHP(1000);
-		groundskeeperNPC.setDescription("You see Morgrin, the facility manager of the Magic City school. He is always busy and needs a helping hand.");
+		groundskeeperNPC.setDescription("Oto Morgrin, kierownik szkoły w Magic City. Jest zawsze zajęty i potrzebuje pomocnej dłoni.");
 		zone.add(groundskeeperNPC);
 	}
 }

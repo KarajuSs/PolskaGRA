@@ -12,15 +12,15 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ratcity.house1;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds a Rat Mother NPC.
@@ -48,24 +48,24 @@ public class OldRatWomanNPC implements ZoneConfigurator {
 				nodes.add(new Node(3, 13));
 				nodes.add(new Node(12, 13));
 				nodes.add(new Node(12, 4));
-
+				
 				setPath(new FixedPath(nodes, true));
 			}
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hello there.");
-				addJob("Leave it to my children to not check in once in a while.");
-				addHelp("I have no help to offer you.");
-				addGoodbye("Bye");
+				addGreeting("Witaj.");
+				addJob("Nie zostawiaj moich dzieci na pastwę losu. Popatrz za nimi co jakiś czas.");
+				addHelp("Nie mogę Ci w niczym pomóc.");
+				addGoodbye("Dowidzenia");
 				// remaining behaviour defined in games.stendhal.server.maps.quests.FindRatChildren
 			}
 		};
-		woman.setDescription("You see an old ratwoman. She appears somehow worried.");
+		woman.setDescription("Widzisz człekoszczurzyce matkę. Wygląda na zatroskaną.");
+		
 
-
-		woman.setEntityClass("noimagenpc"); /* oldratwomannpc */
-
+		woman.setEntityClass("oldratwomannpc");
+		
 		woman.setPosition(3, 4);
 		// She has low HP
 		woman.initHP(30);

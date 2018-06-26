@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.nalwor.basement;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -25,6 +21,10 @@ import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.BuyerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.BuyerBehaviour;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Inside Nalwor Inn basement .
@@ -55,17 +55,17 @@ public class ArcheryDealerNPC implements ZoneConfigurator  {
 
 			@Override
 			public void createDialog() {
-				addGreeting("Well met, kind stranger.");
-				addJob("I buy archery equipment for our village.");
-				addHelp("I can offer you no help. Sorry.");
-				addOffer("Check the blackboard for prices.");
-				addQuest("I have no quest for you.");
-				addGoodbye("Have a happy. Bye.");
-				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buyarcherstuff")), false);
+				addGreeting("Miłe spotkanie nieznajomy.");
+				addJob("Skupuję łucznicze wyposażenie dla naszej wioski.");
+				addHelp("Nie mogę zaoferować Tobie pomocy. Przykro mi.");
+				addOffer("Spójrz na tablicę i sprawdź ceny.");
+				addQuest("Nie mam dla Ciebie zadania.");
+				addGoodbye("Bądź szczęśliwy. Dowidzenia.");
+				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buyarcherstuff")), false);			    
 			}};
 			npc.setPosition(10, 5);
-			npc.setDescription("You see the beautiful mage elf Merenwen. She buys some nice archery stuff.");
+			npc.setDescription("Oto piękna czarodziejka elfów Merenwen. Skupuje przedmioty związane z łucznictwem.");
 			npc.setEntityClass("mageelfnpc");
-			zone.add(npc);
-	}
+			zone.add(npc);		
+   	}
 }

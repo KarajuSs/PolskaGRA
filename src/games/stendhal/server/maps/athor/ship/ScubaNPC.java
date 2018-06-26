@@ -12,8 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.athor.ship;
 
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.config.ZoneConfigurator;
@@ -29,6 +27,9 @@ import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.QuestCompletedSellerBehaviour;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.athor.ship.AthorFerry.Status;
+
+import java.util.Arrays;
+import java.util.Map;
 
 /** Factory for the Scuba Diver on Athor Ferry. */
 
@@ -48,24 +49,24 @@ public class ScubaNPC implements ZoneConfigurator  {
 
 			@Override
 			public void createDialog() {
-				addGoodbye("So long...");
-				addHelp("Hm, maybe you'd like to go on an adventure?");
-				addOffer("To licensed divers I can sell #scuba #gear.");
-				new SellerAdder().addSeller(this, new QuestCompletedSellerBehaviour("get_diving_license", "I can't sell #scuba #gear to just anyone!", shops.get("sellScubaStuff")), false);
-				addJob("I'm an assistant on this ship.");
-
+				addGoodbye("Żegnaj...");
+				addHelp("Hm może chcesz wyruszyć po przygody?");
+				addOffer("Licencjonowanym nurkom mogę sprzedać #zbroję #akwalungową.");
+				new SellerAdder().addSeller(this, new QuestCompletedSellerBehaviour("get_diving_license", "Nie mogę sprzedać każdemu #zbroi #akwalungowej!", shops.get("sellScubaStuff")), false);
+				addJob("Jestem pomocnikiem na tym statku.");
+				
 				//scuba gear phrases
-				addReply("scuba gear","You need scuba gear to explore the beautiful world below the sea.");
-				addReply("scuba","You need scuba gear to explore the beautiful world below the sea.");
-				addReply("gear","You need scuba gear to explore the beautiful world below the sea.");
+				addReply(Arrays.asList("scuba gear", "zbroja akwalungowa", "zbroi akwalungowej", "zbroję akwalungową"),"Potrzebujesz zbroi akwalungowej, aby odkrywać piękny podwodny morski świat.");
+				addReply(Arrays.asList("scuba", "akwalungowa", "akwalungowej", "akwalungową"),"Potrzebujesz zbroi akwalungowej, aby odkrywać piękny podwodny morski świat.");
+				addReply(Arrays.asList("gear", "zboja", "zbroi", "zbroję"),"Potrzebujesz zbroi akwalungowej, aby odkrywać piękny podwodny morski świat.");
 				//clue for the player.
-				addReply("study","Go to a library and check out the Diver's Handbook.");
-
+				addReply(Arrays.asList("study", "studiowanie", "uczyć"),"Idź do biblioteki i poszukaj Podręcznik Nurkowania.");
+				
 				//quest phrases;
-				addReply("license","Scuba diving can be dangerous before I can give you scuba gear you need to pass an #exam.");
-				addReply("Mizuno","Do I know that name? Hmm... why yes! Come to think of it we sometimes see a man by that name wandering the #swamp during our breaks on the mainland.");
-				addReply("swamp","Ai it lies just north of the dock but, beware that marsh has been haunted since the days of #Blordrough.");
-				addReply("Blordrough","The demon lord Blordrough waged war in these lands some years ago until the day his army was routed by a coalition of the wood elves and Deniran forces. The three armies fought tooth and nail but, in the end, the demon lord flooded the lake and fled out to sea.");
+				addReply(Arrays.asList("license", "licencja", "licencji"),"Podwodne nurkowanie może być niebezpieczne nim dam ci zbroję akwalungową to musisz zdać #egzamin.");
+				addReply("Mizuno","Czy znam to imię? Hmm... tak! Zastanaiwając się czasami widzimy człowieka o tym imieniu, który idzie przez #bagno podczas naszej przerwy na lądzie.");
+				addReply(Arrays.asList("swamp", "bagno"),"Zanjduje się na północ od doków, ale strzeż się moczarów odkąd pojawili się tam #Blordroughty.");
+				addReply(Arrays.asList("Blordrough", "Blordroughty"),"Demoniczny władca Blordroughtów prowadzi tam wojnę od kilku lat, aż do dnia, gdy trafili na koalicję drzewnych elfów i sił Deniran. Trzy armie walczyły zaciekle, ale w końcu demoniczny władca przypomocy jeziora wypłukał wszystko do morza.");
 				add(ConversationStates.ATTENDING,
 						"status",
 						null,
@@ -84,11 +85,11 @@ public class ScubaNPC implements ZoneConfigurator  {
 			protected void onGoodbye(final RPEntity player) {
 				// Turn back to the sea.
 				setDirection(Direction.LEFT);
-			}
+			}	
 		};
 
 		new AthorFerry.FerryListener() {
-
+			
 			@Override
 			public void onNewFerryState(final Status status) {
 				ferrystate = status;
@@ -96,11 +97,11 @@ public class ScubaNPC implements ZoneConfigurator  {
 				case ANCHORED_AT_MAINLAND:
 				case ANCHORED_AT_ISLAND:
 					// capital letters symbolize shouting
-					npc.say("LET GO ANCHOR!");
+					npc.say("RZUCIĆ CUMY!");
 					break;
 
 				default:
-					npc.say("ANCHORS AWEIGH! SET SAIL!");
+					npc.say("PODNIEŚ KOTWICĘ! ODPŁYWAMY!");
 					break;
 				}
 				// Turn back to the wheel
@@ -108,11 +109,11 @@ public class ScubaNPC implements ZoneConfigurator  {
 
 			}
 		};
-
+		
 		npc.setPosition(17, 40);
 		npc.setEntityClass("pirate_sailornpc");
-		npc.setDescription ("You see a well seasoned sailor, but he seems preoccupied with something.");
+		npc.setDescription ("Oto wytrawny żeglarz, ale zaabsorbowany czymś innym.");
 		npc.setDirection(Direction.LEFT);
-		zone.add(npc);
+		zone.add(npc);	
 	}
 }

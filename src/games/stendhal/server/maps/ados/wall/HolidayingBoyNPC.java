@@ -12,15 +12,15 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.wall;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Creates a boy NPC to help populate Ados
@@ -55,18 +55,18 @@ public class HolidayingBoyNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				addGreeting("Hey.");
-				addHelp("I visited a tavern in the north with my parents yesterday. The apples were really tasty...");
-				addOffer("Ooooh, have you seen the lovely cats from Felina? I hope my parents " +
-						"will buy one for me. Would be a great holiday gift :-)");
-				addJob("Hey!! I am a little boy!");
-				addGoodbye("Good bye.");
+				addHelp("Odwiedziłem z rodzicami wczoraj tawernę na północy. Jabłka były naprawdę smaczne.");
+				addOffer("Ooooch, widziałeś te piękne koty od Feliny? Mam nadzieję, " +
+						"że rodzice mi kupią jednego. Byłby to fajny prezent z wakacji ☺ ");
+				addJob("Hey!! Jestem młodym chłopcem!");
+				addGoodbye("Dowidzenia.");
 				}
 		};
 
 		npc.setEntityClass("boynpc");
 		npc.setPosition(114, 77);
 		npc.initHP(100);
-		npc.setDescription("You see Finn Farmer. He is a cute looking boy who has fun while playing in the backyard.");
+		npc.setDescription("Oto Finn Farmer. Jest miły chłopcem, który lubi bawić się  na podwórku.");
 		zone.add(npc);
 	}
 }

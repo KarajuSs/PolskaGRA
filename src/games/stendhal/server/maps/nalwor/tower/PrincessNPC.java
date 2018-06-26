@@ -12,16 +12,15 @@
  ***************************************************************************/
 package games.stendhal.server.maps.nalwor.tower;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
-import games.stendhal.server.entity.CollisionAction;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds a Princess NPC who lives in a tower.
@@ -60,18 +59,17 @@ public class PrincessNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hail to thee, human.");
-				addJob("I'm a princess. What can I do?");
-				addHelp("A persistent person could do a #task for me.");
-				addOffer("I don't trade. My parents would have considered it beneath me.");
- 				addGoodbye("Goodbye, strange one.");
+				addGreeting("Cześć człeku, człowieku.");
+				addJob("Jestem księżniczką. Co mogę zrobić?");
+				addHelp("Stanowcza osoba mogłaby zrobić dla mnie #zadanie.");
+				addOffer("Nie handluję. Moi rodzice mogliby to uważać za poniżające.");
+				addGoodbye("Dowidzenia nieznajomy.");
 			}
 		};
 
-		npc.setDescription("You see a beautiful but forlorn High Elf.");
+		npc.setDescription("Oto piękna, ale samotna Najwyższa Elfka.");
 		npc.setEntityClass("elfprincessnpc");
 		npc.setPosition(17, 13);
-		npc.setCollisionAction(CollisionAction.STOP);
 		npc.initHP(100);
 		zone.add(npc);
 	}

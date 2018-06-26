@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.kirdneh.city;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -25,6 +21,11 @@ import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.BuyerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.BuyerBehaviour;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * In Kirdneh open market .
@@ -50,7 +51,7 @@ public class KirdnehFishyMarketNPC implements ZoneConfigurator {
 			protected void createPath() {
 				final List<Node> nodes = new LinkedList<Node>();
 				nodes.add(new Node(63, 89));
-				nodes.add(new Node(63, 88));
+				nodes.add(new Node(63, 88));				
 				nodes.add(new Node(64, 88));
 				nodes.add(new Node(64, 87));
 				nodes.add(new Node(68, 87));
@@ -61,16 +62,16 @@ public class KirdnehFishyMarketNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Ahoy, me hearty! Back from yer swashbucklin, ah see.");
-				addJob("By the Powers! I be buyin. You be sellin?");
-				addReply("yes", "Well, shiver me timbers! Check out that blackboard o'er thar fer me prices an' what i be buyin");
-				addReply("aye", "Well, shiver me timbers! Check out that blackboard o'er thar fer me prices an' what i be buyin");
-				addReply("no", "You lily-livered scallywag! Why ye be wastin me time?");
-				addHelp("An' just what do ya think a buccanneer such as meself could possibly help ye with?");
+				addGreeting("Ahoj! Widzę, że wyglądasz na groźnego.");
+				addJob("Na moce! Ja będę skupował. Ty będziesz sprzedawał?");
+				addReply(Arrays.asList("yes", "tak"), "Cóż dreszcz mnie przeszedł! Sprawdź tablicę, aby zobaczyć po jakiej cenie i co skupuję");
+				addReply("aye", "Cóż dreszcz mnie przeszedł! Sprawdź tablicę, aby zobaczyć po jakiej cenie i co skupuję");
+				addReply(Arrays.asList("nie", "no"), "Ty tchórzliwa lilio, łobuzie! Dlaczego marnujesz mój czas?");
+				addHelp("Co sobie myślisz, że taki jak ja stary wyjadacz potrzebuje pomocy?");
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buyfishes")), false);
-				addOffer("Check out that thar blackboard fer how many dubloons I be givin.");
-				addQuest("Ye don't ha'e the guts ta do whut I need done.");
-				addGoodbye("Arrgh, avast an' be gone with ye!");
+				addOffer("Sprawdź na tablicy ile dublonów mogę dać.");
+				addQuest("Nie masz towaru, którego ja potrzebuję.");
+				addGoodbye("Arrgh, zostań pójdę z tobą!");
 
 			}
 		};
@@ -78,7 +79,7 @@ public class KirdnehFishyMarketNPC implements ZoneConfigurator {
 		fishyguy.setEntityClass("sailor1npc");
 		fishyguy.setPosition(63, 89);
 		fishyguy.initHP(100);
-		fishyguy.setDescription("You see a Fishmonger. He stinks a bit from the fish he buys.");
+		fishyguy.setDescription("Widzisz Fishmonger. Śmierdzi rybami, które skupuje.");
 		zone.add(fishyguy);
 	}
 }

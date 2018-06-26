@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.mithrilbourgh.stores;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -28,6 +24,11 @@ import games.stendhal.server.entity.npc.behaviour.adder.BuyerAdder;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.BuyerBehaviour;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds an NPC to buy previously un bought weapons.
@@ -67,20 +68,20 @@ public class BuyerNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Welcome to the supply stores for the Mithrilbourgh Army.");
-				addJob("I proud to be the Quartermaster of the Mithrilbourgh Army. We have plenty of #ammunition. However, we are lacking in #boots and #helmets.");
-				addReply("boots", "I seem to hand out stone boots very regularly, but our careless soldiers  always lose them. Thus, I buy any good boots that you can #offer, see the blue book for a price list.");
-				addReply("helmets", "I do not have a good source of helmets. Any you can #trade with me would be appreciated, at the moment we only have enough for the lieutenants, and none for the soldiers. The red book has details.");
-				addReply("ammunition", "I sell arrows, wooden arrows are the cheapest, power arrows the most costly. Check the board for all the prices.");
-				addHelp("As Quartermaster, I take #offers for supplies which we are short of.");
-				addOffer("I buy #boots and #helmets on behalf of the Mithrilbourgh Army, and I sell surplus stock of #ammunition.");
-				addQuest("The Mithrilbourgh Army is not in need your services at present.");
+				addGreeting("Witaj w sklepie dla Wojska Mithrilbourghtów.");
+				addJob("Jestem dumny, że jestem Kwatermistrzem Wojska Mithrilbourghtów. Mamy mnóstwo #amunicji. Jednak mamy braki w #butach i #hełmach.");
+				addReply(Arrays.asList("boots", "butach", "buty"), "Wydaję stone boots regularnie, ale nasi żołnierze zawsze je gubią. Kupię każde dobre buty, które możesz zaoferować ( #offer ). Zobacz niebieską książkę, aby poznać cennik.");
+				addReply(Arrays.asList("helmets", "hełmach", "hełmy"), "Nie mam dobrego źródła, z którego mógłbym brać hełmy. Każdy, który mi zaoferujesz ( #trade ) będzie doceniony. W tym momencie mamy dość dla poruczników, a żadnego dla żołnierzy. W czerwonej książce znajdziesz szczegóły.");
+				addReply(Arrays.asList("ammunition", "amunicja"), "Sprzedaję arrows, wooden arrows są najtańsze, power arrows najdroższe. Na tablicy masz wszystkie ceny.");
+				addHelp("Jako kwatermistrz zbieram #oferty towarów, których nam brakuje.");
+				addOffer("Kupię #buty i #hełmy w imieniu Wojska Mithrilbourghtów.");
+				addQuest("Wojsko Mithrilbourghtów nie potrzebuje twoich usług.");
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("boots&helm")), false);
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("sellarrows")), false);
- 				addGoodbye("Bye.");
+				addGoodbye("Dowidzenia.");
 			}
 		};
-		npc.setDescription("You see Diehelm Brui, the Quartermaster.");
+		npc.setDescription("Oto Diehelm Brui, Kwatermistrz.");
 		npc.setEntityClass("recruiter3npc");
 		npc.setPosition(10, 4);
 		npc.initHP(100);
@@ -89,14 +90,14 @@ public class BuyerNPC implements ZoneConfigurator {
 		// Add a book with the shop offers
 		final Sign book = new Sign();
 		book.setPosition(12, 3);
-		book.setText(" -- Buying -- \n steel boots\t 1000\n golden boots\t 1500\n shadow boots\t 2000\n stone boots\t 2500\n chaos boots\t 4000\n green thing boots\t 6000\n xeno boots\t 8000");
+		book.setText(" -- Skupuję -- \n buty żelazne\t 1000\n złote buty\t 1500\n buty cieni\t 2000\n buty kamienne\t 2500\n buty chaosu\t 4000\n buty z zielonego potwora\t 6000\n buty xenocyjskie\t 8000");
 		book.setEntityClass("book_blue");
 		book.setResistance(10);
 		zone.add(book);
 
 		final Sign book2 = new Sign();
 		book2.setPosition(13, 4);
-		book2.setText(" -- Buying -- \n golden helmet\t 3000\n shadow helmet\t 4000\n horned golden helmet 5000\n chaos helmet\t 6000\n magic chain helmet\t 8000\n black helmet\t 10000");
+		book2.setText(" -- Skupuję -- \n złoty hełm\t 3000\n hełm cieni\t 4000\n złoty hełm wikingów 5000\n hełm chaosu\t 6000\n magiczny hełm kolczy\t 8000\n czarny hełm\t 10000");
 		book2.setEntityClass("book_red");
 		book2.setResistance(10);
 		zone.add(book2);

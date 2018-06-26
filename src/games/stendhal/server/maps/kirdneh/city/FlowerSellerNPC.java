@@ -12,15 +12,15 @@
  ***************************************************************************/
 package games.stendhal.server.maps.kirdneh.city;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Builds the flower seller in kirdneh.
@@ -56,22 +56,22 @@ public class FlowerSellerNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hi! Are you here to #trade?");
-				addReply(ConversationPhrases.YES_MESSAGES, "Good! I can sell you a beautiful red rose. Not rhosyd mind you, they're rare. Only Rose Leigh knows where they grow, and no-one ever knows where Rose Leigh is!");
-				addReply(ConversationPhrases.NO_MESSAGES, "Very well, if I can help you just say.");
-				addJob("I sell roses in this here market.");
-				addHelp("If you need to access your funds, there is a branch of Fado bank right here in Kirdneh. It's the small building north of the museum, on the east of the city.");
+				addGreeting("Cześć! Przyszedłeś tutaj #pohandlować?");
+				addReply(ConversationPhrases.YES_MESSAGES, "Dobrze! Mogę sprzedać Tobie piękną czerwoną różę. Nie chodzi mi o rzadki orchideę. Tylko Róża Kwiaciarka wie, gdzie one rosną i nikt nie wie gdzie jest Róża Kwiaciarka!");
+				addReply(ConversationPhrases.NO_MESSAGES, "Bardzo dobrze. Jeżeli będę mogła pomóc to daj znać.");
+				addJob("Sprzedaję tutaj róże.");
+				addHelp("Jeżeli będziesz potrzebował pieniędzy to tutaj w Kirdneh jest oddział banku Fado. Mieści się w małym budynku na północ od muzeum we wschodniej części miasta.");
 				final Map<String, Integer> offerings = new HashMap<String, Integer>();
-				offerings.put("rose", 50);
+				offerings.put("róża", 50);
 				new SellerAdder().addSeller(this, new SellerBehaviour(offerings));
-				addGoodbye("Come back soon!");
+				addGoodbye("Dowidzenia i zapraszam ponownie!");
 			}
 		};
 
-		sellernpc.setEntityClass("noimagenpc"); /* woman_000_npc */
+		sellernpc.setEntityClass("woman_001_npc");
 		sellernpc.setPosition(64, 82);
 		sellernpc.initHP(100);
-		sellernpc.setDescription("You see Fleur. Her roses are made for young couples.");
+			sellernpc.setDescription("Widzisz Fleur. Jej róże są dla młodych par.");
 		zone.add(sellernpc);
 	}
 }

@@ -12,9 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.athor.ship;
 
-import java.util.Arrays;
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.config.ZoneConfigurator;
@@ -27,6 +24,9 @@ import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.athor.ship.AthorFerry.Status;
+
+import java.util.Arrays;
+import java.util.Map;
 
 /** Factory for cargo worker on Athor Ferry. */
 
@@ -64,10 +64,10 @@ public class CoastConveyerNPC implements ZoneConfigurator  {
 			@Override
 			public void createDialog() {
 
-				addGoodbye("Goodbye!");
-				addGreeting("Ahoy, Matey! How can I #help you?");
-				addHelp("Ye can #disembark, but only when we're anchored a harbor. Just ask me for the #status if ye have no idea where we are.");
-				addJob("I'm taking passengers who want to #disembark to the coast with me rowing boat.");
+				addGoodbye("Dowidzenia!");
+				addGreeting("Ahoj, Przyjacielu! W czym mogę #pomóc?");
+				addHelp("Tak, możesz zejść mówiąc #zejdź, ale wtedy kiedy zacumujemy na przystani. Zapytaj mnie o #status jeżeli nie masz pojęcia gdzie jesteśmy.");
+				addJob("Zabieram pasażerów, którzy chcą zejść na ląd.");
 
 				add(ConversationStates.ATTENDING, "status",
 						null,
@@ -81,7 +81,7 @@ public class CoastConveyerNPC implements ZoneConfigurator  {
 				});
 
 				add(ConversationStates.ATTENDING,
-						Arrays.asList("disembark", "leave"),
+						Arrays.asList("disembark", "leave", "zejdź", "opuść"),
 						null,
 						ConversationStates.ATTENDING,
 						null,
@@ -90,17 +90,17 @@ public class CoastConveyerNPC implements ZoneConfigurator  {
 					public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
 						switch (ferryState) {
 						case ANCHORED_AT_MAINLAND:
-							npc.say("Do ye really want me to take ye to the mainland with me skiff?");
+							npc.say("Czy chcesz, abym zabrał Ciebie na stały ląd?");
 							npc.setCurrentState(ConversationStates.SERVICE_OFFERED);
 							break;
 						case ANCHORED_AT_ISLAND:
-							npc.say("Do ye really want me to take ye to the island with me skiff?");
+							npc.say("Czy chcesz, abym zabrał Ciebie na wyspę?");
 							npc.setCurrentState(ConversationStates.SERVICE_OFFERED);
 							break;
 
 						default:
 							npc.say(ferryState.toString()
-									+ " Ye can only get off the boat when it's anchored near a harbor.");
+								+ " Możesz zejść na ląd kiedy jesteśmy zacumowani na przystani.");
 
 						}
 					}
@@ -125,7 +125,7 @@ public class CoastConveyerNPC implements ZoneConfigurator  {
 							break;
 
 						default:
-							npc.say("Too bad! The ship has already set sail.");
+							npc.say("Niedobrze! Statek już wypłynął.");
 
 						}
 
@@ -136,24 +136,24 @@ public class CoastConveyerNPC implements ZoneConfigurator  {
 						ConversationPhrases.NO_MESSAGES,
 						null,
 						ConversationStates.ATTENDING,
-						"Aye, matey!", null);
+						"Aye, przyjacielu!", null);
 
 			}};
 			new AthorFerry.FerryListener() {
 
-
+			
 				@Override
 				public void onNewFerryState(final Status status) {
 					ferryState = status;
 					switch (status) {
 					case ANCHORED_AT_MAINLAND:
-						npc.say("Attention: The ferry has arrived at the mainland! You can now #disembark.");
+						npc.say("UWAGA: Prom dobił do stałego lądu! Możesz teraz zejść mówiąc #zejdź.");
 						break;
 					case ANCHORED_AT_ISLAND:
-						npc.say("Attention: The ferry has arrived at the island! You can now #disembark.");
+						npc.say("UWAGA: Prom dobił do wyspy! Możesz teraz zejść mówiąc #zejdź.");
 						break;
 					default:
-						npc.say("Attention: The ferry has set sail.");
+						npc.say("UWAGA: Prom wypłynął.");
 						break;
 					}
 
@@ -162,9 +162,9 @@ public class CoastConveyerNPC implements ZoneConfigurator  {
 
 			npc.setPosition(29, 34);
 			npc.setEntityClass("pirate_sailor2npc");
-			npc.setDescription ("Jackie helps passangers to disembark to the coast. She is a real pirate girl!");
+			npc.setDescription ("Jackie pomaga pasażerom zejść ze statku na ląd. Jest prawdziwą piratką!");
 			npc.setDirection(Direction.LEFT);
-			zone.add(npc);
+			zone.add(npc);	
 	}
 
 	private static StendhalRPZone getMainlandDocksZone() {

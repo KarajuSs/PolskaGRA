@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.orril.dwarfmine;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -25,6 +21,10 @@ import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.BuyerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.BuyerBehaviour;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /*
  * Configure Orril Dwarf Mine (Underground/Level -2).
@@ -64,14 +64,14 @@ public class IronBuyerNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				addGreeting();
-				addJob("I'm the supervisor responsible for maintaining the mine-cart rails in this mine. But, ironically, we ran out of cast iron to fix them with! Maybe you can #offer me some?");
-				addHelp("If you want some good advice, you'll not go further south; there's an evil dragon living down there!");
+				addJob("Jestem nadzorczynią odpowiedzialną za utrzymanie torów dla wagoników w tej kopalni, ale mamy problem, ponieważ nie posiadamy żelaza do ich naprawy! Może mógłbyś mi #zaoferować trochę żelaza?");
+				addHelp("Jeżeli chcesz dobrą radę to nie idź na południe. Żyje tam straszny smok!");
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buyiron")), true);
-				addGoodbye("Farewell - and be careful: the other dwarves don't like strangers running around here!");
+				addGoodbye("Żegnaj i uważaj na siebie. Inne krasnale nie lubią obcych kręcących się tutaj!");
 			}
 		};
 
-		loretta.setDescription("You see Loretta, an elderly female dwarf. She is working on the mine-cart rails.");
+		loretta.setDescription("Oto Loretta, starsza kobieta krasnal. Pracuje przy torach dla wagoników.");
 		loretta.setEntityClass("greendwarfnpc");
 		loretta.setPosition(49, 68);
 		loretta.initHP(100);

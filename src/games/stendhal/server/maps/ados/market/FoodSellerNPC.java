@@ -12,11 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.market;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -27,6 +22,11 @@ import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Food and drink seller,  at Ados Market
@@ -53,17 +53,17 @@ public class FoodSellerNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("We just got fresh apples and carrots from several #farms near Semos!");
-				addReply(Arrays.asList("Semos Farm", "Semos", "Farm", "farms"), "We get all our food from different farms near Semos, but the route is #dangerous.");
-				addReply(Arrays.asList("dangerous", "expensive"), "With all the soldiers fighting in the great battle, the route to Semos is left unprotected. So I am afraid, the prices are relatively high.");
-				addJob("I sell goods from the #farms near Semos as soon as we get them.");
+				addGreeting("Mamy świeże jabłka i marchwie z kilku #farm niedaleko Semos");
+				addReply(Arrays.asList("Semos Farm", "Semos", "Farm", "farms", "farmy Semos", "farma", "farmy", "Semos"), "Całe nasz jedzenie dostajemy z farm w Semos, ale droga jest #niebezpieczna.");
+				addReply(Arrays.asList("dangerous", "expensive", "niebezpieczna"), "Całe wojsko walczy w wielkiej bitwie co ma wpływ na drogę Semos, która jest pozostawiona bez ochrony. Obawiam się, że ceny są relatywnie wysokie.");
+				addJob("Sprzedaję produkty z #farm niedaleko Semos tak szybko jak je otrzymujemy.");
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("adosfoodseller")));
 				addGoodbye();
 			}
 		};
 
 		npc.setEntityClass("marketsellernpc");
-		npc.setDescription("Adena smiles towards you in a friendly way, although she is working very hard.");
+		npc.setDescription("Adena przyjaźnie uśmiechnięta,a także ciężko pracująca.");
 		npc.setPosition(31, 8);
 		npc.initHP(100);
 		npc.setDirection(Direction.DOWN);

@@ -12,15 +12,16 @@
  ***************************************************************************/
 package games.stendhal.server.maps.amazon.hut;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds the princess in Princess Hut on amazon island.
@@ -62,21 +63,21 @@ public class PrincessNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-			        addGreeting("Huh, what are you doing here?");
-				addReply("sorry", "Well, so you should be, sneaking up on me like that!");
-				addReply("look", "You had better not poke around, this is all mine!");
-				addReply("nothing", "Go away and do this somewhere else but not in my hut!");
-				addJob("Job? You expect that a princess like me would need to work? Ha!");
-				addHelp("Beware of my sisters on the island, they do not like strangers.");
-				addOffer("There is nothing to offer you.");
-				addGoodbye("Goodbye, and beware of the barbarians.");
+			        addGreeting("Huh, Co ty tutaj robisz?");
+				addReply(Arrays.asList("sorry", "przepraszam"), "Nie powinieneś się do mnie wślizgiwać od tak!");
+				addReply(Arrays.asList("look", "zobacz", "zobaczyć", "przeszukaj"), "Nie powinieneś tu szperać, tutaj wszystko jest moje!");
+				addReply(Arrays.asList("nothing", "nic"), "Odejdź i idź robić to gdzie indziej, a nie w moim domku!");
+				addJob("Praca? Myślisz, że księżniczka taka jak ja potrzebuje pracy? Ha!");
+				addHelp("Strzeż się moich sióstr na wyspie. One nie lubią obcych.");
+				addOffer("Nie mam nic do zaoferowania.");
+				addGoodbye("Dowidzenia i strzeż się barbarzyńców.");
 			}
 		};
 
 		princessNPC.setEntityClass("amazoness_princessnpc");
 		princessNPC.setPosition(6, 13);
 		princessNPC.initHP(100);
-		princessNPC.setDescription("You see Princess Esclara. She smells of coconut and pineapples...");
+		princessNPC.setDescription("Widzisz księżniczke Esclara. Pachnie kokosem i ananasem...");
 		zone.add(princessNPC);
 	}
 }

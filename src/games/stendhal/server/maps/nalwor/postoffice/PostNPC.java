@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.nalwor.postoffice;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -26,9 +22,13 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Builds the post office elf NPC.
- * She may be used later for something else like a newspaper.
+ * She may be used later for something else like a newspaper. 
  * Now she sells nalwor scrolls
  * @author kymara
  */
@@ -70,15 +70,15 @@ public class PostNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hi, can I #help you?");
-				addJob("I work in this post office. But I'm new and I haven't been trusted with much yet.");
-				addHelp("I've not had this #job long ... come back soon and I might have been given something interesting to do.");
+				addGreeting("Cześć. W czym mogę #pomóc?");
+				addJob("Pracuję na poczcie. Jesteś tutaj nowy i nie budzisz jeszcze zaufania.");
+				addHelp("Nie mam tej #pracy od dawna ... wróć za jakiś czas może dam Ci coś interesującego do zrobienia.");
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("nalworscrolls")));
-				addGoodbye("Bye - nice to meet you!");
+				addGoodbye("Dowidzenia. Miło było Cię poznać!");
 			}
 		};
 
-		npc.setDescription("You see a pretty elf girl.");
+		npc.setDescription("Oto piękna kobieta elf.");
 		npc.setEntityClass("postelfnpc");
 		npc.setPosition(11, 3);
 		npc.initHP(100);

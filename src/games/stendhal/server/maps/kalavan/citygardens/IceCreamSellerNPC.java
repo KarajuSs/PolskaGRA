@@ -12,9 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.kalavan.citygardens;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.config.ZoneConfigurator;
@@ -28,6 +25,9 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
 import games.stendhal.server.entity.player.Player;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -65,16 +65,16 @@ public class IceCreamSellerNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hi. Can I #offer you an ice cream?");
-				addJob("I sell delicious ice creams.");
-				addHelp("I can #offer you a refreshing ice cream.");
-				addQuest("Mine's a simple life, I don't need a lot.");
-
-				add(ConversationStates.ATTENDING,
-					ConversationPhrases.YES_MESSAGES,
-					null,
-					ConversationStates.ATTENDING,
-					null,
+				addGreeting("Cześć. Czy mogę #zaoferować Tobie porcję lodów?");
+				addJob("Sprzedaje pyszne lody.");
+				addHelp("Mogę #zaoferować odświeżającą porcję lodów.");
+				addQuest("Prowadzę proste życie. Nie potrzebuję wiele do szczęścia.");
+			 
+			 add(ConversationStates.ATTENDING, 
+					ConversationPhrases.YES_MESSAGES, 
+					null, 
+					ConversationStates.ATTENDING, 
+					null, 
 					new ChatAction() {
 						@Override
 						public void fire(final Player player,final Sentence sentence, final EventRaiser npc) {
@@ -83,12 +83,12 @@ public class IceCreamSellerNPC implements ZoneConfigurator {
 						} );
 
 				final Map<String, Integer> offers = new HashMap<String, Integer>();
-				offers.put("icecream", 30);
+				offers.put("lody", 30);
 				new SellerAdder().addSeller(this, new SellerBehaviour(offers));
-				addGoodbye("Bye, enjoy your day!");
-
+				addGoodbye("Dowidzenia. Ciesz się dniem!");
+				
 			}
-
+			
 			@Override
 			protected void onGoodbye(RPEntity player) {
 				setDirection(Direction.DOWN);
@@ -98,7 +98,7 @@ public class IceCreamSellerNPC implements ZoneConfigurator {
 		npc.setEntityClass("icecreamsellernpc");
 		npc.setPosition(73, 54);
 		npc.initHP(100);
-		npc.setDescription("Sam has a job, all kids dream of. He sells ice cream. Yummi!");
+		npc.setDescription("Sama praca polega na uszczęśliwieniu dzieci. Sprzedaje lody. Jupi ja! ");
 		zone.add(npc);
 	}
 }

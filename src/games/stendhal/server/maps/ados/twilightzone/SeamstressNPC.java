@@ -12,15 +12,15 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.twilightzone;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /*
  * Twilight zone is a copy of sewing room in dirty colours with a delirious sick lda (like Ida) in it
@@ -57,11 +57,11 @@ public class SeamstressNPC implements ZoneConfigurator {
 			}
 		};
 		// see through
-		seamstress.setDescription("You see Ida, she looks sick and feverish");
+		seamstress.setDescription("Oto Ida. Wygląda na chorą i ma gorączkę");
 		seamstress.setVisibility(70);
 		// walk through
 		seamstress.setResistance(0);
-		seamstress.setEntityClass("noimagenpc"); /* woman_002_npc */
+		seamstress.setEntityClass("woman_002_npc");
 		seamstress.setPosition(7, 7);
 		seamstress.initHP(40);
 		zone.add(seamstress);

@@ -11,15 +11,15 @@
  ***************************************************************************/
 package games.stendhal.server.maps.nalwor.city;
 
-import java.util.Arrays;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+import java.util.Arrays;
+
+import java.util.Map;
 
 /**
  * QUEST: The Guessing Game
@@ -57,8 +57,8 @@ public class GuessKillsNPC implements ZoneConfigurator {
      * @param	attributes	Configuration attributes.
      */
     @Override
-	public void configureZone(final StendhalRPZone zone, final Map<String, String> attributes) {
-        buildNPC(zone);
+    public void configureZone(final StendhalRPZone zone, final Map<String, String> attributes) {
+        buildNPC(zone, attributes);
     }
 
     /**
@@ -67,7 +67,7 @@ public class GuessKillsNPC implements ZoneConfigurator {
      * @param zone The zone to add the NPC to.
      * @param attributes
      */
-    private void buildNPC(final StendhalRPZone zone) {
+    private void buildNPC(final StendhalRPZone zone, final Map<String, String> attributes) {
         final SpeakerNPC npc = new SpeakerNPC("Crearid") {
 
             @Override
@@ -87,20 +87,20 @@ public class GuessKillsNPC implements ZoneConfigurator {
 
             @Override
             protected void createDialog() {
-                addGreeting("Greetings");
-                addJob("I am just an old woman, I walk around and observe all around me.");
-                addHelp("I'm not sure how I can help you. On some days I like to #play #games.");
-                addOffer("I'm afraid I don't have anything to offer you.");
-                addReply(ConversationPhrases.QUEST_MESSAGES, "There's nothing I need right now although occasionally I like to #play #games.");
+                addGreeting("Pozdrawiam");
+                addJob("Jestem tylko starą kobietą obserwującą wszystkich podczas spaceru.");
+                addHelp("Nie wiem jak tobie pomóc. Od paru dni lubię #grać w #gry.");
+                addOffer("Obawiam się, że nie mam nic do zaoferowania.");
+                addReply(ConversationPhrases.QUEST_MESSAGES, "Na razie nic nie potrzebuję, ale okazjonalnie lubię #grać w #gry.");
 
                 //play and games reply is in the quest class: GuessKills
 
-                addGoodbye("Goodbye deary.");
+                addGoodbye("Dowidzenia słonko.");
             }
         };
 
         npc.setEntityClass("granmanpc");
-        npc.setDescription("You see Crearid, a very attentive old lady.");
+        npc.setDescription("Oto Crearid bardzo spostrzegawcza starsza pani.");
         npc.setPosition(30, 83);
         npc.initHP(100);
 

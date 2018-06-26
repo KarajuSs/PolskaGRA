@@ -60,18 +60,18 @@ public class WallSoldier2NPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hello friend! Enjoy your visit at Ados city!");
-				addJob("I am a soldier and my duty is to guard the city wall.");
-				addHelp("If you need directions on how to find your way around the city, ask Julius at the city entrance.");
+				addGreeting("Witaj młody przyjacielu! Baw się dobrze w naszym mieście!");
+				addJob("Jestem żołnierzem i moja służba polega na strzeżeniu oto tych właśnie murów miasta.");
+				addHelp("Jeżeli potrzebujesz wskazówek jak się odnaleźć w naszym mieście to spytaj się Juliusa. Strzeże głównej bramy miasta.");
 				// addQuest("Ask Vicendus, he is always up to something.");
-				addGoodbye("Good day to you.");
+				addGoodbye("Życzę dobrego dnia.");
 			}
 		};
 
 		npc.setEntityClass("youngsoldiernpc");
 		npc.setPosition(76, 20);
 		npc.initHP(100);
-		npc.setDescription("You see Grekus, a soldier who guards the city wall of Ados.");
+		npc.setDescription("Oto Grekus, żołnierz, który strzeże mury miasta Ados.");
 		zone.add(npc);
 	}
 }

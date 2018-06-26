@@ -12,11 +12,11 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.tunnel;
 
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.Map;
 
 /**
  * In recreation room of Blordrough's habitat in -1_ados_outside_w.
@@ -44,17 +44,17 @@ public class CrulaminNPC implements ZoneConfigurator {
 
 			@Override
 			public void createDialog() {
-				addGreeting("I am busy here.  Please leave me alone for now.  Maybe you come back and visit me another day?");
-				addOffer("I am just a person who wants to play chess.");
-				addJob("I am studying very hard to become a Chess Expert.");
-				addHelp("Maybe you can show me what you are capable of some day.  Until that day, please, just go away.");
-				addGoodbye("Hmmmm.  What if i move this here, and then that there...");
+				addGreeting("Jestem zajęty.  Zostaw mnie w spokoju.  Może wrócisz i odwiedzisz mnie innego dnia?");
+				addOffer("Jestem osobą, która chce grać w szachy.");
+				addJob("Ciężko się uczę, aby zostać Szachowym Ekspertem.");
+				addHelp("Może kiedyś mi pokażesz do czego jesteś zdolny.  Nim ten nadejdzie to proszę odejdź.");
+				addGoodbye("Hmmmm.  Co jeśli ruszę się tutaj, a potem tam...");
 				// all other behaviour is defined in the quest.
 			}
 		};
 
-		Crulamin.setDescription("You see Crulamin, a warrior who has given up everything but playing chess.  His hopes are to become 'The Best' ");
-		Crulamin.setEntityClass("noimagenpc"); // "chessplayernpc"
+		Crulamin.setDescription("Oto Crulamin wojownik, który porzucił wszystko dla gry w szachy.  Jego marzeniem jest zostanie 'Najlepszym' ");
+		Crulamin.setEntityClass("chessplayernpc");
 		Crulamin.setPosition(73,93);
 		Crulamin.initHP(100);
 		zone.add(Crulamin);

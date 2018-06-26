@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.kirdneh.city;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -25,6 +21,10 @@ import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.BuyerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.BuyerBehaviour;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * In Kirdneh open market .
@@ -50,7 +50,7 @@ public class KirdnehArmorGuyNPC implements ZoneConfigurator {
 			protected void createPath() {
 				final List<Node> nodes = new LinkedList<Node>();
 				nodes.add(new Node(63, 95));
-				nodes.add(new Node(64, 95));
+				nodes.add(new Node(64, 95));				
 				nodes.add(new Node(64, 93));
 				nodes.add(new Node(70, 93));
 				nodes.add(new Node(70, 95));
@@ -64,12 +64,12 @@ public class KirdnehArmorGuyNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				addGreeting();
-				addJob("I buy quality armor at a fair price.");
-				addHelp("Look at the blackboard for what I buy and prices.");
+				addJob("Skupuję zbroje po dobrej cenie.");
+				addHelp("Spójrz na tablicę i zobacz co skupuję i za jaką cenę.");
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buykirdneharmor")), false);
-				addOffer("Look at the blackboard to see my prices and what I buy.");
-				addQuest("I have no task for you.");
-				addGoodbye("If you ever find a tooth from the mythical black dragon, please let me know.");
+				addOffer("Spójrz na tablicę, aby zobaczyć moje ceny i co skupuję.");
+				addQuest("Nie mam zadania dla Ciebie.");
+				addGoodbye("Jeżeli znajdziesz ząb z mitycznego czarnego smoka to daj mi znać.");
 
 			}
 		};
@@ -77,7 +77,7 @@ public class KirdnehArmorGuyNPC implements ZoneConfigurator {
 		lawrence.setEntityClass("man_002_npc");
 		lawrence.setPosition(63, 95);
 		lawrence.initHP(100);
-		lawrence.setDescription("You see Lawrence. His working place is the market.");
+		lawrence.setDescription("Widzisz Lawrence. Jego miejsce pracy jest na rynku.");
 		zone.add(lawrence);
 	}
 }

@@ -177,7 +177,7 @@
 	<zone name="0_zakopane_c" level="0" x="513312" y="18560" file="Level 0/zakopane/zakopane_c.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
-			<parameter name="weather">varying(temperature=-2,snow=+1)</parameter>
+			<parameter name="weather">varying(temperature=-2)</parameter>
 		<!-- <parameter name="file" condition="stendhal.christmas">Level 0/zakopane/zakopane_c_xmas.tmx</parameter> -->
 		</attributes>
 		
@@ -424,7 +424,7 @@
 	<zone name="0_zakopane_s" level="0" x="513312" y="18688" file="Level 0/zakopane/zakopane_s.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
-			<parameter name="weather">varying(temperature=-2,snow_heavy=+1)</parameter>
+			<parameter name="weather">varying(temperature=-2)</parameter>
 		<!-- <parameter name="file" condition="stendhal.christmas">Level 0/zakopane/zakopane_s_xmas.tmx</parameter> -->
 		</attributes>
 		
@@ -769,7 +769,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 	<zone name="0_zakopane_se" level="0" x="513440" y="18688" file="Level 0/zakopane/zakopane_se.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
-			<parameter name="weather">varying(temperature=-2,snow_heavy=+1)</parameter>
+			<parameter name="weather">varying(temperature=-2)</parameter>
 		</attributes>
 		
 		<entity x="54" y="58">

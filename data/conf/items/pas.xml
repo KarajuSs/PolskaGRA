@@ -3,7 +3,7 @@
 	xsi:schemaLocation="stendhal ../items.xsd ">
 
   <item name="pas zbójecki">
-		<type class="belt" subclass="pas_zbojecki" tileid="-1"/>
+		<type class="pas" subclass="pas_zbojecki" tileid="-1"/>
 		<description>Oto pas zbójecki. Idealny dla górala.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>

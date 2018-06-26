@@ -70,7 +70,7 @@ public class MillerNPC implements ZoneConfigurator {
 		final ProducerBehaviour behaviour = new ProducerBehaviour("jenny_mill_flour",
 				 Arrays.asList("mill", "zmiel"), "mąka", requiredResources, 2 * 60);
 		new SellerAdder().addSeller(npc, new SeedSellerBehaviour());
-		new ProducerAdder().addProducer(npc, behaviour,"Pozdrawiam! Nazywam się Jenny jestem szefową tutejszego młyna. Jeżeli przyniesiesz mi #kłosy zboża to zmielę je dla Ciebie na mąkę. Powiedz tylko #zmiel.");
+		new ProducerAdder().addProducer(npc, behaviour,"Pozdrawiam! Nazywam się Jenny jestem szefową tutejszego młyna. Jeżeli przyniesiesz mi #kłosy zboża to zmielę je dla Ciebie na mąkę. Powiedz tylko #zmiel ilość #mąka.");
 		npc.setPosition(19, 39);
 		npc.setDescription("Oto Jenny. Pracuje w młynie.");	
 		npc.setDirection(Direction.DOWN);

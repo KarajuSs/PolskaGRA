@@ -12,11 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.athor.dressingroom_male;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -25,6 +20,11 @@ import games.stendhal.server.entity.npc.behaviour.adder.OutfitChangerAdder;
 import games.stendhal.server.entity.npc.behaviour.adder.ProducerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.OutfitChangerBehaviour;
 import games.stendhal.server.entity.npc.behaviour.impl.ProducerBehaviour;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Dressing rooms at the Athor island beach (Inside / Level 0).
@@ -90,7 +90,7 @@ public class LifeguardNPC implements ZoneConfigurator {
 				addReply("mały eliksir", "Jest to mała buteleczka wypełniona miksturą. Możesz ją kupić w kilku miejscach.");
 
 			}
-		};
+	};
 
 		david.setEntityClass("lifeguardmalenpc");
 		david.setDirection(Direction.RIGHT);

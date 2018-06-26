@@ -11,10 +11,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.nalwor.flowershop;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
@@ -22,8 +18,12 @@ import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.CollisionAction;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 
-public class FlowerGrowerNPC implements ZoneConfigurator {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
+public class FlowerGrowerNPC implements ZoneConfigurator {
+	
     /**
      * Configure a zone.
      *
@@ -32,12 +32,12 @@ public class FlowerGrowerNPC implements ZoneConfigurator {
      */
     @Override
 	public void configureZone(final StendhalRPZone zone, final Map<String, String> attributes) {
-        buildNPC(zone);
+        buildNPC(zone, attributes);
     }
-
-    private void buildNPC(final StendhalRPZone zone) {
+	
+    private void buildNPC(final StendhalRPZone zone, final Map<String, String> attributes) {
     	final SpeakerNPC npc = new SpeakerNPC("Seremela") {
-
+    		
     		@Override
     		protected void createPath() {
     			List<Node> nodes = new ArrayList<Node>();
@@ -62,22 +62,22 @@ public class FlowerGrowerNPC implements ZoneConfigurator {
     			nodes.add(new Node(3, 3));
     			setPath(new FixedPath(nodes, true));
     		}
-
+    		
 			@Override
 			public void createDialog() {
-    			addGreeting("Hello.");
-    			addGoodbye("Goodbye!");
+    			addGreeting("Cześć.");
+    			addGoodbye("Dowidzenia!");
     			//addHelp("Hmmm, I don't think there is anything I can help with.");
-    			addJob("I take care of our city's beautiful flowers.");
-    			addOffer("I don't have anything to offer.");
+    			addJob("Opiekuję się kwiatami w naszym mieście.");
+    			addOffer("Nie mam nic do zaoferowania.");
     			//addReply(Arrays.asList("flower", "flowers"), "Aren't flowers beautiful?");
     			//addEmotionReply(ConversationPhrases.GOODBYE_MESSAGES, "winks");
     		}
     	};
-
+    	
     	npc.setPosition(4, 3);
     	npc.setCollisionAction(CollisionAction.REVERSE);
-    	npc.setDescription("You see a beautiful elf girl that loves flowers.");
+    	npc.setDescription("Oto piękna elfka, która kocha kwiaty.");
     	npc.setEntityClass("elfflowergrowernpc");
     	zone.add(npc);
     }

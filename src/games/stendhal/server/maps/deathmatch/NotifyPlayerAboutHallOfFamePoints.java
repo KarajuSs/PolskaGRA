@@ -33,7 +33,7 @@ class NotifyPlayerAboutHallOfFamePoints implements TurnListener {
 	private String playerName;
 	private ResultHandle handle;
 	private String questSlot;
-
+	
 
 	/**
 	 * creates a new NotifyPlayerAboutHallOfFamePoints turn listener
@@ -65,7 +65,7 @@ class NotifyPlayerAboutHallOfFamePoints implements TurnListener {
 
 		// tell the player his score
 		int points = command.getPoints();
-		npc.say("Congratulations " + playerName + ", your score is now " + points + ".");
+		npc.say("Gratulacje " + playerName + " twój wynik wynosi teraz " + points + ".");
 
 		// save the progress to a quest slot
 		if (questSlot != null) {

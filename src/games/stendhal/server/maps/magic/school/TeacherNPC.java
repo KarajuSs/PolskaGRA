@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.magic.school;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
@@ -25,8 +21,12 @@ import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.condition.GreetingMatchesNameCondition;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 /**
- * Builds a Teacher NPC who flies on a broomstick.
+ * Builds a Teacher NPC who flies on a broomstick. 
  *
  * @author kymara
  */
@@ -60,13 +60,13 @@ public class TeacherNPC implements ZoneConfigurator {
 			    protected void createDialog() {
 				add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 						new GreetingMatchesNameCondition(getName()), true,
-						ConversationStates.IDLE, "Sit down, shut up, and watch me!", null);
+						ConversationStates.IDLE, "Siedź cicho i obserwuj mnie!", null);
 	 	     }
-
+		    
 		};
 
-		npc.setDescription("You see a witch flying on a broomstick. She appears to be instructing some pupils.");
-		npc.setEntityClass("noimagenpc"); /* witch3npc */
+		npc.setDescription("Oto wiedźma latająca na miotle. Wygląda na to, że robi pokaz dla grupy uczniów.");
+		npc.setEntityClass("witch3npc");
 		npc.setPosition(29, 19);
 		npc.initHP(100);
 		zone.add(npc);

@@ -11,13 +11,14 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.outside;
 
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.RPEntity;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.Arrays;
+import java.util.Map;
 
 /**
  * Builds a NPC outside Magician house in Ados  (name:Venethiel) who is the pupil of Magician Haizen
@@ -36,17 +37,17 @@ public class MagicianHouseGreeterNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hello, I am so excited about the magical #maze!");
-				addHelp("If you get tired, you'll have to log off to get back to #Haizen.");
-				addReply("maze", "I'm afraid you will lose your way, but there are #scrolls for you to find.");
-				addReply("scrolls", "You only have ten minutes to pick up the scrolls in the #maze.");
-				addQuest("I am asking players to complete the #maze. Haizen will then make me his #assistant.");
-				addReply("assistant", "One day, I may learn how to use magic.");
-				addReply("Haizen", "He is teaching me about magic.");
-				addOffer("I can offer you some #advice.");
-				addReply("advice", "It would be helpful to look upon the mini map often.");
-				addJob("I am hoping to be Haizens #assistant soon.");
-				addGoodbye("Thank you and have a nice day.");
+				addGreeting("Cześć. Jestem podekscytowana magicznym #labiryntem!");
+				addHelp("Jeśli się zmęczysz to powinieneś się wylogować, aby wrócić do #Haizena.");
+				addReply(Arrays.asList("maze", "labiryntem", "labiryncie", "labiryntu"), "Obawiam się, że zgubisz drogę, ale są tam #zwoje do odnalezienia.");
+				addReply(Arrays.asList("scrolls", "zwoje"), "Masz tylko dziesięć minut na zebranie zwoi w #labiryncie.");
+				addQuest("Pytam wojowników o ukończenie #labiryntu. Haizen zrobi mnie swoją #asystentką.");
+				addReply(Arrays.asList("assistant", "asystentką"), "Pewnego dnia nauczę się jak używać magii.");
+				addReply(Arrays.asList("Haizen", "Haizena"), "On uczy magii.");
+				addOffer("Mogę udzielić Tobie kilku #rad.");
+				addReply(Arrays.asList("advice", "rad"), "Pomocne będzie częste spoglądanie na mapkę.");
+				addJob("Mam nadzieję, że wkrótce zostanę #asystentką Haizens.");
+				addGoodbye("Dziękuję i życzę miłego dnia.");
 			}
 
 			@Override
@@ -55,7 +56,7 @@ public class MagicianHouseGreeterNPC implements ZoneConfigurator {
 			}
 		};
 
-		npc.setDescription("You see Venethiel. She wants to learn about magic.");
+		npc.setDescription("Oto Venethiel. Chce się nauczyć magii.");
 		npc.setEntityClass("magicianhousegreeternpc");
 		npc.setPosition(70, 52);
 		npc.setDirection(Direction.DOWN);

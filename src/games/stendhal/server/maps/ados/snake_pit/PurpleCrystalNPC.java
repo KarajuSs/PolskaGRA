@@ -11,15 +11,15 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.snake_pit;
 
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 
+import java.util.Map;
+
 /**
  * A crystal NPC
- *
+ * 
  * @author AntumDeluge
  *
  */
@@ -29,16 +29,16 @@ public class PurpleCrystalNPC implements ZoneConfigurator {
 	 *
 	 * @param	zone		The zone to be configured.
 	 * @param	attributes	Configuration attributes.
-	 *
+	 * 
 	 * @author AntumDeluge
 	 */
 	@Override
 	public void configureZone(final StendhalRPZone zone, final Map<String, String> attributes) {
 		buildNPC(zone);
 	}
-
+	
 	private void buildNPC(final StendhalRPZone zone) {
-
+		
 		// Create the NPC
 		final SpeakerNPC crystal = new SpeakerNPC("Purpurowy Kryształ") {
 
@@ -54,7 +54,7 @@ public class PurpleCrystalNPC implements ZoneConfigurator {
 				addHelp("Te węże poniżej są straszne! Uważaj na królewską kobrę!");
 				addJob("Jestem kryształem. Cóż więcej mogę powiedzieć?");
 				addGoodbye("Żegnaj. Wróć o mnie jeżeli będziesz potrzebował mojej pomocy.");   
-
+				
 			}
 		};
 
@@ -64,8 +64,8 @@ public class PurpleCrystalNPC implements ZoneConfigurator {
 		crystal.initHP(100);
 		crystal.setDescription("Oto purpurowy kryształ. Jest w tym coś niesamowitego.");
 		crystal.setResistance(0);
-
+		
 		zone.add(crystal);
 	}
-
+	
 }

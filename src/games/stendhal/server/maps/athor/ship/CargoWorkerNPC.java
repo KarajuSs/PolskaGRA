@@ -12,9 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.athor.ship;
 
-import java.util.Arrays;
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -24,6 +21,9 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.BuyerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.BuyerBehaviour;
 import games.stendhal.server.maps.athor.ship.AthorFerry.Status;
+
+import java.util.Arrays;
+import java.util.Map;
 
 /** Factory for cargo worker on Athor Ferry. */
 
@@ -49,7 +49,7 @@ public class CargoWorkerNPC implements ZoneConfigurator  {
 				nodes.add(new Node(17,35));
 				// to the stairs
 				nodes.add(new Node(17,39));
-				// walk between the barrels
+				// walk between the barrels 
 				nodes.add(new Node(22,39));
 				// towards the bow
 				nodes.add(new Node(22,42));
@@ -58,18 +58,18 @@ public class CargoWorkerNPC implements ZoneConfigurator  {
 
 			@Override
 			public void createDialog() {
-				addGreeting("Ahoy! Nice to see you in the cargo hold!");
-				addJob("I'm taking care of the cargo. My job would be much easier without all these #rats.");
-				addHelp("You could earn some money if you'd #offer me something to poison these damn #rats.");
-				addReply(Arrays.asList("rat", "rats"),
-				"These rats are everywhere. I wonder where they come from. I can't even kill them as fast as they come up.");
+				addGreeting("Ahoj! Miło Cię widzieć w ładowni!");
+				addJob("Opiekuje się ładunkiem. Moja praca byłaby łatwiejsza gdyby nie było #szczurów.");
+				addHelp("Mógłbyś zarobić jeżeli #zaoferowałbyś mi coś do wytrucia tych #szczurów.");
+				addReply(Arrays.asList("szczur", "szczury", "szczurów"),
+		        "Te szczury są wszędzie. Ciekaw jestem skąd one się biorą nawet nie zdążę ich powybijać tak szybko się pojawiają.");
 
-				new BuyerAdder().addBuyer(this,
+				new BuyerAdder().addBuyer(this, 
 						new BuyerBehaviour(SingletonRepository.getShopList().get("buypoisons")), true);
 
-				addGoodbye("Please kill some rats on your way up!");
+				addGoodbye("Proszę zabij kilka szczurów po drodze!");
 			}
-
+			
 			@Override
 			protected void onGoodbye(RPEntity player) {
 				setDirection(Direction.DOWN);
@@ -78,17 +78,17 @@ public class CargoWorkerNPC implements ZoneConfigurator  {
 
 			new AthorFerry.FerryListener() {
 
-
+			
 				@Override
 				public void onNewFerryState(final Status status) {
 					switch (status) {
 					case ANCHORED_AT_MAINLAND:
 					case ANCHORED_AT_ISLAND:
-						npc.say("Attention: We have arrived!");
+						npc.say("UWAGA: Dopłyneliśmy!");
 						break;
 
 					default:
-						npc.say("Attention: We have set sail!");
+						npc.say("UWAGA: Wypływamy!");
 						break;
 					}
 				}
@@ -96,7 +96,7 @@ public class CargoWorkerNPC implements ZoneConfigurator  {
 
 			npc.setPosition(25, 38);
 			npc.setEntityClass("seller2npc");
-			npc.setDescription ("You see Klaas who takes care of the cargo. He hates rats!");
+			npc.setDescription ("Oto Klaas, który zajmuje się ładunkiem. Nie cierpi szczurów!");
 			npc.setDirection(Direction.DOWN);
 			zone.add(npc);
 	}

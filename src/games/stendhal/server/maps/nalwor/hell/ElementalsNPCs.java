@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.nalwor.hell;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -25,6 +21,10 @@ import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.condition.GreetingMatchesNameCondition;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Creates the elementals npcs in hell.
@@ -45,7 +45,7 @@ public class ElementalsNPCs implements ZoneConfigurator {
 
 	private void buildNPCs(final StendhalRPZone zone) {
 		final String[] names = {"Savanka", "Xeoilia", "Azira"};
-		final String[] descriptions = {"You see Savanka, flying around with her fiery aura.", "You see Xeoilia, calmly walking around.", "You see Azira, flapping around softly."};
+		final String[] descriptions = {"Oto Savanka latająca dookoła ze swoją ognistą aurą.", "Oto Xeoilia spokojnie przechadzająca się dookoła.", "Oto Azira delikatnie machająca dookoła."};
 		final Node[] start = new Node[] { new Node(115, 6), new Node(122, 12), new Node(117, 10) };
 		for (int i = 0; i < 3; i++) {
 			final SpeakerNPC npc = new SpeakerNPC(names[i]) {
@@ -87,9 +87,9 @@ public class ElementalsNPCs implements ZoneConfigurator {
 						ConversationPhrases.GREETING_MESSAGES,
 						new GreetingMatchesNameCondition(getName()), true,
 						ConversationStates.IDLE,
-						"Speak not to us, the harbingers of Hell!",
+						"Nie rozmawiaj z nami tylko z heroldami Piekła!",
 						null);
-
+			
 				}
 			};
 			npc.setEntityClass("fireelementalnpc");

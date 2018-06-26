@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.nalwor.assassinhq;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -25,6 +21,10 @@ import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.BuyerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.BuyerBehaviour;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Inside Nalwor Assassin Headquarters - Level 0 .
@@ -60,10 +60,10 @@ public class PrincipalNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				addGreeting();
-				addJob("It is my job to keep all my little guys armed and equipped. Please help me.");
-				addHelp("I can buy your surplus items.  Please see blackboard on wall for what I need.");
-				addOffer("Look at blackboard on wall to see my offer.");
-				addQuest("Other than selling me what I need, I don't require anything from you.");
+				addJob("To moje zadanie. Dbanie o wszystkich moich ludzi, aby byli uzbrojeni i wyposażeni. Proszę pomóż mi.");
+				addHelp("Mogę kupić od Ciebie nadmiar przedmiotów. Zobacz tablicę na ścianie, aby dowiedzieć się co potrzebuję.");
+				addOffer("Spójrz na tablicę na ścianie, aby zapoznać się z moją ofertą.");
+				addQuest("Nie potrzebuję niczego innego poza skupowaniem od Ciebie tego co potrzebuję.");
 				addGoodbye();
  				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buy4assassins")), false);
 			}
@@ -72,7 +72,7 @@ public class PrincipalNPC implements ZoneConfigurator {
 		principal.setEntityClass("principalnpc");
 		principal.setPosition(2, 18);
 		principal.initHP(100);
-		principal.setDescription("The lady walking around is Femme Fatale. She is always on the search for armor and weapons.");
+		principal.setDescription("Pani ta to Femme Fatale. Poszukuję broni i zbroi.");
 		zone.add(principal);
 	}
 }

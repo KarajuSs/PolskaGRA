@@ -12,23 +12,24 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.felinashouse;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.common.grammar.ItemParserResult;
+import games.stendhal.server.entity.Entity;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
-import games.stendhal.server.entity.Entity;
 import games.stendhal.server.entity.creature.Cat;
 import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
 import games.stendhal.server.entity.player.Player;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 public class CatSellerNPC implements ZoneConfigurator {
 
@@ -74,17 +75,17 @@ public class CatSellerNPC implements ZoneConfigurator {
 					@Override
 					public boolean transactAgreedDeal(ItemParserResult res, final EventRaiser seller, final Player player) {
 						if (res.getAmount() > 1) {
-							seller.say("Hmm... I just don't think you're cut out for taking care of more than one cat at once.");
+							seller.say("Hmm... Nie sądzę, abyś mógł zaopiekować się więcej niż jednym kotem naraz.");
 							return false;
 						} else if (player.hasPet()) {
-							say("Well, why don't you make sure you can look after that pet you already have first?");
+							say("Dlaczego nie upewnisz się i nie poszukasz zwierzątka, które już masz?");
 							return false;
 						} else {
-							if (!player.drop("money", getCharge(res, player))) {
-								seller.say("You don't seem to have enough money.");
+							if (!player.drop("money", getCharge(res,player))) {
+								seller.say("Nie masz tyle pieniędzy.");
 								return false;
 							}
-							seller.say("Here you go, a cute little kitten! Your kitten will eat any piece of chicken or fish you place on the ground. Enjoy her!");
+							seller.say("Proszę bardzo, mały słodki kiciuś! Twój kotek żywi się każdym kawałkiem kurczaka lub rybą, którą położysz na ziemi. Ciesz się!");
 
 							final Cat cat = new Cat(player);
 
@@ -103,27 +104,27 @@ public class CatSellerNPC implements ZoneConfigurator {
 				items.put("cat", BUYING_PRICE);
 
 				addGreeting();
-				addJob("I sell cats. Well, really they are just little kittens when I sell them to you but if you #care for them well they grow into cats.");
-				addHelp("I sell cats. To buy one, just tell me you want to #buy #cat. If you're new to this business, I can tell you how to #travel with her and take #care of her. If you find any wild cat, incidentally, you can make them your #own.");
+				addJob("Sprzedaję koty. Kiedy je sprzedaję są małymi kociętami, ale kiedy się takim kotkiem #zaopiekujesz to wyrasta na dużego kota.");
+				addHelp("Sprzedaję koty, aby kupić jednego wystarczy mi powiedzieć #buy #cat. Jeżeli jesteś nowy w tym interesie to mogę Ci powiedzieć jak #podróżować i jak #opiekować się kotami. Jeżeli znajdziesz dzikiego kota to możesz go #przygarnąć.");
 				addGoodbye();
 				new SellerAdder().addSeller(this, new CatSellerBehaviour(items));
-				addReply("care",
-						"Cats love chicken and fish. Just place a piece on the ground and your cat will run over to eat it. You can right-click on her and choose 'Look' at any time, to check up on her weight; she will gain one unit of weight for every piece of chicken she eats.");
-				addReply("travel",
-						"You'll need your cat to be close by in order for her to follow you when you change zones; you can say #cat to call her if she's not paying attention. If you decide to abandon her instead, you can right-click on yourself and select 'Leave Pet'; but frankly I think that sort of behaviour is disgraceful.");
+				addReply(Arrays.asList("zaopiekujesz", "care"),
+						"Koty kochają kurczaka i rybę. Wystarczy położyć kawałek na ziemi, a kot podejdzie i zje. Możesz sprawdzić jego wagę klikając prawym przyciskiem  na niego i wybierając 'Zobacz'. Jego waga będzie rosła po zjedzeniu każdego kawałka kurczaka.");
+				addReply(Arrays.asList("podróżować", "travel"),
+						"Gdy zmieniasz miejsce pobytu twój kot powinien być blisko Ciebie, aby nie zginął. Jeżeli nie zwraca na Ciebie uwagi wystarczy powiedzieć #cat aby go zawołać. Jeśli zdecydujesz się porzucić go to kliknij na siebie prawym przyciskiem i wybierz 'Porzuć zwierzątko', ale szczerze mówiąc sądzę, że takie zachowanie jest odrażające.");
 				addReply("sell",
-						"Sell??? What kind of a monster are you? Why would you ever sell your beautiful cat?");
-				addReply("own",
-						"If you find any wild or abandoned cat, you can right-click on them and select 'Own' to tame them. It will start following you immediately. Cats go a bit crazy without an owner!");
+						"Sprzedać??? Jakiego rodzaju potworem jesteś? Dlaczego w ogóle chciałbyś sprzedać swojego pięknego kota?");
+				addReply(Arrays.asList("przygarnąć", "own"),
+						"Jeżeli znajdziesz dzikiego lub porzuconego kota to, aby go przygarnąć możesz kliknąć na niego prawym przyciskiem i wybrać 'Przygarnij', a wtedy zacznie chodzić za tobą. Koty stają się trochę wściekłe bez właściciela!");
 			}
 		};
 
 		npc.setEntityClass("woman_009_npc");
 		npc.setPosition(6, 8);
 		npc.initHP(100);
-		npc.setDescription("Felina is walking around while taking care of her kittens. They are purring out of all corners.");
+		npc.setDescription("Felina opiekuje się kotami. Ich miauczenie dochodzi z każdego kąta.");
 		zone.add(npc);
-
+		
 		// Also put a cat in her bedroom (people can't Own it as it is behind a fence)
 		final Cat hercat = new Cat();
                 hercat.setPosition(19, 3);

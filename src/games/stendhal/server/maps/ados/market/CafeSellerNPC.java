@@ -11,8 +11,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.market;
 
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -22,6 +20,8 @@ import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
+
+import java.util.Map;
 
 /**
  * Mia works in the Botanical Gardens cafe.
@@ -43,24 +43,24 @@ public class CafeSellerNPC implements ZoneConfigurator {
 
 			@Override
 			public void createDialog() {
-				addGreeting("Welcome to our cafe at Ados Botanical Gardens!");
-				addHelp("Don't forget to look at all the signs which explain where the plants come from!");
-				addQuest("You're so nice! You could try asking Calla, she always seems to know someone who needs help.");
-				addJob("I sell drinks and snacks here at the cafe. I'd love to be able to say I made the food, too, but unfortunately we have to import everything.");
-				addOffer("You can buy drinks and snacks, have a look at our menu here. Everything is imported in, so it's expensive but the best around!");
+				addGreeting("Witamy w naszej kawiarni w Ogrodzie Botanicznym Ados!");
+				addHelp("Nie zapomnij spojrzeć na znaki, które wyjaśniają skąd dana roślina pochodzi!");
+				addQuest("Jesteś taki miły! Powinieneś zapytać Callę. Ona zawsze wie kto potrzebuje pomocy.");
+				addJob("Sprzedaję napoje i przekąski w kawiarni. Zawze chciałabym powiedzieć, że zrobiłam to jedzenie, ale niestety wszystko jest dostarczane.");
+				addOffer("Możesz kupić napoje i przekąski zajrzyj do naszego menu. Wszystko jest dostarczane więc jest drogie, ale za to najlepsze w okolicy!");
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("cafe")), false);
 
 				// just to be nice :)
-				addEmotionReply("thanks", "warmly thanks");
-				addEmotionReply("smile", "smiles at");
-
-				addGoodbye("Come back soon!");
+				addEmotionReply("thanks", "ciepłe podziękowanie");
+				addEmotionReply("smile", "uśmiecha się");
+				
+				addGoodbye("Wróć ponownie!");
 			}
-
-	        @Override
-	        protected void onGoodbye(RPEntity player) {
-	        	setDirection(Direction.DOWN);
-	        }
+			
+			@Override
+			protected void onGoodbye(RPEntity player) {
+				setDirection(Direction.DOWN);
+			}
 
 			@Override
 			protected void createPath() {
@@ -68,9 +68,9 @@ public class CafeSellerNPC implements ZoneConfigurator {
 			}
 		};
 		npc.setPosition(69, 114);
-		npc.setDescription("You see sweet Mia, ready to serve customers with a pretty smile.");
+		npc.setDescription("Oto Mia gotowa obsłużyć klientów z pięknym uśmiechem.");
 		npc.setEntityClass("cafesellernpc");
-        npc.setDirection(Direction.DOWN);
+		npc.setDirection(Direction.DOWN);
 		zone.add(npc);
 	}
 

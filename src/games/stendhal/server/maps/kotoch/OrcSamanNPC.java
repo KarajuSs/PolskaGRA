@@ -12,15 +12,15 @@
  ***************************************************************************/
 package games.stendhal.server.maps.kotoch;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -48,7 +48,7 @@ public class OrcSamanNPC implements ZoneConfigurator {
 				nodes.add(new Node(16, 113));
 				nodes.add(new Node(16, 115));
 				nodes.add(new Node(22, 115));
-				nodes.add(new Node(22, 119));
+				nodes.add(new Node(22, 119));				
 				nodes.add(new Node(8, 119));
 				setPath(new FixedPath(nodes, true));
 			}
@@ -56,14 +56,14 @@ public class OrcSamanNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				addGreeting("Oof.");
-				addJob("Me, Orc Saman.");
-				addHelp("Orc Saman need help! Make #task.");
-				addOffer("No trade.");
- 				addGoodbye("see yoo.");
+				addJob("Ja Orc Saman.");
+				addHelp("Orc Saman potrzebuje pomocy! Zrób #zadanie.");
+				addOffer("Żadnego handlu.");
+				addGoodbye("Żegnaj.");
 			}
 		};
 
-		npc.setDescription("You see an Orc Saman.");
+		npc.setDescription("Oto Orc Saman.");
 		npc.setEntityClass("orcsamannpc");
 		npc.setPosition(8, 113);
 		npc.initHP(100);

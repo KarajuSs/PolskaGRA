@@ -11,11 +11,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.kalavan.citygardens;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -29,13 +24,18 @@ import games.stendhal.server.entity.npc.action.SayUnstartedQuestDescriptionFromN
 import games.stendhal.server.entity.npc.condition.TriggerIsNPCNameForUnstartedQuestCondition;
 import games.stendhal.server.maps.Region;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 /**
  * An oracle who lets players know how they can help others.
  */
 public class OracleNPC implements ZoneConfigurator {
-
-	/**
-	 * region that this NPC can give information about
+	
+	/** 
+	 * region that this NPC can give information about 
 	 */
 	private final List<String> regions = Arrays.asList(Region.KALAVAN, Region.KIRDNEH, Region.FADO_CITY, Region.FADO_CAVES);
 
@@ -49,27 +49,27 @@ public class OracleNPC implements ZoneConfigurator {
 		final SpeakerNPC npc = new SpeakerNPC("Lobelia") {
 			@Override
 			public void createDialog() {
-				addGreeting("Hello. You caught me enjoying the flowers here.");
-
-				// use a standard action to list the names of NPCs for quests which haven't been started in this region
+				addGreeting("Cześć. Zastałeś mnie przy podziwianiu kwiatków.");
+				
+				// use a standard action to list the names of NPCs for quests which haven't been started in this region 
 				addReply(ConversationPhrases.HELP_MESSAGES, null, new SayNPCNamesForUnstartedQuestsAction(regions));
-
+				
 				// if the player says an NPC name, describe the quest (same description as in the travel log)
-				add(ConversationStates.ATTENDING,
+			    add(ConversationStates.ATTENDING,
 						"",
 						new TriggerIsNPCNameForUnstartedQuestCondition(regions),
 						ConversationStates.ATTENDING,
 						null,
 						new SayUnstartedQuestDescriptionFromNPCNameAction(regions));
-				addQuest("There are friends in " + Grammar.enumerateCollection(regions) + " who could need #help from adventurers.");
-				addJob("I sometimes tend the beautiful flowers here, but really that is a job for lovely Sue, the gardener.");
-				addOffer("Like my #sisters in other areas, I'm here to guide you on how to #help others.");
-				addReply("sisters", "My sisters and I all have the #name of a flower. Find them to learn how to #help those nearest them.");
-				addReply("name", "Lobelia are tiny purple flowers. Perhaps you can see some in the flowerbeds. I just love it here, Sue is so clever.");
-
+				addQuest("Są przyjaciele w " + Grammar.enumerateCollection(regions) + " którzy mogą potrzebować twojej #pomocy.");
+				addJob("Czasami kwiaty tutaj wydają się piękne, ale tak naprawdę to jest dzieło wspaniałej ogrodniczki Sue.");
+				addOffer("Lubię moje #siostry w innych rejonach. Jestem tutaj, aby pokazać Tobie jak #pomóc innym.");
+				addReply(Arrays.asList("sisters", "siostry"), "Moje siostry i ja mamy na #imiona kwiatów. Odszukaj je i naucz się jak #pomóc innym w ich rejonie.");
+				addReply(Arrays.asList("name", "imiona"), "Lobelia są to małe kwiatki. Być może widziałeś ich rabatki. Kocham to miejsce, a Sue jest taka mądra.");
+				
 				// just to be nice :)
 				addEmotionReply("hugs", "hugs");
-				addGoodbye("Thank you, nice to see you.");
+				addGoodbye("Dziękuję miło było cię poznać.");
 			}
 
 			@Override
@@ -91,7 +91,7 @@ public class OracleNPC implements ZoneConfigurator {
 			}
 		};
 		npc.setPosition(22,111);
-		npc.setDescription("You see Lobelia. She's gazing intently at the flowerbeds around her.");
+		npc.setDescription("Oto Lobelia. Patrzy uważnie na rabatki wokół niej.");
 		npc.setEntityClass("oracle4npc");
 		zone.add(npc);
 	}

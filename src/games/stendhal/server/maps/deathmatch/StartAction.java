@@ -29,7 +29,7 @@ public class StartAction implements ChatAction {
 
 	/**
 	 * Creates a new StartAction for the specified deathmatch.
-
+	 
 	 * @param deathmatchInfo deathmatch to start
 	 */
 	public StartAction(final DeathmatchInfo deathmatchInfo) {
@@ -38,7 +38,7 @@ public class StartAction implements ChatAction {
 
 	@Override
 	public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-		raiser.say("Have fun!");
+		raiser.say("Miłej zabawy!");
 		// Track starts. The three first numbers are reserved for level,
 		// time stamp and points (first is the state)
 		new IncrementQuestAction("deathmatch", 5, 1).fire(player, sentence, raiser);

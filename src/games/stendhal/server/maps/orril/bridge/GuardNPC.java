@@ -12,15 +12,15 @@
  ***************************************************************************/
 package games.stendhal.server.maps.orril.bridge;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds the bridge guard (to fado) NPC.
@@ -33,7 +33,7 @@ public class GuardNPC implements ZoneConfigurator {
 	 *
 	 * @param	zone		The zone to be configured.
 	 * @param	attributes	Configuration attributes.
-	 *
+	 * 
 	 */
 	@Override
 	public void configureZone(final StendhalRPZone zone, final Map<String, String> attributes) {
@@ -57,15 +57,15 @@ public class GuardNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hi, can I #help you?");
-				addJob("I guard this bridge and check the road block stays in place.");
-				addHelp("The road to Fado is closed until the city is safe.");
-				addQuest("I'd like something more interesting to do, too.");
-				addGoodbye("Goodbye and come back soon, I get bored here.");
+				addGreeting("Cześć. W czym mogę #pomóc?");
+				addJob("Strzegę tego mostu i sprawdzam zablokowaną drogę.");
+				addHelp("Droga do Fado będzie zablokowana do momentu, aż miasto nie będzie bezpieczne.");
+				addQuest("Chciałbym robić coś ciekawszego.");
+				addGoodbye("Dowidzenia i wracaj szybko. Nudzę się tutaj.");
 			}
 		};
 
-		npc.setDescription("You see a bored looking guard.");
+		npc.setDescription("Oto strażnik wyglądający na znudzonego.");
 		npc.setEntityClass("recruiter1npc");
 		npc.setPosition(62, 105);
 		npc.initHP(100);

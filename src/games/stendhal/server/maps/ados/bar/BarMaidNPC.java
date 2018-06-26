@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.bar;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -25,6 +21,10 @@ import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.BuyerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.BuyerBehaviour;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds a Bar Maid NPC to buy food from players.
@@ -69,16 +69,16 @@ public class BarMaidNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hi!");
-				addJob("I'm a bar maid. But we've run out of food to feed our customers, can you #offer any?");
-				addHelp("If you could #offer any meat, ham or cheese to restock our larders I'd be grateful.");
-				addQuest("Just #offers of food is enough, thank you.");
- 				addGoodbye("Bye bye!");
+				addGreeting("Witam!");
+				addJob("Jestem kelnerką. Ze względu na ciężkie czasy nie mamy wystarczająco dużo jedzenia aby nakarmić naszych klientów. Czy możesz nam coś #zaoferować? Cokolwiek?");
+				addHelp("Byłabym wdzięczna gdybyś mógł coś #zaoferować aby uzupełnić nasze zapasy: mięso, szynka lub ser.");
+				addQuest("#Zaoferowano nam już dość jedzenia, dziękuję za pomoc.");
+ 				addGoodbye("Dowidzenia, dowidzenia!");
  				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buyfood")), true);
 			}
 		};
-		npc.setDescription("You see a pretty young bar maid.");
-		npc.setEntityClass("noimagenpc"); /* woman_004_npc */
+		npc.setDescription("Oto piękna młoda barmanka.");
+		npc.setEntityClass("woman_004_npc");
 		npc.setPosition(8, 27);
 		npc.initHP(100);
 		zone.add(npc);

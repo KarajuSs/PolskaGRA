@@ -12,13 +12,14 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.bank;
 
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.RPEntity;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.Arrays;
+import java.util.Map;
 
 /**
  * Builds the Ados bank npc.
@@ -51,31 +52,31 @@ public class BankNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Welcome to Ados Bank!");
-				addJob("I am the customer advisor of Ados Bank.");
-				addHelp("Our rooms contain 4 #chests of our bank and 4 chests of our affiliate in #Semos. They are available for your full use.");
-				addReply("chests", "You can find the chests in our two separated rooms. Two chests of our bank are accessible on the left side in these rooms and 2 of our affiliate in Semos at the right.");
-				addReply("Semos", "Our main affiliate is in Semos City. Maybe you met my chief advisor #Dagobert already. He is my personal mentor.");
-				addReply("Dagobert", "He can explain a lot about our banking system, but maybe I can explain #more to you as well if you want.");
-				addReply("more", "Visit one of our two rooms for reaching our magic chests. You can store your belongings in any of them, and nobody will be able to reach them. A number of spells have been cast on the chest areas to ensure #safety.");
-				addReply("safety", "When you are standing at a chest to organise your items, any other people or animals will not be able to come near you. A magical aura stops others from using scrolls to arrive near you. You will need to walk out. Lastly let me tell you about safe #trading.");
-				addReply("trading","To start a trade with another player, right-click on them and select 'Trade'. If they also want to trade with you, you'll see a window pop up where you can drag items to offer, and see what is being offered to you. Both click Offer, and then you both need to Accept the offer to complete the trade.");
-				addQuest("Sorry, I have no job for you at the moment.");
- 				addGoodbye("Thank you for visiting our bank!");
+				addGreeting("Witamy w Banku Ados!");
+				addJob("Jestem doradcą klienta w Banku Ados.");
+				addHelp("Nasze pokoje posiadają 4 #skrzynie naszego banku i 4 skrzynie partnerskiego #Semos. Są w pełni dostępne dla ciebie.");
+				addReply(Arrays.asList("chests", "skrzynie"), "Możesz znaleść skrzynie w dwóch osobnych pokojach. Dwie skrzynie naszego banku są w tym pokoju po lewej, a 2 Semos są po prawej.");
+				addReply("Semos", "Naszy główny parter jest w mieście Semos. Może już spotkałeś mojego szefa #Dagobert. Jest moim mentorem.");
+				addReply("Dagobert", "Może wyjaśnić sporo rzeczy o systemie bankowym, ale może ja wyjaśnię #więcej tobie o ile chcesz.");
+				addReply(Arrays.asList("more", "więcej"), "Odwiedź któryś z naszych dwóch pokoi, aby skorzystać z naszych magicznych skrzyń. Możesz przechowywać swoje przedmioty w każdym z nich i nikt po za tobą nie będzie miał do nich dostępu. Rzucono sporo czarów w miejscu skrzyń, aby zapewnić #bezpieczeństwo.");
+				addReply(Arrays.asList("safety", "bezpieczeństwo"), "Gdy stoisz przy skrzyni, aby poukładać przedmioty to inne osoby lub zwierzęta nie będą mogły do ciebie podejść. Magiczna aura powstrzumuje inncyh od użycia zwoju umożliwiającego podejście blisko ciebie. Będziesz musiał odejść ,aby mogli zbliżyć się do skrzyni. Ostatecznie pozwól mi opowiedzieć bezpiecznym #handlu.");
+				addReply(Arrays.asList("trading", "handlu"),"Aby rozpocząć handel z innym wojownikiem naciśnij na nim prawy przycisk i wybierz 'Handluj'. Jeśli chce z tobą pohandlować to pojawi się okienko gdzie będziesz mógł przeciągnąć przedmioty do zaoferowania i zobaczysz co jest tobie oferowane. Oboje naciśnijcie na Zaoferuj, a potem musicie obaj zaakceptować ofertę, aby sfinalizować transakcję.");
+				addQuest("Przykro mi, ale w tej chwili nie mam dla ciebie pracy.");
+ 				addGoodbye("Dziękujemy za odwiedzenie naszego banku!");
 			}
-
+			
 			@Override
 			protected void onGoodbye(RPEntity player) {
 				setDirection(Direction.DOWN);
 			}
 		};
-
-		npc.setDescription("You see Rachel, a smart looking woman. She works in Ados bank.");
+		
+		npc.setDescription("Oto Rachel, która wygląda na mądrą kobietę. Pracuje w banku Ados.");
 		npc.setEntityClass("adosbankassistantnpc");
 		npc.setDirection(Direction.DOWN);
 		npc.setPosition(9, 4);
 		npc.initHP(100);
 		zone.add(npc);
-
+		
 	}
 }

@@ -12,15 +12,15 @@
  ***************************************************************************/
 package games.stendhal.server.maps.orril.dungeon;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Configure Xavkas - mithrilbourgh traitor.
@@ -53,15 +53,15 @@ public class MithrilbourghTraitorNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("I am innocent, I tell you.  Get me outta here!");
-				addJob("I am a wizard. I was once an elder in the Mithrilbourgh council.");
-				addHelp("I can't do anything to help you.");
-				addQuest("I don't know what you can do for me currently.  Come back at a later time.");
-				addGoodbye("Please don't forget me.");
+				addGreeting("Jestem niewinny, mówię ci.  Wyciągnij mnie stąd!");
+				addJob("Jestem czarodziejem. Byłem kiedyś starszym w radzie Mithrilbourghtów.");
+				addHelp("Nic nie mogę zrobić, aby ci pomóc.");
+				addQuest("Nie wiem co możesz teraz dla mnie zrobić.  Wróć później.");
+				addGoodbye("PNie zapomnij o mnie.");
 			} //remaining behaviour defined in quest
 		};
 
-		Xavkas.setDescription("Xavkas, a Mithrilbourgh Wizard, once a mighty elder, then a traitor, now, a common prisoner.  Woe, is he.");
+		Xavkas.setDescription("Xavkas czarodziej Mithrilbourgh, kiedyś starsz, a później zdrajca, a teraz więzień.  Kim on jest.");
 		Xavkas.setEntityClass("mithrilforgernpc");
 		Xavkas.setPosition(101, 141);
 		Xavkas.initHP(100);

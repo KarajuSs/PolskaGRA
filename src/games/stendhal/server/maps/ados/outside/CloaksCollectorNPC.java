@@ -12,15 +12,15 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.outside;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 public class CloaksCollectorNPC implements ZoneConfigurator {
 	/**
@@ -70,8 +70,8 @@ public class CloaksCollectorNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addJob("There is a quite high unemployment rate down here.");
-				addHelp("I have heard rumors that an elven city lies South West of here, in a vast forest. The locals call it Nalwor.");
+				addJob("Tutaj jest całkiem wysokie bezrobocie.");
+				addHelp("Słyszałam pogłoski, że miasto elfów leży na południowy-zachód stąd w głębokim lesie. Miejscowi nazywają go Nalwor.");
 				addGoodbye();
 				// remaining behaviour is defined in maps.quests.CloaksForBario.
 			}
@@ -80,7 +80,7 @@ public class CloaksCollectorNPC implements ZoneConfigurator {
 		npc.setEntityClass("beardmannpc");
 		npc.setPosition(4, 47);
 		npc.initHP(100);
-		npc.setDescription("You see Bario. His face is a bit blue and his knees are shaking.");
+		npc.setDescription("Oto Bario. Jego twarz jest nieco niebieska i kolana mu drżą.");
 		zone.add(npc);
 	}
 }

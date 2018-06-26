@@ -12,14 +12,14 @@
  ***************************************************************************/
 package games.stendhal.server.maps.kotoch;
 
-import java.util.Arrays;
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.Arrays;
+import java.util.Map;
 
 public class SmithNPC implements ZoneConfigurator {
 	/**
@@ -44,22 +44,22 @@ public class SmithNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Chairetismata! I am Vulcanus the smither.");
-				addGoodbye("Farewell");
-				addHelp("I may help you to get a very #special item for only a few others...");
-				addJob("I used to forge weapons for the King of Faiumoni, but this was long ago, since now the way is blocked.");
-
+				addGreeting("Szacum wodzu! Jestem Vulcanus kowal.");
+				addGoodbye("Na razie");
+				addHelp("Mógłbym Ci pomóc w zdobyciu #specjalnego przedmiotu...");
+				addJob("Używałem do wykuwania broni dla Króla Faiumoni, ale było to dawno temu. Teraz droga jest zablokowana.");
+				
 				add(
 				        ConversationStates.ATTENDING,
-				        Arrays.asList("special"),
+				        Arrays.asList("special", "specjalnego"),
 				        null,
 				        ConversationStates.ATTENDING,
-				        "Who told you that!?! *cough* Anyway, yes, I can forge a very special item for you. But you will need to complete a #quest",
+				        "Kto Ci to powiedział!?! *kaszlnięcie* W każdym razie tak. Mogę wykuć dla Ciebie specjalny przedmiot, ale będziesz musiał wykonać #zadanie",
 				        null);
 			}
 		};
 
-		smith.setDescription("You see Vulcanus. You feel a strange sensation near him.");
+		smith.setDescription("Oto Vulcanus. Czujesz się dziwnie stojąc w jego pobliżu.");
 		smith.setEntityClass("transparentnpc");
 		smith.setAlternativeImage("vulcanus");
 		smith.setPosition(62, 115);

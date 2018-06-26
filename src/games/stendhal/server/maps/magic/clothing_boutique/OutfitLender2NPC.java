@@ -11,12 +11,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.magic.clothing_boutique;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.common.grammar.ItemParserResult;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -31,14 +25,21 @@ import games.stendhal.server.entity.npc.action.ExamineChatAction;
 import games.stendhal.server.entity.npc.behaviour.adder.OutfitChangerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.OutfitChangerBehaviour;
 import games.stendhal.server.entity.player.Player;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 import marauroa.common.Pair;
 
 public class OutfitLender2NPC implements ZoneConfigurator {
-
-	// outfits to last for 10 hours normally
+	
+	// outfits to last for 10 hours normally 
 	public static final int endurance = 10 * 60;
 
-	// this constant is to vary the price. N=1 normally but could be a lot smaller on special occasions
+	// this constant is to vary the price. N=1 normally but could be a lot smaller on special occasions 
 	private static final double N = 1;
 
 	private static HashMap<String, Pair<Outfit, Boolean>> outfitTypes = new HashMap<String, Pair<Outfit, Boolean>>();
@@ -55,23 +56,23 @@ public class OutfitLender2NPC implements ZoneConfigurator {
 	}
 
 	private void initOutfits() {
-		// these outfits must be put on over existing outfit
-		// (what's null doesn't change that part of the outfit)
+		// these outfits must be put on over existing outfit 
+		// (what's null doesn't change that part of the outfit)	
 		// so true means we put on over
 		// FIXME: Use new outfit system
-		  final Pair<Outfit, Boolean> GLASSES = new Pair<Outfit, Boolean>(new Outfit(null, null, Integer.valueOf(86), null, null), true);
-		  final Pair<Outfit, Boolean> GOBLIN_FACE = new Pair<Outfit, Boolean>(new Outfit(null, null, Integer.valueOf(88), null, null), true);
-		  final Pair<Outfit, Boolean> THING_FACE = new Pair<Outfit, Boolean>(new Outfit(null, null, Integer.valueOf(87), null, null), true);
+		  final Pair<Outfit, Boolean> GLASSES = new Pair<Outfit, Boolean>(new Outfit(null, null, Integer.valueOf(33), null, null), true);
+		  final Pair<Outfit, Boolean> GOBLIN_FACE = new Pair<Outfit, Boolean>(new Outfit(null, null, Integer.valueOf(35), null, null), true);
+		  final Pair<Outfit, Boolean> THING_FACE = new Pair<Outfit, Boolean>(new Outfit(null, null, Integer.valueOf(34), null, null), true);
 		  final Pair<Outfit, Boolean> Umbrella = new Pair<Outfit, Boolean>(new Outfit(Integer.valueOf(07), null, null, null, null), true);
 
 		// these outfits must replace the current outfit (what's null simply isn't there)
-		  final Pair<Outfit, Boolean> PURPLE_SLIME = new Pair<Outfit, Boolean>(new Outfit(null, Integer.valueOf(00), Integer.valueOf(98), Integer.valueOf(00), Integer.valueOf(93)), false);
-		  final Pair<Outfit, Boolean> GREEN_SLIME = new Pair<Outfit, Boolean>(new Outfit(null, Integer.valueOf(00), Integer.valueOf(98), Integer.valueOf(00), Integer.valueOf(89)), false);
-		  final Pair<Outfit, Boolean> RED_SLIME = new Pair<Outfit, Boolean>(new Outfit(null, Integer.valueOf(00), Integer.valueOf(98), Integer.valueOf(00), Integer.valueOf(88)), false);
-		  final Pair<Outfit, Boolean> BLUE_SLIME = new Pair<Outfit, Boolean>(new Outfit(null, Integer.valueOf(00), Integer.valueOf(98), Integer.valueOf(00), Integer.valueOf(91)), false);
-		  final Pair<Outfit, Boolean> GINGERBREAD_MAN = new Pair<Outfit, Boolean>(new Outfit(null, Integer.valueOf(00), Integer.valueOf(98), Integer.valueOf(00), Integer.valueOf(92)), false);
-
-
+		  final Pair<Outfit, Boolean> PURPLE_SLIME = new Pair<Outfit, Boolean>(new Outfit(null, Integer.valueOf(00), Integer.valueOf(00), Integer.valueOf(00), Integer.valueOf(23)), false);
+		  final Pair<Outfit, Boolean> GREEN_SLIME = new Pair<Outfit, Boolean>(new Outfit(null, Integer.valueOf(00), Integer.valueOf(00), Integer.valueOf(00), Integer.valueOf(19)), false);
+		  final Pair<Outfit, Boolean> RED_SLIME = new Pair<Outfit, Boolean>(new Outfit(null, Integer.valueOf(00), Integer.valueOf(00), Integer.valueOf(00), Integer.valueOf(18)), false);
+		  final Pair<Outfit, Boolean> BLUE_SLIME = new Pair<Outfit, Boolean>(new Outfit(null, Integer.valueOf(00), Integer.valueOf(00), Integer.valueOf(00), Integer.valueOf(21)), false);
+		  final Pair<Outfit, Boolean> GINGERBREAD_MAN = new Pair<Outfit, Boolean>(new Outfit(null, Integer.valueOf(00), Integer.valueOf(00), Integer.valueOf(00), Integer.valueOf(22)), false);
+		 
+		
 			outfitTypes.put("glasses", GLASSES);
 			outfitTypes.put("goblin face", GOBLIN_FACE);
 			outfitTypes.put("thing face", THING_FACE);
@@ -82,8 +83,8 @@ public class OutfitLender2NPC implements ZoneConfigurator {
 			outfitTypes.put("blue slime", BLUE_SLIME);
 			outfitTypes.put("gingerbread man", GINGERBREAD_MAN);
 	}
-
-
+		
+	
 
 	private void buildBoutiqueArea(final StendhalRPZone zone) {
 		final SpeakerNPC npc = new SpeakerNPC("Saskia") {
@@ -106,7 +107,7 @@ public class OutfitLender2NPC implements ZoneConfigurator {
 
 					@Override
 					public void putOnOutfit(final Player player, final String outfitType) {
-
+						
 						final Pair<Outfit, Boolean> outfitPair = outfitTypes.get(outfitType);
 						final Outfit outfit = outfitPair.first();
 						final boolean type = outfitPair.second();
@@ -125,9 +126,11 @@ public class OutfitLender2NPC implements ZoneConfigurator {
 						final boolean type = outfitPair.second();
 
 						if (type) {
+							if ((player.getOutfit().getBody() > 17
+									&& player.getOutfit().getBody() < 20)
+									|| (player.getOutfit().getBody() > 20
+									&& player.getOutfit().getBody() < 24)) {
 								seller.say("Już masz magiczne ubranie, które gryzie się z resztą - mógłbyś założyć coś bardziej konwencjonalnego i zapytać ponownie? Dziękuję!");
-							if (player.getOutfit().getBody() > 80
-									&& player.getOutfit().getBody() < 99) {
 								return false;
 							}
 						}
@@ -143,7 +146,7 @@ public class OutfitLender2NPC implements ZoneConfigurator {
 							return false;
 						}
 					}
-
+					
 					// These outfits are not on the usual OutfitChangerBehaviour's
 					// list, so they need special care when looking for them
 					@Override

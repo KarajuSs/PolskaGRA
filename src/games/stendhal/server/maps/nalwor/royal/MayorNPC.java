@@ -12,16 +12,16 @@
  ***************************************************************************/
 package games.stendhal.server.maps.nalwor.royal;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds the elf mayor NPC.
@@ -62,16 +62,16 @@ public class MayorNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hello. You are brave, to stand before me.");
-				addJob("You dare ask, little human?!");
-				addHelp("Well, perhaps you can help me with a #problem I see brewing.");
+				addGreeting("Cześć. Musisz być odważny, aby stać przede mną.");
+				addJob("Masz czelność pytać, mały człowieczku?!");
+				addHelp("Cóż, może mógłbyś mi pomóc rozwiązać #problem.");
 				add(ConversationStates.ATTENDING, "problem", null, ConversationStates.ATTENDING,
-				        "Here are no dark elves, believe me! Me?! no, no, no, I'm just well tanned...", null);
-				addGoodbye("Farewell, human.");
+				        "Tutaj nie ma mrocznych elfów. Uwierz mi! Ja?! nie, nie, nie, Jestem dobrze opalony...", null);
+				addGoodbye("Żegnaj człowieczku.");
 			}
 		};
 
-		npc.setDescription("You see a regal elf. Something about him makes you uneasy.");
+		npc.setDescription("Oto królewski elf. Coś w nim wzbudza twój niepokój.");
 		npc.setEntityClass("elfmayornpc");
 		npc.setPosition(9, 23);
 		npc.initHP(100);

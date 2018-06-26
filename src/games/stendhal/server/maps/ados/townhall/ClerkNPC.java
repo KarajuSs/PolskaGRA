@@ -12,20 +12,20 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.townhall;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Builds ados townhall clerk NPC.
  * He can divorce people, see maps/quests/Marriage.java
- *
+ * 
  * @author kymara
  */
 public class ClerkNPC implements ZoneConfigurator {
@@ -48,8 +48,8 @@ public class ClerkNPC implements ZoneConfigurator {
 			protected void createPath() {
 				final List<Node> nodes = new LinkedList<Node>();
 				nodes.add(new Node(23, 10));
-				nodes.add(new Node(27, 10));
-				nodes.add(new Node(27, 8));
+				nodes.add(new Node(27, 10));	
+				nodes.add(new Node(27, 8));	
 				nodes.add(new Node(28, 8));
 				nodes.add(new Node(28, 4));
 				nodes.add(new Node(25, 4));
@@ -64,16 +64,16 @@ public class ClerkNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hello. If I can help you, just say the word.");
-				addJob("I'm the clerk of Ados. I can #divorce married people.");
-				addHelp("I can #divorce people, if they are unhappily married.");
-				addQuest("I don't have anything for you.");
-				addOffer("The Mayor, who is upstairs, has a supply of scrolls for the city.");
-				addGoodbye("Good day.");
+				addGreeting("Witam. Jeżeli mógłbym w czymś pomóc to wystarczy zapytać.");
+				addJob("Jestem urzędnikiem w Ados. Mogę dać małżeństwu rozwód ( #divorce ).");
+				addHelp("Mogę dać rozwód ( #divorce ) osobom, którym rozpada się związek.");
+				addQuest("Nie mam nic dla Ciebie.");
+				addOffer("Burmistrz, który urzęduje na wyższym piętrze posiada zwoje do tego miasta.");
+				addGoodbye("Życzę miłego dnia.");
 			}
 		};
 
-		clerk.setDescription("You see a clerk, hard at work.");
+		clerk.setDescription("Oto ciężko pracujący urzędnik.");
 		clerk.setEntityClass("executivenpc");
 		clerk.setPosition(23, 10);
 		clerk.initHP(100);

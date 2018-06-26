@@ -12,16 +12,17 @@
  ***************************************************************************/
 package games.stendhal.server.maps.fado.church;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 public class VergerNPC implements ZoneConfigurator {
 	/**
@@ -52,18 +53,18 @@ public class VergerNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Welcome to this place of worship. Are you here to be #married?");
-				addJob("I am the church verger. I help with small menial tasks, but I do not mind, as my reward will come in the life beyond.");
-				addHelp("My only advice is to love and be kind to one another");
-				addQuest("I have eveything I need. But it does bring me pleasure to see people #married.");
-				addReply("married", "If you want to be engaged, speak to Sister Benedicta. She'll make sure the priest knows about your plans.");
-				addReply(ConversationPhrases.YES_MESSAGES, "Congratulations!");
-				addReply(ConversationPhrases.NO_MESSAGES, "A pity. I do hope you find a partner one day.");
-				addGoodbye("Goodbye, go safely.");
+				addGreeting("Witaj w świętym miejscu. Przyszedłeś tutaj, aby #wziąć #ślub?");
+				addJob("Jestem kościelnym. Pomagam w drobnych pracach, ale nie zastanawiam się czy moja nagroda przyjdzie w życiu czy po śmierci.");
+				addHelp("Moja jedyna rada to miłość i życzliwość dla innych");
+				addQuest("Mam wszystko czego potrzebuję, ale największą przyjemność sprawia mi widok #poślubionych ludzi.");
+				addReply(Arrays.asList("married", "wziąć", "ślub", "poślubionych"), "Jeżeli chcesz być zaręczony to porozmawiaj z Sister Benedicta. Ona da znać księdzu o twoich planach.");
+				addReply(ConversationPhrases.YES_MESSAGES, "Gratulacje!");
+				addReply(ConversationPhrases.NO_MESSAGES, "Co za szkoda. Mam nadzieję, że kiedyś znajdziesz partnera.");
+				addGoodbye("Dowidzenia i idź bezpiecznie.");
 			}
 		};
 
-		npc.setDescription("You see Lukas, the humble church verger.");
+		npc.setDescription("Oto Lukas pokorny kościelny.");
 		npc.setEntityClass("vergernpc");
 		npc.setPosition(22, 9);
 		npc.initHP(100);

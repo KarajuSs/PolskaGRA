@@ -12,11 +12,12 @@
  ***************************************************************************/
 package games.stendhal.server.maps.nalwor.assassinhq;
 
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.Arrays;
+import java.util.Map;
 
 /**
  * Inside assassin headquarters classroom area.
@@ -44,19 +45,19 @@ public class LilJohnnnnyNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("I didn't mean to hurt #him.");
-				addJob("Job? Nah! Can't think of that now.");
-				addHelp("He said my mommy wears army #boots.");
-				addOffer("I'm gonna make him sorry he ever said that!");
-				addGoodbye("well, if you really have to leave...");
-				addQuest("Nah, I got nothin' for you right now. Maybe later.");
-				addReply("him","He was making #fun of me.");
-				addReply("fun","He said my mommy wears army #boots.");
-				addReply("boots","I'm gonna make him sorry he'd ever said that!");
+				addGreeting("Nie chciałem #go skrzywdzić.");
+				addJob("Praca? Teraz nie mogę o tym myśleć.");
+				addHelp("Powiedział, że moja matka nosi wojskowe #buty.");
+				addOffer("Chcę, aby przeprosił za to co powiedział!");
+				addGoodbye("Cóż jeżeli musisz odejść...");
+				addQuest("Nie. Nie mam nic dla Ciebie. Może później.");
+				addReply(Arrays.asList("him", "go"),"Robił sobie ze mnie #żarty.");
+				addReply(Arrays.asList("fun", "żarty"),"Powiedział, że moja mama nosi wojskowe #buty.");
+				addReply(Arrays.asList("boots", "buty"),"Pożałuje, że to powiedział!");
 			}
 		};
 
-		liljohnnnny.setDescription("You see lil johnnnny, plotting his next conquest.");
+		liljohnnnny.setDescription("Oto lil johnnnny, knujący swój następny plan.");
 		liljohnnnny.setEntityClass("liljohnnnnynpc");
 		liljohnnnny.setPosition(23, 2);
 		liljohnnnny.initHP(100);

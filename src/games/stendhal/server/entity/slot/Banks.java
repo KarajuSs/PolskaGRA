@@ -26,6 +26,8 @@ public enum Banks {
 	FADO("bank_fado"),
 	/** bank in Nalwor. */
 	NALWOR("bank_nalwor"),
+	/** bank in Zakopane. */
+	ZAKOPANE("bank_zakopane"),
 	/** mini-bank in zaras house. */
 	ZARAS("zaras_chest_ados");
 

@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.library;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -29,6 +25,11 @@ import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.util.WikipediaAccess;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Ados Library (Inside / Level 0).
@@ -63,12 +64,12 @@ public class LibrarianNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				addGreeting();
-				addJob("I am the librarian.");
-				addHelp("Just ask me to #explain something.");
-				add(ConversationStates.ATTENDING, "explain", null, ConversationStates.ATTENDING, null,
+				addJob("Jestem bibliotekarzem");
+				addHelp("Zapytaj mnie o #wyjaśnienie czegoś");
+				add(ConversationStates.ATTENDING, Arrays.asList("explain", "wyjaśnienie", "wyjaśnij"), null, ConversationStates.ATTENDING, null,
 				        new ChatAction() {
 					        @Override
-							public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
+					        public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
 					        	String text = sentence.getOriginalText();
 						        // extract the title
 						        int pos = text.indexOf(" ");
@@ -80,18 +81,18 @@ public class LibrarianNPC implements ZoneConfigurator {
 							        thread.setPriority(Thread.MIN_PRIORITY);
 							        thread.setDaemon(true);
 							        thread.start();
-							        SingletonRepository.getTurnNotifier().notifyInTurns(10, new WikipediaWaiter((SpeakerNPC) npc.getEntity(), access));
-							        npc.say("Please wait, while I am looking it up in the book called #Wikipedia!");
+						    	    SingletonRepository.getTurnNotifier().notifyInTurns(10, new WikipediaWaiter((SpeakerNPC) npc.getEntity(), access));
+						        	npc.say("Poczekaj chwilkę tylko zajrzę do książki pt. #Wikipedia!");
 						        } else {
-								    npc.say("What do you want to be explained?");
+								    npc.say("Co chcesz abym wyjaśnił?");
 							        return;
 						        }
 					        }
 				        });
 				addReply("wikipedia",
-						"Wikipedia is an Internet based project to create a #free encyclopedia.");
-				addReply("free",
-				        "The Wikipedia content may be used according to the rules specified in the Creative Commons Attribution-ShareAlike License which can be found at #https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License .");
+						"Wikipedia jest internetowym projektem powstałym w celu utworzenia #wolnej encyklopedii.");
+				addReply(Arrays.asList("free", "wolnej"),
+				        "Zawartość Wikipedii może być stosowana zgodnie z zasadami zawartymi w GNU General Documentation License, którą można znaleźć na http://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License zaś polskie tłumaczenie na stronie http://pl.wikipedia.org/wiki/GNU_Free_Documentation_License_-_polskie_tłumaczenie.");
 				addGoodbye();
 			}
 		};
@@ -99,7 +100,7 @@ public class LibrarianNPC implements ZoneConfigurator {
 		npc.setEntityClass("investigatornpc");
 		npc.setPosition(10, 9);
 		npc.initHP(100);
-		npc.setDescription("Wikipedian is the Ados librarian. His name predicts: He knows a lot.");
+		npc.setDescription("Wikipedian jest biblotekarzem w Ados. Jego imię mówi samo za siebie.");
 		zone.add(npc);
 	}
 
@@ -121,7 +122,7 @@ public class LibrarianNPC implements ZoneConfigurator {
 				return;
 			}
 			if (access.getError() != null) {
-				npc.say("Sorry, I cannot access the bookcase at the moment.");
+				npc.say("Przepraszam, ale nie mogę się teraz dostać do półki na książki.");
 				return;
 			}
 
@@ -129,7 +130,7 @@ public class LibrarianNPC implements ZoneConfigurator {
 				final String content = access.getProcessedText();
 				npc.say(content);
 			} else {
-				npc.say("Sorry, this book has still to be written.");
+				npc.say("Przepraszam, ale ta książka wciąż jest do napisania.");
 			}
 		}
 	}

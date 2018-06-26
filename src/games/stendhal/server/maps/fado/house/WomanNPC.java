@@ -12,15 +12,15 @@
  ***************************************************************************/
 package games.stendhal.server.maps.fado.house;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds Josephine NPC (Cloak Collector).
@@ -66,13 +66,13 @@ public class WomanNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				//addGreeting();
-				addJob("If I could, I'd design dresses!");
-				addHelp("You can get help from Xhiphin Zohos, he's usually just outside. *giggle* I wonder why!");
-				addGoodbye("Bye bye now!");
+				addJob("Gdybym mogła to projektowałabym sukienki!");
+				addHelp("Możesz otrzymać pomoc od Xhiphin Zohos. Zazwyczaj siedzi w sąsiednim domku. *hi hi hi* Ciekawa jestem dlaczego!");
+				addGoodbye("Dowidzenia, dowidzenia!");
 			}
 		};
 
-		woman.setDescription("You see a fashionably dressed young woman. She looks like a bit of a flirt.");
+		woman.setDescription("Oto modnie ubrana młoda kobieta. Wygląda trochę na flirciarę.");
 		woman.setEntityClass("youngwomannpc");
 		woman.setPosition(3, 4);
 		woman.initHP(100);

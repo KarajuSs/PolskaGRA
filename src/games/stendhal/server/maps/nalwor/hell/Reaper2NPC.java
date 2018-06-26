@@ -12,11 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.nalwor.hell;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.common.NotificationType;
 import games.stendhal.common.parser.Sentence;
@@ -31,6 +26,11 @@ import games.stendhal.server.entity.npc.action.DecreaseKarmaAction;
 import games.stendhal.server.entity.npc.action.MultipleActions;
 import games.stendhal.server.entity.npc.action.TeleportAction;
 import games.stendhal.server.entity.player.Player;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds the 2nd reaper in hell.
@@ -72,8 +72,8 @@ public class Reaper2NPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("#elddir a evlos tsum uoy ecalp siht #evael ot kees uoy fI");
-				add(ConversationStates.ATTENDING, "evael", null, ConversationStates.QUESTION_1, "?erus uoy erA .truh lliw tI", null);
+				addGreeting("#ękdagaz ćaząiwzor zsisum ot ecsjeim ot ćicśupo zsechc ileżeJ");
+				add(ConversationStates.ATTENDING, Arrays.asList("evael", "ćicśupo", "ćśjyw"), null, ConversationStates.QUESTION_1, "?neiwep śetseJ .adokzs eizdęb oT", null);
 				final List<ChatAction> processStep = new LinkedList<ChatAction>();
 				processStep.add(new TeleportAction("int_afterlife", 31, 23, Direction.UP));
 				processStep.add(new DecreaseKarmaAction(100.0));
@@ -85,22 +85,22 @@ public class Reaper2NPC implements ZoneConfigurator {
 						if (player.hasQuest("solve_riddles")) {
 							player.removeQuest("solve_riddles");
 						}
-						player.sendPrivateText(NotificationType.NEGATIVE, "The Reaper took 10000 XP and gave you bad karma.");
+						player.sendPrivateText(NotificationType.NEGATIVE, "Reaper zabrał Tobie 10000 punktów doświadczenia oraz obdarzył Cię złą karmą.");
 					}
 				});
-				add(ConversationStates.QUESTION_1, Arrays.asList("yes", "sey", "ok", "ko"), null, ConversationStates.IDLE, "!ahahahaH", new MultipleActions(processStep));
-				add(ConversationStates.QUESTION_1, Arrays.asList(ConversationPhrases.NO_EXPRESSION, "on"), null, ConversationStates.ATTENDING, ".eniF", null);
-				addReply("elddir", ".rorrim ym ksA");
-				addJob(".gnivil eht fo sluos eht tsevrah I");
-				addHelp("#evael ot hsiw uoy dluohs ,lleh fo setag eht ot syek eht dloh I");
-				addOffer("... luos ruoy ekat ot em hsiw uoy sselnU");
-				addGoodbye("... yawa dessap sah sgniht fo redro dlo ehT");
+				add(ConversationStates.QUESTION_1, Arrays.asList("yes", "sey", "ok", "ko", "tak", "kat", "dobrze", "ezrbod"), null, ConversationStates.IDLE, "!ahahahaH", new MultipleActions(processStep));
+				add(ConversationStates.QUESTION_1, Arrays.asList(ConversationPhrases.NO_EXPRESSION, "on", "ein"), null, ConversationStates.ATTENDING, ".ezrboD", null);
+				addReply(Arrays.asList("ękdagaz", "elddir"), ".ortsul ejom jatypaZ");
+				addJob(".hcycąjyż ezsud mareibaZ");
+				addHelp("ćśjyw# eibos zsyzcyŻ .ałkeip marb od ezculk mamyzrT");
+				addOffer("... ęzsud ąjowt łąizw myba ,eibos zsyzcyżaz ein ikópoD");
+				addGoodbye("... ćęimapein w łdezsdo yzcezr kedązrop yratS");
 			}
 		};
 		npc.setEntityClass("grim_reaper2_npc");
 		npc.setPosition(68, 76);
 		npc.initHP(100);
-		npc.setDescription("You see the repaeR mirG. His mirror will give you liberty.");
+		npc.setDescription("Oto repaeR mirG. Jego lustro daje wolność.");
 		return npc;
 	}
 }

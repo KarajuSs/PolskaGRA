@@ -12,11 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.farmhouse;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
@@ -24,6 +19,11 @@ import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * NPC to sell milk.
@@ -58,22 +58,22 @@ public class FarmersWifeNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Goeden dag!");
-				addJob("My husband runs this farm, and mostly I look after his younger sister and her boy, they are upstairs. If you could check on them that'd be a help, I heard her crying earlier.");
-				addQuest("If you can write Junit tests then my daughter needs you. Just ask Diogenes how to help the project.");
-				addHelp("I can sell you a bottle of milk or some butter from our dairy cows if you like.");
+				addGreeting("Dzień dobry!");
+				addJob("Mój mąż prowadzi to gospodarstwo, a ja głównie opiekuję się jego młodszą siostrą i jej chłopakiem, są na górze. Jeżeli możesz powiedzieć coś pomocnego na ich temat, to mów. Słyszałam wcześniej jej płacz...");
+				addQuest("Gdybyś potrafił rozwiązywać Junit testy, moja córka potrzebowałaby Cię. Zapytaj Diogenesa, jak możesz pomóc jej w projekcie..");
+				addHelp("Mogę sprzedać Ci butelkę mleka albo trochę masła, prosto od naszych kochanych krów! Jeśli chcesz, oczywiście.");
 				final Map<String, Integer> offerings = new HashMap<String, Integer>();
-				offerings.put("milk", 30);
-				offerings.put("butter", 40);
+				offerings.put("mleko", 30);
+				offerings.put("osełka masła", 40);
 				new SellerAdder().addSeller(this, new SellerBehaviour(offerings));
 
-				addGoodbye("Tot ziens.");
+				addGoodbye("Żegnaj.");
 			}
 		};
 		npc.setEntityClass("wifenpc");
 		npc.setPosition(27, 4);
 		npc.initHP(100);
-		npc.setDescription("You see Philomena. She smells a bit of cows, but her milk is unique.");
+		npc.setDescription("Oto Philomena. Pachnie nieco krowami, których mleko jest wyjątkowe.");
 	    zone.add(npc);
 	}
 }

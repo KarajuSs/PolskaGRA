@@ -12,11 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.magician_house;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -27,6 +22,11 @@ import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 public class WizardNPC implements ZoneConfigurator {
 	private final ShopList shops = SingletonRepository.getShopList();
@@ -64,34 +64,37 @@ public class WizardNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				addGreeting();
-				addJob("I am a wizard who sells #magic #scrolls. Just ask me for an #offer!");
-				addHelp("You can take powerful magic with you on your adventures with the aid of my #magic #scrolls!");
+				addJob("Jestem czarodziejem, który sprzedaje #magiczne #zwoje. Zapytaj mnie o #ofertę!");
+				addHelp("Możesz zabrać potężną magię na swoje przygody za pomocą moich #magicznych #zwojów!");
 
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("scrolls")));
 
 				add(
 				        ConversationStates.ATTENDING,
-				        Arrays.asList("magic", "scroll", "scrolls", "magic scrolls"),
+				        Arrays.asList("magic", "scroll", "scrolls", "magiczne", "magicznych", "zwoje","zwojów"),
 				        null,
 				        ConversationStates.ATTENDING,
-				        "I #offer scrolls that help you to travel faster: #'home scrolls' and the #markable #'empty scrolls'. For the more advanced customer, I also have #'summon scrolls'!",
+				        "#Oferuję zwoje, które pomagają w szybszym podróżowaniu: zwoje #tatrzańskie, zwoje #semos i #zaznaczone oraz #puste zwoje. Dla bardziej doświadczonego klienta mam zwoje #przywołania!",
 				        null);
-				add(ConversationStates.ATTENDING, Arrays.asList("home", "home scroll"), null,
+				add(ConversationStates.ATTENDING, Arrays.asList("semos", "semos city scroll"), null,
 				        ConversationStates.ATTENDING,
-				        "Home scrolls take you home immediately, a good way to escape danger!", null);
+				        "Semos zwoje zabierają natychmiast do Semos. Dobra droga ucieczki przed niebezpieczeństwem!", null);
+				add(ConversationStates.ATTENDING, Arrays.asList("tatrzańskie", "zwój tatrzański"), null,
+				        ConversationStates.ATTENDING,
+				        "Tatrzańskie zwoje zabierają natychmiast do Zakopanego. Pomysłowe wyjście z niebezpiecznej sytuacji!", null);
 				add(
 				        ConversationStates.ATTENDING,
-				        Arrays.asList("empty", "marked", "empty scroll", "markable", "marked scroll"),
+				        Arrays.asList("empty", "marked", "empty scroll", "markable", "marked scroll", "zaznaczone", "puste"),
 				        null,
 				        ConversationStates.ATTENDING,
-				        "Empty scrolls are used to mark a position. Those marked scrolls can take you back to that position. They are a little expensive, though.",
+				        "Puste zwoje służą do oznaczenia pozycji. Tak zaznaczone zwoje mogą Cię zabrać z powrotem do tego miejsca, w którym je zaznaczyłeś. Są trochę drogie, ale warto je mieć.",
 				        null);
 				add(
 				        ConversationStates.ATTENDING,
-				        "summon",
+				        Arrays.asList("summon", "przywołania", "summon scroll"),
 				        null,
 				        ConversationStates.ATTENDING,
-				        "A summon scroll empowers you to summon animals to you; advanced magicians will be able to summon stronger monsters than others. Of course, these scrolls can be dangerous if misused.",
+				        "Zwój przywołania umożliwia Ci przywołanie zwierząt. Doświadczeni magowie będą mogli przywoływać silniejsze potwory niż inni. Oczywiście te zwoje mogą być groźne jeżeli się ich nadużywa.",
 				        null);
 
 				addGoodbye();
@@ -101,7 +104,7 @@ public class WizardNPC implements ZoneConfigurator {
 		npc.setEntityClass("wisemannpc");
 		npc.setPosition(7, 2);
 		npc.initHP(100);
-		npc.setDescription("You see the mighty magician Haizen. He is able to let people teleport around with his scrolls.");
+		npc.setDescription("Oto potężny czarownik Haizen. Sprzedaje zwoje teleportu.");
 		zone.add(npc);
 	}
 }

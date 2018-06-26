@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.magic.theater;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -25,6 +21,10 @@ import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /*
  * Inside Magic Theater)
@@ -56,21 +56,21 @@ public class MagicBarmaidNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hi. Hope you are enjoying our wonderful theater.");
-				addJob("I sell the most delectable foods in Magic City.");
-				addHelp("If you are hungry, check out the blackboard for foods and prices.");
+				addGreeting("Cześć. Mam nadzieję, że podoba się Tobie nasz wspaniały teatr.");
+				addJob("Sprzedaję większość pysznego jedzenia w Magic City.");
+				addHelp("Jeżeli jesteś głodny to sprawdź tablicę, aby dowiedzieć się jakie sprzedajemy jedzenie i po jakiej cenie.");
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("sellmagic")), false);
-				addOffer("See the blackboard for my prices.");
-				addQuest("I have no need of your help, thanks.");
-				addReply("licorice", "Poor Baldemar, he is so very alergic to licorice.");
-				addGoodbye("Great to see you. Come again.");
+				addOffer("Spójrz na tablicę, aby zobaczyć ceny.");
+				addQuest("Nie potrzebuję twojej pomocy. Dziękuję.");
+				addReply("lukrecja", "Biedny Baldemar ma alergię na lukrecję.");
+				addGoodbye("Wspaniale miło było Cię spotkać. Wróć ponownie.");
 			}
 		};
 
 		magicbarmaid.setEntityClass("woman_015_npc");
 		magicbarmaid.setPosition(13, 3);
 		magicbarmaid.initHP(100);
-		magicbarmaid.setDescription("You see Trillium. She is the Magic City barmaid of the theater and offers nice drinks and food.");
+		magicbarmaid.setDescription("Widzisz Trillium. Ona jest barmanką teatru Magic City. Oferuje napoje i żywności.");
 		zone.add(magicbarmaid);
 	}
 }

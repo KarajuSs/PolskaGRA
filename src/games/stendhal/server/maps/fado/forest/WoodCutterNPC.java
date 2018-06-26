@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.fado.forest;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -25,6 +21,10 @@ import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.BuyerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.BuyerBehaviour;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds an NPC to buy previously un bought axes
@@ -67,17 +67,17 @@ public class WoodCutterNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Welcome to this forest, south of Or'ril river.");
-				addJob("I'm a wood cutter by trade. Can you #offer me any axes?");
-				addHelp("You can sometimes collect wood that's lying around the forest. Oh, and I take #offers of any good axe you might sell.");
-				addOffer("My axes become blunt fast. Please check the sign I made outside my lodge to see the axes I buy.");
-				addQuest("What's that you say? I don't need anything, though my young friend Sally over the river might need a hand.");
+				addGreeting("Witam w lesie na południe od rzeki Or'ril.");
+				addJob("Z zawodu jestem drwalem. Czy możesz mi #zaoferować jakieś topory?");
+				addHelp("Czasami możesz zbierać drewno rozrzucone po lesie. Aha i możesz mi #zaoferować jakieś dobre topory na sprzedaż.");
+				addOffer("Moje topory powinny być przytępione i szybkie. Sprawdź moją tabliczkę, którą postawiłem na zewnątrz domu, aby zobaczyć jakie topory skupuję.");
+				addQuest("Co powiedziałeś? Niczego nie potrzebuję. Może Sally po drugiej stronie rzeki potrzebuje twojej pomocy.");
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buyaxe")), false);
- 				addGoodbye("Bye.");
+				addGoodbye("Dowidzenia.");
 			}
 		};
 
-		npc.setDescription("You see Woody, an outdoorsy-looking fellow.");
+		npc.setDescription("Oto drwal Woody.");
 		npc.setEntityClass("woodcutternpc");
 		npc.setPosition(55, 84);
 		npc.initHP(100);

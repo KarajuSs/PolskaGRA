@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.magic.city;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -25,6 +21,11 @@ import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds a Wizard NPC who explains about the city.
@@ -78,11 +79,11 @@ public class GreeterNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-			        addGreeting("Salutations, traveller.");
-				addJob("I am a wizard, like all who dwell in this magic underground city. We practise #magic here.");
-				addReply("magic", "Indeed, enchantments such as our Sunlight Spell to keep the grass and flowers healthy down here. I suppose you are wondering why you have seen traditional enemies such as dark elves and green elves in company together here, let me #explain.");
-				addReply("explain", "As a city for wizards only, we have much to learn from one another. Thus, old quarrels are forgotten and we live here in peace.");
-				addHelp("It is part of my #job to #offer you enchanted scrolls to travel to any major city in Faiumoni. I also have a supply of scrolls you may mark, and some scrolls to summon creatures. Be aware, they do not come cheap.");
+			        addGreeting("Witaj wędrowcze.");
+				addJob("Jestem czarodziejem jak każdy, który mieszka w tym podziemnym magicznym mieście. Praktykujemy tutaj #magię.");
+				addReply(Arrays.asList("magic", "magię"), "W rzeczywistości czary takie jak Sunlight Spell służą tutaj do utrzymania trawy i kwiatków. Wygląda na to, że zastanawiasz się dlaczego tradycyjni wrogowie tacy jak mroczne i zielone elfy żyją tutaj razem. Pozwól mi #wyjaśnić.");
+				addReply(Arrays.asList("explain", "wyjaśnić"), "Jako miasto tylko dla czarodziei mamy dużo do nauczenia się od innych. Dlatego stare zwady są zapominane i dzięki temu żyjemy tutaj w pokoju.");
+				addHelp("To jest część mojej #pracy, aby #oferować ( #offer ) Ci zaczarowane zwoje do podróżowania do każdego miasta w Faiumoni. Posiadam też zapas zwojów, które możesz zapisać i trochę zwoi do wywoływania potworów. Uważaj. Nie są tanie.");
 
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("allscrolls")) {
 					@Override
@@ -92,12 +93,12 @@ public class GreeterNPC implements ZoneConfigurator {
 					}
 				});
 
-				addQuest("Neither can live while the other survives! The Dark Lord must be killed...no ... wait... that was some other time. Forgive me for confusing you, I need nothing.");
- 				addGoodbye("Adieu.");
+				addQuest("Nikt nie może żyć, gdy inny przetrwał! Dark Lord musi zginąć... nie ... czekaj... to innym razem. Wybacz mi za zmylenie Ciebie. Niczego nie potrzebuję.");
+				addGoodbye("Żegnaj.");
 			}
 		};
 
-		npc.setDescription("You see a friendly looking elderly wizard.");
+		npc.setDescription("Oto przyjacielsko nastawiony starszy czarownik.");
 		npc.setEntityClass("friendlywizardnpc");
 		npc.setPosition(99, 111);
 		npc.initHP(100);

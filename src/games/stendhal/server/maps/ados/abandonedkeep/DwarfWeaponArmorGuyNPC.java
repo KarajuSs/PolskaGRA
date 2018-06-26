@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.abandonedkeep;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -25,6 +21,10 @@ import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Inside Ados Abandoned Keep - level -4 .
@@ -50,7 +50,7 @@ public class DwarfWeaponArmorGuyNPC implements ZoneConfigurator {
 			protected void createPath() {
 				final List<Node> nodes = new LinkedList<Node>();
 				nodes.add(new Node(3, 24));
-				nodes.add(new Node(3, 27));
+				nodes.add(new Node(3, 27));				
 				nodes.add(new Node(11, 27));
 				nodes.add(new Node(11, 24));
 				nodes.add(new Node(19, 24));
@@ -64,11 +64,11 @@ public class DwarfWeaponArmorGuyNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				addGreeting();
-				addJob("I sell good quality armor and weapons.");
-				addHelp("Look at the blackboard for what I provide.");
+				addJob("Sprzedaję dobrej jakości zbroję i broń.");
+				addHelp("Spójrz na tablicę i zobacz co mogę zaoferować.");
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("sellbetterstuff2")), false);
-				addOffer("Look at the blackboard to see my offer.");
-				addQuest("I thank you for offering to help, but I am fine.");
+				addOffer("Spójrz na tablicę, aby zapoznać się z moją ofertą.");
+				addQuest("Dziękuję za zaoferowanie pomocy, ale wszystko w porządku.");
 				addGoodbye();
 			}
 		};
@@ -76,7 +76,7 @@ public class DwarfWeaponArmorGuyNPC implements ZoneConfigurator {
 		gulimo.setEntityClass("greendwarfnpc");
 		gulimo.setPosition(3, 24);
 		gulimo.initHP(100);
-		gulimo.setDescription("You see Gulimo. He sells good quality armor and weapons.");
+		gulimo.setDescription("Widzisz Gulimo. Sprzedaje dobrej jakości broń i zbroje.");
 		zone.add(gulimo);
 	}
 }

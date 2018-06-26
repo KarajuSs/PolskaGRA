@@ -12,11 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.athor.ship;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
@@ -25,6 +20,11 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
 import games.stendhal.server.maps.athor.ship.AthorFerry.Status;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /** Factory for cargo worker on Athor Ferry. */
 
@@ -42,9 +42,9 @@ public class CookNPC implements ZoneConfigurator  {
 			@Override
 			protected void createPath() {
 				final List<Node> nodes = new LinkedList<Node>();
-		        // to the oven
+		        // to the oven 
 				nodes.add(new Node(27,28));
-				// to the table
+				// to the table 
 				nodes.add(new Node(27,31));
 				// to the dining room
 				nodes.add(new Node(18,31));
@@ -55,16 +55,16 @@ public class CookNPC implements ZoneConfigurator  {
 
 			@Override
 			public void createDialog() {
-				addGreeting("Ahoy! Welcome to the galley!");
-				addJob("I'm running the galley on this ship. I #offer fine foods for the passengers and alcohol for the crew.");
-				addHelp("The crew mates drink beer and grog all day. But if you want some more exclusive drinks, go to the cocktail bar at Athor beach.");
+				addGreeting("Ahoj! Witam w kambuzie!");
+				addJob("Prowadzę kambuz na statku. #Oferuję dobre jedzenie dla pasażerów i alkohol dla załogi.");
+				addHelp("Załoga cały dzień pije piwo i grog. Jeżeli chcesz lepsze drinki to idź do koktajl baru na plaży w Athor.");
 
 				final Map<String, Integer> offerings = new HashMap<String, Integer>();
-				offerings.put("beer", 10);
-				offerings.put("wine", 15);
+				offerings.put("sok z chmielu", 10);
+				offerings.put("napój z winogron", 15);
 				// more expensive than in normal taverns
-				offerings.put("ham", 100);
-				offerings.put("pie", 150);
+				offerings.put("szynka", 100);
+				offerings.put("tarta", 150);
 				new SellerAdder().addSeller(this, new SellerBehaviour(offerings));
 
 				addGoodbye();
@@ -76,10 +76,10 @@ public class CookNPC implements ZoneConfigurator  {
 					switch (status) {
 					case ANCHORED_AT_MAINLAND:
 					case ANCHORED_AT_ISLAND:
-						npc.say("Attention: We have arrived!");
+						npc.say("UWAGA: Dopłynęliśmy!");
 						break;
 					default:
-						npc.say("Attention: We have set sail!");
+						npc.say("UWAGA: Wypłynęliśmy!");
 						break;
 					}
 				}
@@ -87,8 +87,8 @@ public class CookNPC implements ZoneConfigurator  {
 
 			npc.setPosition(27, 28);
 			npc.setEntityClass("tavernbarmaidnpc");
-			npc.setDescription ("Laura runs the galley on the ferry. Talk with her if you are hungry or thirsty.");
-			zone.add(npc);
+			npc.setDescription ("Laura prowadzi kambuz na statku. Porozmawiaj z nią jeśli zgłodniejesz lub będziesz spragniony.");
+			zone.add(npc);	
 
 	}
 }

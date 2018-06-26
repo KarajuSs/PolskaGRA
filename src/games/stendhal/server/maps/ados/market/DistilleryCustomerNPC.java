@@ -22,7 +22,7 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
 
 /**
  * Builds a npc in Ados (name: Hank) who is a customer of the distillery
- *
+ * 
  * @author storyteller
  *
  */
@@ -35,7 +35,7 @@ public class DistilleryCustomerNPC implements ZoneConfigurator {
 
 	private void buildNPC(final StendhalRPZone zone) {
 		final SpeakerNPC npc = new SpeakerNPC("Hank") {
-
+		    
 			@Override
 			protected void createPath() {
 				// no path
@@ -43,37 +43,37 @@ public class DistilleryCustomerNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hey there! How you're doin'?");
-				addHelp("I don't think I can help you, I'm just having a little #drink here at #Uncle #Dag's pretty distillery. But maybe you would like to join me? We could #talk you about some interesting things, too.");
-				addJob("I worked as a miner in the coal #mine north of #Semos #City. But then that digging stopped and I moved to Ados City with my #family, trying to get a new job here.");
-				addOffer("I'd offer you a #drink but all my small change is already gone.");
-				addGoodbye("Bye then! Always take care!");
-				addReply(ConversationPhrases.QUEST_MESSAGES,
-						"Currently nothing, thanks.");
-				addReply("talk", "I don't know the latest #gossip, do you know some? Or maybe you are interested in my former #job?");
-				addReply("gossip", "Always keep an ear on people's tellings and talk with everybody. You may learn interesting and useful things which could help you one day. Probably it's just good for having some conversation topics at least.");
+				addGreeting("Cześć! Jak się masz?");
+				addHelp("Nie sądzę, abym mógł ci pomóc. Mam tu mały #drink w pięknej destylarni #Uncle #Dag. Może chciałbyś się przyłączyć? Moglibyśmy #porozmawiać o interesujących rzeczach."); 
+				addJob("Pracowałem jako górnik w #kopalni węgla na półnoć od #Semos #City. Gdy zamknięto ją to przeniosłem się do Ados City z moją #rodziną próbując znaleść nową pracę.");
+				addOffer("Mogę zaoferować ci #'drink', a wszystkie moje drobniaki już się rozszeszły.");
+				addGoodbye("Dowidzenia! Trzymaj się!");
+				addReply(ConversationPhrases.QUEST_MESSAGES, 
+						"Aktualnie nic. Dziękuję.");
+				addReply(Arrays.asList("talk", "porozmawiać"), "Nie znam najnowszych #plotek, a chcesz poznać jakieś? Lub jesteś zainteresowany moją byłą #pracą?");
+				addReply(Arrays.asList("gossip", "plotek", "plotka"), "Zawsze słuchaj o czym inni mówią i rozmawiaj ze wszystkimi. Możesz się wtedy nauczyć interesujących i użytecznych rzeczy, które mogą ci się kiedyś przydać. Może to dobrze mieć czasem jakieś tematy do rozmowy.");
 				addReply(Arrays.asList("Uncle Dag", "Uncle", "Dag"),
-						"Uncle Dag is the man! Cheers!");
-				addReply("drink", "Fierywater... that's a strong one! Take care with that!");
-		        addReply("family", "My lovely #wife and my #daughter. They really are my two angels!");
-		        addReply("wife", "She is just an amazing person, I love her much! If I have got a new job soon, she will be more happy again, so tomorrow I try to get a job at the docks.");
-		        addReply("daughter", "My daughter is happy we moved from #Semos #City to Ados. She is in that age where she likes to go out at the weekend. Here she has more friends and there's just some more action going on, you know.");
-		        addReply(Arrays.asList("Semos City", "Semos", "City"),
-		        		"It was a nice place to live, but nothing exciting happens there. Here in Ados it is different, it's a huge city.");
-		        addReply("mine", "The Semos mine is quite old, there are places you better not go to. In the area near the entrance it's relatively safe but the #other #miners and I heard strange noises from the deeper tunnels... Many are blocked now, but nobody knows what is #haunting down there...");
-		        addReply(Arrays.asList("other miners", "other", "miners"),
-		        		"Oh, we were a lot of miners working in the mine, Barbarus, Pickins, Nathan... just to name a few. I don't know where all the others did go after leaving the mine, but I heard rumors about #Barbarus still collecting old tools and materials there to sell them.");
-		        addReply("Barbarus", "He may still be in the mine today. If that is true, he probably stays in the area near the entrance, as he knows how dangerous it is in the deeper tunnels... Maybe if you are able to find him, he could draw you a map of the mine because he knows the area quite well. Just in case you get lost...");
-		        addReply("haunting", "Some say there is a dragon living down in the mines, but others believe in some other strange appearances... I don't know what is true, but I'm not going to find it out!");
+						"Uncle Dag to on! Zdrówko!");
+				addReply("drink", "Fierywater... jest mocny! Trzymaj się tego!");
+		        addReply(Arrays.asList("family", "rodziną", "rodzina"), "Moja ukochana #żona i moja #córka. Są naprawdę moimi aniołami!");
+		        addReply(Arrays.asList("wife", "żona"), "Jest wspaniałą osobą. Bardzo ją kocham! Jeżeli znajdę wkrótce nową pracę to będzie bardzo szczęśliwa. Jutro spróbuję zdobyć pracę w dokach.");
+		        addReply(Arrays.asList("daughter", "córka"), "Moja córka jest szczęśliwa, że się przenieśliśmy z #Semos #City do Ados. Jest w wieku, w którym lubi wychodzić w weekendy. Tutaj ma więcej przyjaciół i więcej się dzieje.");
+		        addReply(Arrays.asList("Semos City", "Semos", "City"), 
+		        		"Było dobrym miejscem do życia, ale nie ekscytującym. Tutaj w Ados jest inaczej. To wielkie miasto.");
+		        addReply(Arrays.asList("mine", "kopalni", "kopalnia"), "Kopalnia Semos jest strasznie stara. Są tam miejsce do których lepiej nie chodzić. W pobliżu wejścia jest stosunkowo bezpiecznie, ale #inni #górnicy i ja słyszeliśmy dziwne odgłosy z głębi tunelów... WIele z nich jest teraz zablokowanych, ale nikt nie wie co tam #straszy...");
+		        addReply(Arrays.asList("other miners", "other", "miners"), 
+		        		"Oh mieliśmy wielu górników pracujących w kopalni Barbarus, Pickins, Nathan... Nie wiem, gdzie inni poszli po opuszczeniu kopalni. Słyszałem plotki, że #Barbarus wciąż kolekcjonuje stare narzędzia i materiały, aby je później sprzedać.");
+		        addReply("Barbarus", "Może wciąż być w kopalni. Jeżeli to prawda to pewnie jest w pobliżu wejścia ponieważ wie, że w głębi tunelów jest niebezpiecznie... Jeżeli go znajdziesz to może narysuje ci mapę kopalni ponieważ zna ją całkiem nieźle. Na wszelki wypadek jak się zgubisz...");
+		        addReply(Arrays.asList("haunting", "straszy"), "Niektórzy mówią, że w koaplni żyje smok, ale inni wieżą w inne dziwne rzeczy... Nie wiem co jest prawdą, ale nie zamierzam tego sprawdzać!");
 			}
 		};
 
-		npc.setDescription("You see Hank. He is just having a drink.");
+		npc.setDescription("Oto Hank. Delektuje się swoim drinkiem.");
 		npc.setEntityClass("hanknpc");
 		npc.setPosition(37, 31);
 		npc.setDirection(Direction.LEFT);
 		npc.initHP(100);
 		zone.add(npc);
 	}
-
+	
 }

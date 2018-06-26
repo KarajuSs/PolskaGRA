@@ -12,11 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.orril.dwarfmine;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
@@ -24,9 +19,14 @@ import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Configure Orril Dwarf Blacksmith (Underground/Level -3).
- *
+ * 
  * @author kymara
  */
 public class BlacksmithNPC implements ZoneConfigurator {
@@ -60,27 +60,27 @@ public class BlacksmithNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				addGreeting();
-				addJob("I am a master blacksmith. I used to forge weapons in secret for the dwarves in the mine, but they have forgotten me and my #stories.");
-				addHelp("I could tell you a #story...");
+				addJob("Jestem głównym kowalem. W tajemnicy wykuwam broń dla krasnali, ale oni zapomnieli o mnie i moich #opowieściach.");
+				addHelp("Mógłbym opowiedzieć Tobie #historyjkę...");
 				add(
 				        ConversationStates.ATTENDING,
-				        Arrays.asList("story", "stories"),
+				        Arrays.asList("story", "stories", "historyjkę", "historyjka", "historyjki", "opowieściach"),
 				        ConversationStates.ATTENDING,
-				        "I expect a scruff like you has never heard of Lady Tembells, huh? She was so beautiful. She died young and her distraught husband asked a powerful Lord to bring her back to life. The fool didn't get what he bargained for, she became a #vampire.",
+				        "Domyślam się, że taki obdartus jak ty nigdy nie słyszał o Lady Tembells? Była piękna. Zmarła młodo, a jej szalony mąż poprosił potężnego Lorda o przywrócenie jej do życia. Głupiec nie wiedział do czego doprowadził. Stała się ona wtedy #wampirem.",
 				        null);
 				add(
 				        ConversationStates.ATTENDING,
-				        Arrays.asList("vampire"),
+				        Arrays.asList("vampire", "wampirem"),
 				        ConversationStates.ATTENDING,
-				        "The husband had hired the help of a Vampire Lord! The Lady became his Vampire Bride and her maids became vampiresses. The Catacombs of North Semos are a deadly place now.",
+				        "Mąż zatrudnił do pomocy Lorda Wampirów! Lady stała się jego panną młodą, a jej służące stały się upiorami. Katakumby na północ od Semos są teraz zabójczym miejscem.",
 				        null);
-				addGoodbye("So long. I bet you won't sleep so well tonight.");
-				addReply("bobbin", "Bobbins? BOBBINS?! Do you think I am a female?! Pfff go find some other blacksmith I'm no bobbin maker.");
-
+				addGoodbye("Dowidzenia. Założę się, że dziś będziesz miał problemy z zaśnięciem.");
+				addReply(Arrays.asList("bobbin", "szpulka"),"Szpulki? SZPULKI?! Czy myślisz, że jestem kobietą?! Pfff idź znajdź jakiegoś innego kowala. Nie zajmuję się produkcją szpulek.");
+				
 			} //remaining behaviour defined in maps.quests.VampireSword and  maps.quests.MithrilCloak
 		};
 
-		hogart.setDescription("You see Hogart, a retired master dwarf smith.");
+		hogart.setDescription("Oto Hogart, emerytowany główny kowal krasnali.");
 		hogart.setEntityClass("olddwarfnpc");
 		hogart.setPosition(20, 11);
 		hogart.initHP(100);

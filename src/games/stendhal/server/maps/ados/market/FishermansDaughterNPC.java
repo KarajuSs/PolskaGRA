@@ -12,18 +12,19 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.market;
 
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.RPEntity;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 
+import java.util.Arrays;
+import java.util.Map;
+
 /**
  * Builds a NPC in a house on Ados market (name:Caroline) who is the daughter of fisherman Fritz
- *
- * @author Vanessa Julius
+ * 
+ * @author Vanessa Julius 
  *
  */
 public class FishermansDaughterNPC implements ZoneConfigurator {
@@ -35,7 +36,7 @@ public class FishermansDaughterNPC implements ZoneConfigurator {
 
 	public void createFishermansDaughterSellingNPC(final StendhalRPZone zone) {
 
-
+		    
 		final SpeakerNPC npc = new SpeakerNPC("Caroline") {
 			@Override
 			protected void createPath() {
@@ -45,29 +46,29 @@ public class FishermansDaughterNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hello, nice to meet you!");
-				addHelp("Did you visit the Ados market already? There are so many #nice #people around and some make #awesome #food!");
-				addReply("awesome food", "I tried the fish soup and grilled steaks, they are so delicious!");
-				addReply("nice people", "Florence Boullabaisse is one of my best friends and Haunchy is a really nice guy.");
-				addQuest("I am currently trying to figure out how I can start my own business... I love to cook and might start a #catering #service soon... Meanwhile I enjoy my new renovated house :)");
-				addReply("catering service", "I've heard that some #hotels need some dinner for their guests... their kitchens are too small and they need someone who can easily cook and bring them some food they need.");
-				addReply("hotels", "The huge one in Fado is known to newlyweds. It is a really nice location to celebrate your wedding at.");
-				addJob("My father is #Fritz, the fisherman who walks outside infront of our house. Right now, I'm thinking about starting up my own business, a #catering #service.");
-				addReply("storm", "The storm came out of nowhere while my dad, Fritz, was out catching fish. I was so happy when he returned safe!");
-				addReply("Fritz","He is a really lovely dad. He was a fisherman before a huge huge #storm nearly destroyed his boat.");
-				addOffer("I can't offer you anything at the moment, but hopefully soon.");
-				addGoodbye("Thank you for visiting us here and have a nice day.");
+				addGreeting("Cześć, miło Cię poznać!");
+				addHelp("Odwiedziłeś już targ w Ados? Znajdziesz tam bardzo dużo #'fajnych ludzi' spacerujących wokoło i robiących #'przepyszne jedzenie'!");
+				addReply("przepyszne jedzenie", "Próbowałam zupy rybnej i grilowanych steków, były przesmaczne!");
+				addReply("fajnych ludzi", "Florence Boullabaisse jest jednym z moich najlepszych przyjaciół, a Haunchy to naprawdę przemiły gość!");
+				addQuest("Obecnie staram się dowiedzieć, w jaki sposób założyć swoją własną firmę. Uwielbiam gotować i chcę otworzyć już wkrótce własną firmę #kateringową."); 
+				addReply(Arrays.asList("kateringową","kateringiem"), "Słyszałam, że niektóre #hotele potrzebują obiadów dla gości, a ich kuchnie są zbyt małe, więc potrzebują kogoś, kto wyręczy ich w gotowaniu i przygotuje coś to jedzenia i przyniesie jakieś potrzebne składniki.");
+				addReply("hotele", "Ogromny hotel w Fado jest dobrze znany nowożeńcom. To naprawdę miłe i przyjemne miejsce, by świętować w nim swój ślub.");
+				addJob("Mój tata, #Fritz, jest rybakiem. A ja myślę o otworzeniu własnej firmy, zajmującej się #kateringiem.");
+				addReply("sztorm", "Burza zjawiła się znikąd, gdy mój tata, Firtz, łowił ryby. Byłam taka szczęśliwa, gdy tata wrócił bezpiecznie!");
+				addReply("Fritz","To mój ukochany tata. Był rybakiem, zanim wielka #sztorm nie zniszczyła jego łodzi.");
+				addOffer("Nic nie mogę Ci teraz zaoferować, ale kiedyś - kto wie.");
+				addGoodbye("Dziękuję, że odwiedziłeś nas tutaj! Miłego dnia! :)");
 			}
-
+			
 			@Override
 			protected void onGoodbye(RPEntity player) {
 				setDirection(Direction.DOWN);
 			}
 		};
 
-		npc.setDescription("You see Caroline. She seems to be a punchy nice lady who tries to reach her goals.");
+		npc.setDescription("Widzisz Caroline. Wydaje się być miłą, choć zdecydowaną, panią, która stara się dotrzeć do wybranego celu.");
 		npc.setEntityClass("fishermansdaughternpc");
-		npc.setPosition(8, 3);
+		npc.setPosition(70, 78);
 		npc.setDirection(Direction.DOWN);
 		npc.initHP(100);
 		zone.add(npc);

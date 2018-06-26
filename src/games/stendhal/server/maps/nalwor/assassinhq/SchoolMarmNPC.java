@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.nalwor.assassinhq;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
@@ -25,8 +21,12 @@ import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.condition.GreetingMatchesNameCondition;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 /**
- * Builds a Teacher NPC who tries to make disciple assassins behave.
+ * Builds a Teacher NPC who tries to make disciple assassins behave. 
  *
  * @author kymara with modifications by tigertoes
  */
@@ -60,12 +60,12 @@ public class SchoolMarmNPC implements ZoneConfigurator {
 			    protected void createDialog() {
 				add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 						new GreetingMatchesNameCondition(getName()), true,
-						ConversationStates.IDLE, "What are you bothering me for. Can't you see I have my hands full! Now, lil johnnnny, I told you not to poke him in the eye!", null);
+						ConversationStates.IDLE, "Dlaczego zawracasz mi głowę. Nie widzisz, że mam ręce pełne roboty! Teraz lil johnnnny. Powiedziałam Tobie, żebyś nie podbijał mu oka!", null);
 	 	     }
-
+		    
 		};
 
-		npc.setDescription("You see a rather harried school marm. She really has her hands full with these little assassins.");
+		npc.setDescription("Oto raczej strapiona szkolna nauczycielka. Ma pełne ręce roboty z tymi małymi mordercami.");
 		npc.setEntityClass("woman_014_npc");
 		npc.setPosition(7, 3);
 		npc.initHP(100);

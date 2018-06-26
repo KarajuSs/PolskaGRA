@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.sedah.storage;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -24,6 +20,10 @@ import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.BuyerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.BuyerBehaviour;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds the storage NPC in Sedah City.
@@ -76,22 +76,22 @@ public class StorageNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hello my friend. I should be busy.");
-				addJob("My job is to serve the #Scarlet Army.");
+				addGreeting("Witaj przyjacielu. Powinienem być zajęty.");
+				addJob("Moją pracą jest służenie Wojsku #Scarlet.");
 				addReply(
 						"scarlet",
-						"The Scarlet Army is a special division of Kalavan's Army. They all wear a red armor.");
-				addHelp("Have you seen this, no armor left here. At the moment I'm not able to serve the #Scarlet Army!");
-				addOffer("Bring me some armor and I pay you out!");
+						"Wojsko Scarlet jest specjalną dywizją Wojska Kalavańskiego. Noszą oni czerwone zbroje.");
+				addHelp("Widziałeś nie została mi ani jedna zbroja. Teraz nie mogę służyć Wojsku #Scarlet!");
+				addOffer("Przynieś mi jakąś zbroję, a zapłacę za nią!");
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(SingletonRepository.getShopList().get("buyred")), false);
-				addGoodbye("Have a nice day!");
+				addGoodbye("Życzę miłego dnia!");
 			}
 		};
 
 		storageNPC.setEntityClass("scarletarmynpc");
 		storageNPC.setPosition(35, 23);
 		storageNPC.initHP(100);
-		storageNPC.setDescription("Pjotr Yearl seems to be a bit stressed. Does he maybe need some help?");
+		storageNPC.setDescription("Pjotr Yearl wydaje się być nieco zestresowany. Czy on może potrzebuje pomocy?");
 		zone.add(storageNPC);
 	}
 }

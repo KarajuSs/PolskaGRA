@@ -20,11 +20,7 @@ import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
-import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.SpeakerNPC;
-import games.stendhal.server.entity.npc.action.ListProducedItemDetailAction;
-import games.stendhal.server.entity.npc.action.ListProducedItemsOfClassAction;
-import games.stendhal.server.entity.npc.condition.TriggerIsProducedItemOfClassCondition;
 
 /**
  * Creates a woman NPC to help populate Ados
@@ -61,21 +57,12 @@ public class HolidayingWomanNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hello.");
-				addHelp("I walked around a bit and saw a nice looking tavern. Did you take a look inside already? It smells fantastic there!");
-				addOffer("I'm quite a #food expert, after all my travels on lovely holidays!");
-				addQuest("You could try all the #food available from cooks and chefs across the island. I can tell you what I've sampled on my travels.");
-				addReply("food", null, new ListProducedItemsOfClassAction("food","I think I've tasted everything, [#items]. I can tell you more about each foodstuff, if you like."));
-				add(
-						ConversationStates.ATTENDING,
-						"",
-						new TriggerIsProducedItemOfClassCondition("food"),
-						ConversationStates.ATTENDING,
-						null,
-						new ListProducedItemDetailAction()
-					);
-				addJob("Aaaah, I am on holiday here, only walking around.");
-				addGoodbye("Bye bye.");
+				addGreeting("Cześć.");
+				addHelp("Kiedy spacerowałam po mieście, zobaczyłam tawernę. Wyglądała świetnie! Zaglądałeś do środka? Pachnie tam fantastycznie!");
+				addOffer("Jestem #ekspertką od spraw żywności, po tych wszystkich podróżach wakacyjnych!");
+				addQuest("Niestety, nie mam żadnego zadania dla Ciebie."); 
+				addJob("Hahaha! Jestem tutaj na urlopie i po prostu wyszłam na spacer.");
+				addGoodbye("Dowidzenia.");
 
 				}
 		};
@@ -83,7 +70,7 @@ public class HolidayingWomanNPC implements ZoneConfigurator {
 		npc.setEntityClass("woman_016_npc");
 		npc.setPosition(47, 90);
 		npc.initHP(100);
-		npc.setDescription("You see Alice Farmer. She is on holidays in Ados.");
+		npc.setDescription("Widzisz Alice Farmer. Spędza wakacje w Ados.");
 		zone.add(npc);
 	}
 }

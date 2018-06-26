@@ -29,14 +29,14 @@ public class BailAction implements ChatAction {
 	public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 		final String questInfo = player.getQuest("deathmatch");
 		if (questInfo == null) {
-			raiser.say("Coward, you haven't even #started!");
+			raiser.say("Tchórz! Nawet nie #zacząłeś!");
 			return;
 		}
 
 		final DeathmatchState deathmatchState = DeathmatchState.createFromQuestString(player.getQuest("deathmatch"));
 
 		if (deathmatchState.getLifecycleState() != DeathmatchLifecycle.START) {
-			raiser.say("Coward, we haven't even #started!");
+			raiser.say("Tchórz! Nawet nie #zaczęliśmy!");
 			return;
 		}
 
@@ -46,11 +46,11 @@ public class BailAction implements ChatAction {
 		new IncrementQuestAction("deathmatch", 7, 1).fire(player, sentence, raiser);
 
 		// TODO: fix race condition until bail is processed in DeathmatchEngine
-		final Item helmet = player.getFirstEquipped("trophy helmet");
+		final Item helmet = player.getFirstEquipped("zdobyczny hełm");
 		if ((helmet != null) && helmet.has("def") && (helmet.getInt("def") > 1)) {
-			raiser.say("Coward! I'm sorry to inform you, for this your helmet has been magically weakened.");
+			raiser.say("Tchórz! Z przykrością informuje, że twój hełm został magicznie osłabiony.");
 		} else {
-			raiser.say("Coward! You're not as experienced as you used to be.");
+			raiser.say("Tchórz! Nie jesteś tak doświadczony jak powinieneś.");
 		}
 		return;
 	}

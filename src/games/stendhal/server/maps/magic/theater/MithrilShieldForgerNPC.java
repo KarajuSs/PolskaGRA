@@ -12,11 +12,12 @@
  ***************************************************************************/
 package games.stendhal.server.maps.magic.theater;
 
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.Arrays;
+import java.util.Map;
 
 /**
  * Configure Baldemar - mithril shield forger.
@@ -45,16 +46,16 @@ public class MithrilShieldForgerNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Oh, hi. You caught me taking in some of the local culture.");
-				addJob("I am a wizard. I have studied long and hard to perfect the art of #mithril forging.");
-				addHelp("I can forge a shield for you, the likes of which you have only dreamed.");
-				addOffer("I offer you advice. Seek to gather all I require to make a shield for you. You will be eternally grateful.");
-				addReply("mithril", "Mithril was once stored by the Mithrilbourgh soldiers in a vault within their keep. Since they moved, I don't know what has become of it.");
-				addGoodbye("Farewell. Try some of the licorice Trillium has. It is to die for.");
+				addGreeting("Och cześć. Właśnie patrzysz na naszą lokalną tradycję.");
+				addJob("Jestem czarodziejem. Studiowałem długo i ciężko, aż do perfekcji opanowałem sztukę wytapiania #mithrilu.");
+				addHelp("Mogę wykuć tarczę dla Ciebie, o której tylko marzyłeś.");
+				addOffer("Dam Ci radę. Poszukaj wszystkiego co potrzebuję do zrobienia tarczy dla Ciebie. Będziesz mi wdzięczny.");
+				addReply(Arrays.asList("mithril", "mithrilu"), "Mithril był składowany przez żołnierzy Mithrilbourghtów w piwnicy dopóki się nie przenieśli. Nie wiem skąd pochodzi.");
+				addGoodbye("Na razie. Spróbuj lukrecję Trilliuma. Można za nią oddać życie.");
 			} //remaining behaviour defined in quest
 		};
 
-		baldemar.setDescription("You see Baldemar, a Mithrilbourgh Wizard well studied in the craft of forging mithril.");
+		baldemar.setDescription("Oto Baldemar czarodziej Mithrilbourghtów, który studiował wytapianie mithrilu.");
 		baldemar.setEntityClass("mithrilforgernpc");
 		baldemar.setPosition(4, 6);
 		baldemar.initHP(100);

@@ -12,11 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.rosshouse;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -25,6 +20,11 @@ import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.Outfit;
 import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>Creates a normal version of Susi in the ross house.
@@ -79,13 +79,13 @@ public class LittleGirlNPC implements ZoneConfigurator {
 					ConversationStates.ATTENDING,
 					"Podczas Revival Weeks pod koniec października świętujemy stare i prawie martwe Mine Town na północ od miasta Semos.",
 					null);
-
+				
 				// help
 				addHelp("Miłej zabawy.");
 			}
 		};
 
-		npc.setOutfit(new Outfit(0, 4, 7, 32, 13));
+		npc.setOutfit(new Outfit(0, 4, 15, 32, 14));
 		npc.setPosition(3, 7);
 		npc.setDirection(Direction.DOWN);
 		npc.initHP(100);

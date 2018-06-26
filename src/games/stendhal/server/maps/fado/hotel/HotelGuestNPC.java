@@ -12,18 +12,19 @@
  ***************************************************************************/
 package games.stendhal.server.maps.fado.hotel;
 
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.RPEntity;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 
+import java.util.Arrays;
+import java.util.Map;
+
 /**
  * Builds a NPC in a house on Ados market (name:Damon) who is the daughter of fisherman Fritz
- *
- * @author Vanessa Julius
+ * 
+ * @author Vanessa Julius 
  *
  */
 public class HotelGuestNPC implements ZoneConfigurator {
@@ -35,7 +36,7 @@ public class HotelGuestNPC implements ZoneConfigurator {
 
 	private void buildNPC(final StendhalRPZone zone) {
 		final SpeakerNPC npc = new SpeakerNPC("Damon") {
-
+		    
 			@Override
 			protected void createPath() {
 				setPath(null);
@@ -43,27 +44,27 @@ public class HotelGuestNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hi, you!");
-				addHelp("Oh I just came to town to visit my younger brother Stefan. My hometown is Ados but after I stepped into some trouble with my former girlfriend Caroline there, I decided to travel around a bit. I saw a #spooky #castle on my way to Fado...");
-				addReply("spooky castle", "A really spooky one! With skeletons as guards around. Good that I'm not scared of anything! But I bet that something useful is #hidden #inside...");
-				addReply("hidden inside", "Well unfortunetly I promised to my brother to visit him so soon as possible and I straight went to Fado then... too bad.");
-				addQuest("A task for you? Me? Oh no.. You got to be #kidding me.");
-				addReply("kidding", "Do I really look like someone who needs help? Well I don't! At least not at the moment.");
-				addJob("Sometimes I'm here, sometimes I'm there. Fast like the #wind and smooth as a tiger.");
-				addReply("wind", "No I'm not the storm #everyone talks about in Ados.");
-				addReply("everyone", "My hysterical girlfriend Caroline and her father saw it somewhere far away on the sea. Well, I didn't even get a breeze of it.");
-				addOffer("Well you don't offer me anything so I don't offer anything to you. That is life.");
-				addGoodbye("Bye bye!");
+				addGreeting("Hej!");
+				addHelp("Oh, przybyłem do miasta, aby odwiedzić mojego młodszego brata, Stefana. Pochodzę z Ados, lecz po pewnych problemach z moją byłą dziewczyną, Caroline,  postanowiłem nieco popodróżować. Widziałem #'upiorny zamek', gdy szedłem do Fado...");
+				addReply(Arrays.asList("spooky castle", "upiorny zamek"), "On jest naprawdę upiorny! Strażnikami są szkielety... Straszne! Dobrze, że byle czego się nie boję. Ale założę się, że coś jest #'ukryte wewnątrz zamku'...");
+				addReply(Arrays.asList("hidden inside", "ukryte wewnątrz zamku"), "Obiecałem bratu odwiedzić go tak szybko, jak to będzie możliwe, więc poszedłem prosto do Fado, ale... to był zły pomysł. Ten zamek warto odwiedzić.");
+				addQuest("Zadanie dla Ciebie? Ode mnie? Oj, nie... Chyba sobie ze mnie #'żartujesz'."); 
+				addReply(Arrays.asList("kidding", "żartujesz"), "Czy ja wyglądam na osobę, która potrzebuje pomocy? Oczywiście, że nie! A już na pewno nie w tej chwili.");
+				addJob("Czasami jestem tu, czasami tam. Jestem szybki jak #wiatr i zwinny jak pantera.");
+				addReply(Arrays.asList("wind", "wiatr"), "Nie, nie jestem burzą, jak mówią #wszyscy w Ados.");
+				addReply(Arrays.asList("everyone", "wszyscy"), "Moja histeryczna była dziewczyna i jej ojciec zobaczyli go gdzieś daleko na morzu. Cóż, ja nawet go nie poczułem.");
+				addOffer("Cóż, nikt nic nie oferuje mnie, tak i ja nic nie oferuję Tobie. Takie życie.");
+				addGoodbye("Pa!");
 			}
 
 		@Override
 		protected void onGoodbye(RPEntity player) {
 			setDirection(Direction.RIGHT);
 		}
-
+		
 		};
 
-		npc.setDescription("You see Damon. His eyes even glow in the dark.");
+		npc.setDescription("Oto Damon. Jego oczy świecą nawet w ciemności.");
 		npc.setEntityClass("hotelguestnpc");
 		npc.setPosition(77, 23);
 		npc.initHP(100);

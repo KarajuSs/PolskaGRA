@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.abandonedkeep;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -25,6 +21,10 @@ import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Inside Ados Abandoned Keep - level -1 .
@@ -64,11 +64,11 @@ public class OrcWeaponArmorGuyNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				addGreeting();
-				addJob("I am Salesman. What you?");
-				addHelp("I sell nice items, look at blackboard on wall.");
+				addJob("Jestem sprzedawcą. Kim jesteś?");
+				addHelp("Sprzedaję przedmioty spójrz na tablicę na ścianie.");
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("sellbetterstuff1")), false);
-				addOffer("Look at blackboard on wall to see my offer.");
-				addQuest("I am so happy as I am. I want nothing.");
+				addOffer("Spójrz na tablicę na ścianie, aby zapoznać się z moją ofertą.");
+				addQuest("Jestem szczęśliwy. Nie potrzebuję niczego.");
 				addGoodbye();
 			}
 		};
@@ -76,7 +76,7 @@ public class OrcWeaponArmorGuyNPC implements ZoneConfigurator {
 		hagnurk.setEntityClass("orcsalesmannpc");
 		hagnurk.setPosition(106, 5);
 		hagnurk.initHP(100);
-		hagnurk.setDescription("You see Hagnurk. He is an orcish salesman.");
+		hagnurk.setDescription("Oto Hagnurk. Jest sprzedawcą u orków.");
 		zone.add(hagnurk);
 	}
 }

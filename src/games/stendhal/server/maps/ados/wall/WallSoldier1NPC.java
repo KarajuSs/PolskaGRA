@@ -60,18 +60,18 @@ public class WallSoldier1NPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("I don't have time for chatting, I'm on duty.");
-				addJob("I thought that this is obvious, I'm a guard and I’m guarding the city wall.");
-				addHelp("Do I look like a tour guide? You better ask Julius, he likes to help people. You will find him guarding the entrance of the city. ");
+				addGreeting("Aktualnie jestem na służbie. Nie mam czasu na jakiekolwiek rozmowy.");
+				addJob("Myślałem, że to jest oczywiste. Jestem strażnikiem i chronię mury tego miasta.");
+				addHelp("Czy ja wyglądam jak przewodnik? Lepiej pójdź porozmawiać z Juliusem, on bardzo lubi pomagać innym ludziom. Strzeże głownego wejścia do miasta Ados, powinieneś go tam znaleźć.");
 				// addQuest("I don't have any tasks for you. But I heard that Vicendus is always looking for volunteers to do his dirty work.");
-				addGoodbye("Have a nice day.");
+				addGoodbye("Miłego dnia.");
 			}
 		};
 
 		npc.setEntityClass("youngsoldiernpc");
 		npc.setPosition(79,  1);
 		npc.initHP(100);
-		npc.setDescription("You see Galercus, a soldier who guards the city wall of Ados.");
+		npc.setDescription("Oto Galercus, żołnierz, który strzeże mury miasta Ados.");
 		zone.add(npc);
 	}
 }

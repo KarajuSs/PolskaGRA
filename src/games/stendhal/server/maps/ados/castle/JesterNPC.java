@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.castle;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
@@ -23,6 +19,11 @@ import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds a Jester NPC to inform entrants to the castle.
@@ -61,18 +62,18 @@ public class JesterNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hail!");
-				addJob("I'm the court jester, I can't stop for long! It's just not in my job description to stand and chat.");
-				addHelp("Shhh... I could tell you about these shady outlaws... they've taken over the castle while the King is away. I just keep quiet, me. Shhh...");
-				add(ConversationStates.ATTENDING, "offer", null, ConversationStates.IDLE,
-				        "Nothing for me! Must keep juggling! Goodbye!", null);
+				addGreeting("Pozdrawiam!");
+				addJob("Jestem nadwornym błaznem. Nie mogę przestać! W mojej umowie o pracę nie ma stania i rozmawiania.");
+				addHelp("Ciii... Mógłbym Ci opowiedzieć coś o przestępcach..., gdy Król wyjechał to oni przejęli zamek. Siedzę teraz cicho. Ciii...");
+				add(ConversationStates.ATTENDING, Arrays.asList("offer", "oferta"), null, ConversationStates.IDLE,
+				        "Niczego nie potrzebuję! Muszę żonglować! Dowidzenia!", null);
 				add(ConversationStates.ATTENDING, ConversationPhrases.QUEST_MESSAGES, null,
 				        ConversationStates.IDLE,
-				        "Nothing for me! Must keep juggling! Goodbye!", null);
- 				addGoodbye("Bye!");
+				        "Niczego nie potrzebuję! Muszę żonglować! Dowidzenia!", null);
+				addGoodbye("Dowidzenia!");
 			}
 		};
-		npc.setDescription("You see Huckle Rohn, the court jester.");
+		npc.setDescription("Oto Huckle Rohn, nadworny błazen.");
 		npc.setEntityClass("magic_jesternpc");
 		npc.setPosition(8, 57);
 		npc.initHP(100);

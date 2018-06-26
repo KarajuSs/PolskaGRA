@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.kirdneh.river;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -23,10 +19,15 @@ import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Builds a npc in the house at Kirdneh River (name:Ortiv Milquetoast) who is a coward retired teacher
- *
- * @author Vanessa Julius
+ * 
+ * @author Vanessa Julius 
  *
  */
 public class RetiredTeacherNPC implements ZoneConfigurator {
@@ -38,17 +39,17 @@ public class RetiredTeacherNPC implements ZoneConfigurator {
 
 	private void buildNPC(final StendhalRPZone zone) {
 		final SpeakerNPC npc = new SpeakerNPC("Ortiv Milquetoast") {
-
+		    
 			@Override
 			protected void createPath() {
 				final List<Node> nodes = new LinkedList<Node>();
 				nodes.add(new Node(15, 28));
 				nodes.add(new Node(27, 28));
                 nodes.add(new Node(27, 19));
-                nodes.add(new Node(26, 19));
+                nodes.add(new Node(26, 19));  
                 nodes.add(new Node(26, 16));
-                nodes.add(new Node(28, 16));
-                nodes.add(new Node(28, 11));
+                nodes.add(new Node(28, 16)); 
+                nodes.add(new Node(28, 11)); 
                 nodes.add(new Node(24, 11));
                 nodes.add(new Node(24, 20));
                 nodes.add(new Node(27, 20));
@@ -75,18 +76,18 @@ public class RetiredTeacherNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Ohh, a stranger found my hidden house, welcome!");
-				addHelp("Never ever get into trouble with #assassins when they are stronger than you!");
-				addReply("assassins", "They will come and get you if you don't take care! Some of them are waiting downstairs under my basement!");
-				addJob("I was a teacher of alchemy once but some of my #students turned into ugly bandits and assassins...");
-				addReply("students", "I don't know what happens in Faiumoni at the moment, because I just stay in my safe house the whole day long...");
-				addOffer("Sorry, but I can't offer you anything. I have some major problems in my basement at the moment!");
-				addQuest("I want to prepare a mixture to keep the assassins and bandits in my cellar.");
-				addGoodbye("Take care of yourself and please return soon to visit me again, I'm scared alone!");
+				addGreeting("Oh obcy znalazł mój ukryty dom, witam!");
+				addHelp("Nigdy nie ładuj się w kłopoty z #zabójcami, bo są silniejsi niż ty!");
+				addReply(Arrays.asList("assassins", "zabójcami"), "Przyjdą po Ciebie tak czy inaczej! Kilkoro z nich czeka na dole pod moją piwnicą!");
+				addJob("Byłem nauczycielem alchemi, ale kilku z moich #studentów stało się brzydkimi bandytami i zabójcami...");
+				addReply(Arrays.asList("students", "studentów"), "Nie wiem co się teraz dzieje w Faiumoni, ale przez cały dzień siedzę w tym bezpicznym domku...");
+				addOffer("Przykro mi, ale nic nie mogę zaoferować Tobie... Mam głównie problemy w mojej piwnicy!");
+				addQuest("Chcę przygotować miksturę trzymającą zabójców i bandytów w mojej komórce.");
+				addGoodbye("Trzymaj się i często mnie odwiedzaj. Boję się być sam!");
 			}
 		};
 
-		npc.setDescription("You see Ortiv Milquetoast. Even though he has some kind of teacher aura around him, he seems to be quite scared and nervous.");
+		npc.setDescription("Oto Ortiv Milquetoast. Otacza go jakąś aura nauczyciela. Wygląda na wystaszonego i zdenerwowanego.");
 		npc.setEntityClass("retiredteachernpc");
 		npc.setPosition(15, 28);
 		npc.setDirection(Direction.RIGHT);

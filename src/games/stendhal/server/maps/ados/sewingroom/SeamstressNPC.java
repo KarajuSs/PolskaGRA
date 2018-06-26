@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.sewingroom;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -25,6 +21,10 @@ import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.BuyerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.BuyerBehaviour;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /*
  * Ados City, house with a woman who makes sails for the ships
@@ -58,19 +58,19 @@ public class SeamstressNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hello there.");
-				addJob("I'm a seamstress. I make sails for ships, like the Athor ferry. If you could #offer me material I'd be grateful.");
-				addHelp("If you want to go to the island Athor on the ferry, just go south once you've departed from Ados, and look for the pier.");
+				addGreeting("Witaj.");
+				addJob("Jestem szwaczką. Produkuję żagle dla statków takich jak prom do Athor.");
+				addHelp("Jeżeli chcesz się dostać promem na wyspę Athor to wyjdź z miasta i kieruj się na południe, a tam znajdziesz przystań.");
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buycloaks")), false);
-				addOffer("I buy cloaks, because we are short of material to make sails with. The better the material, the more I pay. My notebook on the table has the price list.");
-				addGoodbye("Bye, thanks for stepping in.");
+				addOffer("Skupuję płaszcze, ponieważ nie mamy materiałów na żagle. Za lepszy materiał płacę więcej. W moim notatniku na stole znajduje się cennik.");
+				addGoodbye("Dowidzenia i dziękuję za wstąpienie.");
 			}
 		};
 
 		seamstress.setEntityClass("woman_002_npc");
 		seamstress.setPosition(7, 7);
 		seamstress.initHP(100);
-		seamstress.setDescription("Ida is a well known seamstress in the shipping industry. Although she is more into ships, she could maybe help you as well.");
+		seamstress.setDescription("Ida jest znaną szwaczką w przemyśle stoczniowym. Ale może tobie też może pomóc.");
 		zone.add(seamstress);
 	}
 }

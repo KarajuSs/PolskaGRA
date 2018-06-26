@@ -12,13 +12,13 @@
  ***************************************************************************/
 package games.stendhal.server.maps.kalavan.citygardens;
 
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.RPEntity;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.Map;
 
 /**
  * Builds the mother of Annie Jones.
@@ -53,21 +53,21 @@ public class MummyNPC implements ZoneConfigurator {
 			protected void createDialog() {
 
 				// greeting in maps/quests/IcecreamForAnnie.java
-				addOffer("I can't, I'm busy watching my daughter.");
-				addQuest("Nothing, thank you.");
-				addJob("I'm a mother.");
-				addHelp("I'll help if I can, but I have to watch my daughter.");
-				addGoodbye("Bye for now.");
+				addOffer("Nie mogę. Jestem zajęta pilnowaniem mojej córki.");
+				addQuest("Nic, dziękuję.");
+				addJob("Jestem matką.");
+				addHelp("Pomogę jeżeli będę mogła, ale muszę pilnować swojej córki.");
+				addGoodbye("Dowidzenia.");
 			}
-
+			
 			@Override
 			protected void onGoodbye(RPEntity player) {
 				setDirection(Direction.LEFT);
 			}
 		};
 
-		mummyNPC.setDescription("You see a woman, resting on a bench while watching her daughter playing.");
-		mummyNPC.setEntityClass("noimagenpc"); // "woman_000_npc"
+		mummyNPC.setDescription("Oto kobieta odpoczywająca na ławce i obserwująca zabawę córki.");
+		mummyNPC.setEntityClass("woman_000_npc");
 		mummyNPC.setPosition(53, 88);
 		mummyNPC.initHP(100);
 		zone.add(mummyNPC);

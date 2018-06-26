@@ -11,10 +11,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.market;
 
-import java.util.Arrays;
-import java.util.Map;
-import java.util.TreeMap;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -23,22 +19,26 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.ProducerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.ProducerBehaviour;
 
+import java.util.Arrays;
+import java.util.Map;
+import java.util.TreeMap;
+
 /**
  * Provides Uncle Dag NPC, in Ados Market.
  * He will produce fierywater bottles if he is given sugar canes (from cane fields)
- *
+ * 
  * @author omero
  */
 public class FierywaterDistillerNPC implements ZoneConfigurator {
 
     @Override
-	public void configureZone(final StendhalRPZone zone, final Map<String, String> attributes) {
+    public void configureZone(final StendhalRPZone zone, final Map<String, String> attributes) {
         buildNPC(zone);
     }
 
     private void buildNPC(final StendhalRPZone zone) {
         final SpeakerNPC npc = new SpeakerNPC("Uncle Dag") {
-
+            
             @Override
             protected void createPath() {
                 setPath(null);
@@ -72,7 +72,7 @@ public class FierywaterDistillerNPC implements ZoneConfigurator {
         requiredResources.put("polano", 1);
 
         final ProducerBehaviour behaviour = new ProducerBehaviour("uncle_dag_brew_fierywater",
-        	Arrays.asList("brew", "wywarzenie"), "ekstrakt litworowy", requiredResources, 20 * 60);
+            Arrays.asList("brew", "wywarzenie"), "ekstrakt litworowy", requiredResources, 20 * 60);
         new ProducerAdder().addProducer(npc, behaviour,
             "Cześć! Jestem Uncle Dag, gorzelnik! Jeżeli przyniesiesz mi #'trzcinę cukrową' i #polano to #wywarzę dla Ciebie #'ekstrakt litworowy'.");
 

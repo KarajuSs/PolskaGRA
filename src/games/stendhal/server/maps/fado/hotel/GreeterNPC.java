@@ -12,15 +12,16 @@
  ***************************************************************************/
 package games.stendhal.server.maps.fado.hotel;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds the hotel greeter NPC.
@@ -60,23 +61,23 @@ public class GreeterNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hello! Welcome to the Fado City Hotel! Can I #help you?");
+				addGreeting("Cześć! Witam w Hotelu w mieście Fado! Mogę w czymś #pomóc?");
 
-				addJob("I am the hotel receptionist.");
-				addHelp("When the building work on the hotel rooms is complete you will be able to #reserve one.");
+				addJob("Jestem recepcjonistką w hotelu.");
+				addHelp("Kiedy skończą się prace remontowe w hotelu to będzie można #zarezerwować sobie pokój.");
 				//addHelp("You can #reserve a room if you'd like, or #explore the hotel.");
-				addReply("reserve",
-				        "Sorry, but the hotel is still under construction and you can not reserve a room yet. You can #explore the rest.");
-				addReply("explore", "I'm afraid there is not very much to see, yet. The hotel is still being finished.");
+				addReply(Arrays.asList("zarezerwować", "reserve"),
+				        "Przepraszam, ale hotel wciąż jest remontowany i nie można zarezerwować sobie pokoju. Możesz #pozwiedzać resztę hotelu.");
+				addReply(Arrays.asList("pozwiedzać", "explore"), "Obawiam się, że nie ma zbyt wiele do zwiedzania. Hotel wciąż nie jest wykończony.");
 				//addSeller(new SellerBehaviour(shops.get("food&drinks")));
-				addGoodbye("Bye.");
+				addGoodbye("Dowidzenia.");
 			}
 		};
 
 		greeterNPC.setEntityClass("hotelreceptionistnpc");
 		greeterNPC.setPosition(16, 50);
 		greeterNPC.initHP(1000);
-		greeterNPC.setDescription("You see Linda. She belongs to the friendly hotel staff and is responsible for the room reservations.");
+		greeterNPC.setDescription("Oto Linda. Należy do przyjaznego hotelowego personelu i jest odpowiedzialna za ustalanie cen pokoju.");
 		zone.add(greeterNPC);
 	}
 }

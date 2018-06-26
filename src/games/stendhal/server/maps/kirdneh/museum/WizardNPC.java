@@ -12,20 +12,20 @@
  ***************************************************************************/
 package games.stendhal.server.maps.kirdneh.museum;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Builds a wizard npc, an expert in textiles.
  *
- * @author kymara
+ * @author kymara 
  */
 public class WizardNPC implements ZoneConfigurator {
 
@@ -53,19 +53,19 @@ public class WizardNPC implements ZoneConfigurator {
 
 			@Override
 			    protected void createDialog() {
-				addHelp("Sorry, I am not the curator of this museum, I am only looking around here like you.");
-				addOffer("I will teach you about #thread, and #fabric, and how wizards can fuse #mithril onto textiles.");
-				addJob("I'm a wizard, I specialise in magical textiles. I can tell you anything you want to know about #thread and #fabric.");
-				addReply("thread", "The best thread of all is light and strong, it is called #silk and it comes from the silk glands of spiders. Making the thread from the glands is a job which is messy. Wizards will not stoop so low. #Scientists are most likely to make thread if you need it.");
-				addReply("fabric", "Cloth has different standards, which I'm sure you'll notice in your own cloaks. #Mithril fabric is the very finest and strongest of all. But then, I would say that, being from Mithrilbourgh... So, you need to find plenty of silk glands, then take them to a #scientist to make the thread. Once you have silk thread bring it to me to #fuse mithril into it. Finally, you will need to take the mithril thread to #Whiggins to get the fabric woven.");
-				addReply("mithril", "Should you need it, I can #fuse mithril nuggets and silk thread together. But I don't perform this magic for just anyone... Once you have the mithril thread, it can be woven into fabric by #Whiggins.");
-				addGoodbye("Farewell.");
+				addHelp("Nie jestem kuratorem tego muzeum. Ja tylko zwiedzam tak jak ty.");
+				addOffer("Nauczę Cię o #'przędzy jedwabnej' i tkaniu #sukna oraz jak czarodziej może połączyć #mithril z tkaniną.");
+				addJob("Jestem czarodziejem. Specjalizuje się w magicznych tkaninach. Mogę Ci wszystko opowiedzieć co powinieneś wiedzieć o #przędzy jedwabnej i tkaniu #sukna.");
+				addReply("przędzy jedwabnej","Najlepszą nicią ze wszystkich jest jasna i silna nić zwana jedwabiem. Pochodzi z pajęczej przędzy. Wyrabianie jedwabiu z pajęczej przędzy jest brudną robotą. Czarodziej nie upadnie tak nisko. Naukowcy /#Scientists/ najlepiej się nadają do wyrabiania nici jeżeli ich potrzebujesz.");
+				addReply("sukna","Ubrania mają różne standardy, które pewnie zauważyłeś w swoich pelerynach. Tkanina z mithrilu jest najlepsza i wytrzymalsza od wszystkich innych. Mógłbym powiedzieć, że pochodzi od Mithrilbourghtów... Musisz znaleźć mnóstwo pajęczych nici, które zabierzesz do naukowca ( #scientist ), aby zrobił nić, Gdy będziesz miał jedwab to przynieś go do mnie, abym połączył ( #fuse ) z mithrilem. Na końcu będziesz musiał wziąć nić z mithrilu do #Whiggins, aby mieć tkaninę.");
+				addReply("mithril","Powinieneś go mieć. Mogę połączyć ( #fuse ) mithril nugget i nić z silk razem. Nie oferuję tej magii byle komu... Gdy będziesz miał nić z mithrilu to #Whiggins utka tkaninę.");
+				addGoodbye("Żegnaj.");
 				// remaining behaviour defined in maps.quests.MithrilCloak
 	 	     }
-
+		    
 		};
 
-		npc.setDescription("You see one of the mithrilbourgh wizards, taking in the artwork at the museum");
+		npc.setDescription("Oto czarodziej mithrilbourghtów zwiedzający muzeum");
 		npc.setEntityClass("mithrilforgernpc");
 		npc.setPosition(23, 3);
 		npc.initHP(100);

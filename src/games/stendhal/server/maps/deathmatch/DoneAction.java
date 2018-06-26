@@ -37,13 +37,13 @@ public class DoneAction implements ChatAction {
 	 * @return Helmet
 	 */
 	private Item createTrophyHelmet(final Player player) {
-		final Item helmet = SingletonRepository.getEntityManager().getItem("trophy helmet");
+		final Item helmet = SingletonRepository.getEntityManager().getItem("zdobyczny hełm");
 		helmet.setBoundTo(player.getName());
 		helmet.put("def", 1);
 		helmet.setInfoString(player.getName());
 		helmet.setPersistent(true);
-		helmet.setDescription("This is " + player.getName()
-		        + "'s grand prize for Deathmatch winners. Wear it with pride.");
+		helmet.setDescription("Oto główna nagroda dla wojownika " + player.getName()
+		        + " za wygranie Deathmatchu. Noś ją z dumą.");
 		player.equipOrPutOnGround(helmet);
 		return helmet;
 	}
@@ -62,18 +62,18 @@ public class DoneAction implements ChatAction {
 	public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 		final DeathmatchState deathmatchState = DeathmatchState.createFromQuestString(player.getQuest("deathmatch"));
 		if (deathmatchState.getLifecycleState() != DeathmatchLifecycle.VICTORY) {
-			raiser.say("C'm on, don't lie to me! All you can do now is #bail or win.");
+			raiser.say("Nie oszukuj mnie! Jedyne co możesz zrobić to #wycofać się lub wygrać.");
 			return;
 		}
 
 		updatePoints(player);
 
 		// We assume that the player only carries one trophy helmet.
-		final Item helmet = player.getFirstEquipped("trophy helmet");
+		final Item helmet = player.getFirstEquipped("zdobyczny hełm");
 		if (helmet == null) {
 			createTrophyHelmet(player);
-			raiser.say("Here is your special trophy helmet. Keep it, as the defense will increase by 1 "
-				+ "for every deathmatch you complete. Now, tell me if you want to #leave.");
+			raiser.say("Oto twój specjalny zdobyczny hełm. Trzymaj tak dalej, a z każdym ukończonym deathmatchem "
+				+ " jego obrona będzie się zwiększać o 1. Teraz powiedz mi czy chcesz wyjść, mówiąc #wyjdź.");
 		} else {
 			int defense = 1;
 			if (helmet.has("def")) {
@@ -83,22 +83,22 @@ public class DoneAction implements ChatAction {
 			final int maxdefense = 5 + (player.getLevel() / 5);
 			if (defense > maxdefense) {
 				helmet.put("def", maxdefense);
-				raiser.say("I'm sorry to inform you, the maximum defense for your helmet at your current level is "
+				raiser.say("Z przykrością oznajmiam, że osiągnąłeś szczyt obrony dla swojego hełmu, który wynosi "
 				                + maxdefense);
 			} else {
 				helmet.put("def", defense);
 				String message;
 				if (defense == maxdefense) {
-					message = "Your helmet has been magically strengthened to the maximum defense for your level, " + defense;
+					message = "Twój hełm został magicznie wzmocniony do maksimum jak na twój poziom czyli " + defense;
 				} else {
-					message = "Your helmet has been magically strengthened to a defense of " + defense;
+					message = "Twój hełm został magicznie wzmocniony do obrony " + defense;
 				}
-				raiser.say(message + ". Now, tell me if you want to #leave.");
+				raiser.say(message + ". Powiedz mi #wyjdź, kiedy będziesz chciał opuścić arenę.");
 			}
 		}
 		player.updateItemAtkDef();
 		TurnNotifier.get().notifyInTurns(0, new NotifyPlayerAboutHallOfFamePoints((SpeakerNPC) raiser.getEntity(), player.getName(), "D", "deathmatch_score"));
-
+		
 		new SetQuestAction("deathmatch", 0, "done").fire(player, sentence, raiser);
 		// Track the number of wins.
 		new IncrementQuestAction("deathmatch", 6, 1).fire(player, sentence, raiser);

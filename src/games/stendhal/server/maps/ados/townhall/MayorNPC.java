@@ -12,20 +12,19 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.townhall;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
-import games.stendhal.server.entity.CollisionAction;
 import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds ados mayor NPC.
@@ -54,33 +53,32 @@ public class MayorNPC implements ZoneConfigurator {
 			protected void createPath() {
 				final List<Node> nodes = new LinkedList<Node>();
 				nodes.add(new Node(3, 9));
-				nodes.add(new Node(8, 9));
-				nodes.add(new Node(8, 16));
+				nodes.add(new Node(8, 9));	
+				nodes.add(new Node(8, 16));	
 				nodes.add(new Node(25, 16));
 				nodes.add(new Node(25, 13));
 				nodes.add(new Node(37, 13));
 				nodes.add(new Node(25, 13));
 				nodes.add(new Node(25, 16));
 				nodes.add(new Node(8, 16));
-				nodes.add(new Node(8, 9));
+				nodes.add(new Node(8, 9));	
 				setPath(new FixedPath(nodes, true));
 			}
 
 			@Override
 			protected void createDialog() {
-				addGreeting("On behalf of the citizens of Ados, welcome.");
-				addJob("I'm the mayor of Ados. I can #offer you the chance to return here easily.");
-				addHelp("Ask me about my #offer to return here.");
+				addGreeting("Pozdrawiam Cię w imieniu mieszkańców Ados.");
+				addJob("Jestem burmistrzem Ados. Mogę #zaoferować Ci możliwość łatwiejszego powrotu do nas.");
+				addHelp("Zapytaj mnie o #ofertę.");
 				//addQuest("I don't know you well yet. Perhaps later in the year I can trust you with something.");
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("adosscrolls")));
-				addGoodbye("Good day to you.");
+				addGoodbye("Życzę miłego dnia.");
 			}
 		};
 
-		mayor.setDescription("You see the respected mayor of Ados.");
+		mayor.setDescription("Oto szanowany burmistrz Ados");
 		mayor.setEntityClass("badmayornpc");
 		mayor.setPosition(3, 9);
-		mayor.setCollisionAction(CollisionAction.STOP);
 		mayor.initHP(100);
 		zone.add(mayor);
 	}

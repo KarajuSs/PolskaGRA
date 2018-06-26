@@ -12,8 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.kirdneh.inn;
 
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.common.grammar.ItemParserResult;
 import games.stendhal.common.parser.Sentence;
@@ -31,8 +29,11 @@ import games.stendhal.server.entity.npc.condition.TriggerIsProducedItemOfClassCo
 import games.stendhal.server.entity.npc.fsm.Engine;
 import games.stendhal.server.entity.player.Player;
 
+import java.util.Arrays;
+import java.util.Map;
+
 /**
- * Builds a Healer NPC for kirdneh.
+ * Builds a Healer NPC for kirdneh. 
  * She likes a drink
  *
  * @author kymara
@@ -67,27 +68,27 @@ public class HealerNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Gis' a kiss!");
-				addReply("drinks", null, new ListProducedItemsOfClassAction("drink","I like [#items]. *hic*"));
+			    addGreeting("Hik #całusik!");
+                addReply("picie", null, new ListProducedItemsOfClassAction("drink","Lubię [#items]. *hic*"));  
 				add(
 					ConversationStates.ATTENDING,
 					"",
 					new TriggerIsProducedItemOfClassCondition("drink"),
 					ConversationStates.ATTENDING,
 					null,
-					new ListProducedItemDetailAction()
+					new ListProducedItemDetailAction()				
 				);
-				addReply("kiss", "ew sloppy");
-				addReply(":*", "*:");
-				addJob("Wuh? Uhh. Heal. Yeah. tha's it.");
-				addHealer(this, 250);
-				addHelp("Gimme money for #drinks. I heal, gis' cash.");
-				addQuest("Bah.");
- 				addGoodbye("pffff bye");
+                addReply(Arrays.asList("kiss", "całusik"), "łee kiepski");
+                addReply(":*", "*:");
+				addJob("Co? Echh. Leczenie. Tak. To wszystko.");
+				addHealer(this, 1200);
+				addHelp("Daj mi pieniądze na #picie, a uleczę. Hik kaska.");
+				addQuest("Ba.");
+				addGoodbye("pffff dowidzenia");
 			}
 		};
 
-		npc.setDescription("You see a woman who was perhaps once beautiful but now a little the worse for wear...");
+		npc.setDescription("Widzisz kobietę, która niegdyś uważana byłą za piękną, lecz teraz podupadła nieco, o czym świadczy jej strój...");
 		npc.setEntityClass("womanonstoolnpc");
 		npc.setPosition(25, 9);
 		npc.setDirection(Direction.UP);
@@ -100,61 +101,61 @@ public class HealerNPC implements ZoneConfigurator {
 	    final HealerBehaviour healerBehaviour = new HealerBehaviour(cost);
 		final Engine engine = npc.getEngine();
 
-		engine.add(ConversationStates.ATTENDING,
-				ConversationPhrases.OFFER_MESSAGES,
-				null,
-				false,
-				ConversationStates.ATTENDING,
-				"Gimme money for beer. I heal, gis' cash.", null);
+		engine.add(ConversationStates.ATTENDING, 
+				ConversationPhrases.OFFER_MESSAGES, 
+				null, 
+				false, 
+				ConversationStates.ATTENDING, 
+				"Daj mi pieniądze na picie, a uleczę. Hik kasa.", null);
 
-		engine.add(ConversationStates.ATTENDING,
-				"heal",
-				null,
-				false,
-				ConversationStates.HEAL_OFFERED,
+		engine.add(ConversationStates.ATTENDING, 
+				Arrays.asList("heal", "ulecz"), 
+				null, 
+				false, 
+				ConversationStates.HEAL_OFFERED, 
 		        null, new ChatAction() {
 			        @Override
-					public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
+			        public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 			        	currentBehavRes = new ItemParserResult(true, "heal", 1, null);
                         String badboymsg = "";
 			        	int cost = healerBehaviour.getCharge(currentBehavRes, player);
 			        	if (player.isBadBoy()) {
 			        		cost = cost * 2;
-			        		badboymsg = " Its more for nasty ones.";
+			        		badboymsg = " Dla takich jak ty jest drożej.";
 			        		currentBehavRes.setAmount(2);
 			        	}
-
+			        	
 						if (cost != 0) {
-	                    	raiser.say("For " + cost + " cash, ok?" + badboymsg);
+	                    	raiser.say("To kosztuje " + cost + " money, ok?" + badboymsg);
 	                    }
 			        }
 		        });
 
-		engine.add(ConversationStates.HEAL_OFFERED,
-				ConversationPhrases.YES_MESSAGES,
+		engine.add(ConversationStates.HEAL_OFFERED, 
+				ConversationPhrases.YES_MESSAGES, 
 				null,
-		        false,
+		        false, 
 		        ConversationStates.IDLE,
 		        null, new ChatAction() {
 			        @Override
-					public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
+			        public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 				        if (player.drop("money", healerBehaviour.getCharge(currentBehavRes, player))) {
 					        healerBehaviour.heal(player);
-					        raiser.say("All better now, everyone better. I love you, I do. Bye bye.");
+					        raiser.say("Lepiej teraz? Każdemu lepiej. Kocham Cię.");
 				        } else {
-					        raiser.say("Pff, no money, no heal. Bye.");
+					        raiser.say("Pff, nie ma pieniędzy, nie ma leczenia.");
 				        }
 
 						currentBehavRes = null;
 			        }
 		        });
 
-		engine.add(ConversationStates.HEAL_OFFERED,
-				ConversationPhrases.NO_MESSAGES,
+		engine.add(ConversationStates.HEAL_OFFERED, 
+				ConversationPhrases.NO_MESSAGES, 
 				null,
-		        false,
-		        ConversationStates.IDLE,
-		        "Bye then,", null);
+		        false, 
+		        ConversationStates.ATTENDING, 
+		        "Czego chcesz?", null);
 	}
 
 }

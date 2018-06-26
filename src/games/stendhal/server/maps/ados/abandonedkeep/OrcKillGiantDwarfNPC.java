@@ -12,15 +12,16 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.abandonedkeep;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds the orc kill diant dwarf NPC.
@@ -39,7 +40,7 @@ public class OrcKillGiantDwarfNPC implements ZoneConfigurator {
 	 * @param	zone		The zone to be configured.
 	 * @param	attributes	Configuration attributes.
 	 */
-
+	
 	@Override
 	public void configureZone(final StendhalRPZone zone, final Map<String, String> attributes) {
 		buildNPC(zone);
@@ -60,23 +61,23 @@ public class OrcKillGiantDwarfNPC implements ZoneConfigurator {
 				nodes.add(new Node(12, 114));
 				nodes.add(new Node(5, 114));
 				setPath(new FixedPath(nodes, true));
-
+	
 			}
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hello my fine fellow. Welcome to our humble dwelling.");
-				addJob("I wait for able bodied warriors to defeat the remaining dwarves in our area.");
-				addReply("dwarves", "When we got here, we had to run the dwarves from this area. There are only a few left. Will you help us with this #task?");
-				addHelp("When we got here, we had to run the dwarves from this area. There are only a few left. Will you help us with this #task?");
-				addGoodbye("I wish you well on your journeys.");
+				addGreeting("Cześć przyjacielu. Witaj w naszych skromnych progach.");
+				addJob("Czekam na zdrowych wojowników, aby pokonali wredne #krasnale w naszej okolicy.");
+				addReply(Arrays.asList("dwarves", "krasnale"), "Kiedy się tu dostaliśmy, musieliśmy je przegonić. Tylko kilku ich zostało. Czy pomożesz nam z tym #zadaniem?");
+				addHelp("Kiedy się tu dostaliśmy, musieliśmy je przegonić. Tylko kilku ich zostało. Czy pomożesz nam z tym #zadaniem?");
+				addGoodbye("Życzę powodzenia na wyprawach.");
 			}
 		};
 
 		zogfangNPC.setEntityClass("orcbuyernpc");
 		zogfangNPC.setPosition(10, 107);
 		zogfangNPC.initHP(1000);
-		zogfangNPC.setDescription("You see the old smelling orc Zogfang. He waits for warriors to help him while fighting against dwarves.");
+		zogfangNPC.setDescription("Widzisz starego orka Zogfang. Czeka na odważnego wojownika, który zgładzi wszystkich krasnali na tym piętrze.");
 		zone.add(zogfangNPC);
 	}
 }

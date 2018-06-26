@@ -48,13 +48,13 @@ public class DeathmatchArea implements LoginListener {
 	}
 
 	private void teleportToCowardPlace(final Player player) {
-
+		
 		if (cowardSpot == null) {
 			cowardSpot = new Spot(SingletonRepository.getRPWorld().getZone(
 			"0_semos_mountain_n2_w"), 104, 123);
 		}
 		player.teleport(cowardSpot.getZone(), cowardSpot.getX(), cowardSpot.getY(), Direction.DOWN, player);
-		player.sendPrivateText("You wake up far away from the city in the mountains. But you don't know what happened.");
+		player.sendPrivateText("Obudziłeś się daleko od miasta gdzieś wysoko w górach. Nie wiesz co się stało.");
 	}
 
 	public Area getArea() {
@@ -65,7 +65,7 @@ public class DeathmatchArea implements LoginListener {
 
 		return area.contains(player);
 	}
-
+	
 	public List<Player> getPlayers() {
 		return area.getPlayers();
 	}

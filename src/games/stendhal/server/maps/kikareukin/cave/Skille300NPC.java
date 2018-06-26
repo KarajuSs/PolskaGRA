@@ -10,20 +10,23 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-package games.stendhal.server.maps.orril.dungeon;
+package games.stendhal.server.maps.kikareukin.cave;
 
-import games.stendhal.common.Direction;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
+import games.stendhal.server.core.pathfinder.FixedPath;
+import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.ChatAction;
 import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.player.Player;
 
-import java.util.Map;
-
-public class DarkElfNPC implements ZoneConfigurator {
+public class Skille300NPC implements ZoneConfigurator {
 	/**
 	 * Configure a zone.
 	 *
@@ -35,53 +38,77 @@ public class DarkElfNPC implements ZoneConfigurator {
 	@Override
 	public void configureZone(final StendhalRPZone zone,
 			final Map<String, String> attributes) {
-		buildTunnelArea(zone);
+		buildMineArea(zone);
 	}
 
-	private void buildTunnelArea(final StendhalRPZone zone) {
-		final SpeakerNPC npc = new SpeakerNPC("Waerryna") {
-				// name means deep and hidden hired mercenary according to http://www.angelfire.com/rpg2/vortexshadow/drownames.html
+	private void buildMineArea(final StendhalRPZone zone) {
+		final SpeakerNPC npc = new SpeakerNPC("Deviotis") {
+
+			
 			@Override
 			protected void createPath() {
-				setPath(null);
+				final List<Node> nodes = new LinkedList<Node>();
+				nodes.add(new Node(112, 76));
+				nodes.add(new Node(112, 79));
+				nodes.add(new Node(116, 79));
+				nodes.add(new Node(116, 81));
+				nodes.add(new Node(117, 81));
+				nodes.add(new Node(117, 83));
+				nodes.add(new Node(110, 83));
+				nodes.add(new Node(110, 84));
+				setPath(new FixedPath(nodes, true));
 			}
-
+			
 			@Override
 			protected void createDialog() {
 				addGreeting(null, new ChatAction() {
 					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-						String reply = "Jeżeli wybierasz się do tego ohydnego miasta szczurów to nie przychodź obok mnie. ";
-						if (player.getLevel() < 60) {
-							reply += " Po prostu nie idź tą drogą, bo nie przetrwasz mrocznych elfów... ";
+						String reply = "Witaj! Jestem tutaj aby #nauczyć Cię czegoś o walce z potworami!";
+
+						if (player.getLevel() < 300) {
+							reply += " Jeszcze nie jesteś godzien! Osiągnij 250 poziom!";
 						} else {
-							reply += " Wschodnie przejście prowadzi do drow tunnels.";
+							reply += " Jesteś godzień przyjąć moje nauki.";
 						}
 						raiser.say(reply);
 					}
 				});
-				addJob("Pilnuję tych szczurów. My mroczne elfy nie lubimy, gdy ludzie szczury wtrącają się w nasze sprawy.");
-				addHelp("Jeżeli chcesz zabić kilka tych wstrętnych ludzi szczurów to trzymaj się tej drogi aż do następnej dużej jaskini. Przejdź przez jaskinię i idź pomiędzy posągami czaszek, a znajdziesz miasto szczurów. Kieruj się tymi zwłokami, a będziesz wiedział, że jesteś na dobrej drodze.");
-				addQuest("Jeżeli chcesz #pomóc ... to powiedz.");
-				addGoodbye("Tak długo!");
+
+				addReply("nauczyć",
+						"Gdy osiągniesz 300 poziom nauczę Cię lepiej walczyć z potworami.");
+				addGoodbye();
 			}
 		};
+
 
 		npc.addInitChatMessage(null, new ChatAction() {
 			@Override
 			public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-				if (!player.hasQuest("WaerrynaFirstChat")) {
-					player.setQuest("WaerrynaFirstChat", "done");
-					player.addXP(300);
+				if (!player.hasQuest("DeviotisReward")
+						&& (player.getLevel() >= 300)) {
+					player.setQuest("DeviotisReward", "done");
+
+					player.setAtkXP(400000 + player.getAtkXP());
+					player.setDefXP(1080000 + player.getDefXP());
+					player.addXP(20000);
+
+					player.incAtkXP();
+					player.incDefXP();
+				}
+
+				if (!player.hasQuest("DeviotisFirstChat")) {
+					player.setQuest("DeviotisFirstChat", "done");
 					((SpeakerNPC) raiser.getEntity()).listenTo(player, "hi");
 				}
+				
 			}
+			
 		});
-		npc.setDescription("Oto potężna mroczna elfka Waerryna. Nie przechodź obok niej.");
+
 		npc.setEntityClass("blackwizardpriestnpc");
-		npc.setPosition(49, 105);
-		npc.setDirection(Direction.RIGHT);
-		npc.initHP(25);
+		npc.setPosition(112, 76);
+		npc.initHP(85);
 		zone.add(npc);
 	}
 }

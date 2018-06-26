@@ -12,16 +12,17 @@
  ***************************************************************************/
 package games.stendhal.server.maps.magic.city;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.HealerAdder;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds a Healer NPC for the magic city.
@@ -64,17 +65,17 @@ public class HealerNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-			        addGreeting("Greetings. Can I #help you?");
-				addJob("I practise alchemy and have the ability to #heal others.");
+			        addGreeting("Pozdrawiam. W czym mogę #pomóc?");
+				addJob("Praktykuję alchemię i mam zdolności do leczenia innych.");
 				new HealerAdder().addHealer(this, 500);
-				addReply("magical", "We're all capable of magic here. There are different kinds, of course. My favourite is the Sunlight Spell to keep grass and flowers growing underground.");
-				addHelp("I have #magical powers to #heal your ailments.");
-				addQuest("I need nothing, thank you.");
- 				addGoodbye("Fare thee well.");
+				addReply(Arrays.asList("magical", "magiczną"), "My wszyscy mamy zdolności magiczne. Oczywiście różnego rodzaju. Moim ulubionym jest Sunlight Spell do utrzymywania trawy i kwiatków rosnących pod ziemią.");
+				addHelp("Mam #magiczną moc uzdrowienia twoich dolegliwości. Powiedz tylko #ulecz.");
+				addQuest("Niczego nie potrzebuję. Dziękuję.");
+				addGoodbye("Powodzenia.");
 			}
 		};
 
-		npc.setDescription("You see a quiet woman with a benign face.");
+		npc.setDescription("Oto cicha kobieta wyglądająca na życzliwą.");
 		npc.setEntityClass("cloakedwomannpc");
 		npc.setPosition(5, 25);
 		npc.initHP(100);

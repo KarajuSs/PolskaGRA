@@ -12,16 +12,16 @@
  ***************************************************************************/
 package games.stendhal.server.maps.orril.dungeon;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.RatKidsNPCBase;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds a Rat Child NPC.
@@ -55,7 +55,7 @@ public class RatChildBoy2NPC implements ZoneConfigurator {
 			}
 		};
 
-		rat.setDescription("You see a rat child.");
+		rat.setDescription("Widzisz dziecko człekoszczura.");
 		rat.setEntityClass("ratchildboy2npc");
 		rat.setPosition(97, 5);
 		rat.initHP(100);

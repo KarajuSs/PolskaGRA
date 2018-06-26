@@ -12,11 +12,11 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.entwives;
 
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.Map;
 
 /**
  * entwife located in 0_ados_mountain_n2_w2.
@@ -44,12 +44,12 @@ public class EntwifeNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Welcome, fair wanderer.");
-				addJob("I guard all I can see. It is a peaceful life.");
-				addHelp("There is lots to see and harvest here. Just wander around.");
-				addOffer("I have nothing to offer but fresh air and sunshine.");
-				addGoodbye("May your travels be pleasant, my fine friend.");
-				addQuest("There is something I wish. But I have no time at present to discuss it. Please come back again later.");
+				addGreeting("Witaj wędrowcze.");
+				addJob("Prowadzę spokojne życie. Pilnuje wszystkiego dookoła.");
+				addHelp("Tutaj jest sporo rzeczy do zobaczenia i zebrania. Rozglądnij się dookoła.");
+				addOffer("Nie mam nic do zaoferowania poza świeżym powietrzem i słońcem.");
+				addGoodbye("Niech twoje podróże będą przyjemne mój dobry przyjacielu.");
+				addQuest("Jest coś co chciałabym, ale nie mam teraz czasu, aby o tym rozmawiać. Wróć później.");
 			}
 		};
 
@@ -57,7 +57,7 @@ public class EntwifeNPC implements ZoneConfigurator {
 		entwife.setAlternativeImage("tendertwig");
 		entwife.setPosition(25, 35);
 		entwife.initHP(100);
-		entwife.setDescription("You see an old and wise entwife. She is called Tendertwig and guards the area around.");
+		entwife.setDescription("Widzisz starego i mądrego entwife. Zwą go Tendertwig, jest strażnikiem tej okolicy."); 
 		zone.add(entwife);
 	}
 }

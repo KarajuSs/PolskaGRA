@@ -11,15 +11,15 @@
  ***************************************************************************/
 package games.stendhal.server.maps.fado.hut;
 
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 
+import java.util.Map;
+
 /**
  * A crystal NPC
- *
+ * 
  * @author AntumDeluge
  *
  */
@@ -29,16 +29,16 @@ public class BlueCrystalNPC implements ZoneConfigurator {
 	 *
 	 * @param	zone		The zone to be configured.
 	 * @param	attributes	Configuration attributes.
-	 *
+	 * 
 	 * @author AntumDeluge
 	 */
 	@Override
 	public void configureZone(final StendhalRPZone zone, final Map<String, String> attributes) {
 		buildNPC(zone);
 	}
-
+	
 	private void buildNPC(final StendhalRPZone zone) {
-
+		
 		// Create the NPC
 		final SpeakerNPC crystal = new SpeakerNPC("Niebieski Kryształ") {
 
@@ -63,8 +63,8 @@ public class BlueCrystalNPC implements ZoneConfigurator {
 		crystal.initHP(100);
 		crystal.setDescription("Oto niebieski kryształ. Jakoś czujesz, że twoje ramiona są lekkie.");
 		crystal.setResistance(0);
-
+		
 		zone.add(crystal);
 	}
-
+	
 }

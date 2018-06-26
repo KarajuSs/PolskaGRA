@@ -12,16 +12,16 @@
  ***************************************************************************/
 package games.stendhal.server.maps.nalwor.bank;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds the nalwor bank npcs.
@@ -59,17 +59,17 @@ public class BankNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Greetings. If you need #help, please ask.");
-				addJob("I work here in the bank.");
-				addHelp("That room has two chests owned by this bank and two owned by Semos bank.");
-				addGoodbye("Goodbye, young human.");
+				addGreeting("Pozdrawiam. Jeżeli potrzebujesz #pomocy to pytaj.");
+				addJob("Pracuję tutaj w banku.");
+				addHelp("Pokój ma dwie skrzynie należące do tego banku i dwie skrzynie należące do banku w Semos.");
+				addGoodbye("Dowidzenia młodzieńcze.");
 				//remaining behaviour defined in Take Gold for Grafindle quest
 			}
 		};
 
 		oldnpc.setDirection(Direction.DOWN);
 		oldnpc.setEntityClass("elfbankeroldnpc");
-		oldnpc.setDescription("You see Grafindle who works in Nalwor bank.");
+		oldnpc.setDescription("Oto Grafindle, który pracuje w banku Nalwor.");
 		oldnpc.setPosition(13, 17);
 		oldnpc.initHP(100);
 		zone.add(oldnpc);
@@ -95,16 +95,16 @@ public class BankNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Welcome to Nalwor Bank. I'm here to #help.");
-				addHelp("Customers can deposit their items in the chests in that small room behind me. The two chests on the right are under Semos management.");
-				addOffer("I can #help you.");
-				addJob("I help customers of the bank, elves and even humans.");
-				addQuest("I don't need anything, thank you.");
-				addGoodbye("Goodbye, thank you for your time.");
+				addGreeting("Witam w banku Nalwor. Jestem tutaj, aby #pomóc.");
+				addHelp("Klienci mogą u mnie zdeponować swoje przedmioty w skrzyniach w tym pokoiku znajdującym się za mną. Dwie skrzynie po prawej są administrowane przez Semos.");
+				addOffer("Mogę Ci #pomóc.");
+				addJob("Pomagam klientom banku: elfom, a nawet ludziom.");
+				addQuest("Niczego nie potrzebuję. Dziękuję.");
+				addGoodbye("Dowidzenia. Dziękuje za twój czas.");
 			}
 		};
 
-		ladynpc.setDescription("You see a pretty female elf in a beautiful dress.");
+		ladynpc.setDescription("Oto piękna elfka w pięknej sukni.");
 		ladynpc.setEntityClass("elfbankladynpc");
 		ladynpc.setDirection(Direction.DOWN);
 		ladynpc.setPosition(17, 31);

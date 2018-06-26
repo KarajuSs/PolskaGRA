@@ -12,15 +12,15 @@
  ***************************************************************************/
 package games.stendhal.server.maps.fado.bank;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds the bank teller NPC.
@@ -60,17 +60,17 @@ public class TellerNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Welcome to the Fado Bank! Do you need #help?");
-				addJob("I am the manager for the bank.");
-				addHelp("Just to the left, you can see a few chests. Open one and you can store your belongings in it.");
-				addGoodbye("Have a nice day.");
+				addGreeting("Witaj w banku Fado! Potrzebujesz #pomocy?");
+				addJob("Jestem dyrektorem tego banku.");
+				addHelp("Idź w prawo, a zobaczysz kilka skrzyń. Otwórz jedną i zostaw w niej swój dobytek.");
+				addGoodbye("Życzę miłego dnia.");
 			}
 		};
 
 		bankNPC.setEntityClass("youngnpc");
 		bankNPC.setPosition(15, 3);
 		bankNPC.initHP(1000);
-		bankNPC.setDescription("Yance is the Fado bank manager. He can give advice on how to use the chests.");
+		bankNPC.setDescription("Yance jest dyrektorem w banku Fado. On może udzielić ci porady jak kożystać ze skrzyń.");
 		zone.add(bankNPC);
 	}
 }

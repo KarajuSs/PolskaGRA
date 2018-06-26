@@ -11,15 +11,15 @@
  ***************************************************************************/
 package games.stendhal.server.maps.nalwor.forest;
 
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 
+import java.util.Map;
+
 /**
  * A crystal NPC
- *
+ * 
  * @author AntumDeluge
  *
  */
@@ -29,16 +29,16 @@ public class RedCrystalNPC implements ZoneConfigurator {
 	 *
 	 * @param	zone		The zone to be configured.
 	 * @param	attributes	Configuration attributes.
-	 *
+	 * 
 	 * @author AntumDeluge
 	 */
 	@Override
 	public void configureZone(final StendhalRPZone zone, final Map<String, String> attributes) {
 		buildNPC(zone);
 	}
-
+	
 	private void buildNPC(final StendhalRPZone zone) {
-
+		
 		// Create the NPC
 		final SpeakerNPC crystal = new SpeakerNPC("Czerwony Kryształ") {
 
@@ -54,8 +54,8 @@ public class RedCrystalNPC implements ZoneConfigurator {
 				addHelp("Trzymaj się. Femme Fatale opowiedziała mi o szkole zabójców. Biegają tam dookoła i są nieznośni dla swoich nauczycieli!");
 				addJob("Jestem kryształem. Cóż więcej mogę powiedzieć?");
 				addGoodbye("Żegnaj. Wróć, gdy będziesz potrzebował mojej pomocy."); 
-
-
+				
+			
 			}
 		};
 
@@ -65,8 +65,8 @@ public class RedCrystalNPC implements ZoneConfigurator {
 		crystal.initHP(100);
 		crystal.setDescription("Oto czerwony kryształ. Patrząc na niego czujesz się trochę poruszony.");
 		crystal.setResistance(0);
-
+		
 		zone.add(crystal);
 	}
-
+	
 }

@@ -12,16 +12,17 @@
  ***************************************************************************/
 package games.stendhal.server.maps.kirdneh.city;
 
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.RPEntity;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 
+import java.util.Arrays;
+import java.util.Map;
+
 /**
- * Builds a information giving NPC in Kirdneh city.
+ * Builds a information giving NPC in Kirdneh city. 
  *
  * @author kymara
  */
@@ -59,21 +60,21 @@ public class GossipNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Heya!");
-				addJob("Um, not sure what you mean. Right now I'm waiting for my mum to get back from the #shops.");
-				addHelp("I have some #news about the bazaar over there.");
-				addOffer("I don't sell stuff, I'm just waiting for my mum. But I have some #news if you wanna hear it.");
-				// quest: FindJefsMom , quest sentence given there
-				addReply("news", "Some more shopkeepers will be at the market soon! It'll be cool, it's kind of empty round here at the moment.");
-				addReply("shops", "Yeah she's had to go out of town. All we have here is that flower seller! There's #news about our bazaar, though ...");
-				addGoodbye("See you around.");
+				addGreeting("Cześć!");
+				addJob("Hm, nie wiem co masz na myśli. Teraz czekam na moją mamę, aż wróci ze #sklepów.");
+				addHelp("Mam nowiny o bazarze.");
+				addOffer("Nie sprzedaję, ja czekam tylko na mamę. Mam #nowiny jeżeli chcesz wiedzieć.");
+				addQuest("Co? Nie rozumiem Cię.");
+				addReply(Arrays.asList("news", "nowiny"), "Paru sprzedawców będzie wkrótce na bazarze! Będzie fajnie, a na razie jest tutaj pusto.");
+				addReply(Arrays.asList("shops", "sklepów"), "Tak, ona wyjechała z miasteczka. Jedynie co tutaj mamy to kwiaciarkę! Są #nowiny, że będziemy mieli własny bazar ...");
+				addGoodbye("Żegnaj.");
 			}
 		};
 
 		npc.setEntityClass("kid6npc");
 		npc.setPosition(114, 67);
 		npc.initHP(100);
-		npc.setDescription("You see Jef. He seems like waiting for someone.");
+		npc.setDescription("Oto Jef. Wygląda jak by czekał na kogoś.");
 		zone.add(npc);
 	}
 }

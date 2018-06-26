@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.magic.bricabrac;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -25,6 +21,11 @@ import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.BuyerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.BuyerBehaviour;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds an witch NPC She is a trader for bric-a-brac items.
@@ -67,47 +68,47 @@ public class BuyerNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hello.");
-				addJob("I potter around collecting odds and bobs. Sometimes I sell items, but mostly I like to keep them. If you have any relics to #trade, I would be very happy indeed.");
-				addHelp("I could tell you about some of these wonderful items here. The white #pot, #coffins, #dress, #shield, #armor, #tools, #rug, #flowers, #clock and #'sewing machine' are all fascinating!");
+				addGreeting("Cześć.");
+				addJob("Kolekcjonuję graty i drobiazgi. Czasami sprzedaję przedmioty, ale przeważnie trzymam je. Jeżeli masz jakieś relikty na #handel to byłabym szczęśliwa.");
+				addHelp("Mogłabym opowiedzieć Ci o tych wspaniałych przedmiotach: białym #dzbanku, #trumnach, #sukience, #tarczy, #zbroi, #narzędziach, #dywanie, #kwiatkach, #zegarze i #maszynie #do #szycia wszystkie są fascynujące!");
 				addReply(
-						"pot",
-						"You mean the white and blue one, the oriental pot, I suppose. That is an original made by the ancient oni people. It's very rare.");
+						Arrays.asList("pot", "dzbanku"),
+						"Masz na myśli orientalny dzbanek koloru białego i niebieskiego. Są oryginalne, wykonane przez antycznych ludzi zwanych oni. Są bardzo rzadkie.");
 				addReply(
-						"coffins",
-						"Those coffins were looted from some underground catacombs, I had to pay a pretty price for that pair.");
+						Arrays.asList("coffins", "trumnach"),
+						"Te trumny zostały zrabowane z podziemnych katakumb. Musiałam zapłacić niezłą sumkę za tę parę.");
 				addReply(
-						"dress",
-						"I do love that beautiful pink dress. I am told it was worn by the elven princess Tywysoga.");
+						Arrays.asList("dress", "sukience"),
+						"Kocham tę piękną różową sukienkę. Była noszona przez księżniczkę elfów Tywysogę.");
 				addReply(
-						"shield",
-						"That is a truly fearsome shield, is it not? There is some enscription on the back about devil knights, but I am afraid I do not understand it.");
+						Arrays.asList("shield", "tarczy"),
+						"To naprawdę przerażająca tarcza czyż nie? Widać na niej jakieś inskrypcje z tyłu obok devil knights, ale nie rozumiem tego.");
 				addReply(
-						"rug",
-						"That is a genuine rug from the far East. I have never seen one like it, only cheap copies. Please don't get muddy footprints on it!");
+						Arrays.asList("rug", "dywanie"),
+						"To jest prawdziwy dywan z dalekiego wschodu. Nigdy nie widziałam takiego tylko tanie podróbki. Proszę nie nanieś na niego błota!");
 				addReply(
-						"flowers",
-						"Ah ha! These are flowers grown with elf magic. I bought them myself from a wonderful florist in Nalwor.");
+						Arrays.asList("flowers", "kwiatkach"),
+						"Ach! Te kwiatki rosną z magii elfów. Kupiłam je od wspaniałej kwiaciarki w Nalwor.");
 				addReply(
-						"clock",
-						"That grandfather clock is one of my more modern pieces. If you know Woody the Woodcutter, you may recognise the handiwork.");
+						Arrays.asList("clock", "zegarze"),
+						"Ten zegar stojący jest jedną z najnowocześniejszych rzeczy w mojej kolekcji. Jeżeli chcesz wiedzieć to drwal Woody może rozpoznać wykonawcę.");
 				addReply(
-						"tools",
-						"Those tools on the back wall are a true antique! They were used by the great grandfather of Xoderos of Semos, isn't that incredible!");
+						Arrays.asList("tools", "narzędziach"),
+						"Te narzędzia na tylnej ścianie są naprawdę antyczne! Zostały wykorzystane przez Xoderos z Semos do wykonania zegara stojącego czyż to nie jest niesamowite!");
 				addReply(
-						"armor",
-						"Ah, that mighty piece was made in Deniran. I'm afraid I know little more about it.");
+						Arrays.asList("armor", "zbroi"),
+						"Ach, ta zbroja został zrobiona w Deniran. Mało wiem o niej.");
 				addReply(
-						"sewing machine",
-						"Oh you know that is my favourite. It was made by a man called Zinger, and it still works just as well as the day it was made.");
-				addQuest("I have no favour to ask of you.");
+						Arrays.asList("sewing machine", "maszynie do szycia"),
+						"To jest moja ulubiona rzecz. Została wykonana przez człowieka o imieniu Zinger. Maszyna do szycia wciąż pracuje jak wtedy, gdy została zrobiona.");
+				addQuest("Nie mam żadnych życzeń.");
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buymagic")), false);
-				addOffer("There is a list of prices for relics and magic items I would buy, over on that large book.");
-				addGoodbye("Bye.");
+				addOffer("W dużej książce znajduje się cennik reliktów i magicznych przedmiotów, które chciałabym kupić.");
+				addGoodbye("Dowidzenia.");
 			}
 		};
 
-		npc.setDescription("You see Vonda, a witch who seems to like clutter...");
+		npc.setDescription("Oto Vonda, czarownica, która chyba lubi chaos...");
 		npc.setEntityClass("witch2npc");
 		npc.setPosition(4, 12);
 		npc.initHP(100);

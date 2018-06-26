@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.fado.weaponshop;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -27,6 +23,11 @@ import games.stendhal.server.entity.npc.behaviour.adder.BuyerAdder;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.BuyerBehaviour;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds an NPC to buy gems and gold and sell engagement ring.
@@ -72,21 +73,21 @@ public class RingSmithNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hi! Can I #help you?");
-				addJob("I work with #gold, to fix and make jewellery.");
-				addOffer("I sell engagement rings which I make myself. I also buy gems and gold, see the red catalogue on the table.");
+				addGreeting("Cześć. W czym mogę pomóc?");
+				addJob("Pracuję ze #złotem oraz naprawiam i wytwarzam biżuterię.");
+				addOffer("Sprzedaję pierścionki zaręczynowe z diamentem, które wyrabiam własnoręcznie. Skupuję także kamyki i złoto. Zobacz czerwony katalog na stole.");
 				addReply(
-						"gold",
-						"It's cast from gold nuggets which you can pan for on Or'ril river. I don't cast it myself, but a smith in Ados does.");
-				addHelp("I am an expert on #'wedding rings' and #'emerald rings', sometimes called the ring of #life.");
-				addQuest("Well, you could consider getting married to be a quest! Ask me about #'wedding rings' if you need one.");
+						Arrays.asList("złotem", "gold"),
+						"Jest odlewany ze złotych samorodków. które można wydobyć w pobliżu rzeki Or'ril. Nie odlewam złota własnoręcznie, ale kowal w Ados tak.");
+				addHelp("Jestem ekspertem od #'obrączki ślubnej' i #'pierścień szmaragdowy' czasami zwanymi ring of #life.");
+				addQuest("Cóż mógłbyś rozważyć możliwość wzięcia ślubu jako zadania! Zapytaj mnie o kupno pierścionka zaręczynowego #'buy pierścień zaręczynowy' jeżeli potrzebujesz.");
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("sellrings")), false);
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buyprecious")), false);
-				addGoodbye("Bye, my friend.");
+				addGoodbye("Dowidzenia przyjacielu.");
 			}
 		};
 
-		npc.setDescription("You see Ognir, a friendly bearded chap.");
+		npc.setDescription("Oto Ognir przyjazny brodaty gość.");
 		npc.setEntityClass("ringsmithnpc");
 		npc.setPosition(18, 8);
 		npc.initHP(100);

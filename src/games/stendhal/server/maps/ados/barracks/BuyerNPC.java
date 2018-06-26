@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.barracks;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -28,6 +24,10 @@ import games.stendhal.server.entity.npc.behaviour.adder.BuyerAdder;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.BuyerBehaviour;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds an NPC to buy previously unbought armor.
@@ -65,20 +65,20 @@ public class BuyerNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Greetings. Have you come to enlist as a soldier?");
-				addReply(ConversationPhrases.YES_MESSAGES, "Huh! Well I don't let your type enlist! Perhaps you want to #offer some of that armor instead...");
-				addReply(ConversationPhrases.NO_MESSAGES, "Good! You wouldn't have fit in here anyway.");
-				addJob("I'm looking after the weaponry here. We have plenty of ammunition but running low on armor. I see you have some you might #offer though.");
-				addHelp("I buy armor for the barracks here, make me an #offer. If you'll keep it quiet, I'll even sell you ammunition.");
-				addOffer("Please look at the blackboard by the shields rack to see what we are short of, and what we pay. I also sell a variety of arrows.");
-				addQuest("Oh, thanks but no thanks. I don't need anything.");
+				addGreeting("Pozdrawiam. Przyszedłeś zaciągnąć się do wojska?");
+				addReply(ConversationPhrases.YES_MESSAGES, "Ha! Cóż nie pozwolę Ci zapisać się do wojska, ale możesz nam #zaoferować jakąś zbroję...");
+				addReply(ConversationPhrases.NO_MESSAGES, "Dobrze! I tak nigdy nie chciałbyś się tutaj dostać.");
+				addJob("Poszukuję broni. Brakuje nam jej tutaj. Posiadamy dużo amunicji a mało zbroi. Widzę, że masz ze sobą jakąś zbroję, którą mógłbyś nam #zaoferować.");
+				addHelp("Skupuję zbroje jeżeli coś masz to #zaoferuj mi to.");
+				addOffer("Spójrz na tablicę, aby zobaczyć czego nam brakuje i ile za to płacimy. Sprzedaję również różne strzały.");
+				addQuest("O, dziękuję, ale niczego już nie potrzebuję.");
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buyrare3")), false);
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("sellarrows")), false);
-				addGoodbye("Goodbye, comrade.");
+				addGoodbye("Dowidzenia kolego.");
 			}
 		};
 
-		npc.setDescription("You see Mrotho, guarding over Ados Barracks.");
+		npc.setDescription("Oto Mrotho, strzeże baraków w Ados.");
 		npc.setEntityClass("barracksbuyernpc");
 		npc.setPosition(45, 49);
 		npc.initHP(500);

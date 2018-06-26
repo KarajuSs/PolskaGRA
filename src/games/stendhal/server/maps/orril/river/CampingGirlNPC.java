@@ -12,12 +12,12 @@
  ***************************************************************************/
 package games.stendhal.server.maps.orril.river;
 
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.Map;
 
 /**
  * Configure Orril River South Campfire (Outside/Level 0).
@@ -46,10 +46,10 @@ public class CampingGirlNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				//addGreeting();
-				addJob("Work? I'm just a little girl! I'm a scout, you know.");
-				addHelp("You can find lots of useful stuff in the forest; wood and mushrooms, for example. But beware, some mushrooms are poisonous!");
+				addJob("Praca? Jestem tylko małą dziewczynką! Skautem.");
+				addHelp("Możesz znaleźć sporo użytecznych rzeczy w lesie na przykład drewno i grzyby. Uważaj, niektóre grzyby są trujące!");
 				addGoodbye();
-				// remaining behaviour is defined in maps.quests.Campfire.
+				// remaining behaviour is defined in maps.quests.Campfire.				
 			}
 		};
 
@@ -57,7 +57,7 @@ public class CampingGirlNPC implements ZoneConfigurator {
 		sally.setPosition(40, 61);
 		sally.setDirection(Direction.RIGHT);
 		sally.initHP(100);
-		sally.setDescription("You see Sally. She is the daughter of Leander, the Semos baker and currently camping near the river.");
+		sally.setDescription("Widzisz Sally. Ona jest córką Leandera, piekarza Semos a obecnie obozuję nad rzeką.");
 		zone.add(sally);
 	}
 }

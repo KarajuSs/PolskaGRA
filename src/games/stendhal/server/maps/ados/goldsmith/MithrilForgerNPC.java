@@ -12,16 +12,16 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.goldsmith;
 
-import java.util.Arrays;
-import java.util.Map;
-import java.util.TreeMap;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.ProducerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.ProducerBehaviour;
+
+import java.util.Arrays;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Ados MithrilForger (Inside / Level 0).

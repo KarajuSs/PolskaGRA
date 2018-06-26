@@ -12,8 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.rock;
 
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -23,8 +21,10 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.BuyerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.QuestCompletedBuyerBehaviour;
 
+import java.util.Map;
+
 public class WeaponsCollectorNPC implements ZoneConfigurator {
-	private final ShopList shops = SingletonRepository.getShopList();
+   private final ShopList shops = SingletonRepository.getShopList();
 	/**
 	 * Configure a zone.
 	 *
@@ -47,13 +47,13 @@ public class WeaponsCollectorNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				// This greeting is mostly not used as the quests override it
-				addGreeting("Greetings, friend.");
-				addHelp("There is a swamp east of this mountain where you might get some rare weapons.");
-				addJob("I'm much too old for hard work. I'm just living here as a hermit.");
-				addGoodbye("It was nice to meet you.");
+			  // This greeting is mostly not used as the quests override it
+				addGreeting("Pozdrawiam, przyjacielu.");
+				addHelp("Na wschód od wzgórza jest bagno, na którym możesz zdobyć rzadką broń.");
+				addJob("Jestem zbyt stary, aby pracować. Żyję tutaj jak pustelnik.");
+				addGoodbye("Miło było Cię poznać.");
 				// will buy black items once the Ultimate Collector quest is completed
-				new BuyerAdder().addBuyer(this, new QuestCompletedBuyerBehaviour("ultimate_collector", "I'll buy black items from you when you have completed each #challenge I set you.", shops.get("buyblack")), false);
+				new BuyerAdder().addBuyer(this, new QuestCompletedBuyerBehaviour("ultimate_collector", "Kupię od ciebie czarne przedmioty, gdy ukończysz każde #'wyzwanie', które ci postawie.", shops.get("buyblack")), false);
 			}
 			/* remaining behaviour is defined in:
 			 * maps.quests.WeaponsCollector,
@@ -65,7 +65,7 @@ public class WeaponsCollectorNPC implements ZoneConfigurator {
 		npc.setPosition(16, 8);
 		npc.setDirection(Direction.DOWN);
 		npc.initHP(100);
-		npc.setDescription("You see Balduin. He lives on these mountains as a hermit, but maybe he has something for you to do.");
+		npc.setDescription("Oto Balduin. Żyje tu jako pustelnik. Możliwe, że ma dla ciebie zadanie.");
 		zone.add(npc);
 	}
 }

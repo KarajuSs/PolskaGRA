@@ -33,9 +33,9 @@ public class LeaveAction implements ChatAction {
 			final StendhalRPZone zone = SingletonRepository.getRPWorld().getZone("0_semos_plains_n");
 			player.teleport(zone, 100, 115, null, player);
 		} else if (deathmatchState.getLifecycleState() == DeathmatchLifecycle.VICTORY) {
-			raiser.say("I don't think you claimed your #victory yet.");
+			raiser.say("Nie sądzę, abyś potwierdził swoje #zwycięstwo.");
 		} else {
-			raiser.say("What are you? A coward?");
+			raiser.say("Kim jesteś? Tchórzem?");
 		}
 	}
 }

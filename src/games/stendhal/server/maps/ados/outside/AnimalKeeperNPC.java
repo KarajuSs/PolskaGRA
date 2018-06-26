@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.outside;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.common.Rand;
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.config.ZoneConfigurator;
@@ -33,6 +29,10 @@ import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.player.Player;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 public class AnimalKeeperNPC implements ZoneConfigurator {
 
@@ -67,8 +67,8 @@ public class AnimalKeeperNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addOffer("Can you keep a secret? Dr. Feelgood, our veterinarian, can sell you medicine that he doesn't need for the animals.");
-				addJob("I'm the keeper of this animal refuge. I will take care of any abandoned pets I am brought.");
+				addOffer("Czy możesz zachować to w tajemnicy? Dr. Feelgood nasz weterynarz, może Tobie sprzedać leki, których nie potrzebuje dla zwierząt.");
+				addJob("Opiekuję się schroniskiem i zaopiekuje się każdym porzuconym zwierzątkiem.");
 				add(ConversationStates.ATTENDING,
 					ConversationPhrases.HELP_MESSAGES,
 					new ChatCondition() {
@@ -77,10 +77,10 @@ public class AnimalKeeperNPC implements ZoneConfigurator {
 											final Entity engine) {
 							return player.hasPet();
 						}
-					},
-					ConversationStates.SERVICE_OFFERED, "Have you brought that pet to be taken care of here?",
+					}, 
+					ConversationStates.SERVICE_OFFERED, "Czy przyprowadziłeś zwierzątko, które wymaga naszej opieki?",
 					null);
-
+				
 				add(ConversationStates.SERVICE_OFFERED,
 					ConversationPhrases.YES_MESSAGES, null,
 					ConversationStates.ATTENDING, null,
@@ -100,20 +100,20 @@ public class AnimalKeeperNPC implements ZoneConfigurator {
 								if (player.getKarma() < 60.0) {
 									player.addKarma(30.0);
 								}
-								npc.say("Thank you for rescuing this " + petName + ", I will take good care of it. Remember you can come back "
-								+ "and visit the pet sanctuary any time you like!");
+								npc.say("Dziękuję za uratowanie " + petName + ". Dobrze się nim zaopiekuję. Pamiętaj, że zawsze możesz wrócić "
+								+ "i odwiedzić sanktuarium dla zwierząt kiedy zechcesz!");
 								notifyWorldAboutChanges();
 							} else {
 								// there was no room for the pet
-								npc.say("It looks like we don't have any space left in our pet sanctuary! I hope you can look after this " + petName + " a little longer.");
+								npc.say("Wygląda na to, że nie mamy wolnego miejsca w naszym sanktuarium dla zwierząt! Mam nadzieję, że jeszcze możesz się rozglądnąć za " + petName + ".");  
 							}
 						}
 					});
 
 				add(ConversationStates.SERVICE_OFFERED,
 					ConversationPhrases.NO_MESSAGES, null,
-					ConversationStates.ATTENDING, "Oh, it's so nice to see an owner and their pet happy together. Good luck both of you.", null);
-
+					ConversationStates.ATTENDING, "Och jak miło zobaczyć razem właściciela i jego szczęśliwe zwierzątko. Życzę wam powodzenia.", null);
+				
 				add(ConversationStates.ATTENDING,
 					ConversationPhrases.HELP_MESSAGES,
 					new ChatCondition() {
@@ -122,12 +122,12 @@ public class AnimalKeeperNPC implements ZoneConfigurator {
 											final Entity engine) {
 							return !player.hasPet();
 						}
-					},
-					ConversationStates.ATTENDING, "If you should ever find an abandoned pet, please bring it to me.",
+					}, 
+					ConversationStates.ATTENDING, "Jeżeli spotkasz spotkasz porzucone zwierzątko to proszę przyprowadź je do mnie.",
 					null);
 
-				addGoodbye("Goodbye!");
-
+				addGoodbye("Dowidzenia!");
+				
 			}
 			// remaining behaviour is defined in maps.quests.ZooFood.
 		};
@@ -136,7 +136,7 @@ public class AnimalKeeperNPC implements ZoneConfigurator {
 		npc.setPosition(41, 40);
 		//npc.setDirection(Direction.DOWN);
 		npc.initHP(100);
-		npc.setDescription("You see Katinka. She takes care of the animals around in the sanctuary.");
+		npc.setDescription("Oto Katinka. Opiekuje się zwierzętami w tym Zoo.");
 		zone.add(npc);
 	}
 }

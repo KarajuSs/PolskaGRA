@@ -95,7 +95,17 @@ public class InternalWindow extends JPanel implements ComponentPaintCache.Cachea
 		add(titleBar, BorderLayout.NORTH);
 		titleBar.setLayout(new SBoxLayout(SBoxLayout.HORIZONTAL, TITLEBAR_PADDING));
 		titleLabel = new JLabel();
-		setTitle(title);
+		if(title.equals("bag")) {
+			setTitle("Plecak");
+		} else if(title.equals("chest")) {
+			setTitle("Skrzynia");
+		} else if (title.equals("corpse")) {
+			setTitle("Zwłoki");
+		} else if (title.equals("keyring")) {
+			setTitle("Rzemyk");
+		} else {
+			setTitle(title);
+		}
 		// Squeeze the label if there's not enough space
 		titleLabel.setMinimumSize(new Dimension(0, 0));
 		titleBar.add(titleLabel);

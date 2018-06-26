@@ -60,18 +60,18 @@ public class WallSoldier5NPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hello, how can I be of service?");
-				addJob("It's a big responsibility to guard the city wall.");
-				addHelp("That fellow guard Julius at the city wall helps newcomers.");
-				addQuest("I am sorry but I dont have any tasks for you.");
-				addGoodbye("Goodbye, citizen.");
+				addGreeting("Dzień dobry, w czym mogę Ci pomóc?");
+				addJob("Strzeżenie murów miasta wiąże się z wielką odpowiedzialnością.");
+				addHelp("Strażnik Julius, znajdujący się przy głównym wejściu, pomaga nowicjuszom.");
+				addQuest("Przepraszam, ale nie mam dla Ciebie żadnego zadania.");
+				addGoodbye("Dowidzenia, obywatelu.");
 			}
 		};
 
 		npc.setEntityClass("youngsoldiernpc");
 		npc.setPosition(79,  83);
 		npc.initHP(100);
-		npc.setDescription("You see Hephestus, a soldier who guards the city wall of Ados.");
+		npc.setDescription("Oto Hephestus, żołnierz, który strzeże mury miasta Ados.");
 		zone.add(npc);
 	}
 }

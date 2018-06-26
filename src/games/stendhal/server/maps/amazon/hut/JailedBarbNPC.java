@@ -12,15 +12,16 @@
  ***************************************************************************/
 package games.stendhal.server.maps.amazon.hut;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds the jailed Barbarian in Prison Hut on amazon island.
@@ -66,19 +67,19 @@ public class JailedBarbNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-			    addGreeting("Flowers, flowers. All over here these ugly flowers!");
-				addJob("I belong to the #Guard of the hidden King! Oops, too much information for you!");
-				addReply("guard", "Uhm as I said, I didn't say anything to you!");
-				addHelp("Kill as much of these ugly Amazonesses as you can, they tried to make me go insane with these ugly flowers all over here.");
-				addOffer("Nothing to offer you!");
-				addGoodbye("Bye bye, and cut down some of these ugly flowers!");
+				addGreeting("Kwiatki, kwiatki. Wszędzie te wstrętne kwiatki!");
+				addJob("Należę do #straży ukrywającego się króla! Ups zbyt dużo informacji dla Ciebie!");
+				addReply(Arrays.asList("straży", "guard"),"Hm powiedziałem. Nic Ci nie powiem!");
+				addHelp("Zabij tyle Amazonek ile tylko możesz. Próbują mnie wpędzić w obłęd z tymi głupimi kwiatkami.");
+				addOffer("Nie mam nic do zaoferowania!");
+				addGoodbye("Dowidzenia i zetnij trochę tych wstrętnych kwiatków!");
 			}
 		};
 
 		JailedBarbNPC.setEntityClass("jailedbarbariannpc");
 		JailedBarbNPC.setPosition(11, 12);
 		JailedBarbNPC.initHP(100);
-		JailedBarbNPC.setDescription("You see the jailed Barbarian Lorenz. What did he do to the Amazonesses?");
+		JailedBarbNPC.setDescription("Widzisz uwięzionego barbarzyńce Lorenza. Co on zrobił amazonkom?");
 		zone.add(JailedBarbNPC);
 	}
 }

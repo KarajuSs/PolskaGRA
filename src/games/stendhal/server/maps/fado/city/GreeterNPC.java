@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.fado.city;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -26,6 +22,11 @@ import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds the city greeter NPC.
@@ -69,22 +70,22 @@ public class GreeterNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hello! Welcome to Fado City! You can #learn about Fado from me.");
-				addReply("learn",
-				        "Fado guards the bridge over Or'ril river which is vital for the commercial route between #Deniran and Ados. There's an active social life here, being the preferred city for celebrating marriages and tasting elaborate meals.");
+				addGreeting("Cześć! Witam w Fado! Możesz się #dowiedzieć czegoś o Fado ode mnie.");
+				addReply(Arrays.asList("dowiedzieć", "learn"),
+				        "Fado strzeże mostu nad rzeką Or'ril, który jest traktem handlowym pomiędzy #Deniran i Ados. Toczy się tutaj aktywne życie towarzyskie ze względu na śluby i wyszukane jedzenie.");
 				addReply("Deniran",
-				        "Deniran is the jewel of the crown. Deniran is the center of Faiumoni and supports the army that tries to defeat enemies that wants to conquer Faiumoni.");
-				addJob("I greet all of the new-comers to Fado. I can #offer you a scroll if you'd like to come back here again.");
-				addHelp("You can head into the tavern to buy food and drinks. You can also visit the people in the houses, or visit the blacksmith or the city hotel.");
+				        "Deniran jest perłą w koronie. Deniran jest centrum Faiumoni, posiada także wojsko, które jest gotowe pokonać wroga próbującego podbić Faiumoni.");
+				addJob("Witam wszystkich nowo przybyłych do Fado. Mogę #zaoferować zwój jeżeli chciałbyś kiedyś tu wrócić.");
+				addHelp("Możesz pójść do oberży, w której kupisz jedzenie i picie. Możesz także odwiedzać ludzi w domach lub odwiedzić kowala lub miejski hotel.");
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("fadoscrolls")));
-				addGoodbye("Bye.");
+				addGoodbye("Dowidzenia.");
 			}
 		};
 
-		greeterNPC.setOutfit(new Outfit(0, 5, 1, 6, 1));
+		greeterNPC.setOutfit(new Outfit(0, 5, 2, 6, 2));
 		greeterNPC.setPosition(39, 29);
 		greeterNPC.initHP(1000);
-		greeterNPC.setDescription("You see Xhiphin Zohos. He is a helpful citizen of Fado.");
+		greeterNPC.setDescription("Widzisz Xhiphin Zohos. Jest pomocnym obywatelem Fado.");
 		zone.add(greeterNPC);
 	}
 }

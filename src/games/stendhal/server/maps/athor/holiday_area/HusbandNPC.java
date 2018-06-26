@@ -13,12 +13,12 @@
  ***************************************************************************/
 package games.stendhal.server.maps.athor.holiday_area;
 
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.Map;
 
 public class HusbandNPC implements ZoneConfigurator  {
 
@@ -40,22 +40,22 @@ public class HusbandNPC implements ZoneConfigurator  {
 			protected void createPath() {
 				// doesn't move
 				setPath(null);
-			}
-
+	}
+	
 			@Override
 			public void createDialog() {
-				addGreeting("Hi!");
-				addJob("I am a coachman, but on this island there are no carriages!");
-				addHelp("Don't try to talk to my wife, she is very shy.");
-				addGoodbye("Bye!");
+				addGreeting("Cześć!");
+				addJob("Jestem woźnicą, ale na tej wyspie nie ma powozów!");
+				addHelp("Nie próbuj rozmawiać z moją żoną, jest bardzo nieśmiała.");
+				addGoodbye("Dowidzenia!");
 			}
 
 		};
 		npc.setPosition(27, 44);
 		npc.setEntityClass("swimmer5npc");
-		npc.setDescription ("You see John at the beach. He enjoys his holidays with his wife, Jane.");
+		npc.setDescription ("Oto John na plaży. Wypoczywa na plaży wraz ze swoją żoną Jane.");
 		npc.setDirection(Direction.DOWN);
-		zone.add(npc);
+		zone.add(npc);		
 	}
 }
 

@@ -12,14 +12,15 @@
  ***************************************************************************/
 package games.stendhal.server.maps.fado.church;
 
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.RPEntity;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.HealerAdder;
+
+import java.util.Arrays;
+import java.util.Map;
 
 
 /**
@@ -53,13 +54,13 @@ public class PriestNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Welcome to the church!");
+				addGreeting("Witam w kościele!");
 				new HealerAdder().addHealer(this, 1000);
-				addJob("I am the priest, and I will #marry those who have gold rings to exchange and are engaged.");
-				addHelp("I can help you #marry your loved one. But you must be engaged under the supervision of Sister Benedicta, and have a #ring to give your partner.");
-				addQuest("I will #marry people who were engaged in the proper manner. Speak to Sister Benedicta if you are not engaged yet. And remember each to bring a wedding #ring!");
-				addGoodbye("Go well, and safely.");
-				addReply("ring", "Once you are engaged, you can go to Ognir who works here in Fado to get your wedding rings made. I believe he also sells engagement rings, but they are purely for decoration. How wanton!");
+				addJob("Jestem księdzem i dam #ślub tym, którzy mają złoty pierścień na wymianę i są zaręczeni.");
+				addHelp("Pomogę Tobie w poślubieniu twojej miłości, ale musisz być zaręczony przez Sister Benedicta i musisz mieć #pierścionek, aby dać swojemu partnerowi.");
+				addQuest("Dam #ślub tym osobom, które zaręczyły się w określony sposób. Porozmawiaj z Sister Benedicta jeżeli nie jesteś jeszcze zaręczony. Pamiętaj o przyniesieniu #pierścionka ślubnego!");
+				addGoodbye("Idź w pokoju.");
+				addReply(Arrays.asList("ring", "pierścionka", "pierścionek"), "Gdy się zaręczysz to możesz pójść do Ognira, który pracuje tutaj w Fado, aby wyrobić pierścionek ślubny. Wiem, że też sprzedaje pierścionki zaręczynowe, ale one są tylko jako dekoracja. Jakie to rozpustne!");
 			}
 
 			@Override
@@ -68,7 +69,7 @@ public class PriestNPC implements ZoneConfigurator {
 			}
 		};
 
-		priest.setDescription("You see the holy Priest of Fado Church");
+		priest.setDescription("Oto ksiądz w kościole w Fado");
 		priest.setEntityClass("priestnpc");
 		priest.setPosition(11, 5);
 		priest.setDirection(Direction.DOWN);

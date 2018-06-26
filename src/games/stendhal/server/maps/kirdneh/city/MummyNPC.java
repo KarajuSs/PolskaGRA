@@ -12,16 +12,17 @@
  ***************************************************************************/
 package games.stendhal.server.maps.kirdneh.city;
 
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.RPEntity;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 
+import java.util.Arrays;
+import java.util.Map;
+
 /**
- * Builds a information giving NPC in Kirdneh city.
+ * Builds a information giving NPC in Kirdneh city. 
  *
  * @author Vanessa Julius idea by miasma
  */
@@ -55,16 +56,16 @@ public class MummyNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				//Greeting message in quest given (ChocolateForElisabeth)
-				addJob("I'm a fulltime mom and I love it.");
-				addHelp("I've heard that some of the #houses around the town are still for sale.");
-				addReply("houses", "They are huge! A friend of mine owns one and invited me a few times.");
-				addOffer("Oh I have no #offers for you, sorry.");
-				addReply("offers", "Did you visit the Kirdneh market already? It smells nice there.");
-				addQuest("I don't have a quest for you but my daughter #Elisabeth searches for chocolate.");
-				addReply("Elisabeth", "She is such a lovely child, I will always care of her!");
-				addGoodbye("Thank you for meeting us here.");
+				addJob("Jestem pełno etatową matką i kocham to.");
+				addHelp("Słyszałam, że pare #domów w pobliżu wciąż jest na sprzedaż.");
+				addReply(Arrays.asList("houses", "domów"), "Są ogromne! Mój przyjaciel jest właścicielem jednego i zaprrosił mnie parę razy.");
+				addOffer("Przykro mi, ale nie mam żadnych #ofert dla Ciebie.");
+				addReply(Arrays.asList("offers", "ofert"), "Odwiedziłeś już baza w Kirdneh? Pięknie tam pachnie.");
+				addQuest("Nie mam zadań dla Ciebie, ale moja córka #Elisabeth szuka czekolady.");
+				addReply("Elisabeth", "Jest takim kochanym dzieckiem. Zawsze dbam o nią!");
+				addGoodbye("Dziękuję za spotkanie.");
 			}
-
+			
 			@Override
 			protected void onGoodbye(RPEntity player) {
 				setDirection(Direction.DOWN);
@@ -74,7 +75,7 @@ public class MummyNPC implements ZoneConfigurator {
 		npc.setEntityClass("mothernpc");
 		npc.setPosition(84, 9);
 		npc.initHP(100);
-		npc.setDescription("You see Carey. She takes care of her daughter Elisabeth.");
+		npc.setDescription("Oto Carey. Opiekuje się swoją córką Elisabeth.");
 		zone.add(npc);
 	}
 }

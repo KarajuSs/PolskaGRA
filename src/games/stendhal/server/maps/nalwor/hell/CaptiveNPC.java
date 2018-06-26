@@ -12,11 +12,11 @@
  ***************************************************************************/
 package games.stendhal.server.maps.nalwor.hell;
 
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.Map;
 
 /**
  * Inside Nalwor Hell - level -1 .
@@ -44,20 +44,20 @@ public class CaptiveNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("help!");
-				addJob("help me");
-				addHelp("where is my ice?");
-				addOffer("ice plz");
-				addGoodbye("bye");
+				addGreeting("pomocy!");
+				addJob("pomóż mi");
+				addHelp("gdzie jest mój miecz lodowy?");
+				addOffer("proszę miecz lodowy");
+				addGoodbye("dowidzenia");
 			}
 		};
 
 		tomi.setEntityClass("transparentnpc");
 		tomi.setAlternativeImage("tomi");
 		tomi.setPosition(119, 13);
-		tomi.setBaseHP(100);
+		tomi.setBaseHP(100); 
 		tomi.setHP(50);
-		tomi.setDescription("You see Tomi. He is sweating all over his body and definitely needs something to cool down.");
+		tomi.setDescription("Oto Tomi. Jest cały spocony i na pewno potrzebuje coś do ochłodzenia.");
 		zone.add(tomi);
 	}
 }

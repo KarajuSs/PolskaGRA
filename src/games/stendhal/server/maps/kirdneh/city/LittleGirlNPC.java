@@ -12,14 +12,15 @@
  ***************************************************************************/
 package games.stendhal.server.maps.kirdneh.city;
 
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 
+import java.util.Arrays;
+import java.util.Map;
+
 /**
- * Builds a little girl NPC (Elisabeth) in Kirdneh city.
+ * Builds a little girl NPC (Elisabeth) in Kirdneh city. 
  *
  * @author Vanessa Julius idea by miasma
  */
@@ -48,19 +49,19 @@ public class LittleGirlNPC implements ZoneConfigurator {
 			@Override
 			protected void createPath() {
 				setPath(null);
-
+		
 			}
 
 			@Override
 			protected void createDialog() {
 				// greeting message in quest given (ChocolateForElisabeth)
-				addJob("Job? I like to play with my #toys :)");
-				addReply("toys", "There is a young boy who lives in Semos and gave me one of his teddies once :) So sweet!");
-				addHelp("Ask my #mommy, maybe she can help you...");
-				addReply("mommy", "She sits on the bench over there and enjoys the sun.");
-				addOffer("I can't offer you anything, I'm just a #child.");
-				addReply("child", "I'm 5, yay!");
-				addQuest("I want chocolate :( Mommy wanted to take care of that.");
+				addJob("Praca? Lubię bawić się moimi #zabawkami :)");
+				addReply(Arrays.asList("toys", "zabawkami"), "Jest młody chłopak, który mieszka w Semos i raz dał mi jednego ze swoich pluszowych misi :) Takie to słodkie!");
+				addHelp("Zapytaj mojej #mamy. Może ona Tobie pomoże...");
+				addReply(Arrays.asList("mommy", "mama", "mamy"), "Siedzi tam na ławce i cieszy się słońcem.");
+				addOffer("Nic nie mogę ci zaoferować. Jestem tylko #dzieckiem.");
+				addReply(Arrays.asList("child", "dziecko", "dzieckiem"), "Mam 5, latek!");
+				addQuest("Chcę czekolady :( Mama nie ma czasu, musi mnie pilnować. Przynieś mi proszę tabliczkę czekolady.");
 				addGoodbye("Boiboi :)");
 			}
 		};
@@ -68,7 +69,7 @@ public class LittleGirlNPC implements ZoneConfigurator {
 		npc.setEntityClass("littlegirl2npc");
 		npc.setPosition(92, 15);
 		npc.initHP(100);
-		npc.setDescription("You see Elisabeth. She seems to be hungry.");
+		npc.setDescription("Oto Elisabeth. Wygląda na głodną.");
 		zone.add(npc);
 	}
 }

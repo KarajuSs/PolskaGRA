@@ -112,7 +112,7 @@ public class GardenerNPC implements ZoneConfigurator {
                                         + "!");
                                 return false;
 							}
-					    }
+					    } 
 						if (amount > MAX_LUNCHES) {
 							npc.say("Nie mogę wziąć więcej kanapek niż raz na tydzień! Staną się czerstwe!");
 							return false;

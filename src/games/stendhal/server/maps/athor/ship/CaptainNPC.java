@@ -12,8 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.athor.ship;
 
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.config.ZoneConfigurator;
@@ -25,6 +23,8 @@ import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.athor.ship.AthorFerry.Status;
+
+import java.util.Map;
 
 /** Factory for the captain of Athor Ferry. */
 
@@ -43,12 +43,12 @@ public class CaptainNPC implements ZoneConfigurator  {
 
 			@Override
 			public void createDialog() {
-				addGreeting("Yo-ho-ho, me bucko!");
-				addGoodbye("So long...");
+				addGreeting("Ahoj szczury lądowe!");
+				addGoodbye("Na razie...");
 				// if you can make up a help message that is more helpful to the,
 				// player, feel free to replace this one.
-				addHelp("Never look up when a sea gull is flying over ye head!");
-				addJob("I'm th' captain of me boat.");
+				addHelp("Nigdy nie patrz, gdy linia morza lata nad twoją głową!");
+				addJob("Jestem kapitanem tej łajby.");
 				add(ConversationStates.ATTENDING,
 						"status",
 						null,
@@ -68,35 +68,35 @@ public class CaptainNPC implements ZoneConfigurator  {
 			protected void onGoodbye(final RPEntity player) {
 				// Turn back to the wheel
 				setDirection(Direction.DOWN);
-			}
+			}	
 		};
 
 		new AthorFerry.FerryListener() {
-
+			
 			@Override
 			public void onNewFerryState(final Status status) {
 				ferrystate = status;
-				switch (status) {
-				case ANCHORED_AT_MAINLAND:
-				case ANCHORED_AT_ISLAND:
-					// capital letters symbolize shouting
-					npc.say("LET GO ANCHOR!");
-					break;
+					switch (status) {
+					case ANCHORED_AT_MAINLAND:
+					case ANCHORED_AT_ISLAND:
+						// capital letters symbolize shouting
+						npc.say("ZRZUCIĆ CUMY!");
+						break;
 
-				default:
-					npc.say("ANCHORS AWEIGH! SET SAIL!");
-					break;
-				}
-				// Turn back to the wheel
-				npc.setDirection(Direction.DOWN);
+					default:
+						npc.say("CUMY ZRZUCONE! ODPŁYWAMY!");
+						break;
+					}
+					// Turn back to the wheel
+					npc.setDirection(Direction.DOWN);
 
 			}
-		};
-
+			};
+		
 		npc.setPosition(23, 38);
 		npc.setEntityClass("piratenpc");
-		npc.setDescription ("You see Brownbeard, Captain of Athor Ferry. He will bring you from the mainland to the island.");
+		npc.setDescription ("Oto Brownbeard kapitan promu Athor. Przewizie cię z lądu na wyspę.");
 		npc.setDirection(Direction.DOWN);
-		zone.add(npc);
+		zone.add(npc);	
 	}
 }

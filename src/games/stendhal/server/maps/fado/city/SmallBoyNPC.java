@@ -15,15 +15,15 @@
 
 package games.stendhal.server.maps.fado.city;
 
-import java.util.Arrays;
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.Outfit;
 import games.stendhal.server.entity.RPEntity;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.Arrays;
+import java.util.Map;
 
 
 /**
@@ -62,28 +62,28 @@ public class SmallBoyNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				addGreeting("Hm?");
-				addQuest("Would you get me a #balloon? Unless the mine town weeks are currently on,"
-						+ " then I can get my own :)");
-				addHelp("I wonder if a #balloon could fly high enough to touch the clouds...");
-				addJob("A Job? Is that something you can eat?");
-				addReply("balloon", "One day, i will have enough balloons to fly away!");
-				addReply(Arrays.asList("xkcd", "tables", "sql", "student", "drop", "table"),
-						"Yes, it's true, my full name is Robert'); DROP TABLE students;-- but you can call me Bobby.");
-				addGoodbye("Good bye.");
+				addQuest("Czy mógłbyś zdobyć dla mnie #balonik?. Nim zaczną się dni miasta "
+						+ ", bo wtedy sam będę mógł zdobyć :)");
+				addHelp("Zastanawiam się czy dzięki #balonik będę mógł się wznieść wystarczająco wysoko, aby dotknąć chmur...");
+				addJob("Praca? Czy to coś takiego co mogę zjeść?");
+				addReply("balonik", "Pewnego dnia będę miał tyle baloników, że będę mógł odlecieć daleko!");
+				addReply(Arrays.asList("xkcd", "tables", "sql", "student", "drop", "table"), 
+				        "Oh tak moje prawdziwe imię to Robert'); DROP TABLE students;--, ale możesz mnie nazywać Bobby.");
+				addGoodbye("Dowidzenia.");
 			}
 
 			@Override
 			protected void onGoodbye(RPEntity player) {
 				setDirection(Direction.RIGHT);
 			}
-
+			
 		};
 
-		boynpc.setOutfit(new Outfit(0, 33, 18, 3, 0));
+		boynpc.setOutfit(new Outfit(0, 33, 19, 3, 1));
 		boynpc.setPosition(42, 30);
 		boynpc.setDirection(Direction.RIGHT);
 		boynpc.initHP(100);
-		boynpc.setDescription("You see Bobby. He is looking at the sky and seems to be daydreaming.");
+		boynpc.setDescription("Oto Bobby. Patrzy w niebo i wygląda na marzyciela.");
 		zone.add(boynpc);
 	}
 }

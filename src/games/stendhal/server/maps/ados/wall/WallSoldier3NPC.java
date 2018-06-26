@@ -60,10 +60,10 @@ public class WallSoldier3NPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Welcome traveler to our beautiful city of Ados!");
-				addJob("I'm doing a very important job here. I'm guarding the city wall and making sure that no invader will pass alive ");
-				addHelp("Julius, the gate guard, he is always helping travelers by giving them directions.");
-				addGoodbye("Take care, traveler.");
+				addGreeting("Witamy wędrowca w naszym pięknym mieście jakim jest Ados!");
+				addJob("Robię tutaj bardzo ważną robotę. Strzegę murów miejskich i upewniam się, że żaden najeźdźca nie przeżyje swego ataku.");
+				addHelp("Julius, strażnik głównej bramy, zawsze chętnie pomaga podróżnikom oraz daje im pewne wskazówki.");
+				addGoodbye("Uważaj na siebie, wędrowcze.");
 /*
 If the player types yes then the soldier he will respond like this: example: Kill 10 tigers, 10 lions, 10 gnomes, 10 elephants  the reward will be 100exp and 40 or 50gold
 
@@ -76,7 +76,7 @@ The quest will be repeatable every 24 hours and the kind of monster and the amou
 		npc.setEntityClass("youngsoldiernpc");
 		npc.setPosition(79, 43);
 		npc.initHP(100);
-		npc.setDescription("You see Vincendus, a soldier who guards the city wall of Ados.");
+		npc.setDescription("Oto Vincendus, żołnierz, który strzeże mury miasta Ados.");
 		zone.add(npc);
 	}
 }

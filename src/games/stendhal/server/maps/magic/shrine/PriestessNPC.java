@@ -61,15 +61,15 @@ public class PriestessNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-			    addGreeting(null, new SayTextAction("Hello, [name]."));
-				addJob("As a priestess I can #offer you a number of potions and antidotes.");
-				addHelp("My sister Salva has the gift of healing. She is out for a walk by the aqueduct, you should find her there if you need her.");
+			    addGreeting(null, new SayTextAction("Witaj [name]."));
+			    addJob("Jako kapłanka mogę #zaoferować Ci mikstury.");
+				addHelp("Moja siostra Salva ma dar uzdrawiania. Wyszła na spacer koło akweduktu. Powinieneś ją znaleźć o ile jej potrzebujesz.");
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("superhealing")), true);
- 				addGoodbye("Bye, for now.");
+				addGoodbye("Dowidzenia.");
 			}
 		};
 
-		npc.setDescription("You see a beautiful woman hidden under swathes of fabric.");
+		npc.setDescription("Oto piękna kobieta, ukrywająca się pod owinięta tkaniną.");
 		npc.setEntityClass("cloakedwoman2npc");
 		npc.setPosition(9, 10);
 		npc.initHP(100);

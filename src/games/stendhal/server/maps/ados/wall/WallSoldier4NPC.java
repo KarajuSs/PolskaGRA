@@ -60,18 +60,18 @@ public class WallSoldier4NPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hello citizen!");
-				addJob("I'm sworn to protect these walls with my own life if needed.");
-				addHelp("Ask Julius, he guards the main entrance of the city. He will help you.");
-				addQuest("I don't have any quests for you.");
-				addGoodbye("Move along, citizen.");
+				addGreeting("Dzień dobry obywatelu!");
+				addJob("Przysięgam, że będę strzegł oto tych właśnie murów miejskich przed wrogami swoim własnym życiem.");
+				addHelp("Spytaj się Juliusa, strzeże głównego wejścia do miasta. Pewnie on Ci pomoże.");
+				addQuest("Nie mam żadnego zadania dla Ciebie.");
+				addGoodbye("Ruszaj, obywatelu.");
 			}
 		};
 
 		npc.setEntityClass("youngsoldiernpc");
 		npc.setPosition(76, 63);
 		npc.initHP(100);
-		npc.setDescription("You see Xinderus, a soldier who guards the city wall of Ados.");
+		npc.setDescription("Oto Xinderus, żołnierz, który strzeże mury miasta Ados.");
 		zone.add(npc);
 	}
 }

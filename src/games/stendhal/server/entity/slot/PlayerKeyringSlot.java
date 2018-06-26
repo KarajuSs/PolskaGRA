@@ -34,7 +34,7 @@ public class PlayerKeyringSlot extends PlayerSlot {
 	@Override
 	public boolean isReachableForTakingThingsOutOfBy(final Entity entity) {
 		if (!mayAccessKeyRing(entity)) {
-			setErrorMessage("Your keyring is broken. You should look for someone who can fix it.");
+			setErrorMessage("Twój rzemyk jest zepsuty. Powinieneś poszukać kogoś kto potrafi go naprawić.");
 			return false;
 		}
 		return super.isReachableForTakingThingsOutOfBy(entity);
@@ -43,7 +43,7 @@ public class PlayerKeyringSlot extends PlayerSlot {
 	@Override
 	public boolean isReachableForThrowingThingsIntoBy(Entity entity) {
 		if (!mayAccessKeyRing(entity)) {
-			setErrorMessage("Your keyring is broken. You should look for someone who can fix it.");
+			setErrorMessage("Twój rzemyk jest zepsuty. Powinieneś poszukać kogoś kto potrafi go naprawić.");
 			return false;
 		}
 		return super.isReachableForThrowingThingsIntoBy(entity);

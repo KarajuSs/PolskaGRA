@@ -12,12 +12,12 @@
  ***************************************************************************/
 package games.stendhal.server.maps.athor.holiday_area;
 
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.Map;
 
 public class TouristFromAdosNPC implements ZoneConfigurator  {
 
@@ -40,13 +40,13 @@ public class TouristFromAdosNPC implements ZoneConfigurator  {
 				// doesn't move
 				setPath(null);
 			}
-
+	
 			@Override
 			public void createDialog() {
-				addGreeting("Nice to meet you!");
-				addJob("I'm on holiday! Let's talk about anything else!");
-				addHelp("Be careful! On this island is a desert where many adventurers found their death...");
-				addGoodbye("I hope to see you soon!");
+				addGreeting("Miło Cię poznać!");
+				addJob("Jestem na wakacjach! Porozmawiajmy o czymś innym!");
+				addHelp("Uważaj! Na tej wyspie jest pustynia gdzie wielu poszukiwaczy przygód straciło życie...");
+				addGoodbye("Mam nadzieję, że zobaczymy się później!");
 				// more dialog is defined in the SuntanCreamForZara quest.
 			}
 
@@ -54,7 +54,7 @@ public class TouristFromAdosNPC implements ZoneConfigurator  {
 		npc.setPosition(60, 33);
 		npc.setEntityClass("swimmer8npc");
 		npc.setDirection(Direction.DOWN);
-		npc.setDescription("You see Zara, sunbathing, and worry that she is looking a little hot.");
-		zone.add(npc);
+		npc.setDescription("Oto Zara opalająca się na plaży i sądząca, że za bardzo się spiekła.");
+		zone.add(npc);		
 	}
 }

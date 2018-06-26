@@ -12,8 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.farmhouse;
 
-import java.util.Map;
-
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -24,6 +22,8 @@ import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.NPCList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.player.Player;
+
+import java.util.Map;
 
 /**
  * Boy NPC
@@ -61,7 +61,7 @@ public class BoyNPC implements ZoneConfigurator {
 						final NPCList npcs = SingletonRepository.getNPCList();
 						final SpeakerNPC npcAnastasia = npcs.get("Anastasia");
 						if (npcAnastasia != null) {
-							npcAnastasia.say("Sh! Please don't wake him!");
+							npcAnastasia.say("Ciii! Proszę nie obudź go!");
 						}
 						raiser.setCurrentState(ConversationStates.IDLE);
 					}
@@ -71,7 +71,7 @@ public class BoyNPC implements ZoneConfigurator {
 		npc.setEntityClass("kid8npc");
 		npc.setPosition(33, 6);
 		npc.initHP(100);
-		npc.setDescription("You see a little boy who looks as though he might be suffering from fever.");
+		npc.setDescription("Oto mały chłopiec, który wygląda na jakby miał gorączkę.");
 	    zone.add(npc);
 	}
 }

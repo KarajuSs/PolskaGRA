@@ -12,11 +12,11 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.tunnel;
 
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.Map;
 
 /**
  * Outside entrance to dragon lair in -1_ados_outside_w.
@@ -44,17 +44,17 @@ public class WishmanNPC implements ZoneConfigurator {
 
 			@Override
 			public void createDialog() {
-				addGreeting("Greetings, my fellow traveler. What may I do for you?");
-				addOffer("We are content here. A place to call home and our wonderful dragons.");
-				addJob("I am ever vigilant for those who wish to harm our dragons. They're all that are left of our glorious weyr.");
-				addHelp("Perhaps you wish instead to visit with my brethren back a ways in the tunnel. Mind that you watch out for the assassins. They have taken over the tunnels.");
-				addGoodbye("Farewell. May your days be many and your heart be free.");
+				addGreeting("Pozdrawiam podróżniku. Co mogę dla Ciebie zrobić?");
+				addOffer("Jesteśmy tutaj szczęśliwi. Nazywamy to miejsce domem dla naszych wspaniałych smoków.");
+				addJob("Jestem podejrzliwy w stosunku do osób, które chcą skrzywdzić nasze smoki. Są wszystkim co pozostało z naszej sławy.");
+				addHelp("Może chcesz poznać moich braci, którzy są w tunelu. Miej na uwadze, żeby uważać na morderców. Zajęli oni tunele.");
+				addGoodbye("Na razie. Niech twoje serce zawsze będzie wolne, a życie długie.");
 				// all other behaviour is defined in the quest.
 			}
 		};
 
-		wishman.setDescription("You see Wishman, once a mighty storm trooper in Blordrough's dark legion, now guardian of all thats left of their dragons.");
-		wishman.setEntityClass("noimagenpc"); // "stormtroopernpc"
+		wishman.setDescription("Oto Wishman kiedyś storm trooper w mrocznych legionach Blordroughtów. Teraz strażnik wszystkiego co pozostało po smokach.");
+		wishman.setEntityClass("stormtroopernpc");
 		wishman.setPosition(30, 28);
 		wishman.initHP(100);
 		zone.add(wishman);

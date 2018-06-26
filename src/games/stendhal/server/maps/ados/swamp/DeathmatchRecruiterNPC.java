@@ -12,16 +12,17 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.swamp;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Entrance to Deathmatch.
@@ -78,23 +79,23 @@ public class DeathmatchRecruiterNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Hey there. You look like a reasonable fighter.");
-				addJob("I'm recruiter for the Ados #deathmatch.");
-				addHelp("I tell you about the Ados #deathmatch and send you there if you are strong enough.");
-				addQuest("If you are brave, you can try the Ados #deathmatch.");
-				addOffer("I'll tell you about the Ados #deathmatch.");
-				add(ConversationStates.ATTENDING, "deathmatch", null, ConversationStates.ATTENDING,
-				        "Many dangerous creatures will attack you in the deathmatch arena. It is only for strong #heroes.", null);
-				// response to 'heroes' is defined in maps.quests.AdosDeathmatch
+				addGreeting("Witam. Wyglądasz na niezłego wojownika.");
+				addJob("Zajmuje się rekrutacją do #deathmatchu w Ados.");
+				addHelp("Słyszałeś kiedyś o #deathmatchu w Ados?");
+				addQuest("Jeżeli jesteś odważny to możesz spróbować swoich sił w Ados na #deathmatchu.");
+				addOffer("Opowiem Ci o #deathmatchu w Ados.");
+				add(ConversationStates.ATTENDING, Arrays.asList("deathmatch", "deathmatchu"), null, ConversationStates.ATTENDING,
+				        "Wiele groźnych potworów będzie Cię atakować na arenie deathmatcha. Jest tylko dla prawdziwych #bohaterów.", null);
+				// response to 'heroes' is defined in maps.quests.AdosDeathmatch 
 				// because we need here to know about who is in the deathmatch. The teleport action is done there also.
-				addGoodbye("I hope you will enjoy the Ados Deathmatch!");
+				addGoodbye("Mam nadzieje, że spodoba się Tobie #Deathmatch w Ados!");
 			}
 		};
 
 		npc.setEntityClass("youngsoldiernpc");
 		npc.setPosition(15, 26);
 		npc.initHP(100);
-		npc.setDescription("You see Thonatus, recruiter for the Ados Deathmatch. You are lucky that you find him, he is fast normally.");
+		npc.setDescription("Oto Thonatus, rekrutuje na Deathmatch w Ados. Masz szczęście, że go tak szybko znalazłeś..");
 		zone.add(npc);
 	}
 }

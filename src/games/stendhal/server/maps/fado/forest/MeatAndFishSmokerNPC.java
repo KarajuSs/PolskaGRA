@@ -12,14 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.fado.forest;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -29,10 +21,18 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.MultiProducerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.MultiProducerBehaviour;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
 /**
  * Provides a Meat and Fish professional smoker in Fado forest.
  *
- * @author omero
+ * @author omero 
  */
 public class MeatAndFishSmokerNPC implements ZoneConfigurator {
     /**
@@ -42,7 +42,7 @@ public class MeatAndFishSmokerNPC implements ZoneConfigurator {
      * @param   attributes  Configuration attributes.
      */
     @Override
-	public void configureZone(final StendhalRPZone zone, final Map<String, String> attributes) {
+    public void configureZone(final StendhalRPZone zone, final Map<String, String> attributes) {
         buildNPC(zone);
     }
 
@@ -83,7 +83,7 @@ public class MeatAndFishSmokerNPC implements ZoneConfigurator {
                     "Nie chciałbym ujawniać tobie moich miejsc łowienia ryb, ale poleciłbym ci poszukanie książek na ten temat.");
                 addReply(Arrays.asList("meat","ham", "mięso", "szynka"),
                     "Nie interesuje mnie skąd pochodzi ze słonia czy lwa... Mogę to #uwędzić dla Ciebie!"); 
-
+                    
                 addGoodbye("S' veg!");
 
                 final HashSet<String> productsNames = new HashSet<String>();

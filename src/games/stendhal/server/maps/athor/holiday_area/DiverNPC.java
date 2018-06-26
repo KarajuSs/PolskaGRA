@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.athor.holiday_area;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
@@ -23,6 +19,10 @@ import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 public class DiverNPC implements ZoneConfigurator  {
 
@@ -45,19 +45,19 @@ public class DiverNPC implements ZoneConfigurator  {
 
 			@Override
 			public void createDialog() {
-				addGreeting("Hallo, my friend!");
+				addGreeting("Witaj mój przyjacielu!");
 				add(ConversationStates.ATTENDING, ConversationPhrases.QUEST_MESSAGES, null,
-				        ConversationStates.ATTENDING, "No, thank you, I do not need help!", null);
-				addJob("I am a diver, but I cannot see a single fish at the moment!");
-				addHelp("I like the swimsuits which you can get in the dressing rooms at the beach.");
-				addGoodbye("Bye!");
+				        ConversationStates.ATTENDING, "Nie dziękuję. Nie potrzebuję pomocy!", null);
+				addJob("Jestem kierowcą, ale nie widzę teraz rybki!");
+				addHelp("Lubię kąpielówki, które można dostać z przebieralni na plaży.");
+				addGoodbye("Dowidzenia!");
 			}
 
 		};
 		npc.setPosition(36, 28);
 		npc.setEntityClass("swimmer2npc");
-		npc.setDescription ("You see Dorinel who enjoys the sun.");
-		zone.add(npc);
+		npc.setDescription ("Oto Dorinel, który kocha słońce.");
+		zone.add(npc);		
 	}
 }
 

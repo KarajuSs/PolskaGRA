@@ -12,8 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.kirdneh.museum;
 
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -23,6 +21,9 @@ import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
+
+import java.util.Arrays;
+import java.util.Map;
 
 /**
  * Builds a Curator NPC in Kirdneh museum .
@@ -59,15 +60,15 @@ public class CuratorNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Welcome to Kirdneh Museum.");
-				addJob("I am the curator of this museum. That means I organise the displays and look for new #exhibits.");
-				addHelp("This is a place for rare artefacts and special #exhibits.");
-				addReply("exhibits","Perhaps you'd have a knack for finding rate items and would like to do a #task for me.");
+				addGreeting("Witam w Muzeum Kirdneh.");
+				addJob("Jestem kuratorem tego muzeum. Oznacza to, że ja organizuję wystawy i szukam nowych #eksponatów.");
+				addHelp("To miejsce jest na rzadkie artefakty i specjalne #eksponaty.");
+				addReply(Arrays.asList("exhibits", "eksponaty", "eksponatów"),"Być może będziesz mieć dryg do wyszukiwania przedmiotów i chciałbyś zrobić #zadanie dla mnie.");
 				// remaining behaviour defined in games.stendhal.server.maps.quests.WeeklyItemQuest
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("kirdnehscrolls")));
-				addGoodbye("Good bye, it was pleasant talking with you.");
+				addGoodbye("Dowidzenia. Miło się z tobą rozmawiało.");
 			}
-
+			
 			@Override
 			protected void onGoodbye(RPEntity player) {
 				setDirection(Direction.RIGHT);
@@ -78,7 +79,7 @@ public class CuratorNPC implements ZoneConfigurator {
 		npc.setPosition(2, 38);
 		npc.setDirection(Direction.RIGHT);
 		npc.initHP(100);
-		npc.setDescription("You see Hazel, the curator of Kirdneh museum.");
+		npc.setDescription("Oto Hazel, kustosz muzeum Kirdneh.");
 		zone.add(npc);
 	}
 }

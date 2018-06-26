@@ -12,10 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.city;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -26,6 +22,10 @@ import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.condition.GreetingMatchesNameCondition;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Creates the NPCs and portals in Ados City.
@@ -47,7 +47,7 @@ public class KidsNPCs implements ZoneConfigurator {
 	private void buildKids(final StendhalRPZone zone) {
 		final String[] names = { "Jens", "George", "Anna" };
 		final String[] classes = { "kid3npc", "kid4npc", "kid5npc" };
-		final String[] descriptions = {"You see Jens. He seems to be a bit bored.", "You see George who loves playing roughly.", "You see Anna. She is a sweet girl who searches for toys."};
+		final String[] descriptions = {"Oto Jens. Wydaje się być nieco znudzony.", "Oto George, który uwielbia się bawić!", "Widzisz Annę. Jest uroczą dziewczynką, która szuka zabawek."};
 		final Node[] start = new Node[] {new Node(45, 31), new Node(46, 34), new Node(46, 37)};
 		for (int i = 0; i < 3; i++) {
 			final SpeakerNPC npc = new SpeakerNPC(names[i]) {
@@ -78,14 +78,14 @@ public class KidsNPCs implements ZoneConfigurator {
 					// Anna is special because she has a quest
 					if (!getName().equals("Anna")) {
 						add(ConversationStates.IDLE,
-					        ConversationPhrases.GREETING_MESSAGES,
+						        ConversationPhrases.GREETING_MESSAGES,
 					        new GreetingMatchesNameCondition(getName()), true,
-					        ConversationStates.IDLE,
-					        "Mummy said, we are not allowed to talk to strangers. Bye.",
-					        null);
+						        ConversationStates.IDLE,
+						        "Mamusia powiedziała, że nie powinniśmy rozmawiać z nieznajomymi! Dowidzenia.",
+						        null);
 					}
 
-					addGoodbye("Bye bye!");
+					addGoodbye("Dowidzenia, dowidzenia!");
 				}
 			};
 

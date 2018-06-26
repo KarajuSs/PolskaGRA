@@ -12,15 +12,15 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.hauntedhouse;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Builds a female Ghost NPC.
@@ -67,13 +67,13 @@ public class WomanGhostNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				//addGreeting("Wooouhhhhhh!");
-				addJob("I can do nothing useful on this earthly world. I haunt this house now.");
-				addHelp("Here is a warning: if you die, you will become a ghost like me, partially visible and intangible. But if you can find your way out of the afterlife, you will be reborn.");
-				addGoodbye("Bye");
+				addJob("Nic pożytecznego nie mogłam zrobić na tym świecie. Teraz nawiedzam ten dom.");
+				addHelp("Tutaj jest ostrzeżenie: Jeżeli zginiesz to staniesz się duchem jak ja częściowo widocznym i niematerialnym. Jeżeli znajdziesz swoją drogę wyjścia z afterlife to narodzisz się na nowo.");
+				addGoodbye("Żegnaj");
 				// remaining behaviour defined in games.stendhal.server.maps.quests.FindGhosts
 			}
 		};
-		woman.setDescription("You see a ghostly figure of a woman. She appears somehow sad.");
+		woman.setDescription("Widzisz ducha kobiety, która wygląda na zmartwionego.");
 		woman.setResistance(0);
 
 		woman.setEntityClass("woman_011_npc");

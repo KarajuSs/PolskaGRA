@@ -12,11 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.maps.orril.magician_house;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
@@ -28,6 +23,11 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.HealerAdder;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Configure Orril Jynath House (Inside/Level 0).
@@ -75,47 +75,47 @@ public class WitchNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				addGreeting();
-				addJob("I'm a witch, since you ask. I grow #collard as a hobby.");
-				addReply("collard",	"That cabbage in the pot. Be careful of it!");
+				addJob("Jestem czarownicą skoro pytasz. Hoduję #collard jako hobby.");
+				addReply("collard",	"To ta kapusta w doniczce. Bądź ostrożny z tym!");
 				/*
 				 * addHelp("You may want to buy some potions or do some #task
 				 * for me.");
 				 */
-				addHelp("I can #heal you, and I can #offer you powerful #scrolls that are #magic.");
+				addHelp("Mogę Cię uleczyć. Powiedz tylko #ulecz.");
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("scrolls")));
-				new HealerAdder().addHealer(this, 250);
+				new HealerAdder().addHealer(this, 1500);
 				add(
 				        ConversationStates.ATTENDING,
 				        Arrays.asList("magic", "scroll", "scrolls"),
 				        null,
 				        ConversationStates.ATTENDING,
-				        "I #offer scrolls that help you to travel faster: #'home scrolls' and the #markable #'empty scrolls'. For the more advanced customer, I also have #'summon scrolls'!",
+				        "#Oferuję zwoje, które pomogą Tobie w podróży: #'zwój semos' i #'niezapisany zwój'. Dla bardziej doświadczonych klientów mam #'zwój przywołania'!",
 				        null);
-				add(ConversationStates.ATTENDING, Arrays.asList("home", "home scroll"), null,
+				add(ConversationStates.ATTENDING, Arrays.asList("semos", "city", "zwój semos"), null,
 				        ConversationStates.ATTENDING,
-				        "Home scrolls take you home immediately, a good way to escape danger!", null);
+				        "Semos zwoje zabierają natychmiast do Semos. Dobry droga wyjścia z niebezpieczeństwa!", null);
 				add(
 				        ConversationStates.ATTENDING,
-				        Arrays.asList("empty", "marked", "empty scroll", "markable", "marked scroll"),
+				        Arrays.asList("empty", "marked", "niezapisany zwój", "markable", "marked scroll"),
 				        null,
 				        ConversationStates.ATTENDING,
-				        "Empty scrolls are used to mark a position. Those marked scrolls can take you back to that position. They are a little expensive, though.",
+				        "Puste zwoje są używane do oznaczania pozycji. Zaznaczone zwoje mogą Cię zabrać z powrotem do tej lokacji. Są trochę drogie.",
 				        null);
 				add(
 				        ConversationStates.ATTENDING,
-				        "summon",
+				        "zwój przywołania",
 				        null,
 				        ConversationStates.ATTENDING,
-				        "A summon scroll empowers you to summon animals to you; advanced magicians will be able to summon stronger monsters than others. Of course, these scrolls can be dangerous if misused.",
+				        "Zwoje przywołania służą do przywoływania zwierząt. Doświadczeni magowie będą mogli przywoływać silniejsze potwory niż inni. Oczywiście te zwoje mogą być niebezpieczne jeżeli będą nadużywane.",
 				        null);
-				addGoodbye("Goodbye - and careful not to touch that orb, it leads somewhere very dangerous!");
+				addGoodbye("Dowidzenia - ostrożnie nie dotykaj tej kuli. Prowadzi do bardzo niebezpiecznego miejsca!");
 			}
 		};
 
-		npc.setEntityClass("noimagenpc"); /* witchnpc */
+		npc.setEntityClass("witchnpc");
 		npc.setPosition(24, 7);
 		npc.initHP(100);
-		npc.setDescription("You see Jynath, the witch. She is riding on a broom.");
+		npc.setDescription("Widzisz wiedźmę Jynath. Ona lata na miotle.");
 		npc.setSounds(Arrays.asList("witch-cackle-1"));
 		zone.add(npc);
 	}

@@ -12,6 +12,7 @@
 
 package games.stendhal.server.maps.ados.forest;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -64,20 +65,20 @@ public class SickleingHalfelfNPC implements ZoneConfigurator {
 			@Override
 			public void createDialog() {
 				addGreeting("Salve straniero...");
-				addJob("To gather the sheaves of grain with my #sickle before taking them to the mill I must... How did I get here?... If I only could remember...");
-				addHelp("Ha! Asking for such only reveals how unworthy and undeserving one is... Who am I?... A fog obfuscates my thoughts...");
-				addOffer("Oh?! Given I had anything valuable I would offer it willingly for a glimpse of truth...");
-				addReply("sickle","A usefull farming tool indeed, like a scythe also is. To some blacksmith you should ask to if he offers any such sharp utensil.");
+				addJob("Aby zebrać snop zboża moim #sierpem przed zabraniem go do młyna muszę... Jak się tutaj dostałem?... Gdybym mógł sobie przypomnieć...");
+				addHelp("Ha! Jakie nie warte i nie zasługujące jest pytanie o ujawnienie... Kim jestem?... Mgła przyćmiła moje myśli...");
+				addOffer("Oh?! Ponieważ miałem coś cennego chciałbym zaproponować spojrzenie prawdzie...");
+				addReply(Arrays.asList("sickle", "sierp", "sierpem"),"Użyteczne narzedzie rolnika tak jak kosa. Powinieneś zapytać jakiegoś kowala czy nie oferuje ostrych sierpów.");
 				addGoodbye("In bocca al lupo...");
 			}
-
+	
 		};
 
 		npc.setEntityClass("sickleinghalfelfnpc");
 		npc.setPosition(76,97);
 		npc.initHP(100);
 		npc.setCollisionAction(CollisionAction.REVERSE); // So does not block straw carts
-		npc.setDescription("You see Eheneumniranin, the Half Elf... He has lost his memory and always looks confused.");
+		npc.setDescription("Oto Eheneumniranin pół elf... Stracił pamięć i wygląda na zagubionego.");
 		zone.add(npc);
 	}
 }
