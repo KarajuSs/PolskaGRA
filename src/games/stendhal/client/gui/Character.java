@@ -56,6 +56,7 @@ Inspectable {
 	private User player;
 
 	private JComponent specialSlots;
+	private JComponent beltSlot;
 
 	/**
 	 * Create a new character window.
@@ -154,16 +155,20 @@ Inspectable {
 		right.add(panel);
 
 		// Bag, keyring, etc
+		beltSlot = SBoxLayout.createContainer(SBoxLayout.HORIZONTAL, PADDING);
+		beltSlot.setAlignmentX(CENTER_ALIGNMENT);
+		beltSlot.setVisible(true);
+		content.add(beltSlot);
 		specialSlots = SBoxLayout.createContainer(SBoxLayout.HORIZONTAL, PADDING);
 		specialSlots.setAlignmentX(CENTER_ALIGNMENT);
 		// Compatibility. See the note at setPlayer().
-		specialSlots.setVisible(true);
+		specialSlots.setVisible(false);
 		content.add(specialSlots);
 
 		panel = createItemPanel(itemClass, store, "back", "data/gui/bag-slot.png");
 		specialSlots.add(panel);
 		panel = createItemPanel(itemClass, store, "pas", "data/gui/belt-slot.png");
-		specialSlots.add(panel);
+		beltSlot.add(panel);
 		panel = createItemPanel(itemClass, store, "belt", "data/gui/key-slot.png");
 		specialSlots.add(panel);
 
