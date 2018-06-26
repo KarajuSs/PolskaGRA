@@ -201,7 +201,7 @@
 
 	<item name="płaszcz elficki">
 		<type class="cloak" subclass="elvish_cloak" tileid="-1"/>
-		<description>Widzisz elvish cloak. Materiał utkany z leśnych pnączy jest cieńki lecz ciepły.</description>
+		<description>Widzisz płaszcz elficki. Materiał utkany z leśnych pnączy jest cieńki lecz ciepły.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
 			<def value="6"/>
