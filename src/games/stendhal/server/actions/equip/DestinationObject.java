@@ -11,6 +11,12 @@
  ***************************************************************************/
 package games.stendhal.server.actions.equip;
 
+import java.awt.Rectangle;
+import java.util.Iterator;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
 import games.stendhal.common.EquipActionConsts;
 import games.stendhal.common.MathHelper;
 import games.stendhal.common.constants.Actions;
@@ -25,16 +31,9 @@ import games.stendhal.server.entity.item.Stackable;
 import games.stendhal.server.entity.item.StackableItem;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.entity.slot.EntitySlot;
-
-import java.awt.Rectangle;
-import java.util.Iterator;
-import java.util.List;
-
 import marauroa.common.game.RPAction;
 import marauroa.common.game.RPObject;
 import marauroa.common.game.RPSlot;
-
-import org.apache.log4j.Logger;
 
 /**
  * this encapsulates the equip/drop destination.
@@ -45,7 +44,7 @@ class DestinationObject extends MoveableObject {
 	/** true when this object is valid. */
 	private boolean valid;
 
-	
+
 
 	/** x coordinate when dropped on ground. */
 	private int x;
@@ -53,9 +52,9 @@ class DestinationObject extends MoveableObject {
 	/** y coordinate when dropped on ground.*/
 	private int y;
 
-	/** interprets the given action. 
-	 * @param action 
-	 * @param player 
+	/** interprets the given action.
+	 * @param action
+	 * @param player
 	 */
 	public DestinationObject(final RPAction action, final Player player) {
 		super(player);
@@ -64,7 +63,7 @@ class DestinationObject extends MoveableObject {
 			List<String> path = action.getList(Actions.TARGET_PATH);
 			Iterator<String> it = path.iterator();
 			parent = EquipUtil.getEntityFromId(player, MathHelper.parseInt(it.next()));
-			
+
 			// check slot
 			if (parent == null) {
 				logger.warn("cannot find target entity for action " + action);
@@ -101,7 +100,6 @@ class DestinationObject extends MoveableObject {
 		} else if (action.has(EquipActionConsts.TARGET_OBJECT)
 				&& action.has(EquipActionConsts.TARGET_SLOT)) {
 			// ** Compatibility mode **
-			
 			// get base item and slot
 			parent = EquipUtil.getEntityFromId(player,
 					action.getInt(EquipActionConsts.TARGET_OBJECT));
@@ -145,10 +143,10 @@ class DestinationObject extends MoveableObject {
 		// not valid
 	}
 
-	/** checks if it is possible to add the entity to the world. 
-	 * @param entity 
-	 * @param player 
-	 * @return true if can be added to the world 
+	/** checks if it is possible to add the entity to the world.
+	 * @param entity
+	 * @param player
+	 * @return true if can be added to the world
 	 * */
 	@SuppressWarnings("unchecked")
 	public boolean preCheck(final Entity entity, final Player player) {
@@ -176,7 +174,7 @@ class DestinationObject extends MoveableObject {
 					final Iterator<RPObject> it = rpslot.iterator();
 					while (it.hasNext()) {
 						final RPObject object = it.next();
-						
+
 						if (object instanceof Stackable<?>) {
 							// found another stackable
 							@SuppressWarnings("rawtypes")
@@ -211,7 +209,7 @@ class DestinationObject extends MoveableObject {
 					player.sendPrivateText("Nie możesz tam położyć tej specjalnej nagrody ponieważ może być używana tylko przez Ciebie.");
 					return false;
 				}
-				
+
 				// check if an item that is sent to a trade slot is not damaged
 				if ((item.getDeterioration() > 0) && rpslot.getName().equals("trade")) {
 					player.sendPrivateText("Nie musisz handlować uszkodzonymi przedmiotami z innymi wojownikami.");
@@ -252,8 +250,8 @@ class DestinationObject extends MoveableObject {
 
 		return true;
 	}
-	
-	/** 
+
+	/**
 	 * Check if the entity is dice played at the gambling table.
 	 *
 	 * @param entity the item
@@ -265,7 +263,7 @@ class DestinationObject extends MoveableObject {
 		final StendhalRPZone zone = player.getZone();
 		return "int_semos_tavern_0".equals(zone.getName()) && ("kości do gry").equals(entity.getTitle());
 	}
-	
+
 	/** returns true when this DestinationObject is valid. */
 	@Override
 	public boolean isValid() {
@@ -310,8 +308,8 @@ class DestinationObject extends MoveableObject {
 	 * add the entity to the world (specified by the action during construction).
 	 * Note that you should call isValid(), preCheck(..) and checkDistance(..)
 	 * before adding an item to the world
-	 * @param entity 
-	 * @param player 
+	 * @param entity
+	 * @param player
 	 */
 	public void addToWorld(Entity entity, final Player player) {
 		if (parent != null) {
@@ -349,9 +347,9 @@ class DestinationObject extends MoveableObject {
 
 				// yep, so it is not stacked. simply add it
 				rpslot.add(entity);
-				
-				/* XXX sjtsp - experiment.  
-				 *   - maybe should call this on player, instead of item? 
+
+				/* XXX sjtsp - experiment.
+				 *   - maybe should call this on player, instead of item?
 				 */
 				((Item) entity).onEquipped(player, rpslot.getName());
 			}
@@ -376,21 +374,21 @@ class DestinationObject extends MoveableObject {
 	}
 
 	@Override
-		public String[] getLogInfo() {
-			final String[] res = new String[3];
-			if (parent != null) {
-				res[0] = "slot";
-				if (parent.has("name")) {
-					res[1] = parent.get("name");
-				} else {
-					res[1] = parent.getDescriptionName(false);
-				}
-				res[2] = slot;
+	public String[] getLogInfo() {
+		final String[] res = new String[3];
+		if (parent != null) {
+			res[0] = "slot";
+			if (parent.has("name")) {
+				res[1] = parent.get("name");
 			} else {
-				res[0] = "ground";
-				res[1] = player.getZone().getName();
-				res[2] = x + " " + y;
+				res[1] = parent.getDescriptionName(false);
 			}
-			return res;
+			res[2] = slot;
+		} else {
+			res[0] = "ground";
+			res[1] = player.getZone().getName();
+			res[2] = x + " " + y;
 		}
+		return res;
+	}
 }

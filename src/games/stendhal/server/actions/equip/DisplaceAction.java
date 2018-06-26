@@ -14,6 +14,12 @@ package games.stendhal.server.actions.equip;
 import static games.stendhal.common.constants.Actions.BASEITEM;
 import static games.stendhal.common.constants.Actions.X;
 import static games.stendhal.common.constants.Actions.Y;
+
+import java.awt.Rectangle;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
 import games.stendhal.server.actions.ActionListener;
 import games.stendhal.server.actions.CommandCenter;
 import games.stendhal.server.core.engine.GameEvent;
@@ -28,13 +34,7 @@ import games.stendhal.server.entity.item.Item;
 import games.stendhal.server.entity.item.StackableItem;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.util.EntityHelper;
-
-import java.awt.Rectangle;
-import java.util.List;
-
 import marauroa.common.game.RPAction;
-
-import org.apache.log4j.Logger;
 
 /**
  * Moving of items around on the ground.
@@ -52,8 +52,8 @@ public class DisplaceAction implements ActionListener {
 
 	/**
 	 * handle movement of items.
-	 * @param player 
-	 * @param action 
+	 * @param player
+	 * @param action
 	 */
 	@Override
 	public void onAction(final Player player, final RPAction action) {
@@ -82,7 +82,7 @@ public class DisplaceAction implements ActionListener {
 			/*
 			 * Not actually moving anything. Don't check access rights an
 			 * possibly send confusing messages to the player who
-			 * didn't really do anything. 
+			 * didn't really do anything.
 			 */
 			return;
 		}
@@ -105,7 +105,7 @@ public class DisplaceAction implements ActionListener {
 	 * @return true, iff allowed
 	 */
 	private boolean mayDisplace(final Player player, final StendhalRPZone zone, final int x, final int y, final PassiveEntity entity) {
-	    return nextTo(player, entity)
+		return nextTo(player, entity)
 				&& (!isItemBelowOtherPlayer(player, entity))
 				&& destInRange(player, entity, x, y)
 				&& !entityCollides(player, zone, x, y, entity)
@@ -115,8 +115,8 @@ public class DisplaceAction implements ActionListener {
 
 	/**
 	 * Checks whether the player is next to the entity and provides feedback to player if not.
-	 *                                                                                       
-	 * @param player 
+	 *
+	 * @param player
 	 *            the player doing the displacement
 	 * @param entity
 	 *            the entity being displaced
@@ -132,7 +132,7 @@ public class DisplaceAction implements ActionListener {
 
 	/**
 	 * Checks whether the item is below <b>another</b> player and provides feedback to player.
-	 * 
+	 *
 	 * @param player
 	 *            the player doing the displacement
 	 * @param entity
@@ -147,7 +147,7 @@ public class DisplaceAction implements ActionListener {
 				continue;
 			}
 			// Allow players always pick up their own items
-			if ((entity instanceof Item) && player.getName().equals(((Item) entity).getBoundTo()) || player.getAdminLevel() > 6) {
+			if ((entity instanceof Item) && player.getName().equals(((Item) entity).getBoundTo())) {
 				return false;
 			}
 			if (otherPlayer.getArea().intersects(entity.getArea())) {
@@ -158,21 +158,21 @@ public class DisplaceAction implements ActionListener {
 		return false;
 	}
 
-	/**                                                                                                                                                                                          
+	/**
 	 * Checks whether the destination is in range and provides feedback to player if not.
-	 *                                                                                                                                                                                           
-	 * @param player                                                                                                                                                                             
-	 *            the player doing the displacement                                                                                                                                              
-	 * @param entity destination entity 
+	 *
+	 * @param player
+	 *            the player doing the displacement
+	 * @param entity destination entity
 	 * @param x      x-position
 	 * @param y      y-position
-	 * @return true, if in range; false otherwise                                                                                                                                       
+	 * @return true, if in range; false otherwise
 	 */
 	private boolean destInRange(final Player player, final Entity entity, final int x, final int y) {
 		// Calculate from the center to make moving large items, like big corpses feel more natural
 		int centerX = (int) (x + (entity.getArea().getWidth() / 2));
 		int centerY = (int) (y + (entity.getArea().getHeight() / 2));
-		
+
 		if (!(player.squaredDistance(centerX, centerY) < (EquipUtil.MAX_THROWING_DISTANCE * EquipUtil.MAX_THROWING_DISTANCE))) {
 			player.sendPrivateText("Nie możesz rzucić tak daleko.");
 			return false;
@@ -191,14 +191,14 @@ public class DisplaceAction implements ActionListener {
 	 * @param entity entity to move
 	 * @return true, iff allowed
 	 */
-	private boolean entityCollides(final Player player, final StendhalRPZone zone, final int x, final int y, final PassiveEntity entity) {	
+	private boolean entityCollides(final Player player, final StendhalRPZone zone, final int x, final int y, final PassiveEntity entity) {
 		boolean res = zone.simpleCollides(entity, x, y, entity.getWidth(), entity.getHeight());
 		if (res) {
 			player.sendPrivateText("Nie ma tam miejsca.");
 		}
 		return res;
 	}
-	
+
 	/**
 	 * Checks whether there is a path from player to destination.
 	 *
@@ -209,22 +209,22 @@ public class DisplaceAction implements ActionListener {
 	 * @param entity entity to move
 	 * @return true, iff allowed
 	 */
-	private boolean pathToDest(final Player player, final StendhalRPZone zone, final int x, final int y, final PassiveEntity entity) {	
+	private boolean pathToDest(final Player player, final StendhalRPZone zone, final int x, final int y, final PassiveEntity entity) {
 		final List<Node> path = Path.searchPath(entity, zone,
 				player.getX(), player.getY(), new Rectangle(x, y, 1, 1),
 				64 /* maxDestination * maxDestination */, false);
 		if (path.isEmpty()) {
-			player.sendPrivateText("Nie ma łatwiejszego przejścia do tego miejsca.");		
+			player.sendPrivateText("Nie ma łatwiejszego przejścia do tego miejsca.");
 		}
 		return !path.isEmpty();
 	}
-	
+
 	/* returns true if zone is semos tavern and entity is dice */
 	private boolean isGamblingZoneAndIsDice(final Entity entity, final Player player) {
 		final StendhalRPZone zone = player.getZone();
 		return "int_semos_tavern_0".equals(zone.getName()) && ("kości do gry").equals(entity.getTitle());
 	}
-	
+
 	/* returns true if entity is a corpse, it's not owner by that player, and the distance is far */
 	private boolean isNotOwnCorpseAndTooFar(final Entity entity, final Player player, final int x, final int y) {
 		if(entity instanceof Corpse) {
@@ -234,14 +234,14 @@ public class DisplaceAction implements ActionListener {
 				int centerX = (int) (x + (entity.getArea().getWidth() / 2));
 				int centerY = (int) (y + (entity.getArea().getHeight() / 2));
 				if (!(player.squaredDistance(centerX, centerY) < (entity.getArea().getWidth() * entity.getArea().getHeight()))) {
-		    		player.sendPrivateText("Nie możesz rzucić zwłokami tak daleko, gdy jest ochrona " + owner + ".");
-		    		return true;
-		    	}
+					player.sendPrivateText("Nie możesz rzucić zwłokami tak daleko, gdy jest ochrona " + owner + ".");
+					return true;
+				}
 			}
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Moves an entity to a new location within the same zone.
 	 *
@@ -267,7 +267,7 @@ public class DisplaceAction implements ActionListener {
 			}
 
 			Item newItem;
-			
+
 			if ((quantity > 0) && (stackableItem != null) && (quantity < stackableItem.getQuantity())) {
 				newItem = removeFromWorld(player, stackableItem, quantity);
 			} else {
@@ -288,12 +288,12 @@ public class DisplaceAction implements ActionListener {
 			entity.notifyWorldAboutChanges();
 		}
 	}
-	
+
 	/**
 	 * Removes the entity from the world and returns it (so it may be added
 	 * again). The splitted StackableItem is reduced and a new StackableItem
 	 * with the splitted off amount is returned.
-	 * 
+	 *
 	 * @param player player performing the action
 	 * @param stackableItem splitted item stack
 	 * @param quantity amount to split
@@ -302,7 +302,7 @@ public class DisplaceAction implements ActionListener {
 	private Item removeFromWorld(final Player player, final StackableItem stackableItem, final int quantity) {
 		final StackableItem newItem = stackableItem.splitOff(quantity);
 		new ItemLogger().splitOff(player, stackableItem, newItem, quantity);
-			return newItem;
+		return newItem;
 	}
 
 }

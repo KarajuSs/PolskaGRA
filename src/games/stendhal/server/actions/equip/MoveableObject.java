@@ -11,15 +11,15 @@
  ***************************************************************************/
 package games.stendhal.server.actions.equip;
 
+import java.util.List;
+
 import games.stendhal.server.entity.Entity;
 import games.stendhal.server.entity.item.Corpse;
 import games.stendhal.server.entity.player.Player;
 
-import java.util.List;
-
 /**
  * source or destination object.
- * 
+ *
  * @author hendrik
  */
 public abstract class MoveableObject {
@@ -33,7 +33,7 @@ public abstract class MoveableObject {
 
 	/**
 	 * Creates a new MoveableObject.
-	 * 
+	 *
 	 * @param player
 	 *            Player to notify about problems
 	 */
@@ -44,14 +44,14 @@ public abstract class MoveableObject {
 
 	/**
 	 * is this object valid?
-	 * 
+	 *
 	 * @return true, if the action may be performed, false otherwise
 	 */
 	public abstract boolean isValid();
 
 	/**
 	 * is the owner of the slot in reach?
-	 * 
+	 *
 	 * @param entity
 	 *            entity to compare to
 	 * @param distance
@@ -62,7 +62,7 @@ public abstract class MoveableObject {
 
 	/**
 	 * gets the name of the slot or null if there is none.
-	 * 
+	 *
 	 * @return slot name
 	 */
 	String getSlot() {
@@ -78,7 +78,7 @@ public abstract class MoveableObject {
 
 	/**
 	 * Checks if RPobject is one the valid classes.
-	 * @param validClasses 
+	 * @param validClasses
 	 * @return true if the rpobject is one of the classes in <i>validClasses</i>.
 	 */
 	public boolean checkClass(final List<Class< ? >> validClasses) {
@@ -89,7 +89,7 @@ public abstract class MoveableObject {
 	}
 
 	/**
-	 * Checks if container is a corpse. 
+	 * Checks if container is a corpse.
 	 * @return true if container is a corpse.
 	 */
 	public boolean isContainerCorpse() {
@@ -99,7 +99,7 @@ public abstract class MoveableObject {
 		}
 		return false;
 	}
-	
+
 	boolean isInvalidMoveable(final Player player, final double maxDistance, final List<Class< ? >> containerClassesList) {
 		return !isValid() || !checkDistance(player, maxDistance) || (!checkClass(containerClassesList));
 	}

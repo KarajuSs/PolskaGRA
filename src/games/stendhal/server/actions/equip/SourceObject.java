@@ -11,6 +11,11 @@
  ***************************************************************************/
 package games.stendhal.server.actions.equip;
 
+import java.util.Arrays;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
 import games.stendhal.common.EquipActionConsts;
 import games.stendhal.server.actions.ItemAccessPermissions;
 import games.stendhal.server.core.engine.ItemLogger;
@@ -24,16 +29,10 @@ import games.stendhal.server.entity.item.StackableItem;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.entity.slot.EntitySlot;
 import games.stendhal.server.util.EntityHelper;
-
-import java.util.Arrays;
-import java.util.List;
-
 import marauroa.common.game.RPAction;
 import marauroa.common.game.RPObject;
 import marauroa.common.game.RPSlot;
 import marauroa.common.game.SlotOwner;
-
-import org.apache.log4j.Logger;
 
 /**
  * this encapsulates the equip/drop source.
@@ -53,7 +52,7 @@ class SourceObject extends MoveableObject {
 		if ((action == null) || (player == null)) {
 			return invalidSource;
 		}
- 
+
 		// source item must be there
 		if (!action.has(EquipActionConsts.SOURCE_PATH) && !action.has(EquipActionConsts.BASE_ITEM)) {
 			logger.warn("action does not have a base item. action: " + action);
@@ -79,7 +78,7 @@ class SourceObject extends MoveableObject {
 		adjustAmountForStackables(action, source);
 		return source;
 	}
-	
+
 	/**
 	 * Translate old style object reference to entity path.
 	 * @param action action to upgrade to use entity paths
@@ -124,7 +123,7 @@ class SourceObject extends MoveableObject {
 					+ ")");
 			// Remove message as discussed on #arianne 2010-04-25
 			// player.sendPrivateText("There is no such item in the " + slotName + " of "
-				//	+ parent.getDescriptionName(true));
+			//	+ parent.getDescriptionName(true));
 			return invalidSource;
 		}
 
@@ -154,10 +153,10 @@ class SourceObject extends MoveableObject {
 
 		return source;
 	}
-	
+
 	/**
 	 * Create a SourceObject for an item path.
-	 * 
+	 *
 	 * @param action
 	 * @param player
 	 * @return source object
@@ -173,7 +172,7 @@ class SourceObject extends MoveableObject {
 			return invalidSource;
 		}
 		RPObject container = item.getBaseContainer();
-		
+
 		/*
 		 * Top level items need to be checked for players standing on them.
 		 */
@@ -182,7 +181,7 @@ class SourceObject extends MoveableObject {
 				return invalidSource;
 			}
 		}
-		
+
 		String slotName = null;
 		RPObject parent = item.getContainer();
 		if (parent != null) {
@@ -194,13 +193,13 @@ class SourceObject extends MoveableObject {
 		}
 
 		SourceObject source = new SourceObject(player, (Entity) parent, slotName, item);
-		
+
 		// handle logging of looting items
 		if (parent instanceof Corpse) {
 			Corpse corpse = (Corpse) parent;
 			checkIfLootingIsRewardable(player, corpse, source, (Item) entity);
 		}
-		
+
 		return source;
 	}
 
@@ -311,7 +310,7 @@ class SourceObject extends MoveableObject {
 	 * @return true if successful
 	 */
 	public boolean moveTo(final DestinationObject dest, final Player player) {
-		if (!((EquipListener) item).canBeEquippedIn(dest.getContentSlotName()) && player.getAdminLevel() < 7) {
+		if (!((EquipListener) item).canBeEquippedIn(dest.getContentSlotName())) {
 			// give some feedback
 			player.sendPrivateText("Nie możesz wziąść " + item.getTitle() + " do " + dest.getContentSlotName() + ".");
 			logger.warn("tried to equip an entity into disallowed slot: " + item.getClass() + "; equip rejected");
@@ -352,10 +351,10 @@ class SourceObject extends MoveableObject {
 				return true;
 			} else {
 				logger.debug("distance check failed " + other.squaredDistance(checker));
-				player.sendPrivateText("Nie możesz sięgnąć tak daleko");
+				player.sendPrivateText("Nie możesz sięgnąć tak daleko.");
 			}
 		}
-		
+
 		return false;
 	}
 

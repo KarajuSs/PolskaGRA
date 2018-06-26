@@ -50,10 +50,10 @@ public class ReorderAction implements ActionListener {
 			reorder(entity, MathHelper.parseInt(action.get("new_position")));
 		}
 	}
-	
+
 	/**
 	 * Move an entity to new position.
-	 * 
+	 *
 	 * @param entity
 	 * @param newPosition desired new location in the slot
 	 */
@@ -82,10 +82,10 @@ public class ReorderAction implements ActionListener {
 			((Entity) parent).notifyWorldAboutChanges();
 		}
 	}
-	
+
 	/**
 	 * Check if a player may access an entity for reordering.
-	 * 
+	 *
 	 * @param player accessing player
 	 * @param entity entity to be reordered
 	 * @param action reordering action
@@ -143,7 +143,7 @@ public class ReorderAction implements ActionListener {
 
 	/**
 	 * Check the reachability of a slot.
-	 * 
+	 *
 	 * @param player
 	 * @param baseSlot
 	 * @return <code>true</code> if the slot is reachable, <code>false</code>

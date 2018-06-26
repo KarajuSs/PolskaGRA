@@ -48,6 +48,7 @@ public class EquipAction extends EquipmentAction {
 						+ ". Nie zasługujesz na to, aby jej używać.");
 				return;
 			}
+
 		}
 
 		logger.debug("Checking destination");
@@ -81,7 +82,7 @@ public class EquipAction extends EquipmentAction {
 			// which aren't just a movement from one corpse to another.
 			// we could of course specifically preclude dropping into corpses, but that is undesirable.
 			if (dest.isContainerCorpse() && !source.isContainerCorpse()) {
-				player.sendPrivateText("Dla Twojej wiadomości. Właśnie wyrzuciłeś " 
+				player.sendPrivateText("Dla Twojej wiadomości. Właśnie wyrzuciłeś "
 						+ Grammar.quantityplnounWithMarker(amount,entity.getTitle(), '§')
 						+ " do zwłok, nad którymi właśnie stoisz.");
 			}
