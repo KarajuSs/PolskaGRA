@@ -2,7 +2,7 @@
 <items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="stendhal ../items.xsd ">
 
-	<item name="pas zbójecki">
+	<!--<item name="pas zbójecki">
 		<type class="necklace" subclass="pas_zbojecki" tileid="-1"/>
 		<description>Oto pas zbójecki. Idealny dla górala.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
@@ -18,14 +18,14 @@
 			<slot name="trade"/>
 			<slot name="neck"/>
 		</equipable>
-	</item>
+	</item>-->
 
 	<item name="korale">
 		<type class="necklace" subclass="korale" tileid="-1"/>
 		<description>Oto korale. Idealne dla góralek.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="1"/>
+			<def value="2"/>
 		</attributes>
 		<weight value="1.0"/>
 		<value value="1234"/>
@@ -47,6 +47,8 @@
 		</attributes>
 		<weight value="1.0"/>
 		<value value="1234"/>
+		<susceptibility type="light" value="1.11"/>
+		<susceptibility type="dark" value="0.91"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
@@ -65,6 +67,8 @@
 		</attributes>
 		<weight value="1.0"/>
 		<value value="1234"/>
+		<susceptibility type="light" value="0.91"/>
+		<susceptibility type="dark" value="0.91"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
@@ -83,6 +87,8 @@
 		</attributes>
 		<weight value="1.0"/>
 		<value value="1234"/>
+		<susceptibility type="light" value="0.91"/>
+		<susceptibility type="dark" value="0.91"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
