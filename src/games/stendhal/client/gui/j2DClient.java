@@ -678,7 +678,7 @@ public class j2DClient implements UserInterface {
 		containerPanel.addRepaintable(character);
 
 		// Create the bag window
-		inventory = new SlotWindow("bag", 4, 4);
+		inventory = new SlotWindow("bag", 5, 6);
 		inventory.setAcceptedTypes(EntityMap.getClass("item", null, null));
 		inventory.setCloseable(false);
 		containerPanel.addRepaintable(inventory);
@@ -972,7 +972,7 @@ public class j2DClient implements UserInterface {
 		if (outfitDialog == null) {
 			// Here we actually want to call new OutfitColor(). Modifying
 			// OutfitColor.PLAIN would be a bad thing.
-			outfitDialog = new OutfitDialog(frame, "Set outfit", outfit,
+			outfitDialog = new OutfitDialog(frame, "PolskaGRA - Zmień wygląd postaci", outfit,
 					new OutfitColor(player));
 
 			outfitDialog.setVisible(true);

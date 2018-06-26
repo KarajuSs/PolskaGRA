@@ -34,7 +34,7 @@ public class WaterSpringSource extends PlayerActivityEntity {
 	/**
 	 * The reward
 	 */
-	private static final String[] items = { "water" };
+	private static final String[] items = { "woda" };
 
 	/**
 	 * The chance that filling flask is successful.
@@ -60,8 +60,8 @@ public class WaterSpringSource extends PlayerActivityEntity {
 	public WaterSpringSource() {
 		put("class", "source");
 		put("name", "water_source");
-		setMenu("Fill|Use");
-		setDescription("You see some bubbles in the water. Seems like you found a spring.");
+		setMenu("Napełnij");
+		setDescription("Widzisz jakieś bąbelki w wodzie. Wygląda na to, że znalazłeś źródło.");
 		setResistance(0);
 	}
 
@@ -70,7 +70,7 @@ public class WaterSpringSource extends PlayerActivityEntity {
 	 */
 	@Override
 	public String getName() {
-		return("water spring");
+		return("źródło wody");
 	}
 
 	//
@@ -107,10 +107,10 @@ public class WaterSpringSource extends PlayerActivityEntity {
         * The player can fill an empty flask at the spring.
         * Check they have it before they can start filling it up.
 		*/
-		if (player.isEquipped("flask")) {
+		if (player.isEquipped("flasza")) {
 			return true;
 		} else {
-			player.sendPrivateText("You need a flask to fill some water up.");
+			player.sendPrivateText("Potrzebujesz flaszy, aby napełnić ją wodą.");
 			return false;
 		}
 	}
@@ -154,7 +154,7 @@ public class WaterSpringSource extends PlayerActivityEntity {
 			final String itemName = items[Rand.rand(items.length)];
 			final Item item = SingletonRepository.getEntityManager().getItem(itemName);
 			int amount = 1;
-			if (itemName.equals("water"))
+			if (itemName.equals("woda"))
 					 {
 				/*
 				 * Bound powerful items.
@@ -168,14 +168,14 @@ public class WaterSpringSource extends PlayerActivityEntity {
 
 
 			player.equipOrPutOnGround(item);
-			player.sendPrivateText("You were lucky and filled "
+			player.sendPrivateText("Miałeś szczęście i napełniłeś "
 					+ Grammar.quantityplnoun(amount, itemName, "a")+ ".");
 
 		} else {
             this.addEvent(new SoundEvent(failSound, SOUND_RADIUS, 100, SoundLayer.AMBIENT_SOUND));
     		this.notifyWorldAboutChanges();
 
-			player.sendPrivateText("Oh no! You spilled the water and let the flask fall into it. Now it's broken.");
+			player.sendPrivateText("Oh nie! Rozbiłeś flaszę i rozlałeś wodę. Teraz jest rozbita.");
 		}
 		notifyWorldAboutChanges();
 	}
@@ -193,7 +193,7 @@ public class WaterSpringSource extends PlayerActivityEntity {
         notifyWorldAboutChanges();
 
 		// remove flask from player as they try to fill it.
-		player.drop("flask");
-		player.sendPrivateText("You started to fill fresh spring water into an empty flask. It will hopefully not slip out of your hand!");
+		player.drop("flasza");
+		player.sendPrivateText("Rozpocząłeś napełnianie pustej flaszy świeżą wodą. Miejmy nadzieje, że nie wyślizgnie ci się z rąk!");
 	}
 }
