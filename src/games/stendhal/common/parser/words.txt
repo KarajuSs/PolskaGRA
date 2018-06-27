@@ -134,6 +134,7 @@ give	VER
 go	VER
 gone	VER	=go
 goodbye	VER
+graj	VER
 greetings	VER
 grow	VER
 had	VER	=have
@@ -160,6 +161,7 @@ kill	VER
 kiss	VER
 know	VER
 ko	VER
+kupię	VER
 laugh	VER
 learn	VER
 leave	VER
@@ -170,6 +172,7 @@ load	VER
 lol	VER
 look	VER
 love	VER
+łapówka	VER
 made	VER	=make
 make	VER
 married	VER	=marry
@@ -179,17 +182,29 @@ mean	VER
 mill	VER
 mix	VER
 move	VER
+nalej	VER
+napełnij	VER
+naucz	VER
 need	VER
 not	VER-NEG
+odlej	VER
+odsprzedać	VER
+odsprzedaż	VER
 ok	VER
 open	VER
 overcook	VER
 own	VER
 pay	VER
 play	VER
+postaw	VER
+postawić	VER
+poślub	VER
 prefer	VER
 prolong	VER
 protect	VER
+przedłuż	VER
+przedmioty	VER
+przypomnij	VER
 purchase	VER
 put	VER
 rain	VER
@@ -207,6 +222,7 @@ return	VER
 revive	VER
 rofl	VER
 run	VER
+rzeczy	VER
 saw	VER	=see
 say	VER
 see	VER
@@ -229,6 +245,7 @@ sorry	VER
 sound	VER
 speak	VER	=say
 spread	VER
+sprzedam	VER
 stake	VER
 stand	VER
 start	VER
@@ -241,6 +258,8 @@ take	VER
 talk	VER
 tease	VER
 teleport	VER
+teleportuj	VER
+teleportuję	VER
 tell	VER
 thank	VER
 there's	VER
@@ -249,8 +268,12 @@ told	VER	=tell
 transfer	VER
 travel	VER
 try	VER
+ulecz	VER
 understand	VER
+upiecz	VER
 use	VER
+usuń	VER
+uwędź	VER
 want	VER
 was	VER
 wear	VER
@@ -264,10 +287,24 @@ would	VER-CON	=will
 wouldn't	VER-CON-NEG	=won't
 wrap	VER
 write	VER
+wylecz	VER
+wymień	VER
+wynajmij	VER
+wyślę	VER
+wyślij	VER
 yay	VER	=done
 yep	VER
 yes	VER
 yup	VER	=yep
+zagraj	VER
+zagram	VER
+załatwione	VER
+zaręcz	VER
+zmień	VER
+zrobione	VER-PAS	=zrób
+zrób	VER
+zwrot	VER
+zwróć	VER
 
 ados	OBJ	ados
 air	OBJ	airs
@@ -387,7 +424,7 @@ cloth	OBJ	cloths
 cloudburst	OBJ	cloudbursts
 clownfish	OBJ-FOO-ANI	clownfishes
 club	OBJ	clubs
-coal	OBJ	coals
+coal	OBJ coals
 cocktail	OBJ-FOO-FLU	cocktails
 coconut	OBJ-FOO	coconuts
 cod	OBJ-FOO	cods
@@ -422,6 +459,7 @@ crown	OBJ	crowns
 crustaceans	OBJ	crustaceans
 ctf	OBJ
 cuirass	OBJ	cuirasses
+czerwony	OBJ czerwone
 dagger	OBJ	daggers
 daisy	OBJ =daisies	daisies
 dart	OBJ	darts
@@ -579,13 +617,14 @@ karma	OBJ	karmas
 katana	OBJ	katanas
 kekik	OBJ	kekiks
 key	OBJ	keys
-keyring	OBJ	keyrings
+keyring	OBJ keyrings
 kingdom	OBJ	kingdoms
 kirdneh	OBJ-NAM	kirdnehs
 kitchen	OBJ	kitchens
 knife	OBJ	knives
 kokuda	OBJ	kokudas
 kotoch	OBJ-NAM	kotoches
+książka	OBJ	książki
 lag	OBJ	lags
 lamb	OBJ-ANI	lambs
 language	OBJ	languages
@@ -657,6 +696,7 @@ narwol	OBJ	narwols
 needle	OBJ	needles
 neighborhood	OBJ	neighborhoods
 news	OBJ	news
+niebieski	OBJ niebieskie
 night	OBJ	nights
 nihonto	OBJ	nihontos
 none	OBJ-PRO	nones
@@ -828,6 +868,7 @@ sweatshirt	OBJ	sweatshirts
 swimsuit	OBJ	swimsuits
 sword	OBJ	swords
 symbol	OBJ	symbols
+świeca	OBJ	świece
 table	OBJ	tables
 task	OBJ	tasks
 taste	OBJ	tastes
@@ -882,7 +923,7 @@ vulcano	OBJ	vulcanos
 war	OBJ	wars
 wardrobe	OBJ	wardrobes
 water	OBJ-FOO-FLU	waters
-watermelon	OBJ-FOO	watermelons
+watermelon	OBJ-FOO watermelons
 way	OBJ	ways
 weapon	OBJ	weapons
 weave	OBJ	weaves
@@ -912,7 +953,9 @@ your	OBJ-OBS	your
 yrafear	OBJ-NAM	yrafears
 zant OBJ =zantedeschia zants
 zantedeschia	OBJ	zantedeschias
+zioło	OBJ	zioła
 zone	OBJ	zones
+żółty	OBJ żółte
 
 abe	SUB-NAM
 adena SUB-NAM
@@ -1292,6 +1335,7 @@ nomyr	SUB-NAM
 noone	SUB
 nuggetcutter	SUB-NAM
 nymph	SUB
+obywatelstwo	SUB
 ognir	SUB-NAM
 ogre	SUB	ogres
 oni	SUB
@@ -1521,6 +1565,7 @@ deadly	ADJ
 delicious	ADJ
 devout	ADJ
 different	ADJ
+dostępny	ADJ
 drow	ADJ
 dwarven	ADJ
 dwarvish	ADJ
@@ -1596,7 +1641,6 @@ mega	ADJ
 mild	ADJ
 minor	ADJ
 missing	ADJ
-much	ADJ
 mythical	ADJ
 naked	ADJ
 nasty	ADJ
@@ -1617,6 +1661,7 @@ pretty	ADJ
 private	ADJ
 properly	ADJ
 purple	ADJ-COL
+purpurowy	ADJ-COL
 quick	ADJ
 r	ADJ
 random	ADJ
@@ -1628,6 +1673,7 @@ right	ADJ
 rotten	ADJ
 round	ADJ
 royal	ADJ
+różowy	ADJ-COL
 same	ADJ
 sealed	ADJ
 short	ADJ
@@ -1643,6 +1689,9 @@ spare	ADJ
 special	ADJ
 spooky	ADJ
 spotted	ADJ
+niesprzedany	ADJ
+niesprzedanych	ADJ
+niekupiony	ADJ
 squared	ADJ
 stressed	ADJ
 striped	ADJ
@@ -1681,6 +1730,16 @@ young	ADJ
 
 a	NUM	1
 an	NUM	1
+czterdzieści	NUM	40
+cztery	NUM	4
+czternaście	NUM	14
+dwa	NUM	2
+dwadzieścia	NUM	20
+dwanaście	NUM	12
+dziesięć	NUM	10
+dziewięć	NUM	9
+dziewiśćdziesiąt	NUM	90
+dziewiętnaście	NUM	19
 eight	NUM	8
 eighteen	NUM	18
 eighty	NUM	80
@@ -1693,25 +1752,45 @@ forty	NUM	40
 four	NUM	4
 fourteen	NUM	14
 hundred	NUM	100
+jeden	NUM	1
+jedenaście	NUM	11
+milion	NUM	1000000
 million	NUM	1000000
 nine	NUM	9
 nineteen	NUM	19
 ninety	NUM	90
 no	NUM	0
 one	NUM	1
+osiem	NUM	8
+osiemdzisiąt	NUM	80
+osiemnaście	NUM	18
+pięć	NUM	5
+pięćdzisiąt	NUM	50
+piętnaście	NUM	15
 second	NUM	2
 seven	NUM	7
 seventeen	NUM	17
 seventy	NUM	70
+siedem	NUM	7
+siedemdzisiąt	NUM	70
+siedemnaście	NUM	17
 six	NUM	6
 sixteen	NUM	16
 sixty	NUM	60
+sto	NUM	100
+szesnaście	NUM	16
+sześć	NUM	6
+sześćdziesiąt	NUM	60
 ten	NUM	10
 third	NUM	3
 thirteen	NUM	13
 thirty	NUM	30
 thousand	NUM	1000
 three	NUM	3
+trzy	NUM	3
+trzydzieści	NUM	30
+trzynaście	NUM	13
+tysiąc	NUM	1000
 twelve	NUM	12
 twenty	NUM	20
 two	NUM	2
@@ -1765,4 +1844,3 @@ whatever	IGN
 while	IGN
 yeah	IGN
 yet	IGN
-
