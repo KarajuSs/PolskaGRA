@@ -1161,6 +1161,42 @@ public abstract class RPEntity extends GuidedEntity {
 		base_mana += newBaseMana;
 		put("base_mana", base_mana);
 	}
+	
+	public void addatk_xp(final int newatk_xp) {
+		if (Integer.MAX_VALUE - this.atk_xp <= newatk_xp) {
+			return;
+		}
+		if (newatk_xp == 0) {
+			return;
+		}
+
+		// Increment atk_xp points. author: Szygolek
+		// Based on code already written by STH creators.
+		this.atk_xp += newatk_xp;
+		put ("atk_xp", atk_xp);
+		String[] params = { Integer.toString(newatk_xp) };
+
+		new GameEvent(getName(), "added atk_xp", params).raise();
+		new GameEvent(getName(), "atk_xp", String.valueOf(atk_xp)).raise();
+	}
+
+	public void adddef_xp(final int newdef_xp) {
+		if (Integer.MAX_VALUE - this.def_xp <= newdef_xp) {
+			return;
+		}
+		if (newdef_xp == 0) {
+			return;
+		}
+
+		// Increment def xp points. author: Szygolek
+		// Based on code already written by STH creators
+		this.def_xp += newdef_xp;
+		put ("def_xp", def_xp);
+		String[] params = { Integer.toString(newdef_xp) };
+
+		new GameEvent(getName(), "added def_xp", params).raise();
+		new GameEvent(getName(), "def_xp", String.valueOf(def_xp)).raise();
+	}
 
 	public void setLVCap(final int newLVCap) {
 		lv_cap = newLVCap;
