@@ -19,6 +19,7 @@ import java.util.Map.Entry;
 import org.apache.log4j.Logger;
 
 import games.stendhal.common.CRC;
+import games.stendhal.server.core.rp.DarklightUpdater;
 import games.stendhal.server.core.rp.DaylightUpdater;
 import games.stendhal.server.core.rp.WeatherUpdater;
 import marauroa.common.game.RPObject;
@@ -93,6 +94,8 @@ public class ZoneAttributes {
 			WeatherUpdater.get().manageAttributes(this, value);
 		} else if ("color_method".equals(key) && "time".equals(value)) {
 			DaylightUpdater.get().manageAttributes(this);
+		} else if ("color_method".equals(key) && "dark".equals(value)) {
+			DarklightUpdater.get().manageAttributes(this);
 		} else {
 			if ("color".equals(key)) {
 				/*
