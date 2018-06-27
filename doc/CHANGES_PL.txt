@@ -1,6 +1,11 @@
 Changelog
 ---------
 
+0.02
+*code*
+- od teraz można przyznać punkty umiejętności ataku / obrony / pkt atk/obr zależne od poziomu gracza jako nagrodę za poprawnie wykonane zadanie
+
+
 0.01
 *klient*
 - gracze mogą zmienić kolor ciała
@@ -17,7 +22,7 @@ Changelog
 
 
 *eksperymetalne zmiany*
-- nowe sloty w ekwipunku gracza (plecak, pas, rzemyk)
+- nowe sloty w ekwipunku gracza (plecak, pas, rzemyk) [Eksperyment chwilowo nie wyszedł tak jak powinien]
 
 
 *serwer*
@@ -43,7 +48,8 @@ Changelog
 - dodano pogodę w zakopane
 - dodano teleport w zakopane_c prowadzący do semos
 - przywrócono stare statystyki potworów jak i przedmiotów
-- już więcej nie będzie potrzebne 1 money do użycia zwoju czyszczącego 
+- już więcej nie będzie potrzebne 1 money do użycia zwoju czyszczącego
+- przetłumaczono wszystkie zadania / regiony / potwory / przedmioty / npc oraz cały klient
 
 
 *code*
