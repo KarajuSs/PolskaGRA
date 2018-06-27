@@ -279,7 +279,7 @@ class OutfitDialog extends JDialog {
 		JComponent column = SBoxLayout.createContainer(SBoxLayout.VERTICAL);
 		content.add(column, SLayout.EXPAND_Y);
 		/* hair color */
-		JComponent selector = createColorSelector("Hair", OutfitColor.HAIR,
+		JComponent selector = createColorSelector("Włosy", OutfitColor.HAIR,
 				hairLabel);
 		selector.setAlignmentX(CENTER_ALIGNMENT);
 		column.add(selector);
@@ -287,19 +287,19 @@ class OutfitDialog extends JDialog {
 		// TODO: Remove condition after outfit testing is finished
 		if (Testing.OUTFITS) {
 			/* eyes color */
-			selector = createColorSelector("Eyes", OutfitColor.EYES, eyesLabel);
+			selector = createColorSelector("Oczy", OutfitColor.EYES, eyesLabel);
 			selector.setAlignmentX(CENTER_ALIGNMENT);
 			column.add(selector);
 		}
 
 		/* skin color */
-		selector = createColorSelector("Skin", OutfitColor.SKIN, true, bodyLabel,
+		selector = createColorSelector("Skóra", OutfitColor.SKIN, true, bodyLabel,
 				headLabel);
 		selector.setAlignmentX(CENTER_ALIGNMENT);
 		column.add(selector);
 
 		/* dress color */
-		selector = createColorSelector("Dress", OutfitColor.DRESS, dressLabel);
+		selector = createColorSelector("Ubranie", OutfitColor.DRESS, dressLabel);
 		selector.setAlignmentX(CENTER_ALIGNMENT);
 		column.add(selector);
 		SBoxLayout.addSpring(column);
@@ -507,7 +507,7 @@ class OutfitDialog extends JDialog {
 			boolean skinPalette, final OutfitLabel... labels) {
 
 		final JComponent container = SBoxLayout.createContainer(SBoxLayout.VERTICAL);
-		final JCheckBox enableToggle = new JCheckBox(niceName + " color");
+		final JCheckBox enableToggle = new JCheckBox("Kolor " + niceName);
 
 		container.add(enableToggle);
 		// get the current state
