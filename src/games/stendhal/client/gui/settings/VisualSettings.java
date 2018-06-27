@@ -32,6 +32,7 @@ import javax.swing.JList;
 import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
 
+//import games.stendhal.client.stendhal;
 import games.stendhal.client.ClientSingletonRepository;
 import games.stendhal.client.gui.chatlog.EventLine;
 import games.stendhal.client.gui.layout.SBoxLayout;
@@ -77,6 +78,19 @@ class VisualSettings {
 	private static final String GAMESCREEN_BLOOD = "gamescreen.blood";
 
 	private static final String SCALE_SCREEN_PROPERTY = "ui.scale_screen";
+	
+	/**
+	private static final int DEFAULT_WIDTH_GAMESCREEN = 800;
+	private static final int DEFAULT_HEIGHT_GAMESCREEN = 500;
+	
+	private static final int MIN_GAMESCREEN_WIDTH_SIZE = DEFAULT_WIDTH_GAMESCREEN;
+	private static final int MAX_GAMESCREEN_WIDTH_SIZE = 1424;
+	private static final int MIN_GAMESCREEN_HEIGHT_SIZE = DEFAULT_HEIGHT_GAMESCREEN;
+	private static final int MAX_GAMESCREEN_HEIGHT_SIZE = 768;
+	
+	private static final String DEFAULT_GAMESCREEN = DEFAULT_WIDTH_GAMESCREEN + ", " + DEFAULT_HEIGHT_GAMESCREEN;
+	*/
+	
 	/** Property used for toggling map coloring on. */
 	private static final String MAP_COLOR_PROPERTY = "ui.colormaps";
 
@@ -180,6 +194,8 @@ class VisualSettings {
 		// Font stuff
 		page.add(createFontSizeSelector());
 		page.add(createFontSelector(), SLayout.EXPAND_X);
+		
+		//page.add(createGameScreenSizes());
 	}
 
 	/**
@@ -454,6 +470,36 @@ class VisualSettings {
 		container.setToolTipText("Domyślny rozmiar czcionki");
 		return container;
 	}
+	
+	// TODO: Należy sprawdzić dlaczego nie wyświetla listy możliwych do wyboru rozdzielczości
+	// 		 lub napisać zupełnie inną funkcje odpowiedzialną za wybór rozdzielczości okna gry.
+	
+	/**private JComponent createGameScreenSizes() {
+		JComponent container = SBoxLayout.createContainer(SBoxLayout.HORIZONTAL, SBoxLayout.COMMON_PADDING);
+		final Dimension displaySize = stendhal.getDisplaySize();
+		
+		container.add(new JLabel("Rozdzielczość:"));
+		final JComboBox<Object> selector = new JComboBox<>();
+		
+		// Fill the selector, and set current size as the selection
+		int current = WtWindowManager.getInstance().getPropertyIntInt(displaySize.width, displaySize.height);
+		selector.addItem(DEFAULT_GAMESCREEN);
+		for (int size1 = MIN_GAMESCREEN_WIDTH_SIZE; size1 <= MIN_GAMESCREEN_HEIGHT_SIZE; size1 += 50) {
+			for (int size2 = MAX_GAMESCREEN_WIDTH_SIZE; size2 <= MAX_GAMESCREEN_HEIGHT_SIZE; size2 += 50) {
+				Integer obj1 = size1;
+				Integer obj2 = size2;
+				selector.addItem(obj1);
+				if ((size1 == current) && (size1 != DEFAULT_WIDTH_GAMESCREEN && size1 != DEFAULT_HEIGHT_GAMESCREEN)) {
+					selector.setSelectedItem(obj1);
+				} else if ((size2 == current) && (size2 != DEFAULT_WIDTH_GAMESCREEN && size2 != DEFAULT_HEIGHT_GAMESCREEN)) {
+					selector.setSelectedItem(obj2);
+				}
+			}
+		}
+		container.add(selector);
+		container.setToolTipText("Domyślna rozdzielczość");
+		return container;
+	}*/
 
 	/**
 	 * Create selector for the font used in the quest log and achievements.

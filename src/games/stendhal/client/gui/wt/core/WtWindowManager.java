@@ -184,6 +184,21 @@ public final class WtWindowManager {
 	}
 
 	/**
+	public String getPropertyInt(final int key, final String defaultValue) {
+		return properties.getProperty("config." + key, defaultValue);
+	}
+
+	public int getPropertyIntInt(int key, int defaultValue) {
+		String value = getPropertyInt(key, null);
+		if (value == null) {
+			return defaultValue;
+		}
+
+		return MathHelper.parseIntDefault(value, defaultValue);
+	}
+	*/
+
+	/**
 	 * Register a change listener for a specific configuration change.
 	 *
 	 * @param key configuration key to be watched
