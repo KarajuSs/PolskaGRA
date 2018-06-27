@@ -1907,7 +1907,7 @@ Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z po
 
 	<!-- Playroom -->
 	<zone name="int_zakopane_playroom" file="interiors/zakopane/playroom.tmx">
-		<!-- <configurator class-name="games.stendhal.server.maps.zakopane.playroom.Playroomset"/> -->
+		<configurator class-name="games.stendhal.server.maps.zakopane.playroom.Playroomset"/>
 		
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
