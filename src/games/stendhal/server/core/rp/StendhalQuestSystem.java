@@ -193,18 +193,20 @@ public class StendhalQuestSystem {
 		loadQuest(new PomocChlopcowi());
 		//loadQuest(new Ratownik());
 		loadQuest(new ScytheForFryderyk());
-		loadQuest(new StuffForAndrzej());
 		loadQuest(new ZakopaneClouds());
+		loadQuest(new ZlotaCiupaga());
 		//loadQuest(new ZlotaCiupagaDwaWasy());
 		loadQuest(new ZlotyRog());
 		/** 					**\
 		 *         TATRY 		 *
 		\**	                    **/
-		//          NIC         //
+		//loadQuest(new GoralskiCollector());
+		//loadQuest(new GoralskiCollector2());
+		//loadQuest(new GoralskiCollector3());
 		/** 					**\
 		 *      KOŚCIELISKO 	 *
 		\**	                    **/
-		//loadQuest(new BramaZrc());
+		//loadQuest(new BramaZrc())0;
 		//loadQuest(new PierscienRycerza());
 		//loadQuest(new ProzbaWielkoluda());
 		//loadQuest(new StazNaGornika());
@@ -218,18 +220,21 @@ public class StendhalQuestSystem {
 		/** 					**\
 		 *     DRAGON_KNIGHTS	 *
 		\**	                    **/
+		//loadQuest(new ClearQuestPierscien());
+		//loadQuest(new MeeteD());
 		//loadQuest(new PierscienMagnata());
 		//loadQuest(new PierscienMieszczanina());
 		/** 					**\
 		 *         DESERT		 *
 		\**	                    **/
-		//loadQuest(new ZlotaCiupagaWas());
+		//loadQuest(new ZlotaCiupagaJedenWas());
 		/** 					**\
 		 *         GDAŃSK		 *
 		\**	                    **/
-		//loadQuest(new AligernQuest());
+		//loadQuest(new SkorySmokow());
 		//loadQuest(new DailyMuseumGdanskQuest());
 		//loadQuest(new DzikiiWilki());
+		//loadQuest(new Pizza());
 		//loadQuest(new RosaBasementRats());
 		/**						**\
 		 *         INNE  	 	 *
