@@ -86,7 +86,12 @@ public final class ItemListImageViewerEvent extends ViewPanel {
 	@Override
 	public void prepareView(final Dimension maxSize) {
 		Dimension screenSize = GameScreen.get().getSize();
-		int maxPreferredWidth = screenSize.width - 80;
+		int maxPreferredWidth;
+		if (screenSize.width >= 1424) {
+			maxPreferredWidth = screenSize.width - 480;
+		} else {
+			maxPreferredWidth = screenSize.width - 80;
+		}
 		if (event.has("caption")) {
 			JLabel caption = new JLabel("<html><div width=" + (maxPreferredWidth
 					- 10) + ">" + event.get("caption") + "</div></html>");
@@ -255,7 +260,7 @@ public final class ItemListImageViewerEvent extends ViewPanel {
 	 * @return new table
 	 */
 	private JTable createTable(int maxPreferredWidth) {
-		String[] columnNames = { "Item", "Price", "Description" };
+		String[] columnNames = { "Przedmiot", "Cena", "Opis" };
 		Object[][] data = new Object[event.getSlot("content").size()][];
 		RPSlot slot = event.getSlot("content");
 		int i = 0;
