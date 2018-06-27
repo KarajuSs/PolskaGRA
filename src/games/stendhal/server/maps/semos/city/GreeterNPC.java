@@ -54,7 +54,7 @@ public class GreeterNPC implements ZoneConfigurator {
 		};
 		npc.setPosition(27, 43);
 		npc.setEntityClass("oldmannpc");
-		npc.setDescription("Widzisz Monogenesa. Wygląda bardzo staro, możliwe, że dużą wiedzę...");
+		npc.setDescription("Widzisz Monogenesa. Wygląda bardzo staro, możliwe, że ma dużą wiedzę...");
 		npc.setDirection(Direction.LEFT);
 		zone.add(npc);
 	}
