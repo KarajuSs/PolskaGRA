@@ -4,10 +4,13 @@ Changelog
 0.02
 *świat gry*
 - zwiększono liczbę skinów możliwych do wyboru dla postaci
+- dodano z powrotem dzień-noc
 
 
 *code*
 - od teraz można przyznać punkty umiejętności ataku / obrony / pkt atk/obr zależne od poziomu gracza jako nagrodę za poprawnie wykonane zadanie
+- nowy atrybut dla map - "dark" - dzięki, któremy mamy efekt nocy
+- dodano nową funckje, która sprawdza jaką mamy ustawioną szerokość okna gry i dostosowuje okienka wewnątrz gry
 
 
 *naprawa błędów*
