@@ -2,8 +2,17 @@ Changelog
 ---------
 
 0.02
+*świat gry*
+- zwiększono liczbę skinów możliwych do wyboru dla postaci
+
+
 *code*
 - od teraz można przyznać punkty umiejętności ataku / obrony / pkt atk/obr zależne od poziomu gracza jako nagrodę za poprawnie wykonane zadanie
+
+
+*naprawa błędów*
+- naprawiono błąd, który powodował, że serwer przydzielał nam zupełnie inną płeć
+
 
 
 0.01
