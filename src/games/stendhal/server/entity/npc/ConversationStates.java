@@ -93,6 +93,12 @@ public enum ConversationStates {
 	 * reject it.
 	 */
 	QUEST_2_OFFERED,
+	
+	/**
+	 * The SpeakerNPC has offered a third quest; the player has to accept or
+	 * reject it.
+	 */
+	QUEST_3_OFFERED,
 
 	/**
 	 * The player has just started the quest.
