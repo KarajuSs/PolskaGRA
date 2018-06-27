@@ -61,6 +61,16 @@ public class OutfitAction implements ActionListener {
 				} else {
 					player.remove(COLOR_MAP, "dress");
 				}
+				
+				// Server changes us gender if we set definite body
+				if ((player.getOutfit().getBody() >= 6 && player.getOutfit().getBody() <= 11)
+						|| player.getOutfit().getBody() == 13 || player.getOutfit().getBody() == 15
+						|| (player.getOutfit().getBody() >= 17 && player.getOutfit().getBody() <= 20)
+						|| (player.getOutfit().getBody() == 24 || player.getOutfit().getBody() == 25)) {
+					player.setGender("F");
+				} else {
+					player.setGender("M");
+				}
 
 				// Players may change skin color
 				color = action.get("skin");
