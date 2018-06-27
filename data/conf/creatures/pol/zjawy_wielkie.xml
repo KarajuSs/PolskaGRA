@@ -24,7 +24,7 @@
 			<item value="czarne spodnie" quantity="[1,1]" probability="0.005"/>
 			<item value="czarne rękawice" quantity="[1,1]" probability="0.01"/>
 			<item value="czarna zbroja" quantity="[1,1]" probability="0.0005"/>
-			<item value="buty czarne" quantity="[1,1]" probability="0.0025"/>
+			<item value="czarne buty" quantity="[1,1]" probability="0.0025"/>
 			<item value="czarny płaszcz" quantity="[1,1]" probability="0.010"/>
 			<item value="czarna tarcza" quantity="[1,1]" probability="0.005"/>
 			<item value="czarny miecz" quantity="[1,1]" probability="0.005"/>
@@ -162,7 +162,7 @@
 		<drops>
 			<item value="wielki eliksir" quantity="[2,4]" probability="50.0"/>
 			<item value="money" quantity="[3000,10000]" probability="100.0"/>
-			<item value="kosa czarna" quantity="[1,1]" probability="0.005"/>
+			<item value="czarna kosa" quantity="[1,1]" probability="0.005"/>
 			<item value="czarne rękawice" quantity="[1,1]" probability="0.005"/>
 		</drops>
 		<equips/>

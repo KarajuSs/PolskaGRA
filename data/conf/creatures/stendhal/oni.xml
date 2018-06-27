@@ -51,7 +51,7 @@
 			<item value="money" quantity="[10,70]" probability="100.0"/>
 			<item value="złote spodnie" quantity="[1,1]" probability="2.0"/>
 			<item value="strzała złota" quantity="[8,15]" probability="5.0"/>
-			<item value="buty złote" quantity="[1,1]" probability="2.0"/>
+			<item value="złote buty" quantity="[1,1]" probability="2.0"/>
 		</drops>
 		<equips>
 			<slot name="lhand" item="strzała płonąca" quantity="10000"/>

@@ -26,7 +26,7 @@
 			<item value="spodnie nabijane klejnotami" quantity="[1,1]" probability="2.5"/>
 			<item value="czarny płaszcz" quantity="[1,1]" probability="2.5"/>
 			<item value="hełm libertyński" quantity="[1,1]" probability="1.0"/>
-			<item value="topór oburęczny magiczny" quantity="[1,1]" probability="2.0"/>
+			<item value="magiczny topór obosieczny" quantity="[1,1]" probability="2.0"/>
 			<item value="pióro mrocznego anioła" quantity="[1,1]" probability="100.0"/>
 		</drops>
 		<equips>

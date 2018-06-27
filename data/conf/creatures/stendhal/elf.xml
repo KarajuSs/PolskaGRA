@@ -21,7 +21,7 @@
 		<drops>
 			<item value="money" quantity="[4,40]" probability="100.0"/>
 			<item value="złota zbroja" quantity="[1,1]" probability="0.5"/>
-			<item value="buty złote" quantity="[1,1]" probability="0.5"/>
+			<item value="złote buty" quantity="[1,1]" probability="0.5"/>
 			<item value="złoty hełm" quantity="[1,1]" probability="0.35"/>
 			<item value="pałasz" quantity="[1,1]" probability="1.5"/>
 			<item value="peleryna elficka" quantity="[1,1]" probability="1.0"/>
@@ -87,7 +87,7 @@
 			<item value="duży eliksir" quantity="[1,2]" probability="20.0"/>
 			<item value="money" quantity="[10,70]" probability="100.0"/>
 			<item value="niezapisany zwój" quantity="[1,2]" probability="8.0"/>
-			<item value="gumka do czyszczenia zwoi" quantity="[1,1]" probability="0.4"/>
+			<item value="zwój czyszczący" quantity="[1,1]" probability="0.4"/>
 		</drops>
 		<equips>
 		</equips>
@@ -466,7 +466,7 @@
 			<item value="złota zbroja" quantity="[1,1]" probability="1.5"/>
 			<item value="zbroja cieni" quantity="[1,1]" probability="1.2"/>
 			<item value="czarna zbroja" quantity="[1,1]" probability="0.0005"/>
-			<item value="buty czarne" quantity="[1,1]" probability="0.2"/>
+			<item value="czarne buty" quantity="[1,1]" probability="0.2"/>
 			<item value="złoty płaszcz" quantity="[1,1]" probability="0.5"/>
 			<item value="czarna tarcza" quantity="[1,1]" probability="0.01"/>
 			<item value="miecz elfów ciemności" quantity="[1,1]" probability="1.0"/>
@@ -503,7 +503,7 @@
 			<item value="złota zbroja" quantity="[1,1]" probability="1.5"/>
 			<item value="zbroja cieni" quantity="[1,1]" probability="1.2"/>
 			<item value="czarna zbroja" quantity="[1,1]" probability="0.0005"/>
-			<item value="buty czarne" quantity="[1,1]" probability="0.2"/>
+			<item value="czarne buty" quantity="[1,1]" probability="0.2"/>
 			<item value="złoty płaszcz" quantity="[1,1]" probability="2.0"/>
 			<item value="płaszcz chaosu" quantity="[1,1]" probability="1.0"/>
 			<item value="czarna tarcza" quantity="[1,1]" probability="0.01"/>
@@ -883,7 +883,7 @@
 			<item value="zbroja elficka" quantity="[1,1]" probability="0.05"/>
 			<item value="złota zbroja" quantity="[1,1]" probability="0.0050"/>
 			<item value="buty elfickie" quantity="[1,1]" probability="1.0"/>
-			<item value="buty złote" quantity="[1,1]" probability="0.25"/>
+			<item value="złote buty" quantity="[1,1]" probability="0.25"/>
 			<item value="lazurowy płaszcz elficki" quantity="[1,1]" probability="0.5"/>
 			<item value="złoty hełm" quantity="[1,1]" probability="0.35"/>
 			<item value="wzmocniona lwia tarcza" quantity="[1,1]" probability="2.0"/>
