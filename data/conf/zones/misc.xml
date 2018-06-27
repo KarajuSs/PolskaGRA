@@ -8,7 +8,7 @@
 			<parameter name="color_method">softlight</parameter>
 			<parameter name="color">#008888</parameter>
 		</attributes>
-		<!-- <portal x="31" y="1" ref="afterlife_zakopane_1_exit">
+		<portal x="31" y="1" ref="afterlife_zakopane_1_exit">
 			<destination zone="0_zakopane_s" ref="zakopane_1_restart_life"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.QuestCheckingPortal">
 				<parameter name="quest">0_zakopane_s</parameter>
@@ -21,7 +21,7 @@
 				<parameter name="quest">0_zakopane_s</parameter>
 				<parameter name="rejected">Nie możesz tam pójść ponieważ nie odwiedziłeś tej krainy.</parameter>
 			</implementation>
-		</portal>-->
+		</portal>
 		<portal x="11" y="13" ref="afterlife_ados_exit">
 			<destination zone="0_ados_city_n" ref="ados_restart_life"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.QuestCheckingPortal">
@@ -50,13 +50,6 @@
 				<parameter name="rejected">Nie możesz tam pójść ponieważ nie odwiedziłeś tej krainy.</parameter>
 			</implementation>
 		</portal>
-		<!-- <portal x="42" y="13" ref="afterlife_krakow_exit">
-			<destination zone="0_krakow_wawel_w" ref="krakow_restart_life"/>
-			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.QuestCheckingPortal">
-				<parameter name="quest">0_krakow_wawel_w</parameter>
-				<parameter name="rejected">Nie możesz tam pójść ponieważ nie odwiedziłeś tej krainy.</parameter>
-			</implementation>
-		</portal>-->
 		<portal x="42" y="19" ref="afterlife_nalwor_exit">
 			<destination zone="0_nalwor_city" ref="nalwor_restart_life"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.QuestCheckingPortal">
@@ -71,20 +64,6 @@
 				<parameter name="rejected">Nie możesz tam pójść ponieważ nie odwiedziłeś tej krainy.</parameter>
 			</implementation>
 		</portal>
-		<!--<portal x="52" y="19" ref="afterlife_warszawa_exit">
-			<destination zone="0_warszawa_nw" ref="warszawa_restart_life"/>
-			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.QuestCheckingPortal">
-				<parameter name="quest">0_warszawa_nw</parameter>
-				<parameter name="rejected">Nie możesz tam pójść ponieważ nie odwiedziłeś tej krainy.</parameter>
-			</implementation>
-		</portal>
-		<portal x="42" y="7" ref="afterlife_gdansk_exit">
-			<destination zone="0_gdansk_n" ref="gdansk_restart_life"/>
-			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.QuestCheckingPortal">
-				<parameter name="quest">0_gdansk_n</parameter>
-				<parameter name="rejected">Nie możesz tam pójść ponieważ nie odwiedziłeś tej krainy.</parameter>
-			</implementation>
-		</portal>-->
 
 		<entity x="31" y="3">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign"/>
@@ -116,11 +95,6 @@
 			<attribute name="text">#Kirdneh
 			</attribute>
 		</entity>
-		<entity x="40" y="12">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign"/>
-			<attribute name="text">#Kraków
-			</attribute>
-		</entity>
 		<entity x="40" y="18">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign"/>
 			<attribute name="text">#Nalwor
@@ -129,16 +103,6 @@
 		<entity x="50" y="12">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign"/>
 			<attribute name="text">#Semos
-			</attribute>
-		</entity>
-		<entity x="50" y="18">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign"/>
-			<attribute name="text">#Warszawa
-			</attribute>
-		</entity>
-		<entity x="40" y="6">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign"/>
-			<attribute name="text">#Gdańsk
 			</attribute>
 		</entity>
 
@@ -222,12 +186,12 @@ Idź dalej, a wrócisz do krainy, w której żyjesz...
 
 	<zone name="int_abstract_admin_investigation" file="interiors/abstract/admin_investigation.tmx">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleport" />
-		<!-- <portal x="6" y="10" ref="entrance1">
+		<portal x="6" y="10" ref="entrance1">
 			<destination zone="0_zakopane_s" ref="zakopane_1_restart_life" />
 		</portal>
 		<portal x="19" y="10" ref="entrance2">
 			<destination zone="0_zakopane_s" ref="zakopane_2_restart_life" />
-		</portal>-->
+		</portal>
 
 		<entity x="16" y="2">
 			<implementation
@@ -303,10 +267,6 @@ Idź dalej, a wrócisz do krainy, w której żyjesz...
 	<zone name="int_adventure_island" file="interiors/abstract/adventure_island.tmx"
 		accessible="false">
 	</zone>
-	
-	<!-- <zone name="int_adventure_cave" file="interiors/abstract/adventure_cave.tmx"
-		accessible="false">
-	</zone> -->
 
 	<zone name="int_pathfinding" file="interiors/abstract/pathfinding.tmx"
 		accessible="false">
@@ -368,4 +328,76 @@ Idź dalej, a wrócisz do krainy, w której żyjesz...
 		</entity>
 	</zone>
 
+	<!-- Raid Map
+	<zone name="raid_map" file="interiors/abstract/raid_main.tmx">
+		<entity x="8" y="23">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.Gate">
+				<parameter name="image">fence_gate</parameter>
+				<parameter name="orientation">h</parameter>
+				<parameter name="autoclose">2</parameter>
+			</implementation>
+		</entity>
+		
+		<entity x="22" y="23">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.Gate">
+				<parameter name="image">fence_gate</parameter>
+				<parameter name="orientation">h</parameter>
+				<parameter name="autoclose">2</parameter>
+			</implementation>
+		</entity>
+		
+		<entity x="35" y="23">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.Gate">
+				<parameter name="image">fence_gate</parameter>
+				<parameter name="orientation">h</parameter>
+				<parameter name="autoclose">2</parameter>
+			</implementation>
+		</entity>
+		
+		<entity x="48" y="34">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.Gate">
+				<parameter name="image">fence_gate</parameter>
+				<parameter name="orientation">v</parameter>
+				<parameter name="autoclose">2</parameter>
+			</implementation>
+		</entity>
+		
+		<entity x="52" y="42">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.Gate">
+				<parameter name="image">fence_gate</parameter>
+				<parameter name="orientation">v</parameter>
+				<parameter name="autoclose">2</parameter>
+			</implementation>
+		</entity>
+		
+		<entity x="43" y="52">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.Gate">
+				<parameter name="image">fence_gate</parameter>
+				<parameter name="orientation">h</parameter>
+				<parameter name="autoclose">2</parameter>
+			</implementation>
+		</entity>
+		
+		<entity x="57" y="52">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.Gate">
+				<parameter name="image">fence_gate</parameter>
+				<parameter name="orientation">h</parameter>
+				<parameter name="autoclose">2</parameter>
+			</implementation>
+		</entity>
+		<portal x="58" y="44" ref="raid_map_exit">
+			<destination zone="0_zakopane_s" ref="raid_map_life"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.QuestCheckingPortal">
+				<parameter name="quest">0_zakopane_s</parameter>
+				<parameter name="rejected">Nie możesz tam pójść ponieważ nie odwiedziłeś tej krainy.</parameter>
+			</implementation>
+		</portal>
+				<entity x="57" y="44">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign"/>
+			<attribute name="text">
+Wyjście do #Zakopca!
+			</attribute>
+			<attribute name="class">default</attribute>
+		</entity>
+	</zone> -->
 </zones>

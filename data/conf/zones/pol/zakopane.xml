@@ -11,7 +11,7 @@
 	<zone name="0_zakopane_nw" level="0" x="513184" y="18432" file="Level 0/zakopane/zakopane_nw.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
-			<parameter name="weather">varying(temperature=+1,rain_heavy=+1)</parameter>
+			<parameter name="weather">varying(temperature=+1)</parameter>
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
@@ -678,8 +678,15 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
 			</implementation>
 		</portal>
-		<portal x="110" y="30" ref="house_204_entrance">
-			<destination zone="int_zakopane_house_204" ref="house_204_exit"/>
+		<portal x="110" y="30" ref="house_204_entrance_1">
+			<destination zone="int_zakopane_house_204" ref="house_204_exit_1"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
+				<parameter name="doorId">zakopane house 204</parameter>
+				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
+			</implementation>
+		</portal>
+		<portal x="113" y="30" ref="house_204_entrance_2">
+			<destination zone="int_zakopane_house_204" ref="house_204_exit_2"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
 				<parameter name="doorId">zakopane house 204</parameter>
 				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
@@ -1539,11 +1546,16 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 
 	<zone name="int_zakopane_house_204" file="interiors/zakopane/house_204.tmx" accessible="false">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
-		<portal x="5" y="23" ref="house_204_exit">
-			<destination zone="0_zakopane_s" ref="house_204_entrance"/>
-		</portal>
+		
 		<portal x="2" y="22" ref="house_204_gora">
 			<destination zone="int_zakopane_house_204_1" ref="house_204_dol"/>
+		</portal>
+		
+		<portal x="5" y="23" ref="house_204_exit_1">
+			<destination zone="0_zakopane_s" ref="house_204_entrance_1"/>
+		</portal>
+		<portal x="21" y="23" ref="house_204_exit_2">
+			<destination zone="0_zakopane_s" ref="house_204_entrance_2"/>
 		</portal>
 	</zone>
 
