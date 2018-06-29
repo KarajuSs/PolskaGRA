@@ -40,7 +40,7 @@ public class ExperienceAchievementFactory extends AbstractAchievementFactory {
 												new LevelGreaterThanCondition(49)));
 		xpAchievements.add(createAchievement("xp.level.100", "Kmieć", "Osiągnął poziom 100", Achievement.EASY_BASE_SCORE, true,
 												new LevelGreaterThanCondition(99)));
-		xpAchievements.add(createAchievement("xp.level.150", "Miszczanin", "Osiągnął poziom 150", Achievement.EASY_BASE_SCORE, true,
+		xpAchievements.add(createAchievement("xp.level.150", "Mieszczanin", "Osiągnął poziom 150", Achievement.EASY_BASE_SCORE, true,
 												new LevelGreaterThanCondition(149)));
 		xpAchievements.add(createAchievement("xp.level.200", "Szlachcic", "Osiągnął poziom 200", Achievement.MEDIUM_BASE_SCORE, true,
 												new LevelGreaterThanCondition(199)));
