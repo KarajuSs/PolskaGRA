@@ -11,6 +11,7 @@ Changelog
 - od teraz można przyznać punkty umiejętności ataku / obrony / pkt atk/obr zależne od poziomu gracza jako nagrodę za poprawnie wykonane zadanie
 - nowy atrybut dla map - "dark" - dzięki, któremy mamy efekt nocy
 - dodano nową funckje, która sprawdza jaką mamy ustawioną szerokość okna gry i dostosowuje okienka wewnątrz gry
+- dodano nową funkcje zabezpieczającą konto przy rejestracji
 
 
 *naprawa błędów*
