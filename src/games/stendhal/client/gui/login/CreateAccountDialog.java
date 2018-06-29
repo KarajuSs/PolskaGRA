@@ -68,6 +68,8 @@ public class CreateAccountDialog extends JDialog {
 	private JPasswordField passwordretypeField;
 	/** Email input field. */
 	private JTextField emailField;
+	/** Code input field. */
+	private JTextField codeField;
 	/** Server name input field. */
 	private JTextField serverField;
 	/** Server port input field. */
@@ -76,7 +78,7 @@ public class CreateAccountDialog extends JDialog {
 	/** The client used for login. */
 	private StendhalClient client;
 	/** Descriptions of error conditions. */
-	private String badEmailTitle, badEmailReason, badPasswordReason;
+	private String badEmailTitle, badEmailReason, badPasswordReason, badCodeReason;
 
 	/**
 	 * Create an CreateAccountDialog for a parent window, and specified client.
@@ -137,6 +139,9 @@ public class CreateAccountDialog extends JDialog {
 
 		JLabel emailLabel = new JLabel("Adres e-mail (opcjonalnie)");
 		emailField = new JTextField();
+		
+		JLabel codeLabel = new JLabel("Kod postaci (maks. 7 cyfr)");
+		codeField = new JTextField();
 
 		// createAccountButton
 		//
@@ -186,6 +191,10 @@ public class CreateAccountDialog extends JDialog {
 		// row 5
 		grid.add(emailLabel);
 		grid.add(emailField);
+		
+		// row 6
+		grid.add(codeLabel);
+		grid.add(codeField);
 
 		// A toggle for showing the contents of the password fields
 		grid.add(new JComponent(){});
@@ -442,9 +451,53 @@ public class CreateAccountDialog extends JDialog {
 			}
 			// yes, continue anyway
 		}
+		
+		//
+		// Check the code
+		//
+		final String code = (codeField.getText()).trim();
+		if  (!validateCode(code)) {
+			final int i = JOptionPane.showOptionDialog(owner, badCodeReason,
+					"Niewłaściwy kod postaci",
+					JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE,
+					null, null, 1);
+			if (i != 0) {
+				return false;
+			}
+			return false;
+		}
 		return true;
 	}
 
+	/**
+	 * Validate code field format.
+	 *
+	 * @param code to be validate
+	 * @return <code>true</code> if the code looks good enough, otherwise
+	 *	<code>false</code>
+	 */
+	private boolean validateCode(final String code) {
+		boolean allNumbers = true;
+		try {
+			Integer.parseInt(code);
+		} catch (final NumberFormatException e) {
+			allNumbers = false;
+		}
+		if (code.isEmpty()) {
+			badCodeReason = "Pole kod postaci nie może być puste! Musisz je wypełnić!";
+			return false;
+		} else if (!allNumbers) {
+			badCodeReason = "Twój kod postaci musi zawierac tylko same cyfry!";
+			return false;
+		} else {
+			if (code.length() <= 3 || code.length() > 7) {
+				badCodeReason = "Twój kod postaci jest zbyt krótki! Musi zawierać conajmniej 4 cyfry, a maksymalnie \nmożesz wpisać 7 cyfr!";
+				return false;
+			}
+		}
+		return true;
+	}
+	
 	/**
 	 * Validate email field format.
 	 *
