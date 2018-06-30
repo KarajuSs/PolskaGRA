@@ -644,9 +644,6 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		<portal x="52" y="50" ref="hospital_entrance_3">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
 		</portal>
-		<portal x="92" y="72" ref="house_200_entrance">
-			<destination zone="int_zakopane_seller_house" ref="house_200_exit"/>
-		</portal>
 		
 		<portal x="102" y="42" ref="bank_entrace_1">
 			<destination zone="int_zakopane_bank_0" ref="bank_exit_1"/>
@@ -654,121 +651,127 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		<portal x="103" y="42" ref="bank_entrace_2">
 			<destination zone="int_zakopane_bank_0" ref="bank_exit_2"/>
 		</portal>
-		
 	
 		<!-- Houses -->
-		<portal x="79" y="67" ref="house_201_entrance">
-			<destination zone="int_zakopane_house_201" ref="house_201_exit"/>
+		<portal x="79" y="67" ref="house_216_entrance">
+			<destination zone="int_zakopane_house_216" ref="house_216_exit"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
-				<parameter name="doorId">zakopane house 201</parameter>
+				<parameter name="doorId">zakopane house 216</parameter>
 				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
 			</implementation>
 		</portal>
-		<portal x="91" y="60" ref="house_202_entrance">
-			<destination zone="int_zakopane_house_202" ref="house_202_exit"/>
+		<portal x="91" y="60" ref="house_217_entrance">
+			<destination zone="int_zakopane_house_217" ref="house_217_exit"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
-				<parameter name="doorId">zakopane house 202</parameter>
+				<parameter name="doorId">zakopane house 217</parameter>
 				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
 			</implementation>
 		</portal>
-		<portal x="81" y="54" ref="house_203_entrance">
-			<destination zone="int_zakopane_house_203" ref="house_203_exit"/>
+		<portal x="81" y="54" ref="house_218_entrance">
+			<destination zone="int_zakopane_house_218" ref="house_218_exit"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
-				<parameter name="doorId">zakopane house 203</parameter>
+				<parameter name="doorId">zakopane house 218</parameter>
 				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
 			</implementation>
 		</portal>
-		<portal x="110" y="30" ref="house_204_entrance_1">
-			<destination zone="int_zakopane_house_204" ref="house_204_exit_1"/>
+		<portal x="110" y="30" ref="house_219_entrance_1">
+			<destination zone="int_zakopane_house_219" ref="house_219_exit_1"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
-				<parameter name="doorId">zakopane house 204</parameter>
+				<parameter name="doorId">zakopane house 219</parameter>
 				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
 			</implementation>
 		</portal>
-		<portal x="113" y="30" ref="house_204_entrance_2">
-			<destination zone="int_zakopane_house_204" ref="house_204_exit_2"/>
+		<portal x="113" y="30" ref="house_219_entrance_2">
+			<destination zone="int_zakopane_house_219" ref="house_219_exit_2"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
-				<parameter name="doorId">zakopane house 204</parameter>
+				<parameter name="doorId">zakopane house 219</parameter>
 				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
 			</implementation>
 		</portal>
-		<portal x="84" y="11" ref="house_205_entrance">
-			<destination zone="int_zakopane_house_205" ref="house_205_exit"/>
+		<portal x="84" y="11" ref="house_220_entrance">
+			<destination zone="int_zakopane_house_220" ref="house_220_exit"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
-				<parameter name="doorId">zakopane house 205</parameter>
+				<parameter name="doorId">zakopane house 220</parameter>
 				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
 			</implementation>
 		</portal>
-		<portal x="116" y="16" ref="house_206_entrance">
-			<destination zone="int_zakopane_house_206" ref="house_206_exit"/>
+		<portal x="116" y="16" ref="house_221_entrance">
+			<destination zone="int_zakopane_house_221" ref="house_221_exit"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
-				<parameter name="doorId">zakopane house 206</parameter>
+				<parameter name="doorId">zakopane house 221</parameter>
 				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
 			</implementation>
 		</portal>
-		<portal x="104" y="10" ref="house_207_entrance">
-			<destination zone="int_zakopane_house_207" ref="house_207_exit"/>
+		<portal x="104" y="10" ref="house_222_entrance">
+			<destination zone="int_zakopane_house_222" ref="house_222_exit"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
-				<parameter name="doorId">zakopane house 207</parameter>
+				<parameter name="doorId">zakopane house 222</parameter>
 				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
 			</implementation>
 		</portal>
-		<portal x="98" y="96" ref="house_208_entrance">
-			<destination zone="int_zakopane_house_208" ref="house_208_exit"/>
+		<portal x="98" y="96" ref="house_223_entrance">
+			<destination zone="int_zakopane_house_223" ref="house_223_exit"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
-				<parameter name="doorId">zakopane house 208</parameter>
+				<parameter name="doorId">zakopane house 223</parameter>
 				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
 			</implementation>
 		</portal>
-		<portal x="72" y="120" ref="house_209_entrance">
-			<destination zone="int_zakopane_house_209" ref="house_209_exit"/>
+		<portal x="72" y="120" ref="house_224_entrance">
+			<destination zone="int_zakopane_house_224" ref="house_224_exit"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
-				<parameter name="doorId">zakopane house 209</parameter>
+				<parameter name="doorId">zakopane house 224</parameter>
 				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
 			</implementation>
 		</portal>
-		<portal x="81" y="117" ref="house_210_entrance">
-			<destination zone="int_zakopane_house_210" ref="house_210_exit"/>
+		<portal x="81" y="117" ref="house_225_entrance">
+			<destination zone="int_zakopane_house_225" ref="house_225_exit"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
-				<parameter name="doorId">zakopane house 210</parameter>
+				<parameter name="doorId">zakopane house 225</parameter>
 				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
 			</implementation>
 		</portal>
-		<portal x="73" y="112" ref="house_211_entrance">
-			<destination zone="int_zakopane_house_211" ref="house_211_exit"/>
+		<portal x="73" y="112" ref="house_226_entrance">
+			<destination zone="int_zakopane_house_226" ref="house_226_exit"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
-				<parameter name="doorId">zakopane house 211</parameter>
+				<parameter name="doorId">zakopane house 226</parameter>
 				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
 			</implementation>
 		</portal>
-		<portal x="80" y="109" ref="house_212_entrance">
-			<destination zone="int_zakopane_house_212" ref="house_212_exit"/>
+		<portal x="80" y="109" ref="house_227_entrance">
+			<destination zone="int_zakopane_house_227" ref="house_227_exit"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
-				<parameter name="doorId">zakopane house 212</parameter>
+				<parameter name="doorId">zakopane house 227</parameter>
 				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
 			</implementation>
 		</portal>
-		<portal x="70" y="105" ref="house_213_entrance">
-			<destination zone="int_zakopane_house_213" ref="house_213_exit"/>
+		<portal x="70" y="105" ref="house_228_entrance">
+			<destination zone="int_zakopane_house_228" ref="house_228_exit"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
-				<parameter name="doorId">zakopane house 213</parameter>
+				<parameter name="doorId">zakopane house 228</parameter>
 				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
 			</implementation>
 		</portal>
-		<portal x="78" y="101" ref="house_214_entrance">
-			<destination zone="int_zakopane_house_214" ref="house_214_exit"/>
+		<portal x="78" y="101" ref="house_229_entrance">
+			<destination zone="int_zakopane_house_229" ref="house_229_exit"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
-				<parameter name="doorId">zakopane house 214</parameter>
+				<parameter name="doorId">zakopane house 229</parameter>
 				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
 			</implementation>
 		</portal>
-		<portal x="88" y="102" ref="house_215_entrance">
-			<destination zone="int_zakopane_house_215" ref="house_215_exit"/>
+		<portal x="88" y="102" ref="house_230_entrance">
+			<destination zone="int_zakopane_house_230" ref="house_230_exit"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
-				<parameter name="doorId">zakopane house 215</parameter>
+				<parameter name="doorId">zakopane house 230</parameter>
 				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
 			</implementation>
-		</portal>	
+		</portal>
+		<portal x="92" y="72" ref="house_231_entrance">
+			<destination zone="int_zakopane_house_231" ref="house_231_exit"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
+				<parameter name="doorId">zakopane house 231</parameter>
+				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
+			</implementation>
+		</portal>
 	</zone>
 
 	<!-- zakopane_se -->
@@ -811,6 +814,123 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<destination zone="int_zakopane_mill_0" ref="entrance_mill_left"/>
 		</portal>
 		
+		<!-- House seller -->
+		<portal x="96" y="86" ref="house_200_entrance">
+			<destination zone="int_zakopane_seller_house" ref="house_200_exit"/>
+		</portal>
+		<!-- Houses -->
+		<portal x="83" y="81" ref="house_201_entrance">
+			<destination zone="int_zakopane_house_201" ref="house_201_exit"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
+				<parameter name="doorId">zakopane house 201</parameter>
+				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
+			</implementation>
+		</portal>
+		<portal x="95" y="74" ref="house_202_entrance">
+			<destination zone="int_zakopane_house_202" ref="house_202_exit"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
+				<parameter name="doorId">zakopane house 202</parameter>
+				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
+			</implementation>
+		</portal>
+		<portal x="85" y="68" ref="house_203_entrance">
+			<destination zone="int_zakopane_house_203" ref="house_203_exit"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
+				<parameter name="doorId">zakopane house 203</parameter>
+				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
+			</implementation>
+		</portal>
+		<portal x="98" y="60" ref="house_204_entrance_1">
+			<destination zone="int_zakopane_house_204" ref="house_204_exit_1"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
+				<parameter name="doorId">zakopane house 204</parameter>
+				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
+			</implementation>
+		</portal>
+		<portal x="101" y="60" ref="house_204_entrance_2">
+			<destination zone="int_zakopane_house_204" ref="house_204_exit_2"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
+				<parameter name="doorId">zakopane house 204</parameter>
+				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
+			</implementation>
+		</portal>
+		<portal x="88" y="56" ref="house_205_entrance">
+			<destination zone="int_zakopane_house_205" ref="house_205_exit"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
+				<parameter name="doorId">zakopane house 205</parameter>
+				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
+			</implementation>
+		</portal>
+		<portal x="104" y="46" ref="house_206_entrance">
+			<destination zone="int_zakopane_house_206" ref="house_206_exit"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
+				<parameter name="doorId">zakopane house 206</parameter>
+				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
+			</implementation>
+		</portal>
+		<portal x="92" y="40" ref="house_207_entrance">
+			<destination zone="int_zakopane_house_207" ref="house_207_exit"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
+				<parameter name="doorId">zakopane house 207</parameter>
+				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
+			</implementation>
+		</portal>
+		<portal x="112" y="38" ref="house_208_entrance">
+			<destination zone="int_zakopane_house_208" ref="house_208_exit"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
+				<parameter name="doorId">zakopane house 208</parameter>
+				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
+			</implementation>
+		</portal>
+		<portal x="91" y="30" ref="house_209_entrance">
+			<destination zone="int_zakopane_house_209" ref="house_209_exit"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
+				<parameter name="doorId">zakopane house 209</parameter>
+				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
+			</implementation>
+		</portal>
+		<portal x="100" y="27" ref="house_210_entrance">
+			<destination zone="int_zakopane_house_210" ref="house_210_exit"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
+				<parameter name="doorId">zakopane house 210</parameter>
+				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
+			</implementation>
+		</portal>
+		<portal x="92" y="22" ref="house_211_entrance">
+			<destination zone="int_zakopane_house_211" ref="house_211_exit"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
+				<parameter name="doorId">zakopane house 211</parameter>
+				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
+			</implementation>
+		</portal>
+		<portal x="99" y="19" ref="house_212_entrance">
+			<destination zone="int_zakopane_house_212" ref="house_212_exit"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
+				<parameter name="doorId">zakopane house 212</parameter>
+				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
+			</implementation>
+		</portal>
+		<portal x="89" y="15" ref="house_213_entrance">
+			<destination zone="int_zakopane_house_213" ref="house_213_exit"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
+				<parameter name="doorId">zakopane house 213</parameter>
+				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
+			</implementation>
+		</portal>
+		<portal x="97" y="11" ref="house_214_entrance">
+			<destination zone="int_zakopane_house_214" ref="house_214_exit"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
+				<parameter name="doorId">zakopane house 214</parameter>
+				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
+			</implementation>
+		</portal>
+		<portal x="107" y="12" ref="house_215_entrance">
+			<destination zone="int_zakopane_house_215" ref="house_215_exit"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
+				<parameter name="doorId">zakopane house 215</parameter>
+				<parameter name="rejected">Drzwi do tego domu są zamknięte.</parameter>
+			</implementation>
+		</portal>
 	</zone>
 
 	<!-- interiors -->
@@ -1496,7 +1616,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		<configurator class-name="games.stendhal.server.maps.zakopane.house.AlicjaNPC"/>
 		
 		<portal x="19" y="23" ref="house_200_exit">
-			<destination zone="0_zakopane_s" ref="house_200_entrance"/>
+			<destination zone="0_zakopane_se" ref="house_200_entrance"/>
 		</portal>
 	</zone>
 
@@ -1529,7 +1649,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<parameter name="y">13</parameter>
 		</configurator>
 		<portal x="6" y="23" ref="house_202_exit">
-			<destination zone="0_zakopane_s" ref="house_202_entrance"/>
+			<destination zone="0_zakopane_se" ref="house_202_entrance"/>
 		</portal>
 	</zone>
 
@@ -1540,7 +1660,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<parameter name="y">2</parameter>
 		</configurator>
 		<portal x="19" y="23" ref="house_203_exit">
-			<destination zone="0_zakopane_s" ref="house_203_entrance"/>
+			<destination zone="0_zakopane_se" ref="house_203_entrance"/>
 		</portal>
 	</zone>
 
@@ -1552,10 +1672,10 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		</portal>
 		
 		<portal x="5" y="23" ref="house_204_exit_1">
-			<destination zone="0_zakopane_s" ref="house_204_entrance_1"/>
+			<destination zone="0_zakopane_se" ref="house_204_entrance_1"/>
 		</portal>
 		<portal x="21" y="23" ref="house_204_exit_2">
-			<destination zone="0_zakopane_s" ref="house_204_entrance_2"/>
+			<destination zone="0_zakopane_se" ref="house_204_entrance_2"/>
 		</portal>
 	</zone>
 
@@ -1577,7 +1697,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<parameter name="y">2</parameter>
 		</configurator>
 		<portal x="18" y="23" ref="house_205_exit">
-			<destination zone="0_zakopane_s" ref="house_205_entrance"/>
+			<destination zone="0_zakopane_se" ref="house_205_entrance"/>
 		</portal>
 	</zone>
 
@@ -1588,14 +1708,14 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<parameter name="y">2</parameter>
 		</configurator>
 		<portal x="18" y="23" ref="house_206_exit">
-			<destination zone="0_zakopane_s" ref="house_206_entrance"/>
+			<destination zone="0_zakopane_se" ref="house_206_entrance"/>
 		</portal>
 	</zone>
 
 	<zone name="int_zakopane_house_207" file="interiors/zakopane/house_207.tmx" accessible="false">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
 		<portal x="7" y="13" ref="house_207_exit">
-			<destination zone="0_zakopane_s" ref="house_207_entrance"/>
+			<destination zone="0_zakopane_se" ref="house_207_entrance"/>
 		</portal>
 		<portal x="2" y="2" ref="house_207_dol">
 			<destination zone="int_zakopane_house_207_-1" ref="house_207_gora"/>
@@ -1616,7 +1736,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 	<zone name="int_zakopane_house_208" file="interiors/zakopane/house_208.tmx" accessible="false">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
 		<portal x="9" y="18" ref="house_208_exit">
-			<destination zone="0_zakopane_s" ref="house_208_entrance"/>
+			<destination zone="0_zakopane_se" ref="house_208_entrance"/>
 		</portal>
 		<portal x="2" y="2" ref="house_208_gora">
 			<destination zone="int_zakopane_house_208_1" ref="house_208_dol"/>
@@ -1641,7 +1761,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<parameter name="y">2</parameter>
 		</configurator>
 		<portal x="4" y="23" ref="house_209_exit">
-			<destination zone="0_zakopane_s" ref="house_209_entrance"/>
+			<destination zone="0_zakopane_se" ref="house_209_entrance"/>
 		</portal>
 	</zone>
 
@@ -1652,7 +1772,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<parameter name="y">2</parameter>
 		</configurator>
 		<portal x="18" y="23" ref="house_210_exit">
-			<destination zone="0_zakopane_s" ref="house_210_entrance"/>
+			<destination zone="0_zakopane_se" ref="house_210_entrance"/>
 		</portal>
 	</zone>
 
@@ -1663,7 +1783,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<parameter name="y">2</parameter>
 		</configurator>
 		<portal x="6" y="23" ref="house_211_exit">
-			<destination zone="0_zakopane_s" ref="house_211_entrance"/>
+			<destination zone="0_zakopane_se" ref="house_211_entrance"/>
 		</portal>
 	</zone>
 
@@ -1674,7 +1794,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<parameter name="y">2</parameter>
 		</configurator>
 		<portal x="19" y="23" ref="house_212_exit">
-			<destination zone="0_zakopane_s" ref="house_212_entrance"/>
+			<destination zone="0_zakopane_se" ref="house_212_entrance"/>
 		</portal>
 	</zone>
 
@@ -1685,7 +1805,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<parameter name="y">2</parameter>
 		</configurator>
 		<portal x="8" y="23" ref="house_213_exit">
-			<destination zone="0_zakopane_s" ref="house_213_entrance"/>
+			<destination zone="0_zakopane_se" ref="house_213_entrance"/>
 		</portal>
 	</zone>
 
@@ -1696,7 +1816,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<parameter name="y">2</parameter>
 		</configurator>
 		<portal x="6" y="23" ref="house_214_exit">
-			<destination zone="0_zakopane_s" ref="house_214_entrance"/>
+			<destination zone="0_zakopane_se" ref="house_214_entrance"/>
 		</portal>
 	</zone>
 
@@ -1707,7 +1827,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<parameter name="y">2</parameter>
 		</configurator>
 		<portal x="11" y="23" ref="house_215_exit">
-			<destination zone="0_zakopane_s" ref="house_215_entrance"/>
+			<destination zone="0_zakopane_se" ref="house_215_entrance"/>
 		</portal>
 	</zone>
 
@@ -1907,7 +2027,7 @@ Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z po
 
 	<!-- Playroom -->
 	<zone name="int_zakopane_playroom" file="interiors/zakopane/playroom.tmx">
-		<!-- <configurator class-name="games.stendhal.server.maps.zakopane.playroom.Playroomset"/> -->
+		<configurator class-name="games.stendhal.server.maps.zakopane.playroom.Playroomset"/>
 		
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
