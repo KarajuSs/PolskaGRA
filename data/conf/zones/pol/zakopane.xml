@@ -2061,6 +2061,9 @@ Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z po
 
 	<!-- Stable -->
 	<zone name="int_zakopane_stable" file="interiors/zakopane/stable.tmx">
+		<configurator class-name="games.stendhal.server.maps.zakopane.stable.StableNPC"/>
+		<configurator class-name="games.stendhal.server.maps.zakopane.stable.VetNPC"/>
+	
 		<entity x="15" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
 				<parameter name="sound">pol-horse1</parameter>
