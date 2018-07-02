@@ -9,7 +9,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-package games.stendhal.server.maps.krakow.jeweller;
+package games.stendhal.server.maps.koscielisko.jeweller;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -24,7 +24,7 @@ import games.stendhal.server.entity.npc.behaviour.impl.ProducerBehaviour;
 /*
  * Twilight zone is a copy of sewing room in dirty colours with a delirious sick lda (like Ida) in it
  */
-public class SapphireNPC implements ZoneConfigurator {
+public class CarbuncleNPC implements ZoneConfigurator {
 
 	/**
 	 * Configure a zone.
@@ -34,11 +34,11 @@ public class SapphireNPC implements ZoneConfigurator {
 	 */
 	@Override
 	public void configureZone(final StendhalRPZone zone, final Map<String, String> attributes) {
-		buildKrzesim(zone);
+		buildZiemirad(zone);
 	}
 
-	private void buildKrzesim(final StendhalRPZone zone) {
-		final SpeakerNPC krzesim = new SpeakerNPC("czeladnik Krzesim") {
+	private void buildZiemirad(final StendhalRPZone zone) {
+		final SpeakerNPC ziemirad = new SpeakerNPC("czeladnik Ziemirad") {
 
 			@Override
 			protected void createPath() {
@@ -49,31 +49,27 @@ public class SapphireNPC implements ZoneConfigurator {
 			protected void createDialog() {
 				addGreeting("Dzień dobry.");
 				addReply("mistrz",
-						"Mistrz już mi mówił. Mam obrobić kryształ #szafiru.");
-				addReply("szafiru",
-						"Zrobię to bez problemu. Proszę powiedzieć tylko #'oszlifuj szafir'.");
+						"Mistrz przysłał Wielmożność do mnie w sprawie rubinu? Obrobię go, wystarczy powiedzieć #'oszlifuj rubin'.");
 				addGoodbye("Dowidzenia.");
 				final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
-				requiredResources.put("money", 380);
-				requiredResources.put("kryształ szafiru", 1);
+				requiredResources.put("money", 580);
+				requiredResources.put("kryształ rubinu", 1);
 
 				final ProducerBehaviour behaviour = new ProducerBehaviour(
-					"krzesim_cast_sapphire", Arrays.asList("grind", "oszlifuj"), "szafir",
+					"ziemirad_cast_crbuncle", Arrays.asList("grind", "oszlifuj"), "rubin",
 					requiredResources, 4 * 60);
 
 				new ProducerAdder().addProducer(this, behaviour,
 						"Dzień dobry.");
 				addReply("money",
-						"Z tym pytaniem proszę zwrócić się do mistrza Drogosza.");
-				addReply("kryształ szafiru",
-						"Mistrza trzeba zapytać. On wie co, gdzie i jak.");
+						"Mistrz jest w tym temacie obeznany. Proszę jego zapytać.");
 			}
 		};
 
-		krzesim.setEntityClass("man_001_npc");
-		krzesim.setPosition(27, 17);
-		krzesim.setDirection(Direction.LEFT);
-		krzesim.initHP(100);
-		zone.add(krzesim);
+		ziemirad.setEntityClass("weaponsellernpc");
+		ziemirad.setPosition(4, 17);
+		ziemirad.setDirection(Direction.RIGHT);
+		ziemirad.initHP(100);
+		zone.add(ziemirad);
 	}
 }

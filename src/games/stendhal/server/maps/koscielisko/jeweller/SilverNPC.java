@@ -9,7 +9,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-package games.stendhal.server.maps.krakow.jeweller;
+package games.stendhal.server.maps.koscielisko.jeweller;
 
 import java.util.Arrays;
 import java.util.Map;
