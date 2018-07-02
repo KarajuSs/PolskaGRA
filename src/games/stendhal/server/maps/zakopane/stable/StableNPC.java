@@ -37,9 +37,9 @@ public class StableNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Oooh... Witaj bohaterze w mej stajni!");
-				addJob("Me praca? Jestem stajennym tutaj i zajmuje się końmi.");
-				addHelp("Możesz pomóc w uzdrowieniu moich koni.. Są bardzo chore. Podejdź do weterynarza wyżej i zapytaj co potrzebuje! Bo jo na tym się nie znam..");
+				addGreeting("Oooh... Witoj bohaterze w mej stajni!");
+				addJob("Mo praca? Jestem stajennym i zajmuje się końmi.");
+				addHelp("Możesz pomóc w uzdrowieniu mych koni.. Są bardzo chore. Przidź do weterynarza ino wyżej i zapytoj co potrzebuje! Bo jo na tym się nie znom..");
 				addGoodbye();
 			}
 			
