@@ -572,6 +572,26 @@ public final class ShopList {
 		shops.add("urodziny", "kanapka", 110);
 		shops.add("urodziny", "tabliczka czekolady", 80);
 		shops.add("urodziny", "lukrecja", 80);
+		
+		//Wielkolud kupuje
+		shops.add("buyrareitems", "kierpce", 100);
+		shops.add("buyrareitems", "chusta góralska", 200);
+		shops.add("buyrareitems", "cuha góralska", 200);
+		shops.add("buyrareitems", "góralska kiecka", 200);
+		shops.add("buyrareitems", "góralski gorset", 300);
+		shops.add("buyrareitems", "góralski kapelusz", 300);
+		shops.add("buyrareitems", "portki bukowe", 300);
+		shops.add("buyrareitems", "polska tarcza lekka", 500);
+		shops.add("buyrareitems", "polska tarcza drewniana", 750);
+		shops.add("buyrareitems", "polska tarcza kolcza", 1000);
+		shops.add("buyrareitems", "polska tarcza płytowa", 2000);
+		shops.add("buyrareitems", "polska tarcza ciężka", 2500);
+		shops.add("buyrareitems", "korale", 2500);
+		shops.add("buyrareitems", "pas zbójecki", 3000);
+		shops.add("buyrareitems", "ciupaga", 4000);
+		shops.add("buyrareitems", "spinka", 20000);
+		shops.add("buyrareitems", "złota ciupaga", 25000);
+		shops.add("buyrareitems", "szczerbiec", 1000000);
 	}
 
 	private static ShopList instance;
