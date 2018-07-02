@@ -62,6 +62,8 @@ public class Zone {
 	private CollisionDetection collision;
 	/** Protection layer. */
 	private CollisionDetection protection;
+	/** Secret layer. */
+	private CollisionDetection secret;
 	/** Tilesets. */
 	private TileStore tileset;
 	/**
@@ -164,6 +166,12 @@ public class Zone {
 			 */
 			protection = new CollisionDetection();
 			protection.setCollisionData(LayerDefinition.decode(in));
+		} else if (layer.equals("secret")) {
+			/*
+			 * Add a secret layer.
+			 */
+			secret = new CollisionDetection();
+			secret.setCollisionData(LayerDefinition.decode(in));
 		} else if (layer.equals("tilesets")) {
 			/*
 			 * Add tileset
@@ -382,6 +390,15 @@ public class Zone {
 	 */
 	public CollisionDetection getProtection() {
 		return protection;
+	}
+	
+	/**
+	 * Get the secret map.
+	 * 
+	 * @return secret.
+	 */
+	CollisionDetection getSecret() {
+		return secret;
 	}
 
 	/**

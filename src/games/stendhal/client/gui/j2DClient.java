@@ -63,6 +63,7 @@ import games.stendhal.client.GameLoop;
 import games.stendhal.client.GameObjects;
 import games.stendhal.client.GameScreen;
 import games.stendhal.client.PerceptionListenerImpl;
+import games.stendhal.client.StaticGameLayers;
 import games.stendhal.client.StendhalClient;
 import games.stendhal.client.StendhalClient.ZoneChangeListener;
 import games.stendhal.client.UserContext;
@@ -97,6 +98,7 @@ import games.stendhal.client.sound.facade.SoundGroup;
 import games.stendhal.client.sound.facade.SoundSystemFacade;
 import games.stendhal.client.sound.nosound.NoSoundFacade;
 import games.stendhal.client.sprite.DataLoader;
+import games.stendhal.common.CollisionDetection;
 import games.stendhal.common.Debug;
 import games.stendhal.common.MathHelper;
 import games.stendhal.common.NotificationType;
@@ -378,7 +380,6 @@ public class j2DClient implements UserInterface {
 		// *** Create the layout ***
 		// left side panel
 		final JComponent leftColumn = createLeftPanel();
-		client.addZoneChangeListener(minimap);
 
 		// Set maximum size to prevent the entry requesting massive widths, but
 		// force expand if there's extra space anyway
@@ -548,9 +549,18 @@ public class j2DClient implements UserInterface {
 		});
 
 		frame.pack();
-		horizSplit.setDividerLocation(leftColumn.getPreferredSize().width);
 		setInitialWindowStates();
 
+		/*
+		 *  A bit roundabout way to calculate the desired minsize, but
+		 *  different java versions seem to take the window decorations
+		 *  in account in rather random ways.
+		 */
+		final int width = frame.getWidth()
+		- minimap.getComponent().getWidth() - containerPanel.getWidth();
+		final int height = frame.getHeight() - chatLogArea.getHeight();
+
+		frame.setMinimumSize(new Dimension(width, height));
 		frame.setVisible(true);
 
 		/*
@@ -787,11 +797,12 @@ public class j2DClient implements UserInterface {
 
 		GameLoop loop = GameLoop.get();
 		final GameObjects gameObjects = client.getGameObjects();
+		final StaticGameLayers gameLayers = client.getStaticGameLayers();
 
 		loop.runAllways(new GameLoop.PersistentTask() {
 			@Override
 			public void run(int delta) {
-				gameLoop(delta, gameObjects);
+				gameLoop(delta, gameLayers, gameObjects);
 			}
 		});
 
@@ -813,7 +824,7 @@ public class j2DClient implements UserInterface {
 	 * @param delta difference to previous calling time
 	 * @param gameObjects
 	 */
-	private void gameLoop(final int delta, final GameObjects gameObjects) {
+	private void gameLoop(final int delta, final StaticGameLayers gameLayers, final GameObjects gameObjects) {
 		// Check logouts first, in case something goes wrong with the drawing
 		// code
 
@@ -850,6 +861,26 @@ public class j2DClient implements UserInterface {
 
 		logger.debug("Move objects");
 		gameObjects.update(delta);
+		
+		if (gameLayers.isAreaChanged()) {
+			// Same thread as the ClientFramework loop, so these should
+			// be save
+			/*
+			 * Update the screen
+			 */
+			screenController.setWorldSize(gameLayers.getWidth(), gameLayers.getHeight());
+
+			// [Re]create the map.
+
+			final CollisionDetection cd = gameLayers.getCollisionDetection();
+			final CollisionDetection pd = gameLayers.getProtectionDetection();
+			final CollisionDetection sd = gameLayers.getSecretDetection();
+
+			if (cd != null) {
+				minimap.update(cd, pd, sd, gameLayers.getAreaName(), gameLayers.getDangerLevel());
+			}
+			gameLayers.resetChangedArea();
+		}
 
 		final User user = User.get();
 

@@ -48,6 +48,10 @@ class MapPanel extends JComponent {
 	 */
 	private static final Color COLOR_PROTECTION = new Color(202, 230, 202);
 	/**
+	 * The color of secret areas (red).
+	 */
+	private static final Color COLOR_SECRET = new Color(1.0f, 0.0f, 0.0f);
+	/**
 	 * The color of other players (white).
 	 */
 
@@ -258,7 +262,7 @@ class MapPanel extends JComponent {
 	 * @param pd
 	 *      	  The protection map.
 	 */
-	void update(final CollisionDetection cd, final CollisionDetection pd) {
+	void update(final CollisionDetection cd, final CollisionDetection pd, final CollisionDetection sd) {
 		// calculate the size and scale of the map
 		final int mapWidth = cd.getWidth();
 		final int mapHeight = cd.getHeight();
@@ -282,6 +286,9 @@ class MapPanel extends JComponent {
 				} else if (pd != null && pd.collides(x, y)) {
 					// draw protection only if there is no collision to draw
 					g.setColor(COLOR_PROTECTION);
+					g.fillRect(x * scale, y * scale, scale, scale);
+				} else if (sd != null && sd.collides(x, y)) {
+					g.setColor(COLOR_SECRET);
 					g.fillRect(x * scale, y * scale, scale, scale);
 				}
 			}

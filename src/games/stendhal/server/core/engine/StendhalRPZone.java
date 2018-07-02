@@ -141,6 +141,8 @@ public class StendhalRPZone extends MarauroaRPZone {
 
 	/** Contains data to verify is someone is in a PK-free area. */
 	public CollisionDetection protectionMap;
+	
+	public CollisionDetection secretMap;
 
 	/** Position of this zone in the world map. */
 	private boolean interior = true;
@@ -198,6 +200,7 @@ public class StendhalRPZone extends MarauroaRPZone {
 
 		collisionMap = new CollisionDetection();
 		protectionMap = new CollisionDetection();
+		secretMap = new CollisionDetection();
 
 		String readable = createReadableName(name);
 		if (!name.equals(readable)) {
@@ -225,6 +228,7 @@ public class StendhalRPZone extends MarauroaRPZone {
 		contents.addAll(zone.contents);
 		collisionMap = zone.collisionMap;
 		protectionMap  = zone.protectionMap;
+		secretMap  = zone.secretMap;
 
 		this.zoneid = new ID(name);
 	}
@@ -447,6 +451,12 @@ public class StendhalRPZone extends MarauroaRPZone {
 			throws IOException {
 		addToContent(name, protectionLayer.encode());
 		protectionMap.setCollisionData(protectionLayer);
+	}
+	
+	public void addSecretLayer(final String name, final LayerDefinition secretLayer)
+			throws IOException {
+		addToContent(name, secretLayer.encode());
+		secretMap.setCollisionData(secretLayer);
 	}
 
 	public void setPosition(final int level, final int x, final int y) {
@@ -797,6 +807,11 @@ public class StendhalRPZone extends MarauroaRPZone {
 	public boolean isInProtectionArea(final Entity entity) {
 		final Rectangle2D area = entity.getArea();
 		return protectionMap.collides(area);
+	}
+	
+	public boolean isInSecretArea(final Entity entity) {
+		final Rectangle2D area = entity.getArea();
+		return secretMap.collides(area);
 	}
 
 	public boolean leavesZone(final Entity entity, final double x, final double y) {

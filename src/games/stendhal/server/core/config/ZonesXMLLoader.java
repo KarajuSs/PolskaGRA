@@ -213,6 +213,7 @@ public final class ZonesXMLLoader {
 		// Roof layers are optional
 		loadOptionalLayer(zone, zonedata, "3_roof");
 		loadOptionalLayer(zone, zonedata, "4_roof_add");
+		loadOptionalLayer(zone, zonedata, "secret");
 		// Effect layers are optional too
 		loadOptionalLayer(zone, zonedata, "blend_ground");
 		loadOptionalLayer(zone, zonedata, "blend_roof");
