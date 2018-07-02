@@ -11,8 +11,9 @@
 	<zone name="0_koscielisko_ne" level="0" x="513056" y="18432" file="Level 0/koscielisko/koscielisko_ne.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">varying(temperature=+2)</parameter>
 		</attributes>
-		<configurator class-name="games.stendhal.server.maps.pol.koscielisko.plains.WielkoludNPC"/>
+		<configurator class-name="games.stendhal.server.maps.koscielisko.plains.WielkoludNPC"/>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">pol-inthedark1</parameter>
@@ -41,6 +42,7 @@
 	<zone name="0_koscielisko_nw" level="0" x="512928" y="18432" file="Level 0/koscielisko/koscielisko_nw.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">varying(temperature=+2)</parameter>
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
@@ -66,9 +68,10 @@
 	<zone name="0_koscielisko_e" level="0" x="513056" y="18560" file="Level 0/koscielisko/koscielisko_e.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">varying(temperature=-1)</parameter>
 		</attributes>
-		<configurator class-name="games.stendhal.server.maps.pol.koscielisko.plains.DogSellerNPC"/>
-		<configurator class-name="games.stendhal.server.maps.pol.koscielisko.plains.BrzezdomNPC"/>
+		<configurator class-name="games.stendhal.server.maps.koscielisko.plains.DogSellerNPC"/>
+		<configurator class-name="games.stendhal.server.maps.koscielisko.plains.BrzezdomNPC"/>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">pol-inthedark1</parameter>
@@ -109,6 +112,7 @@
 	<zone name="0_koscielisko_w" level="0" x="512928" y="18560" file="Level 0/koscielisko/koscielisko_w.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">varying(temperature=+2)</parameter>
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
@@ -157,6 +161,7 @@ Oto opuszczona kopalnia węgla!
 	<zone name="0_koscielisko_se" level="0" x="513056" y="18688" file="Level 0/koscielisko/koscielisko_se.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">varying(temperature=-2)</parameter>
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
@@ -173,11 +178,8 @@ Oto opuszczona kopalnia węgla!
 			</implementation>
 		</entity>
 
-		<portal x="42" y="118" ref="enterance_stones_room_1">
-			<destination zone="int_koscielisko_stones_room" ref="exit_stones_room_1"/>
-		</portal>
-		<portal x="43" y="119" ref="enterance_stones_room_2">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
+		<portal x="42" y="118" ref="enterance_stones_room">
+			<destination zone="int_koscielisko_stones_room" ref="exit_stones_room"/>
 		</portal>
 	</zone>
 	
@@ -185,6 +187,7 @@ Oto opuszczona kopalnia węgla!
 	<zone name="0_koscielisko_sw" level="0" x="512928" y="18688" file="Level 0/koscielisko/koscielisko_sw.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">varying(temperature=+1)</parameter>
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
@@ -246,8 +249,8 @@ kopalnia węgla!
 
 	<zone name="int_koscielisko_stones_room" file="interiors/koscielisko/stones_room.tmx">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
-		<configurator class-name="games.stendhal.server.maps.pol.koscielisko.stones.KowalJacekNPC"/>
-		<configurator class-name="games.stendhal.server.maps.pol.koscielisko.stones.MinerNPC"/>
+		<configurator class-name="games.stendhal.server.maps.koscielisko.stones.KowalJacekNPC"/>
+		<configurator class-name="games.stendhal.server.maps.koscielisko.stones.MinerNPC"/>
 		<!-- table -->
 		<entity x="17" y="4">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker"/>
@@ -262,11 +265,8 @@ kopalnia węgla!
 			<attribute name="height">3</attribute>
 		</entity>
 
-		<portal x="11" y="13" ref="exit_stones_room_1">
-			<destination zone="0_koscielisko_se" ref="enterance_stones_room_1"/>
-		</portal>
-		<portal x="12" y="13" ref="exit_stones_room_2">
-			<destination zone="0_koscielisko_se" ref="enterance_stones_room_2"/>
+		<portal x="11" y="13" ref="exit_stones_room">
+			<destination zone="0_koscielisko_se" ref="enterance_stones_room"/>
 		</portal>
 	</zone>
 
@@ -324,12 +324,12 @@ kopalnia węgla!
 		</portal>
 	</zone>
 
-	<zone name="int_koscielisko_goldsmith" file="interiors/krakow/goldsmith.tmx">
-		<configurator class-name="games.stendhal.server.maps.pol.krakow.jeweller.SilverNPC" />
-		<configurator class-name="games.stendhal.server.maps.pol.krakow.jeweller.ObsidianNPC" />
-		<configurator class-name="games.stendhal.server.maps.pol.krakow.jeweller.CarbuncleNPC" />
-		<configurator class-name="games.stendhal.server.maps.pol.krakow.jeweller.EmeraldNPC" />
-		<configurator class-name="games.stendhal.server.maps.pol.krakow.jeweller.SapphireNPC" />
+	<zone name="int_koscielisko_goldsmith" file="interiors/koscielisko/goldsmith.tmx">
+		<configurator class-name="games.stendhal.server.maps.koscielisko.jeweller.SilverNPC" />
+		<configurator class-name="games.stendhal.server.maps.koscielisko.jeweller.ObsidianNPC" />
+		<configurator class-name="games.stendhal.server.maps.koscielisko.jeweller.CarbuncleNPC" />
+		<configurator class-name="games.stendhal.server.maps.koscielisko.jeweller.EmeraldNPC" />
+		<configurator class-name="games.stendhal.server.maps.koscielisko.jeweller.SapphireNPC" />
 		<portal x="15" y="46" ref="zlotnik_1_enterance">
 			<destination zone="1_koscielisko_zamek" ref="zlotnik_1_exit"/>
 		</portal>
@@ -340,7 +340,7 @@ kopalnia węgla!
 
 	<!-- house_baca -->
 	<zone name="int_koscielisko_house" file="interiors/koscielisko/baca_house.tmx">
-		<configurator class-name="games.stendhal.server.maps.pol.koscielisko.house.GazdzinaMaryskaNPC"/>
+		<configurator class-name="games.stendhal.server.maps.koscielisko.house.GazdzinaMaryskaNPC"/>
 		<portal x="25" y="33" ref="exit_koscielisko_house">
 			<destination zone="0_koscielisko_e" ref="enterance_koscielisko_house"/>
 		</portal>
@@ -553,7 +553,7 @@ kopalnia węgla!
 		<attributes>
 			<parameter name="color_method">dark</parameter>
 		</attributes>
-		<configurator class-name="games.stendhal.server.maps.pol.koscielisko.cave.Skille50NPC"/>
+		<configurator class-name="games.stendhal.server.maps.koscielisko.cave.Skille50NPC"/>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">main-theme</parameter>
@@ -578,8 +578,8 @@ kopalnia węgla!
 
 	<!-- koscielisko_zamek -->
 	<zone name="1_koscielisko_zamek" level="1" x="513440" y="18048" file="Level 1/koscielisko/zamek_zrc.tmx">
-		<configurator class-name="games.stendhal.server.maps.pol.koscielisko.zrc.EdgardNPC"/>
-		<configurator class-name="games.stendhal.server.maps.pol.koscielisko.zrc.ZakonnikNPC"/>
+		<configurator class-name="games.stendhal.server.maps.koscielisko.zrc.EdgardNPC"/>
+		<configurator class-name="games.stendhal.server.maps.koscielisko.zrc.ZakonnikNPC"/>
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
 		<entity x="41" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.area.LifeHealArea">
@@ -767,7 +767,7 @@ kopalnia węgla!
 	<zone name="1_koscielisko_podzamcze_zrc" level="1" x="513440" y="18176" file="Level 1/koscielisko/podzamcze_zrc.tmx">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
 		<entity x="1" y="127">
-			<implementation class-name="games.stendhal.server.maps.pol.koscielisko.zrc.CienNPC">
+			<implementation class-name="games.stendhal.server.maps.koscielisko.zrc.CienNPC">
 				<parameter name="name">Cień</parameter>
 			</implementation>
 			<attribute name="class">transparentnpc</attribute>
