@@ -783,7 +783,7 @@ public class GameScreen extends JComponent implements IGameScreen, DropTarget,
 	 * @param width The world width.
 	 * @param height The height width.
 	 */
-	private void setMaxWorldSize(final double width, final double height) {
+	public void setMaxWorldSize(final double width, final double height) {
 		ww = (int) width;
 		wh = (int) height;
 		calculateView(x, y);
