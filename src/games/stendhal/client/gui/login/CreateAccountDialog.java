@@ -13,6 +13,7 @@ package games.stendhal.client.gui.login;
 
 import java.awt.Frame;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,6 +22,7 @@ import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.Locale;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -35,6 +37,9 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import javax.swing.text.AbstractDocument;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.PlainDocument;
 
 import org.apache.log4j.Logger;
 
@@ -128,8 +133,9 @@ public class CreateAccountDialog extends JDialog {
 				ClientGameConfiguration.get("DEFAULT_PORT"));
 		((AbstractDocument) serverPortField.getDocument()).setDocumentFilter(new NumberDocumentFilter(serverPortField, false));
 
-		JLabel usernameLabel = new JLabel("Login");
+		JLabel usernameLabel = new JLabel("Wybierz imię wojownika");
 		usernameField = new JTextField();
+		//usernameField.setDocument(new LowerCaseLetterDocument());
 
 		JLabel passwordLabel = new JLabel("Hasło (min. 6 znaków)");
 		passwordField = new JPasswordField();
@@ -628,7 +634,9 @@ public class CreateAccountDialog extends JDialog {
 	/**
 	 * A document that can contain only lower case characters.
 	 */
-	/*private static class LowerCaseLetterDocument extends PlainDocument {
+	private static class LowerCaseLetterDocument extends PlainDocument {
+		private static final long serialVersionUID = -5123268875802709841L;
+
 		@Override
 		public void insertString(final int offs, final String str, final AttributeSet a)
 				throws BadLocationException {
@@ -636,7 +644,13 @@ public class CreateAccountDialog extends JDialog {
 			boolean ok = true;
 			for (int i = lower.length() - 1; i >= 0; i--) {
 				final char chr = lower.charAt(i);
-				if ((chr < 'a') || (chr > 'z')) {
+				if (((chr < 'a') || (chr > 'z')) && (chr != 'ą') && (chr != 'ć')
+					&& (chr != 'ę') && (chr != 'ł') && (chr != 'ń') || (chr != 'ó')
+					&& (chr != 'ś') && (chr != 'ź') && (chr != 'ż')
+					&& (chr != '!') && (chr != '@') && (chr != '$') && (chr != '%')
+					&& (chr != '^') && (chr != '&') && (chr != '*') && (chr != '(')
+					&& (chr != ')') && (chr != '-') && (chr != '_') && (chr != '+')
+					&& (chr != '=') && (chr != '?')) {
 					ok = false;
 					break;
 				}
@@ -647,5 +661,5 @@ public class CreateAccountDialog extends JDialog {
 				Toolkit.getDefaultToolkit().beep();
 			}
 		}
-	}*/
+	}
 }

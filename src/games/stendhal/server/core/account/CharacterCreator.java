@@ -59,10 +59,10 @@ public class CharacterCreator {
 
 		validators.add(new NPCNameValidator(character));
 		validators.add(new CreatureNameValidator(character));
-		
+
 		validators.add(new NameCharacterValidator(character));
 		validators.add(new ReservedSubStringValidator(character));
-		
+
 		validators.add(new IsNotOtherAccountNameValidator(character, username));
 	}
 

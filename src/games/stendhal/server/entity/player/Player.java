@@ -26,7 +26,6 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map.Entry;
 import java.util.Random;
 import java.util.Set;
@@ -2018,8 +2017,7 @@ public class Player extends RPEntity implements UseListener {
 		}
 		if (obj instanceof Player) {
 			final Player other = (Player) obj;
-			return this.getName().toLowerCase(Locale.ENGLISH)
-					.equals(other.getName().toLowerCase(Locale.ENGLISH));
+			return this.getName().toLowerCase().equals(other.getName().toLowerCase());
 		}
 		return false;
 	}
