@@ -21,6 +21,8 @@ import games.stendhal.server.entity.player.Player;
 
 /**
  * Increases DEF XP (quest reward).
+ * @author Szygolek
+ * 		@edited by KarajuSs
  * This script is based on another script already created by Arianne RPG developers. Thanks! Author: Szygolek * 
  */
 @Dev(category=Category.STATS, label="DefXP+")
@@ -40,7 +42,7 @@ public class IncreaseDefXPAction implements ChatAction {
 
 	@Override
 	public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-		player.adddef_xp(def_xpDiff);
+		player.setDefXP(def_xpDiff + player.getDefXP());
 		player.notifyWorldAboutChanges();
 	}
 

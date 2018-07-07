@@ -21,7 +21,8 @@ import games.stendhal.server.entity.player.Player;
 
 /**
  * Increases ATK XP (quest reward).
- * Author: Szygolek
+ * @Author Szygolek 
+ * 		@edited by KarajuSs
  * This script is based on another script already created by Arianne RPG developers. Thanks! * 
  */
 @Dev(category=Category.STATS, label="AtkXP+")
@@ -41,7 +42,7 @@ public class IncreaseAtkXPAction implements ChatAction {
 
 	@Override
 	public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-		player.addatk_xp(atk_xpDiff);
+		player.setAtkXP(atk_xpDiff + player.getAtkXP());
 		player.notifyWorldAboutChanges();
 	}
 
