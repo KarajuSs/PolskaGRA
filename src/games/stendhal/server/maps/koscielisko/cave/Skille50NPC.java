@@ -52,19 +52,19 @@ public class Skille50NPC implements ZoneConfigurator {
 				addGreeting(null, new ChatAction() {
 					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-						String reply = "Witaj! Jestem tutaj aby #nauczyć Cię czegoś o walce z potworami!";
-
+						String reply = "Witaj! Jam jest wszechpotężny Choros! Czego ode mnie oczekujesz?";
 						if (player.getLevel() < 50) {
-							reply += " Jeszcze nie jesteś godzien! Osiągnij 50 poziom!";
+							reply = "Po co do mnie tutaj przybyłeś? Jeszcze nie jesteś godzien, abym mógł Ciebie #'nauczyć' prawdziwej walki z potworami!";
 						} else {
-							reply += " Jesteś godzień przyjąć moje nauki.";
+							reply = "Zdobyłeś wystarczającą ilość doświadczenia poprzez walki z potworami, a zatem jesteś godzien przyjąć me nauki!";
 						}
 						raiser.say(reply);
 					}
 				});
-
+				addJob("Jestem kapłanem, który chroni tę krainę przed złem.");
+				addOffer("Moja jedyna oferta to gdy osiągniesz 50 poziom to nauczę Cię lepiej walczyć z potworami.");
 				addReply("nauczyć",
-						"Gdy osiągniesz 50 poziom nauczę Cię lepiej walczyć z potworami.");
+						"Moje nauki to pradawna magia, która wspomaga podczas walk z potworami. Gdy osiągniesz 50 poziom, nauczę Cię.");
 				addGoodbye();
 			}
 			
