@@ -88,12 +88,12 @@
 	</zone>-->
 
 	<!-- dolina_koscieliska_s -->
-	<!-- <zone name="0_tatry_dolina_koscieliska_s" level="0" x="513056" y="19072" file="Level 0/tatry/dolina_koscieliska_s.tmx">
+	<zone name="0_tatry_dolina_koscieliska_s" level="0" x="513056" y="19072" file="Level 0/tatry/dolina_koscieliska_s.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=-2)</parameter>
 		</attributes>
-	</zone>-->
+	</zone>
 
 	<!-- tatry_puste_1 -->
 	<!-- <zone name="0_tatry_tatry_puste_1" level="0" x="513184" y="19072" file="Level 0/tatry/tatry_puste_1.tmx">
