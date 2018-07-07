@@ -16,7 +16,7 @@
 	</zone>
 	
 	<!-- dolina_rybiego_potoku_n -->
-	<zone name="0_tatry_rybiego_potoku_n" level="0" x="513184" y="18816" file="Level 0/tatry/dolina_rybiego_potoku_n.tmx">
+	<zone name="0_tatry_dolina_rybiego_potoku_n" level="0" x="513184" y="18816" file="Level 0/tatry/dolina_rybiego_potoku_n.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=-2)</parameter>
