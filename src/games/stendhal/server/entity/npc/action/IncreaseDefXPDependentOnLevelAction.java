@@ -58,7 +58,7 @@ public class IncreaseDefXPDependentOnLevelAction implements ChatAction {
 
 	@Override
 	public String toString() {
-		return "IncreaseDefXPDependentOnLevel <" + def_xpDiff + ","+karmabonus+">";
+		return "IncreaseDefXPDependentOnLevel <" + def_xpDiff + "," + karmabonus + ">";
 	}
 
 	@Override
