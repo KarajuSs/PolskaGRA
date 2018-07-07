@@ -181,6 +181,11 @@ public class StendhalPlayerDatabase {
 			transaction.execute("ALTER TABLE character_stats ADD COLUMN (gender VARCHAR(2));", null);
 			transaction.execute("UPDATE character_stats SET gender = 'M' WHERE gender IS NULL;", null);
 		}
+		
+		if (!transaction.doesColumnExist("accountcode", "username")) {
+			transaction.execute("ALTER TABLE accountcode ADD COLUMN (username VARCHAR(255));", null);
+			transaction.execute("UPDATE accountcode SET code = 'code' WHERE code IS NULL;", null);
+		}
 
 		// 1.07: add zone column to character_stats
 		if (!transaction.doesColumnExist("character_stats", "zone")) {
