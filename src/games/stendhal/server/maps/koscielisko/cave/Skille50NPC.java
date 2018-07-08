@@ -36,10 +36,10 @@ public class Skille50NPC implements ZoneConfigurator {
 	@Override
 	public void configureZone(final StendhalRPZone zone,
 			final Map<String, String> attributes) {
-		buildMineArea(zone);
+		buildNPC(zone);
 	}
 
-	private void buildMineArea(final StendhalRPZone zone) {
+	private void buildNPC(final StendhalRPZone zone) {
 		final SpeakerNPC npc = new SpeakerNPC("Choros") {
 
 			@Override
@@ -52,11 +52,11 @@ public class Skille50NPC implements ZoneConfigurator {
 				addGreeting(null, new ChatAction() {
 					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-						String reply;
+						String reply = "Witaj, ";
 						if (player.getLevel() < 50) {
-							reply = "Witaj, po co do mnie tutaj przybyłeś? Jeszcze nie jesteś godzien, abym mógł Ciebie #'nauczyć' prawdziwej walki z potworami!";
+							reply += "po co do mnie tutaj przybyłeś? Jeszcze nie jesteś godzien, abym mógł Ciebie #'nauczyć' prawdziwej walki z potworami!";
 						} else {
-							reply = "Witaj, widzę, że już zdobyłeś wystarczającą ilość doświadczenia poprzez walki z potworami, a zatem jesteś godzien przyjąć me nauki!";
+							reply += "widzę, że już zdobyłeś wystarczającą ilość doświadczenia poprzez walki z potworami, a zatem jesteś godzien przyjąć me nauki!";
 						}
 						raiser.say(reply);
 					}
@@ -78,9 +78,9 @@ public class Skille50NPC implements ZoneConfigurator {
 		npc.addInitChatMessage(null, new ChatAction() {
 			@Override
 			public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-				if (!player.hasQuest("ChorosReward")
+				if (!player.hasQuest("50LVLReward")
 						&& (player.getLevel() >= 50)) {
-					player.setQuest("ChorosReward", "done");
+					player.setQuest("50LVLReward", "done");
 
 					player.setAtkXP(45000 + player.getAtkXP());
 					player.setDefXP(90000 + player.getDefXP());
@@ -90,8 +90,8 @@ public class Skille50NPC implements ZoneConfigurator {
 					player.incDefXP();
 				}
 
-				if (!player.hasQuest("ChorosFirstChat")) {
-					player.setQuest("ChorosFirstChat", "done");
+				if (!player.hasQuest("50LVLFirstChat")) {
+					player.setQuest("50LVLFirstChat", "done");
 					((SpeakerNPC) raiser.getEntity()).listenTo(player, "hi");
 				}
 				
