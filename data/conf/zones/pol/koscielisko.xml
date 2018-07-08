@@ -214,7 +214,7 @@ Oto opuszczona kopalnia węgla!
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
-				<parameter name="sound">pol-goralskie</parameter>
+				<parameter name="sound">pol-inthedark1</parameter>
 				<parameter name="volume">20</parameter>
 			</implementation>
 		</entity>
@@ -242,8 +242,8 @@ kopalnia węgla!
 		<portal x="18" y="14" ref="entrance_minehouse_exit">
 			<destination zone="0_koscielisko_w" ref="minehouse_entrance"/>
 		</portal>
-		<portal x="5" y="12" ref="minecoal_-1_entrance">
-			<destination zone="-1_koscielisko_minecoal" ref="minecoal_-1_exit"/>
+		<portal x="5" y="12" ref="coalmine_-1_entrance">
+			<destination zone="-1_koscielisko_coalmine" ref="coalmine_-1_exit"/>
 		</portal>
 	</zone>
 
@@ -418,14 +418,14 @@ kopalnia węgla!
 		</portal>
 	</zone>
 	
-	<!-- koscielisko_minecoal -->
-	<zone name="-1_koscielisko_minecoal" level="-1" x="513696" y="18048" file="Level -1/koscielisko/minecoal.tmx">
+	<!-- koscielisko_coalmine -->
+	<zone name="-1_koscielisko_coalmine" level="-1" x="513696" y="18048" file="Level -1/koscielisko/coalmine.tmx">
 		<attributes>
 			<parameter name="color_method">dark</parameter>
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
-				<parameter name="sound">main-theme</parameter>
+				<parameter name="sound">pol-inthedark2</parameter>
 				<parameter name="volume">15</parameter>
 			</implementation>
 		</entity>
@@ -500,8 +500,8 @@ kopalnia węgla!
 		</entity>
 		
 
-		<portal x="65" y="85" ref="minecoal_-1_exit">
-			<destination zone="int_koscielisko_minehouse" ref="minecoal_-1_entrance"/>
+		<portal x="65" y="85" ref="coalmine_-1_exit">
+			<destination zone="int_koscielisko_minehouse" ref="coalmine_-1_entrance"/>
 		</portal>
 	</zone>
 	
