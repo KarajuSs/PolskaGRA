@@ -52,7 +52,7 @@ public class IncreaseDefXPDependentOnLevelAction implements ChatAction {
 			// no reward so give a lot karma instead
 			player.addKarma(karmabonus);
 		}
-		player.adddef_xp(reward);
+		player.setDefXP(reward + player.getDefXP());
 		player.notifyWorldAboutChanges();
 	}
 

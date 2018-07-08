@@ -51,7 +51,7 @@ public class IncreaseAtkXPDependentOnLevelAction implements ChatAction {
 			// no reward so give a lot karma instead
 			player.addKarma(karmabonus);
 		}
-		player.addatk_xp(reward);
+		player.setAtkXP(reward + player.getAtkXP());
 		player.notifyWorldAboutChanges();
 	}
 
