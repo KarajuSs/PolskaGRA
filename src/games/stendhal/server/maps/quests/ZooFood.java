@@ -55,7 +55,7 @@ import java.util.Map;
  * <li> Katinka, the keeper at the Ados Wildlife Refuge
  * <li> Dr.Feelgood, the veterinary
  * </ul>
- * 
+ *
  * STEPS:
  * <ul>
  * <li> Katinka asks you for food for the animals.
@@ -64,10 +64,10 @@ import java.util.Map;
  * <li> Katinka thanks you.
  * <li> You can then buy cheap medicine from Dr. Feelgood.
  * </ul>
- * 
+ *
  * REWARD: <ul>
- * <li> 200 XP 
- * <li> 7 Karma 
+ * <li> 200 XP
+ * <li> 10 Karma
  * <li> Supply for cheap medicine and free pet healing for one week
  * </ul>
  * REPETITIONS: - Once per week.
@@ -177,7 +177,7 @@ public class ZooFood extends AbstractQuest {
 		npc.add(ConversationStates.QUEST_OFFERED, ConversationPhrases.YES_MESSAGES,
 				null,
 				ConversationStates.ATTENDING, null,
-                new MultipleActions(new SetQuestAndModifyKarmaAction(QUEST_SLOT, "start;", 2.0),
+                new MultipleActions(new SetQuestAndModifyKarmaAction(QUEST_SLOT, "start;", 5.0),
 				new StartRecordingRandomItemCollectionAction(QUEST_SLOT, 1, items, "Dziękuję! Proszę" 
                 + " przynieś [item] lub tyle ile dasz rady."))
 		);
