@@ -18,6 +18,12 @@ import games.stendhal.server.entity.npc.condition.QuestInStateCondition;
 import games.stendhal.server.entity.npc.condition.QuestNotStartedCondition;
 import games.stendhal.server.entity.player.Player;
 
+/**
+ * Zadanie, które resetuje poziom graczowi z 597 na 0
+ * 
+ * @author KarajuSs 00:33:57 11-07-2018
+ */
+
 public class ResetLVL extends AbstractQuest {
 	
 	private static final String QUEST_SLOT = "reset_level";

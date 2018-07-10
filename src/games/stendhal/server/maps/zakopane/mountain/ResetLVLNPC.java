@@ -22,6 +22,12 @@ import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 
+/**
+ * Tworzy NPC o nazwie Yerena
+ * 
+ * @author KarajuSs 00:34:21 11-07-2018
+ */
+
 public class ResetLVLNPC implements ZoneConfigurator {
 	/**
 	 * Configure a zone.
