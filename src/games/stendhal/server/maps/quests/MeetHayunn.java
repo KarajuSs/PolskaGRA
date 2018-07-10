@@ -187,7 +187,7 @@ public class MeetHayunn extends AbstractQuest {
 			ConversationPhrases.YES_MESSAGES,
 			null,
 			ConversationStates.INFORMATION_3,
-			"Być może znajdziesz lochy Semos. Korytarze są tam bardzo wąskie, więc musisz uważać. Chcesz usłyszeć więcej # Tak?",
+			"Być może znajdziesz lochy Semos. Korytarze są tam bardzo wąskie, więc musisz uważać. Chcesz usłyszeć więcej #'Tak'?",
 			null);
 
 		npc.add(
@@ -227,7 +227,7 @@ public class MeetHayunn extends AbstractQuest {
 				"Och mam nadzieję, że ktoś się zatrzyma i porozmawia ze mną.",
 				null);
 
-		npc.setPlayerChatTimeout(TIME_OUT); 
+		npc.setPlayerChatTimeout(TIME_OUT);
 	}
 
 	@Override
