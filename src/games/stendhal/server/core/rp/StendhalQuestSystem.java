@@ -192,6 +192,7 @@ public class StendhalQuestSystem {
 		//loadQuest(new Oscypek());
 		loadQuest(new PomocChlopcowi());
 		//loadQuest(new Ratownik());
+		loadQuest(new ResetLVL());
 		loadQuest(new ScytheForFryderyk());
 		loadQuest(new ZakopaneClouds());
 		loadQuest(new ZlotaCiupaga());
@@ -206,7 +207,7 @@ public class StendhalQuestSystem {
 		/** 					**\
 		 *      KOŚCIELISKO 	 *
 		\**	                    **/
-		//loadQuest(new BramaZrc())0;
+		//loadQuest(new BramaZrc());
 		//loadQuest(new PierscienRycerza());
 		//loadQuest(new ProzbaWielkoluda());
 		//loadQuest(new StazNaGornika());
