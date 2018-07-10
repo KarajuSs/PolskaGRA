@@ -54,6 +54,7 @@ public class WhereDragon extends AbstractQuest {
 		dragonHistory.put("Miles",      "Spotkałem Miles na Desert Pyramid.");
 		dragonHistory.put("Vircassis",  "Spotkałem Vircassis na Semos Mountain.");
 		dragonHistory.put("Decida",     "Spotkałem Decida w Krakow Cave.");
+		dragonHistory.put("Hikari",		"Spotkałem Hikari w Zakopane Mountain Room");
 	}
 
 	@Override
@@ -105,11 +106,11 @@ public class WhereDragon extends AbstractQuest {
 			initHP(100);
 
 			final List<Node> nodes = new LinkedList<Node>();
-			nodes.add(new Node(x, y));
-			nodes.add(new Node(x - 2, y));
-			nodes.add(new Node(x - 2, y - 2));
-			nodes.add(new Node(x, y - 2));
-			setPath(new FixedPath(nodes, true));
+				nodes.add(new Node(x, y));
+				nodes.add(new Node(x - 2, y));
+				nodes.add(new Node(x - 2, y - 2));
+				nodes.add(new Node(x, y - 2));
+				setPath(new FixedPath(nodes, true));
 		}
 
 		@Override
@@ -148,12 +149,12 @@ public class WhereDragon extends AbstractQuest {
 
 							if (left > 0) {
 								raiser.say("Witaj! Mnie odnalazłeś ☺☺☺ Poszukaj jeszcze  "
-												+ (12 - list.size())
+												+ (13 - list.size())
 												+ " z moich braci. Żegnaj!");
 								if (raiser.getZone().getName().equals("0_kościelisko_e")) {
 									player.addXP(200);
 								} else {
-									player.addXP((12 - left + 1) * 500);
+									player.addXP((13 - left + 1) * 500);
 								}
 							} else {
 								raiser.say("Udowodniłeś, że jesteś godny tej nagrody!");
@@ -179,7 +180,7 @@ public class WhereDragon extends AbstractQuest {
 		fillHistoryMap();
 		fillQuestInfo(
 			"Poszukaj Smoków",
-			"Znajdź wszystkie 12 smoków.",
+			"Znajdź wszystkie 13 smoków.",
 			false);
 
 		StendhalRPZone zone;
@@ -188,7 +189,7 @@ public class WhereDragon extends AbstractQuest {
 		zone = world.getZone("0_koscielisko_e");
 		npc = new DragonNPC("Antithei", 68, 43);
 		zone.add(npc);
-		
+
 		zone = world.getZone("-1_ados_caves_e");
 		npc = new DragonNPC("Felcor", 75, 67);
 		zone.add(npc);
@@ -231,6 +232,10 @@ public class WhereDragon extends AbstractQuest {
 
 		zone = world.getZone("-1_krakow_cave");
 		npc = new DragonNPC("Decida", 86, 42);
+		zone.add(npc);
+
+		zone = world.getZone("int_zakopane_mountain_room");
+		npc = new DragonNPC("Hikari", 6, 5);
 		zone.add(npc);
 	}
 
