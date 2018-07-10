@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="9" height="15" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="wall red" tilewidth="32" tileheight="32" tilecount="16" columns="4">
+  <image source="../../tileset/building/wall/int_wall_dark_red.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="17" name="int red wall" tilewidth="32" tileheight="32" tilecount="16" columns="4">
+  <image source="../../tileset/building/wall/int_wall_dark_red_corners.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="33" name="dark red ns" tilewidth="32" tileheight="32" tilecount="12" columns="3">
+  <image source="../../tileset/building/entrance/dark_red_ns.png" width="96" height="128"/>
+ </tileset>
+ <tileset firstgid="45" name="collision" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="46" name="kula_rozowa2" tilewidth="32" tileheight="32" tilecount="2" columns="1">
+  <image source="../../tileset/pol/wyposazenie/kula_rozowa2.png" width="32" height="64"/>
+ </tileset>
+ <tileset firstgid="48" name="earth_snow_dark" tilewidth="32" tileheight="32" tilecount="96" columns="12">
+  <image source="../../tileset/pol/waly/earth_snow_dark.png" width="384" height="256"/>
+ </tileset>
+ <tileset firstgid="144" name="ground_snow" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../../tileset/pol/podloze/ground_snow.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="148" name="green_paving" tilewidth="32" tileheight="32" tilecount="18" columns="3">
+  <image source="../../tileset/ground/green_paving.png" width="96" height="192"/>
+ </tileset>
+ <tileset firstgid="166" name="portal" tilewidth="32" tileheight="32" tilecount="16" columns="8">
+  <image source="../../tileset/logic/portal.png" width="256" height="64"/>
+ </tileset>
+ <tileset firstgid="182" name="buddha" tilewidth="32" tileheight="32" tilecount="6" columns="2">
+  <image source="../../tileset/item/statue/buddha.png" width="64" height="96"/>
+ </tileset>
+ <tileset firstgid="188" name="snow_tracks" tilewidth="32" tileheight="32" tilecount="14" columns="7">
+  <image source="../../tileset/pol/podloze/snow_tracks.png" width="224" height="64"/>
+ </tileset>
+ <tileset firstgid="202" name="latarnia_blaszczysko" tilewidth="32" tileheight="32" tilecount="25" columns="5">
+  <image source="../../tileset/pol/oswietlenie/latarnia_blaszczysko.png" width="160" height="160"/>
+ </tileset>
+ <layer name="0_floor" width="9" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC5vMwMAweRRTDc9AwrjEhwoGAOG9sGYcAgAA
+  </data>
+ </layer>
+ <layer name="1_terrain" width="9" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC4XPvQrCMBRA4dtBBxXpIviPCL6Cg6ODo+5uijgUdHFRdBScBePqou/pCd5CuEQNfNyUHtJ0LiIzLLCUz/LzghPOOo/YYKuNnyscsMdafq8MCXYYmncjTFFBAUWMTTNBGSlq2uTrGux9U480EmkapnkE5/mmHTQv3OBwxzPSOPMdFzTJn/uE//6tSSN3tk1+nyZKqh/sW9p00EVV58A89/AGoQGuERwCAAA=
+  </data>
+ </layer>
+ <layer name="2_object" width="9" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgQIBoII4B4lgGTKAPpdOBOAOIM5HE47Con4RFrBCNPxmNnwLETkjqJqKZA5KvA2IzAnZVQs3BB6yAuABN7Bga3w2II6Hs40B8AKrmOBSjA3QxbGpIAcegdmIDu4B4N1QNjI0NKEJpZTRxIyA2hrJVoLQalDaEygMANkxinRwCAAA=
+  </data>
+ </layer>
+ <layer name="3_roof" width="9" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgYGDQA+IeLBgkTk1gRmXzhiLYBsTbsbCRwQ4g3omFTWtggcYHAAiwqAAcAgAA
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="9" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+thYGDoYcAOevDIjYLhDwBXLv8JHAIAAA==
+  </data>
+ </layer>
+ <layer name="objects" width="9" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjADsAAObstcocAgAA
+  </data>
+ </layer>
+ <layer name="collision" width="9" height="15" opacity="0.4">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC9NlYGDQJREz4BHHBQipI8asUTXExwWparBhAF8jg/8cAgAA
+  </data>
+ </layer>
+ <layer name="protection" width="9" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjADsAAObstcocAgAA
+  </data>
+ </layer>
+ <layer name="blend_ground" width="9" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3KsRGAIBBE0eu/NEFBQAWEXvghwRVAwM68aL/I3mo7YGBx4lIaB48bAVFpEh68+JCVpqDiR0OfvgH4THCSHAIAAA==
+  </data>
+ </layer>
+ <layer name="blend_roof" width="9" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3KsRGAIBBE0eu/NEFBQAWEXvghwRVAwM68aL/I3mo7YGBx4lIaB48bAVFpEh68+JCVpqDiR0OfvgH4THCSHAIAAA==
+  </data>
+ </layer>
+</map>

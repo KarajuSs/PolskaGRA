@@ -597,15 +597,15 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<attribute name="class">default</attribute>
 		</entity>
 		DISABLED SIGN -->
-		<portal x="30" y="41" ref="raid_map_life">
-			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
-		</portal>
 		<portal x="30" y="40" ref="zakopane_1_restart_life">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
 		</portal>
 		<portal x="31" y="40" ref="zakopane_2_restart_life">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
-		</portal>	
+		</portal>
+		<portal x="12" y="78" ref="mountain_entrance">
+			<destination zone="int_zakopane_mountain_room" ref="mountain_exit"/>
+		</portal>
 		<portal x="33" y="26" ref="home_entrance">
 			<destination zone="int_zakopane_home" ref="entrance_home"/>
 		</portal>
@@ -1170,91 +1170,91 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		<entity x="24" y="22">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
-			<attribute name="description">Śliczny drewniany stolik.</attribute>
+			<attribute name="description">Oto śliczny drewniany stolik.</attribute>
 		</entity>
 		
 		<entity x="25" y="23">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
-			<attribute name="description">Śliczny drewniany stolik.</attribute>
+			<attribute name="description">Oto śliczny drewniany stolik.</attribute>
 		</entity>
 		
 		<entity x="23" y="25">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
-			<attribute name="description">Śliczny drewniany stolik.</attribute>
+			<attribute name="description">Oto śliczny drewniany stolik.</attribute>
 		</entity>
 
 		<entity x="24" y="26">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
-			<attribute name="description">Śliczny drewniany stolik.</attribute>
+			<attribute name="description">Oto śliczny drewniany stolik.</attribute>
 		</entity>
 		
 		<entity x="23" y="29">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
-			<attribute name="description">Śliczny drewniany stolik.</attribute>
+			<attribute name="description">Oto śliczny drewniany stolik.</attribute>
 		</entity>
 
 		<entity x="22" y="28">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
-			<attribute name="description">Śliczny drewniany stolik.</attribute>
+			<attribute name="description">Oto śliczny drewniany stolik.</attribute>
 		</entity>
 
 		<entity x="21" y="31">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
-			<attribute name="description">Śliczny drewniany stolik.</attribute>
+			<attribute name="description">Oto śliczny drewniany stolik.</attribute>
 		</entity>
 
 		<entity x="22" y="32">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
-			<attribute name="description">Śliczny drewniany stolik.</attribute>
+			<attribute name="description">Oto śliczny drewniany stolik.</attribute>
 		</entity>
 
 		<entity x="20" y="34">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
-			<attribute name="description">Śliczny drewniany stolik.</attribute>
+			<attribute name="description">Oto śliczny drewniany stolik.</attribute>
 		</entity>
 
 		<entity x="21" y="35">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
-			<attribute name="description">Śliczny drewniany stolik.</attribute>
+			<attribute name="description">Oto śliczny drewniany stolik.</attribute>
 		</entity>
 
 		<entity x="19" y="37">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
-			<attribute name="description">Śliczny drewniany stolik.</attribute>
+			<attribute name="description">Oto śliczny drewniany stolik.</attribute>
 		</entity>	
 
 		<entity x="20" y="38">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
-			<attribute name="description">Śliczny drewniany stolik.</attribute>
+			<attribute name="description">Oto śliczny drewniany stolik.</attribute>
 		</entity>
 		
 		<entity x="18" y="40">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
-			<attribute name="description">Śliczny drewniany stolik.</attribute>
+			<attribute name="description">Oto śliczny drewniany stolik.</attribute>
 		</entity>
 		
 		<entity x="19" y="41">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
-			<attribute name="description">Śliczny drewniany stolik.</attribute>
+			<attribute name="description">Oto śliczny drewniany stolik.</attribute>
 		</entity>
 		
 		<entity x="39" y="24">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
-			<attribute name="description">Stół nakryty białym obrusem.</attribute>
+			<attribute name="description">Oto stół nakryty białym obrusem.</attribute>
 			<attribute name="width">3</attribute>
 			<attribute name="height">3</attribute>
 		</entity>
@@ -1262,7 +1262,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		<entity x="39" y="32">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
-			<attribute name="description">Stół nakryty białym obrusem.</attribute>
+			<attribute name="description">Oto stół nakryty białym obrusem.</attribute>
 			<attribute name="width">3</attribute>
 			<attribute name="height">4</attribute>
 		</entity>
@@ -1270,7 +1270,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		<entity x="39" y="41">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
-			<attribute name="description">Stół nakryty białym obrusem.</attribute>
+			<attribute name="description">Oto stół nakryty białym obrusem.</attribute>
 			<attribute name="width">3</attribute>
 			<attribute name="height">3</attribute>
 		</entity>
@@ -1278,7 +1278,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		<entity x="4" y="45">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
-			<attribute name="description">Stół nakryty białym obrusem.</attribute>
+			<attribute name="description">Oto stół nakryty białym obrusem.</attribute>
 			<attribute name="width">7</attribute>
 			<attribute name="height">2</attribute>
 		</entity>
@@ -2197,8 +2197,44 @@ Aktualne ceny u Gazdy Wojtka:
 			<destination zone="0_zakopane_e" ref="trainstation_entrance_2"/>
 		</portal>
 	</zone>
+	
+	<zone name="int_zakopane_mountain_room" file="interiors/zakopane/mountain_room.tmx">
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-littlemeadow2</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		
+		<portal x="4" y="1" ref="mountain_cave_entrance">
+			<destination zone="-1_zakopane_mountain_cave" ref="mountain_cave_exit"/>
+			<attribute name="face">down</attribute>
+		</portal>
+		
+		<portal x="4" y="13" ref="mountain_exit">
+			<destination zone="0_zakopane_s" ref="mountain_entrance"/>
+		</portal>
+	</zone>
 
 	<!-- Level -1 -->
+	
+	<zone name="-1_zakopane_mountain_cave" level="-1" x="513056" y="18176" file="Level -1/zakopane/mountain_cave.tmx">
+		<configurator class-name="games.stendhal.server.maps.zakopane.mountain.ResetLVLNPC"/>
+		<attributes>
+			<parameter name="color_method">dark</parameter>
+		</attributes>
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-littlemeadow2</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+
+		<portal x="10" y="1" ref="mountain_cave_exit">
+			<destination zone="int_zakopane_mountain_room" ref="mountain_cave_entrance"/>
+			<attribute name="face">down</attribute>
+		</portal>
+	</zone>
 
 	<!-- zakopane_e -->
 	<zone name="-1_zakopane_cave" level="-1" x="513440" y="18560" file="Level -1/zakopane/cave.tmx">
@@ -2228,6 +2264,12 @@ Aktualne ceny u Gazdy Wojtka:
 		<attributes>
 			<parameter name="color_method">dark</parameter>
 		</attributes>
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-inthedark3</parameter>
+				<parameter name="volume">20</parameter>
+			</implementation>
+		</entity>
 		
 		<portal x="78" y="11" ref="underground_1_exit">
 			<destination zone="0_zakopane_se" ref="underground_1_enter"/>
