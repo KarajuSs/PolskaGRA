@@ -157,6 +157,7 @@ public class WeeklyItemQuest extends AbstractQuest {
 
 		// misc
 		items.put("serce olbrzyma",5);
+		items.put("gruczoł jadowy",1);
 
 		// resource
 		items.put("sztabka mithrilu",3);
