@@ -12,6 +12,11 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.outside;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 import games.stendhal.common.ItemTools;
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.common.parser.Sentence;
@@ -20,6 +25,7 @@ import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.CollisionAction;
 import games.stendhal.server.entity.creature.DomesticAnimal;
 import games.stendhal.server.entity.npc.ChatAction;
 import games.stendhal.server.entity.npc.ConversationStates;
@@ -29,11 +35,6 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
 import games.stendhal.server.entity.player.Player;
-
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 
 public class VeterinarianNPC implements ZoneConfigurator {
 	private final ShopList shops = SingletonRepository.getShopList();
@@ -92,6 +93,7 @@ public class VeterinarianNPC implements ZoneConfigurator {
 		npc.setEntityClass("doctornpc");
 		npc.setPosition(53, 28);
 		//npc.setDirection(Direction.DOWN);
+		npc.setCollisionAction(CollisionAction.STOP);
 		npc.initHP(100);
 		npc.setDescription("Oto Dr. Feelgood. Jest ekspertem w swoim zawodzie.");
 		zone.add(npc);

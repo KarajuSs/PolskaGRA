@@ -12,15 +12,16 @@
  ***************************************************************************/
 package games.stendhal.server.maps.semos.yeticave;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.CollisionAction;
 import games.stendhal.server.entity.npc.SpeakerNPC;
-
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 
 public class MrYetiNPC implements ZoneConfigurator {
 	/**
@@ -70,6 +71,7 @@ public class MrYetiNPC implements ZoneConfigurator {
 		yetimale.setEntityClass("yetimalenpc");
 		yetimale.setDescription("Oto Mr. Yeti o białych włosach z dużymi stopami!");
 		yetimale.setPosition(29, 29);
+		yetimale.setCollisionAction(CollisionAction.STOP);
 		yetimale.initHP(100);
 		zone.add(yetimale);
 	}

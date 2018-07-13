@@ -12,20 +12,21 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.church;
 
-import games.stendhal.server.core.config.ZoneConfigurator;
-import games.stendhal.server.core.engine.StendhalRPZone;
-import games.stendhal.server.core.pathfinder.FixedPath;
-import games.stendhal.server.core.pathfinder.Node;
-import games.stendhal.server.entity.npc.SpeakerNPC;
-import games.stendhal.server.entity.npc.behaviour.adder.HealerAdder;
-import games.stendhal.server.entity.npc.behaviour.adder.ProducerAdder;
-import games.stendhal.server.entity.npc.behaviour.impl.ProducerBehaviour;
-
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+
+import games.stendhal.server.core.config.ZoneConfigurator;
+import games.stendhal.server.core.engine.StendhalRPZone;
+import games.stendhal.server.core.pathfinder.FixedPath;
+import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.CollisionAction;
+import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.behaviour.adder.HealerAdder;
+import games.stendhal.server.entity.npc.behaviour.adder.ProducerAdder;
+import games.stendhal.server.entity.npc.behaviour.impl.ProducerBehaviour;
 
 /**
  * The healer (original name: Valo). He makes mega potions. 
@@ -91,6 +92,7 @@ public class HealerNPC implements ZoneConfigurator {
 		npc.setEntityClass("grandadnpc");
 		npc.setDescription("Oto Valo. Jest otoczony pewnego rodzaju poświatą.");
 		npc.setPosition(26, 5);
+		npc.setCollisionAction(CollisionAction.STOP);
 		npc.initHP(100);
 		zone.add(npc);
 	}

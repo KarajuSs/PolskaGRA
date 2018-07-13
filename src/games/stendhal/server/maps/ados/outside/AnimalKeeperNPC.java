@@ -12,6 +12,10 @@
  ***************************************************************************/
 package games.stendhal.server.maps.ados.outside;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 import games.stendhal.common.Rand;
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.config.ZoneConfigurator;
@@ -20,6 +24,7 @@ import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.core.rp.StendhalRPAction;
+import games.stendhal.server.entity.CollisionAction;
 import games.stendhal.server.entity.Entity;
 import games.stendhal.server.entity.creature.Pet;
 import games.stendhal.server.entity.npc.ChatAction;
@@ -29,10 +34,6 @@ import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.player.Player;
-
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 
 public class AnimalKeeperNPC implements ZoneConfigurator {
 
@@ -135,6 +136,7 @@ public class AnimalKeeperNPC implements ZoneConfigurator {
 		npc.setEntityClass("woman_007_npc");
 		npc.setPosition(41, 40);
 		//npc.setDirection(Direction.DOWN);
+		npc.setCollisionAction(CollisionAction.STOP);
 		npc.initHP(100);
 		npc.setDescription("Oto Katinka. Opiekuje się zwierzętami w tym Zoo.");
 		zone.add(npc);

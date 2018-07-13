@@ -12,22 +12,23 @@
  ***************************************************************************/
 package games.stendhal.server.maps.orril.magician_house;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.CollisionAction;
 import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.HealerAdder;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
-
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Configure Orril Jynath House (Inside/Level 0).
@@ -114,6 +115,7 @@ public class WitchNPC implements ZoneConfigurator {
 
 		npc.setEntityClass("witchnpc");
 		npc.setPosition(24, 7);
+		npc.setCollisionAction(CollisionAction.STOP);
 		npc.initHP(100);
 		npc.setDescription("Widzisz wiedźmę Jynath. Ona lata na miotle.");
 		npc.setSounds(Arrays.asList("witch-cackle-1"));
