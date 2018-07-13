@@ -33,6 +33,7 @@ Changelog
 
 *naprawa błędów*
 - Naprawiono błąd, który powodował, że serwer przydzielał nam zupełnie inną płeć
+- Naprawiono błąd, który powodował, że tablica sklepu Elodrina (nalwor) nie otwierała się
 
 
 
