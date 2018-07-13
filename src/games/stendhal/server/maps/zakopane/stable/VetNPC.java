@@ -35,7 +35,7 @@ public class VetNPC implements ZoneConfigurator {
 	}
 
 	private void buildNPC(final StendhalRPZone zone) {
-		final SpeakerNPC npc = new SpeakerNPC("Weterynarz Wojciech") {
+		final SpeakerNPC npc = new SpeakerNPC("Dr. Wojciech") {
 			
 			@Override
 			protected void createPath() {
