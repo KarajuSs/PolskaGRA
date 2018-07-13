@@ -184,13 +184,13 @@ public final class ShopList {
 		shops.add("buyrare", "lwia tarcza", 50);
 
 		// rare elf weapons buyer  ElodrinNPC (nalwor) kupuje:
-		shops.add("elfbuyrare", "topór bojowy", 70);
-		shops.add("elfbuyrare", "topór oburęczny", 80);
-		shops.add("elfbuyrare", "miecz dwuręczny", 90);
-		shops.add("elfbuyrare", "pałasz", 100);
 		shops.add("elfbuyrare", "kij", 75);
-		shops.add("elfbuyrare", "wzmocniona lwia tarcza", 100);
-		shops.add("elfbuyrare", "tarcza królewska", 120);
+		shops.add("elfbuyrare", "topór bojowy", 125);
+		shops.add("elfbuyrare", "topór obosieczny", 140);
+		shops.add("elfbuyrare", "miecz dwuręczny", 110);
+		shops.add("elfbuyrare", "pałasz", 135);
+		shops.add("elfbuyrare", "wzmocniona lwia tarcza", 245);
+		shops.add("elfbuyrare", "tarcza królewska", 280);
 
 		// more rare weapons shop (fado)
 		shops.add("buyrare2", "młot bojowy", 120);
