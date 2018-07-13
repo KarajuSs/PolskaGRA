@@ -62,6 +62,7 @@ Changelog
 
 *świat gry*
 - wiele nowych outfit'ów NPC jak i graczy
+- nowy wygląd trawy
 - nowy wygląd kotów
 - przeniesiono animacje vulcanus, tomi & zekiel do /tileset/character
 - przeniesiono mapy fauimoni z /zones/.. do /zones/stendhal/..
