@@ -58,11 +58,11 @@ public class ProducerRegisterTest {
 		assertTrue(producerRegister.getProducers().isEmpty());
 		
 		final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
-		requiredResources.put("flour", 1);
-		requiredResources.put("cod", 2);
-		requiredResources.put("mackerel", 1);
-		requiredResources.put("leek", 1);
-		final ProducerBehaviour behaviour = new ProducerBehaviour("linzo_make_fish_pie", "make", "fish pie",
+		requiredResources.put("mąka", 1);
+		requiredResources.put("dorsz", 2);
+		requiredResources.put("makrela", 1);
+		requiredResources.put("por", 1);
+		final ProducerBehaviour behaviour = new ProducerBehaviour("linzo_make_fish_pie", Arrays.asList("make", "zrób"), "tarta z rybnym nadzieniem",
 		        requiredResources, 5 * 60);
 		
 		producerRegister.add("Linzo", behaviour);
