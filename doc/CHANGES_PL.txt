@@ -9,14 +9,15 @@ Changelog
 
 *świat gry*
 - Nowe NPC: 
-		* Yerena
-		* Stajenny Marcel
-		* Dr. Wojciech
+	- Yerena
+	- Stajenny Marcel
+	- Dr. Wojciech
 - Zostało dodane wiele nowych skinów dla NPC
 - Mapa zakopane została zmieniona wizualnie
 - Mapa kościelisko została zmieniona wizualnie
 - Nowe pomieszczenie na górze w zakopane_s + jaskinia
-- Nowe zadanie na reset poziomu gracza (gracz musi osiągnąć poziom maksymalny, aby móc go zresetować. Zadania / skille / bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
+- Nowe zadanie na reset poziomu gracza (gracz musi osiągnąć poziom maksymalny, aby móc go zresetować. Zadania / skille / 
+bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 - Katinka nagradza pozytywną karmą za przyjęcie zadania Zoo Food
 - Nowy "nieszkodliwy" corspe sprite dla pająków
 - Niektóre NPC nie zawrócą po zderzeniu się z kolizją
@@ -25,15 +26,16 @@ Changelog
 
 *code*
 - Od teraz można przyznać punkty umiejętności ataku / obrony / pkt atk/obr zależne od poziomu gracza jako nagrodę za poprawnie wykonane zadanie
-- Nowy atrybut dla map - "dark" - dzięki, któremy mamy efekt nocy
-- Dodano nową funckje, która sprawdza jaką mamy ustawioną szerokość okna gry i dostosowuje okienka wewnątrz gry
-- Dodano nową funkcje zabezpieczającą konto przy rejestracji
+- Nowy atrybut dla map - "dark" - dzięki, któremu mamy efekt nocy
+- Dodano nową funckję, która sprawdza jaką mamy ustawioną szerokość okna gry i dostosowuje okienka wewnątrz gry
+- Dodano nową funkcję zabezpieczającą konto przy rejestracji
 - Nagroda w postaci punktów umiejętności ataku jak i obrony od teraz nie będzie dawało nam ujemnych statystyk
 
 
 *naprawa błędów*
 - Naprawiono błąd, który powodował, że serwer przydzielał nam zupełnie inną płeć
 - Naprawiono błąd, który powodował, że tablica sklepu Elodrina (nalwor) nie otwierała się
+- Naprawiono błędy z serwerem testowym
 
 
 
