@@ -952,8 +952,8 @@
 			<atk value="8"/>
 			<def value="1"/>
 			<rate value="2"/>
-			<min_level value="68"/>
 			<lifesteal value="-0.1"/>
+			<min_level value="68"/>
 		</attributes>
 		<weight value="0.2"/>
 		<value value="5400"/>
