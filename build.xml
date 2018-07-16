@@ -105,7 +105,7 @@
 			byline="true"/>
 		
 
-		<replaceregexp file="stendhal.jnlp"
+		<replaceregexp file="polskagra.jnlp"
 			match="-0\..*\.jar&quot;"
 			replace="-${version}.jar&quot;"
 			byline="true"/>
