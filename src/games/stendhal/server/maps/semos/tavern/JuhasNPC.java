@@ -10,7 +10,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-package games.stendhal.server.maps.zakopane.home;
+package games.stendhal.server.maps.semos.tavern;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -19,6 +19,7 @@ import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
+import games.stendhal.server.entity.RPEntity;
 import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.ShopList;
@@ -57,7 +58,7 @@ public class JuhasNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				addGreeting("Pozdrawiam.");
-				addJob("Sprzedaję #magiczne #zwoje. Zapytaj mnie o #ofertę.");
+				addJob("Sprzedaję #'magiczne zwoje'. Zapytaj mnie o #ofertę.");
 				addHelp("Sprzedaję #zwoje, które mogą uratować Tobie życie.");
 
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("juhas")));
@@ -128,8 +129,11 @@ public class JuhasNPC implements ZoneConfigurator {
 						"Bilet turystyczny zabiera na pustynie w pobliżu piramid. Udając się tam zaopatrz się w wodę, a także pamiętaj o upalnych dniach i zimnych nocach oraz niebezpiecznych burzach piaskowych!", null);
 
 				addGoodbye("Dowidzenia i udanej podróży.");
+			}
+			
+			@Override
+			protected void onGoodbye(RPEntity player) {
 				setDirection(Direction.UP);
-
 			}
 		};
 

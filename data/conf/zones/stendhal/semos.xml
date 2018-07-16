@@ -1978,7 +1978,8 @@ Ahh jak miło, już czujesz ten zapach,a pod spodem widnieje dopisek: "Nowe! Pys
 			class-name="games.stendhal.server.maps.semos.tavern.DiceDealerNPC" />
 		<configurator
 			class-name="games.stendhal.server.maps.semos.tavern.market.TradeCenterZoneConfigurator" />
-		<configurator class-name="games.stendhal.server.maps.pol.zakopane.home.JuhasNPC"/>
+		<configurator 
+			class-name="games.stendhal.server.maps.semos.tavern.JuhasNPC"/>
 
 		<entity x="1" y="1" condition="!stendhal.christmas">
 			<implementation
