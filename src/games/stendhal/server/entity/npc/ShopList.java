@@ -592,6 +592,16 @@ public final class ShopList {
 		shops.add("buyrareitems", "spinka", 20000);
 		shops.add("buyrareitems", "złota ciupaga", 25000);
 		shops.add("buyrareitems", "szczerbiec", 1000000);
+		
+		//Juhas sprzedaje
+		shops.add("juhas", "zwój tatrzański", 250);
+		shops.add("juhas", "zwój krakowski", 400);
+		shops.add("juhas", "zwój wieliczka", 600);
+		shops.add("juhas", "zwój ados", 800);
+		shops.add("juhas", "zwój fado", 900);
+		shops.add("juhas", "zwój kalavan", 1000);
+		shops.add("juhas", "zwój kirdneh", 1000);
+		shops.add("juhas", "bilet turystyczny", 5000);
 	}
 
 	private static ShopList instance;
