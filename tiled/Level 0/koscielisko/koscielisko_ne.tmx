@@ -1,117 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="128" height="128" tilewidth="32" tileheight="32">
- <tileset firstgid="1" name="daisy_white" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="128" height="128" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="daisy_white" tilewidth="32" tileheight="32" tilecount="8" columns="2">
   <image source="../../tileset/plant/flower/daisy_white.png" trans="ffffff" width="64" height="128"/>
  </tileset>
- <tileset firstgid="9" name="collision" tilewidth="32" tileheight="32">
+ <tileset firstgid="9" name="collision" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="../../tileset/logic/collision.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="10" name="trawa" tilewidth="32" tileheight="32">
+ <tileset firstgid="10" name="trawa" tilewidth="32" tileheight="32" tilecount="33" columns="3">
   <image source="../../tileset/ground/ground.png" width="96" height="352"/>
  </tileset>
- <tileset firstgid="43" name="gras_edgs" tilewidth="32" tileheight="32">
+ <tileset firstgid="43" name="gras_edgs" tilewidth="32" tileheight="32" tilecount="36" columns="12">
   <image source="../../tileset/ground/grass_edges.png" width="384" height="96"/>
  </tileset>
- <tileset firstgid="79" name="gras_crns" tilewidth="32" tileheight="32">
+ <tileset firstgid="79" name="gras_crns" tilewidth="32" tileheight="32" tilecount="24" columns="6">
   <image source="../../tileset/ground/grass_corners.png" width="192" height="128"/>
  </tileset>
- <tileset firstgid="103" name="bushes" tilewidth="32" tileheight="32">
+ <tileset firstgid="103" name="bushes" tilewidth="32" tileheight="32" tilecount="10" columns="5">
   <image source="../../tileset/plant/bush/bushes.png" width="160" height="64"/>
  </tileset>
- <tileset firstgid="113" name="grzybki" tilewidth="32" tileheight="32">
+ <tileset firstgid="113" name="grzybki" tilewidth="32" tileheight="32" tilecount="6" columns="6">
   <image source="../../tileset/logic/item/mushroom.png" width="192" height="32"/>
  </tileset>
- <tileset firstgid="119" name="daisy_blue" tilewidth="32" tileheight="32">
+ <tileset firstgid="119" name="daisy_blue" tilewidth="32" tileheight="32" tilecount="8" columns="2">
   <image source="../../tileset/plant/flower/daisy_blue.png" width="64" height="128"/>
  </tileset>
- <tileset firstgid="127" name="daisy_yellow" tilewidth="32" tileheight="32">
+ <tileset firstgid="127" name="daisy_yellow" tilewidth="32" tileheight="32" tilecount="8" columns="2">
   <image source="../../tileset/plant/flower/daisy_yellow.png" width="64" height="128"/>
  </tileset>
- <tileset firstgid="135" name="daisy_red" tilewidth="32" tileheight="32">
+ <tileset firstgid="135" name="daisy_red" tilewidth="32" tileheight="32" tilecount="8" columns="2">
   <image source="../../tileset/plant/flower/daisy_red.png" width="64" height="128"/>
  </tileset>
- <tileset firstgid="143" name="swierczek" tilewidth="32" tileheight="32">
+ <tileset firstgid="143" name="swierczek" tilewidth="32" tileheight="32" tilecount="15" columns="3">
   <image source="../../tileset/pol/natura/drzewa/tree_swierk.png" width="96" height="160"/>
  </tileset>
- <tileset firstgid="158" name="buk" tilewidth="32" tileheight="32">
+ <tileset firstgid="158" name="buk" tilewidth="32" tileheight="32" tilecount="12" columns="3">
   <image source="../../tileset/pol/natura/drzewa/tree_buk.png" width="96" height="128"/>
  </tileset>
- <tileset firstgid="170" name="swierkbig" tilewidth="32" tileheight="32">
+ <tileset firstgid="170" name="swierkbig" tilewidth="32" tileheight="32" tilecount="54" columns="6">
   <image source="../../tileset/pol/natura/drzewa/tree_swierk_big.png" width="192" height="288"/>
  </tileset>
- <tileset firstgid="224" name="bukbig" tilewidth="32" tileheight="32">
+ <tileset firstgid="224" name="bukbig" tilewidth="32" tileheight="32" tilecount="42" columns="6">
   <image source="../../tileset/pol/natura/drzewa/tree_buk_big.png" width="192" height="224"/>
  </tileset>
- <tileset firstgid="266" name="kasztan" tilewidth="32" tileheight="32">
+ <tileset firstgid="266" name="kasztan" tilewidth="32" tileheight="32" tilecount="12" columns="3">
   <image source="../../tileset/pol/natura/drzewa/tree_kasztan.png" width="96" height="128"/>
  </tileset>
- <tileset firstgid="278" name="dziurki" tilewidth="32" tileheight="32">
+ <tileset firstgid="278" name="dziurki" tilewidth="32" tileheight="32" tilecount="4" columns="4">
   <image source="../../tileset/ground/mud_patch.png" width="128" height="32"/>
  </tileset>
- <tileset firstgid="282" name="trawka" tilewidth="32" tileheight="32">
+ <tileset firstgid="282" name="trawka" tilewidth="32" tileheight="32" tilecount="15" columns="5">
   <image source="../../tileset/pol/podloze/grass_green.png" width="160" height="96"/>
  </tileset>
- <tileset firstgid="297" name="skalka" tilewidth="32" tileheight="32">
+ <tileset firstgid="297" name="skalka" tilewidth="32" tileheight="32" tilecount="96" columns="12">
   <image source="../../tileset/ground/ridge/earth_pale.png" width="384" height="256"/>
  </tileset>
- <tileset firstgid="393" name="schodki" tilewidth="32" tileheight="32">
+ <tileset firstgid="393" name="schodki" tilewidth="32" tileheight="32" tilecount="36" columns="6">
   <image source="../../tileset/pol/podloze/earth_stairs.png" width="192" height="192"/>
  </tileset>
- <tileset firstgid="429" name="domek" tilewidth="32" tileheight="32">
+ <tileset firstgid="429" name="domek" tilewidth="32" tileheight="32" tilecount="35" columns="5">
   <image source="../../tileset/building/hut.png" width="160" height="224"/>
  </tileset>
- <tileset firstgid="464" name="kamienne" tilewidth="32" tileheight="32">
+ <tileset firstgid="464" name="kamienne" tilewidth="32" tileheight="32" tilecount="2" columns="2">
   <image source="../../tileset/logic/creature/pol_kamienne.png" width="64" height="32"/>
  </tileset>
- <tileset firstgid="466" name="kamienne_wielkie" tilewidth="32" tileheight="32">
+ <tileset firstgid="466" name="kamienne_wielkie" tilewidth="32" tileheight="32" tilecount="3" columns="3">
   <image source="../../tileset/logic/creature/pol_kamienne_wielkie.png" width="96" height="32"/>
  </tileset>
- <tileset firstgid="469" name="elfy" tilewidth="32" tileheight="32">
+ <tileset firstgid="469" name="elfy" tilewidth="32" tileheight="32" tilecount="12" columns="12">
   <image source="../../tileset/logic/creature/pol_elfy_gorskie.png" width="384" height="32"/>
  </tileset>
- <tileset firstgid="481" name="zjawy" tilewidth="32" tileheight="32">
+ <tileset firstgid="481" name="zjawy" tilewidth="32" tileheight="32" tilecount="10" columns="10">
   <image source="../../tileset/logic/creature/pol_zjawy.png" width="320" height="32"/>
  </tileset>
- <tileset firstgid="491" name="pokutniki" tilewidth="32" tileheight="32">
+ <tileset firstgid="491" name="pokutniki" tilewidth="32" tileheight="32" tilecount="5" columns="5">
   <image source="../../tileset/logic/creature/pol_pokutniki.png" width="160" height="32"/>
  </tileset>
- <tileset firstgid="496" name="smoki" tilewidth="32" tileheight="32">
+ <tileset firstgid="496" name="smoki" tilewidth="32" tileheight="32" tilecount="10" columns="10">
   <image source="../../tileset/logic/creature/pol_smoki.png" width="320" height="32"/>
  </tileset>
- <tileset firstgid="506" name="mgla" tilewidth="32" tileheight="32">
+ <tileset firstgid="506" name="mgla" tilewidth="32" tileheight="32" tilecount="4" columns="4">
   <image source="../../tileset/logic/creature/pol_niesmiertelne.png" width="128" height="32"/>
  </tileset>
- <tileset firstgid="510" name="dzw" tilewidth="32" tileheight="32">
+ <tileset firstgid="510" name="dzw" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="../../tileset/pol/domki/drzwi/door_drewno_warownia.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="511" name="znaczek" tilewidth="32" tileheight="32">
+ <tileset firstgid="511" name="znaczek" tilewidth="32" tileheight="32" tilecount="6" columns="6">
   <image source="../../tileset/building/decoration/banner_rotated_gm.png" width="192" height="32"/>
  </tileset>
- <tileset firstgid="517" name="rycerze" tilewidth="32" tileheight="32">
+ <tileset firstgid="517" name="rycerze" tilewidth="32" tileheight="32" tilecount="8" columns="8">
   <image source="../../tileset/logic/creature/pol_rycerze.png" width="256" height="32"/>
  </tileset>
- <tileset firstgid="525" name="zjawy_wielkie" tilewidth="32" tileheight="32">
+ <tileset firstgid="525" name="zjawy_wielkie" tilewidth="32" tileheight="32" tilecount="6" columns="6">
   <image source="../../tileset/logic/creature/pol_zjawy_wielkie.png" width="192" height="32"/>
  </tileset>
- <tileset firstgid="531" name="mutanty_wielkie" tilewidth="32" tileheight="32">
+ <tileset firstgid="531" name="mutanty_wielkie" tilewidth="32" tileheight="32" tilecount="4" columns="4">
   <image source="../../tileset/logic/creature/pol_mutanty_wielkie.png" width="128" height="32"/>
  </tileset>
- <tileset firstgid="535" name="mutanty" tilewidth="32" tileheight="32">
+ <tileset firstgid="535" name="mutanty" tilewidth="32" tileheight="32" tilecount="5" columns="5">
   <image source="../../tileset/logic/creature/pol_mutanty.png" width="160" height="32"/>
  </tileset>
- <tileset firstgid="540" name="magowie" tilewidth="32" tileheight="32">
+ <tileset firstgid="540" name="magowie" tilewidth="32" tileheight="32" tilecount="9" columns="9">
   <image source="../../tileset/logic/creature/pol_magowie.png" width="288" height="32"/>
  </tileset>
- <tileset firstgid="549" name="zwierzeta" tilewidth="32" tileheight="32">
+ <tileset firstgid="549" name="zwierzeta" tilewidth="32" tileheight="32" tilecount="10" columns="10">
   <image source="../../tileset/logic/creature/pol_zwierzeta.png" width="320" height="32"/>
  </tileset>
- <tileset firstgid="559" name="protection" tilewidth="32" tileheight="32">
-  <image source="../../tileset/logic/protection.png" width="32" height="32"/>
+ <tileset firstgid="559" name="protection" tilewidth="32" tileheight="32" tilecount="2" columns="2">
+  <image source="../../tileset/logic/protection.png" width="64" height="32"/>
  </tileset>
- <tileset firstgid="560" name="latarnia_blask" tilewidth="32" tileheight="32">
+ <tileset firstgid="561" name="latarnia_blask" tilewidth="32" tileheight="32" tilecount="25" columns="5">
   <image source="../../tileset/pol/oswietlenie/latarnia_blask.png" width="160" height="160"/>
  </tileset>
- <tileset firstgid="585" name="latarnia_blaszczysko" tilewidth="32" tileheight="32">
+ <tileset firstgid="586" name="latarnia_blaszczysko" tilewidth="32" tileheight="32" tilecount="25" columns="5">
   <image source="../../tileset/pol/oswietlenie/latarnia_blaszczysko.png" width="160" height="160"/>
  </tileset>
  <layer name="0_floor" width="128" height="128">
@@ -156,12 +156,12 @@
  </layer>
  <layer name="blend_ground" width="128" height="128" opacity="0.3">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3RawqCUACE0Yu7M7O07GnP/W+i2UOQxD0Hvv8DUwoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/L+2KWWVurROfbP0In5pk7+3aUhj2vm/Kvv8PaVDOqaT/6tyzt+XdE1zuvm/Kvf8/UjP9Epv/wMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwNc+cdYVCQAAAQA=
+   H4sIAAAAAAAAC+3RawqCUACE0YvLM7O07GnP/S+i2UOQxD0Hvv8DUwoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/L+2KWWVurROfbP0In5pk7+3aUhj2vm/Kvv8PaVDOqaT/6tyzt+XdE1zuvm/Kvf8/UjP9Epv/wMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwNc+ySB5jAAAAQA=
   </data>
  </layer>
  <layer name="blend_roof" width="128" height="128" opacity="0.3">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3RawqCUACE0Yu7M7O07GnP/W+i2UOQxD0Hvv8DUwoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/L+2KWWVurROfbP0In5pk7+3aUhj2vm/Kvv8PaVDOqaT/6tyzt+XdE1zuvm/Kvf8/UjP9Epv/wMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwNc+cdYVCQAAAQA=
+   H4sIAAAAAAAAC+3RawqCUACE0YvLM7O07GnP/S+i2UOQxD0Hvv8DUwoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/L+2KWWVurROfbP0In5pk7+3aUhj2vm/Kvv8PaVDOqaT/6tyzt+XdE1zuvm/Kvf8/UjP9Epv/wMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwNc+ySB5jAAAAQA=
   </data>
  </layer>
 </map>
