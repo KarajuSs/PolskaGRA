@@ -397,7 +397,7 @@
   
     <creature name="mermaid">
 	    <type class="hybrid" subclass="mermaid" tileid="hybrid.png:15"/>
-	    <description>Oto mermaid. Wolą własne towarzystwo i nie są zbyt szczęśliwi widząc cię tutaj.</description>
+	    <description>Oto mermaid. Te istoty wolą własne towarzystwo i nie są zbyt szczęśliwi widząc cię tutaj.</description>
 	    <attributes>
 	      <atk value="547"/>
 	      <def value="76"/>
