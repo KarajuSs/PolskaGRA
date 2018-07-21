@@ -59,7 +59,7 @@ public class RareWeaponsSellerNPC implements ZoneConfigurator {
 				addJob("Jestem handlarzem ... powiedzmy ... #rzadkimi rzeczami.");
 				addHelp("Nie jestem pewien czy mogę Ci ufać .... #pirat z krzywą #nogą musi mieć #oko na nowych ludzi.");
 				addQuest("Jeżeli znajdziesz #rzadką #zbroję lub #broń ...");
-				addGoodbye("Do zobaczenia wkrótce!");
+				addGoodbye("Arrghh, do zobaczenia wkrótce!");
 				add(ConversationStates.ATTENDING, Arrays.asList("weapon", "broń", "armor", "zbroję", "rare" ,"rzadką" ,"rzadkimi", "rare armor", "rzadką zbroję"),
 				        ConversationStates.ATTENDING,
 				        "Ciii! Okazjonalnie kupuję rzadką broń i zbroje. Masz jakieś? Może zrobimy dobry #interes?", null);
