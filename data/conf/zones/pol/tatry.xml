@@ -6,7 +6,17 @@
 	-->
 
 	<!-- Ground level -->
+	
+	<!-- START: Lasy -->
+	<!-- dolina_koscieliska_las_nw -->
+	<zone name="0_tatry_dolina_koscieliska_las_nw" level="0" x="512928" y="18816" file="Level 0/tatry/dolina_koscieliska_las_nw.tmx"></zone>
+	<!-- dolina_koscieliska_las_w -->
+	<zone name="0_tatry_dolina_koscieliska_las_w" level="0" x="512928" y="18944" file="Level 0/tatry/dolina_koscieliska_las_w.tmx"></zone>
+	<!-- dolina_koscieliska_las_sw -->
+	<zone name="0_tatry_dolina_koscieliska_las_sw" level="0" x="512928" y="19072" file="Level 0/tatry/dolina_koscieliska_las_sw.tmx"></zone>
+	<!-- KONIEC: lasu -->
 
+	<!-- Y: 18816 -->
 	<!-- dolina_koscieliska_n -->
 	<zone name="0_tatry_dolina_koscieliska_n" level="0" x="513056" y="18816" file="Level 0/tatry/dolina_koscieliska_n.tmx">
 		<attributes>
@@ -24,29 +34,23 @@
 	</zone>
 
 	<!-- dolina_malej_laki -->
-	<!-- <zone name="0_tatry_dolina_malej_laki" level="0" x="513184" y="18816" file="Level 0/tatry/dolina_malej_laki.tmx">
+	<!-- <zone name="0_tatry_dolina_malej_laki" level="0" x="513312" y="18816" file="Level 0/tatry/dolina_malej_laki.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=-2)</parameter>
 		</attributes>
 	</zone>-->
 
-	<!-- dolina_strazyska_n -->
-	<zone name="0_tatry_dolina_strazyska_n" level="0" x="513312" y="18816" file="Level 0/tatry/dolina_strazyska_n.tmx">
+	<!-- dolina_strazyska -->
+	<zone name="0_tatry_dolina_strazyska" level="0" x="513440" y="18816" file="Level 0/tatry/dolina_strazyska_n.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=-2)</parameter>
 		</attributes>
 	</zone>
+	<!-- KONIEC Y: 18816 -->
 
-	<!-- kuznice -->
-	<!-- <zone name="0_tatry_kuznice" level="0" x="513440" y="18816" file="Level 0/tatry/kuznice.tmx">
-		<attributes>
-			<parameter name="color_method">time</parameter>
-			<parameter name="weather">varying(temperature=-2)</parameter>
-		</attributes>
-	</zone>-->
-
+	<!-- Y: 18944 -->
 	<!-- dolina_koscieliska_c -->
 	<zone name="0_tatry_dolina_koscieliska_c" level="0" x="513056" y="18944" file="Level 0/tatry/dolina_koscieliska_c.tmx">
 		<attributes>
@@ -63,22 +67,6 @@
 		</attributes>
 	</zone>
 
-	<!-- dolina_mietusia -->
-	<!-- <zone name="0_tatry_dolina_mietusia" level="0" x="513184" y="18944" file="Level 0/tatry/dolina_mietusia.tmx">
-		<attributes>
-			<parameter name="color_method">time</parameter>
-			<parameter name="weather">varying(temperature=-2)</parameter>
-		</attributes>
-	</zone>-->
-
-	<!-- giewont -->
-	<!-- <zone name="0_tatry_giewont" level="0" x="513312" y="18944" file="Level 0/tatry/giewont.tmx">
-		<attributes>
-			<parameter name="color_method">time</parameter>
-			<parameter name="weather">varying(temperature=-2)</parameter>
-		</attributes>
-	</zone>-->
-
 	<!-- kasprowy_wierch -->
 	<!-- <zone name="0_tatry_kasprowy_wierch" level="0" x="513440" y="18944" file="Level 0/tatry/kasprowy_wierch.tmx">
 		<attributes>
@@ -86,7 +74,17 @@
 			<parameter name="weather">varying(temperature=-2)</parameter>
 		</attributes>
 	</zone>-->
+	
+	<!-- kuznice -->
+	<!-- <zone name="0_tatry_kuznice" level="0" x="513440" y="18944" file="Level 0/tatry/kuznice.tmx">
+		<attributes>
+			<parameter name="color_method">time</parameter>
+			<parameter name="weather">varying(temperature=-2)</parameter>
+		</attributes>
+	</zone>-->
+	<!-- KONIEC Y: 18944 -->
 
+	<!-- Y: 19072 -->
 	<!-- dolina_koscieliska_s -->
 	<zone name="0_tatry_dolina_koscieliska_s" level="0" x="513056" y="19072" file="Level 0/tatry/dolina_koscieliska_s.tmx">
 		<attributes>
@@ -95,29 +93,30 @@
 		</attributes>
 	</zone>
 
-	<!-- tatry_puste_1 -->
-	<!-- <zone name="0_tatry_tatry_puste_1" level="0" x="513184" y="19072" file="Level 0/tatry/tatry_puste_1.tmx">
+	<!-- dolina_mietusia -->
+	<!-- <zone name="0_tatry_dolina_mietusia" level="0" x="513184" y="19072" file="Level 0/tatry/dolina_mietusia.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=-2)</parameter>
 		</attributes>
 	</zone>-->
 
-	<!-- tatry_puste_2 -->
-	<!-- <zone name="0_tatry_tatry_puste_2" level="0" x="513312" y="19072" file="Level 0/tatry/tatry_puste_2.tmx">
+	<!-- giewont_sw -->
+	<!-- <zone name="0_tatry_giewont_sw" level="0" x="513312" y="19072" file="Level 0/tatry/giewont_sw.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=-2)</parameter>
 		</attributes>
 	</zone>-->
-
-	<!-- tatry_puste_3 -->
-	<!-- <zone name="0_tatry_tatry_puste_3" level="0" x="513440" y="19072" file="Level 0/tatry/tatry_puste_3.tmx">
+	
+	<!-- giewont_se -->
+	<!-- <zone name="0_tatry_giewont_se" level="0" x="513440" y="19072" file="Level 0/tatry/giewont_se.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=-2)</parameter>
 		</attributes>
 	</zone>-->
+	<!-- KONIEC Y: 19072 -->
 
 	<!-- interiors -->
 
