@@ -83,9 +83,9 @@
 		</equipable>
 	</item>
 
-	<item name="golden gm token">
+	<item name="złoty żeton GMa">
 		<type class="special" subclass="GM_tokend_gold2" tileid="-1"/>
-		<description/>
+		<description>Oto żeton wykonany ze złota dla specjalnego GMa. Czy jesteś z niego dumny?</description>
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
 			<quantity value="1"/>
@@ -103,9 +103,9 @@
 		</equipable>
 	</item>
 
-	<item name="silvery gm token">
+	<item name="srebrny żeton GMa">
 		<type class="special" subclass="GM_tokend_silver" tileid="-1"/>
-		<description/>
+		<description>Oto żeton wykonany ze srebra dla specjalnego GMa. Czy jesteś z niego dumny?</description>
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
 			<quantity value="1"/>
@@ -123,9 +123,9 @@
 		</equipable>
 	</item>
 
-	<item name="bronze gm token">
+	<item name="brązowy żeton GMa">
 		<type class="special" subclass="GM_tokend_bronze" tileid="-1"/>
-		<description/>
+		<description>Oto żeton wykonany z brązu dla specjalnego GMa. Czy jesteś z niego dumny?</description>
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
 			<quantity value="1"/>
@@ -143,9 +143,9 @@
 		</equipable>
 	</item>
 
-	<item name="puchar">
+	<item name="złoty puchar">
 		<type class="special" subclass="puchar" tileid="-1"/>
-		<description/>
+		<description>Oto złoty puchar. Jest on dowodem na to, że zwyciężyłeś na jednym z wielu dużych uroczystości! :) Administracja gry życzy Ci dalszych sukcesów!</description>
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
 			<quantity value="1"/>
@@ -163,7 +163,7 @@
 
 	<item name="piłka">
 		<type class="special" subclass="ball" tileid="-1"/>
-		<description>To piłka. Znajdź kilku kumpli i zagrajcie sobie mecz.</description>
+		<description>Oto piłka. Znajdź kilku kumpli i zagrajcie sobie mecz.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
 			<quantity value="1"/>
