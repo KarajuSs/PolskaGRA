@@ -64,7 +64,7 @@ public class FryderykNPC implements ZoneConfigurator {
 			}
 		};
 
-		npc.setEntityClass("paulnpc");
+		npc.setEntityClass("npcfryderyk"); /* was: paulnpc */
 		npc.setPosition(21, 8);
 		npc.initHP(1000);
 		zone.add(npc);
