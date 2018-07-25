@@ -104,9 +104,12 @@ import games.stendhal.common.MathHelper;
 import games.stendhal.common.NotificationType;
 import games.stendhal.common.constants.SoundLayer;
 import games.stendhal.common.constants.Testing;
+import marauroa.client.BannedAddressException;
+import marauroa.client.TimeoutException;
 import marauroa.client.net.IPerceptionListener;
 import marauroa.common.game.RPAction;
 import marauroa.common.game.RPObject;
+import marauroa.common.net.InvalidVersionException;
 
 /** The main class that create the screen and starts the arianne client. */
 public class j2DClient implements UserInterface {
@@ -315,12 +318,9 @@ public class j2DClient implements UserInterface {
 			}
 		});
 
-		/*
-		 * Flush direction key states when chat box loses focus.
-		 */
-		chatText.getPlayerChatText().addFocusListener(new FocusAdapter() {
+		frame.addWindowFocusListener(new WindowAdapter() {
 			@Override
-			public void focusLost(final FocusEvent e) {
+			public void windowLostFocus(final WindowEvent e) {
 				/* Stops player movement via keypress when focus is lost.
 				 * 
 				 * 
@@ -843,7 +843,7 @@ public class j2DClient implements UserInterface {
 					logger.warn("You can't logout now.");
 					gameRunning = true;
 				}
-			} catch (final Exception e) { // catch InvalidVersionException, TimeoutException and BannedAddressException
+			} catch (final InvalidVersionException|TimeoutException|BannedAddressException e) {
 				/*
 				 * If we get a timeout exception we accept exit request.
 				 */
