@@ -8,7 +8,7 @@
 		<type class="pol/elfy_gorskie" subclass="ae_elf_gorski_maskotka" tileid="pol_elfy_gorskie.png:0"/>
 		<description/>
 		<attributes>
-			<atk value="180"/>
+			<atk value="185"/>
 			<def value="17"/>
 			<hp value="120"/>
 			<speed value="0.9"/>
