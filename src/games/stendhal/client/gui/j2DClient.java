@@ -318,9 +318,9 @@ public class j2DClient implements UserInterface {
 			}
 		});
 
-		frame.addWindowFocusListener(new WindowAdapter() {
+		chatText.getPlayerChatText().addFocusListener(new FocusAdapter() {
 			@Override
-			public void windowLostFocus(final WindowEvent e) {
+			public void focusLost(final FocusEvent e) {
 				/* Stops player movement via keypress when focus is lost.
 				 * 
 				 * 
