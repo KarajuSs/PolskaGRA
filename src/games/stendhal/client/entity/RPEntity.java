@@ -1509,23 +1509,6 @@ public abstract class RPEntity extends AudibleEntity {
 	 * Called when the entity dies.
 	 */
 	private void onDeath(final Collection<Entity> attackers) {
-		if (!attackers.isEmpty()) {
-			Collection<String> attackerNames = new LinkedList<String>();
-			for (Entity attacker : attackers) {
-					attackerNames.add(attacker.getTitle());
-			}
-			if (getGender() == null) {
-				ClientSingletonRepository.getUserInterface().addEventLine(new StandardEventLine(
-						getTitle() + " został zabity przez " + Grammar.enumerateCollection(attackerNames)));
-			} else if (getGender().equals("F")) {
-				ClientSingletonRepository.getUserInterface().addEventLine(new StandardEventLine(
-						getTitle() + " została zabita przez " + Grammar.enumerateCollection(attackerNames)));
-			} else {
-				ClientSingletonRepository.getUserInterface().addEventLine(new StandardEventLine(
-						getTitle() + " został zabity przez " + Grammar.enumerateCollection(attackerNames)));
-			}
-		}
-		
 	    playSoundFromCategory(SoundLayer.FIGHTING_NOISE.groupName, "death");
 	}
 
