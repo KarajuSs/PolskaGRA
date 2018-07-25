@@ -760,13 +760,7 @@ public abstract class RPEntity extends AudibleEntity {
 				& (!stendhal.FILTER_ATTACK_MESSAGES);
 
 		if (stendhal.SHOW_EVERYONE_ATTACK_INFO || showAttackInfoForPlayer) {
-			if (getGender() == null) {
-				ClientSingletonRepository.getUserInterface().addEventLine(new HeaderLessEventLine(
-						getTitle() + " otrzymał "
-								+ Grammar.quantityplnoun(damage, "punkt")
-								+ " obrażeń od " + attacker.getTitle(),
-						NotificationType.NEGATIVE));
-			} else if (getGender().equals("F")) {
+			if (getGender().equals("F")) {
 				ClientSingletonRepository.getUserInterface().addEventLine(new HeaderLessEventLine(
 						getTitle() + " otrzymała "
 								+ Grammar.quantityplnoun(damage, "punkt")
@@ -848,13 +842,7 @@ public abstract class RPEntity extends AudibleEntity {
 	 */
 	private void onPoisoned(final int amount) {
 		if ((amount > 0) && (User.squaredDistanceTo(x, y) < HEARING_DISTANCE_SQ)) {
-			if (getGender() == null) {
-				ClientSingletonRepository.getUserInterface().addEventLine(
-						new HeaderLessEventLine(
-						getTitle() + " został zatruty. Traci "
-								+ Grammar.quantityplnoun(amount, "punkt")
-								+ " życia.", NotificationType.POISON));
-			} else if (getGender().equals("F")) {
+			if (getGender().equals("F")) {
 				ClientSingletonRepository.getUserInterface().addEventLine(
 						new HeaderLessEventLine(
 						getTitle() + " została zatruta. Traci "
@@ -1435,14 +1423,7 @@ public abstract class RPEntity extends AudibleEntity {
 				if (amount > 0) {
 					addTextIndicator("+" + amount,
 							NotificationType.SIGNIFICANT_POSITIVE);
-					if (getGender() == null) {
-						ClientSingletonRepository.getUserInterface().addEventLine(new HeaderLessEventLine(
-								getTitle()
-								+ " dostał "
-								+ Grammar.quantityplnoun(amount,
-								"punkt") + " doświadczenia.",
-								NotificationType.SIGNIFICANT_POSITIVE));
-					} else if (getGender().equals("F")) {
+					if (getGender().equals("F")) {
 						ClientSingletonRepository.getUserInterface().addEventLine(new HeaderLessEventLine(
 								getTitle()
 								+ " dostała "
@@ -1474,16 +1455,7 @@ public abstract class RPEntity extends AudibleEntity {
 
 		if (changes.has("level") && object.has("level")
 				&& (User.squaredDistanceTo(x, y) < HEARING_DISTANCE_SQ)) {
-			if (getGender() == null) {
-				final String text = getTitle() + " osiągnął poziom " + getLevel();
-
-				ClientSingletonRepository.getUserInterface().addEventLine(new HeaderLessEventLine(text,
-						NotificationType.SIGNIFICANT_POSITIVE));
-
-				ClientSingletonRepository.getUserInterface().addGameScreenText(
-						getX() + (getWidth() / 2.0), getY(),
-						text, NotificationType.SIGNIFICANT_POSITIVE, false);
-			} else if (getGender().equals("F")) {
+			if (getGender().equals("F")) {
 				final String text = getTitle() + " osiągnęła poziom " + getLevel();
 
 					ClientSingletonRepository.getUserInterface().addEventLine(new HeaderLessEventLine(text,
@@ -1514,10 +1486,7 @@ public abstract class RPEntity extends AudibleEntity {
 			for (Entity attacker : attackers) {
 					attackerNames.add(attacker.getTitle());
 			}
-			if (getGender() == null) {
-				ClientSingletonRepository.getUserInterface().addEventLine(new StandardEventLine(
-						getTitle() + " został zabity przez " + Grammar.enumerateCollection(attackerNames)));
-			} else if (getGender().equals("F")) {
+			if (getGender().equals("F")) {
 				ClientSingletonRepository.getUserInterface().addEventLine(new StandardEventLine(
 						getTitle() + " została zabita przez " + Grammar.enumerateCollection(attackerNames)));
 			} else {
