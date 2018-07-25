@@ -37,6 +37,7 @@ bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 - Naprawiono błąd, który powodował, że serwer przydzielał nam zupełnie inną płeć
 - Naprawiono błąd, który powodował, że tablica sklepu Elodrina (nalwor) nie otwierała się
 - Naprawiono błędy z serwerem testowym
+- Naprawiono błąd, który powodował, że informacja o zabitym potworze pojawiała się dwukrotnie.
 
 
 
