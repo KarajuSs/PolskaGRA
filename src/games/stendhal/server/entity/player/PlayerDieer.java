@@ -154,20 +154,20 @@ public class PlayerDieer {
 		}
 
 		String zoneinfo = player.getZone().describe();
-		String locationmsg = "You died " + zoneinfo;
+		String locationmsg = "Zginąłeś w " + zoneinfo;
 		if(!player.getZone().isInterior()) {
 			// only tell the more precise location inside the zone if it's not an interior
 			int x = player.getZone().getWidth();
 			int y = player.getZone().getHeight();
 			int lastx = player.getX();
 			int lasty = player.getY();
-			String northsouth = (lasty < y/3) ? "north " : ( (lasty > 2*y/3) ? "south " : "");
-			String eastwest = (lastx < x/3) ? "west" : ( (lastx > 2*x/3) ? "east" : "");
+			String northsouth = (lasty < y/3) ? "północ " : ( (lasty > 2*y/3) ? "południe " : "");
+			String eastwest = (lastx < x/3) ? "zachód" : ( (lastx > 2*x/3) ? "wschód" : "");
 			String pos = (northsouth + eastwest);
 			if (pos.equals("")) {
-				pos = "center";
+				pos = "centrum";
 			}
-			locationmsg += " in the " + pos + " part";
+			locationmsg += " w części " + pos;
 		}
 		respawnInAfterLife();
 
@@ -191,9 +191,10 @@ public class PlayerDieer {
 					strings.add(Grammar.a_noun(item.getName()));
 				}
 			}
-			player.sendPrivateText(NotificationType.NEGATIVE, "Your corpse contains " + Grammar.enumerateCollection(strings) + ", but you may be able to retrieve " + Grammar.itthem(numberOfDrops) + ". Your skills are " + skillPercentage + "% of their old value.");
+			final int hpLeft = Math.round(player.getBaseHP() - player.getHP());
+			player.sendPrivateText(NotificationType.NEGATIVE, "Twoje zwłoki zawierają " + Grammar.enumerateCollection(strings) + ", ale możesz odzyskać " + Grammar.itthem(numberOfDrops) + ". Ocaliłeś aż " + skillPercentage + "% swoich dotychczasowych umiejętności oraz straciłeś " + hpLeft + " punkt" + " życia!");
 		} else {
-			player.sendPrivateText(NotificationType.POSITIVE, "You were lucky and dropped no items when you died. Your skills are " + skillPercentage + "% of their old value.");
+			player.sendPrivateText(NotificationType.POSITIVE, "Miałeś szczęście ponieważ nie zgubiłeś żadnych przedmiotów, gdy poległeś na polu chwały. Ocaliłeś aż " + skillPercentage + "% swoich dotychczasowych umiejętności.");
 		}
 	}
 
