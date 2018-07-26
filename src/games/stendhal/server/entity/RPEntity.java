@@ -1970,7 +1970,11 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 		}
 
 		StringBuilder deathMessage = new StringBuilder(getName());
-		deathMessage.append(" został zabity");
+		if (getGender().equals("F")) {
+			deathMessage.append(" została zabita");
+		} else {
+			deathMessage.append(" został zabity");
+		}
 		if (!killers.isEmpty()) {
 			deathMessage.append(" przez ");
 			deathMessage.append(Grammar.enumerateCollection(killers));
