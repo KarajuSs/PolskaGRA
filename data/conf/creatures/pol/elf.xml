@@ -3,7 +3,6 @@
 	xsi:schemaLocation="stendhal ../../creatures.xsd ">
 
 	<!-- START: elf gorski -->
-
 	<creature name="elf górski maskotka">
 		<type class="pol/elfy_gorskie" subclass="ae_elf_gorski_maskotka" tileid="pol_elfy_gorskie.png:0"/>
 		<description/>
@@ -330,7 +329,6 @@
 			<profile name="patrolling"/>
 		</ai>
 	</creature>
-
 	<!-- END: elf gorski -->
 
 </creatures>
