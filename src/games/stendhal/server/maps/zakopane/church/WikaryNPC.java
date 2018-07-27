@@ -10,8 +10,8 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
- //Zrobiony na podstawie GateKeeperNPC z Sedah city 
- 
+ //Zrobiony na podstawie GateKeeperNPC z Sedah city
+
 package games.stendhal.server.maps.zakopane.church;
 
 import games.stendhal.common.Rand;
@@ -63,8 +63,24 @@ public class WikaryNPC implements ZoneConfigurator {
 			@Override
 			protected void createPath() {
 				List<Node> nodes = new LinkedList<Node>();
-				nodes.add(new Node(5, 12));
-				nodes.add(new Node(18, 12));
+				nodes.add(new Node(3, 12));
+				nodes.add(new Node(8, 12));
+				nodes.add(new Node(8, 11));
+				nodes.add(new Node(10, 11));
+				nodes.add(new Node(10, 10));
+				nodes.add(new Node(13, 10));
+				nodes.add(new Node(13, 11));
+				nodes.add(new Node(15, 11));
+				nodes.add(new Node(15, 12));
+				nodes.add(new Node(20, 12));
+				nodes.add(new Node(15, 12));
+				nodes.add(new Node(15, 11));
+				nodes.add(new Node(13, 11));
+				nodes.add(new Node(13, 10));
+				nodes.add(new Node(10, 10));
+				nodes.add(new Node(10, 11));
+				nodes.add(new Node(8, 11));
+				nodes.add(new Node(8, 12));
 				setPath(new FixedPath(nodes, true));
 			}
 
@@ -82,7 +98,7 @@ public class WikaryNPC implements ZoneConfigurator {
 								raiser.say("Witaj ponownie.");
 							}
 						} else {
-							raiser.say("Witaj! Czyżbyś przybył tutaj, aby złożyć datek?");
+							raiser.say("Witaj! Czyżbyś przybył tutaj, aby złożyć #'datek'?");
 						}
 					}
 				});
@@ -192,7 +208,7 @@ public class WikaryNPC implements ZoneConfigurator {
 		 * part ever gets done, this image can change.
 		 */
 		npc.setEntityClass("npcwikary");
-		npc.setPosition(5, 12);
+		npc.setPosition(3, 12);
 		npc.initHP(100);
 		zone.add(npc);
 	}
