@@ -1982,6 +1982,15 @@ public class Player extends RPEntity implements UseListener {
 		setKeyedSlot("!visited", zoneName,
 				Long.toString(System.currentTimeMillis()));
 		trade.cancelTrade();
+		
+		if((zoneName.equals("0_ados_city_n")) || (zoneName.equals("0_fado_city"))
+			|| (zoneName.equals("0_kalavan_city")) || (zoneName.equals("0_kirdneh_city"))
+			|| (zoneName.equals("0_nalwor_city")) || (zoneName.equals("0_semos_city")) 
+			|| (zoneName.equals("0_zakopane_s"))) {
+			if(getQuest(zoneName) == null) {
+				setQuest(zoneName,"done");
+			}
+		}
 	}
 
 	/**
