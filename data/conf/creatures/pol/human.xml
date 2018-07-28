@@ -135,7 +135,7 @@
 			<item value="money" quantity="[10,80]" probability="100.0"/>
 			<item value="buty kolcze" quantity="[1,1]" probability="12.0"/>
 			<item value="skórzane twarde rękawice" quantity="[1,1]" probability="5.5"/>
-			<item value="sztylet" quantity="[1,1]" probability="9.0"/>
+			<item value="sztylecik" quantity="[1,1]" probability="9.0"/>
 		</drops>
 		<equips/>
 		<ai>
@@ -165,7 +165,7 @@
 			<item value="buty kolcze" quantity="[1,1]" probability="12.5"/>
 			<item value="spodnie kolcze" quantity="[1,1]" probability="3.5"/>
 			<item value="złota kolczuga" quantity="[1,1]" probability="8.5"/>
-			<item value="sztylet" quantity="[1,1]" probability="9.5"/>
+			<item value="sztylecik" quantity="[1,1]" probability="9.5"/>
 		</drops>
 		<equips/>
 		<ai>
