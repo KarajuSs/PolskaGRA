@@ -3,7 +3,6 @@
 	xsi:schemaLocation="stendhal ../../creatures.xsd ">
 
 	<!-- START: smoki -->
-
 	<creature name="dwugłowy czarny smok">
 		<type class="pol/smoki" subclass="smok_dwuglowy_czarny" tileid="pol_smoki.png:0"/>
 		<description/>
@@ -342,7 +341,6 @@
 			<profile name="patrolling"/>
 		</ai>
 	</creature>
-
 	<!-- END: smoki -->
 
 </creatures>
