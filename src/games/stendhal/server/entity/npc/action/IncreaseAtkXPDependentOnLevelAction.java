@@ -45,12 +45,7 @@ public class IncreaseAtkXPDependentOnLevelAction implements ChatAction {
 	public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 		final int start = Level.getXP(player.getLevel());
 		final int next = Level.getXP(player.getLevel() + 1);
-		int reward = (next - start) / ((player.getLevel() * 2 + player.getAtk() * 3 ) / 2);
-		if (player.getLevel() >= Level.maxLevel()) {
-			reward = 0;
-			// no reward so give a lot karma instead
-			player.addKarma(karmabonus);
-		}
+		int reward = (int) ((next - start) / (atk_xpDiff) / 10);
 		player.setAtkXP(reward + player.getAtkXP());
 		player.notifyWorldAboutChanges();
 	}
