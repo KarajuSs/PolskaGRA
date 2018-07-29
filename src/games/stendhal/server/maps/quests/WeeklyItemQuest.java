@@ -12,6 +12,12 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 import games.stendhal.common.MathHelper;
 import games.stendhal.common.Rand;
 import games.stendhal.common.grammar.Grammar;
@@ -47,12 +53,6 @@ import games.stendhal.server.entity.npc.condition.TimePassedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
 /**
  * QUEST: Weekly Item Fetch Quest.
  * <p>
@@ -81,7 +81,7 @@ public class WeeklyItemQuest extends AbstractQuest {
 	private static final String QUEST_SLOT = "weekly_item";
 	
 	/** How long until the player can give up and start another quest */
-	private static final int expireDelay = MathHelper.MINUTES_IN_ONE_WEEK * 6; 
+	private static final int expireDelay = MathHelper.MINUTES_IN_ONE_WEEK * 6;
 	
 	/** How often the quest may be repeated */
 	private static final int delay = MathHelper.MINUTES_IN_ONE_WEEK; 
