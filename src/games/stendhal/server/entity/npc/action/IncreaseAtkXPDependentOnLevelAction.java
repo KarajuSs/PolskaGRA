@@ -28,7 +28,7 @@ import games.stendhal.server.entity.player.Player;
 @Dev(category=Category.STATS, label="AtkXP+")
 public class IncreaseAtkXPDependentOnLevelAction implements ChatAction {
 
-	private final int atk_xpDiff;
+	private final double atk_xpDiff;
 	private final double karmabonus;
 	/**
 	 * Creates a new IncreaseAtkXPDependentOnLevelAction.
@@ -36,7 +36,7 @@ public class IncreaseAtkXPDependentOnLevelAction implements ChatAction {
 	 * @param atk_xpDiff - player will get 1/xpDiff of difference between his and next levels xp amount.
 	 * @param karmabonus - amount of karma to add instead atk_xp if player have max level
 	 */
-	public IncreaseAtkXPDependentOnLevelAction(final int atk_xpDiff, final double karmabonus) {
+	public IncreaseAtkXPDependentOnLevelAction(final double atk_xpDiff, final double karmabonus) {
 		this.atk_xpDiff = atk_xpDiff;
 		this.karmabonus = karmabonus;
 	}
@@ -64,7 +64,7 @@ public class IncreaseAtkXPDependentOnLevelAction implements ChatAction {
 	public int hashCode() {
 		final int PRIME = 31;
 		int result = 1;
-		result = PRIME * result + atk_xpDiff;
+		result = PRIME * result + (int)(atk_xpDiff);
 		return result;
 	}
 

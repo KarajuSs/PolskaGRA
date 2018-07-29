@@ -28,7 +28,7 @@ import games.stendhal.server.entity.player.Player;
 @Dev(category=Category.STATS, label="DefXP+")
 public class IncreaseDefXPDependentOnLevelAction implements ChatAction {
 
-	private final int def_xpDiff;
+	private final double def_xpDiff;
 	private final double karmabonus;
 
 	/**
@@ -37,7 +37,7 @@ public class IncreaseDefXPDependentOnLevelAction implements ChatAction {
 	 * @param def_xpDiff - player will get 1/xpDiff of difference between his and next levels xp amount.
 	 * @param karmabonus - amount of karma to add instead def_xp if player have max level
 	 */
-	public IncreaseDefXPDependentOnLevelAction(final int def_xpDiff, final double karmabonus) {
+	public IncreaseDefXPDependentOnLevelAction(final double def_xpDiff, final double karmabonus) {
 		this.def_xpDiff = def_xpDiff;
 		this.karmabonus = karmabonus;
 	}
@@ -65,7 +65,7 @@ public class IncreaseDefXPDependentOnLevelAction implements ChatAction {
 	public int hashCode() {
 		final int PRIME = 31;
 		int result = 1;
-		result = PRIME * result + def_xpDiff;
+		result = PRIME * result + (int)(def_xpDiff);
 		return result;
 	}
 
