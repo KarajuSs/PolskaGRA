@@ -23,6 +23,8 @@ import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.action.IncreaseAtkXPDependentOnLevelAction;
+import games.stendhal.server.entity.npc.action.IncreaseDefXPDependentOnLevelAction;
 import games.stendhal.server.entity.npc.action.IncreaseKarmaAction;
 import games.stendhal.server.entity.npc.action.IncreaseXPDependentOnLevelAction;
 import games.stendhal.server.entity.npc.action.IncrementQuestAction;
@@ -444,6 +446,8 @@ public class DailyMonsterQuest extends AbstractQuest {
 				"Gratuluje! Pozwól mi podziekowac w imieniu mieszkanców Semos!",
 				new MultipleActions(
 						new IncreaseXPDependentOnLevelAction(5, 95.0),
+						new IncreaseAtkXPDependentOnLevelAction(5, 95.0),
+						new IncreaseDefXPDependentOnLevelAction(5, 95.0),
 						new IncreaseKarmaAction(5.0),
 						new IncrementQuestAction(QUEST_SLOT, 2, 1),
 						new SetQuestToTimeStampAction(QUEST_SLOT,1),

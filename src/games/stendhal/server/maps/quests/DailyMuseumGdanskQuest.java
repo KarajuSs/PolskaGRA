@@ -20,6 +20,7 @@ import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.action.DropRecordedItemAction;
 import games.stendhal.server.entity.npc.action.IncreaseKarmaAction;
+import games.stendhal.server.entity.npc.action.IncreaseXPDependentOnLevelAction;
 import games.stendhal.server.entity.npc.action.IncreaseDefXPDependentOnLevelAction;
 import games.stendhal.server.entity.npc.action.IncreaseAtkXPDependentOnLevelAction;
 import games.stendhal.server.entity.npc.action.IncrementQuestAction;
@@ -163,6 +164,7 @@ public class DailyMuseumGdanskQuest extends AbstractQuest {
 		actions.add(new SetQuestToTimeStampAction(QUEST_SLOT, 1));
 		actions.add(new IncrementQuestAction(QUEST_SLOT, 2, 1));
 		actions.add(new SetQuestAction(QUEST_SLOT, 0, "done"));
+		actions.add(new IncreaseXPDependentOnLevelAction(6, 70.0));
 		actions.add(new IncreaseAtkXPDependentOnLevelAction(6, 70.0));
 		actions.add(new IncreaseDefXPDependentOnLevelAction(6, 70.0));
 		actions.add(new IncreaseKarmaAction(15.0));
