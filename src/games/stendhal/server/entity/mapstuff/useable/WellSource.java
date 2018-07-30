@@ -35,10 +35,10 @@ public class WellSource extends PlayerActivityEntity {
 	/**
 	 * The list of possible rewards.
 	 */
-	private static final String[] items = { "money", "wood", "iron ore",
-			"gold nugget", "potion", "home scroll", "greater potion",
-			"sapphire", "carbuncle", "horned golden helmet", "dark dagger",
-			"present" };
+	private static final String[] items = { "money", "polano", "ruda żelaza",
+			"bryłka złota", "eliksir", "zwój semos", "duży eliksir",
+			"szafir", "rubin", "złoty hełm wikingów", "sztylet mroku",
+			"prezent" };
 
 	/**
 	 * The chance that wishing is successful.
@@ -56,8 +56,8 @@ public class WellSource extends PlayerActivityEntity {
 	public WellSource() {
 		put("class", "source");
 		put("name", "well_source");
-		setMenu("Make a wish|Use");
-		setDescription("You see a wishing well. Something in it catches your eye.");
+		setMenu("Wypowiedz życzenie|Użyj");
+		setDescription("Oto studnia życzeń. Twoje oko coś zauważyło.");
 		setResistance(0);
 	}
 
@@ -106,7 +106,7 @@ public class WellSource extends PlayerActivityEntity {
 		if (player.isEquipped("money", 30)) {
 			return true;
 		} else {
-			player.sendPrivateText("You need 30 coins to make a wish.");
+			player.sendPrivateText("Potrzebujesz 30 monet, aby wypowiedzieć życzenie.");
 			return false;
 		}
 	}
@@ -150,8 +150,8 @@ public class WellSource extends PlayerActivityEntity {
 			final String itemName = items[Rand.rand(items.length)];
 			final Item item = SingletonRepository.getEntityManager().getItem(itemName);
 			int amount = 1;
-			if (itemName.equals("dark dagger")
-					|| itemName.equals("horned golden helmet")) {
+			if (itemName.equals("sztylet mroku")
+					|| itemName.equals("złoty hełm wikingów")) {
 				/*
 				 * Bound powerful items.
 				 */
@@ -167,10 +167,10 @@ public class WellSource extends PlayerActivityEntity {
 			player.equipOrPutOnGround(item);
 			player.incObtainedForItem(item.getName(), item.getQuantity());
 			SingletonRepository.getAchievementNotifier().onObtain(player);
-			player.sendPrivateText("You were lucky and found "
+			player.sendPrivateText("Miałeś szczęście i znalazłeś "
 					+ Grammar.quantityplnoun(amount, itemName, "a")+ ".");
 		} else {
-			player.sendPrivateText("Your wish didn't come true.");
+			player.sendPrivateText("Twoje życzenie się nie spełniło.");
 		}
 	}
 
@@ -185,6 +185,6 @@ public class WellSource extends PlayerActivityEntity {
 		// remove 30 money from player as they throw a coin into the
 		// well
 		player.drop("money", 30);
-		player.sendPrivateText("You throw 30 coins into the well and make a wish.");
+		player.sendPrivateText("Wrzuciłeś 30 monet do studni i wypowiedziałeś życzenie.");
 	}
 }
