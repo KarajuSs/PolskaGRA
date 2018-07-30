@@ -28,6 +28,10 @@ public enum Nature {
 	FIRE,
 	/** ice magic */
 	ICE,
+	/** water magic */
+	WATER,
+	/** nature magic */
+	NATURE,
 	/** light magic */
 	LIGHT,
 	/** dark magic */
