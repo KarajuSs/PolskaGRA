@@ -5,6 +5,17 @@ Changelog
 *klient*
 - Zwiększono liczbę skinów możliwych do wyboru dla postaci
 - Dodano z powrotem dzień-noc
+- Dodano nowy obrazek strzały z mithrilu
+- Dodano brakujący dźwięk słonia
+- Dodano stary dźwięk ze świata POL podczas logowania do gry
+- Dodano nowe outfity NPC:
+	- npckibic.png (Kibic)
+	- npcfryderyk.png (Fryderyk)
+	- npcgenowefa.png (Gaździna Jadźka)
+	- npcjagienka.png (-)
+	- npcwikary.png	(Wikary)
+	- npcjuhas.png (Juhas)
+	- npcjuhasboguslaw.png (Boguś)
 
 
 *świat gry*
@@ -12,17 +23,20 @@ Changelog
 	- Yerena
 	- Stajenny Marcel
 	- Dr. Wojciech
-- Zostało dodane wiele nowych skinów dla NPC
 - Mapa zakopane została zmieniona wizualnie
 - Mapa kościelisko została zmieniona wizualnie
 - Nowe pomieszczenie na górze w zakopane_s + jaskinia
 - Nowe zadanie na reset poziomu gracza (gracz musi osiągnąć poziom maksymalny, aby móc go zresetować. Zadania / skille / 
 bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 - Katinka nagradza pozytywną karmą za przyjęcie zadania Zoo Food
-- Nowy "nieszkodliwy" corspe sprite dla pająków
+- Nowy "nieszkodliwy" corpse sprite dla pająków
 - Niektóre NPC nie zawrócą po zderzeniu się z kolizją
 - Dodano przedmiot "gruczoł jadowy" do cotygodniowego poszukiwania przedmiotów
 - Dodano pogodę na mapach kościeliska
+- Dodano dwa nowe żywioły do świata gry: natura & woda
+- Dodano nową strzałę z mithrilu (Typ ataku: light; Atk: 9; Range: 6;)
+- Obrazek słonia został powiększony z 144x256 na 288x512
+- Nagroda za wykonanie zlecenia u burmistrzów jest teraz bardziej wyjątkowa
 
 
 *code*
@@ -31,13 +45,15 @@ bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 - Dodano nową funckję, która sprawdza jaką mamy ustawioną szerokość okna gry i dostosowuje okienka wewnątrz gry
 - Dodano nową funkcję zabezpieczającą konto przy rejestracji
 - Nagroda w postaci punktów umiejętności ataku jak i obrony od teraz nie będzie dawało nam ujemnych statystyk
+- Reorganizacja plików XML z potworkami ze świata POL (33 do 11 plików)
 
 
 *naprawa błędów*
 - Naprawiono błąd, który powodował, że serwer przydzielał nam zupełnie inną płeć
 - Naprawiono błąd, który powodował, że tablica sklepu Elodrina (nalwor) nie otwierała się
 - Naprawiono błędy z serwerem testowym
-- Naprawiono błąd, który powodował, że informacja o zabitym potworze pojawiała się dwukrotnie.
+- Naprawiono błąd, który powodował, że informacja o zabitym potworze pojawiała się dwukrotnie
+- Naprawiono błąd z nieśmiertelnymi potworkami
 
 
 
