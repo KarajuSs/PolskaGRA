@@ -54,15 +54,21 @@ public class EdnaNPC implements ZoneConfigurator {
 			protected void createDialog() {
 				addGreeting();
 				addJob("Specjalizuje się w pieczeniu znakomitego chleba");
-				addOffer("Mogę dla Ciebie przygotować #'chleb' z miejscowych świeżych składników.");
+				addOffer("Mogę dla Ciebie przygotować #'chleb' z miejscowych świeżych składników. Powiedz tylko #'upiecz'.");
 				// 2x flour = bread
-				// czas: 4 min za szt
-				addGoodbye("Żegnaj, mam nadzieję, że jeszcze wrócisz do mojej piekarni!");
+				// czas: 7 min za szt
+				final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
+				requiredResources.put("mąka", 2);
+
+				final ProducerBehaviour behaviour = new ProducerBehaviour("edna_bake_bread",
+						Arrays.asList("bake", "upiecz"), "chleb", requiredResources, 7 * 60);
+
+				addGoodbye("Żegnaj, mam nadzieję, że jeszcze wrócisz do naszej piekarni!");
 			}
 		};
 
 		npc.setDescription("Oto Edna. Wraz ze swoim mężem prowadzą najlepszą piekarnię w cały Kraku.");
-		npc.setEntityClass(""); // npcassit
+		npc.setEntityClass("housewifenpc");
 		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
 		npc.initHP(100);
 		zone.add(npc);

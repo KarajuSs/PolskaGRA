@@ -54,14 +54,23 @@ public class LanoszNPC implements ZoneConfigurator {
 			protected void createDialog() {
 				addGreeting("Witaj w naszej piekarni wojowniku!");
 				addJob("Jestem właścicielem jedynej piekarni w całym Krakowie.");
-				addOffer("Mogę dla Ciebie przygotować #'kanapkę z tuńczykiem' z miejscowych świeżych składników.");
+				addOffer("Mogę dla Ciebie przygotować #'kanapkę z tuńczykiem' z miejscowych świeżych składników. Powiedz mi tylko #'zrób'.");
 				// 1x bread + 2x tuna + 1x tomato + 1x salad = tuna sandwich
-				addGoodbye("Żegnaj, mam nadzieję, że jeszcze wrócisz do mojej piekarni!");
+				final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
+				requiredResources.put("chleb", 1);
+				requiredResources.put("tuńczyk", 2);
+				requiredResources.put("pomidor", 1);
+				requiredResources.put("sałata", 1);
+
+				final ProducerBehaviour behaviour = new ProducerBehaviour("lanosz_make_sandwich",
+						Arrays.asList("make", "zrób"), "kanapka z tuńczykiem", requiredResources, 2 * 60);
+
+				addGoodbye("Żegnaj, mam nadzieję, że jeszcze wrócisz do naszej piekarni!");
 			}
 		};
 
 		npc.setDescription("Oto Lanosz. Mąż Edny, jest doskonałym piekarzem, a jego specjalnością są kanapki rybne, przygotowywane z miejscowych świeżych składników.");
-		npc.setEntityClass(""); // npcpiekarz
+		npc.setEntityClass("chefnpc");
 		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
 		npc.initHP(100);
 		zone.add(npc);
