@@ -54,7 +54,7 @@ public class WagabundusNPC implements ZoneConfigurator {
 			protected void createDialog() {
 				addGreeting("Ohooo.. Kto do mnie zawitał!");
 				addJob("Podróżuję po rónych krainach prasłowiańskich i właśnie nie dawno wróciłem z kolejnej dalekiej podróży.");
-				addOffer("Mogę Ci opowiedzieć legendy o trzech siostrach, które są czarownicami. Według legend znam ich położenie. Ale za darmo Ci nie opowiem!");
+				addOffer("Mogę Ci opowiedzieć #'legende' o trzech siostrach, które są czarownicami. Opierając się na tej legendzie to znam ich położenie. Ale za darmo Ci nie opowiem!");
 				addGoodbye();
 			}
 		};
