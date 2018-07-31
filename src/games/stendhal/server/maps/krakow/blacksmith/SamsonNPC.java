@@ -20,7 +20,10 @@ import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
+import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
 
 /**
  * Builds an NPC
@@ -28,6 +31,7 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
  * @author KarajuSs
  */
 public class SamsonNPC implements ZoneConfigurator {
+	private final ShopList shops = SingletonRepository.getShopList();
 
 	/**
 	 * Configure a zone.
@@ -54,10 +58,11 @@ public class SamsonNPC implements ZoneConfigurator {
 			protected void createDialog() {
 				addGreeting("Witaj w mej kuźni, wojowniku!");
 				addJob("Specjalizuje się w przetapianiu miedzi, ale również możesz o ode mnie otrzymać dobry sprzęt!");
-				addOffer("Sprzedaję: small axe, hand axe, axe, hammer, old scythe, gold pan");
+				addOffer("Sprzedaję: toporek 25, topór jednoręczny 35, topór 50, pyrlik 90, pordzewiała kosa 210, misa do płukania złota 270.");
 				// small axe - 25; hand axe 35; axe - 50; hammer - 90; old scythe - 210; gold pan - 270;
 				// 3x copper ore + 2x wood = 1x copper
 				// czas: 7 min na szt.
+				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("sellsamson")), false);
 				addGoodbye();
 			}
 		};

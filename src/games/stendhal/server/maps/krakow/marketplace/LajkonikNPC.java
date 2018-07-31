@@ -20,7 +20,10 @@ import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
+import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
 
 /**
  * Builds an NPC
@@ -28,6 +31,7 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
  * @author KarajuSs
  */
 public class LajkonikNPC implements ZoneConfigurator {
+	private final ShopList shops = SingletonRepository.getShopList();
 
 	/**
 	 * Configure a zone.
@@ -56,6 +60,7 @@ public class LajkonikNPC implements ZoneConfigurator {
 				addJob("Jeżeli chcesz mogę ci opowiedzieć #'historię' z roku #'1287'.");
 				addOffer("Mam do zaoferowania #'długi łuk' oraz #'wzmocnione drewniane strzały'.");
 				// ceny: długi łuk - 1200; wzmocniona drewniana strzała - 4/5/6
+				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("selllajkonik")), false);
 				addGoodbye();
 			}
 		};

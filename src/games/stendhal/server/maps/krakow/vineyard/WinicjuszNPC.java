@@ -20,7 +20,10 @@ import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
+import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
 
 /**
  * Builds an NPC
@@ -28,6 +31,7 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
  * @author KarajuSs
  */
 public class WinicjuszNPC implements ZoneConfigurator {
+	private final ShopList shops = SingletonRepository.getShopList();
 
 	/**
 	 * Configure a zone.
@@ -54,13 +58,15 @@ public class WinicjuszNPC implements ZoneConfigurator {
 			protected void createDialog() {
 				addGreeting();
 				addJob("Zajmuje się tą winnicą oraz produkujemy tutaj najwyższej jakości wino!");
-				addOffer("Ja do zaoferowania dla Ciebie nic nie mam, ale jeżeli przyniesiesz moje winogrona do mojego #'brata' to zrobic dla Ciebie najlepsze wino jakie jeszcze nikt nie widział!");
+				addOffer("Możesz ode mnie kupić winogrona, które możesz zanieść do mojego #'brata'. Zrobi on dla Ciebie najlepsze wino jakie jeszcze nikt nie widział!");
+				addReply("brat", "Mój brat ma na imię Zbyszko.");
+				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("buywinicjusz")), false);
 				addGoodbye();
 			}
 		};
 
 		npc.setDescription("Oto Winicjusz. Jest plantatorem i na pobliskim wzgórzu uprawia soczyste winogrona, z których potem produkuje się doskonałe wino.");
-		npc.setEntityClass(""); // npcwagabundus
+		npc.setEntityClass(""); // npcwinicjusz
 		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
 		npc.initHP(100);
 		zone.add(npc);

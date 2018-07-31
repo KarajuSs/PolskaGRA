@@ -20,7 +20,10 @@ import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
+import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
 
 /**
  * Builds an NPC
@@ -28,6 +31,7 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
  * @author KarajuSs
  */
 public class StJacekNPC implements ZoneConfigurator {
+	private final ShopList shops = SingletonRepository.getShopList();
 
 	/**
 	 * Configure a zone.
@@ -56,6 +60,7 @@ public class StJacekNPC implements ZoneConfigurator {
 				addJob("Jestem mnichem.");
 				addOffer("Mam do sprzedania różne eliksiry lecznicze.");
 				// antidotum - 50; duże antidotum - 250; mały eliksir - 100; eliskir - 250; duży eliksir - 400; wielki eliksir - 900
+				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("sellstjacek")), false);
 				addGoodbye("Niech Bóg Cię prowadzi!");
 			}
 		};

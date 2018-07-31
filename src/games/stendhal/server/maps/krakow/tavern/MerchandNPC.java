@@ -20,7 +20,12 @@ import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.behaviour.adder.BuyerAdder;
+import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
+import games.stendhal.server.entity.npc.behaviour.impl.BuyerBehaviour;
+import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
 
 /**
  * Builds an NPC
@@ -28,6 +33,7 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
  * @author KarajuSs
  */
 public class MerchandNPC implements ZoneConfigurator {
+	private final ShopList shops = SingletonRepository.getShopList();
 
 	/**
 	 * Configure a zone.
@@ -57,6 +63,8 @@ public class MerchandNPC implements ZoneConfigurator {
 				addOffer("Spójrz na moje książki, które położyłem na stoliku.");
 				// kupno: płaszcz - 10; studded legs - 20; sztylecik - 25; katana - 50
 				// sprzedaz: chain legs - 100; studded boots - 120; leather scale armor - 150; chain boots - 180; unicorn shield - 200; skull shield - 225; scimitar - 250; viking helmet - 300
+				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("sellmerchand")), false);
+				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buymerchand")), false);
 				addGoodbye("Dowidzenia. Mam nadzieję, że się jeszcze spotkamy!");
 			}
 		};

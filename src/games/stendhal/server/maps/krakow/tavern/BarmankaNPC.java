@@ -20,7 +20,10 @@ import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
+import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
 
 /**
  * Builds an NPC
@@ -28,6 +31,7 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
  * @author KarajuSs
  */
 public class BarmankaNPC implements ZoneConfigurator {
+	private final ShopList shops = SingletonRepository.getShopList();
 
 	/**
 	 * Configure a zone.
@@ -55,6 +59,7 @@ public class BarmankaNPC implements ZoneConfigurator {
 				addGreeting();
 				addJob("Jestem barmanką w tej karczmie.");
 				addOffer("Spójrz na tablice za mną, sprzedaję to co widnieje właśnie na niej.");
+				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("sellidris")), false);
 				// piwo - 10, wino - 15, flaska - 5, ser - 20, marchew - 10, jabłko - 10, mięso - 40, szynka - 80
 				addGoodbye();
 			}
