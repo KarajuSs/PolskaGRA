@@ -97,7 +97,7 @@ public class AutoWalkAction implements ActionListener {
 			// FIXME: How to stop player when poised while using auto walk?
 			if (player.hasStatus(StatusType.POISONED)
 					|| player.hasStatus(StatusType.CONFUSED)) {
-				player.sendPrivateText("You are disoriented and you cannot move normally. You only seem able to walk backwards and cannot plan out any route in advance.");
+				player.sendPrivateText("Jesteś zdezorientowany i nie możesz normalnie się poruszać. Wygląda na to, że możesz tylko poruszać się do tyłu i nie możesz zaplanować drogi.");
 				if (player.has(AUTOWALK)) {
 					player.remove(AUTOWALK);
 				}
