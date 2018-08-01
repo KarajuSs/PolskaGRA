@@ -72,9 +72,9 @@ public class GroupPanelController implements GameObjects.GameObjectListener {
 			@Override
 			public void run() {
 				if (members == null) {
-					panel.showHeader("<html>You are not a member of a group.<html>");
+					panel.showHeader("<html>Nie jesteś członkiem grupy.<html>");
 					if (grouped) {
-						String message = "You are not a member of a group anymore.";
+						String message = "Już nie jesteś członkiem grupy.";
 						ClientSingletonRepository.getUserInterface().addEventLine(
 								new HeaderLessEventLine(message, NotificationType.CLIENT));
 						grouped = false;
@@ -82,7 +82,7 @@ public class GroupPanelController implements GameObjects.GameObjectListener {
 					}
 					panel.setMembers(null);
 				} else {
-					panel.showHeader("<html>Looting: " + lootMode + "</html>");
+					panel.showHeader("<html>Zbieranie: " + lootMode + "</html>");
 					panel.setMembers(members);
 					panel.setLeader(leader);
 					if (!grouped) {
