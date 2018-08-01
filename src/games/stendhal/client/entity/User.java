@@ -250,12 +250,12 @@ public class User extends Player {
 					if (getGender().equals("F")) {
 						ClientSingletonRepository.getUserInterface().addEventLine(
 							new HeaderLessEventLine(
-							playername + " opuściła grę.",
+							playername + " opuściła PolskaGRA.",
 							NotificationType.INFORMATION));
 					} else {
 						ClientSingletonRepository.getUserInterface().addEventLine(
 							new HeaderLessEventLine(
-							playername + " opuścił grę.",
+							playername + " opuścił PolskaGRA.",
 							NotificationType.INFORMATION));
 					}
 				}
