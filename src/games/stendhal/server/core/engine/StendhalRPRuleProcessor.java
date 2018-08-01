@@ -664,7 +664,7 @@ public class StendhalRPRuleProcessor implements IRPRuleProcessor {
 	 *            Support message
 	 */
 	public void sendMessageToSupporters(final String source, final String message) {
-		final String text = source + " asks for support to ADMIN: " + message;
+		final String text = source + " zapytał ADMINISTRATORÓW: " + message;
 		sendMessageToSupporters(text);
 	}
 

@@ -275,7 +275,7 @@ public class ZlotaCiupaga extends AbstractQuest {
 
 	@Override
 	public String getName() {
-		return "StuffForAndrzej";
+		return "ZlotaCiupaga";
 	}
 	@Override
 	public String getNPCName() {

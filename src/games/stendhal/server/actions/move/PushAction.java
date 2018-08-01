@@ -116,13 +116,13 @@ public class PushAction implements ActionListener {
 
 		// players cannot push rp entities with area larger than 4
 		if ((pushed.getArea().getWidth() * pushed.getArea().getHeight()) > 4) {
-			pusher.sendPrivateText("You're strong, but not that strong!");
+			pusher.sendPrivateText("Jesteś silny, ale nie aż tak!");
 			return false;
 		}
 
 		// the number of pushes is limited per time
 		if (!pusher.canPush(pushed)) {
-			pusher.sendPrivateText("Give yourself a breather before you start pushing again.");
+			pusher.sendPrivateText("Daj sobie chwilę oddechu przed następnym pchaniem.");
 			return false;
 		}
 

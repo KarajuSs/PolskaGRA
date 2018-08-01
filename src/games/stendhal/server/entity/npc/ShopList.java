@@ -99,7 +99,7 @@ public final class ShopList {
 		//Xin BlancaNPC, MichałNPC, WrvilNPC sprzedaje:
 		shops.add("sellstuff", "sierp", 25);
 		shops.add("sellstuff", "maczuga", 50);
-		shops.add("sellstuff", "sztylet", 75);
+		shops.add("sellstuff", "sztylecik", 75);
 		shops.add("sellstuff", "drewniana tarcza", 100);
 		shops.add("sellstuff", "koszula", 50);
 		shops.add("sellstuff", "misiurka", 125);
@@ -326,7 +326,7 @@ public final class ShopList {
 		shops.add("buyoddsandends", "czarna perła", 100);
 		shops.add("buyoddsandends", "czterolistna koniczyna", 60);
 		shops.add("buyoddsandends", "mieczyk", 5);
-		shops.add("buyoddsandends", "sztylet", 20);
+		shops.add("buyoddsandends", "sztylecik", 20);
 		shops.add("buyoddsandends", "pierścień z czaszką", 250);
 		shops.add("buyoddsandends", "mocne antidotum", 80);
 		shops.add("buyoddsandends", "kolorowe kulki", 80);
@@ -435,7 +435,7 @@ public final class ShopList {
 		shops.add("buyfishes", "dorsz", 10);
 
 		// semos trading - swords)
-		shops.add("tradeswords", "sztylet", 10);
+		shops.add("tradeswords", "sztylecik", 10);
 
 		// party time! For maria for example. Bit more expensive than normal
 		shops.add("sellparty", "napój z oliwką", 100);

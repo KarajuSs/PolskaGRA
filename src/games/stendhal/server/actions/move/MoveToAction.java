@@ -55,17 +55,17 @@ public class MoveToAction implements ActionListener {
 	@Override
 	public void onAction(final Player player, final RPAction action) {
 		if (!player.getZone().isMoveToAllowed()) {
-			player.sendPrivateText("Mouse movement is not possible here. Use your keyboard.");
+			player.sendPrivateText("Poruszanie się myszką jest tutaj niemożliwe. Użyj klawiatury.");
 			return;
 		}
 
 		if (player.hasStatus(StatusType.POISONED)) {
-			player.sendPrivateText("Poison has disoriented you and you cannot move normally. You only seem able to walk backwards and cannot plan out any route in advance.");
+			player.sendPrivateText("Trucizna zdezorientowała Ciebie i nie możesz normalnie się poruszać. Wygląda na to, że możesz się poruszać tylko wstecz i nie możesz zaplanować drogi.");
 			return;
 		}
 
 		if (player.getStatusList().hasStatus(StatusType.CONFUSED)) {
-			player.sendPrivateText("You are disoriented and you cannot move normally. You only seem able to walk backwards and cannot plan out any route in advance.");
+			player.sendPrivateText("Jesteś zdezorientowany i nie możesz normalnie się poruszać. Wygląda na to, że możesz tylko poruszać się do tyłu i nie możesz zaplanować drogi.");
 			return;
 		}
 
