@@ -99,7 +99,7 @@ public final class ShopList {
 		//Xin BlancaNPC, MichałNPC, WrvilNPC sprzedaje:
 		shops.add("sellstuff", "sierp", 25);
 		shops.add("sellstuff", "maczuga", 50);
-		shops.add("sellstuff", "sztylet", 75);
+		shops.add("sellstuff", "sztylecik", 75);
 		shops.add("sellstuff", "drewniana tarcza", 100);
 		shops.add("sellstuff", "koszula", 50);
 		shops.add("sellstuff", "misiurka", 125);
