@@ -60,16 +60,16 @@ public class BuyerBehaviour extends MerchantBehaviour {
 	public boolean transactAgreedDeal(ItemParserResult res, final EventRaiser seller, final Player player) {
 		if (player.drop(res.getChosenItemName(), res.getAmount())) {
 			payPlayer(res, player);
-			seller.say("Thanks! Here is your money.");
+			seller.say("Dziękuję! Oto twoje pieniądze.");
 			player.incSoldForItem(res.getChosenItemName(), res.getAmount());
 			return true;
 		} else {
 			StringBuilder stringBuilder = new StringBuilder();
-			stringBuilder.append("Sorry! You don't have ");
+			stringBuilder.append("Przepraszam! Nie masz ");
 			if (res.getAmount() == 1) {
-				stringBuilder.append("any");
+				stringBuilder.append("żadnego");
 			} else {
-				stringBuilder.append("that many");
+				stringBuilder.append("tyle");
 			}
 
 			stringBuilder.append(" ");
