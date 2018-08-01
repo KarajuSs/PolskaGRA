@@ -11,6 +11,18 @@
  ***************************************************************************/
 package games.stendhal.client.gui.group;
 
+import games.stendhal.client.actions.SlashActionRepository;
+import games.stendhal.client.entity.IEntity;
+import games.stendhal.client.entity.Player;
+import games.stendhal.client.entity.User;
+import games.stendhal.client.gui.MousePopupAdapter;
+import games.stendhal.client.gui.j2DClient;
+import games.stendhal.client.gui.chatlog.HeaderLessEventLine;
+import games.stendhal.client.gui.layout.SBoxLayout;
+import games.stendhal.client.gui.layout.SLayout;
+import games.stendhal.client.sprite.DataLoader;
+import games.stendhal.common.NotificationType;
+
 import java.awt.Component;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
@@ -34,18 +46,6 @@ import javax.swing.JTabbedPane;
 
 import org.apache.log4j.Logger;
 
-import games.stendhal.client.actions.SlashActionRepository;
-import games.stendhal.client.entity.IEntity;
-import games.stendhal.client.entity.Player;
-import games.stendhal.client.entity.User;
-import games.stendhal.client.gui.MousePopupAdapter;
-import games.stendhal.client.gui.j2DClient;
-import games.stendhal.client.gui.chatlog.HeaderLessEventLine;
-import games.stendhal.client.gui.layout.SBoxLayout;
-import games.stendhal.client.gui.layout.SLayout;
-import games.stendhal.client.sprite.DataLoader;
-import games.stendhal.common.NotificationType;
-
 /**
  * A component for showing the information about the adventurer group the user
  * belongs to.
@@ -63,9 +63,9 @@ class GroupPanel {
 	 */
 	private static final int LIST_INDENT = 5;
 	/** Tooltip for inviting members for a new group */
-	private static final String START_GROUP_TOOLTIP = "Start a new group";
+	private static final String START_GROUP_TOOLTIP = "Zakłada nową grupę";
 	/** Tooptip for inviting members to an existing group */
-	private static final String INVITE_TOOLTIP = "Invite a new member";
+	private static final String INVITE_TOOLTIP = "Zaprasza nowych członków";
 	/** Image used for the group message button */
 	private static final ImageIcon MESSAGE_ICON = new ImageIcon(DataLoader.getResource("data/gui/chat.png"));
 	/** Image used for the invite button */
@@ -125,7 +125,7 @@ class GroupPanel {
 		});
 
 		// The optionally shown member label
-		memberLabel = new JLabel("Members:");
+		memberLabel = new JLabel("Członkowie:");
 		pane.add(memberLabel);
 		memberLabel.setVisible(false);
 
@@ -172,7 +172,7 @@ class GroupPanel {
 			}
 		});
 		messageButton.setFocusable(false);
-		messageButton.setToolTipText("Send a message to all group members");
+		messageButton.setToolTipText("Wysyła wiadomość do wszystkich członków grupy");
 		buttonBox.add(messageButton);
 
 		inviteButton = new JButton(INVITE_ICON);
@@ -185,7 +185,7 @@ class GroupPanel {
 		leaveGroupButton.setEnabled(false);
 		leaveGroupButton.addActionListener(new LeaveActionListener());
 		leaveGroupButton.setFocusable(false);
-		leaveGroupButton.setToolTipText("Resign from the group");
+		leaveGroupButton.setToolTipText("Rezygnacja z grupy");
 		buttonBox.add(leaveGroupButton);
 
 		// We have no space to waste in the panel
@@ -279,8 +279,8 @@ class GroupPanel {
 		if (invites.containsKey(name)) {
 			return;
 		}
-		JButton joinButton = new JButton("Join " + name);
-		joinButton.setToolTipText("Join the group led by " + name);
+		JButton joinButton = new JButton("Dołącz do " + name);
+		joinButton.setToolTipText("Dołącza do grupy przewodzonej przez " + name);
 		joinButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -380,7 +380,7 @@ class GroupPanel {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			j2DClient.get().setChatLine("/group invite ");
-			j2DClient.get().addEventLine(new HeaderLessEventLine("Fill in the name of the player you want to invite", NotificationType.CLIENT));
+			j2DClient.get().addEventLine(new HeaderLessEventLine("Wprowadź imię wojownika, którego chcesz zaprosić", NotificationType.CLIENT));
 		}
 	}
 
@@ -415,11 +415,11 @@ class GroupPanel {
 				return;
 			}
 			JPopupMenu popup = new JPopupMenu();
-			JMenuItem item = new JMenuItem("Shared");
+			JMenuItem item = new JMenuItem("Wspólne");
 			item.addActionListener(new LootmodeActionListener("shared"));
 			popup.add(item);
 
-			item = new JMenuItem("Single");
+			item = new JMenuItem("Samodzielne");
 			item.addActionListener(new LootmodeActionListener("single"));
 			popup.add(item);
 
