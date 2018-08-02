@@ -187,7 +187,7 @@
 	</item>
 
 	<item name="napój z oliwką">
-		<type class="drink" subclass="pina_colada2" tileid="-1"/>
+		<type class="drink" subclass="pina_colada" tileid="-1"/>
 		<description>Oto napój z oliwką. Wygląda smacznie, ale jest bardzo silny!</description>
 		<implementation class-name="games.stendhal.server.entity.item.Drink"/>
 		<attributes>
