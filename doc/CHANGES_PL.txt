@@ -34,7 +34,7 @@ bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 - Dodano przedmiot "gruczoł jadowy" do cotygodniowego poszukiwania przedmiotów
 - Dodano pogodę na mapach kościeliska
 - Dodano dwa nowe żywioły do świata gry: natura & woda
-- Dodano nową strzałę z mithrilu (Typ ataku: light; Atk: 9; Range: 6;)
+- Dodano nową strzałę z mithrilu (Typ ataku: light; Atk: 9; Range: 6;) / będzie można je jedynie wytworzyć! /
 - Obrazek słonia został powiększony z 144x256 na 288x512
 - Nagroda za wykonanie zlecenia u burmistrzów jest teraz bardziej wyjątkowa
 
@@ -54,6 +54,20 @@ bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 - Naprawiono błędy z serwerem testowym
 - Naprawiono błąd, który powodował, że informacja o zabitym potworze pojawiała się dwukrotnie
 - Naprawiono błąd z nieśmiertelnymi potworkami
+- Naprawiono błąd, który powodował, że kiedy gracz kliknie myszką (LPM/PPM) na cokolwiek to postać się zatrzymyława
+
+
+
+0.01.1
+*klient*
+- przetłumaczono część interfejsu (grupy/listę znajomych oraz wiadomości kiedy jesteśmy zatruci)
+
+*świat gry*
+- przywrócono Juhasa w int_semos_tavern_0 oraz dodano u niego możliwość kupna zwoju semos za 300 money
+
+*naprawa błędów*
+- naprawiono plecak
+- naprawiono tablicę u Xin Blanca w int_semos_tavern_0
 
 
 
