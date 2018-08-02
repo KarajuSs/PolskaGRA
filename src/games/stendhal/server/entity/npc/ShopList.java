@@ -98,13 +98,15 @@ public final class ShopList {
 
 		//Xin BlancaNPC, MichałNPC, WrvilNPC sprzedaje:
 		shops.add("sellstuff", "sierp", 25);
+		shops.add("sellstuff", "koszula", 25);
+		shops.add("sellstuff", "skórzany hełm", 25);
 		shops.add("sellstuff", "maczuga", 50);
 		shops.add("sellstuff", "sztylecik", 75);
-		shops.add("sellstuff", "drewniana tarcza", 100);
-		shops.add("sellstuff", "koszula", 50);
-		shops.add("sellstuff", "misiurka", 125);
 		shops.add("sellstuff", "peleryna", 50);
-		shops.add("sellstuff", "skórzane spodnie", 85);
+		shops.add("sellstuff", "skórzane spodnie", 55);
+		shops.add("sellstuff", "misiurka", 85);
+		shops.add("sellstuff", "mieczyk", 120);
+		shops.add("sellstuff", "drewniana tarcza", 100);
 
 		//HagnurkNPC sprzedaje:
 		shops.add("sellbetterstuff1", "zbroja lazurowa", 16000);
@@ -129,15 +131,14 @@ public final class ShopList {
 		shops.add("sellrangedstuff", "strzała", 2);
 
 		//Xin BlancaNPC, MichałNPC, WrvilNPC kupuje:
-		shops.add("buystuff", "maczuga", 20);
-		shops.add("buystuff", "mieczyk", 150);
+		shops.add("buystuff", "krótki miecz", 15);
 		shops.add("buystuff", "tarcza ćwiekowa", 20);
-		shops.add("buystuff", "zbroja ćwiekowa", 100);
-		shops.add("buystuff", "hełm nabijany ćwiekami", 37);
-		shops.add("buystuff", "spodnie nabijane ćwiekami", 30);
-		shops.add("buystuff", "kolczuga", 125);
+		shops.add("buystuff", "zbroja ćwiekowa", 22);
+		shops.add("buystuff", "hełm nabijany ćwiekami", 17);
+		shops.add("buystuff", "spodnie nabijane ćwiekami", 20);
+		shops.add("buystuff", "kolczuga", 29);
 		shops.add("buystuff", "hełm kolczy", 25);
-		shops.add("buystuff", "skórzane spodnie", 27);
+		shops.add("buystuff", "spodnie kolcze", 27);
 
 		//XoderosNPC sprzedaje:
 		shops.add("selltools", "toporek", 15);
