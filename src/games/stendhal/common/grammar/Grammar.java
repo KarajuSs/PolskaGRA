@@ -271,10 +271,13 @@ public class Grammar {
 	 *            prefix, that may be present in plural form
 	 * @return noun starting with prefix
 	 */
-	static String addPrefixIfNotAlreadyThere(final String noun, final String prefixSingular, final String prefixPlural) {
+	static String addPrefixIfNotAlreadyThere(final String noun,
+			final String prefixSingular, final String prefixPlural, final String prefixPlural2) {
 		if (noun.startsWith(prefixSingular)) {
 			return noun;
 		} else if (noun.startsWith(prefixPlural)) {
+			return noun;
+		} else if (noun.startsWith(prefixPlural2)) {
 			return noun;
 		} else {
 			return prefixSingular + noun;
@@ -283,7 +286,7 @@ public class Grammar {
 
 	/**
 	 * Prefix a noun with an expression like "piece of".
-	 *
+	 * 
 	 * @param noun
 	 * @return noun with prefix
 	 */
@@ -294,7 +297,7 @@ public class Grammar {
 		if (str.startsWith("book ")) {
 			str = str.substring(5) + " book";
 		} else if (str.indexOf(" armor") > -1) {
-			str = addPrefixIfNotAlreadyThere(lowString, "suit of ", "suits of ");
+			str = addPrefixIfNotAlreadyThere(lowString, "suit of ", "suits of ", "suits of ");
 		} else {
 			str = replaceInternalByDisplayNames(PrefixManager.s_instance.fullForm(str, lowString));
 		}
@@ -365,6 +368,10 @@ public class Grammar {
 				if (extractor.extractNounPlural()) {
 					changed = true;
 				}
+
+				if (extractor.extractNounPlural2()) {
+					changed = true;
+				}
 			} while(changed);
 
 			result = extractor.toString();
@@ -389,7 +396,7 @@ public class Grammar {
 			final PrefixExtractor extractor = new PrefixExtractor(text);
 
 			// If there is detected any prefix, the reviewed text was not normalized.
-			if (extractor.extractNounSingular() || extractor.extractNounPlural() || extractor.extractNounPlural()) {
+			if (extractor.extractNounSingular() || extractor.extractNounPlural() || extractor.extractNounPlural2()) {
 				ret = false;
 			} else {
 				ret = true;
