@@ -39,8 +39,12 @@ class Eater implements Feeder {
 			int playerHP = player.getHP();
 			int chokingDamage = damage(2 * playerHP / 3);
 			player.setHP(playerHP - chokingDamage);
-			player.sendPrivateText(NotificationType.NEGATIVE, "You ate so much that you vomited on the ground and lost " + Integer.toString(chokingDamage) + " health points.");
-			final Item sick = SingletonRepository.getEntityManager().getItem("vomit");
+			if (player.getGender().equals("F")) {
+				player.sendPrivateText(NotificationType.NEGATIVE, "Zjadłaś tak dużo, że zwymiotowałaś na ziemię i straciłaś " + Integer.toString(chokingDamage) + " punkt" + " życia.");
+			} else {
+				player.sendPrivateText(NotificationType.NEGATIVE, "Zjadłeś tak dużo, że zwymiotowałeś na ziemię i straciłeś " + Integer.toString(chokingDamage) + " punkt" + " życia.");
+			}
+			final Item sick = SingletonRepository.getEntityManager().getItem("wymioty");
 			player.getZone().add(sick);
 			sick.setPosition(player.getX(), player.getY() + 1);
 			player.getStatusList().removeAll(EatStatus.class);
@@ -53,17 +57,25 @@ class Eater implements Feeder {
 			int playerHP = player.getHP();
 			int chokingDamage = damage(playerHP / 3);
 			player.setHP(playerHP - chokingDamage);
-			player.sendPrivateText(NotificationType.NEGATIVE, "You eat so much at once that you choke on your food and lose " + Integer.toString(chokingDamage) + " health points. If you eat more you could be very sick.");
+			if (player.getGender().equals("F")) {
+				player.sendPrivateText(NotificationType.NEGATIVE, "Zjadłaś tak dużo na raz, że zadławiłaś się jedzeniem i straciłaś " + Integer.toString(chokingDamage) + " punkt" + " życia. Jeżeli zjesz więcej to możesz się pochorować.");
+			} else {
+				player.sendPrivateText(NotificationType.NEGATIVE, "Zjadłeś tak dużo na raz, że zadławiłeś się jedzeniem i straciłeś " + Integer.toString(chokingDamage) + " punkt" + " życia. Jeżeli zjesz więcej to możesz się pochorować.");
+			}
 			player.notifyWorldAboutChanges();
 		} else if (count > COUNT_FULL) {
-			player.sendPrivateText("You are now full and shouldn't eat any more.");
+			if (player.getGender().equals("F")) {
+				player.sendPrivateText(NotificationType.PRIVMSG, "Jesteś teraz najedzona i już więcej nie powinnaś jeść.");
+			} else {
+				player.sendPrivateText(NotificationType.PRIVMSG, "Jesteś teraz najedzony i już więcej nie powinieneś jeść.");
+			}
 		}
 
 		ConsumableItem splitOff = (ConsumableItem) item.splitOff(1);
 		EatStatus status = new EatStatus(splitOff.getAmount(), splitOff.getFrecuency(), splitOff.getRegen());
 		player.getStatusList().inflictStatus(status, splitOff);
 
-		List<String> alcoholicDrinks = Arrays.asList("beer", "pina colada", "wine", "strong koboldish torcibud", "vsop koboldish torcibud");
+		List<String> alcoholicDrinks = Arrays.asList("piwo", "napój z oliwką", "wino", "mocna nalewka litworowa", "leżakowana nalewka litworowa");
 		if (alcoholicDrinks.contains(item.getName())) {
 			DrunkStatus drunkStatus = new DrunkStatus();
 			player.getStatusList().inflictStatus(drunkStatus, item);
