@@ -837,7 +837,7 @@ public class Grammar {
 		if (quantity == 1) {
 			return singular(enoun);
 		} else {
-			return plural(enoun);
+			return plural(noun);
 		}
 	}
 	
