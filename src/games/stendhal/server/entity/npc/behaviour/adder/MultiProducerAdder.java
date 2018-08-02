@@ -137,7 +137,7 @@ public class MultiProducerAdder {
         /* Player does not agree to the proposed production deal */
         engine.add(ConversationStates.PRODUCTION_OFFERED,
                 ConversationPhrases.NO_MESSAGES, null,
-                false, ConversationStates.ATTENDING, "OK, no problem.", null);
+                false, ConversationStates.ATTENDING, "Dobrze nie ma problemu.", null);
 
         /* Player says the production trigger word but the NPC is already producing items for that player */
         engine.add(
@@ -150,7 +150,7 @@ public class MultiProducerAdder {
 					public void fire(final Player player, final Sentence sentence,
                             final EventRaiser npc) {
                         // TODO: check - can the StateRemainingTimeAction be used here?
-                        npc.say("I still haven't finished your last order. Come back in "
+                        npc.say("Wciąż nie skończyłem twojego ostatniego zlecenia. Wróć za "
                                 + behaviour.getApproximateRemainingTime(player)
                                 + "!");
                     }

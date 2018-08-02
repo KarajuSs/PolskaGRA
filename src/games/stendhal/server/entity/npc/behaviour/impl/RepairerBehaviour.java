@@ -72,21 +72,21 @@ public class RepairerBehaviour extends TransactionBehaviour {
 					player.drop("money", price);
 					//tell player about result of repairing as for more than one found item the most damaged one is repaired
 					if(foundMoreThanOne) {
-						seller.say("You do carry more than one "+res.getChosenItemName()+" with you. So I repaired the most damaged one.");
+						seller.say("Nosisz więcej niż jeden "+res.getChosenItemName()+" ze sobą. W takim razie naprawię najbardziej zniszczony.");
 					} else {
-						seller.say("I repaired your "+res.getChosenItemName());
+						seller.say("Naprawię "+res.getChosenItemName());
 					}
 					return true;
 				} else {
-					seller.say("You cannot afford to repair your "+res.getChosenItemName());
+					seller.say("Nie możesz zlecić naprawy "+res.getChosenItemName());
 					return false;
 				}
 			} else {
-				seller.say("Your "+res.getChosenItemName()+" is not damaged.");
+				seller.say("Twój "+res.getChosenItemName()+" nie jest uszkodzony.");
 				return false;
 			}
 		}
-		seller.say("You do not carry a "+res.getChosenItemName()+" with you.");
+		seller.say("Nie masz ze sobą "+res.getChosenItemName()+".");
 		return false;
 	}
 
@@ -103,7 +103,7 @@ public class RepairerBehaviour extends TransactionBehaviour {
 
 	@Override
 	public ChatAction getRejectedTransactionAction() {
-		return new SayTextAction("I am sorry, [name], but I cannot repair your item.");
+		return new SayTextAction("Przykro mi [name], ale nie mogę naprawić twojego przedmiotu.");
 	}
 
 	/**

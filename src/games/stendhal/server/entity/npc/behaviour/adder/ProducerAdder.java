@@ -135,7 +135,7 @@ public class ProducerAdder {
         /* Player does not agree to the proposed production deal */
 		engine.add(ConversationStates.PRODUCTION_OFFERED,
 				ConversationPhrases.NO_MESSAGES, null,
-				false, ConversationStates.ATTENDING, "OK, no problem.", null);
+				false, ConversationStates.ATTENDING, "Dobrze nie ma problemu.", null);
 
         /* Player says the production trigger word but the NPC is already producing items for that player */
 		engine.add(
@@ -150,11 +150,11 @@ public class ProducerAdder {
 						if (behaviour.isOrderReady(player)) {
 							// This can happen if the player had the bag full
 							// when coming to talk to the NPC.
-							npc.say("You haven't fetched your last order yet.");
+							npc.say("Jeszcze nie wyokanełeś ostatniego zlecenia.");
 						} else {
-							npc.say("I still haven't finished your last order. Come back in "
-									+ behaviour.getApproximateRemainingTime(player)
-									+ "!");
+							npc.say("Wciąż nie skończyłem twojego ostatniego zlecenia. Wróć za "
+	                                + behaviour.getApproximateRemainingTime(player)
+	                                + "!");
 						}
 					}
 				});

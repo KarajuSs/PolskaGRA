@@ -12,6 +12,8 @@
  ***************************************************************************/
 package games.stendhal.server.entity.npc.behaviour.adder;
 
+import java.util.Arrays;
+
 import games.stendhal.common.MathHelper;
 import games.stendhal.common.grammar.ItemParserResult;
 import games.stendhal.common.parser.Sentence;
@@ -64,9 +66,9 @@ public class HealerAdder {
 
 		engine.add(ConversationStates.ATTENDING,
 				ConversationPhrases.OFFER_MESSAGES, null,
-				false, ConversationStates.ATTENDING, "I can #heal you.", null);
+				false, ConversationStates.ATTENDING, "Mogę Cię uleczyć. Powiedz tylko #ulecz.", null);
 
-		engine.add(ConversationStates.ATTENDING, "heal", null,
+		engine.add(ConversationStates.ATTENDING, Arrays.asList("heal", "ulecz", "wylecz"), null,
 				false, ConversationStates.ATTENDING,
 				null, new ChatAction() {
 					@Override
@@ -80,12 +82,12 @@ public class HealerAdder {
 						if (player.isBadBoy()) {
 							cost = cost * 2;
 							currentBehavRes.setAmount(2);
-							badboymsg = " Healing costs more for those who slay others.";
+							badboymsg = " Leczenie tych co zabili innych kosztuję więcej.";
 						}
 
 						if (cost > 0) {
-							raiser.say("Healing costs " + cost
-									+ "." + badboymsg + " Do you have that much?");
+							raiser.say("Leczenie kosztuje " + cost
+									+ "." + badboymsg + " Posiadasz tyle?");
 
 							raiser.setCurrentState(ConversationStates.HEAL_OFFERED); // success
 						} else if (cost < 0) {
@@ -93,14 +95,14 @@ public class HealerAdder {
 							// where the factor is |cost| and we have a +1
 							// to avoid 0 charge.
 							cost = player.getLevel() * Math.abs(cost) + 1;
-							raiser.say("Healing someone of your abilities costs "
+							raiser.say("Uleczenie kogoś z Twoimi zdolnościami kosztuje "
 									+ cost
-									+ " money." + badboymsg + " Do you have that much?");
+									+ " money. Posiadasz tyle?");
 
 							raiser.setCurrentState(ConversationStates.HEAL_OFFERED); // success
 						} else {
 							if ((player.getAtk() > 35) || (player.getDef() > 35)) {
-								raiser.say("Sorry, I cannot heal you because you are way too strong for my limited powers.");
+								raiser.say("Przepraszam, ale nie mogę Cię uleczyć ponieważ jesteś zbyt potężny jak na moje możliwości");
 							} else if ((!player.isNew()
 									&& (player.getLastPVPActionTime() > System
 											.currentTimeMillis()
@@ -109,9 +111,9 @@ public class HealerAdder {
 								// ignore the PVP flag for very young
 								// characters
 								// (low atk, low def AND low level)
-								raiser.say("Sorry, but you have a bad aura, so that I am unable to heal you right now.");
+								raiser.say("Przepraszam, ale posiadasz złą aurę i teraz nie mogę Ciebie uleczyć.");
 							} else {
-								raiser.say("There, you are healed. How else may I help you?");
+								raiser.say("Zostałeś uleczony. W czym jeszcze mogę pomóc?");
 								healerBehaviour.heal(player);
 							}
 						}
@@ -132,9 +134,9 @@ public class HealerAdder {
 						if (player.drop("money",
 								cost)) {
 							healerBehaviour.heal(player);
-							raiser.say("There, you are healed. How else may I help you?");
+							raiser.say("Zostałeś uleczony. W czym jeszcze mogę pomóc?");
 						} else {
-							raiser.say("I'm sorry, but it looks like you can't afford it.");
+							raiser.say("Przepraszam, ale nie możesz sobie na to pozwolić.");
 						}
 
 						currentBehavRes = null;
@@ -144,7 +146,7 @@ public class HealerAdder {
 		engine.add(ConversationStates.HEAL_OFFERED,
 				ConversationPhrases.NO_MESSAGES, null,
 				false, ConversationStates.ATTENDING,
-				"OK, how else may I help you?", null);
+				"Dobrze w czym jeszcze mogę pomóc?", null);
 	}
 
 }

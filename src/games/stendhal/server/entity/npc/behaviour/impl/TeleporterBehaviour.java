@@ -147,7 +147,7 @@ public class TeleporterBehaviour implements TurnListener {
 	@Override
 	public void onTurnReached(final int currentTurn) {
 		if (speakerNPC.getEngine().getCurrentState() != ConversationStates.IDLE) {
-			speakerNPC.say("Bye.");
+			speakerNPC.say("Dowidzenia.");
 			speakerNPC.setCurrentState(ConversationStates.IDLE);
 		}
 		// remove NPC from old zone

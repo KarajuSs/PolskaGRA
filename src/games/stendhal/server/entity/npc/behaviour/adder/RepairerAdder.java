@@ -38,7 +38,7 @@ public class RepairerAdder {
 	public void addRepairer(final SpeakerNPC npc) {
 		final RepairerBehaviour repairerBehaviour = new RepairerBehaviour(
 						new RepairingPriceCalculationStrategy(new HashSet<String>()),
-						new HashSet<String>(Arrays.asList("buckler")));
+						new HashSet<String>(Arrays.asList("puklerz")));
 
 		servicersRegister.add(npc.getName(), repairerBehaviour);
 
@@ -46,7 +46,7 @@ public class RepairerAdder {
 
 		//sentence was not recognized
 		ChatCondition errorCondition = new SentenceHasErrorCondition();
-		engine.add(ConversationStates.ATTENDING, "repair", errorCondition,
+		engine.add(ConversationStates.ATTENDING, Arrays.asList("repair", "napraw", "naprawić"), errorCondition,
 				false, ConversationStates.ATTENDING,
 				null, new ComplainAboutSentenceErrorAction());
 
@@ -55,7 +55,7 @@ public class RepairerAdder {
 				new NotCondition(new SentenceHasErrorCondition()),
 				new NotCondition(repairerBehaviour.getTransactionCondition()));
 
-		engine.add(ConversationStates.ATTENDING, "repair", cannotRepair,
+		engine.add(ConversationStates.ATTENDING, Arrays.asList("repair", "napraw", "naprawić"), cannotRepair,
 				false, ConversationStates.ATTENDING,
 				null, repairerBehaviour.getRejectedTransactionAction());
 
@@ -64,13 +64,13 @@ public class RepairerAdder {
 				new NotCondition(new SentenceHasErrorCondition()),
 				repairerBehaviour.getTransactionCondition());
 
-		engine.add(ConversationStates.ATTENDING, "repair",
+		engine.add(ConversationStates.ATTENDING, Arrays.asList("repair", "napraw", "naprawić"),
 				recognizedCondition, false, ConversationStates.REPAIR_OFFERED,
 				null, new RepairingBehaviourAction(repairerBehaviour));
 
 		engine.add(ConversationStates.ATTENDING,
 				ConversationPhrases.OFFER_MESSAGES, null,
-				false, ConversationStates.ATTENDING, "I can #repair items for you.", null);
+				false, ConversationStates.ATTENDING, "Mogę Ci #naprawić ten przedmiot.", null);
 
 		ChatAction behaviourAcceptedAction =new ChatAction() {
 			@Override
@@ -87,7 +87,7 @@ public class RepairerAdder {
 		engine.add(ConversationStates.REPAIR_OFFERED,
 				ConversationPhrases.NO_MESSAGES, null,
 				false, ConversationStates.ATTENDING,
-				"OK, how else may I help you?", null);
+				"Dobrze. W czym jeszcze mogę tobie pomóc?", null);
 	}
 
 }
