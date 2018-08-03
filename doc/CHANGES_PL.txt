@@ -59,11 +59,10 @@ bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 
 
 *code*
-- Od teraz można przyznać punkty umiejętności ataku / obrony / pkt atk/obr zależne od poziomu gracza jako nagrodę za poprawnie wykonane zadanie
 - Nowy atrybut dla map - "dark" - dzięki, któremu mamy efekt nocy
 - Dodano nową funckję, która sprawdza jaką mamy ustawioną szerokość okna gry i dostosowuje okienka wewnątrz gry
 - Dodano nową funkcję zabezpieczającą konto przy rejestracji
-- Nagroda w postaci punktów umiejętności ataku jak i obrony od teraz nie będzie dawało nam ujemnych statystyk
+- Za wykonane zadanie można nagrodzić gracza punktami umiejętności ataku oraz obrony niezależnie jak i zależnie od poziomu gracza
 - Reorganizacja plików XML z potworkami ze świata POL (33 do 11 plików)
 
 
@@ -74,6 +73,7 @@ bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 - Naprawiono błąd, który powodował, że informacja o zabitym potworze pojawiała się dwukrotnie
 - Naprawiono błąd z nieśmiertelnymi potworkami
 - Naprawiono błąd, który powodował, że kiedy gracz kliknie myszką (LPM/PPM) na cokolwiek to postać się zatrzymyława
+- Naprawiono błąd, że nagroda w postaci punktów umiejętności ataku jak i obrony od teraz nie będzie dawało nam ujemnych statystyk
 
 
 
