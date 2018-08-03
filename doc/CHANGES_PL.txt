@@ -37,7 +37,7 @@ bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 - Dodano przedmiot "gruczoł jadowy" do cotygodniowego poszukiwania przedmiotów
 - Dodano pogodę na mapach kościeliska
 - Dodano dwa nowe żywioły do świata gry: natura & woda
-- Dodano nową strzałę z mithrilu (Typ ataku: light; Atk: 9; Range: 6;) / będzie można je jedynie wytworzyć! /
+- Dodano nową strzałę z mithrilu (Typ ataku: light; Atk: 9; Range: 6;) / będzie można je jedynie wytworzyć! / oraz wzmocnioną drewnianą strzełę (Atk: 4; Range: 3;)
 - Obrazek słonia został powiększony z 144x256 na 288x512
 - Nagroda za wykonanie zlecenia u burmistrzów jest teraz bardziej wyjątkowa
 - Znerfiono ciupagi o -2 atk; aktualne statystyki [atk / obr / waga / lifesteal]:
@@ -46,6 +46,16 @@ bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 	- złota ciupaga z wąsem 		- 21 / 3 / 3 / 0.01
 	- złota ciupaga z dwoma wąsami 		- 23 / 3 / 3 / 0.02
 	- złota ciupaga z trzema wąsami 	- 23 / 4 / 2 / 0.03 + LIGHT
+- Zbuffowano strzały oraz bełty [atk / range]:
+	- strzała				- 3 / 2
+	- strzała żelazna			- 5 / 3
+	- strzała złota				- 6 / 4
+	- strzała ognia/lodowa/światła/mroku	- 7 / 5 + odpowiednia siła natury
+	- strzała płonąca			- 8 / 5 + FIRE
+	- bełt				- 4 / 3
+	- bełt stalowy			- 5 / 3
+	- bełt złoty			- 6 / 5
+	- bełt płonący			- 8 / 6 + FIRE
 
 
 *code*
