@@ -5,7 +5,7 @@ Changelog
 *klient*
 - Zwiększono liczbę skinów możliwych do wyboru dla postaci
 - Dodano z powrotem dzień-noc
-- Dodano nowy obrazek strzały z mithrilu
+- Dodano nowy obrazek strzały z mithrilu oraz wzmocnionej drewnianej strzały
 - Dodano brakujący dźwięk słonia
 - Dodano stary dźwięk ze świata POL podczas logowania do gry
 - Dodano nowe outfity NPC:
