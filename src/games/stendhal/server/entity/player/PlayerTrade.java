@@ -70,7 +70,7 @@ class PlayerTrade {
 		}
 
 		if (!player.nextTo(partner)) {
-			player.sendPrivateText("You are too far away to start trading with " + partner.getName());
+			player.sendPrivateText("Jesteś zbyt daleko, aby rozpocząć handel z " + partner.getName());
 			return false;
 		}
 
@@ -80,7 +80,7 @@ class PlayerTrade {
 
 		if ((partner.getAwayMessage() != null)
 			|| (partner.getTradeState() != TradeState.NO_ACTIVE_TRADE)) {
-			player.sendPrivateText("Sorry, " + partner.getName() + " is busy.");
+			player.sendPrivateText("Przepraszam, ale " + partner.getName() + " jest teraz zajęty.");
 			return false;
 		}
 
@@ -128,7 +128,7 @@ class PlayerTrade {
 	 */
 	public void offerTrade(Player partner) {
 		if (player.getName().equals(partner.getName())) {
-			player.sendPrivateText("Sorry, you cannot trade with yourself.");
+			player.sendPrivateText("Nie możesz handlować ze sobą.");
 			return;
 		}
 
@@ -146,8 +146,8 @@ class PlayerTrade {
 		if ((this.tradeState != TradeState.NO_ACTIVE_TRADE) && (this.tradeState != TradeState.OFFERING_TRADE)) {
 			cancelTrade();
 		}
-		player.sendPrivateText("You offered to trade with " + partner.getName() + ".");
-		partner.sendPrivateText(player.getName() + " wants to trade with you. Right click on " + player.getName() + " and select \"Trade\" to start a trading session.");
+		player.sendPrivateText("Złożyłeś propozycję handlu " + partner.getName() + ".");
+		partner.sendPrivateText(player.getName() + " chcę pohandlować z tobą. Naciśnij prawy przycisk na " + player.getName() + " i wybierz \"Handluj\", aby rozpocząć handlowanie.");
 		this.partnerName = partner.getName();
 		this.tradeState = TradeState.OFFERING_TRADE;
 	}
@@ -162,7 +162,7 @@ class PlayerTrade {
 		}
 		Player partner = SingletonRepository.getRuleProcessor().getPlayer(partnerName);
 		if (partner != null) {
-			partner.sendPrivateText(player.getName() + " disappeared, cancelling the trade with you.");
+			partner.sendPrivateText(player.getName() + " zniknął przerywając z Tobą handel.");
 			partner.cancelTradeInternally(player.getName());
 		}
 		partnerName = null;
@@ -178,10 +178,10 @@ class PlayerTrade {
 			return;
 		}
 
-		player.sendPrivateText("You canceled the trade");
+		player.sendPrivateText("Zrezygnowałeś z handlu");
 		Player partner = SingletonRepository.getRuleProcessor().getPlayer(partnerName);
 		if (partner != null) {
-			partner.sendPrivateText(player.getName() + " canceled the trade with you.");
+			partner.sendPrivateText(player.getName() + " zrezygnował z handlu z Tobą.");
 			partner.cancelTradeInternally(player.getName());
 		}
 		cancelTradeInternally(partnerName);
@@ -210,7 +210,7 @@ class PlayerTrade {
 		List<Item> items = moveItemsFromSlotToList(tradeSlot);
 		boolean onGround = !moveItemsFromListToPlayerOrGround(items);
 		if (onGround) {
-			player.sendPrivateText("Some items did not fit in your bag and have been put on the ground.");
+			player.sendPrivateText("Pewnych przedmiotów nie można było włożyć do plecaka i zostały one położone na ziemię.");
 		}
 	}
 
@@ -249,17 +249,17 @@ class PlayerTrade {
 			tradeState = TradeState.TRADE_COMPLETED;
 			partner.completeTradeInternally();
 			tellClients();
-			player.sendPrivateText("You traded with " + partnerName + ".");
-			partner.sendPrivateText("You traded with " + player.getName() + ".");
+			player.sendPrivateText("Handlujesz z " + partnerName + ".");
+			partner.sendPrivateText("Handlowałeś z " + player.getName() + ".");
 			transferItems(partner);
 			cancelTradeInternally(partnerName);
 			partner.cancelTradeInternally(player.getName());
 		} else if (partner.getTradeState() == TradeState.LOCKED) {
-			player.sendPrivateText("Okay, your trade is almost complete, just waiting for " + partnerName + " to press Accept.");
+			player.sendPrivateText("Dobrze twój handel prawie doszedł do skutku teraz musisz poczekąć aż " + partnerName + " naciśnie na Zaakceptuj.");
 			tradeState = TradeState.DEAL_WAITING_FOR_OTHER_DEAL;
 			tellClients();
 		} else if (partner.getTradeState() == TradeState.MAKING_OFFERS) {
-			player.sendPrivateText("Your partner must lock his offer first.");
+			player.sendPrivateText("Twój parter musi najpierw zablokować swoją ofertę.");
 		} else {
 			logger.warn("Inconsitent state at \"deal\" in trade of " + player.getName() + " with partner " + partnerName);
 			cancelTrade();

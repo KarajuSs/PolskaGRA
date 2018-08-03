@@ -77,7 +77,7 @@ public class GagManager implements LoginListener {
 			final String reason, final String criminalName) {
 		// no -1
 		if (minutes < 0) {
-			policeman.sendPrivateText("Infinity (negative numbers) is not supported.");
+			policeman.sendPrivateText("Nieskończoność (nieprawidłowy numer) nie jest akceptowana.");
 			return;
 		}
 
@@ -86,14 +86,15 @@ public class GagManager implements LoginListener {
 		criminal.setQuest("gag", "" + expireDate);
 
 		// Send messages
-		policeman.sendPrivateText("You have gagged " + criminalName + " for "
-				+ minutes + " minutes. Reason: " + reason + ".");
-		criminal.sendPrivateText(NotificationType.SUPPORT,
-				"You have been gagged for " + minutes
-				+ " minutes. Reason: " + reason + ".");
+		policeman.sendPrivateText("Uciszyłeś " + criminalName + " na "
+				+ minutes + " minutę" + ". Powód: " + reason + ".");
+		criminal.sendPrivateText(NotificationType.SUPPORT, 
+				"Zostałeś uciszony przez "
+				+ policeman.getTitle() + " na " + minutes
+				+ " minutę. Powód: " + reason + ".");
 		SingletonRepository.getRuleProcessor().sendMessageToSupporters("GagManager", policeman.getName()
-				+ " gagged " + criminalName + " for " + minutes
-				+ " minutes. Reason: " + reason + ".");
+				+ " uciszył " + criminalName + " na " + minutes
+				+ " minutę" + ". Powód: " + reason + ".");
 
 		setupNotifier(criminal);
 	}
@@ -107,7 +108,7 @@ public class GagManager implements LoginListener {
 	public void release(final Player inmate) {
 		if (isGagged(inmate)) {
 			inmate.removeQuest("gag");
-			inmate.sendPrivateText(NotificationType.SUPPORT, "Your gag sentence is over.");
+			inmate.sendPrivateText(NotificationType.SUPPORT, "Skończyła się twoja kara.");
 			logger.debug("Player " + inmate.getName() + "released from gag.");
 		}
 	}
@@ -135,7 +136,7 @@ public class GagManager implements LoginListener {
 		final boolean res = GagManager.isGagged(player);
 		if (res) {
 			final long timeRemaining = SingletonRepository.getGagManager().getTimeRemaining(player);
-			player.sendPrivateText("You are gagged, it will expire in "
+			player.sendPrivateText("Zostałeś uciszony. Minie to za "
 					+ TimeUtil.approxTimeUntil((int) (timeRemaining / 1000L)));
 		}
 

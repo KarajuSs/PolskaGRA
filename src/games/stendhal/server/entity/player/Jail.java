@@ -50,7 +50,7 @@ public class Jail implements ZoneConfigurator, LoginListener {
 
 	private static final Logger LOGGER = Logger.getLogger(Jail.class);
 	private static final List<Point> cellEntryPoints = Arrays.asList(
-			new Point(3, 3),
+			//new Point(3, 3),
 			new Point(8, 3),
 			// elf cell(13, 3),
 			new Point(18, 3),
@@ -64,8 +64,8 @@ public class Jail implements ZoneConfigurator, LoginListener {
 		);
 
 		private static final Rectangle[] cellBlocks = {
-			new Rectangle(1, 1, 30, 4),
-			new Rectangle(7, 10, 30, 4)
+			new Rectangle(6, 1, 30, 4),
+			new Rectangle(6, 10, 30, 13)
 		};
 
 	private ArrestWarrantList arrestWarrants;
@@ -145,23 +145,23 @@ public class Jail implements ZoneConfigurator, LoginListener {
 		arrestWarrants.removeByName(criminalName);
 		final ArrestWarrant arrestWarrant = new ArrestWarrant(criminalName, policeman.getName(), minutes, reason);
 
-		policeman.sendPrivateText("You have jailed " + criminalName
-			+ " for " + minutes + " " + Grammar.plnoun(minutes, "minute") + ". Reason: " + reason + ".");
+		policeman.sendPrivateText("Aresztowałeś " + criminalName
+			+ " na " + minutes + " minutę. Powód: " + reason + ".");
 		SingletonRepository.getRuleProcessor().sendMessageToSupporters("JailKeeper",
-			policeman.getName() + " jailed " + criminalName
-			+ " for " + minutes + " " + Grammar.plnoun(minutes, "minute") + ". Reason: " + reason
+			policeman.getName() + " aresztował " + criminalName
+			+ " na " + minutes + " minutę. Powód: " + reason
 			+ ".");
 
 		if (criminal == null) {
-			final String text = "Player " + criminalName + " is not online, but the arrest warrant has been recorded anyway.";
+			final String text = "Nie ma wojownika zwanego " + criminalName + ", ale został wydany za nim list gończy.";
 			policeman.sendPrivateText(text);
 			LOGGER.info(text);
 		} else {
 			arrestWarrant.setStarted();
 			imprison(criminal, policeman, minutes);
 			criminal.sendPrivateText(NotificationType.SUPPORT,
-					"You have been jailed for " + minutes
-					+ " " + Grammar.plnoun(minutes, "minute") + ". Reason: " + reason + ".");
+					"Zostałeś aresztowany przez " + policeman.getName()
+					+ " na " + minutes + " minutę. Powód: " + reason + ".");
 			LOGGER.info(criminal.getName() + " has been jailed for " + minutes
 					+ " " + Grammar.plnoun(minutes, "minute") + ". Reason: " + reason + ".");
 		}
@@ -171,7 +171,7 @@ public class Jail implements ZoneConfigurator, LoginListener {
 	protected void imprison(final Player criminal, final RPEntity policeman, final int minutes) {
 
 		if (jailzone == null) {
-			final String text = "No zone has been configured to be Jailzone";
+			final String text = "Żaden obszar nie został ustawiony jako Jailzone";
 			policeman.sendPrivateText(text);
 			LOGGER.error(text);
 			return;
@@ -190,7 +190,7 @@ public class Jail implements ZoneConfigurator, LoginListener {
 				SingletonRepository.getTurnNotifier().notifyInSeconds(minutes * 60, jailer);
 			}
 		} else {
-			policeman.sendPrivateText("Could not find a cell for " + criminal.getName());
+			policeman.sendPrivateText("Nie można znaleść celi dla "	+ criminal.getName());
 			LOGGER.error("Could not find a cell for " + criminal.getName());
 		}
 	}
@@ -241,7 +241,7 @@ public class Jail implements ZoneConfigurator, LoginListener {
 
 			inmate.teleport(exitZone, 8, 7, Direction.LEFT, null);
 			inmate.sendPrivateText(NotificationType.SUPPORT,
-					"Your sentence is over. You can walk out now.");
+					"Skończyła się twoja kara. Możesz teraz odejść.");
 			LOGGER.info("Player " + inmate.getName() + " released from jail.");
 		} else {
 			LOGGER.info("Tried to release player " + inmate.getName() + ", but " + inmate.getName() + " is not in jail.");
@@ -306,14 +306,16 @@ public class Jail implements ZoneConfigurator, LoginListener {
 
 				final long timestamp = arrestWarrant.getTimestamp();
 				player.sendPrivateText(NotificationType.SUPPORT,
-						"You have been jailed "
+						"Zostałeś aresztowany "
+					+ " przez " + arrestWarrant.getPoliceOfficer()
+					+ " na " + arrestWarrant.getMinutes()
+					+ " minutę" + " o " + String.format("%tF", timestamp)
+					+ ". Powód: " + arrestWarrant.getReason() + ".");
+				LOGGER.info(player.getName() + " logged in who has been jailed "
+					+ " by " + arrestWarrant.getPoliceOfficer()
 					+ " for " + arrestWarrant.getMinutes()
 					+ " " + Grammar.plnoun(arrestWarrant.getMinutes(), "minute") + " on " + String.format("%tF", timestamp)
 					+ ". Reason: " + arrestWarrant.getReason() + ".");
-				LOGGER.info(player.getName() + " logged in who has been jailed "
-						+ " for " + arrestWarrant.getMinutes()
-						+ " " + Grammar.plnoun(arrestWarrant.getMinutes(), "minute") + " on " + String.format("%tF", timestamp)
-						+ ". Reason: " + arrestWarrant.getReason() + ".");
 
 				handleEscapeMessages(arrestWarrant);
 				imprison(player, player, arrestWarrant.getMinutes());
@@ -334,9 +336,9 @@ public class Jail implements ZoneConfigurator, LoginListener {
 				if (arrestWarrant.isStarted()) {
 					// Notify player that his sentences is starting again because he tried to escape by logging out
 					player.sendPrivateText(NotificationType.SUPPORT,
-							"Although you already spent some "
-							+ "time in jail, your sentence has been restarted "
-							+ "because of your failed escape attempt.");
+							"Bez względu na to ile czasu "
+							+ "już spędziłeś w więzieniu to twoja kara "
+							+ "odbywa się od nowa, poniważ próbowałeś uciec.");
 				} else {
 					// Jail player who was offline at the time /jail was issued.
 					arrestWarrant.setStarted();
