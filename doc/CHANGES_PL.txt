@@ -16,6 +16,8 @@ Changelog
 	- npcwikary.png	(Wikary)
 	- npcjuhas.png (Juhas)
 	- npcjuhasboguslaw.png (Boguś)
+- Dodano nowe stroje dla postaci gracza:
+	- dress_062/_068.png
 
 
 *świat gry*
