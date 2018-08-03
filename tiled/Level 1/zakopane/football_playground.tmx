@@ -39,7 +39,7 @@
  </layer>
  <layer name="2_object" width="64" height="48">
   <data encoding="base64" compression="zlib">
-   eJzt2jsOwjAQRdGsCQpAVDRUUMFq+K4gBW1WyxS2xlgOJhJjhH2f9BQ+kzBHikSTvtOcpOdML4bzlteO5x/SQdoHn12lt0zvhvOW147nU/6WkvJz/3P/t5KUf/ajXUplHbxO+Vdl1yke/Br8+PHjx6/BX3fwa/DjH/PvpRvXf4437Nz7T/1H+9WK5uCO+DX48ePHj18T+mv6/5/qrzX4Nfjx48ePX4O/7uDX4MeP/9W/lM4Nu8jsty34+zz/hB8//tb9nTsOb2bjTJ0Pzxk7L/f9t3bx897/BHlF23Y=
+   eJzt2ksKwjAUheGuSEHxhSMnbkBXU18r6MBpV2sGCTeGxLRgrpj+Bw71cVvvBwUn7RpJa3rJ9FpwvuS1w/mnaW/aeZ/dTO+ZPgrOl7x2OB/zTykxP/c/9/9UEvMvfrSLVvbe65h/p7uOevBL8OPHjx+/BH/dwS/Bjz/ln5sebP85zjCz74f61+VXU83KHof6zxpLKeZkj/gl+PHjx5/y1/T/P9Zfa/BL8OPHjx+/BH/dwS/Bjx//u39ruizYTWa/o+Lv8/wTfvz4p+5v7LH/MBtm7Lx/Tuq83Pff2sXNO/8LVqLa/g==
   </data>
  </layer>
  <layer name="3_roof" width="64" height="48">
