@@ -53,7 +53,7 @@ bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 	- strzała ognia/lodowa/światła/mroku	- 7 / 5 + odpowiednia siła natury
 	- strzała płonąca			- 8 / 5 + FIRE
 	- bełt				- 4 / 3
-	- bełt stalowy			- 5 / 3
+	- bełt stalowy			- 5 / 4
 	- bełt złoty			- 6 / 5
 	- bełt płonący			- 8 / 6 + FIRE
 
