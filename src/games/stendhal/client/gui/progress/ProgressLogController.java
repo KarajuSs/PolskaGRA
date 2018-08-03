@@ -132,7 +132,7 @@ public class ProgressLogController {
 	 */
 	private ProgressLog getProgressLog() {
 		if (progressLog == null) {
-			progressLog = new ProgressLog(Grammar.suffix_s(User.getCharacterName()) + " travel log");
+			progressLog = new ProgressLog(Grammar.suffix_s(User.getCharacterName()) + " dziennik zadań");
 		}
 		return progressLog;
 	}
