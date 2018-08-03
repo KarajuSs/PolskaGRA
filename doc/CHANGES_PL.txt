@@ -39,6 +39,12 @@ bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 - Dodano nową strzałę z mithrilu (Typ ataku: light; Atk: 9; Range: 6;) / będzie można je jedynie wytworzyć! /
 - Obrazek słonia został powiększony z 144x256 na 288x512
 - Nagroda za wykonanie zlecenia u burmistrzów jest teraz bardziej wyjątkowa
+- Znerfiono ciupagi o -2 atk; aktualne statystyki [atk / obr / waga / lifesteal]:
+	- ciupaga 							- 17 / 2 / 4 / 0
+	- złota ciupaga 					- 19 / 2 / 4 / 0
+	- złota ciupaga z wąsem 			- 21 / 3 / 3 / 0.01
+	- złota ciupaga z dwoma wąsami 		- 23 / 3 / 3 / 0.02
+	- złota ciupaga z trzema wąsami 	- 23 / 4 / 2 / 0.03 + LIGHT
 
 
 *code*
