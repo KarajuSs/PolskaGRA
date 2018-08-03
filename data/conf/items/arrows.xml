@@ -245,7 +245,7 @@
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
 			<atk value="5"/>
-			<range value="1"/>
+			<range value="4"/>
 			<quantity value="1"/>
 			<max_quantity value="2147483647"/>
 		</attributes>
