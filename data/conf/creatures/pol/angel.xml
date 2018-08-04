@@ -7,14 +7,14 @@
 		<type class="pol/serafiny" subclass="serafin" tileid="pol_serafiny.png:0"/>
 		<description/>
 		<attributes>
-			<atk value="10000"/>
-			<def value="362"/>
-			<hp value="9000"/>
+			<atk value="7480"/>
+			<def value="225"/>
+			<hp value="7920"/>
 			<speed value="1.0"/>
 			<size value="3,3"/>
 		</attributes>
 		<level value="880"/>
-		<experience value="763000"/>
+		<experience value="1224653"/>
 		<respawn value="190000"/>
 		<corpse name="giant_humanoid"/>
 		<drops>
@@ -52,14 +52,14 @@
 		<type class="pol/serafiny" subclass="azazel" tileid="pol_serafiny.png:1"/>
 		<description/>
 		<attributes>
-			<atk value="18000"/>
-			<def value="666"/>
-			<hp value="9000"/>
+			<atk value="8415"/>
+			<def value="248"/>
+			<hp value="8910"/>
 			<speed value="1.0"/>
 			<size value="3,3"/>
 		</attributes>
 		<level value="990"/>
-		<experience value="963000"/>
+		<experience value="1548558"/>
 		<respawn value="190000"/>
 		<corpse name="giant_humanoid"/>
 		<drops>

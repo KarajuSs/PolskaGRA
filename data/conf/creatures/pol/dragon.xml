@@ -7,14 +7,14 @@
 		<type class="pol/smoki" subclass="smok_dwuglowy_czarny" tileid="pol_smoki.png:0"/>
 		<description/>
 		<attributes>
-			<atk value="3105"/>
-			<def value="147"/>
-			<hp value="2500"/>
+			<atk value="3392"/>
+			<def value="127"/>
+			<hp value="8591"/>
 			<speed value="1.0"/>
 			<size value="3,2"/>
 		</attributes>
 		<level value="399"/>
-		<experience value="216161"/>
+		<experience value="258812"/>
 		<respawn value="27777"/>
 		<corpse name="dragon_3x3x2" width="3" height="3"/>
 		<drops>
@@ -41,14 +41,14 @@
 		<type class="pol/smoki" subclass="smok_dwuglowy_czerwony" tileid="pol_smoki.png:1"/>
 		<description/>
 		<attributes>
-			<atk value="2805"/>
-			<def value="125"/>
-			<hp value="2300"/>
+			<atk value="2542"/>
+			<def value="106"/>
+			<hp value="7691"/>
 			<speed value="1.0"/>
 			<size value="3,2"/>
 		</attributes>
 		<level value="299"/>
-		<experience value="165151"/>
+		<experience value="146980"/>
 		<respawn value="26666"/>
 		<corpse name="dragon_3x3x2" width="3" height="3"/>
 		<drops>
@@ -75,14 +75,14 @@
 		<type class="pol/smoki" subclass="smok_dwuglowy_zielony" tileid="pol_smoki.png:2"/>
 		<description/>
 		<attributes>
-			<atk value="2504"/>
-			<def value="105"/>
-			<hp value="2100"/>
+			<atk value="1692"/>
+			<def value="84"/>
+			<hp value="6791"/>
 			<speed value="1.0"/>
 			<size value="3,2"/>
 		</attributes>
 		<level value="199"/>
-		<experience value="84141"/>
+		<experience value="44739"/>
 		<respawn value="25555"/>
 		<corpse name="dragon_3x3x2" width="3" height="3"/>
 		<drops>
@@ -109,14 +109,14 @@
 		<type class="pol/smoki" subclass="smok_pustynny" tileid="pol_smoki.png:3"/>
 		<description/>
 		<attributes>
-			<atk value="420"/>
-			<def value="35"/>
-			<hp value="1200"/>
+			<atk value="1398"/>
+			<def value="78"/>
+			<hp value="2215"/>
 			<speed value="1.0"/>
 			<size value="3,2"/>
 		</attributes>
 		<level value="135"/>
-		<experience value="17700"/>
+		<experience value="22042"/>
 		<respawn value="17300"/>
 		<corpse name="huge_animal"/>
 		<drops>
@@ -141,14 +141,14 @@
 		<type class="pol/smoki" subclass="smok_zgnily_szkielet" tileid="pol_smoki.png:4"/>
 		<description/>
 		<attributes>
-			<atk value="375"/>
-			<def value="37"/>
-			<hp value="567"/>
+			<atk value="655"/>
+			<def value="52"/>
+			<hp value="693"/>
 			<speed value="0.9"/>
 			<size value="3,3"/>
 		</attributes>
 		<level value="77"/>
-		<experience value="13320"/>
+		<experience value="5516"/>
 		<respawn value="12810"/>
 		<corpse name="dragon_3x3" width="3" height="3"/>
 		<drops>
@@ -172,14 +172,14 @@
 		<type class="pol/smoki" subclass="smok_arktyczny" tileid="pol_smoki.png:5"/>
 		<description/>
 		<attributes>
-			<atk value="2815"/>
-			<def value="43"/>
-			<hp value="3300"/>
+			<atk value="2387"/>
+			<def value="101"/>
+			<hp value="5998"/>
 			<speed value="1.0"/>
 			<size value="6,5"/>
 		</attributes>
 		<level value="222"/>
-		<experience value="55555"/>
+		<experience value="101935"/>
 		<respawn value="23456"/>
 		<corpse name="huger_animal"/>
 		<drops>
@@ -206,14 +206,14 @@
 		<type class="pol/smoki" subclass="smok_czarny" tileid="pol_smoki.png:6"/>
 		<description>Oto czarny smok. Jeśli się wyciszysz poczujesz jego głębokie drżenie w swoich trzewiach.</description>
 		<attributes>
-			<atk value="3227"/>
-			<def value="127"/>
-			<hp value="3300"/>
+			<atk value="3050"/>
+			<def value="115"/>
+			<hp value="6700"/>
 			<speed value="1.0"/>
 			<size value="5,4"/>
 		</attributes>
 		<level value="300"/>
-		<experience value="82000"/>
+		<experience value="174350"/>
 		<respawn value="24000"/>
 		<corpse name="dragon_6x6" width="6" height="6"/>
 		<drops>
@@ -242,15 +242,15 @@
 		<type class="pol/smoki" subclass="latajacy_czarny_smok" tileid="pol_smoki.png:7"/>
 		<description/>
 		<attributes>
-			<atk value="2999"/>
-			<def value="999"/>
-			<hp value="1100"/>
+			<atk value="7650"/>
+			<def value="329"/>
+			<hp value="8100"/>
 			<speed value="0.8"/>
 			<size value="2,2"/>
 			<resistance value="1"/>
 		</attributes>
 		<level value="900"/>
-		<experience value="598000"/>
+		<experience value="1301899"/>
 		<respawn value="100000"/>
 		<corpse name="dragon_6x6" width="6" height="6"/>
 		<drops>
@@ -272,15 +272,15 @@
 		<type class="pol/smoki" subclass="latajacy_zloty_smok" tileid="pol_smoki.png:8"/>
 		<description>Oto latający złoty smok. Gdy rozpościera swe skrzydła przechodzi cię dreszcz... ten mityczny potwór wygląda na potężnego!</description>
 		<attributes>
-			<atk value="3837"/>
-			<def value="1111"/>
-			<hp value="1100"/>
+			<atk value="8500"/>
+			<def value="350"/>
+			<hp value="9000"/>
 			<speed value="1.0"/>
 			<size value="2,2"/>
 			<resistance value="1"/>
 		</attributes>
 		<level value="1000"/>
-		<experience value="625980"/>
+		<experience value="1603415"/>
 		<respawn value="100000"/>
 		<corpse name="dragon_6x6" width="6" height="6"/>
 		<drops>
@@ -309,14 +309,14 @@
 		<type class="pol/smoki" subclass="smok_wawelski" tileid="pol_smoki.png:9"/>
 		<description/>
 		<attributes>
-			<atk value="22222"/>
-			<def value="999"/>
-			<hp value="19000"/>
+			<atk value="13415"/>
+			<def value="277"/>
+			<hp value="18910"/>
 			<speed value="0.7"/>
 			<size value="8,6"/>
 		</attributes>
 		<level value="990"/>
-		<experience value="911112"/>
+		<experience value="2452233"/>
 		<respawn value="8280000"/>
 		<corpse name="dragon_6x6" width="6" height="6"/>
 		<drops>

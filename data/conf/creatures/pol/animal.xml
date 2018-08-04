@@ -7,14 +7,14 @@
 		<type class="pol/zwierzeta" subclass="pingwinek" tileid="pol_zwierzeta.png:0"/>
 		<description>Oto mały i głupiutki pingwin.</description>
 		<attributes>
-			<atk value="6"/>
-			<def value="9"/>
-			<hp value="12"/>
+			<atk value="9"/>
+			<def value="2"/>
+			<hp value="9"/>
 			<speed value="0.4"/>
 			<size value="1,1"/>
 		</attributes>
 		<level value="1"/>
-		<experience value="8"/>
+		<experience value="10"/>
 		<respawn value="700"/>
 		<corpse name="corpse"/>
 		<drops>
@@ -38,14 +38,14 @@
 		<type class="pol/zwierzeta" subclass="niedzwiadek" tileid="pol_zwierzeta.png:1"/>
 		<description/>
 		<attributes>
-			<atk value="15"/>
-			<def value="7"/>
-			<hp value="54"/>
+			<atk value="17"/>
+			<def value="4"/>
+			<hp value="18"/>
 			<speed value="0.4"/>
 			<size value="1,1"/>
 		</attributes>
 		<level value="2"/>
-		<experience value="17"/>
+		<experience value="20"/>
 		<respawn value="900"/>
 		<corpse name="small_animal"/>
 		<drops>
@@ -70,14 +70,14 @@
 		<type class="pol/zwierzeta" subclass="niedzwiadek_polarny" tileid="pol_zwierzeta.png:2"/>
 		<description/>
 		<attributes>
-			<atk value="21"/>
-			<def value="9"/>
-			<hp value="80"/>
+			<atk value="17"/>
+			<def value="4"/>
+			<hp value="18"/>
 			<speed value="0.4"/>
 			<size value="1,1"/>
 		</attributes>
 		<level value="2"/>
-		<experience value="21"/>
+		<experience value="20"/>
 		<respawn value="876"/>
 		<corpse name="small_animal"/>
 		<drops>
@@ -101,9 +101,9 @@
 		<type class="pol/zwierzeta" subclass="niedzwiedz" tileid="pol_zwierzeta.png:3"/>
 		<description>Oto niedźwiedzica. Uważaj! Może być agresywna, zwłaszcza jeśli w okolicy są jej młode.</description>
 		<attributes>
-			<atk value="55"/>
-			<def value="16"/>
-			<hp value="50"/>
+			<atk value="34"/>
+			<def value="7"/>
+			<hp value="36"/>
 			<speed value="0.4"/>
 			<size value="1,1"/>
 		</attributes>
@@ -132,14 +132,14 @@
 		<type class="pol/zwierzeta" subclass="niedzwiedz_polarny" tileid="pol_zwierzeta.png:4"/>
 		<description/>
 		<attributes>
-			<atk value="66"/>
-			<def value="13"/>
-			<hp value="78"/>
+			<atk value="85"/>
+			<def value="15"/>
+			<hp value="90"/>
 			<speed value="0.7"/>
 			<size value="1,1"/>
 		</attributes>
 		<level value="10"/>
-		<experience value="110"/>
+		<experience value="100"/>
 		<respawn value="912"/>
 		<corpse name="animal"/>
 		<drops>
@@ -163,14 +163,14 @@
 	<creature name="dziki pies">
 		<type class="pol/zwierzeta" subclass="pies" tileid="pol_zwierzeta.png:5"/>
 		<attributes>
-			<atk value="25"/>
-			<def value="9"/>
-			<hp value="45"/>
+			<atk value="34"/>
+			<def value="7"/>
+			<hp value="36"/>
 			<speed value="0.9"/>
 			<size value="1,1"/>
 		</attributes>
 		<level value="4"/>
-		<experience value="22"/>
+		<experience value="40"/>
 		<respawn value="777"/>
 		<corpse name="small_animal"/>
 		<drops>
@@ -191,14 +191,14 @@
 	<creature name="lis">
 		<type class="pol/zwierzeta" subclass="lis" tileid="pol_zwierzeta.png:6"/>
 		<attributes>
-			<atk value="45"/>
-			<def value="11"/>
-			<hp value="35"/>
+			<atk value="17"/>
+			<def value="4"/>
+			<hp value="18"/>
 			<speed value="0.8"/>
 			<size value="1,1"/>
 		</attributes>
 		<level value="2"/>
-		<experience value="18"/>
+		<experience value="20"/>
 		<respawn value="888"/>
 		<corpse name="small_animal"/>
 		<drops>
@@ -215,14 +215,14 @@
 	<creature name="piesiec">
 		<type class="pol/zwierzeta" subclass="lis_sniezny" tileid="pol_zwierzeta.png:7"/>
 		<attributes>
-			<atk value="65"/>
-			<def value="19"/>
-			<hp value="65"/>
+			<atk value="17"/>
+			<def value="4"/>
+			<hp value="18"/>
 			<speed value="0.8"/>
 			<size value="1,1"/>
 		</attributes>
 		<level value="2"/>
-		<experience value="38"/>
+		<experience value="20"/>
 		<respawn value="9999"/>
 		<corpse name="small_animal"/>
 		<drops>
@@ -239,14 +239,14 @@
 	<creature name="fenek">
 		<type class="pol/zwierzeta" subclass="tj_fenek" tileid="pol_zwierzeta.png:8"/>
 		<attributes>
-			<atk value="67"/>
-			<def value="13"/>
-			<hp value="78"/>
+			<atk value="85"/>
+			<def value="15"/>
+			<hp value="90"/>
 			<speed value="0.7"/>
 			<size value="1,1"/>
 		</attributes>
 		<level value="10"/>
-		<experience value="110"/>
+		<experience value="100"/>
 		<respawn value="8888"/>
 		<corpse name="small_animal"/>
 		<drops>
@@ -264,14 +264,14 @@
 		<type class="pol/zwierzeta" subclass="bialy_tygrys" tileid="pol_zwierzeta.png:9"/>
 		<description>Oto biały tygrys. Nie łatwo go spotkać, ale łatwo zginąć od ran jakie zadaje.</description>
 		<attributes>
-			<atk value="191"/>
-			<def value="20"/>
-			<hp value="182"/>
+			<atk value="255"/>
+			<def value="32"/>
+			<hp value="270"/>
 			<speed value="0.6"/>
 			<size value="1,1"/>
 		</attributes>
 		<level value="30"/>
-		<experience value="570"/>
+		<experience value="572"/>
 		<respawn value="199999"/>
 		<corpse name="cat"/>
 		<drops>
@@ -327,14 +327,14 @@
 		<type class="pol/zwierzeta_male" subclass="mysz_biala" tileid="pol_zwierzeta_male.png:1"/>
 		<description>Zbyt dużo miodów pitnych i piwa wypiłeś, skoro białe myszy widzisz!</description>
 		<attributes>
-			<atk value="11"/>
-			<def value="15"/>
-			<hp value="60"/>
+			<atk value="17"/>
+			<def value="4"/>
+			<hp value="18"/>
 			<speed value="0.9"/>
 			<size value="1,1"/>
 		</attributes>
 		<level value="2"/>
-		<experience value="27"/>
+		<experience value="20"/>
 		<respawn value="222"/>
 		<corpse name="corpse"/>
 		<drops>
@@ -360,14 +360,14 @@
 		<type class="pol/ptaki" subclass="golabek" tileid="pol_ptaki.png:0"/>
 		<description>Oto gołąbek co ma ostry dziobek. Pewnie domaga się okruszków!</description>
 		<attributes>
-			<atk value="3"/>
-			<def value="9"/>
-			<hp value="12"/>
+			<atk value="9"/>
+			<def value="2"/>
+			<hp value="9"/>
 			<speed value="0.4"/>
 			<size value="1,1"/>
 		</attributes>
 		<level value="1"/>
-		<experience value="8"/>
+		<experience value="5"/>
 		<respawn value="700"/>
 		<corpse name="corpse"/>
 		<drops>
@@ -389,9 +389,9 @@
 	<creature name="mewa">
 		<type class="pol/ptaki" subclass="mewa" tileid="pol_ptaki.png:2"/>
 		<attributes>
-			<atk value="15"/>
-			<def value="9"/>
-			<hp value="56"/>
+			<atk value="26"/>
+			<def value="5"/>
+			<hp value="27"/>
 			<speed value="0.8"/>
 			<size value="1,1"/>
 		</attributes>
@@ -418,14 +418,14 @@
 	<creature name="kruk">
 		<type class="pol/ptaki" subclass="kruk" tileid="pol_ptaki.png:1"/>
 		<attributes>
-			<atk value="20"/>
-			<def value="11"/>
-			<hp value="64"/>
+			<atk value="51"/>
+			<def value="10"/>
+			<hp value="54"/>
 			<speed value="0.8"/>
 			<size value="1,1"/>
 		</attributes>
 		<level value="6"/>
-		<experience value="62"/>
+		<experience value="60"/>
 		<respawn value="904"/>
 		<corpse name="corpse"/>
 		<drops>
@@ -446,14 +446,14 @@
 	<creature name="jastrząb">
 		<type class="pol/ptaki" subclass="jastrzab" tileid="pol_ptaki.png:3"/>
 		<attributes>
-			<atk value="33"/>
-			<def value="99"/>
-			<hp value="127"/>
+			<atk value="179"/>
+			<def value="25"/>
+			<hp value="189"/>
 			<speed value="0.8"/>
 			<size value="1,1"/>
 		</attributes>
 		<level value="21"/>
-		<experience value="302"/>
+		<experience value="296"/>
 		<respawn value="999"/>
 		<corpse name="corpse"/>
 		<drops>
@@ -478,15 +478,15 @@
 		<type class="pol/ptaki_wielkie" subclass="orzel_gigant" tileid="pol_ptaki_wielkie.png:0"/>
 		<description/>
 		<attributes>
-			<atk value="4300"/>
-			<def value="140"/>
-			<hp value="5000"/>
+			<atk value="2295"/>
+			<def value="100"/>
+			<hp value="2430"/>
 			<speed value="1.0"/>
 			<size value="2,2"/>
 			<resistance value="1"/>
 		</attributes>
 		<level value="270"/>
-		<experience value="280000"/>
+		<experience value="117240"/>
 		<respawn value="259200"/>
 		<corpse name="giant_knight"/>
 		<drops>
@@ -512,14 +512,14 @@
 		<type class="pol/malze" subclass="malza" tileid="pol_malze.png:0"/>
 		<description>Widzisz małżę. Być może ma w środku coś cennego, ale muszla wydaje się być okropnie twarda!</description>
 		<attributes>
-			<atk value="2"/>
-			<def value="300"/>
-			<hp value="10"/>
+			<atk value="26"/>
+			<def value="305"/>
+			<hp value="27"/>
 			<speed value="0.2"/>
 			<size value="1,1"/>
 		</attributes>
 		<level value="3"/>
-		<experience value="5"/>
+		<experience value="55"/>
 		<respawn value="1900"/>
 		<corpse name="shell"/>
 		<drops>
@@ -540,14 +540,14 @@
 		<type class="pol/malze" subclass="malza_z_perla" tileid="pol_malze.png:1"/>
 		<description>Widzisz małżę z perłą. Ta błyskotka to na pewno coś cennego, ale muszla wydaje się być okropnie twarda!</description>
 		<attributes>
-			<atk value="4"/>
-			<def value="300"/>
-			<hp value="20"/>
+			<atk value="43"/>
+			<def value="308"/>
+			<hp value="45"/>
 			<speed value="0.5"/>
 			<size value="1,1"/>
 		</attributes>
 		<level value="5"/>
-		<experience value="10"/>
+		<experience value="50"/>
 		<respawn value="90000"/>
 		<corpse name="shell"/>
 		<drops>
@@ -630,14 +630,14 @@
 		<type class="pol/owady" subclass="roj_szerszeni" tileid="pol_owady.png:2"/>
 		<description>Jad szerszeni jest zabójczy. Mało kto przeżył ich atak.</description>
 		<attributes>
-			<atk value="45"/>
-			<def value="50"/>
-			<hp value="64"/>
+			<atk value="51"/>
+			<def value="10"/>
+			<hp value="54"/>
 			<speed value="0.9"/>
 			<size value="1,1"/>
 		</attributes>
 		<level value="6"/>
-		<experience value="62"/>
+		<experience value="45"/>
 		<respawn value="904"/>
 		<corpse name="fly"/>
 		<drops/>
@@ -660,9 +660,9 @@
 		<type class="pol/owady" subclass="motylek" tileid="pol_owady.png:3"/>
 		<description>O! Popatrz! Leci motylek! Nie dosięgniesz go...</description>
 		<attributes>
-			<atk value="1"/>
-			<def value="22000"/>
-			<hp value="1"/>
+			<atk value="9"/>
+			<def value="2"/>
+			<hp value="9"/>
 			<speed value="1.0"/>
 			<size value="1,1"/>
 			<resistance value="1"/>

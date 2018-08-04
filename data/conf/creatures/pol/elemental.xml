@@ -6,14 +6,14 @@
 	<creature name="kamień">
 		<type class="pol/kamienne" subclass="kamien" tileid="pol_kamienne.png:0"/>
 		<attributes>
-			<atk value="97"/>
-			<def value="97"/>
-			<hp value="12"/>
+			<atk value="170"/>
+			<def value="74"/>
+			<hp value="130"/>
 			<speed value="0.3"/>
 			<size value="1,1"/>
 		</attributes>
 		<level value="20"/>
-		<experience value="280"/>
+		<experience value="503"/>
 		<respawn value="9600"/>
 		<corpse name="rocks"/>
 		<drops>
@@ -37,14 +37,14 @@
 	<creature name="wieża">
 		<type class="pol/kamienne" subclass="wieza" tileid="pol_kamienne.png:1"/>
 		<attributes>
-			<atk value="750"/>
-			<def value="375"/>
-			<hp value="10285"/>
+			<atk value="1700"/>
+			<def value="234"/>
+			<hp value="5000"/>
 			<speed value="0.2"/>
 			<size value="2,2"/>
 		</attributes>
 		<level value="200"/>
-		<experience value="10920"/>
+		<experience value="73381"/>
 		<respawn value="13449"/>
 		<corpse name="giant_rocks"/>
 		<drops>
@@ -72,14 +72,14 @@
 	<creature name="głaz">
 		<type class="pol/kamienne_wielkie" subclass="glaz" tileid="pol_kamienne_wielkie.png:0"/>
 		<attributes>
-			<atk value="140"/>
-			<def value="140"/>
-			<hp value="25"/>
+			<atk value="340"/>
+			<def value="117"/>
+			<hp value="360"/>
 			<speed value="0.5"/>
 			<size value="2,2"/>
 		</attributes>
 		<level value="40"/>
-		<experience value="540"/>
+		<experience value="1724"/>
 		<respawn value="12200"/>
 		<corpse name="giant_rocks"/>
 		<drops>
@@ -104,15 +104,15 @@
 	<creature name="lawina kamienna">
 		<type class="pol/kamienne_wielkie" subclass="lawina_kamienna" tileid="pol_kamienne_wielkie.png:1"/>
 		<attributes>
-			<atk value="3000"/>
-			<def value="700"/>
-			<hp value="2000"/>
+			<atk value="3400"/>
+			<def value="477"/>
+			<hp value="3600"/>
 			<speed value="0.9"/>
 			<size value="2,2"/>
 			<resistance value="50"/>
 		</attributes>
 		<level value="400"/>
-		<experience value="35920"/>
+		<experience value="232324"/>
 		<respawn value="128200"/>
 		<corpse name="giant_rocks"/>
 		<drops>
@@ -133,14 +133,14 @@
 	<creature name="olbrzymia wieża">
 		<type class="pol/kamienne_wielkie" subclass="wieza_olbrzymia" tileid="pol_kamienne_wielkie.png:2"/>
 		<attributes>
-			<atk value="2523"/>
-			<def value="750"/>
-			<hp value="20000"/>
+			<atk value="2550"/>
+			<def value="356"/>
+			<hp value="10270"/>
 			<speed value="0.1"/>
 			<size value="4,3"/>
 		</attributes>
 		<level value="300"/>
-		<experience value="20920"/>
+		<experience value="169120"/>
 		<respawn value="26898"/>
 		<corpse name="giant_rocks"/>
 		<drops>
@@ -169,14 +169,14 @@
 	<creature name="kula śnieżna">
 		<type class="pol/sniegowe" subclass="kula_sniezna" tileid="pol_sniegowe.png:0"/>
 		<attributes>
-			<atk value="200"/>
-			<def value="200"/>
-			<hp value="72"/>
+			<atk value="680"/>
+			<def value="103"/>
+			<hp value="720"/>
 			<speed value="0.7"/>
 			<size value="4,4"/>
 		</attributes>
 		<level value="80"/>
-		<experience value="920"/>
+		<experience value="6876"/>
 		<respawn value="28200"/>
 		<corpse name="snowball"/>
 		<drops>
@@ -200,15 +200,15 @@
 	<creature name="lawina">
 		<type class="pol/sniegowe" subclass="lawina" tileid="pol_sniegowe.png:1"/>
 		<attributes>
-			<atk value="3000"/>
-			<def value="600"/>
-			<hp value="2000"/>
+			<atk value="3400"/>
+			<def value="477"/>
+			<hp value="3600"/>
 			<speed value="0.8"/>
 			<size value="2,2"/>
 			<resistance value="50"/>
 		</attributes>
 		<level value="400"/>
-		<experience value="35920"/>
+		<experience value="232324"/>
 		<respawn value="128200"/>
 		<corpse name="snowball"/>
 		<drops>
@@ -232,14 +232,14 @@
 		<type class="pol/pasterze_drzew" subclass="pasterz_drzew" tileid="pol_pasterze_drzew.png:0"/>
 		<description></description>
 		<attributes>
-			<atk value="919"/>
-			<def value="193"/>
-			<hp value="1250"/>
+			<atk value="2311"/>
+			<def value="100"/>
+			<hp value="1917"/>
 			<speed value="0.1"/>
 			<size value="2,2"/>
 		</attributes>
 		<level value="213"/>
-		<experience value="20000"/>
+		<experience value="92803"/>
 		<respawn value="6200"/>
 		<corpse name="flora_ent" width="2" height="1"/>
 		<drops>
