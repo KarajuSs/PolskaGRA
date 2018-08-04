@@ -26,6 +26,7 @@ Changelog
 	- Yerena
 	- Stajenny Marcel
 	- Dr. Wojciech
+- Aktywowano mapy takie jak: kościelisko & pustynia
 - Mapa zakopane została zmieniona wizualnie
 - Mapa kościelisko została zmieniona wizualnie
 - Nowe pomieszczenie na górze w zakopane_s + jaskinia
@@ -57,6 +58,7 @@ bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 	- bełt złoty			- 6 / 5
 	- bełt płonący			- 8 / 6 + FIRE
 - Został wykorzystany program BalanceRPGame.java (od twórców Stendhala) do zbalansowania potworów ze świata POL
+- Juhas sprzedaje bilet turystyczny
 
 
 *code*
@@ -81,8 +83,10 @@ bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 *klient*
 - przetłumaczono część interfejsu (grupy/listę znajomych oraz wiadomości kiedy jesteśmy zatruci)
 
+
 *świat gry*
 - przywrócono Juhasa w int_semos_tavern_0 oraz dodano u niego możliwość kupna zwoju semos za 300 money
+
 
 *naprawa błędów*
 - naprawiono plecak
