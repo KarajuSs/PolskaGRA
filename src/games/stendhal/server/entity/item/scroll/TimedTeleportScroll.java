@@ -3,6 +3,8 @@
  */
 package games.stendhal.server.entity.item.scroll;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -41,9 +43,13 @@ public class TimedTeleportScroll extends TeleportScroll {
 
 	private static final Logger logger = Logger.getLogger(TimedTeleportScroll.class);
 
+		private static final List<String> DESERT_MAPS = Arrays.asList("0_desert_pyramid_ne", "0_desert_pyramid_sw",
+				"0_desert_pyramid_se", "int_desert_blacksmith", "-1_desert_fire_pyramid", "-1_desert_pyramid",
+				"-1_desert_corridor", "-2_desert_black_river_n", "-2_desert_black_river_s");
+
 	/**
 	 * Teleport the player back from the target zone.
-	 *
+	 * 
 	 * @param player
 	 * @return true if teleport was successful
 	 */
@@ -75,13 +81,36 @@ public class TimedTeleportScroll extends TeleportScroll {
 			}
 		}
 
-		if ((player == null) || (player.getZone() == null)
-				|| (targetZoneName == null)) {
-			return true;
-		}
+		if(targetZoneName.equals("0_desert_pyramid_nw")) {
+			int i=0;
+			if(player.getZone().getName().contains("0_desert_pyramid_nw")) {
+				if ((player == null) || (player.getZone() == null)
+						|| (targetZoneName == null)) {
+					return true;
+				}
 
-		if (notInTargetZone(player, targetZoneName)) {
-			return true;
+				if (notInTargetZone(player, targetZoneName)) {
+					return true; 
+				}
+			} else {
+				for(final String mapsName : DESERT_MAPS) {
+					if (mapsName.equals(player.getZone().getName())) {
+						i=1;
+					}
+				}
+				if(i==0) {
+					return true;
+				}
+			}
+		} else {
+			if ((player == null) || (player.getZone() == null)
+					|| (targetZoneName == null)) {
+				return true;
+			}
+
+			if (notInTargetZone(player, targetZoneName)) {
+				return true;
+			}
 		}
 
 		final StendhalRPZone returnZone = SingletonRepository.getRPWorld().getZone(
@@ -241,11 +270,31 @@ public class TimedTeleportScroll extends TeleportScroll {
 			final String targetZoneName, final int timeInTurns) {
 		final String beforeReturnMessage = getBeforeReturnMessage();
 		if (beforeReturnMessage != null) {
-			SingletonRepository.getTurnNotifier().notifyInTurns(
-					(int) (timeInTurns * 0.9),
-					new TimedTeleportWarningTurnListener(player,
-							SingletonRepository.getRPWorld().getZone(targetZoneName),
-							beforeReturnMessage));
+			if(targetZoneName.equals("0_desert_pyramid_nw")) {
+				if(player.getZone().getName().contains("0_desert_pyramid_nw")) {
+					SingletonRepository.getTurnNotifier().notifyInTurns(
+							(int) (timeInTurns * 0.9),
+							new TimedTeleportWarningTurnListener(player,
+									SingletonRepository.getRPWorld().getZone(targetZoneName),
+									beforeReturnMessage));
+				} else {
+					for(final String mapsName : DESERT_MAPS) {
+						if(player.getZone().getName().contains(mapsName)) {
+							SingletonRepository.getTurnNotifier().notifyInTurns(
+									(int) (timeInTurns * 0.9),
+									new TimedTeleportWarningTurnListener(player,
+											SingletonRepository.getRPWorld().getZone(mapsName),
+											beforeReturnMessage));
+						}
+					}
+				}
+			} else {
+				SingletonRepository.getTurnNotifier().notifyInTurns(
+						(int) (timeInTurns * 0.9),
+						new TimedTeleportWarningTurnListener(player,
+								SingletonRepository.getRPWorld().getZone(targetZoneName),
+								beforeReturnMessage));
+			}
 		}
 	}
 

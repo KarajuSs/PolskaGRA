@@ -171,7 +171,7 @@ public abstract class GameBoard extends AreaEntity {
 	}
 
 	public void timeOut() {
-		npc.say("Sorry, you have been too slow. This game ends now.");
+		npc.say("Byłeś zbyt wolny. Gra się skończyła.");
 		endGame();
 	}
 

@@ -39,7 +39,7 @@ public class TimedInvisibility extends TimedStackableItem {
 	@Override
 	public void itemFinished(final Player player) {
 		if (player != null) {
-			player.sendPrivateText("You don't feel so secure anymore.");
+			player.sendPrivateText("Już nie czujesz się wystarczająco bezpiecznie.");
 			player.setInvisible(false);
 		}
 	}

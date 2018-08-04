@@ -12,56 +12,70 @@
  ***************************************************************************/
 package games.stendhal.server.entity.item;
 
-import java.util.Map;
-
+import games.stendhal.common.ItemTools;
 import games.stendhal.common.Rand;
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.entity.player.Player;
 
+import java.util.Map;
+
 /**
- * a stocking which can be opened
- *
+ * A present which can be unwrapped.
+ * 
  * @author kymara
  */
-public class Stocking extends Box {
+public class Skrzynka extends Box {
 
-	private static final String[] ITEMS = { "wielki eliksir", "eliksir miłości", "granat",
-			"zupa rybna", "bryłka mithrilu", "niezapisany zwój", "pluszowy miś", "naleśniki z polewą czekoladową", "leżakowana nalewka litworowa"};
+	private static final String[] ITEMS = { "wielki eliksir", "jabłko niezgody",
+			"kanapka", "wisienka", "lazurowy płaszcz elficki", "zwój przywołania", "bilet turystyczny",
+			"zwój tatrzański" };
 
 	/**
-	 * Creates a new Stocking.
-	 *
+	 * Creates a new present.
+	 * 
 	 * @param name
 	 * @param clazz
 	 * @param subclass
 	 * @param attributes
 	 */
-	public Stocking(final String name, final String clazz, final String subclass,
+	public Skrzynka(final String name, final String clazz, final String subclass,
 			final Map<String, String> attributes) {
 		super(name, clazz, subclass, attributes);
+
+		setContent(ITEMS[Rand.rand(ITEMS.length)]);
+	}
+
+	/**
+	 * Sets content.
+	 * @param type of item to be produced.
+	 */
+	public void setContent(final String type) {
+		setInfoString(type);
 	}
 
 	/**
 	 * Copy constructor.
-	 *
+	 * 
 	 * @param item
 	 *            item to copy
 	 */
-	public Stocking(final Stocking item) {
+	public Skrzynka(final Skrzynka item) {
 		super(item);
 	}
 
 	@Override
 	protected boolean useMe(final Player player) {
 		this.removeOne();
-		final String itemName = ITEMS[Rand.rand(ITEMS.length)];
-		final Item item = SingletonRepository.getEntityManager().getItem(
-				itemName);
-		player.sendPrivateText("Gratulacje otrzymałeś "
-				+ Grammar.a_noun(itemName) + "!");
+
+		final String itemName = getInfoString();
+		final Item item = SingletonRepository.getEntityManager().getItem(itemName);
+		player.sendPrivateText("Gratulacje dostałeś " 
+				+ Grammar.a_noun(ItemTools.itemNameToDisplayName(itemName)));
+
 		player.equipOrPutOnGround(item);
 		player.notifyWorldAboutChanges();
+
 		return true;
 	}
 

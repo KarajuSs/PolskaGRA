@@ -44,7 +44,7 @@ public class FishSource extends PlayerActivityEntity {
 	/**
 	 * The equipment needed.
 	 */
-	private static final String NEEDED_EQUIPMENT = "fishing rod";
+	private static final String NEEDED_EQUIPMENT = "wędka";
 
 	/**
 	 * The name of the item to be caught.
@@ -69,8 +69,8 @@ public class FishSource extends PlayerActivityEntity {
 		this.itemName = itemName;
 		put("class", "source");
 		put("name", "fish_source");
-		setMenu("Fish");
-		setDescription("There is something in the water.");
+		setMenu("Wędkowanie");
+		setDescription("Coś znajduje się w wodzie.");
 	}
 
 	/**
@@ -78,7 +78,7 @@ public class FishSource extends PlayerActivityEntity {
 	 */
 	@Override
 	public String getName() {
-		return("fish in the water");
+		return("ryb");
 	}
 
 	//
@@ -137,7 +137,7 @@ public class FishSource extends PlayerActivityEntity {
 			return true;
 		}
 
-		player.sendPrivateText("You need a fishing rod for fishing.");
+		player.sendPrivateText("Potrzebujesz wędki do łowienia ryb.");
 		return false;
 	}
 
@@ -173,13 +173,13 @@ public class FishSource extends PlayerActivityEntity {
 			player.equipOrPutOnGround(item);
 			player.incHarvestedForItem(itemName, 1);
 		    SingletonRepository.getAchievementNotifier().onObtain(player);
-			player.sendPrivateText("You caught a fish.");
+			player.sendPrivateText("Złapałeś rybę.");
 		} else {
 		    // TODO: find a sound for failure
             //this.addEvent(new SoundEvent(failSound, SOUND_RADIUS, 100, SoundLayer.AMBIENT_SOUND));
 			this.notifyWorldAboutChanges();
-
-			player.sendPrivateText("You didn't get a fish.");
+		    
+			player.sendPrivateText("Nie złapałeś ryby.");
 		}
 		notifyWorldAboutChanges();
 	}
@@ -197,7 +197,7 @@ public class FishSource extends PlayerActivityEntity {
         notifyWorldAboutChanges();
 
 		// some feedback is needed.
-		player.sendPrivateText("You have started fishing.");
+		player.sendPrivateText("Rozpocząłeś łowienie ryb.");
 		addEvent(new ImageEffectEvent("water_splash", true));
 		notifyWorldAboutChanges();
 	}

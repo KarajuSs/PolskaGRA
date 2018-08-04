@@ -43,9 +43,9 @@ public class ZombieStatusHandler implements StatusHandler<ZombieStatus> {
 				originalSpeed = entity.getBaseSpeed();
 				entity.setBaseSpeed(0.5);
 				if (attacker == null) {
-					entity.sendPrivateText(NotificationType.SCENE_SETTING, "You are zombified.");
+					entity.sendPrivateText(NotificationType.SCENE_SETTING, "Zostałeś zombie.");
 				} else {
-					entity.sendPrivateText(NotificationType.SCENE_SETTING, "You have been zombified by " + attacker.getName() + ".");
+					entity.sendPrivateText(NotificationType.SCENE_SETTING, "Zostałeś zombie przez " + attacker.getName() + ".");
 				}
 			}
 

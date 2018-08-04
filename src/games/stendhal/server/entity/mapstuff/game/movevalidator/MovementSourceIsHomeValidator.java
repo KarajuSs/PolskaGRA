@@ -26,7 +26,7 @@ public class MovementSourceIsHomeValidator implements MoveValidator {
 	@Override
 	public boolean validate(GameBoard board, Player player, BoardToken token, int xIndex, int yIndex) {
 		if (!token.wasMovedFromHomeInLastMove()) {
-			player.sendPrivateText("You can only move tokens that are on the pile outside the game board.");
+			player.sendPrivateText("Możesz przesunąć krążki znajdujące się tylko na stosie poza planszą gry.");
 			return false;
 		}
 		return true;

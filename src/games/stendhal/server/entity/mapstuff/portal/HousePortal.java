@@ -70,7 +70,7 @@ public class HousePortal extends AccessCheckingPortal {
 	 * @param doorId the door identifier
 	 */
 	public HousePortal(final String doorId) {
-		super("The door is locked.");
+		super("Drzwi są zamknięte.");
 		setRPClass(RPCLASS_NAME);
 		put("type", "house_portal");
 		put(DOOR_ID, doorId);
@@ -90,8 +90,8 @@ public class HousePortal extends AccessCheckingPortal {
 		put("type", "house_portal");
 		super.setDestination(get(DESTINATION_ZONE), idToObject(DESTINATION_ID));
 		super.setIdentifier(idToObject(PORTAL_REFERENCE));
-		setRejectedMessage("The door is locked.");
-
+		setRejectedMessage("Drzwi są zamknięte.");
+		
 	   	store();
 	}
 
@@ -145,9 +145,9 @@ public class HousePortal extends AccessCheckingPortal {
 		final String owner = getOwner();
 		final String description;
 		if (owner.length() > 0) {
-			description = "Here lives " + owner + ".";
+			description = "Tutaj mieszka " + owner + ".";
 		} else {
-			description = "For sale!";
+			description = "Na sprzedaż!";
 		}
 
 		return description;

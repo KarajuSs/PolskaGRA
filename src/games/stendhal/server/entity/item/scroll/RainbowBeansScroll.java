@@ -67,8 +67,8 @@ public class RainbowBeansScroll extends TimedTeleportScroll {
 				// player used the beans within the last DELAY hours
 				// so are not allowed to go yet. but don't reset the last time taken.
 				// the private text doesn't get sent because events are lost on zone change. (marauroa bug)
-				player.sendPrivateText("You were just sick from overuse of the rainbow beans. Classy!");
-				final Item sick = SingletonRepository.getEntityManager().getItem("vomit");
+				player.sendPrivateText("Pochorowałeś się od nadużywania magicznych fasolek.");
+				final Item sick = SingletonRepository.getEntityManager().getItem("wymioty");
 				player.getZone().add(sick);
 				sick.setPosition(player.getX(), player.getY() + 1);
 				// Success, so that the beans still gets used up, even though
@@ -82,9 +82,9 @@ public class RainbowBeansScroll extends TimedTeleportScroll {
 		} else {
 			// players can only buy rainbow beans from Pdiddi who stores the time bought in quest slot
 			// so if they didn't have the quest slot they got the beans ''illegally''
-			player.sendPrivateText("Those dodgy beans made you sick. Next time buy them from Pdiddi.");
+			player.sendPrivateText("Te podejrzane fasolki sprawiły, że się pochorowałeś. Następnym razem kupuj od Pdiddi.");
 			this.removeOne();
-			final Item sick = SingletonRepository.getEntityManager().getItem("vomit");
+			final Item sick = SingletonRepository.getEntityManager().getItem("wymioty");
 			player.getZone().add(sick);
 			sick.setPosition(player.getX(), player.getY() + 1);
 			return false;
@@ -93,12 +93,12 @@ public class RainbowBeansScroll extends TimedTeleportScroll {
 
 	@Override
 	protected String getBeforeReturnMessage() {
-		return "Your head begins to feel clearer...";
+		return "Twoja głowa zaczyna czuć pustkę...";
 	}
 
 	@Override
 	protected String getAfterReturnMessage() {
-		return "You find yourself in the forest with a bad headache."
-				+ " That was a strange experience.";
+		return "Znalazłeś się w lesie z okropnym bólem głowy."
+				+ " To było dziwne doświadczenie.";
 	}
 }

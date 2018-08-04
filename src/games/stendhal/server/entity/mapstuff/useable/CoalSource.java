@@ -43,7 +43,7 @@ public class CoalSource extends PlayerActivityEntity {
 	/**
 	 * The equipment needed.
 	 */
-	private static final String NEEDED_EQUIPMENT = "pick";
+	private static final String NEEDED_EQUIPMENT = "kilof";
 
 	/**
 	 * The name of the item to be found.
@@ -61,7 +61,7 @@ public class CoalSource extends PlayerActivityEntity {
 	 * Create a gold source.
 	 */
 	public CoalSource() {
-		this("coal");
+		this("węgiel");
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class CoalSource extends PlayerActivityEntity {
 		put("name", "coal_source");
 		put("state", 0);
 
-		setDescription("You see something black on the rock.");
+		setDescription("Jest coś czarnego na skale.");
 		handleRespawn();
 	}
 
@@ -88,7 +88,7 @@ public class CoalSource extends PlayerActivityEntity {
 	 */
 	@Override
 	public String getName() {
-		return("the vein of coal");
+		return("kawałek węgla");
 	}
 
 
@@ -117,7 +117,7 @@ public class CoalSource extends PlayerActivityEntity {
 			return true;
 		}
 
-		player.sendPrivateText("You need a pick to extract the coal.");
+		player.sendPrivateText("Potrzebujesz kilofa, aby wydobyć węgiel.");
 		return false;
 	}
 
@@ -151,7 +151,7 @@ public class CoalSource extends PlayerActivityEntity {
 				player.equipOrPutOnGround(item);
 				player.incMinedForItem(item.getName(), item.getQuantity());
 			    SingletonRepository.getAchievementNotifier().onObtain(player);
-				player.sendPrivateText("You found "
+				player.sendPrivateText("Znalazłeś "
 						+ Grammar.a_noun(item.getTitle()) + ".");
 			} else {
 				logger.error("could not find item: " + itemName);
@@ -159,7 +159,7 @@ public class CoalSource extends PlayerActivityEntity {
 			setState(getState()- 1);
 			handleRespawn();
 		} else {
-			player.sendPrivateText("You didn't find anything.");
+			player.sendPrivateText("Nic nie znalazłeś.");
 		}
 	}
 
@@ -182,7 +182,7 @@ public class CoalSource extends PlayerActivityEntity {
 	 */
 	@Override
 	protected void onStarted(final Player player) {
-		player.sendPrivateText("You have started to pick for coal.");
+		player.sendPrivateText("Rozpocząłeś wydobywanie węgla.");
         addEvent(new SoundEvent(startSound, SOUND_RADIUS, 100, SoundLayer.AMBIENT_SOUND));
         notifyWorldAboutChanges();
 	}

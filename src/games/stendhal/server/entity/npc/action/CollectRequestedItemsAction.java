@@ -78,7 +78,7 @@ public final class CollectRequestedItemsAction implements ChatAction {
 					raiser.setCurrentState(this.stateAfterCompletion);
 				}
 			} else {
-				raiser.say("You don't have " + Grammar.a_noun(itemName) + " with you!");
+				raiser.say("Nie masz przy sobie " + Grammar.a_noun(itemName) + "!");
 			}
 		} else {
 			raiser.say(alreadyBrought);

@@ -70,20 +70,20 @@ public abstract class TimedStackableItem extends StackableItem {
 
 			RPObject base = getBaseContainer();
 
-			if (user.nextTo((Entity) base)) {
+		if (user.nextTo((Entity) base)) {
 				if (useItem(userplayer)) {
-					/* set the timer for the duration */
-					final TurnNotifier notifier = SingletonRepository.getTurnNotifier();
-					notifier.notifyInTurns(getAmount(), this);
+				/* set the timer for the duration */
+				final TurnNotifier notifier = SingletonRepository.getTurnNotifier();
+				notifier.notifyInTurns(getAmount(), this);
 					player = new WeakReference<Player>(userplayer);
-					this.removeOne();
-					user.notifyWorldAboutChanges();
-				}
-				result = true;
-			} else {
-				user.sendPrivateText(getTitle() + " is too far away");
-				logger.debug(getTitle() + " is too far away");
+				this.removeOne();
+				user.notifyWorldAboutChanges();
 			}
+			result = true;
+		} else {
+			user.sendPrivateText(getTitle() + " jest zbyt daleko");
+			logger.debug(getTitle() + " is too far away");
+		}
 		} else {
 			logger.error("user is no instance of Player but: " + user, new Throwable());
 		}
@@ -98,7 +98,7 @@ public abstract class TimedStackableItem extends StackableItem {
 
 	@Override
 	public String describe() {
-		String text = "You see " + Grammar.a_noun(getTitle()) + ".";
+		String text = "Oto " + Grammar.a_noun(getTitle()) + ".";
 		if (hasDescription()) {
 			text = getDescription();
 		}
@@ -106,8 +106,8 @@ public abstract class TimedStackableItem extends StackableItem {
 		final String boundTo = getBoundTo();
 
 		if (isBound()) {
-			text = text + " It is a special reward for " + boundTo
-					+ ", and cannot be used by others.";
+			text = text + " Oto specjalna nagroda dla " + boundTo
+					+ ", która nie może być używana przez innych.";
 		}
 
 		return text;

@@ -39,7 +39,7 @@ public class KeyedSlot extends EntitySlot {
 
 	@Override
 	public boolean isReachableForTakingThingsOutOfBy(final Entity entity) {
-		setErrorMessage("This " + getName() + " is not for items.");
+		setErrorMessage("Ten " + getName() + " nie jest dla przedmiotów.");
 		return false;
 	}
 

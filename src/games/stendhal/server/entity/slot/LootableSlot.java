@@ -36,7 +36,7 @@ public class LootableSlot extends EntitySlot {
 
 	@Override
 	public boolean isReachableForTakingThingsOutOfBy(final Entity entity) {
-		setErrorMessage(Grammar.makeUpperCaseWord(((Entity)getOwner()).getDescriptionName(true)) + " is too far away.");
+		setErrorMessage(Grammar.makeUpperCaseWord(((Entity)getOwner()).getDescriptionName(true)) + " jest zbyt daleko.");
 		return entity.nextTo(owner);
 	}
 

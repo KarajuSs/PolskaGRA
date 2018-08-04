@@ -65,13 +65,13 @@ public class Box extends Item {
 
 			if (!user.nextTo((Entity) base)) {
 				logger.debug("Consumable item is too far");
-				user.sendPrivateText("The item is too far away.");
+				user.sendPrivateText("Przedmiot jest zbyt daleko.");
 				return false;
 			}
 		} else {
 			if (!user.nextTo(this)) {
 				logger.debug("Consumable item is too far");
-				user.sendPrivateText("The item is too far away.");
+				user.sendPrivateText("Przedmiot jest zbyt daleko.");
 				return false;
 			}
 		}
@@ -87,7 +87,7 @@ public class Box extends Item {
 	// this would be overridden in the subclass
 	protected boolean useMe(final Player player) {
 		logger.warn("A box that didn't have a use method failed to open.");
-		player.sendPrivateText("What a strange box! You don't know how to open it.");
+		player.sendPrivateText("Co za dziwne pudełko! Nie masz pojęcia jak je otworzyć.");
 		return false;
 	}
 

@@ -55,7 +55,7 @@ public abstract class PlayerActivityEntity extends UseableEntity {
 				onFinished(player, isSuccessful(player));
 			}
 		} else {
-			player.sendPrivateText("You are too far away from the " + this.getName() + ", try to come closer.");
+			player.sendPrivateText("Jesteś zbyt daleko od "+this.getName()+ " spróbuj podejść bliżej.");
 			onFinished(player, false);
 		}
 	}
@@ -146,8 +146,8 @@ public abstract class PlayerActivityEntity extends UseableEntity {
 
 		// The player must be next to the source to start to use it.
 		if (!player.nextTo(this)) {
-			player.sendPrivateText("You are too far away from " + this.getName()+
-				", try to come closer.");
+			player.sendPrivateText("Jesteś zbyt daleko od "+this.getName()+
+			   " spróbuj podejść bliżej.");
 			return false;
 		}
 

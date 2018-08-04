@@ -45,11 +45,11 @@ public class TwilightMossScroll extends TimedTeleportScroll {
 
 	@Override
 	protected String getBeforeReturnMessage() {
-		return "The twilight is dwindling ...";
+		return "Mrok słabnie ...";
 	}
 
 	@Override
 	protected String getAfterReturnMessage() {
-		return "You wake up back in Ida's familiar sewing room.";
+		return "Obudziłeś się na tyłach domu krawcowej Idy.";
 	}
 }

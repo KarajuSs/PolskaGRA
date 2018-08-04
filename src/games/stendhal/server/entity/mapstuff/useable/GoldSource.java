@@ -44,7 +44,7 @@ public class GoldSource extends PlayerActivityEntity {
 	/**
 	 * The equipment needed.
 	 */
-	private static final String NEEDED_EQUIPMENT = "gold pan";
+	private static final String NEEDED_EQUIPMENT = "misa do płukania złota";
 
 	/**
 	 * The chance that prospecting is successful.
@@ -81,8 +81,8 @@ public class GoldSource extends PlayerActivityEntity {
 		this.itemName = itemName;
 		put("class", "source");
 		put("name", "gold_source");
-		setMenu("Prospect");
-		setDescription("You see something golden glittering.");
+		setMenu("Poszukaj złota");
+		setDescription("Widzisz coś świecącego na złoto.");
 	}
 
 	//
@@ -119,7 +119,7 @@ public class GoldSource extends PlayerActivityEntity {
 			return true;
 		}
 
-		player.sendPrivateText("You need a gold pan to prospect for gold.");
+		player.sendPrivateText("Potrzebujesz misę do pukania złota, aby wydobyć złoto.");
 		return false;
 	}
 
@@ -154,13 +154,13 @@ public class GoldSource extends PlayerActivityEntity {
 			    player.equipOrPutOnGround(item);
 			    player.incMinedForItem(item.getName(), item.getQuantity());
 			    SingletonRepository.getAchievementNotifier().onObtain(player);
-			    player.sendPrivateText("You found "
-					+ Grammar.a_noun(item.getTitle()) + ".");
+				player.sendPrivateText("Znalazłeś "
+						+ Grammar.a_noun(item.getTitle()) + ".");
 			} else {
 				logger.error("could not find item: " + itemName);
 			}
 		} else {
-			player.sendPrivateText("You didn't find anything.");
+			player.sendPrivateText("Nic nie znalazłeś.");
 		}
 	}
 
@@ -172,6 +172,6 @@ public class GoldSource extends PlayerActivityEntity {
 	 */
 	@Override
 	protected void onStarted(final Player player) {
-		player.sendPrivateText("You have started to prospect for gold.");
+		player.sendPrivateText("Rozpocząłeś poszukiwanie złota.");
 	}
 }

@@ -94,7 +94,7 @@ public class StazNaGornika extends AbstractQuest {
 		if (!player.hasQuest(QUEST_SLOT)) {
 			return res;
 		}
-		res.add("Sptkałem Bercika. Po zaliczeniu egzaminu na górnika, moje szanse na wydobycie kamieni zwiększą się.");
+		res.add("Spotkałem Bercika. Po zaliczeniu egzaminu na górnika, moje szanse na wydobycie kamieni zwiększą się.");
 		if (!player.isQuestCompleted(QUEST_SLOT)) {
 			if (remainingTimeToWait(player)>0) {
 				res.add("Jest zbyt wcześnie, aby spróbować ponownie, przystąpić do egzaminu.");

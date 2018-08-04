@@ -52,7 +52,7 @@ public class DigArea extends ConditionAndActionArea {
      */
     public boolean use(Player player, Item tool) {
         // Make sure player used a shovel
-        if (tool.getName() == "shovel") {
+        if (tool.getName() == "łopata") {
             return super.use(player);
         }
         return false;

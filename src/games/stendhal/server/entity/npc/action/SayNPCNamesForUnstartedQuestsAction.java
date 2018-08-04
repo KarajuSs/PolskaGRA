@@ -60,20 +60,20 @@ public class SayNPCNamesForUnstartedQuestsAction implements ChatAction {
 		for (String region: regions) {
 			// to hold the list of npcs for each region
 			List<String> npcs = SingletonRepository.getStendhalQuestSystem().getNPCNamesForUnstartedQuestsInRegionForLevel(player, region);
-			String verb = "need";
+			String verb = "potrzebują";
 	        if (npcs.size()==1) {
-	        	verb = "needs";
+	        	verb = "potrzebuje";
 	        }
 			if (npcs.size()>0) {
-	        	sb.append("In " + region + " ");
+	        	sb.append("W " + region + " ");
 	        	sb.append(Grammar.enumerateCollectionWithHash(npcs));
-	        	sb.append(" " + verb + " your help. ");
+	        	sb.append(" " + verb + " twojej pomocy.");
 	        } else {
 	        	finishedregions.add(region);
 	        }
 		}
 		if (finishedregions.size() > 0) {
-			sb.append("There's noone in " + Grammar.enumerateCollection(finishedregions) + " who'd have a task you can handle, or that you haven't helped already.");
+			sb.append("Nie ma nikogo w " + Grammar.enumerateCollection(finishedregions) + " kto mógłby mieć zadanie z którym możesz sobie poradzić lub takie w którym jeszcze nie pomogłeś.");
 		}
 		raiser.say(sb.toString().trim());
 

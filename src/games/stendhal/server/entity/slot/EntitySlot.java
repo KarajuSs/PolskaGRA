@@ -45,7 +45,7 @@ public class EntitySlot extends RPSlot implements Slot {
 
 	@Override
 	public boolean isReachableForTakingThingsOutOfBy(final Entity entity) {
-		setErrorMessage("The " + getName() + " of " + ((Entity) getOwner()).getDescriptionName(true) + " is too far away.");
+		setErrorMessage("" + getName() + " z " + ((Entity) getOwner()).getDescriptionName(true) + " jest zbyt daleko.");
 		return false;
 	}
 

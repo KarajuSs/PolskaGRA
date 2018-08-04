@@ -55,7 +55,7 @@ public abstract class Door extends AccessCheckingPortal implements TurnListener 
 	 *            The class. Responsible for how this door looks like.
 	 */
 	public Door(final String clazz) {
-		this(clazz, "This door is closed");
+		this(clazz, "Te drzwi są zamknięte");
 	}
 
 	/**
@@ -159,14 +159,14 @@ public abstract class Door extends AccessCheckingPortal implements TurnListener 
 
 	@Override
 	public String describe() {
-		String text = "You see a door.";
+		String text = "Oto drzwi.";
 		if (hasDescription()) {
 			text = getDescription();
 		}
 		if (isOpen()) {
-			text += " It is open.";
+			text += " Są otwarte.";
 		} else {
-			text += " It is closed.";
+			text += " Są zamknięte.";
 		}
 
 		return (text);

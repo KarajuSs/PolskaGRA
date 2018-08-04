@@ -66,13 +66,13 @@ public class GroundSlot extends EntitySlot {
 		int xDistance = Math.abs(entity.getX() - x);
 		int yDistance = Math.abs(entity.getY() - y);
 		if ((xDistance <= 1) && (yDistance <= 1)) {
-			setErrorMessage("You are too far away");
+			setErrorMessage("Jest zbyt daleko");
 			return false;
 		}
 
 		String playerName = getOtherPlayerStandingOnItem(entity);
 		if (playerName != null) {
-			setErrorMessage("This items is protected by " + playerName);
+			setErrorMessage("Ten przedmiot jest chroniony przez " + playerName);
 			return false;
 		}
 		return true;
@@ -82,7 +82,7 @@ public class GroundSlot extends EntitySlot {
 	public boolean isReachableForThrowingThingsIntoBy(Entity entity) {
 		// and in reach
 		if (entity.squaredDistance(x, y) > (8 * 8)) {
-			setErrorMessage("That is too far away.");
+			setErrorMessage("Jest zbyt daleko.");
 			return false;
 		}
 
@@ -92,7 +92,7 @@ public class GroundSlot extends EntitySlot {
 					entity.getX(), entity.getY(), new Rectangle(x, y, 1, 1),
 					64 /* maxDestination * maxDestination */, false);
 			if (path.isEmpty()) {
-				setErrorMessage("There is no easy path to that place.");
+				setErrorMessage("Nie ma łatwej drogi do tego miejsca.");
 				return false;
 			}
 		}
@@ -107,7 +107,7 @@ public class GroundSlot extends EntitySlot {
 	 * @return <code>true</code>if zone is semos tavern and entity is dice
 	 */
 	private boolean isGamblingZoneAndIsDice(final Entity entity) {
-		return "int_semos_tavern_0".equals(zone.getName()) && ("dice").equals(entity.getTitle());
+		return "int_semos_tavern_0".equals(zone.getName()) && ("kości do gry").equals(entity.getTitle());
 	}
 
 
