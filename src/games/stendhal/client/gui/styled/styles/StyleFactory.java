@@ -57,10 +57,19 @@ public class StyleFactory {
 	 * Available style definitions.
 	 */
 	private static enum StyleDefinition {
-		WOOD("Wood (default)") {
+		WOOD("Ciemne drewno (domyślnie)") {
 			@Override
 			Style create() {
 				return new PixmapStyle("data/gui/panelwood119.jpg", true,
+						new Color(163, 120, 97), new Color(50, 25, 12),
+						new Color(107, 72, 50), Color.white);
+			}
+		},
+		
+		LWOOD("Jasne drewno") {
+			@Override
+			Style create() {
+				return new PixmapStyle("data/gui/panelwood120.jpg", true,
 						new Color(163, 120, 97), new Color(50, 25, 12),
 						new Color(107, 72, 50), Color.white);
 			}
