@@ -77,22 +77,22 @@ public class SummonPetScroll extends Scroll {
 		final StendhalRPZone zone = player.getZone();
 
 		if (zone.isInProtectionArea(player)) {
-			player.sendPrivateText("The aura of protection in this area prevents the scroll from working!");
+			player.sendPrivateText("Silna antymagiczna aura na tym obszarze blokuje działanie tego zwoju!");
 			return false;
 		}
 
 		if (zone.getNPCList().size() >= MAX_ZONE_NPCS) {
-			player.sendPrivateText("Mysteriously, the scroll does not function! Perhaps this area is too crowded...");
+			player.sendPrivateText("Jakoś zwój nie działa! Może obszar jest zbyt zatłoczony...");
 			logger.info("Too many npcs to summon another creature");
 			return false;
 		}
-
+		
 		if (player.hasPet()) {
-			player.sendPrivateText("The magic is not strong enough to give you more than one pet.");
+			player.sendPrivateText("Magia nie jest aż tak silna, aby przywołać więcej niż jedno zwierzątko.");
 			return false;
 		}
 
-		String type = getInfoString().replaceAll("_", " ");
+		String type = getInfoString();
 		if (type == null) {
 			// default to cat, if no other type is specified
 			type = "cat";
@@ -112,7 +112,7 @@ public class SummonPetScroll extends Scroll {
 			break;
 		default:
 			// Didn't match a known pet type
-			player.sendPrivateText("This scroll does not seem to work. You should talk to the magician who created it.");
+			player.sendPrivateText("Zwój nie działa. Powinieneś zwrócić się do maga, który go stworzył.");
 			return false;
 		}
 
@@ -128,7 +128,7 @@ public class SummonPetScroll extends Scroll {
 		final String infostring = getInfoString();
 
 		if (infostring != null) {
-			text += " It will summon a " + infostring  + ".";
+			text += " Przywoła " + infostring  + ".";
 		}
 		return (text);
 	}
@@ -136,10 +136,10 @@ public class SummonPetScroll extends Scroll {
 	public boolean dropBlank (Player player) {
 		//revert to blank
 		final Item blankPetScroll = SingletonRepository.getEntityManager().getItem(
-				"blank pet scroll");
-
+				"pusty zwój przywołania zwierzątka");
+		
 		player.equipOrPutOnGround(blankPetScroll);
-		player.sendPrivateText("You summon your pet back onto this plane. Faint smoke lingers from the page.");
+		player.sendPrivateText("Przywołałeś zwierzątko z powrotem do tej płaszczyzny. Słaby dym utrzymuje się na tej stronie.");
 
 		return true;
 	}

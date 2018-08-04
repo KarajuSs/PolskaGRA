@@ -235,7 +235,7 @@ class PlayerTrade {
 
 	public void deal() {
 		if (tradeState != TradeState.LOCKED) {
-			player.sendPrivateText("You must lock your offer first.");
+			player.sendPrivateText("Musisz na początek zablokować ofertę.");
 			return;
 		}
 

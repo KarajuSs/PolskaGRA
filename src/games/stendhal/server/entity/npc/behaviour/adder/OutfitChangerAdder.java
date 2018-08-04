@@ -90,9 +90,7 @@ public class OutfitChangerAdder {
 					null,
 					false,
 					ConversationStates.ATTENDING,
-					"You can #"
-							+ action
-							+ " "
+					"Możesz kupić "
 							+ Grammar.enumerateCollection(outfitBehaviour.dealtItems())
 							+ ".", null);
 		}

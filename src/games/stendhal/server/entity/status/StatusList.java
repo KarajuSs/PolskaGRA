@@ -190,7 +190,11 @@ public class StatusList {
 			return;
 		}
 		immunities.remove(statusType);
-		entity.sendPrivateText("You are not immune to being " + statusType.getName() + " anymore.");
+		String lstatus = statusType.getName();
+		if(statusType.getName().equals("poisoned")) {
+			lstatus = "truciznę";
+		}
+		entity.sendPrivateText("Już nie jesteś odporny na " + lstatus + ".");
 	}
 
 	/**

@@ -52,12 +52,12 @@ public class BalloonScroll extends TimedTeleportScroll {
 
 	@Override
 	protected String getBeforeReturnMessage() {
-		return "It feels like the clouds won't take your weight much longer ... ";
+		return "Czujesz jakby chmury już nie mogły wytrzymać pod Twoim ciężarem ... ";
 	}
 
 	@Override
 	protected String getAfterReturnMessage() {
-		return "You fell through a hole in the clouds, back to solid ground.";
+		return "Spadłeś przez dziurę w chmurach na twardą ziemię.";
 	}
 
 	// Only let player use balloon from 6 kika clouds
@@ -66,10 +66,10 @@ public class BalloonScroll extends TimedTeleportScroll {
 	protected boolean useTeleportScroll(final Player player) {
 		if (!"6_kikareukin_islands".equals(player.getZone().getName())) {
 			if ("7_kikareukin_clouds".equals(player.getZone().getName())) {
-				player.sendPrivateText("Another balloon does not seem to lift you any higher.");
+				player.sendPrivateText("Inny balon nie mógł wynieść cię wyżej.");
 			} else {
-				player.sendPrivateText("The balloon tried to float you away but the altitude was too low for it to even lift you. "
-						+ "Try from somewhere higher up.");
+				player.sendPrivateText("Balon próbował unieść cię wyżej, ale wysokość była zbyt niska, aby podnieść Ciebie. " 
+									  + "Spróbuj przejść gdzieś, gdzie jest wyżej.");
 			}
 			return false;
 		}
@@ -86,7 +86,7 @@ public class BalloonScroll extends TimedTeleportScroll {
 			// so this use of balloon is going to be shortened
 			// (the clouds can't take so much weight on them)
 			// delay message for 1 turn for technical reasons
-			new DelayedPlayerTextSender(player, "The clouds are weakened from your recent time on them, and will not hold you for long.", 1);
+			new DelayedPlayerTextSender(player, "Chmury osłabły od ostatniego razu i nie utrzymają Ciebie zbyt długo.", 1);
 
 			return super.useTeleportScroll(player, "7_kikareukin_clouds", 31, 21, NEWTIME);
 		}

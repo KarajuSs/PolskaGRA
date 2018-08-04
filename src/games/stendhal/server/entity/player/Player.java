@@ -449,8 +449,10 @@ public class Player extends RPEntity implements UseListener {
 	public void setAwayMessage(final String message) {
 		if (message != null) {
 			put(AWAY, message);
+			setVisibility(50);
 		} else if (has(AWAY)) {
 			remove(AWAY);
+			setVisibility(100);
 		}
 	}
 

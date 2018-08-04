@@ -35,7 +35,7 @@ public class Reader extends Sign {
 	public String describe() {
 		final String text = getText();
 		if (text == null) {
-			return "The text is empty.";
+			return "Brak napisu.";
 		}
 
 		return text;

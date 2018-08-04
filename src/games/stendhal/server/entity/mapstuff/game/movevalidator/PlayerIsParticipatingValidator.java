@@ -26,7 +26,7 @@ public class PlayerIsParticipatingValidator implements MoveValidator {
 	@Override
 	public boolean validate(GameBoard board, Player player, BoardToken token, int xIndex, int yIndex) {
 		if (!board.getPlayers().contains(player.getName())) {
-			player.sendPrivateText("Your are not participating in this game.");
+			player.sendPrivateText("Nie uczestniczysz w tej grze.");
 			return false;
 		}
 		return true;

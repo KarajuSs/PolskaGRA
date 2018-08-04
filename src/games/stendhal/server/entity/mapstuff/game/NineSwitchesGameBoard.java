@@ -12,8 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.entity.mapstuff.game;
 
-import java.util.ArrayList;
-
 import games.stendhal.common.Rand;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.events.TurnListener;
@@ -21,6 +19,8 @@ import games.stendhal.server.core.events.TurnNotifier;
 import games.stendhal.server.entity.Outfit;
 import games.stendhal.server.entity.RPEntity;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+
+import java.util.ArrayList;
 
 /**
  * The game board for the 9 switches game.
@@ -68,19 +68,19 @@ public class NineSwitchesGameBoard implements TurnListener {
 	 */
 	public void usedSwitch(RPEntity user, NineSwitchesGameSwitch gameSwitch) {
 		if (playerName == null) {
-			user.sendPrivateText(npc.getName() + ": " + user.getName() + ", please talk to me to start a game.");
+			user.sendPrivateText(npc.getName() + " porozmawiaj ze mną, aby rozpocząć grę.");
 			return;
 		}
 
 		if (!user.getName().equals(playerName)) {
-			user.sendPrivateText(npc.getName() + ": Hey " + user.getName() + ", " + playerName + " is currently playing. Please wait a little.");
+			user.sendPrivateText("Hej " + npc.getName() + ", teraz " + playerName + " gra. Poczekaj trochę.");
 			return;
 		}
 
 		switchGameSwitch(gameSwitch);
 		boolean completed = checkBoard();
 		if (completed) {
-			npc.say("Congratulations, " + user.getName() + " you won! Here take this balloon.");
+			npc.say("Gratulacje " + user.getName() + " wygrałeś! Proszę przyjmij ten balonik.");
 			// TODO: Remove when outfit testing finished
 			Outfit balloonOutfit;
 			balloonOutfit = new Outfit(1, null, null, null, null);
@@ -191,7 +191,7 @@ public class NineSwitchesGameBoard implements TurnListener {
 
 	@Override
 	public void onTurnReached(int currentTurn) {
-		npc.say("Sorry " + playerName + ", your time is up.");
+		npc.say("Przykro mi " + playerName + ", ale twój czas minął.");
 		setPlayerName(null);
 		resetBoard();
 	}

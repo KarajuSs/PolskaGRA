@@ -61,13 +61,13 @@ public class EmptyScroll extends Scroll {
 
 		if (zone.isTeleportInAllowed(player.getX(), player.getY())) {
 			final Item markedScroll = SingletonRepository.getEntityManager().getItem(
-					"marked scroll");
+					"zwój zapisany");
 			markedScroll.setInfoString(player.getID().getZoneID() + " "
 					+ player.getX() + " " + player.getY());
 			player.equipOrPutOnGround(markedScroll);
 			return true;
 		} else {
-			player.sendPrivateText("The strong anti magic aura in this area prevents the scroll from working!");
+			player.sendPrivateText("Silna antymagiczna aura w tym obszarze blokuje działanie zwoju!");
 			return false;
 		}
 	}

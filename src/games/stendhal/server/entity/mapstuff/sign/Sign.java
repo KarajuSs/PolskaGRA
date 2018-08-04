@@ -95,7 +95,7 @@ public class Sign extends Entity {
 	public String describe() {
 		final String text = getText();
 		if (text == null) {
-			return "Widzisz znak bez żadnego napisu";
+			return "Oto znak bez treści";
 		}
 
 		if (text.contains("\n")) {

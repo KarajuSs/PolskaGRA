@@ -36,14 +36,14 @@ public class TicTacToeBoard extends GameBoard implements TokenMoveListener<Board
 		super(3, 3);
 		put("class", "tictactoe");
 		board = new BoardToken[3][3];
-		tokenTypes = Arrays.asList("x board token", "o board token");
-		setDescription("You see a game board for Tic Tac Toe.");
+		tokenTypes = Arrays.asList("krzyżyk do gry", "kółko do gry");
+		setDescription("Oto plansza do gry w Tic Tac Toe.");
 	}
 
 	public void addToWorld() {
 		for (int i = 0; i < 5; i++) {
-			addTokenToWorld("x board token", getX() - 2, getY() + 1);
-			addTokenToWorld("o board token", getX() + (int) getWidth() + 1, getY() + 1);
+			addTokenToWorld("krzyżyk do gry", getX() - 2, getY() + 1);
+			addTokenToWorld("kółko do gry", getX() + (int) getWidth() + 1, getY() + 1);
 		}
 	}
 
@@ -73,13 +73,13 @@ public class TicTacToeBoard extends GameBoard implements TokenMoveListener<Board
 
 	private void checkBoardStatus() {
 		if (checkForWin()) {
-			npc.say("Congratulations! " + players.get(currentPlayerIndex) + " won this game.");
+			npc.say("Gratulacje! " + players.get(currentPlayerIndex) + " wygrał grę.");
 			endGame();
 			return;
 		}
 
 		if (checkForTie()) {
-			npc.say("I am sorry, it looks like nobody won this round.");
+			npc.say("Wygląda na to, że nikt nie wygrał tej rundy.");
 			endGame();
 			return;
 		}

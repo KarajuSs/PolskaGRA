@@ -112,21 +112,21 @@ public abstract class Spell extends PassiveEntity implements EquipListener, Date
 
 		//check for sufficient mana
 		if (!new PlayerManaGreaterThanCondition(getMana()-1).fire(caster, null, null)) {
-			throw new InsufficientManaException("You have not sufficent mana to cast your spell \""+getName()+"\".");
+			throw new InsufficientManaException("Nie posiadasz wystarczającej ilości many, aby rzucić zaklęcie \""+getName()+"\".");
 		}
 
 		//check minimum level
 		if (new LevelLessThanCondition(getMinimumLevel()).fire(caster, null, null)) {
-			throw new LevelRequirementNotFulfilledException("You did not reach the minimum level for your spell \""+getName()+"\" yet.");
+			throw new LevelRequirementNotFulfilledException("Jeszcze nie osiągnąłeś minimalnego poziomu potrzebnego do zaklęcia \""+getName()+"\".");
 		}
 
 		if(!isCooledDown()) {
-			throw new SpellNotCooledDownException("Your spell \""+getName()+"\" did not yet cool down.");
+			throw new SpellNotCooledDownException("Twoje zaklęcie \""+getName()+"\" jeszcze nie ostygło.");
 		}
 
 		//check if target is valid for spell?
 		if (!isTargetValid(caster, target)) {
-			throw new InvalidSpellTargetException("The target is not valid for your spell \""+getName()+"\".");
+			throw new InvalidSpellTargetException("Cel nie jest odpowiedni dla Twojego zaklęcia \""+getName()+"\".");
 		}
 		//check other preconditions like having learned that school?
 		//check for right equipment
@@ -156,7 +156,7 @@ public abstract class Spell extends PassiveEntity implements EquipListener, Date
 					new PlayerHasItemEquippedInSlot(item, "rhand"),
 					new PlayerHasItemEquippedInSlot(item, "lhand"));
 			if(!staffCondition.fire(caster, null, null)) {
-				caster.sendPrivateText(NotificationType.INFORMATION, "You must have "+Grammar.a_noun(item)+" in your hands to cast a spell.");
+				caster.sendPrivateText(NotificationType.INFORMATION, "Musisz trzymać w dłoni "+Grammar.a_noun(item)+", aby rzucić zaklęcie.");
 				return false;
 			}
 		}

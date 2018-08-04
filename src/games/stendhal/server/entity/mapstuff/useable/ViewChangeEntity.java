@@ -41,14 +41,14 @@ public class ViewChangeEntity extends UseableEntity {
 
 	@Override
 	public String describe() {
-		return "You see a scrying orb. A note on it says \"Using costs " + COST
-			+ " money. Stay still and concentrate while viewing\".";
+		return "Oto scrying orb. Zapisane jest \"Użycie kosztuje " + COST
+			+ " money. Stój w spokoju i skoncentruj się podczas oglądania\".";
 	}
 
 	@Override
 	public boolean onUsed(RPEntity user) {
 		if (!nextTo(user)) {
-			user.sendPrivateText("You cannot reach that from here.");
+			user.sendPrivateText("Nie możesz stąd dosięgnąć.");
 			return false;
 		}
 		if (user instanceof Player) {
@@ -59,10 +59,10 @@ public class ViewChangeEntity extends UseableEntity {
 					player.notifyWorldAboutChanges();
 					return true;
 				} else {
-					player.sendPrivateText("You do not have enough money.");
+					player.sendPrivateText("Nie posiadasz wystarczająco dużo money.");
 				}
 			} else {
-				player.sendPrivateText("You don't know how to use the strange device.");
+				player.sendPrivateText("Nie wiesz jak obsłużyć to dziwne urządzenie.");
 			}
 		}
 		return false;

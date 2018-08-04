@@ -64,7 +64,7 @@ public class GagManager implements LoginListener {
 				criminalName);
 
 		if (criminal == null) {
-			final String text = "Player " + criminalName + " not found";
+			final String text = "Wojownik " + criminalName + " nie został znaleziony";
 			policeman.sendPrivateText(text);
 			logger.debug(text);
 			return;

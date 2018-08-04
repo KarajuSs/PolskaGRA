@@ -36,7 +36,7 @@ public class ConditionAndActionPortal extends AccessCheckingPortal {
 	 * @param action optional action to execute
 	 */
 	public ConditionAndActionPortal(ChatCondition condition, ChatAction action) {
-		this(condition, "Why should i go down there?. It looks very dangerous.", action);
+		this(condition, "Dlaczego powinienem tam schodzić? Wygląda na zbyt niebezpieczne.", action);
 	}
 
 	/**

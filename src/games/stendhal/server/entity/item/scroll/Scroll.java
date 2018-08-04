@@ -103,7 +103,7 @@ public class Scroll extends StackableItem {
 	 *         otherwise.
 	 */
 	protected boolean useScroll(final Player player) {
-		player.sendPrivateText("What a strange scroll! You can't make heads or tails of it.");
+		player.sendPrivateText("Co za dziwny zwój! Nie możesz na nim zrobić orzełka czy reszki.");
 		return false;
 	}
 

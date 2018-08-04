@@ -72,12 +72,12 @@ public class SummonScroll extends Scroll {
 		final StendhalRPZone zone = player.getZone();
 
 		if (zone.isInProtectionArea(player)) {
-			player.sendPrivateText("The aura of protection in this area prevents the scroll from working!");
+			player.sendPrivateText("Aura ochronna w tym obszarze blokuje działanie zwoju!");
 			return false;
 		}
 
 		if (zone.getNPCList().size() >= MAX_ZONE_NPCS) {
-			player.sendPrivateText("Mysteriously, the scroll does not function! Perhaps this area is too crowded...");
+			player.sendPrivateText("Z tajemniczych powodów zwój nie działa! Może ten obszar jest zbyt zatłoczony...");
 			logger.info("Too many npcs to summon another creature");
 			return false;
 		}
@@ -100,7 +100,7 @@ public class SummonScroll extends Scroll {
 			final int magiclevel = 4;
 			final List<Creature> possibleCreatures = new ArrayList<Creature>();
 			for (final Creature creature : creatures) {
-				if (creature.getLevel() <= magiclevel && !creature.isRare()) {
+				if (creature.getLevel() <= magiclevel && !creature.isRare() && !creature.get("class").equals("pol/niesmiertelne") && !creature.get("name").equals("motylek")) {
 					possibleCreatures.add(creature);
 				}
 			}
@@ -109,7 +109,7 @@ public class SummonScroll extends Scroll {
 		}
 
 		if (pickedCreature == null) {
-			player.sendPrivateText("This scroll does not seem to work. You should talk to the magician who created it.");
+			player.sendPrivateText("Wygląda na to, że ten zwój nie działa. Powinieneś porozmawiać z magiem, który go zrobił.");
 			return false;
 		}
 
@@ -144,7 +144,7 @@ public class SummonScroll extends Scroll {
 		final String infostring = getInfoString();
 
 		if (infostring != null) {
-			text += " It will summon a " + infostring  + ".";
+			text += " Przywoła " + infostring  + ".";
 		}
 		return (text);
 	}
