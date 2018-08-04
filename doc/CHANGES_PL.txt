@@ -56,6 +56,7 @@ bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 	- bełt stalowy			- 5 / 4
 	- bełt złoty			- 6 / 5
 	- bełt płonący			- 8 / 6 + FIRE
+- Został wykorzystany program BalanceRPGame.java (od twórców Stendhala) do zbalansowania potworów ze świata POL
 
 
 *code*
