@@ -3,19 +3,18 @@
  */
 package games.stendhal.server.entity.item.scroll;
 
-import games.stendhal.common.Rand;
-import games.stendhal.server.core.engine.SingletonRepository;
-import games.stendhal.server.core.engine.StendhalRPZone;
-import games.stendhal.server.core.events.TurnListener;
-import games.stendhal.server.entity.player.Player;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
 import org.apache.log4j.Logger;
+
+import games.stendhal.common.Rand;
+import games.stendhal.server.core.engine.SingletonRepository;
+import games.stendhal.server.core.engine.StendhalRPZone;
+import games.stendhal.server.core.events.TurnListener;
+import games.stendhal.server.entity.player.Player;
 
 /**
  * Represents a teleport scroll that takes the player to a specified location
