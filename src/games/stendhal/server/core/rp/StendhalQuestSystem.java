@@ -182,16 +182,16 @@ public class StendhalQuestSystem {
 		 *       ZAKOPANE		 *
 		\**	                    **/
 		loadQuest(new GazdaWojtekDailyItemQuest());
-		//loadQuest(new HelpKrasnolud());
+		loadQuest(new HelpKrasnolud());
 		loadQuest(new HerbsForJadzka());
 		loadQuest(new KillDragons());
 		loadQuest(new KillHerszt());
-		//loadQuest(new Labirynt());
+		loadQuest(new Labirynt());
 		loadQuest(new MeetFryderyk());
 		loadQuest(new MeetPietrek());
-		//loadQuest(new Oscypek());
+		loadQuest(new Oscypek());
 		loadQuest(new PomocChlopcowi());
-		//loadQuest(new Ratownik());
+		loadQuest(new Ratownik());
 		loadQuest(new ResetLVL());
 		loadQuest(new ScytheForFryderyk());
 		loadQuest(new ZakopaneClouds());
@@ -207,10 +207,10 @@ public class StendhalQuestSystem {
 		/** 					**\
 		 *      KOŚCIELISKO 	 *
 		\**	                    **/
-		//loadQuest(new BramaZrc());
+		loadQuest(new BramaZrc());
 		//loadQuest(new PierscienRycerza());
-		//loadQuest(new ProzbaWielkoluda());
-		//loadQuest(new StazNaGornika());
+		loadQuest(new ProzbaWielkoluda());
+		loadQuest(new StazNaGornika());
 		//loadQuest(new ZagadkiBrzezdoma());
 		/** 					**\
 		 *        KRAKÓW		 *
