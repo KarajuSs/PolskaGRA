@@ -20,6 +20,7 @@ Changelog
 	- dress_062/_068.png
 - Dodano kapelusz góralski możliwy do wyboru dla postaci gracza
 - Dodano do ustawień możliwość wyboru między ciemnym a jasnym drewnem jako wygląd klienta
+- Przetłumaczono prawie cały klient
 
 
 *świat gry*
