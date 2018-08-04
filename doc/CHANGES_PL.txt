@@ -1,13 +1,12 @@
 Changelog
 ---------
 
-0.02
+0.02 - REBIRTH MONSTERS
 *klient*
-- Zwiększono liczbę skinów możliwych do wyboru dla postaci
 - Dodano z powrotem dzień-noc
 - Dodano nowy obrazek strzały z mithrilu oraz wzmocnionej drewnianej strzały
 - Dodano brakujący dźwięk słonia
-- Dodano stary dźwięk ze świata POL podczas logowania do gry
+- Dodano stary dźwięk ze świata POL podczas logowania się do gry
 - Dodano nowe outfity NPC:
 	- npckibic.png (Kibic)
 	- npcfryderyk.png (Fryderyk)
@@ -19,6 +18,7 @@ Changelog
 	- npcbronek.png (Bronek)
 - Dodano nowe stroje dla postaci gracza:
 	- dress_062/_068.png
+- Dodano kapelusz góralski możliwy do wyboru dla postaci gracza
 
 
 *świat gry*
@@ -37,11 +37,11 @@ bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 - Dodano przedmiot "gruczoł jadowy" do cotygodniowego poszukiwania przedmiotów
 - Dodano pogodę na mapach kościeliska
 - Dodano dwa nowe żywioły do świata gry: natura & woda
-- Dodano nową strzałę z mithrilu (Typ ataku: light; Atk: 9; Range: 6;) / będzie można je jedynie wytworzyć! / oraz wzmocnioną drewnianą strzełę (Atk: 4; Range: 3;)
+- Dodano nową strzałę z mithrilu (Typ ataku: light; Atk: 9; Range: 6;) / będzie można je jedynie wytworzyć! / oraz wzmocnioną drewnianą strzałę (Atk: 4; Range: 3;)
 - Obrazek słonia został powiększony z 144x256 na 288x512
 - Nagroda za wykonanie zlecenia u burmistrzów jest teraz bardziej wyjątkowa
-- Znerfiono ciupagi o -2 atk; aktualne statystyki [atk / obr / waga / lifesteal]:
-	- ciupaga 				- 17 / 2 / 4 / 0
+- Znerfiono ciupagi o -2 atk oraz zwykłą ciupagę z 19 do 14 atk; aktualne statystyki [atk / obr / waga / lifesteal]:
+	- ciupaga 				- 14 / 2 / 4 / 0
 	- złota ciupaga 			- 19 / 2 / 4 / 0
 	- złota ciupaga z wąsem 		- 21 / 3 / 3 / 0.01
 	- złota ciupaga z dwoma wąsami 		- 23 / 3 / 3 / 0.02
@@ -60,8 +60,7 @@ bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 
 *code*
 - Nowy atrybut dla map - "dark" - dzięki, któremu mamy efekt nocy
-- Dodano nową funckję, która sprawdza jaką mamy ustawioną szerokość okna gry i dostosowuje okienka wewnątrz gry
-- Dodano nową funkcję zabezpieczającą konto przy rejestracji
+- Dodano nową funckję, która sprawdza jaką mamy ustawioną szerokość okna gry i dostosowuje okienka wewnątrz gry [Dla wersji rozszerzonego klienta]
 - Za wykonane zadanie można nagrodzić gracza punktami umiejętności ataku oraz obrony niezależnie jak i zależnie od poziomu gracza
 - Reorganizacja plików XML z potworkami ze świata POL (33 do 11 plików)
 
