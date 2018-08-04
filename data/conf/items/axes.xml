@@ -373,10 +373,10 @@
 		<description>Oto prawdziwa góralska ciupaga!</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="17"/>
+			<atk value="14"/>
 			<def value="2"/>
 			<rate value="4"/>
-			<min_level value="50"/>
+			<min_level value="30"/>
 		</attributes>
 		<weight value="0.5"/>
 		<value value="5716"/>

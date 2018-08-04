@@ -624,7 +624,7 @@
 		<description>Oto góralski gorset. Wraz z wzorzystą spódnicą, chustą, koralami i kierpcami stanowi komplet wyjściowy góralki.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="18"/>
+			<def value="5"/>
 		</attributes>
 		<weight value="45.0"/>
 		<value value="28672"/>
