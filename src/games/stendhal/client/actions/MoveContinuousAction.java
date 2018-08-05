@@ -62,9 +62,9 @@ public class MoveContinuousAction implements SlashAction {
 	 *		<code>true</code>
 	 */
 	public boolean sendAction(final boolean enable, final boolean notify) {
-		if (!StendhalClient.serverVersionAtLeast("0.02")) {
+		if (!StendhalClient.serverVersionAtLeast("0.01")) {
 			ClientSingletonRepository.getUserInterface().addEventLine(new EventLine("",
-					"The server version does not support continuous movement mode.", NotificationType.SERVER));
+					"Wersja serwera nie wspiera trybu ciągłego poruszania się.", NotificationType.SERVER));
 			return false;
 		}
 		// Create action to be sent to server.
