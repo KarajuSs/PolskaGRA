@@ -194,6 +194,7 @@ public class StendhalQuestSystem {
 		loadQuest(new Ratownik());
 		loadQuest(new ResetLVL());
 		loadQuest(new ScytheForFryderyk());
+		loadQuest(new WegielNaOpal());
 		loadQuest(new ZakopaneClouds());
 		loadQuest(new ZlotaCiupaga());
 		//loadQuest(new ZlotaCiupagaDwaWasy());
