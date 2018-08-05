@@ -54,7 +54,62 @@
 		<type class="box" subclass="skrzynka" tileid="-1"/>
 		<description>Widzisz skrzynkę. Otwórz ją.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Present"/>
-		<attributes/>
+		<attributes>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+	
+	<item name="brązowa skrzynia">
+		<type class="box" subclass="brazowa_skrzynia" tileid="-1"/>
+		<description>Widzisz brązową skrzynie. Otwórz ją.</description>
+		<implementation class-name="games.stendhal.server.entity.item.BrazowaSkrzynia"/>
+		<attributes>
+			<quantity value="1"/>
+			<max_quantity value="2147483647"/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+	
+	<item name="srebrna skrzynia">
+		<type class="box" subclass="srebrna_skrzynia" tileid="-1"/>
+		<description>Widzisz skrzynkę. Otwórz ją.</description>
+		<implementation class-name="games.stendhal.server.entity.item.SrebrnaSkrzynia"/>
+		<attributes>
+			<quantity value="1"/>
+			<max_quantity value="2147483647"/>
+		</attributes>
+		<weight value="0.01"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+	
+	<item name="złota skrzynia">
+		<type class="box" subclass="zlota_skrzynia" tileid="-1"/>
+		<description>Widzisz skrzynkę. Otwórz ją.</description>
+		<implementation class-name="games.stendhal.server.entity.item.ZlotaSkrzynia"/>
+		<attributes>
+			<quantity value="1"/>
+			<max_quantity value="2147483647"/>
+		</attributes>
 		<weight value="0.01"/>
 		<value value="1"/>
 		<equipable>
