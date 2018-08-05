@@ -12,8 +12,8 @@
  ***************************************************************************/
 package games.stendhal.client.gui;
 
-//import static games.stendhal.common.constants.Actions.COND_STOP;
-//import static games.stendhal.common.constants.Actions.TYPE;
+import static games.stendhal.common.constants.Actions.COND_STOP;
+import static games.stendhal.common.constants.Actions.TYPE;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -107,7 +107,7 @@ import games.stendhal.common.constants.Testing;
 import marauroa.client.BannedAddressException;
 import marauroa.client.TimeoutException;
 import marauroa.client.net.IPerceptionListener;
-//import marauroa.common.game.RPAction;
+import marauroa.common.game.RPAction;
 import marauroa.common.game.RPObject;
 import marauroa.common.net.InvalidVersionException;
 
@@ -546,6 +546,23 @@ public class j2DClient implements UserInterface {
 			@Override
 			public void windowClosing(final WindowEvent e) {
 				requestQuit();
+			}
+		});
+		
+		frame.addWindowFocusListener(new WindowAdapter() {
+			@Override
+			public void windowLostFocus(WindowEvent e) {
+				/* Stops player movement via keypress when focus is lost.
+				 *
+				 * FIXME: When focus is regained, direction key must be
+				 *        pressed twice to resume walking. Key states
+				 *        not flushed correctly?
+				 */
+				if (StendhalClient.serverVersionAtLeast("0.02")) {
+					final RPAction stop = new RPAction();
+					stop.put(TYPE, COND_STOP);
+					ClientSingletonRepository.getClientFramework().send(stop);
+				}
 			}
 		});
 

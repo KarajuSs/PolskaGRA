@@ -43,7 +43,7 @@ import games.stendhal.common.NotificationType;
  * Page for general settings.
  */
 class GeneralSettings {
-	private static final String GAMESCREEN_AUTORAISECORPSE = "gamescreen.autoraisecorpse";
+	private static final String GAMESCREEN_AUTORAISECORPSE = "gamescreen.autoinspectcorpses";
 
 	/** Property used for the double click setting. */
 	private static final String DOUBLE_CLICK_PROPERTY = "ui.doubleclick";
@@ -69,7 +69,7 @@ class GeneralSettings {
 		page.setBorder(BorderFactory.createEmptyBorder(pad, pad, pad, pad));
 
 		// click mode
-		JCheckBox clickModeToggle = SettingsComponentFactory.createSettingsToggle(DOUBLE_CLICK_PROPERTY, "false",
+		JCheckBox clickModeToggle = SettingsComponentFactory.createSettingsToggle(DOUBLE_CLICK_PROPERTY, false,
 				"Tryb podwójnego klikania", "Poruszanie i atak za pomocą podwójnego kliknięcia. Jeżeli nie zaznaczony to domyślnym jest pojedyńcze kliknięcie.");
 		page.add(clickModeToggle);
 		clickModeToggle.addItemListener(new ItemListener() {
@@ -84,7 +84,7 @@ class GeneralSettings {
 		});
 
 		// raising corpses
-		JCheckBox autoRaiseToggle = SettingsComponentFactory.createSettingsToggle(GAMESCREEN_AUTORAISECORPSE, "true",
+		JCheckBox autoRaiseToggle = SettingsComponentFactory.createSettingsToggle(GAMESCREEN_AUTORAISECORPSE, true,
 				"Auto sprawdzanie zwłok", "Automatycznie otwiera okno zwłok potwora, z którego możesz wziąść swój łup");
 		page.add(autoRaiseToggle);
 		autoRaiseToggle.addItemListener(new ItemListener() {
@@ -99,7 +99,7 @@ class GeneralSettings {
 		});
 
 		// show healing messages
-		JCheckBox showHealingToggle = SettingsComponentFactory.createSettingsToggle(HEALING_MESSAGE_PROPERTY, "false",
+		JCheckBox showHealingToggle = SettingsComponentFactory.createSettingsToggle(HEALING_MESSAGE_PROPERTY, false,
 				"Pokaż wiadomości o leczeniu", "Pokazuje wiadomości o leczeniu w oknie rozmowy");
 		page.add(showHealingToggle);
 		showHealingToggle.addItemListener(new ItemListener() {
@@ -113,7 +113,7 @@ class GeneralSettings {
 		});
 
 		// show poison messages
-		JCheckBox showPoisonToggle = SettingsComponentFactory.createSettingsToggle(POISON_MESSAGE_PROPERTY, "false",
+		JCheckBox showPoisonToggle = SettingsComponentFactory.createSettingsToggle(POISON_MESSAGE_PROPERTY, false,
 				"Pokaż wiadomości o zatruciu", "Pokazuje wiadomości o zatruciu w oknie rozmowy");
 		page.add(showPoisonToggle);
 		showPoisonToggle.addItemListener(new ItemListener() {
@@ -127,7 +127,7 @@ class GeneralSettings {
 		});
 		
 		// show damage messages
-		JCheckBox showDamageToggle = SettingsComponentFactory.createSettingsToggle(DAMAGE_MESSAGE_PROPERTY, "false",
+		JCheckBox showDamageToggle = SettingsComponentFactory.createSettingsToggle(DAMAGE_MESSAGE_PROPERTY, false,
 				"Pokaż wiadomości o obrażeniach", "Pokazuje wiadomości o obrażeniach w oknie rozmowy");
 		page.add(showDamageToggle);
 		showDamageToggle.addItemListener(new ItemListener() {
@@ -141,7 +141,7 @@ class GeneralSettings {
 		});
 		
 		// Double-tap direction for auto-walk
-		JCheckBox doubleTapAutowalkToggle = SettingsComponentFactory.createSettingsToggle(DOUBLE_TAP_AUTOWALK_PROPERTY, "false",
+		JCheckBox doubleTapAutowalkToggle = SettingsComponentFactory.createSettingsToggle(DOUBLE_TAP_AUTOWALK_PROPERTY, false,
 				"Automatyczne chodzenie (zbugowane)", "Włącza automatyczne chodzenie, gdy klawisz kierunkowy został podwójnie kliknięty");
 		page.add(doubleTapAutowalkToggle);
 		doubleTapAutowalkToggle.addItemListener(new ItemListener() {
@@ -155,7 +155,7 @@ class GeneralSettings {
 		});
 		
 		// Continuous movement
-		final JCheckBox moveContinuousToggle = SettingsComponentFactory.createSettingsToggle(MOVE_CONTINUOUS_PROPERTY, "false",
+		final JCheckBox moveContinuousToggle = SettingsComponentFactory.createSettingsToggle(MOVE_CONTINUOUS_PROPERTY, false,
 				"Ciągły ruch", "Zmieniaj mapy i przechodź przez portale bez zatrzymywania się");
 		moveContinuousToggle.addItemListener(new ItemListener() {
 			@Override
@@ -190,7 +190,7 @@ class GeneralSettings {
 		// Save client dimensions
 		JCheckBox saveDimensionsToggle =
 				SettingsComponentFactory.createSettingsToggle(
-						DIMENSIONS_PROPERTY, "true", "Zapisz rozmiar",
+						DIMENSIONS_PROPERTY, true, "Zapisz rozmiar",
 						"Przywróć szerokość, wysokość i maksymalizuj klienta podczas przyszłych sesji");
 		clientSizeBox.add(saveDimensionsToggle);
 
