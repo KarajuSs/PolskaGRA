@@ -604,6 +604,12 @@ public final class ShopList {
 		shops.add("juhas", "zwój kalavan", 1000);
 		shops.add("juhas", "zwój kirdneh", 1000);
 		shops.add("juhas", "bilet turystyczny", 5000);
+		
+		//Stasek sprzedaje
+		shops.add("stasek", "wzmocniona drewniana strzała", 7);
+		shops.add("stasek", "drewniany łuk", 350);
+		shops.add("stasek", "miecz", 172);
+		shops.add("stasek", "skórzane spodnie", 25);
 	}
 
 	private static ShopList instance;
