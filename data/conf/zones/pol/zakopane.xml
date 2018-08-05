@@ -243,13 +243,15 @@
 		<portal x="105" y="24" ref="exit1">
 			<destination zone="int_semos_guard_house" ref="zakopane_exit"/>
 		</portal>
-		
 		<portal x="106" y="24" ref="exit2">
 			<destination zone="int_semos_guard_house" ref="zakopane_exit"/>
 		</portal>
-		
 		<portal x="107" y="24" ref="exit3">
 			<destination zone="int_semos_guard_house" ref="zakopane_exit"/>
+		</portal>
+		
+		<portal x="102" y="110" ref="shop_entrance">
+			<destination zone="int_zakopane_shop" ref="shop_exit"/>
 		</portal>
 	</zone>
 
@@ -2063,6 +2065,14 @@ Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z po
 		</portal>
 		<portal x="4" y="10" ref="postoffice_right_exit">
 			<destination zone="0_zakopane_s" ref="postoffice_entrance_right"/>
+		</portal>
+	</zone>
+	
+	<!-- Shop -->
+	<zone name="int_zakopane_shop" file="interiors/zakopane/shop.tmx">
+		<configurator class-name="games.stendhal.server.maps.zakopane.shop.StasekNPC"/>
+		<portal x="5" y="19" ref="shop_exit">
+			<destination zone="0_zakopane_c" ref="shop_entrance"/>
 		</portal>
 	</zone>
 
