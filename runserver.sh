@@ -1,5 +1,5 @@
 #!/bin/sh
-POLSKAGRA_VERSION="0.03"
+POLSKAGRA_VERSION="1.03"
 
 LOCALCLASSPATH=.:data/script/:data/conf/:polskagra-server-$POLSKAGRA_VERSION.jar:marauroa.jar:mysql-connector.jar:log4j.jar:commons-lang.jar:h2.jar
 
