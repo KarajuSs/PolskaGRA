@@ -1,5 +1,23 @@
 Changelog
 ---------
+1.02.2
+*świat gry*
+- balans potworów został poprawiony ręcznie, zamiast wykorzystywać skrypt BalanceRPGame.java (Potwory zostały osłabione o -20-25% ATK oraz -10-15% OBR + ilość zdobywanego EXP'a został zwiększony o +20-25%,
+np: wcześniejszy starzec: ATK: 169; OBR: 24; HP: 166; XP: 313;
+nowy starzec: ATK: 135; OBR: 18; HP: 133; XP: 533;
+UWAGA! Nowe statystyki potworów były sprawdzane, jeżeli chodzi o 'wieśniaka' to sprawdzaliśmy na 17 poziomie gracza oraz skillami 22x22!
+Gracz spokojnie go może zabić nie tracąc większej połowy HP!)
+
+
+*naprawa błędów*
+- Poprawiono grafiki drzewców
+
+
+
+1.02.1
+- Naprawa czasu spędzonego w grze
+
+
 
 0.02 - REBIRTH MONSTERS
 *klient*

@@ -243,14 +243,14 @@
 		<description/>
 		<attributes>
 			<atk value="6885"/>
-			<def value="292"/>
+			<def value="247"/>
 			<hp value="6480"/>
 			<speed value="0.8"/>
 			<size value="2,2"/>
 			<resistance value="1"/>
 		</attributes>
 		<level value="900"/>
-		<experience value="1578221"/>
+		<experience value="1565357"/>
 		<respawn value="100000"/>
 		<corpse name="dragon_6x6" width="6" height="6"/>
 		<drops>
@@ -273,14 +273,14 @@
 		<description>Oto latający złoty smok. Gdy rozpościera swe skrzydła przechodzi cię dreszcz... ten mityczny potwór wygląda na potężnego!</description>
 		<attributes>
 			<atk value="7650"/>
-			<def value="310"/>
+			<def value="265"/>
 			<hp value="7200"/>
 			<speed value="1.0"/>
 			<size value="2,2"/>
 			<resistance value="1"/>
 		</attributes>
 		<level value="1000"/>
-		<experience value="1943875"/>
+		<experience value="1929581"/>
 		<respawn value="100000"/>
 		<corpse name="dragon_6x6" width="6" height="6"/>
 		<drops>
