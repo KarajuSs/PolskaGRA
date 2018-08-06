@@ -7,9 +7,9 @@
 		<type class="pol/krzewy" subclass="pokrzywy" tileid="pol_krzewy.png:0"/>
 		<description>Lepiej omijaj parzące pokrzywy!</description>
 		<attributes>
-			<atk value="60"/>
-			<def value="11"/>
-			<hp value="63"/>
+			<atk value="48"/>
+			<def value="8"/>
+			<hp value="50"/>
 			<speed value="0.0"/>
 			<size value="2,2"/>
 			<resistance value="50"/>
@@ -38,9 +38,9 @@
 		<type class="pol/krzewy" subclass="ostrokrzew" tileid="pol_krzewy.png:1"/>
 		<description>Lepiej omijaj kłujący ostrokrzew!</description>
 		<attributes>
-			<atk value="94"/>
-			<def value="16"/>
-			<hp value="99"/>
+			<atk value="75"/>
+			<def value="12"/>
+			<hp value="79"/>
 			<speed value="0.0"/>
 			<size value="2,2"/>
 			<resistance value="50"/>
@@ -67,9 +67,9 @@
 		<type class="pol/krzewy" subclass="krzew_wedrujacy" tileid="pol_krzewy.png:2"/>
 		<description>Uciekaj! Ten krzak cię goni!</description>
 		<attributes>
-			<atk value="77"/>
-			<def value="14"/>
-			<hp value="81"/>
+			<atk value="61"/>
+			<def value="10"/>
+			<hp value="65"/>
 			<speed value="0.8"/>
 			<size value="2,2"/>
 			<resistance value="75"/>
@@ -98,9 +98,9 @@
 		<type class="pol/chocholy" subclass="chochol" tileid="pol_chocholy.png:0"/>
 		<description/>
 		<attributes>
-			<atk value="85"/>
-			<def value="15"/>
-			<hp value="90"/>
+			<atk value="68"/>
+			<def value="11"/>
+			<hp value="72"/>
 			<speed value="0.1"/>
 			<size value="1,1"/>
 		</attributes>
@@ -127,14 +127,14 @@
 		<type class="pol/chocholy" subclass="chochol_suchy" tileid="pol_chocholy.png:1"/>
 		<description/>
 		<attributes>
-			<atk value="128"/>
-			<def value="20"/>
+			<atk value="102"/>
+			<def value="15"/>
 			<hp value="135"/>
 			<speed value="0.2"/>
 			<size value="1,1"/>
 		</attributes>
 		<level value="15"/>
-		<experience value="158"/>
+		<experience value="259"/>
 		<respawn value="999"/>
 		<corpse name="flora"/>
 		<drops>
@@ -157,14 +157,14 @@
 		<type class="pol/chocholy" subclass="chochol_wielki" tileid="pol_chocholy.png:2"/>
 		<description/>
 		<attributes>
-			<atk value="170"/>
-			<def value="24"/>
-			<hp value="180"/>
+			<atk value="136"/>
+			<def value="18"/>
+			<hp value="144"/>
 			<speed value="0.3"/>
 			<size value="1,1"/>
 		</attributes>
 		<level value="20"/>
-		<experience value="270"/>
+		<experience value="449"/>
 		<respawn value="1111"/>
 		<corpse name="flora_big"/>
 		<drops>
