@@ -6,14 +6,14 @@
 	<creature name="kamień">
 		<type class="pol/kamienne" subclass="kamien" tileid="pol_kamienne.png:0"/>
 		<attributes>
-			<atk value="170"/>
-			<def value="74"/>
-			<hp value="130"/>
+			<atk value="136"/>
+			<def value="63"/>
+			<hp value="104"/>
 			<speed value="0.3"/>
 			<size value="1,1"/>
 		</attributes>
 		<level value="20"/>
-		<experience value="503"/>
+		<experience value="733"/>
 		<respawn value="9600"/>
 		<corpse name="rocks"/>
 		<drops>
@@ -37,14 +37,14 @@
 	<creature name="wieża">
 		<type class="pol/kamienne" subclass="wieza" tileid="pol_kamienne.png:1"/>
 		<attributes>
-			<atk value="1700"/>
-			<def value="234"/>
-			<hp value="5000"/>
+			<atk value="1360"/>
+			<def value="203"/>
+			<hp value="4000"/>
 			<speed value="0.2"/>
 			<size value="2,2"/>
 		</attributes>
 		<level value="200"/>
-		<experience value="73381"/>
+		<experience value="80233"/>
 		<respawn value="13449"/>
 		<corpse name="giant_rocks"/>
 		<drops>
@@ -72,14 +72,14 @@
 	<creature name="głaz">
 		<type class="pol/kamienne_wielkie" subclass="glaz" tileid="pol_kamienne_wielkie.png:0"/>
 		<attributes>
-			<atk value="340"/>
-			<def value="117"/>
-			<hp value="360"/>
+			<atk value="272"/>
+			<def value="100"/>
+			<hp value="288"/>
 			<speed value="0.5"/>
 			<size value="2,2"/>
 		</attributes>
 		<level value="40"/>
-		<experience value="1724"/>
+		<experience value="2606"/>
 		<respawn value="12200"/>
 		<corpse name="giant_rocks"/>
 		<drops>
@@ -104,15 +104,15 @@
 	<creature name="lawina kamienna">
 		<type class="pol/kamienne_wielkie" subclass="lawina_kamienna" tileid="pol_kamienne_wielkie.png:1"/>
 		<attributes>
-			<atk value="3400"/>
-			<def value="477"/>
-			<hp value="3600"/>
+			<atk value="3060"/>
+			<def value="425"/>
+			<hp value="2880"/>
 			<speed value="0.9"/>
 			<size value="2,2"/>
 			<resistance value="50"/>
 		</attributes>
 		<level value="400"/>
-		<experience value="232324"/>
+		<experience value="349314"/>
 		<respawn value="128200"/>
 		<corpse name="giant_rocks"/>
 		<drops>
@@ -133,14 +133,14 @@
 	<creature name="olbrzymia wieża">
 		<type class="pol/kamienne_wielkie" subclass="wieza_olbrzymia" tileid="pol_kamienne_wielkie.png:2"/>
 		<attributes>
-			<atk value="2550"/>
-			<def value="356"/>
-			<hp value="10270"/>
+			<atk value="2040"/>
+			<def value="312"/>
+			<hp value="10160"/>
 			<speed value="0.1"/>
 			<size value="4,3"/>
 		</attributes>
 		<level value="300"/>
-		<experience value="169120"/>
+		<experience value="185250"/>
 		<respawn value="26898"/>
 		<corpse name="giant_rocks"/>
 		<drops>
@@ -169,14 +169,14 @@
 	<creature name="kula śnieżna">
 		<type class="pol/sniegowe" subclass="kula_sniezna" tileid="pol_sniegowe.png:0"/>
 		<attributes>
-			<atk value="680"/>
-			<def value="103"/>
-			<hp value="720"/>
+			<atk value="544"/>
+			<def value="86"/>
+			<hp value="576"/>
 			<speed value="0.7"/>
 			<size value="4,4"/>
 		</attributes>
 		<level value="80"/>
-		<experience value="6876"/>
+		<experience value="7518"/>
 		<respawn value="28200"/>
 		<corpse name="snowball"/>
 		<drops>
@@ -200,15 +200,15 @@
 	<creature name="lawina">
 		<type class="pol/sniegowe" subclass="lawina" tileid="pol_sniegowe.png:1"/>
 		<attributes>
-			<atk value="3400"/>
-			<def value="477"/>
-			<hp value="3600"/>
+			<atk value="3060"/>
+			<def value="425"/>
+			<hp value="2880"/>
 			<speed value="0.8"/>
 			<size value="2,2"/>
 			<resistance value="50"/>
 		</attributes>
 		<level value="400"/>
-		<experience value="232324"/>
+		<experience value="349314"/>
 		<respawn value="128200"/>
 		<corpse name="snowball"/>
 		<drops>
@@ -232,14 +232,14 @@
 		<type class="pol/pasterze_drzew" subclass="pasterz_drzew" tileid="pol_pasterze_drzew.png:0"/>
 		<description></description>
 		<attributes>
-			<atk value="2311"/>
-			<def value="100"/>
-			<hp value="1917"/>
+			<atk value="1848"/>
+			<def value="79"/>
+			<hp value="1534"/>
 			<speed value="0.1"/>
 			<size value="2,2"/>
 		</attributes>
 		<level value="213"/>
-		<experience value="92803"/>
+		<experience value="100206"/>
 		<respawn value="6200"/>
 		<corpse name="flora_ent" width="2" height="1"/>
 		<drops>
@@ -262,15 +262,15 @@
 		<type class="pol/ogniki" subclass="bledny_ognik" tileid="pol_ogniki.png:0"/>
 		<description/>
 		<attributes>
-			<atk value="360"/>
-			<def value="55"/>
-			<hp value="620"/>
+			<atk value="364"/>
+			<def value="32"/>
+			<hp value="554"/>
 			<speed value="1.0"/>
 			<size value="1,1"/>
 			<visibility value="75"/>
 		</attributes>
 		<level value="77"/>
-		<experience value="3939"/>
+		<experience value="4258"/>
 		<respawn value="1700"/>
 		<corpse name="other"/>
 		<drops>
@@ -299,15 +299,15 @@
 		<type class="pol/ogniki" subclass="blekitny_ognik" tileid="pol_ogniki.png:1"/>
 		<description/>
 		<attributes>
-			<atk value="401"/>
-			<def value="61"/>
+			<atk value="595"/>
+			<def value="43"/>
 			<hp value="820"/>
 			<speed value="1.0"/>
 			<size value="1,1"/>
 			<visibility value="75"/>
 		</attributes>
 		<level value="111"/>
-		<experience value="5959"/>
+		<experience value="10703"/>
 		<respawn value="1900"/>
 		<corpse name="other"/>
 		<drops>
@@ -335,15 +335,14 @@
 	<creature name="golem z lawy">
 		<type class="pol/ogniki" subclass="lava_golem" tileid="pol_ogniki.png:2"/>
 		<attributes>
-			<atk value="199"/>
-			<def value="44"/>
-			<hp value="397"/>
+			<atk value="265"/>
+			<def value="28"/>
+			<hp value="281"/>
 			<speed value="0.3"/>
 			<size value="1,1"/>
-			<visibility value="100"/>
 		</attributes>
 		<level value="39"/>
-		<experience value="821"/>
+		<experience value="1611"/>
 		<respawn value="1999"/>
 		<corpse name="other"/>
 		<drops>
