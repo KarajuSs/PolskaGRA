@@ -59,7 +59,7 @@ public class TwilightElixir extends Drink {
 
 	@Override
 	public String describe() {
-		String text = "You see " + Grammar.a_noun(getTitle()) + ".";
+		String text = "Oto " + Grammar.a_noun(getTitle()) + ".";
 		String stats = "";
 		if (hasDescription()) {
 			text = getDescription();

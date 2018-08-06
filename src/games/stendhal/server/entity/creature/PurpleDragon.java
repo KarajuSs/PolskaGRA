@@ -119,7 +119,7 @@ public class PurpleDragon extends Pet {
 	
 	@Override
 	public String describe() {
-		String text = "You see a " + ItemTools.itemNameToDisplayName(get("type")) + "; it looks like it weighs about " + weight + " and is level " + getLevel() + ". Def XP: " +  getDefXP() + "";
+		String text = "Oto " + ItemTools.itemNameToDisplayName(get("type")) + "; it looks like it weighs about " + weight + " and is level " + getLevel() + ". Def XP: " +  getDefXP() + "";
 		if (hasDescription()) {
 			text = getDescription();
 		}

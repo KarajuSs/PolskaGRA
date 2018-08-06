@@ -41,7 +41,7 @@ public class PuppyNPC implements ZoneConfigurator {
 		// Not visible, but used for the emote action
 		dog.setName("Puppy");
 		dog.setPosition(23, 54);
-		dog.setDescription("You see a playful puppy.");
+		dog.setDescription("Widzisz zabawnego szczeniaczka");
 		dog.setEntityClass("animal/puppy");
 		dog.setBaseSpeed(0.5);
 		dog.moveRandomly();

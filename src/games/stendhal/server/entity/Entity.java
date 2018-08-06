@@ -543,7 +543,7 @@ public abstract class Entity extends RPObject implements Killer {
 			return getDescription();
 		}
 
-		return "You see " + getDescriptionName(false) + ".";
+		return "Oto " + getDescriptionName(false) + ".";
 	}
 
 	/**
