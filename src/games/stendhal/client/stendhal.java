@@ -168,9 +168,9 @@ public final class stendhal {
 	 */
 	private static void initUsableDisplaySizes() {
 		// Optimized display dimensions for display resolutions
-		displaySizes.add(new Dimension(1424, 768)); // Smaller 4:3
-		displaySizes.add(new Dimension(1400, 1050)); // Larger 4:3
-		displaySizes.add(new Dimension(1600, 900)); // Larger 16:9
+		displaySizes.add(new Dimension(640, 480)); // Smaller 4:3
+		displaySizes.add(new Dimension(800, 600)); // Larger 4:3
+		displaySizes.add(new Dimension(874, 486)); // Larger 16:9
 	}
 
 	/**
