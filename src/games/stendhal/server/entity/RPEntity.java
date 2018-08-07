@@ -2734,6 +2734,15 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 
 		return null;
 	}
+	
+	public Item getWandWeapon() {
+		for (final Item weapon : getWeapons()) {
+			if (weapon.isOfClass("wand")) {
+				return weapon;
+			}
+		}
+		return null;
+	}
 
 	/**
 	 * Gets the stack of ammunition (arrows or similar) that this entity is
@@ -2754,6 +2763,19 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 			}
 		}
 
+		return null;
+	}
+	
+	public StackableItem getMagia() {
+		final String[] slots = { "lhand", "rhand" };
+
+		for (final String slot : slots) {
+			final StackableItem item = (StackableItem) getEquippedItemClass(
+					slot, "magia");
+			if (item != null) {
+				return item;
+			}
+		}
 		return null;
 	}
 
@@ -2948,6 +2970,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 
 		// range weapons
 		StackableItem ammunitionItem = null;
+		StackableItem magiaItem = null;
 		if (weapons.size() > 0) {
 			if (weapons.get(0).isOfClass("ranged")) {
 				ammunitionItem = getAmmunition();
@@ -2956,6 +2979,15 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 					weapon += ammunitionItem.getAttack();
 				} else {
 					// If there is no ammunition...
+					weapon = 0;
+				}
+			} else if (weapons.get(0).isOfClass("wand")) {
+				magiaItem = getMagia();
+
+				if (magiaItem != null) {
+					weapon += magiaItem.getAttack();
+				} else {
+					// If there is no magia...
 					weapon = 0;
 				}
 			}
@@ -3139,7 +3171,9 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 	 */
 	public int getMaxRangeForArcher() {
 		final Item rangeWeapon = getRangeWeapon();
+		final Item wandWeapon = getWandWeapon();
 		final StackableItem ammunition = getAmmunition();
+		final StackableItem magia = getMagia();
 		final StackableItem missiles = getMissileIfNotHoldingOtherWeapon();
 		int maxRange;
 		if ((rangeWeapon != null) && (ammunition != null)
@@ -3147,6 +3181,9 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 			maxRange = rangeWeapon.getInt("range") + ammunition.getInt("range");
 		} else if ((missiles != null) && (missiles.getQuantity() > 0)) {
 			maxRange = missiles.getInt("range");
+		} else if ((wandWeapon != null) && (magia != null)
+				&& (magia.getQuantity() > 0)) {
+			maxRange = wandWeapon.getInt("range") + magia.getInt("range");
 		} else {
 			// The entity doesn't hold the necessary distance weapons.
 			maxRange = 0;
