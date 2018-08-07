@@ -1,4 +1,4 @@
-Changelog
+﻿Changelog
 ---------
 1.03
 *klient*
@@ -7,6 +7,12 @@ Changelog
 
 *świat gry*
 - Dodano pogodę na mapach tatr
+- Pióro azazela można dropnąć z azazela
+
+
+*naprawa błędów*
+- Naprawiono błąd licznika, który nie pokazywał ile posiadamy w ekwipunku/skrzynce ile posiadamy surowców typu 'kryształ ametystu' oraz magii
+- Naprawiono błąd, że nie można było atakować z magii i różdżki
 
 
 
