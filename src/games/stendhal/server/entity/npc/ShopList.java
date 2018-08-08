@@ -128,7 +128,7 @@ public final class ShopList {
 
 		//OuchitNPC sprzedaje:
 		shops.add("sellrangedstuff", "drewniany łuk", 300);
-		shops.add("sellrangedstuff", "strzała", 2);
+		shops.add("sellrangedstuff", "strzała", 4);
 
 		//Xin BlancaNPC, MichałNPC, WrvilNPC kupuje:
 		shops.add("buystuff", "krótki miecz", 15);
@@ -336,22 +336,24 @@ public final class ShopList {
 		shops.add("buyoddsandends", "gruczoł przędzy", 500);
 
 		// archery shop in nalwor)
-		shops.add("buyarcherstuff", "strzała", 4);
-		shops.add("buyarcherstuff", "strzała żelazna", 11);
-		shops.add("buyarcherstuff", "strzała złota", 20);
-		shops.add("buyarcherstuff", "strzała płonąca", 50);
-		shops.add("buyarcherstuff", "drewniany łuk", 250);
+		shops.add("buyarcherstuff", "strzała", 2);
+		shops.add("buyarcherstuff", "wzmocniona drewniana strzała", 3);
+		shops.add("buyarcherstuff", "strzała żelazna", 6);
+		shops.add("buyarcherstuff", "strzała złota", 11);
+		shops.add("buyarcherstuff", "strzała płonąca", 30);
+		shops.add("buyarcherstuff", "strzała z mithrilu", 40);
+		shops.add("buyarcherstuff", "drewniany łuk", 200);
 		shops.add("buyarcherstuff", "kusza", 400);
-		shops.add("buyarcherstuff", "długi łuk", 300);
-		shops.add("buyarcherstuff", "klejony łuk", 350);
+		shops.add("buyarcherstuff", "długi łuk", 250);
+		shops.add("buyarcherstuff", "klejony łuk", 300);
 		shops.add("buyarcherstuff", "kusza łowcy", 800);
 		shops.add("buyarcherstuff", "łuk z mithrilu", 80000);
 
 		// selling arrows
 		shops.add("sellarrows", "strzała", 3);
-		shops.add("sellarrows", "strzała żelazna", 7);
-		shops.add("sellarrows", "strzała złota", 25);
-		shops.add("sellarrows", "strzała płonąca", 45);
+		shops.add("sellarrows", "strzała żelazna", 9);
+		shops.add("sellarrows", "strzała złota", 18);
+		shops.add("sellarrows", "strzała płonąca", 40);
 
 		// assassinhq chief falatheen the dishwasher and veggie buyer)
 		// sign is hard coded so if you change this change the sign
@@ -502,7 +504,7 @@ public final class ShopList {
 		shops.add("cafe", "kanapka", 170);
 		shops.add("cafe", "kanapka z tuńczykiem", 180);
 		shops.add("cafe", "jabłecznik", 250);
-		
+
 		//bronek kupuje:
 		shops.add("buydragonitems", "pazury wilcze", 15);
 		shops.add("buydragonitems", "niedźwiedzie pazury", 18);
@@ -512,7 +514,7 @@ public final class ShopList {
 		shops.add("buydragonitems", "pazur czerwonego smoka", 55000);
 		shops.add("buydragonitems", "pazur czarnego smoka", 65000);
 		shops.add("buydragonitems", "pazur złotego smoka", 75000);
-		
+
 		//bogus kupuje :
 		shops.add("buyskin", "piórko", 4);
 		shops.add("buyskin", "skóra xenocium", 800);
@@ -523,14 +525,14 @@ public final class ShopList {
 		shops.add("buyskin", "skóra niebieskiego smoka", 3800);
 		shops.add("buyskin", "skóra czarnego smoka", 4400);
 		shops.add("buyskin", "skóra złotego smoka", 5000);
-		
+
 		//bogus sprzedaje
 		shops.add("sellskin", "buteleczka", 5);
 		shops.add("sellskin", "butelka", 7);
 		shops.add("sellskin", "krótki miecz", 640);
 		shops.add("sellskin", "topór", 1070);
 		shops.add("sellskin", "kosa", 2000);
-		
+
 		//npc kupujący pióra...
 		/**
 		shops.add("buypiora", "piórko", 4);
@@ -543,13 +545,13 @@ public final class ShopList {
 		shops.add("buypiora", "pióro serafina", 11000);
 		shops.add("buypiora", "pióro azazela", 14000);
 		*/
-		
+
 		//zielarka kupuje
 		shops.add("buyziola", "arandula", 12);
 		shops.add("buyziola", "kokuda", 250);
 		shops.add("buyziola", "kekik", 28);
 		shops.add("buyziola", "sclaria", 28);
-		
+
 		//kibic sprzedaje
 		shops.add("mecz", "bilet na mecz", 250);
 		shops.add("mecz", "piłka", 500);
@@ -558,7 +560,7 @@ public final class ShopList {
 		shops.add("sellkopalnia", "kilof", 150);
 		shops.add("sellkopalnia", "łopata", 200);
 		shops.add("sellkopalnia", "lina", 150);
-		
+
 		//Jagna sprzedaje
 		shops.add("urodziny", "sok z chmielu", 8);
 		shops.add("urodziny", "napój z winogron", 10);
@@ -573,7 +575,7 @@ public final class ShopList {
 		shops.add("urodziny", "kanapka", 110);
 		shops.add("urodziny", "tabliczka czekolady", 80);
 		shops.add("urodziny", "lukrecja", 80);
-		
+
 		//Wielkolud kupuje
 		shops.add("buyrareitems", "kierpce", 100);
 		shops.add("buyrareitems", "chusta góralska", 200);
@@ -593,7 +595,7 @@ public final class ShopList {
 		shops.add("buyrareitems", "spinka", 20000);
 		shops.add("buyrareitems", "złota ciupaga", 25000);
 		shops.add("buyrareitems", "szczerbiec", 1000000);
-		
+
 		//Juhas sprzedaje
 		shops.add("juhas", "zwój tatrzański", 250);
 		shops.add("juhas", "zwój semos", 300);
@@ -604,7 +606,7 @@ public final class ShopList {
 		shops.add("juhas", "zwój kalavan", 1000);
 		shops.add("juhas", "zwój kirdneh", 1000);
 		shops.add("juhas", "bilet turystyczny", 5000);
-		
+
 		//Stasek sprzedaje
 		shops.add("stasek", "wzmocniona drewniana strzała", 7);
 		shops.add("stasek", "drewniany łuk", 350);
