@@ -94,12 +94,12 @@
 	</zone>
 
 	<!-- dolina_mietusia -->
-	<!-- <zone name="0_tatry_dolina_mietusia" level="0" x="513184" y="19072" file="Level 0/tatry/dolina_mietusia.tmx">
+	<zone name="0_tatry_dolina_mietusia" level="0" x="513184" y="19072" file="Level 0/tatry/dolina_mietusia.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=-2)</parameter>
 		</attributes>
-	</zone>-->
+	</zone>
 
 	<!-- giewont_sw -->
 	<!-- <zone name="0_tatry_giewont_sw" level="0" x="513312" y="19072" file="Level 0/tatry/giewont_sw.tmx">
