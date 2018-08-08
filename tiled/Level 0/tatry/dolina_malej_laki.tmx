@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="128" height="128" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="ground_snow03" tilewidth="32" tileheight="32" tilecount="18" columns="3">
+  <image source="../../tileset/pol/podloze/ground_snow03.png" width="96" height="192"/>
+ </tileset>
+ <tileset firstgid="19" name="snow_grass" tilewidth="32" tileheight="32" tilecount="15" columns="3">
+  <image source="../../tileset/pol/podloze/snow_grass.png" width="96" height="160"/>
+ </tileset>
+ <tileset firstgid="34" name="snow_ground" tilewidth="32" tileheight="32" tilecount="36" columns="6">
+  <image source="../../tileset/pol/podloze/snow_ground.png" width="192" height="192"/>
+ </tileset>
+ <tileset firstgid="70" name="snow_ground_dark" tilewidth="32" tileheight="32" tilecount="36" columns="6">
+  <image source="../../tileset/pol/podloze/snow_ground_dark.png" width="192" height="192"/>
+ </tileset>
+ <tileset firstgid="106" name="earth_snow" tilewidth="32" tileheight="32" tilecount="96" columns="12">
+  <image source="../../tileset/pol/waly/earth_snow.png" width="384" height="256"/>
+ </tileset>
+ <tileset firstgid="202" name="snow_tracks" tilewidth="32" tileheight="32" tilecount="14" columns="7">
+  <image source="../../tileset/pol/podloze/snow_tracks.png" width="224" height="64"/>
+ </tileset>
+ <tileset firstgid="216" name="snow_upper_bright" tilewidth="32" tileheight="32" tilecount="15" columns="5">
+  <image source="../../tileset/pol/podloze/snow_upper_bright.png" width="160" height="96"/>
+ </tileset>
+ <tileset firstgid="231" name="snow_upper_dark" tilewidth="32" tileheight="32" tilecount="15" columns="5">
+  <image source="../../tileset/pol/podloze/snow_upper_dark.png" width="160" height="96"/>
+ </tileset>
+ <tileset firstgid="246" name="snow_blue_paving_2" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/pol/podloze/snow_blue_paving_2.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="247" name="snow_cobbled_paving" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/pol/podloze/snow_cobbled_paving.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="248" name="snow_tree_swierk" tilewidth="32" tileheight="32" tilecount="15" columns="3">
+  <image source="../../tileset/pol/natura/drzewa/snow_tree_swierk.png" width="96" height="160"/>
+ </tileset>
+ <tileset firstgid="263" name="snow_tree_swierk_las_" tilewidth="32" tileheight="32" tilecount="49" columns="7">
+  <image source="../../tileset/pol/natura/drzewa/snow_tree_swierk_las_.png" width="224" height="224"/>
+ </tileset>
+ <tileset firstgid="312" name="snow_tree_orzech" tilewidth="32" tileheight="32" tilecount="25" columns="5">
+  <image source="../../tileset/pol/natura/drzewa/snow_tree_orzech.png" width="160" height="160"/>
+ </tileset>
+ <tileset firstgid="337" name="snow_on_tree" tilewidth="32" tileheight="32" tilecount="20" columns="4">
+  <image source="../../tileset/pol/natura/drzewa/snow_on_tree.png" width="128" height="160"/>
+ </tileset>
+ <tileset firstgid="357" name="snow_on_dead_tree" tilewidth="32" tileheight="32" tilecount="10" columns="2">
+  <image source="../../tileset/pol/natura/drzewa/snow_on_dead_tree.png" width="64" height="160"/>
+ </tileset>
+ <tileset firstgid="367" name="snow_on_cuted_tree" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../../tileset/pol/natura/drzewa/snow_on_cuted_tree.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="371" name="flower_snow" tilewidth="32" tileheight="32" tilecount="2" columns="2">
+  <image source="../../tileset/pol/natura/flower_snow.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="373" name="logs_snow1" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/pol/natura/logs_snow1.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="374" name="logs_snow" tilewidth="32" tileheight="32" tilecount="2" columns="1">
+  <image source="../../tileset/pol/natura/logs_snow.png" width="32" height="64"/>
+ </tileset>
+ <tileset firstgid="376" name="rock_snow" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/pol/natura/rock_snow.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="377" name="snow_drewka" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/pol/natura/snow_drewka.png" width="32" height="48"/>
+ </tileset>
+ <tileset firstgid="378" name="snow_pilows" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../../tileset/pol/natura/snow_pilows.png" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="382" name="snowygrass" tilewidth="32" tileheight="32" tilecount="3" columns="3">
+  <image source="../../tileset/pol/natura/snowygrass.png" width="96" height="32"/>
+ </tileset>
+ <tileset firstgid="385" name="stumps" tilewidth="32" tileheight="32" tilecount="12" columns="4">
+  <image source="../../tileset/pol/natura/stumps.png" width="128" height="96"/>
+ </tileset>
+ <tileset firstgid="397" name="snow_mostek" tilewidth="32" tileheight="32" tilecount="30" columns="6">
+  <image source="../../tileset/pol/mosty/snow_mostek.png" width="192" height="160"/>
+ </tileset>
+ <tileset firstgid="427" name="house_snowy_wooden" tilewidth="32" tileheight="32" tilecount="160" columns="8">
+  <image source="../../tileset/pol/domki/house_snowy_wooden.png" width="256" height="640"/>
+ </tileset>
+ <tileset firstgid="587" name="house_wooden" tilewidth="32" tileheight="32" tilecount="152" columns="8">
+  <image source="../../tileset/pol/domki/house_wooden.png" width="256" height="608"/>
+ </tileset>
+ <tileset firstgid="739" name="wioska_okna" tilewidth="32" tileheight="32" tilecount="8" columns="4">
+  <image source="../../tileset/pol/domki/okna/wioska_okna.png" width="128" height="64"/>
+ </tileset>
+ <tileset firstgid="747" name="door_drewno_goralskie" tilewidth="32" tileheight="32" tilecount="3" columns="3">
+  <image source="../../tileset/pol/domki/drzwi/door_drewno_goralskie.png" width="96" height="32"/>
+ </tileset>
+ <tileset firstgid="750" name="door_drewno_karczma3" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/pol/domki/drzwi/door_drewno_karczma3.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="751" name="roof_snow" tilewidth="32" tileheight="32" tilecount="112" columns="8">
+  <image source="../../tileset/pol/domki/dachy/roof_snow.png" width="256" height="448"/>
+ </tileset>
+ <tileset firstgid="863" name="collision.png" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="864" name="latarnia_blask" tilewidth="32" tileheight="32" tilecount="25" columns="5">
+  <image source="../../tileset/pol/oswietlenie/latarnia_blask.png" width="160" height="160"/>
+ </tileset>
+ <layer name="0_floor" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJztw0ENAAAMA6F71r/iCRkkrJqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqrvHwEsAB8=
+  </data>
+ </layer>
+ <layer name="1_terrain" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJzt3UsKwjAARdF0L46s3/rb/85MB4WiKeJI6TsHQulMyKUxEWopAAAAAAAA77ZdKX3360/Br5zr3A/mHwAgjn1AtnEfoIFsGkADzBvY1bGvY6OHKNO54KWO60sLS1eNrNe8haVrq5HDh3vNrEerkduH+14j0YYvGzloIs68kdusCQ3ksj9h1PruqYU8r3tVcjm/zOYMm9YZNllaZ9jkGjwP4nkeMBk0EM+agDWBiTUBDaABNIAG8H4EyOW35GzekQPZrAHZrAGQzRqQzRoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMDo2JVy8n+3se517h/mHwAAVs/eL5u9HwAA/JcnkX0h9g==
+  </data>
+ </layer>
+ <layer name="2_object" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJzt2DERACAQA8FgByrwLw4cUH7xuwoyk+4SAAAA+JsjWaN6BVX2+/74HwAAoA0doDcdAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKC3C8kqAXk=
+  </data>
+ </layer>
+ <layer name="3_roof" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJzt20tOK0EQRFGzCAYtGPCZwP43SJeEpZblT3dVFmRk3CN5+Eap6yh4Ynk6nd7Wz/v6+Vg/PV47/x3+X7v9sn6+1s935x0/ub+sZbD/Z24vbbR/vvu1nftffu/4cvCefPdrO9++dwPoX9u2/54NoH9to/03vAF1jfbfsAG6tv3zBvSzvT1vQD+X/fMG9BLRf8MbUFNE/w0boCmqfzZAU1T/DRug57L/3p8BGzZAz+Xt2QAv1/of2QBoiewfeujfG/17o39v9O+N/r1d63/kd0DQcu32bICPW/2zAR7o3xv9e6N/b/Tvjf690b83+vdG/97o3xv9e6N/b/Tv7Vb//B+wh1u3ZwM83OufDaiP/r3R/9/I+rex9/rnDRgn69/G3rs9GxAn69/GPuqfDYiTcQMe9c8GxMm4AY9uzwbEybgBe/pnA+Jk24A9/bMBcbJtwJ7bswFxsm3A3v7ZgJr29s8G1LT39mxATUf6ZwPqoX9v9O/tSP+8Aes5cns2oJ6j/bMBtRztnw2o5ejt2YBaevpnA+ro6Z8NqKPn9mxAHb39swE19PbPBtTQe3s2oIaR/tkAfSP9swH6Rm7PBugb7Z8N0DbaPxugbfT2bIC2iP7ZAF0R/bMBuiJuzwboiuqfDdAU1T8boCnq9myApsj+2QA9kf2zAXoib88G6Inunw3QQv/e6N9bdP+8AbVE354N0DKjfzZAB/17o39vM/rnDahjxu3ZAB2z+mcDNNC/N/r3Nqt/3oAaZt2eDdAws382ID/690b/3mb2zxswv5m3ZwPym90/G5Ab/Xujf2/0743+vdG/N/r3Rv/eZt+e/nOb/d3P735z47vfG28/b/Tvjf690b83fvbzNvO7n5/98uO73xtvP2/0743+vdG/N/r39gOOWO0k
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJzt28ENgkAURdGhAhckLMb++wRjB7Bhcs9pQa//oXGMv30bhM3r9f/efA98vHeW96T/w+u/vF//bkDb9Pqn6b/tyQZkffpvswGxAdv032YDtum/Tf9t+m/zDIhnwDb9t9mAbfpv03+b/tv036b/Nt8B4TugNv232YBt+m/Tf5v+2/Tfpv82/bfpv03/bfpv03+b/tv8BozfgNv032YDtum/zQbEBmzTf5sbgBvQpv82NwA3oE3/bW4AbkCb/tv8Htim/zYbEBuwTf9tbgBuQJv+29wA3IA2/be5AbgBbfpvcwNwA9r03+YG4Aa06b/NDcANaNN/mxuAG9Cm/zY3ADegTf9t/iPapv82GxAbsE3/bTZgm/7bbEBswDb9t9mAbfpvswGxAdv032YDtum/zQbEBmzTf5sN2Kb/Nv236b9N/236b9M/NPnsb/Pdb5v+22y/Nv236R+afPa3efZr03+b7dem/zb9A7zbCesJEIM=
+  </data>
+ </layer>
+ <layer name="objects" width="128" height="128">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgJD+r+4ICgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoADwAB
+  </data>
+ </layer>
+ <layer name="collision" width="128" height="128" opacity="0.3">
+  <data encoding="base64" compression="zlib">
+   eJztmuGOGyEMhE/qg/b936KKKnSraLMBezwegz8pf3rBNp5ZFkh/fn75++fHjGfs6bx6p9B7axxv/Y2vhwr6N36sHsjUv599LJZ+ojTI9F7zS5b+1twNniwdWn8NVp/prHdAv//jyPBA7wG0YD+Prb8W7POANV8Tg+dOgHWf03uAWNj3cv0O0KL1P5sK+7nWPw72b0P9O4AWFfT3jGu+wz7P9RqgRaU1oD0QQwX9x9j2AR7m/w9B/ZbUHsBSSf8Rp32Ao5r+13jvn2Yd1u8z0frc+aH9MccO+s/kt352x/L/Qiw5KnKCN1p/Gzv5YaX+vs+9p7IPWn8cFX3Q+uOp5IOVWlv/NSp4oPWPpcJaoKZ/hZ6tojyfFf0ZZ8Dx/d18oDqf6D2gd4xq36yozUdd/+u/qfXOg8pcVPV/GreTFxTmoqb/yrgd7mOza6+s/9247H5ayapbVX9vH+7WhgqeYNbKOP8p3R198oSiRxi1ROs/xjLHIVDxSHSuFf09OZjjGDD9EBlfXX9lD1yJ9kFE7Oizf/bYDCLXhMr6n7AGvIOuPTMe4izmGVvdA6j60bEivhs1Xvms9g1kvewYyLsYNNU8geolk4z1xptH2RPeehDjI78fHceaW8kTbA2teVX3LggUvGDNzbpTUz6/oMnyA0N/ts9Y8aJg+sCSZ/XsbtX+VP0H6h6IiOsZNxu7Eqy1AK2/6r1rNf0Hah749F2EXyPnibxPYu/ZonOtvtc941djo4i6T2T6QWF9vH4POWe1dc4aI9oP0XEzalDe797FsOREzzHbAxVzRr0DVscqr5lsLTL8phJDKU5UvKwckbnV+l3FA1nP/F0d3vER/faendE1IWOxz8zf6lGIcRdTxQPId1O23u+o6j/iKngAUYOa7leU9gB3sb3nDET+jNws1PYAyPiINcQztoIHstfI2fhMD6DW7QoeUDsHRuSYnWPk/aSyDyr4HL2W353FVN9j0VRZ65B3zhnnQ+W1QPEO9lMOz1ik7lY9le6ABhF9iSK7Z+/z88yZ/R76Vgc6Hnpemc/Mt3mgzw3subL28d4Pm9XcEX5n9CF7XVXC2+tov0bEVtqPsIk8H1Tqa5U6vbDfK9nvsFnU67OisI/4VIsaiDO2yt7tWpci2X25w6v/098y9/iKvX6h8HxcidJ/JUaUR9R6fUWlNm9/GZzig6z61PW/5kPtV1TJ2E9V0X/kRPSjghdYeNfVDFC52wc19gCfciPzn+yFivqP/JE+yJ4fi6r6D6I0O8UL1fW/0l5Yxzon9T5E6bWjF3bUf8C6b67Sjzt21n/AuEupujacoP8LpjaVvHCK/gO2Juo+sOqvOp9ZMn2g1L9dzwAzZGqR8ZvPUy2MMaooPZMZXjhd/8GOc5qh9dd5/jNo/c/mZP1Pfu4Hp+rf2v/nxDsAS/2V5/vETr8Dz7CqveVMpnSm/MYp+ls0ef++1QPfPpmcoD/ynnNFt5nvZfti5/e/p85Z3WZrUO3Xjvt/b7+Rzzeqpig8z7/SfFBrp3ePgIzNANGrzP0NMo9nn1D1bMDUx/p5ioWu1TO2mg+y88/AWkvQa0gFH6hrzyJqLbHsI5iatP6xPbfEZvrgZP3ZfVbstWJNDDL0YJ6JZlGpg4VK/xW8oNAHFtm9foJ9X3LNax2n2stBVk8RMO/NPOOy7vvu6smuoSJe/Z/+zv40a1j71v3eg6hnv6lB638unjW89efyDwJwALU=
+  </data>
+ </layer>
+ <layer name="protection" width="128" height="128" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgJD+r+4ICgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoADwAB
+  </data>
+ </layer>
+ <layer name="blend_ground" width="128" height="128" opacity="0.4">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgJD+r+4ICgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoADwAB
+  </data>
+ </layer>
+ <layer name="blend_roof" width="128" height="128" opacity="0.4">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgJD+r+4ICgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoADwAB
+  </data>
+ </layer>
+</map>
