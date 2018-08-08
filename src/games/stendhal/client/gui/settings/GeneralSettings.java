@@ -175,7 +175,7 @@ class GeneralSettings {
 		// Client dimensions
 		JComponent clientSizeBox = SBoxLayout.createContainer(SBoxLayout.VERTICAL, pad);
 		TitledBorder titleB = BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(),
-				"Client Dimensions");
+				"Rozmiar Klienta");
 
 		// There seems to be no good way to change the default background color
 		// of all components. The color is needed for making the etched border.
