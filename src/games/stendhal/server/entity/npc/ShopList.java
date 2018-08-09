@@ -587,7 +587,7 @@ public final class ShopList {
 		shops.add("buyrareitems", "polska tarcza lekka", 500);
 		shops.add("buyrareitems", "polska tarcza drewniana", 750);
 		shops.add("buyrareitems", "polska tarcza kolcza", 1000);
-		shops.add("buyrareitems", "polska tarcza płytowa", 2000);
+		shops.add("buyrareitems", "polska płytowa tarcza", 2000);
 		shops.add("buyrareitems", "polska tarcza ciężka", 2500);
 		shops.add("buyrareitems", "korale", 2500);
 		shops.add("buyrareitems", "pas zbójecki", 3000);
