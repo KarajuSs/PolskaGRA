@@ -276,32 +276,35 @@
  <tileset firstgid="1334" name="0_tatry_dolina_koscieliska_s" tilewidth="64" tileheight="64" tilecount="16" columns="4">
   <image source="0_tatry_dolina_koscieliska_s.png" width="256" height="256"/>
  </tileset>
- <tileset firstgid="1350" name="0_tatry_dolina_rybiego_potoku_c" tilewidth="64" tileheight="64" tilecount="16" columns="4">
+ <tileset firstgid="1350" name="0_tatry_dolina_rybiego_potoku_c" tilewidth="64" tileheight="64" tilecount="0" columns="4">
   <image source="0_tatry_dolina_rybiego_potoku_c.png" width="256" height="256"/>
  </tileset>
- <tileset firstgid="1366" name="0_tatry_dolina_rybiego_potoku_n" tilewidth="64" tileheight="64" tilecount="16" columns="4">
+ <tileset firstgid="1350" name="0_tatry_dolina_rybiego_potoku_n" tilewidth="64" tileheight="64" tilecount="16" columns="4">
   <image source="0_tatry_dolina_rybiego_potoku_n.png" width="256" height="256"/>
  </tileset>
- <tileset firstgid="1382" name="jaka_mapa" tilewidth="64" tileheight="64" tilecount="16" columns="4">
+ <tileset firstgid="1366" name="jaka_mapa" tilewidth="64" tileheight="64" tilecount="16" columns="4">
   <image source="jaka_mapa.png" width="256" height="256"/>
  </tileset>
- <tileset firstgid="1398" name="0_tatry_dolina_koscieliska_las_nw" tilewidth="64" tileheight="64" tilecount="16" columns="4">
+ <tileset firstgid="1382" name="0_tatry_dolina_koscieliska_las_nw" tilewidth="64" tileheight="64" tilecount="16" columns="4">
   <image source="0_tatry_dolina_koscieliska_las_nw.png" width="256" height="256"/>
  </tileset>
- <tileset firstgid="1414" name="0_tatry_dolina_koscieliska_las_sw" tilewidth="64" tileheight="64" tilecount="16" columns="4">
+ <tileset firstgid="1398" name="0_tatry_dolina_koscieliska_las_sw" tilewidth="64" tileheight="64" tilecount="16" columns="4">
   <image source="0_tatry_dolina_koscieliska_las_sw.png" width="256" height="256"/>
  </tileset>
- <tileset firstgid="1430" name="0_tatry_dolina_koscieliska_las_w" tilewidth="64" tileheight="64" tilecount="16" columns="4">
+ <tileset firstgid="1414" name="0_tatry_dolina_koscieliska_las_w" tilewidth="64" tileheight="64" tilecount="16" columns="4">
   <image source="0_tatry_dolina_koscieliska_las_w.png" width="256" height="256"/>
  </tileset>
- <tileset firstgid="1446" name="logopol_pra" tilewidth="64" tileheight="64" tilecount="384" columns="32">
+ <tileset firstgid="1430" name="logopol_pra" tilewidth="64" tileheight="64" tilecount="384" columns="32">
   <image source="logopol_pra.png" width="2048" height="768"/>
  </tileset>
- <tileset firstgid="1830" name="0_tatry_dolina_mietusia" tilewidth="64" tileheight="64" tilecount="16" columns="4">
+ <tileset firstgid="1814" name="0_tatry_dolina_mietusia" tilewidth="64" tileheight="64" tilecount="16" columns="4">
   <image source="0_tatry_dolina_mietusia.png" width="256" height="256"/>
  </tileset>
- <tileset firstgid="1846" name="0_tatry_dolina_rybiego_potoku_s" tilewidth="64" tileheight="64" tilecount="16" columns="4">
+ <tileset firstgid="1830" name="0_tatry_dolina_rybiego_potoku_s" tilewidth="64" tileheight="64" tilecount="16" columns="4">
   <image source="0_tatry_dolina_rybiego_potoku_s.png" width="256" height="256"/>
+ </tileset>
+ <tileset firstgid="1846" name="0_tatry_dolina_malej_laki" tilewidth="64" tileheight="64" tilecount="16" columns="4">
+  <image source="0_tatry_dolina_malej_laki.png" width="256" height="256"/>
  </tileset>
  <layer name="Sub 7" width="52" height="67">
   <data encoding="base64" compression="zlib">
@@ -340,7 +343,7 @@
  </layer>
  <layer name="Floor" width="52" height="67">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer name="Sky 1" width="52" height="67" visible="0">
