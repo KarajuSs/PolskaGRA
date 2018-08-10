@@ -1495,6 +1495,26 @@ public class Player extends RPEntity implements UseListener {
 	public void setSharedKill(final String name) {
 		killRec.setSharedKill(name);
 	}
+	
+	/**
+	 * Changes solo kills count to specified value.
+	 *
+	 * @param name name of killed entity
+	 * @param count value to set
+	 */
+	public void setSoloKillCount(final String name, final int count) {
+		killRec.setSoloKillCount(name, count);
+	}
+	
+ 	/**
+	 * Changes shared kills count to specified value.
+	 *
+	 * @param name name of killed entity
+	 * @param count value to set
+	 */
+	public void setSharedKillCount(final String name, final int count) {
+		killRec.setSharedKillCount(name, count);
+	}
 
 	/**
 	 * Returns how much the player has killed 'name' solo.
