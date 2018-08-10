@@ -246,7 +246,7 @@ public class KillMonks extends AbstractQuest {
 		int remainingMonks = killsCounter.remainingKills(player, "mnich");
 		int remainingDarkMonks = killsCounter.remainingKills(player, "mnich ciemności");
 		if (remainingMonks > 0 && remainingDarkMonks > 0) {
-			return "Wciąż muszę zabić " + Grammar.quantityplnoun(remainingMonks, "mnich")  + " and " + Grammar.quantityplnoun(remainingDarkMonks, "mnich ciemności") + ".";
+			return "Wciąż muszę zabić " + Grammar.quantityplnoun(remainingMonks, "mnich")  + " i " + Grammar.quantityplnoun(remainingDarkMonks, "mnich ciemności") + ".";
 		} else if (remainingMonks > 0) {
 			return "Wciąż muszę zabić " + Grammar.quantityplnoun(remainingMonks, "mnich") + ".";
 		} else if (remainingDarkMonks > 0) {
