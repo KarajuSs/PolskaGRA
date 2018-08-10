@@ -33,11 +33,15 @@ public class QuestAchievementFactory extends AbstractAchievementFactory {
 	public Collection<Achievement> createAchievements() {
 		List<Achievement> questAchievements = new LinkedList<Achievement>();
 
-		//elf princess quest achievement
+		// Elf Princess quest achievement
 		questAchievements.add(createAchievement("quest.special.elf_princess.0025", "Kasanowa Faiumoni", "Ukończył zadanie u księżniczki elfów 25 razy", 
-												Achievement.MEDIUM_BASE_SCORE, true, new QuestStateGreaterThanCondition("elf_princess", 2, 24)));
+				Achievement.MEDIUM_BASE_SCORE, true, new QuestStateGreaterThanCondition("elf_princess", 2, 24)));
+		
+		// Kill Monks quest achievement
+		questAchievements.add(createAchievement("quest.special.kill_monks.0050", "Heretyk", "Ukończ zadanie 'Zabij Mnichów' 50 razy",
+				Achievement.MEDIUM_BASE_SCORE, true, new QuestStateGreaterThanCondition("kill_monks", 2, 49)));
 
-		//Maze
+		// Maze
 		questAchievements.add(createAchievement("quest.special.maze", "Kierunkowskaz", "Ukończył labirynt", 
 				Achievement.EASY_BASE_SCORE, true, new QuestStateGreaterThanCondition("maze", 2, 0)));
 		questAchievements.add(createAchievement("quest.deathmatch", "Bohater Deathmatcha", "Zdobył 100,000 punktów na deathmatchu",
