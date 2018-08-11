@@ -68,12 +68,12 @@
 	</zone>
 
 	<!-- kasprowy_wierch -->
-	<!-- <zone name="0_tatry_kasprowy_wierch" level="0" x="513440" y="18944" file="Level 0/tatry/kasprowy_wierch.tmx">
+	<zone name="0_tatry_kasprowy_wierch" level="0" x="513440" y="18944" file="Level 0/tatry/kasprowy_wierch.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=-2)</parameter>
 		</attributes>
-	</zone>-->
+	</zone>
 	
 	<!-- kuznice -->
 	<!-- <zone name="0_tatry_kuznice" level="0" x="513440" y="18944" file="Level 0/tatry/kuznice.tmx">
