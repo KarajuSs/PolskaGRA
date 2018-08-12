@@ -21,24 +21,19 @@ import games.stendhal.server.entity.player.Player;
 import java.util.Map;
 
 /**
- * A present which can be unwrapped.
- * 
- * @author kymara
+ * Brazowa skrzynia
+ *
+ * @author KarajuSs
  */
 public class BrazowaSkrzynia extends Box {
 
-	private static final String[] ITEMS = { "wielki eliksir", "wielki eliksir", "wielki eliksir", "wielki eliksir", "wielki eliksir", "wielki eliksir", "wielki eliksir", "wielki eliksir", "wielki eliksir", "wielki eliksir", 
-										"gigantyczny eliksir", "gigantyczny eliksir", "gigantyczny eliksir", "gigantyczny eliksir", "gigantyczny eliksir", "złota kolczuga", "złota kolczuga", "złota kolczuga", "złota kolczuga", 
-										"złota kolczuga", "kamienna zbroja", "spodnie kamienne", "futro", "futro", "futro", "futro", "futro", "futro", "zwój tatrzański", "zwój tatrzański", "zwój tatrzański", "zwój tatrzański", 
-										"zwój tatrzański", "zwój tatrzański", "zwój tatrzański", "zwój tatrzański", "zwój tatrzański", "zwój tatrzański", "skóra zielonego smoka", "skóra niebieskiego smoka", "maczuga", "maczuga", 
-										"maczuga", "maczuga", "maczuga", "maczuga", "maczuga", "maczuga", "maczuga", "maczuga", "korale", "korale", "korale", "korale", "skórzane rękawice", "skórzane rękawice", "skórzane rękawice", 
-										"skórzane rękawice", "buteleczka wody", "buteleczka wody", "buteleczka wody", "buteleczka wody", "buteleczka wody", "buteleczka wody", "buteleczka wody", "buteleczka wody", "buteleczka wody", 
-										"buteleczka wody", "buteleczka wody", "buteleczka wody", "jabłko niezgody", "jabłko niezgody", "jabłko niezgody", "kanapka", "kanapka", "kanapka", "kanapka", "kanapka", "kanapka", "kanapka", 
-										"kanapka", "money", "money", "money", "money", "money", "money", "money", "money", "money", "money", "money", "money", "money", "money", "money", "money", "money", "money", "sztylet mroku" };
+	private static final String[] items = { "money", "wielki eliksir", "gigantyczny eliksir",
+			"złota kolczuga", "kamienna zbroja", "spodnie kamienne", "futro", "skóra zielonego smoka",
+			"skóra niebieskiego smoka", "maczuga", "korale", "skórzane rękawice", "sztylet mroku", "ciupaga" };
 
 	/**
 	 * Creates a new present.
-	 * 
+	 *
 	 * @param name
 	 * @param clazz
 	 * @param subclass
@@ -47,21 +42,11 @@ public class BrazowaSkrzynia extends Box {
 	public BrazowaSkrzynia(final String name, final String clazz, final String subclass,
 			final Map<String, String> attributes) {
 		super(name, clazz, subclass, attributes);
-
-		setContent(ITEMS[Rand.rand(ITEMS.length)]);
-	}
-
-	/**
-	 * Sets content.
-	 * @param type of item to be produced.
-	 */
-	public void setContent(final String type) {
-		setInfoString(type);
 	}
 
 	/**
 	 * Copy constructor.
-	 * 
+	 *
 	 * @param item
 	 *            item to copy
 	 */
@@ -73,13 +58,20 @@ public class BrazowaSkrzynia extends Box {
 	protected boolean useMe(final Player player) {
 		this.removeOne();
 
-		final String itemName = getInfoString();
+		final String itemName = items[Rand.rand(items.length)];
 		final Item item = SingletonRepository.getEntityManager().getItem(itemName);
-		player.sendPrivateText("Gratulacje dostałeś " 
-				+ Grammar.a_noun(ItemTools.itemNameToDisplayName(itemName)));
+		if (itemName.equals(itemName)) {
+			/*
+			 * Bound powerful items.
+			 */
+			item.setBoundTo(player.getName());
+		}
 
 		player.equipOrPutOnGround(item);
+		player.incObtainedForItem(item.getName(), item.getQuantity());
 		player.notifyWorldAboutChanges();
+		player.sendPrivateText("Gratulacje! Ze skrzynki otrzymałeś &'"
+				+ Grammar.a_noun(ItemTools.itemNameToDisplayName(itemName) + "'!"));
 
 		return true;
 	}
