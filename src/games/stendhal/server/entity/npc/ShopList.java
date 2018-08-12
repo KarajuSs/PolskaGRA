@@ -579,8 +579,8 @@ public final class ShopList {
 		//Wielkolud kupuje
 		shops.add("buyrareitems", "kierpce", 100);
 		shops.add("buyrareitems", "chusta góralska", 200);
-		shops.add("buyrareitems", "cuha góralska", 200);
-		shops.add("buyrareitems", "góralska kiecka", 200);
+		shops.add("buyrareitems", "cuha góralska", 2000);
+		shops.add("buyrareitems", "góralska spódnica", 200);
 		shops.add("buyrareitems", "góralski gorset", 300);
 		shops.add("buyrareitems", "góralski kapelusz", 300);
 		shops.add("buyrareitems", "portki bukowe", 300);
