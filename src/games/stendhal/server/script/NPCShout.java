@@ -35,7 +35,7 @@ public class NPCShout extends ScriptImpl {
 		} else {
 			final StringBuilder sb = new StringBuilder();
 			sb.append(args.get(0));
-			sb.append(" shouts: ");
+			sb.append(" krzyczy: ");
 			boolean first = true;
 			for (final String word : args) {
 				if (first) {

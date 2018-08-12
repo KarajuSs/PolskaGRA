@@ -35,7 +35,7 @@ public class NPCShoutZone extends ScriptImpl {
 		} else {
 			final StringBuilder sb = new StringBuilder();
 			sb.append(args.get(0));
-			sb.append(" shouts ");
+			sb.append(" krzyczy ");
 
 			StendhalRPZone targetZone;
 			String targetZoneName = args.get(1);
