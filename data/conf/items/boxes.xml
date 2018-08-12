@@ -80,13 +80,12 @@
 			<slot name="ground"/>
 			<slot name="content"/>
 			<slot name="bag"/>
-			<slot name="trade"/>
 		</equipable>
 	</item>
 	
 	<item name="srebrna skrzynia">
 		<type class="box" subclass="srebrna_skrzynia" tileid="-1"/>
-		<description>Widzisz skrzynkę. Otwórz ją.</description>
+		<description>Widzisz srebrną skrzynkę. Otwórz ją.</description>
 		<implementation class-name="games.stendhal.server.entity.item.SrebrnaSkrzynia"/>
 		<attributes>
 			<quantity value="1"/>
@@ -98,13 +97,12 @@
 			<slot name="ground"/>
 			<slot name="content"/>
 			<slot name="bag"/>
-			<slot name="trade"/>
 		</equipable>
 	</item>
 	
 	<item name="złota skrzynia">
 		<type class="box" subclass="zlota_skrzynia" tileid="-1"/>
-		<description>Widzisz skrzynkę. Otwórz ją.</description>
+		<description>Widzisz złotą skrzynkę. Otwórz ją.</description>
 		<implementation class-name="games.stendhal.server.entity.item.ZlotaSkrzynia"/>
 		<attributes>
 			<quantity value="1"/>
@@ -116,7 +114,6 @@
 			<slot name="ground"/>
 			<slot name="content"/>
 			<slot name="bag"/>
-			<slot name="trade"/>
 		</equipable>
 	</item>
 </items>
