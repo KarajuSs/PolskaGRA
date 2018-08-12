@@ -158,7 +158,7 @@
 
 	<target name = "postman">
 		<mkdir dir="${buildroot}/buildbot"/>
-		<javac srcdir="${src}" destdir="${buildroot}/buildbot" debug="${javac.debug}" debuglevel="${javac.debuglevel}" source="1.7" target="1.7" deprecation="${javac.deprecation}" includeantruntime="false">
+		<javac srcdir="${src}" destdir="${buildroot}/buildbot" debug="${javac.debug}" debuglevel="${javac.debuglevel}" source="1.8" target="1.8" deprecation="${javac.deprecation}" includeantruntime="false">
 			<include name="games/stendhal/bot/postman/*.java"/>
 			<include name="games/stendhal/bot/package-info.java"/>
 			<include name="games/stendhal/bot/shouter/*.java"/>
@@ -203,7 +203,7 @@
 			</fileset>
 		</copy>
 
-		<javac srcdir="${src}" destdir="${build_server}" debug="${javac.debug}" debuglevel="${javac.debuglevel}" source="1.7" target="1.7" deprecation="${javac.deprecation}" includeantruntime="false">
+		<javac srcdir="${src}" destdir="${build_server}" debug="${javac.debug}" debuglevel="${javac.debuglevel}" source="1.8" target="1.8" deprecation="${javac.deprecation}" includeantruntime="false">
 			<include name="games/stendhal/common/*.java"/>
 			<include name="games/stendhal/common/**/*.java"/>
 
@@ -241,7 +241,7 @@
 
 		<mkdir dir="${build_server_maps}"/>
 
-		<javac srcdir="${src}" destdir="${build_server_maps}" debug="${javac.debug}" debuglevel="${javac.debuglevel}" source="1.7" target="1.7" deprecation="${javac.deprecation}" includeantruntime="false">
+		<javac srcdir="${src}" destdir="${build_server_maps}" debug="${javac.debug}" debuglevel="${javac.debuglevel}" source="1.8" target="1.8" deprecation="${javac.deprecation}" includeantruntime="false">
 			<include name="games/stendhal/server/maps/*.java"/>
 			<exclude name="games/stendhal/server/maps/ZoneConfigurator.java"/>
 			<include name="games/stendhal/server/maps/**/*.java"/>
@@ -293,7 +293,7 @@
 
 		<mkdir dir="${build_server_script}"/>
 
-		<javac srcdir="${src}" destdir="${build_server_script}" debug="${javac.debug}" debuglevel="${javac.debuglevel}"  source="1.7" target="1.7" deprecation="${javac.deprecation}" includeantruntime="false">
+		<javac srcdir="${src}" destdir="${build_server_script}" debug="${javac.debug}" debuglevel="${javac.debuglevel}"  source="1.8" target="1.8" deprecation="${javac.deprecation}" includeantruntime="false">
 			<include name="games/stendhal/server/script/*.java"/>
 
 			<compilerarg value="-encoding"/>
@@ -403,7 +403,7 @@
 			public static String getBuildNumber() {return BUILD_NUMBER;}
 			}
 		</echo>
-		<javac srcdir="${src}" destdir="${build_client}" debug="${javac.debug}" debuglevel="${javac.debuglevel}" source="1.7" target="1.7" deprecation="${javac.deprecation}" includeantruntime="false">
+		<javac srcdir="${src}" destdir="${build_client}" debug="${javac.debug}" debuglevel="${javac.debuglevel}" source="1.8" target="1.8" deprecation="${javac.deprecation}" includeantruntime="false">
 			<include name="games/stendhal/client/*.java"/>
 			<include name="games/stendhal/client/**/*.java"/>
 			<exclude name="games/stendhal/client/update/Starter.java"/>
@@ -734,7 +734,7 @@
 	<target name="compile_polskagratools" description="compiles the polskagra build tools">
 		<mkdir dir="${build_polskagratools}"/>
 
-		<javac srcdir="${src}" destdir="${build_polskagratools}" source="1.7" target="1.7" debug="${javac.debug}" debuglevel="${javac.debuglevel}" deprecation="${javac.deprecation}" includeantruntime="true">
+		<javac srcdir="${src}" destdir="${build_polskagratools}" source="1.8" target="1.8" debug="${javac.debug}" debuglevel="${javac.debuglevel}" deprecation="${javac.deprecation}" includeantruntime="true">
 			<include name="games/stendhal/tools/**/*.java"/>
 			<include name="games/stendhal/tools/*.java"/>
 			<compilerarg value="-encoding"/>
@@ -756,7 +756,7 @@
 	<target name="compile_polskagratextclient" description="compiles the stendhal text client ">
 		<mkdir dir="${build_polskagratextclient}"/>
 
-		<javac srcdir="${src}" destdir="${build_polskagratextclient}" source="1.7" target="1.7" debug="${javac.debug}" debuglevel="${javac.debuglevel}" deprecation="${javac.deprecation}" includeantruntime="false">
+		<javac srcdir="${src}" destdir="${build_polskagratextclient}" source="1.8" target="1.8" debug="${javac.debug}" debuglevel="${javac.debuglevel}" deprecation="${javac.deprecation}" includeantruntime="false">
 			<include name="games/stendhal/bot/textclient/*.java"/>
 			<compilerarg value="-encoding"/>
 			<compilerarg value="utf-8"/>
@@ -935,7 +935,7 @@
 			</fileset>
 		</copy>
 
-		<javac srcdir="tests" destdir="${build_tests}" debug="${javac.debug}" debuglevel="${javac.debuglevel}" source="1.7" target="1.7" deprecation="${javac.deprecation}" includeantruntime="false">
+		<javac srcdir="tests" destdir="${build_tests}" debug="${javac.debug}" debuglevel="${javac.debuglevel}" source="1.8" target="1.8" deprecation="${javac.deprecation}" includeantruntime="false">
 			<include name="**/*.java"/>
 
 			<compilerarg value="-encoding"/>
