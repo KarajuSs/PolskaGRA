@@ -190,7 +190,9 @@
 			<item value="miecz lodowy" quantity="[1,1]" probability="1.0"/>
 			<item value="lodowa zbroja" quantity="[1,1]" probability="0.005"/>
 			<item value="sztabka mithrilu" quantity="[1,1]" probability="0.001"/>
+			<item value="pazur arktycznego smoka" quantity="[1,1]" probability="0.5"/>
 			<item value="kieł smoka" quantity="[1,1]" probability="10.5"/>
+			<item value="skóra arktycznego smoka" quantity="[1,1]" probability="5.0"/>
 		</drops>
 		<equips/>
 		<ai>
