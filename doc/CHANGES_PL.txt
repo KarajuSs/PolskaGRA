@@ -11,6 +11,10 @@
 - Dostosowano punkty doświadczenia zdobywane z potworków stendhala do potworów PolskaGRA
 
 
+*code*
+- Klient teraz będzie wymagał od nas Jave w wersji 1.8 zamiast 1.7
+
+
 *naprawa błędów*
 - Naprawiono błąd licznika, który nie pokazywał ile posiadamy w ekwipunku/skrzynce surowców typu 'kryształ ametystu' oraz magii
 - Naprawiono błąd, że nie można było atakować z magii i różdżki
