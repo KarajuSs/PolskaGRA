@@ -19,6 +19,7 @@
 - Naprawiono błąd licznika, który nie pokazywał ile posiadamy w ekwipunku/skrzynce surowców typu 'kryształ ametystu' oraz magii
 - Naprawiono błąd, że nie można było atakować z magii i różdżki
 - Naprawiono błąd przez który Wielkolud nie kupował polskiej płytowej tarczy
+- Naprawiono naliczanie ataku do statystyk gracza z rękawic lub pierścieni
 
 
 
