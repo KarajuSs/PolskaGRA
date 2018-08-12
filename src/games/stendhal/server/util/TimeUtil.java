@@ -47,23 +47,23 @@ public class TimeUtil {
 	 *            The number of seconds till/past (in positive values).
 	 */
 	public static void approxTimeUntil(final StringBuilder sbuf, final int seconds) {
-		if (approxUnit(sbuf, seconds, SECONDS_IN_WEEK, "week")) {
+		if (approxUnit(sbuf, seconds, SECONDS_IN_WEEK, "tydzień")) {
 			return;
 		}
 
-		if (approxUnit(sbuf, seconds, SECONDS_IN_DAY, "day")) {
+		if (approxUnit(sbuf, seconds, SECONDS_IN_DAY, "dzień")) {
 			return;
 		}
 
-		if (approxUnit(sbuf, seconds, SECONDS_IN_HOUR, "hour")) {
+		if (approxUnit(sbuf, seconds, SECONDS_IN_HOUR, "godzinę")) {
 			return;
 		}
 
-		if (approxUnit(sbuf, seconds, SECONDS_IN_MINUTE, "minute")) {
+		if (approxUnit(sbuf, seconds, SECONDS_IN_MINUTE, "minutę")) {
 			return;
 		}
 
-		sbuf.append("less than a minute");
+		sbuf.append("mniej niż minutę");
 	}
 
 	/**
@@ -97,19 +97,19 @@ public class TimeUtil {
 			sbuf.append(count);
 		} else if (remainder >= (size * 3 / 4)) {
 			count++;
-			sbuf.append("just under ");
+			sbuf.append("mniej niż ");
 			sbuf.append(count);
 		} else if (remainder >= (size * 1 / 4)) {
-			sbuf.append("about ");
+			sbuf.append("około ");
 			sbuf.append(count);
-			sbuf.append(" and a half");
+			sbuf.append(" i pół");
 
 			/*
 			 * Force plural context (e.g. "1 and a half moments")
 			 */
 			count = 2;
 		} else if (remainder >= (size * 5 / 100)) {
-			sbuf.append("just over ");
+			sbuf.append("ponad ");
 			sbuf.append(count);
 		} else {
 			sbuf.append(count);
@@ -212,7 +212,7 @@ public class TimeUtil {
 
 			sbuf.append(count);
 			sbuf.append(' ');
-			sbuf.append(Grammar.plnoun(count, "hour"));
+			sbuf.append(Grammar.plnoun(count, "godzinę")); // zmiana
 		}
 		count = seconds / SECONDS_IN_MINUTE;
 		if (count != 0) {
@@ -226,7 +226,7 @@ public class TimeUtil {
 
 			sbuf.append(count);
 			sbuf.append(' ');
-			sbuf.append(Grammar.plnoun(count, "minute"));
+			sbuf.append(Grammar.plnoun(count, "minutę"));
 		}
 
 		if (!appended || (forceSeconds && (seconds != 0))) {
@@ -236,7 +236,7 @@ public class TimeUtil {
 
 			sbuf.append(seconds);
 			sbuf.append(' ');
-			sbuf.append(Grammar.plnoun(count, "second"));
+			sbuf.append(Grammar.plnoun(count, "sekundę"));
 		}
 	}
 
