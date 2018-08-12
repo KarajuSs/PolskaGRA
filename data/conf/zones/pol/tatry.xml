@@ -102,12 +102,12 @@
 	</zone>
 
 	<!-- giewont_sw -->
-	<!-- <zone name="0_tatry_giewont_sw" level="0" x="513312" y="19072" file="Level 0/tatry/giewont_sw.tmx">
+	<zone name="0_tatry_giewont_sw" level="0" x="513312" y="19072" file="Level 0/tatry/giewont_sw.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=-2)</parameter>
 		</attributes>
-	</zone>-->
+	</zone>
 	
 	<!-- giewont_se -->
 	<!-- <zone name="0_tatry_giewont_se" level="0" x="513440" y="19072" file="Level 0/tatry/giewont_se.tmx">
