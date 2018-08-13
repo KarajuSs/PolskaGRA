@@ -93,7 +93,7 @@ public class User extends Player {
 		} else {
 			text = "Zostałeś oznaczony jako oddalony.";
 		}
-		ClientSingletonRepository.getUserInterface().addEventLine(new HeaderLessEventLine(text, NotificationType.INFORMATION));
+		notifyUser(text, NotificationType.INFORMATION);
 	}
 
 	/**
@@ -177,11 +177,26 @@ public class User extends Player {
 	@Override
 	public void onHealed(final int amount) {
 		super.onHealed(amount);
-		ClientSingletonRepository.getUserInterface().addEventLine(
-				new HeaderLessEventLine(
-						getTitle() + " heals "
-						+ Grammar.quantityplnoun(amount, "health point") + ".",
-						NotificationType.HEAL));
+		String pointDesc = Grammar.quantityplnoun(amount, "health point");
+			new HeaderLessEventLine(notifyUser(getTitle() + " heals " + pointDesc + ".", NotificationType.HEAL);
+					getTitle() + " heals "
+	}
+	
+	private void notifyUserAboutPlayerOnlineChanges(RPObject changes) {
+		if (getGender().equals("F")) {
+			notifyUserAboutPlayerStatus(changes, "offline", " opuściła PolskaGRA.");
+		} else notifyUserAboutPlayerStatus(changes, "offline", " opuścił PolskaGRA.");
+		} if (getGender().equals("F")) {
+			notifyUserAboutPlayerStatus(changes, "online", " zawitała do PolskaGRA.");
+		} else notifyUserAboutPlayerStatus(changes, "online", " zawitał do PolskaGRA.");
+	}
+	
+	private void notifyUserAboutPlayerStatus(RPObject changes, String status, String messageEnd) {
+		if (changes.has(status)) {
+			String[] players = changes.get(status).split(",");
+			for (String playername : players) {
+				notifyUser(playername + messageEnd, NotificationType.INFORMATION);
+			}
 	}
 
 	/**
@@ -244,39 +259,7 @@ public class User extends Player {
 
 		// The first time we ignore it.
 		if (object != null) {
-			if (changes.has("offline")) {
-				final String[] players = changes.get("offline").split(",");
-				for (final String playername : players) {
-					if (getGender().equals("F")) {
-						ClientSingletonRepository.getUserInterface().addEventLine(
-							new HeaderLessEventLine(
-							playername + " opuściła PolskaGRA.",
-							NotificationType.INFORMATION));
-					} else {
-						ClientSingletonRepository.getUserInterface().addEventLine(
-							new HeaderLessEventLine(
-							playername + " opuścił PolskaGRA.",
-							NotificationType.INFORMATION));
-					}
-				}
-			}
-
-			if (changes.has("online")) {
-				final String[] players = changes.get("online").split(",");
-				for (final String playerName : players) {
-					if (getGender().equals("F")) {
-						ClientSingletonRepository.getUserInterface().addEventLine(
-								new HeaderLessEventLine(
-								playerName + " zawitała do PolskaGRA.",
-								NotificationType.INFORMATION));
-					} else {
-						ClientSingletonRepository.getUserInterface().addEventLine(
-								new HeaderLessEventLine(
-								playerName + " zawitał do PolskaGRA.",
-								NotificationType.INFORMATION));
-					}
-				}
-			}
+			notifyUserAboutPlayerOnlineChanges(changes);
 
 			if (changes.hasSlot("!ignore")) {
 				RPObject ign = changes.getSlot("!ignore").getFirst();
@@ -443,7 +426,7 @@ public class User extends Player {
 	 * @return true if this player is a group and it uses shared looting
 	 */
 	public static boolean isGroupSharingLoot() {
-		return groupLootmode != null && groupLootmode.equals("shared");
+		return "shared".equals(groupLootmode);
 	}
 
 	/**
