@@ -3546,7 +3546,27 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 				if (weaponItem.has("lifesteal")) {
 					sumLifesteal += weaponItem.getAttack()
 							* weaponItem.getDouble("lifesteal");
-				}
+					if (!hasGloves()) {
+						sumLifesteal += weaponItem.getAttack()
+								* weaponItem.getDouble("lifesteal");
+					} else if (getGloves().has("lifesteal")) {
+						sumLifesteal += weaponItem.getAttack()
+								* (weaponItem.getDouble("lifesteal") + getGloves().getDouble("lifesteal"));
+					} else if (!getGloves().has("lifesteal")) {
+						sumLifesteal += weaponItem.getAttack()
+								* weaponItem.getDouble("lifesteal");
+					}
+				} else if (!weaponItem.has("lifesteal")) {
+					sumLifesteal += 0;
+					if (!hasGloves()) {
+						sumLifesteal += 0;
+					} else if (getGloves().has("lifesteal")) {
+						sumLifesteal += weaponItem.getAttack()
+								* getGloves().getDouble("lifesteal");
+					} else if (!getGloves().has("lifesteal")) {
+						sumLifesteal += 0;
+					}
+				} else return;
 			}
 		}
 
