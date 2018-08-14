@@ -393,8 +393,13 @@ public class User extends Player {
 	@Override
 	public void onHealed(final int amount) {
 		super.onHealed(amount);
-		String pointDesc = Grammar.quantityplnoun(amount, "health point");
-		notifyUser(getTitle() + " heals " + pointDesc + ".", NotificationType.HEAL);
+		if (getGender().equals("F")) {
+			String pointDesc = Grammar.quantityplnoun(amount, "punkt") + " życia";
+			notifyUser(getTitle() + " odzyskała " + pointDesc + ".", NotificationType.HEAL);
+		} else {
+			String pointDesc = Grammar.quantityplnoun(amount, "punkt" + " życia");
+			notifyUser(getTitle() + " odzyskał " + pointDesc + ".", NotificationType.HEAL);
+		}
 	}
 	
 	private void notifyUser(String message, NotificationType type) {
