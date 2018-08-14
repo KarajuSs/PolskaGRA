@@ -63,7 +63,7 @@ public class HonoratNPC implements ZoneConfigurator {
 		};
 
 		npc.setDescription("Oto Ojciec Honorat. Jest mnichem i od lat zgłębia tajniki leczenia.");
-		npc.setEntityClass(""); // npcmanas
+		npc.setEntityClass("noimagenpc"); // npcmanas
 		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
 		npc.initHP(100);
 		zone.add(npc);

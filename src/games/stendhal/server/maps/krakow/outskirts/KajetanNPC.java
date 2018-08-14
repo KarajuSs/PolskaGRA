@@ -61,7 +61,7 @@ public class KajetanNPC implements ZoneConfigurator {
 		};
 
 		npc.setDescription("Oto Kajetan. Zajmuje się wypasaniem kóz.");
-		npc.setEntityClass(""); // pasterz
+		npc.setEntityClass("noimagenpc"); // pasterz
 		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
 		npc.initHP(100);
 		zone.add(npc);

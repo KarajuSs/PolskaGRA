@@ -61,7 +61,7 @@ public class TargonNPC implements ZoneConfigurator {
 		};
 
 		npc.setDescription("Oto Targon. Kupuje tylko w pełni wypasione owce i płaci za nie całkiem dobrze.");
-		npc.setEntityClass(""); // npctargon
+		npc.setEntityClass("noimagenpc"); // npctargon
 		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
 		npc.initHP(100);
 		zone.add(npc);

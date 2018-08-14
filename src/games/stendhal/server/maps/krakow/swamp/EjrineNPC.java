@@ -60,7 +60,7 @@ public class EjrineNPC implements ZoneConfigurator {
 		};
 
 		npc.setDescription("Oto Ejrine. Jest jedną z trzech sióstr czarownic. Trzyma się na wysokim wzgórzu, gdzie zwykli ludzie nie dotrzą.");
-		npc.setEntityClass(""); // npcdike
+		npc.setEntityClass("noimagenpc"); // npcdike
 		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
 		npc.initHP(100);
 		zone.add(npc);

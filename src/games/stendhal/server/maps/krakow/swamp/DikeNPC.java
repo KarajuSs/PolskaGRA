@@ -60,7 +60,7 @@ public class DikeNPC implements ZoneConfigurator {
 		};
 
 		npc.setDescription("Oto Dike. Jest jedną z trzech sióstr czarownic. Woli trzymać się z dala od ciekawskich ludzi.");
-		npc.setEntityClass(""); // npcdike
+		npc.setEntityClass("noimagenpc"); // npcdike
 		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
 		npc.initHP(100);
 		zone.add(npc);

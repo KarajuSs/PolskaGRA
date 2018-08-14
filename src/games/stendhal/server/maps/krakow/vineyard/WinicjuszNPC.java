@@ -66,7 +66,7 @@ public class WinicjuszNPC implements ZoneConfigurator {
 		};
 
 		npc.setDescription("Oto Winicjusz. Jest plantatorem i na pobliskim wzgórzu uprawia soczyste winogrona, z których potem produkuje się doskonałe wino.");
-		npc.setEntityClass(""); // npcwinicjusz
+		npc.setEntityClass("noimagenpc"); // npcwinicjusz
 		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
 		npc.initHP(100);
 		zone.add(npc);

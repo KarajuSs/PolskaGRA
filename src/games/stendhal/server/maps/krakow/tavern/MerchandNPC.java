@@ -70,7 +70,7 @@ public class MerchandNPC implements ZoneConfigurator {
 		};
 
 		npc.setDescription("Oto Merchand. Jest wędrownym handlarzem, który najczęściej lubi się zatrzymywać na dłużej w pokoiku gospody na Krakowskim Rynku.");
-		npc.setEntityClass(""); // npchandlarz
+		npc.setEntityClass("noimagenpc"); // npchandlarz
 		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
 		npc.initHP(100);
 		zone.add(npc);

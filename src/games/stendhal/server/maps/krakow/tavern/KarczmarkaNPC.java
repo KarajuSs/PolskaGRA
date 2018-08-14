@@ -63,7 +63,7 @@ public class KarczmarkaNPC implements ZoneConfigurator {
 		};
 
 		npc.setDescription("Oto babcia Alina, jest znana ze swojej wspaniałej kuchni domowej.");
-		npc.setEntityClass(""); // npcgrannyalina
+		npc.setEntityClass("noimagenpc"); // npcgrannyalina
 		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
 		npc.initHP(100);
 		zone.add(npc);

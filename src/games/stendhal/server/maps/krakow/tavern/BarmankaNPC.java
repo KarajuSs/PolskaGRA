@@ -66,7 +66,7 @@ public class BarmankaNPC implements ZoneConfigurator {
 		};
 
 		npc.setDescription("Oto śliczna Idris. Jest barmanką w gospodzie.");
-		npc.setEntityClass(""); // npcgrannyalina
+		npc.setEntityClass("noimagenpc"); // npcgrannyalina
 		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
 		npc.initHP(100);
 		zone.add(npc);

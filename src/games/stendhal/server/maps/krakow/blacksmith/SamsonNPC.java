@@ -68,7 +68,7 @@ public class SamsonNPC implements ZoneConfigurator {
 		};
 
 		npc.setDescription("Oto Samson. Jest miejscowym kowalem i specjalizuje się w przetapianiu miedzi. Dodatkowo prowadzi też sprzedaż potrzebnych do pracy narzędzi.");
-		npc.setEntityClass(""); // blackmisthnpc
+		npc.setEntityClass("noimagenpc"); // blackmisthnpc
 		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
 		npc.initHP(100);
 		zone.add(npc);

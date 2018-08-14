@@ -60,7 +60,7 @@ public class KingKrakNPC implements ZoneConfigurator {
 		};
 
 		npc.setDescription("Oto Król Krak. Wygląda już na starego ale na mądrego władcę, który rządzi całym państwem Polan ze swojego zamku na Wawelskim Wzgórzu.");
-		npc.setEntityClass(""); // kingnpc
+		npc.setEntityClass("noimagenpc"); // kingnpc
 		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
 		npc.initHP(100);
 		zone.add(npc);

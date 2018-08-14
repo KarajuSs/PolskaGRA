@@ -60,7 +60,7 @@ public class EudoraNPC implements ZoneConfigurator {
 		};
 
 		npc.setDescription("Oto Eudora. Jest jedną z trzech sióstr czarownic. Wygląda na zaciekawioną i chyba podziwia piękno przyrody.");
-		npc.setEntityClass(""); // npceudora
+		npc.setEntityClass("noimagenpc"); // npceudora
 		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
 		npc.initHP(100);
 		zone.add(npc);

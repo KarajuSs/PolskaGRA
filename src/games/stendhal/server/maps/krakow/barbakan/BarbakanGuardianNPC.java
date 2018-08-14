@@ -64,7 +64,7 @@ public class BarbakanGuardianNPC implements ZoneConfigurator {
 		};
 
 		npc.setDescription("Oto żołnierz Gwardii Królewskiej strzegący północnej bramy miasta i Barbakanu.");
-		npc.setEntityClass(""); // soldiernpc
+		npc.setEntityClass("noimagenpc"); // soldiernpc
 		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
 		npc.initHP(100);
 		zone.add(npc);

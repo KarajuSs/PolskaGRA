@@ -66,7 +66,7 @@ public class MrManasNPC implements ZoneConfigurator {
 		};
 
 		npc.setDescription("Oto Mr Manas. Kiedyś chciał zostać czarodziejem, jednak okazało się, że nie ma do tego talentu. Jednak nie przestał interesować się magią.");
-		npc.setEntityClass(""); // npcmanas
+		npc.setEntityClass("noimagenpc"); // npcmanas
 		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
 		npc.initHP(100);
 		zone.add(npc);

@@ -59,19 +59,19 @@ public class ZbyszkoNPC implements ZoneConfigurator {
 				addJob("Zajmuje się tą winnicą oraz produkujemy tutaj najwyższej jakości wino!");
 				addOffer("Mogę Tobie przygotować doskonałe wino jakie jeszcze nikt nie widział, jeżeli zdobędziesz dla mnie winogrona od #'brata'. Powiedz mi tylko #'zrób', a wykonam dla Ciebie to wino.");
 				addReply("brat", "Mój brat ma na imię Winicjusz.");
-				
+
 				final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
 				requiredResources.put("winogrona", 2);
 
 				final ProducerBehaviour behaviour = new ProducerBehaviour("zbyszko_make_vine",
 						Arrays.asList("make", "zrób"), "wino", requiredResources, 1 * 60);
-				
+
 				addGoodbye();
 			}
 		};
 
 		npc.setDescription("Oto Zbyszko. Jest bratem Winicjusza i może przygotować doskonałe wino dla Ciebie.");
-		npc.setEntityClass(""); // npczbyszko
+		npc.setEntityClass("noimagenpc"); // npczbyszko
 		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
 		npc.initHP(100);
 		zone.add(npc);

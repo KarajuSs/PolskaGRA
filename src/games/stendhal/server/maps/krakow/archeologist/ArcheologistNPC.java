@@ -61,7 +61,7 @@ public class ArcheologistNPC implements ZoneConfigurator {
 		};
 
 		npc.setDescription("Oto archeolog Amileusz ubrany w swój ulubiony stary szlafrok.");
-		npc.setEntityClass(""); // npcarchelogist
+		npc.setEntityClass("noimagenpc"); // npcarchelogist
 		npc.setPosition(x, y); // CHWILOWO BRAK POMIESZCZENIA
 		npc.initHP(100);
 		zone.add(npc);

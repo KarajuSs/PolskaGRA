@@ -61,7 +61,7 @@ public class TiborNPC implements ZoneConfigurator {
 		};
 
 		npc.setDescription("Oto Tibor. Od wielu lat pracuje jako krakowski bankier i jest w pełni godzien zaufania.");
-		npc.setEntityClass(""); // npctibor
+		npc.setEntityClass("noimagenpc"); // npctibor
 		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
 		npc.initHP(100);
 		zone.add(npc);
