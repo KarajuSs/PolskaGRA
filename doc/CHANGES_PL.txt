@@ -8,11 +8,16 @@
 *świat gry*
 - Dodano pogodę na mapach tatr
 - Pióro azazela można dropnąć z azazela
+- Pazur arktycznego smoka oraz skóra akrtycznego smoka można dropnąć ze smoka arktycznego
 - Dostosowano punkty doświadczenia zdobywane z potworków stendhala do potworów PolskaGRA
+- Dodano nowego NPC ze sklepem w zakopane
+- Dodano nowe zadanie związane z NPC ze sklepem w zakopane
 
 
 *code*
 - Klient teraz będzie wymagał od nas Jave w wersji 1.8 zamiast 1.7
+- Zmieniono nieco mnożnik DEF'a (na plus oczywiście)
+- Poprawiono 'jakość' chodzenia gracza oraz kodu gry
 
 
 *naprawa błędów*
