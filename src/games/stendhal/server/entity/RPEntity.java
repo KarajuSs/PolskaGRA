@@ -2966,6 +2966,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 		int glove = 0;
 		int ring = 0;
 		int ringb = 0;
+		int shield = 0;
 		final List<Item> weapons = getWeapons();
 		for (final Item weaponItem : weapons) {
 			weapon += weaponItem.getAttack();
@@ -2977,6 +2978,8 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 			ring += getRing().getAttack();
 		} if (hasRingB()) {
 			ringb += getRingB().getAttack();
+		} if (hasShield()) {
+			shield += getShield().getAttack();
 		}
 
 		// range weapons
@@ -3004,7 +3007,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 			}
 		}
 
-		return weapon + glove + ring +  ringb;
+		return weapon + glove + ring +  ringb + shield;
 	}
 
 	public float getItemDef() {
