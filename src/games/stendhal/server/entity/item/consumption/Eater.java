@@ -75,7 +75,7 @@ class Eater implements Feeder {
 		EatStatus status = new EatStatus(splitOff.getAmount(), splitOff.getFrecuency(), splitOff.getRegen());
 		player.getStatusList().inflictStatus(status, splitOff);
 
-		List<String> alcoholicDrinks = Arrays.asList("piwo", "napój z oliwką", "wino", "mocna nalewka litworowa", "leżakowana nalewka litworowa");
+		List<String> alcoholicDrinks = Arrays.asList("sok z chmielu", "napój z oliwką", "wino", "mocna nalewka litworowa", "leżakowana nalewka litworowa");
 		if (alcoholicDrinks.contains(item.getName())) {
 			DrunkStatus drunkStatus = new DrunkStatus();
 			player.getStatusList().inflictStatus(drunkStatus, item);
