@@ -1588,6 +1588,18 @@ public class Player extends RPEntity implements UseListener {
 		final String textksiaze = "Oto książe " + getTitle() + ".\n" + getTitle()
 				+ " posiada poziom " + getLevel() + ". Wiek " + time
 				+ ".";
+		final String texttutor = "Oto #Tutor " + getTitle() + ".\n" + getTitle()
+				+ " posiada poziom " + getLevel() + ". Wiek " + time
+				+ ".";
+		final String textgamemaster = "Oto #GameMaster " + getTitle() + ".\n" + getTitle()
+				+ " posiada poziom " + getLevel() + ". Wiek " + time
+				+ ".";
+		final String textgameadministrator = "Oto #GameAdministrator " + getTitle() + ".\n" + getTitle()
+				+ " posiada poziom " + getLevel() + ". Wiek " + time
+				+ ".";
+		final String textgamesupervisor = "Oto #GameSupervisor " + getTitle() + ".\n" + getTitle()
+				+ " posiada poziom " + getLevel() + ". Wiek " + time
+				+ ".";
 
 		/**
 		 * final String text = "Oto " + getTitle() + ".\n" + getTitle()
@@ -1596,30 +1608,40 @@ public class Player extends RPEntity implements UseListener {
 		 */
 
 		final StringBuilder sb = new StringBuilder();
-		if (getLevel() < 50) {
-			sb.append(textparobek);
-		} else if ((getLevel() >= 50) && (getLevel() < 100)){
-			sb.append(textchlop);
-		} else if ((getLevel() >= 100) && (getLevel() < 150)){
-			sb.append(textkmiec);
-		} else if ((getLevel() >= 150) && (getLevel() < 200)){
-			sb.append(textmieszczanin);
-		} else if ((getLevel() >= 200) && (getLevel() < 250)){
-			sb.append(textszlachcic);
-		} else if ((getLevel() >= 250) && (getLevel() < 300)){
-			sb.append(textrycerz);
-		} else if ((getLevel() >= 300) && (getLevel() < 350)){
-			sb.append(textbaronet);
-		} else if ((getLevel() >= 350) && (getLevel() < 400)){
-			sb.append(textbaron);
-		} else if ((getLevel() >= 400) && (getLevel() < 450)){
-			sb.append(textwicehrabia);
-		} else if ((getLevel() >= 450) && (getLevel() < 500)){
-			sb.append(texthrabia);
-		} else if ((getLevel() >= 500) && (getLevel() < 550)){
-			sb.append(textmagnat);
-		} else if ((getLevel() >= 550) && (getLevel() < 598)){
-			sb.append(textksiaze);
+		if (getAdminLevel() < 1) {
+			if (getLevel() < 50) {
+				sb.append(textparobek);
+			} else if ((getLevel() >= 50) && (getLevel() < 100)) {
+				sb.append(textchlop);
+			} else if ((getLevel() >= 100) && (getLevel() < 150)) {
+				sb.append(textkmiec);
+			} else if ((getLevel() >= 150) && (getLevel() < 200)) {
+				sb.append(textmieszczanin);
+			} else if ((getLevel() >= 200) && (getLevel() < 250)) {
+				sb.append(textszlachcic);
+			} else if ((getLevel() >= 250) && (getLevel() < 300)) {
+				sb.append(textrycerz);
+			} else if ((getLevel() >= 300) && (getLevel() < 350)) {
+				sb.append(textbaronet);
+			} else if ((getLevel() >= 350) && (getLevel() < 400)) {
+				sb.append(textbaron);
+			} else if ((getLevel() >= 400) && (getLevel() < 450)) {
+				sb.append(textwicehrabia);
+			} else if ((getLevel() >= 450) && (getLevel() < 500)) {
+				sb.append(texthrabia);
+			} else if ((getLevel() >= 500) && (getLevel() < 550)) {
+				sb.append(textmagnat);
+			} else if ((getLevel() >= 550) && (getLevel() < 598)) {
+				sb.append(textksiaze);
+			}
+		} else if ((getAdminLevel() >= 1) && (getAdminLevel() < 7)) {
+			sb.append(texttutor);
+		} else if ((getAdminLevel() >= 7) && (getAdminLevel() < 1000)) {
+			sb.append(textgamemaster);
+		} else if ((getAdminLevel() >= 1000) && (getAdminLevel() < 5000)) {
+			sb.append(textgameadministrator);
+		} else if ((getAdminLevel() == 5000)) {
+			sb.append(textgamesupervisor);
 		}
 
 		final String awayMessage = getAwayMessage();
