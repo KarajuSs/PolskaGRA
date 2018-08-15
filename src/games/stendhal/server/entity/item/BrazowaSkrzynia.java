@@ -26,9 +26,10 @@ import games.stendhal.server.entity.player.Player;
  */
 public class BrazowaSkrzynia extends Box {
 
-	private static final String[] items = { "money", "wielki eliksir", "gigantyczny eliksir",
-			"złota kolczuga", "kamienna zbroja", "spodnie kamienne", "futro", "skóra zielonego smoka",
-			"skóra niebieskiego smoka", "maczuga", "korale", "skórzane rękawice", "sztylet mroku", "ciupaga" };
+	private static final String[] items = { "money",  "money", "money", "money", "money", "duży eliksir", "duży eliksir", "duży eliksir", "duży eliksir",
+											"wielki eliksir", "wielki eliksir", "wielki eliksir", "gigantyczny eliksir", "gigantyczny eliksir", "maczuga",
+											"maczuga", "skóra zielonego smoka", "skóra niebieskiego smoka", "futro", "korale", "ciupaga", "spodnie kamienne",
+											"kamienna zbroja", "buty kamienne", "sztylet mroku", "kosa", "pyrlik", "skórzane rękawice", "złota kolczuga"};
 
 	/**
 	 * Creates a new present.
