@@ -12,13 +12,12 @@
  ***************************************************************************/
 package games.stendhal.server.entity.item;
 
-import games.stendhal.common.ItemTools;
+import java.util.Map;
+
 import games.stendhal.common.Rand;
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.entity.player.Player;
-
-import java.util.Map;
 
 /**
  * Brazowa skrzynia
@@ -42,6 +41,16 @@ public class BrazowaSkrzynia extends Box {
 	public BrazowaSkrzynia(final String name, final String clazz, final String subclass,
 			final Map<String, String> attributes) {
 		super(name, clazz, subclass, attributes);
+		
+		setContent(items[Rand.rand(items.length)]);
+	}
+	
+	/**
+	 * Sets content.
+	 * @param type of item to be produced.
+	 */
+	public void setContent(final String type) {
+		setInfoString(type);
 	}
 
 	/**
@@ -58,9 +67,20 @@ public class BrazowaSkrzynia extends Box {
 	protected boolean useMe(final Player player) {
 		this.removeOne();
 
-		final String itemName = items[Rand.rand(items.length)];
+		final String itemName = getInfoString();
 		final Item item = SingletonRepository.getEntityManager().getItem(itemName);
-		if (itemName.equals(itemName)) {
+		int amount = 1;
+		if (itemName.equals("wielki eliksir") || itemName.equals("gigantyczny eliksir")
+				|| itemName.equals("skóra zielonego smoka") || itemName.equals("skóra niebieskiego smoka")) {
+			amount = Rand.roll1D6();
+			((StackableItem) item).setQuantity(amount);
+		} else if (itemName.equals("money")) {
+			amount = Rand.roll1D100();
+			((StackableItem) item).setQuantity(amount);
+		}
+		if (itemName.equals(itemName) && !itemName.equals("money")
+				&& !itemName.equals("skóra zielonego smoka") && !itemName.equals("skóra niebieskiego smoka")
+				&& !itemName.equals("wielki eliksir") && !itemName.equals("gigantyczny eliksir")) {
 			/*
 			 * Bound powerful items.
 			 */
@@ -70,8 +90,8 @@ public class BrazowaSkrzynia extends Box {
 		player.equipOrPutOnGround(item);
 		player.incObtainedForItem(item.getName(), item.getQuantity());
 		player.notifyWorldAboutChanges();
-		player.sendPrivateText("Gratulacje! Ze skrzynki otrzymałeś &'"
-				+ Grammar.a_noun(ItemTools.itemNameToDisplayName(itemName) + "'!"));
+		player.sendPrivateText("Gratulacje! Ze skrzynki otrzymałeś #'"
+				+ Grammar.quantityplnoun(amount, itemName, "a")+ "'!");
 
 		return true;
 	}
