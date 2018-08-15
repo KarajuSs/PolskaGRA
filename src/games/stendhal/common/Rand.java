@@ -35,6 +35,10 @@ public class Rand {
 	public static int throwCoin() {
 		return rand.nextInt(2) + 1;
 	}
+	
+	public static int roll1D3() {
+		return rand.nextInt(3) + 1;
+	}
 
 	/**
 	 * Simulates rolling a dice with 6 sides.
@@ -62,7 +66,18 @@ public class Rand {
 	public static int roll1D100() {
 		return rand.nextInt(100) + 1;
 	}
-
+	
+	public static int roll1D200() {
+		return rand.nextInt(200) + 1;
+	}
+	
+	public static int roll1D1000() {
+		return rand.nextInt(1000) + 1;
+	}
+	
+	public static int roll1D2000() {
+		return rand.nextInt(2000) + 1;
+	}
 
 	/**
 	 * Generates an equally distributed random number between <i>a</i> and <i>b</i> inclusive
