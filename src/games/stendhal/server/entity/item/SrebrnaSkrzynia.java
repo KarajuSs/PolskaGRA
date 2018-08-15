@@ -12,13 +12,12 @@
  ***************************************************************************/
 package games.stendhal.server.entity.item;
 
-import games.stendhal.common.ItemTools;
+import java.util.Map;
+
 import games.stendhal.common.Rand;
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.entity.player.Player;
-
-import java.util.Map;
 
 /**
  * Srebrna skrzynia
@@ -28,9 +27,9 @@ import java.util.Map;
 public class SrebrnaSkrzynia extends Box {
 
 	private static final String[] items = { "money", "money", "money", "wielki eliksir", "wielki eliksir", "wielki eliksir", "gigantyczny eliksir", "gigantyczny eliksir",
-											"skóra zielonego smoka", "skóra niebieskiego smoka", "skóra czerwonego smoka", "skóra czarnego smoka", "korale", "lodowy miecz", 
-											"zbroja cieni", "rękawice cieni", "spodnie cieni", "buty cieni", "złote spodnie", "sztylet mroku", "ciupaga", 
-											"kamienne spodnie", "skórzane wzmocnione rękawice", "kamienna tarcza" };
+			"skóra zielonego smoka", "skóra niebieskiego smoka", "skóra czerwonego smoka", "skóra czarnego smoka", "korale", "lodowy miecz", 
+			"zbroja cieni", "rękawice cieni", "spodnie cieni", "buty cieni", "złote spodnie", "sztylet mroku", "ciupaga", 
+			"kamienne spodnie", "skórzane wzmocnione rękawice", "kamienna tarcza" };
 
 	/**
 	 * Creates a new present.
@@ -43,6 +42,16 @@ public class SrebrnaSkrzynia extends Box {
 	public SrebrnaSkrzynia(final String name, final String clazz, final String subclass,
 			final Map<String, String> attributes) {
 		super(name, clazz, subclass, attributes);
+		
+		setContent(items[Rand.rand(items.length)]);
+	}
+
+	/**
+	 * Sets content.
+	 * @param type of item to be produced.
+	 */
+	public void setContent(final String type) {
+		setInfoString(type);
 	}
 
 	/**
@@ -59,9 +68,22 @@ public class SrebrnaSkrzynia extends Box {
 	protected boolean useMe(final Player player) {
 		this.removeOne();
 
-		final String itemName = items[Rand.rand(items.length)];
+		final String itemName = getInfoString();
 		final Item item = SingletonRepository.getEntityManager().getItem(itemName);
-		if (itemName.equals(itemName)) {
+		int amount = 1;
+		if (itemName.equals("wielki eliksir") || itemName.equals("gigantyczny eliksir")
+				|| itemName.equals("skóra zielonego smoka") || itemName.equals("skóra niebieskiego smoka")
+				|| itemName.equals("skóra czerwonego smoka") || itemName.equals("skóra czarnego smoka")) {
+			amount = Rand.roll1D6();
+			((StackableItem) item).setQuantity(amount);
+		} else if (itemName.equals("money")) {
+			amount = Rand.roll1D1000();
+			((StackableItem) item).setQuantity(amount);
+		}
+		if (itemName.equals(itemName) && !itemName.equals("money")
+				&& !itemName.equals("skóra zielonego smoka") && !itemName.equals("skóra niebieskiego smoka")
+				&& !itemName.equals("skóra czerwonego smoka") && !itemName.equals("skóra czarnego smoka")
+				&& !itemName.equals("wielki eliksir") && !itemName.equals("gigantyczny eliksir")) {
 			/*
 			 * Bound powerful items.
 			 */
@@ -71,8 +93,8 @@ public class SrebrnaSkrzynia extends Box {
 		player.equipOrPutOnGround(item);
 		player.incObtainedForItem(item.getName(), item.getQuantity());
 		player.notifyWorldAboutChanges();
-		player.sendPrivateText("Gratulacje! Ze skrzynki otrzymałeś &'"
-				+ Grammar.a_noun(ItemTools.itemNameToDisplayName(itemName) + "'!"));
+		player.sendPrivateText("Gratulacje! Ze skrzynki otrzymałeś #'"
+				+ Grammar.quantityplnoun(amount, itemName, "a")+ "'!");
 
 		return true;
 	}

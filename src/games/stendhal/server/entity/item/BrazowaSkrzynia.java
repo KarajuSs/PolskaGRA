@@ -27,9 +27,9 @@ import games.stendhal.server.entity.player.Player;
 public class BrazowaSkrzynia extends Box {
 
 	private static final String[] items = { "money",  "money", "money", "money", "money", "duży eliksir", "duży eliksir", "duży eliksir", "duży eliksir",
-											"wielki eliksir", "wielki eliksir", "wielki eliksir", "gigantyczny eliksir", "gigantyczny eliksir", "maczuga",
-											"maczuga", "skóra zielonego smoka", "skóra niebieskiego smoka", "futro", "korale", "ciupaga", "spodnie kamienne",
-											"kamienna zbroja", "buty kamienne", "sztylet mroku", "kosa", "pyrlik", "skórzane rękawice", "złota kolczuga"};
+			"wielki eliksir", "wielki eliksir", "wielki eliksir", "gigantyczny eliksir", "gigantyczny eliksir", "maczuga",
+			"maczuga", "skóra zielonego smoka", "skóra niebieskiego smoka", "futro", "korale", "ciupaga", "spodnie kamienne",
+			"kamienna zbroja", "buty kamienne", "sztylet mroku", "kosa", "pyrlik", "skórzane rękawice", "złota kolczuga"};
 
 	/**
 	 * Creates a new present.
@@ -71,17 +71,19 @@ public class BrazowaSkrzynia extends Box {
 		final String itemName = getInfoString();
 		final Item item = SingletonRepository.getEntityManager().getItem(itemName);
 		int amount = 1;
-		if (itemName.equals("wielki eliksir") || itemName.equals("gigantyczny eliksir")
-				|| itemName.equals("skóra zielonego smoka") || itemName.equals("skóra niebieskiego smoka")) {
-			amount = Rand.roll1D6();
+		if (itemName.equals("duży eliksir") || itemName.equals("wielki eliksir") 
+				|| itemName.equals("gigantyczny eliksir") || itemName.equals("skóra zielonego smoka")
+				|| itemName.equals("skóra niebieskiego smoka")) {
+			amount = Rand.roll1D3();
 			((StackableItem) item).setQuantity(amount);
 		} else if (itemName.equals("money")) {
-			amount = Rand.roll1D100();
+			amount = Rand.roll1D200();
 			((StackableItem) item).setQuantity(amount);
 		}
 		if (itemName.equals(itemName) && !itemName.equals("money")
 				&& !itemName.equals("skóra zielonego smoka") && !itemName.equals("skóra niebieskiego smoka")
-				&& !itemName.equals("wielki eliksir") && !itemName.equals("gigantyczny eliksir")) {
+				&& !itemName.equals("wielki eliksir") && !itemName.equals("gigantyczny eliksir")
+				&& !itemName.equals("duży eliksir")) {
 			/*
 			 * Bound powerful items.
 			 */
