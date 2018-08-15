@@ -57,8 +57,8 @@ import java.util.List;
  * <li> Maerion checks your kills, takes the amulet and gives you a ring of life
  * as reward
  * </ul>
- * REWARD: <ul><li> emerald ring <li> 10000 XP
- * <li>10 karma in total</ul>
+ * REWARD: <ul><li> emerald ring <li> 100000 XP
+ * <li>30 karma in total</ul>
  * 
  * REPETITIONS: - None.
  */
@@ -175,8 +175,8 @@ public class KillDarkElves extends AbstractQuest {
 				, "Bardzo, bardzo dziękuję. Cieszę się z oddania amuletu. Weź ten pierścień. Może on odrodzić twe moce po śmierci.",
 				new MultipleActions(new DropItemAction("amulet"),
 						new EquipItemAction("pierścień szmaragdowy", 1, true),
-						new IncreaseXPAction(10000),
-						new IncreaseKarmaAction(5.0),
+						new IncreaseXPAction(100000),
+						new IncreaseKarmaAction(25.0),
 						new SetQuestAction(QUEST_SLOT, "done")));
 		
 		

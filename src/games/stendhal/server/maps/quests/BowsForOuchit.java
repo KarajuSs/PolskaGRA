@@ -53,10 +53,10 @@ import games.stendhal.server.maps.Region;
  *
  * REWARD:
  * <ul>
- * <li> 1 XP<li>
+ * <li> 1500 XP<li>
  * <li> Scale armor</li>
  * <li> Chain legs</li>
- * <li> Karma: 14<li>
+ * <li> Karma: 30<li>
  * </ul>
  *
  * REPETITIONS:
@@ -115,7 +115,7 @@ public class BowsForOuchit extends AbstractQuest {
 				new QuestNotStartedCondition(QUEST_SLOT),
 				ConversationStates.ATTENDING,
 				"Wspaniale! Jak wrócisz z nim powiedz #polano.",
-				new SetQuestAndModifyKarmaAction(QUEST_SLOT, "wood", 2.0));
+				new SetQuestAndModifyKarmaAction(QUEST_SLOT, "wood", 3.0));
 
 		/*
 		 * Player asks about wood.
@@ -241,9 +241,9 @@ ask for horse hair.
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
 		reward.add(new EquipItemAction("zbroja łuskowa", 1, true));
 		reward.add(new EquipItemAction("spodnie nabijane ćwiekami", 1, true));
-		reward.add(new IncreaseXPAction(500));
+		reward.add(new IncreaseXPAction(1500));
 		reward.add(new DropItemAction("koński włos"));
-		reward.add(new SetQuestAndModifyKarmaAction(QUEST_SLOT, "done", 10.0));
+		reward.add(new SetQuestAndModifyKarmaAction(QUEST_SLOT, "done", 25.0));
 		
 		/*
 		 * Player asks about horse hair, and has collected some - take it

@@ -64,7 +64,7 @@ import marauroa.common.Pair;
  * 
  * REPETITIONS:
  * <ul>
- * <li> not for players with red skull.
+ * <li> not for players with white skull.
  * <li> from 30 level.
  * <li> after 14 days.
  * </ul>

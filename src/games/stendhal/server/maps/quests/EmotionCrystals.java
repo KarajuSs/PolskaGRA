@@ -61,7 +61,7 @@ import java.util.List;
  *
  * REWARD:
  * <ul>
- * <li>2000 XP</li>
+ * <li>65000 XP</li>
  * <li>stone legs</li>
  * <li>Karma: 15</li>
  * </ul>
@@ -369,7 +369,7 @@ public class EmotionCrystals extends AbstractQuest {
 			rewardAction.add(new DropItemAction(color + " kryształ emocji"));
 		}
 		rewardAction.add(new EquipItemAction("spodnie kamienne", 1, true));
-		rewardAction.add(new IncreaseXPAction(2000));
+		rewardAction.add(new IncreaseXPAction(65000));
 		rewardAction.add(new IncreaseKarmaAction(15));
 		rewardAction.add(new SetQuestAction(QUEST_SLOT, 0, "done"));
 

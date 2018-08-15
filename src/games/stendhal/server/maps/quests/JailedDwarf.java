@@ -47,7 +47,7 @@ import java.util.List;
  * 
  * REWARD:
  * <ul>
- * <li> 2,000 XP </li>
+ * <li> 8,000 XP </li>
  * <li> some karma (20) </li>
  * <li> everlasting place to sell chaos equipment </li>
  * </ul>
@@ -90,7 +90,7 @@ public class JailedDwarf extends AbstractQuest {
 				ConversationStates.ATTENDING,
 				"Masz klucz, aby mnie wypuścić! *mamrocze*  Errrr ... nie wygląda, aby było tam dla mnie bezpiecznie ... Chyba zostanę tutaj ... może ktoś #zaoferuje mi dobry ekwipunek ... ",
 				new MultipleActions(new SetQuestAction(QUEST_SLOT, "done"),
-						 			 new IncreaseXPAction(2000),
+						 			 new IncreaseXPAction(8000),
 						 			 new IncreaseKarmaAction(20)));
 	}
 

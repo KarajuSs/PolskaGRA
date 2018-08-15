@@ -58,7 +58,7 @@ import java.util.List;
  * 
  * REWARD:
  * <ul>
- * <li> 50 XP </li>
+ * <li> 500 XP </li>
  * <li> some karma (5 + (2 | -2)) </li>
  * <li> between 10 and 20 <item>grain</item> </li>
  * </ul>
@@ -307,7 +307,7 @@ public class HelpWithTheHarvest extends AbstractQuest {
 	private ChatAction createReward() {
 		return new MultipleActions(
 					new IncreaseKarmaAction(5),
-					new IncreaseXPAction(50),
+					new IncreaseXPAction(500),
 					new EquipRandomAmountOfItemAction("zboże", 10, 20),
 					new SetQuestAction(QUEST_SLOT, "done"));	
 	}

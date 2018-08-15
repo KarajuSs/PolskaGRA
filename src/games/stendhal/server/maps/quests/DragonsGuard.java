@@ -84,7 +84,7 @@ public class DragonsGuard extends AbstractQuest implements LoginListener {
 	private static final int REQUIRED_MINUTES = 60 * 24 * 3;
 
 	// Cost to access chests
-	private static final int COST = 1000;
+	private static final int COST = 25000;
 
 	// "static" data
 	private StendhalRPZone zone = null;

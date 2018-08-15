@@ -63,7 +63,7 @@ import java.util.List;
  * REWARD:
  * <ul>
  * <li> golden shield</li>
- * <li> 15000 XP</li>
+ * <li> 80000 XP</li>
  * <li> Karma: 25</li>
  * </ul>
  * 
@@ -197,7 +197,7 @@ public class CloaksForBario extends AbstractQuest {
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
 		reward.add(new DropItemAction("lazurowy płaszcz elficki"));
 		reward.add(new EquipItemAction("złota tarcza", 1, true));
-		reward.add(new IncreaseXPAction(15000));
+		reward.add(new IncreaseXPAction(80000));
 		reward.add(new SetQuestAction(QUEST_SLOT, "done"));
 		reward.add(new IncreaseKarmaAction(25));
 		npc.add(ConversationStates.QUESTION_1,

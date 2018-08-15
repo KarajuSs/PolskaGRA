@@ -60,9 +60,9 @@ import java.util.Map;
  * 
  * REWARD:
  * <ul>
- * <li>50 XP</li>
+ * <li>500 XP</li>
  * <li>2 antidote</li>
- * <li>Karma: 10</li>
+ * <li>Karma: 15</li>
  * </ul>
  * 
  * REPETITIONS:
@@ -222,8 +222,8 @@ public class HerbsForCarmen extends AbstractQuest {
 		ChatAction completeAction = new  MultipleActions(
 				new SetQuestAction(QUEST_SLOT, "done"),
 				new SayTextAction("Wspaniale! Znów mogę leczyć czcigodnych wojowników bez opłat! Dziękuję. Przyjmij ode mnie podarek za swoją pracę."),
-				new IncreaseXPAction(50),
-				new IncreaseKarmaAction(5),
+				new IncreaseXPAction(500),
+				new IncreaseKarmaAction(15),
 				new EquipItemAction("mały eliksir", 5)
 				);
 

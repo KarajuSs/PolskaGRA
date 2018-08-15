@@ -170,7 +170,7 @@ public class ArmorForDagobert extends AbstractQuest {
 		reward.add(new EquipItemAction("money", 100));
 		reward.add(new IncreaseXPAction(500));
 		reward.add(new SetQuestAction(QUEST_SLOT, "done"));
-		reward.add(new IncreaseKarmaAction(10));
+		reward.add(new IncreaseKarmaAction(15));
 
 		final List<ChatAction> reward1 = new LinkedList<ChatAction>(reward);
 		reward1.add(new DropItemAction("skórzany kirys"));

@@ -132,7 +132,7 @@ public class HelpKrasnolud extends AbstractQuest {
 		armoractions.add(new DropItemAction("skóra czarnego smoka",20));
 		armoractions.add(new DropItemAction("skóra złotego smoka",3));
 		armoractions.add(new EquipItemAction("zbroja lazurowa"));
-		armoractions.add(new IncreaseXPAction(10000));
+		armoractions.add(new IncreaseXPAction(100000));
 		armoractions.add(new SetQuestAction(QUEST_SLOT, "gotarmor"));
 
 		// don't make player wait for potion - could add this in later if wanted
@@ -195,7 +195,7 @@ public class HelpKrasnolud extends AbstractQuest {
 		final List<ChatAction> tookarmoractions = new LinkedList<ChatAction>();
 		tookarmoractions.add(new DropItemAction("zbroja lazurowa"));
 		tookarmoractions.add(new IncreaseKarmaAction(100.0));
-		tookarmoractions.add(new IncreaseXPAction(10000));
+		tookarmoractions.add(new IncreaseXPAction(100000));
 		tookarmoractions.add(new SetQuestAction(QUEST_SLOT, "dragon"));
 
 		npc.add(ConversationStates.ATTENDING, questTrigger,
@@ -260,7 +260,7 @@ public class HelpKrasnolud extends AbstractQuest {
 							player.removePet(pet);
 							npc.say("Przyprowadziłeś małego smoka! Będzie z niego pyszny gulasz! Gulasz z małego smoka to moja specjalność. Wróć tu za dwa dni, a otrzymasz za te #zadanie nagrodę.");
 							player.addKarma(5.0);
-							player.addXP(500);
+							player.addXP(50000);
 							pet.delayedDamage(pet.getHP(), "Krasnolud");
 							player.setQuest(QUEST_SLOT,"reward;"+System.currentTimeMillis());
 							player.notifyWorldAboutChanges();

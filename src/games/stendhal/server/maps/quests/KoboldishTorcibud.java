@@ -76,7 +76,7 @@ import org.apache.log4j.Logger;
  * REWARD:
  * <ul>
  * <li> healing V.S.O.P. Koboldish Torcibud
- * <li> 500 XP
+ * <li> 1750 XP
  * <li> some karma (20 + (20 | -20))
  * </ul>
  * <p>
@@ -108,7 +108,7 @@ public class KoboldishTorcibud extends AbstractQuest {
     private static final int MAX_DELAY = 6 * MathHelper.MINUTES_IN_ONE_DAY;
 
     // how much XP is given as the reward
-    private static final int XP_REWARD = 500;
+    private static final int XP_REWARD = 1750;
 
     // a template of the items that wrviliza will ask for the quest,
     // it is only used to initialize the triggers in phase_2.
