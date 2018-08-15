@@ -42,7 +42,7 @@
 	</zone>
 
 	<!-- dolina_strazyska -->
-	<zone name="0_tatry_dolina_strazyska" level="0" x="513440" y="18816" file="Level 0/tatry/dolina_strazyska_n.tmx">
+	<zone name="0_tatry_dolina_strazyska" level="0" x="513440" y="18816" file="Level 0/tatry/dolina_strazyska.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=-2)</parameter>
