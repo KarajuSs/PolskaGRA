@@ -27,10 +27,10 @@ import java.util.Map;
  */
 public class SrebrnaSkrzynia extends Box {
 
-	private static final String[] items = { "money", "wielki eliksir", "gigantyczny eliksir",
-			"miecz lodowy", "rękawice cieni", "spodnie kamienne", "skóra czerwonego smoka", "skóra zielonego smoka",
-			"skóra niebieskiego smoka", "skóra czarnego smoka", "korale", "zbroja cieni", "skórzane wzmocnione rękawice",
-			"złote spodnie", "sztylet mroku", "ciupaga" };
+	private static final String[] items = { "money", "money", "money", "wielki eliksir", "wielki eliksir", "wielki eliksir", "gigantyczny eliksir", "gigantyczny eliksir",
+											"skóra zielonego smoka", "skóra niebieskiego smoka", "skóra czerwonego smoka", "skóra czarnego smoka", "korale", "lodowy miecz", 
+											"zbroja cieni", "rękawice cieni", "spodnie cieni", "buty cieni", "złote spodnie", "sztylet mroku", "ciupaga", 
+											"kamienne spodnie", "skórzane wzmocnione rękawice", "kamienna tarcza" };
 
 	/**
 	 * Creates a new present.
