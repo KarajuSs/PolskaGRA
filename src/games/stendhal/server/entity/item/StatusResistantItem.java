@@ -343,18 +343,16 @@ public class StatusResistantItem extends SlotActivatedItem {
 				if (statusType.substring(nameLength - 2).equals("ed")) {
 					statusType = statusType.substring(0, nameLength - 2);
 				}
-				statusType = statusType.substring(0, 1).toUpperCase() +
-						statusType.substring(1);
-				res.append(" ");
+				res.append("Odporny na ");
 				res.append(statusType);
-				res.append(" resist: ");
+				res.append(": ");
 				res.append(Math.round(100 * entry.getValue()));
 				res.append("%");
 			}
 		}
 
 		if (res.length() > 0) {
-			description = description + " Resistances (" + res.toString().trim() + ").";
+			description = description + " Parametry (" + res.toString().trim() + ").";
 		}
 
 		return description;
