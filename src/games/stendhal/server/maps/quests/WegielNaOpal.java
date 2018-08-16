@@ -93,18 +93,18 @@ public class WegielNaOpal extends AbstractQuest {
 			null);
 
 		npc.add(ConversationStates.ATTENDING,
-			Arrays.asList("zlecenie", "zadanie", "task", "quest", "order"), 
+			Arrays.asList("zlecenie", "zadanie", "task", "quest", "order"),
 			new AndCondition(new QuestNotStartedCondition(QUEST_SLOT),
 					 new OrCondition(new QuestNotCompletedCondition(ADAS_QUEST_SLOT))),
-			ConversationStates.ATTENDING, 
+			ConversationStates.ATTENDING,
 			"Zanim zabierzesz się za moje zadanie udowodnij, że mogę Tobie ufać! Pomóż pierw małemu chłopcowi o imieniu Adaś.",
 			null);
 
 		npc.add(ConversationStates.ATTENDING,
-			Arrays.asList("zlecenie", "zadanie", "task", "quest", "order"), 
+			Arrays.asList("zlecenie", "zadanie", "task", "quest", "order"),
 			new AndCondition(new QuestNotStartedCondition(QUEST_SLOT),
 					 new OrCondition(new QuestNotCompletedCondition(FRYDERYK_QUEST_SLOT))),
-			ConversationStates.ATTENDING, 
+			ConversationStates.ATTENDING,
 			"Jeszcze nie tak prędko! Pomóż jeszcze Fryderykowi, a wtedy będę mógł Tobie zaufać.",
 			null);
 	}
@@ -114,20 +114,20 @@ public class WegielNaOpal extends AbstractQuest {
 		final Map<String,Integer> items = new HashMap<String, Integer>();
 
 		items.put("węgiel",50);
-		
+
 		// If all quests are completed, ask for an item
 		npc.add(ConversationStates.ATTENDING,
-				Arrays.asList("zlecenie", "zadanie", "task", "quest", "order"), 
+				Arrays.asList("zlecenie", "zadanie", "task", "quest", "order"),
 				new AndCondition(
 						new QuestNotStartedCondition(QUEST_SLOT),
 						new QuestCompletedCondition(ADAS_QUEST_SLOT),
 						new QuestCompletedCondition(FRYDERYK_QUEST_SLOT)),
-				ConversationStates.ATTENDING, 
+				ConversationStates.ATTENDING,
 				null,
 				new StartRecordingRandomItemCollectionAction(QUEST_SLOT, items, "Właśnie słyszałem od Fryderyka, że mu pomogłeś jak i Adasiowi, a więc mogę Tobie zafuać."
 					+ " Proszę przynieś mi [item]. Potrzebuję opał na zimę. Straszne mrozy są ostatnio..."));
 	}
-	
+
 	private void collectItem() {
 		final SpeakerNPC npc = npcs.get("Stasek");
 
@@ -135,33 +135,33 @@ public class WegielNaOpal extends AbstractQuest {
 				ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestActiveCondition(QUEST_SLOT)),
-				ConversationStates.QUEST_ITEM_QUESTION, 
+				ConversationStates.QUEST_ITEM_QUESTION,
 				"Przyniosłeś mi węgiel, o który cię prosiłem?",
 				null);
 
 		npc.add(ConversationStates.QUEST_ITEM_QUESTION,
-				ConversationPhrases.YES_MESSAGES, 
+				ConversationPhrases.YES_MESSAGES,
 				new AndCondition(new QuestActiveCondition(QUEST_SLOT),
 								new NotCondition(new PlayerHasRecordedItemWithHimCondition(QUEST_SLOT))),
-				ConversationStates.ATTENDING, 
+				ConversationStates.ATTENDING,
 				null,
 				new SayRequiredItemAction(QUEST_SLOT, "Hm, nie masz [item], nie próbuj mnie oszukać!"));
 
 		npc.add(ConversationStates.QUEST_ITEM_QUESTION,
-				ConversationPhrases.YES_MESSAGES, 
+				ConversationPhrases.YES_MESSAGES,
 				new AndCondition(new QuestActiveCondition(QUEST_SLOT),
 								new PlayerHasRecordedItemWithHimCondition(QUEST_SLOT)),
-				ConversationStates.ATTENDING, 
+				ConversationStates.ATTENDING,
 				"Dziękuję za węgiel! Teraz będę miał zapas na conajmniej kilka zim! Czas, być może złożyć #ofertę.",
-				new MultipleActions(new DropRecordedItemAction(QUEST_SLOT), 
+				new MultipleActions(new DropRecordedItemAction(QUEST_SLOT),
 									new SetQuestAction(QUEST_SLOT, "done"),
 									new IncreaseXPAction(5500),
 									new IncreaseKarmaAction(25)));
 
 		npc.add(ConversationStates.QUEST_ITEM_QUESTION,
-				ConversationPhrases.NO_MESSAGES, 
+				ConversationPhrases.NO_MESSAGES,
 				null,
-				ConversationStates.ATTENDING, 
+				ConversationStates.ATTENDING,
 				null,
 				new SayRequiredItemAction(QUEST_SLOT, "Bardzo dobrze, wróć kiedy będziesz mieć [the item] ze sobą."));
 	}
@@ -175,7 +175,7 @@ public class WegielNaOpal extends AbstractQuest {
 				ConversationPhrases.OFFER_MESSAGES,
 				new QuestCompletedCondition(QUEST_SLOT),
 				ConversationStates.ATTENDING,
-				"Sprzedaję: ",
+				"Spójrz na niebieską księgę! Oferuję to co na niej jest.",
 				null);
 
 		// player returns when the quest is in progress and says offer

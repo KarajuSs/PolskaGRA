@@ -54,7 +54,7 @@ public class StasekNPC implements ZoneConfigurator {
 				addHelp("Może będziesz mi potrzebny...");
 				addJob("Zarządzam właśnie tym sklepem z uzbrojeniem.");
 				addGoodbye("Miło było Cię poznać.");
-				new SellerAdder().addSeller(this, new QuestCompletedSellerBehaviour("wegiel_na_opal", "Kupię od ciebie czarne przedmioty, gdy ukończysz każde #'wyzwanie', które ci postawie.", shops.get("stasek")), false);
+				new SellerAdder().addSeller(this, new QuestCompletedSellerBehaviour("wegiel_na_opal", "Musiałbyś wykonać moje #'zadanie', abym mógł tobie zaufać!", shops.get("stasek")), false);
 			}
 		};
 
