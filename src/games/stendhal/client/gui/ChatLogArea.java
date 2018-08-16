@@ -36,16 +36,16 @@ import games.stendhal.common.NotificationType;
 class ChatLogArea {
 	/** Background color of the private chat tab. Light blue. */
 	private static final String PRIVATE_TAB_COLOR = "0x3c1e00";
-	
+
 	private final NotificationChannelManager channelManager;
 	private final JTabbedPane tabs = new JTabbedPane(SwingConstants.BOTTOM);
 	private final Timer animator = new Timer(100, null);
-	
+
 	ChatLogArea(NotificationChannelManager channelManager) {
 		this.channelManager = channelManager;
 		createLogArea();
 	}
-	
+
 	/**
 	 * Create the chat log tabs.
 	 *
@@ -67,7 +67,7 @@ class ChatLogArea {
 		setupAnimation(changedChannels);
  		return tabs;
 	}
-	
+
 	/**
 	 * Create chat channels.
 	 *
@@ -77,16 +77,17 @@ class ChatLogArea {
 		List<JComponent> list = new ArrayList<>();
 		KTextEdit edit = new KTextEdit();
 		list.add(edit);
- 		final NotificationChannel mainChannel = createMainChannel(edit);
+ 		NotificationChannel mainChannel = setupMainChannel(edit);
 		channelManager.addChannel(mainChannel);
  		// ** Private channel **
 		edit = new KTextEdit();
 		list.add(edit);
-		NotificationChannel personal = createPersonalChannel(edit);
+		NotificationChannel personal = setupPersonalChannel(edit);
 		channelManager.addChannel(personal);
  		return list;
 	}
- 	private NotificationChannel createPersonalChannel(KTextEdit edit) {
+
+ 	private NotificationChannel setupPersonalChannel(KTextEdit edit) {
 		edit.setChannelName("Prywatny");
 		/*
 		 * Give it a different background color to make it different from the
@@ -104,21 +105,22 @@ class ChatLogArea {
 		
 		return new NotificationChannel("Prywatny", edit, false, personalDefault);
 	}
- 	private NotificationChannel createMainChannel(KTextEdit edit) {
-		NotificationChannel mainChannel = new NotificationChannel("Główny", edit, true, "");
-		
+
+ 	private NotificationChannel setupMainChannel(KTextEdit edit) {
+		NotificationChannel channel = new NotificationChannel("Główny", edit, true, "");
+
 		// Follow settings changes for the main channel
 		WtWindowManager wm = WtWindowManager.getInstance();
 		wm.registerSettingChangeListener("ui.healingmessage", new SettingChangeAdapter("ui.healingmessage", "false") {
 			@Override
 			public void changed(String newValue) {
-				mainChannel.setTypeFiltering(NotificationType.HEAL, Boolean.parseBoolean(newValue));
+				channel.setTypeFiltering(NotificationType.HEAL, Boolean.parseBoolean(newValue));
 			}
 		});
 		wm.registerSettingChangeListener("ui.poisonmessage", new SettingChangeAdapter("ui.poisonmessage", "false") {
 			@Override
 			public void changed(String newValue) {
-				mainChannel.setTypeFiltering(NotificationType.POISON, Boolean.parseBoolean(newValue));
+				channel.setTypeFiltering(NotificationType.POISON, Boolean.parseBoolean(newValue));
 			}
 		});
 		/**
@@ -127,12 +129,13 @@ class ChatLogArea {
 		wm.registerSettingChangeListener("ui.damagemessage", new SettingChangeAdapter("ui.damagemessage", "false") {
 			@Override
 			public void changed(String newValue) {
-				mainChannel.setTypeFiltering(NotificationType.DAMAGE, Boolean.parseBoolean(newValue));
+				channel.setTypeFiltering(NotificationType.DAMAGE, Boolean.parseBoolean(newValue));
 			}
 		});
 		 */
-		return mainChannel;
+		return channel;
 	}
+
  	private void setupTabChangeHandling(BitSet changedChannels) {
 		tabs.addChangeListener(new ChangeListener() {
 			@Override
@@ -151,7 +154,7 @@ class ChatLogArea {
 			}
 		});
 	}
-	
+
 	private void setupHiddenChannelMessageHandling(BitSet changedChannels) {
 		channelManager.addHiddenChannelListener(new NotificationChannelManager.HiddenChannelListener() {
 			@Override
@@ -167,26 +170,30 @@ class ChatLogArea {
 			}
 		});
 	}
-	
+
 	private void setupAnimation(BitSet changedChannels) {
 		animator.addActionListener(new AnimationActionListener(changedChannels));
 	}
-	
+
 	JComponent getComponent() {
 		return tabs;
 	}
-	
+
 	private class AnimationActionListener implements ActionListener {
 		private final BitSet changedChannels;
 		private static final int STEPS = 10;
 		private final Color[] colors;
 		private int colorIndex;
 		private int change = 1;
-		
+
 		private AnimationActionListener(BitSet changedChannels) {
 			this.changedChannels = changedChannels;
-			
+
 			colors = new Color[STEPS];
+			initColors();
+		}
+
+ 		private void initColors() {
 			Color endColor;
  			Style style = StyleUtil.getStyle();
 			if (style != null) {
