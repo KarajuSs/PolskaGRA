@@ -52,7 +52,7 @@ class GeneralSettings {
 
 	private static final String POISON_MESSAGE_PROPERTY = "ui.poisonmessage";
 	
-	private static final String DAMAGE_MESSAGE_PROPERTY = "ui.damagemessage";
+	//private static final String DAMAGE_MESSAGE_PROPERTY = "ui.damagemessage";
 
 	private static final String DIMENSIONS_PROPERTY = "ui.dimensions";
 
@@ -125,7 +125,9 @@ class GeneralSettings {
 				ClientSingletonRepository.getUserInterface().addEventLine(new EventLine("", msg, NotificationType.CLIENT));
 			}
 		});
-		
+		/**
+		 * FIXME: Nie pokazują się wiadomości po zadaniu/otrzymaniu obrażeń!
+		 *
 		// show damage messages
 		JCheckBox showDamageToggle = SettingsComponentFactory.createSettingsToggle(DAMAGE_MESSAGE_PROPERTY, false,
 				"Pokaż wiadomości o obrażeniach", "Pokazuje wiadomości o obrażeniach w oknie rozmowy");
@@ -139,6 +141,7 @@ class GeneralSettings {
 				ClientSingletonRepository.getUserInterface().addEventLine(new EventLine("", msg, NotificationType.CLIENT));
 			}
 		});
+		 */
 		
 		// Double-tap direction for auto-walk
 		JCheckBox doubleTapAutowalkToggle = SettingsComponentFactory.createSettingsToggle(DOUBLE_TAP_AUTOWALK_PROPERTY, false,
