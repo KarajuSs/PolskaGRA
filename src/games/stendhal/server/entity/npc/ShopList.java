@@ -142,15 +142,15 @@ public final class ShopList {
 
 		//XoderosNPC sprzedaje:
 		shops.add("selltools", "toporek", 15);
-		shops.add("selltools", "topór jednoręczny", 135);
-		shops.add("selltools", "topór", 1500);
+		shops.add("selltools", "topór jednoręczny", 95);
+		shops.add("selltools", "topór", 110);
 
 		// enable these if you need them for a quest or something
 		// shops.add("selltools", "pick", 50);
 		// shops.add("selltools", "shovel", 50);
-		shops.add("selltools", "pyrlik", 80);
+		shops.add("selltools", "pyrlik", 75);
 		// used for harvest grain.
-		shops.add("selltools", "pordzewiała kosa", 60);
+		shops.add("selltools", "pordzewiała kosa", 1250);
         // for harvesting cane fields
 		shops.add("selltools", "sierp", 80);
 		shops.add("selltools", "misa do płukania złota", 230);
@@ -613,6 +613,7 @@ public final class ShopList {
 		shops.add("stasek", "peleryna", 25);
 		shops.add("stasek", "hełm kolczy", 120);
 		shops.add("stasek", "zbroja płytowa", 110);
+		shops.add("stasek", "skórzane rękawice", 400);
 		shops.add("stasek", "spodnie nabijane ćwiekami", 75);
 		shops.add("stasek", "buty żelazne", 240);
 		shops.add("stasek", "złoty pyrlik", 355);
