@@ -128,7 +128,7 @@ public final class ShopList {
 
 		//OuchitNPC sprzedaje:
 		shops.add("sellrangedstuff", "drewniany łuk", 300);
-		shops.add("sellrangedstuff", "strzała", 4);
+		shops.add("sellrangedstuff", "strzała", 3);
 
 		//Xin BlancaNPC, MichałNPC, WrvilNPC kupuje:
 		shops.add("buystuff", "krótki miecz", 15);
@@ -608,10 +608,20 @@ public final class ShopList {
 		shops.add("juhas", "bilet turystyczny", 5000);
 
 		//Stasek sprzedaje
-		shops.add("stasek", "wzmocniona drewniana strzała", 7);
-		shops.add("stasek", "drewniany łuk", 350);
-		shops.add("stasek", "miecz", 172);
-		shops.add("stasek", "skórzane spodnie", 25);
+		shops.add("stasek", "wzmocniona drewniana strzała", 4);
+		shops.add("stasek", "długi łuk", 1500);
+		shops.add("stasek", "peleryna", 25);
+		shops.add("stasek", "hełm kolczy", 120);
+		shops.add("stasek", "zbroja płytowa", 110);
+		shops.add("stasek", "spodnie nabijane ćwiekami", 75);
+		shops.add("stasek", "buty żelazne", 240);
+		shops.add("stasek", "złoty pyrlik", 355);
+		shops.add("stasek", "bułat", 400);
+		shops.add("stasek", "topór bojowy", 515);
+		shops.add("stasek", "berdysz", 620);
+		shops.add("stasek", "pałasz", 740);
+		shops.add("stasek", "pordzewiała kosa", 1550);
+		shops.add("stasek", "ciupaga", 45000);
 	}
 
 	private static ShopList instance;
