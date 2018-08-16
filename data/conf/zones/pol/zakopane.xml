@@ -2074,6 +2074,16 @@ Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z po
 		<portal x="5" y="19" ref="shop_exit">
 			<destination zone="0_zakopane_c" ref="shop_entrance"/>
 		</portal>
+		
+		<entity x="8" y="7">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.ShopSign">
+				<parameter name="shop">stasek</parameter>
+				<parameter name="title">Sklep Staska (sprzedaż)</parameter>
+				<parameter name="seller">true</parameter>
+				<parameter name="caption">Możesz kupić te rzeczy od Staska.</parameter>
+			</implementation>
+			<attribute name="class">book_blue</attribute>
+		</entity>
 	</zone>
 
 	<!-- Stable -->
