@@ -202,9 +202,9 @@ public class StendhalQuestSystem {
 		/** 					**\
 		 *         TATRY 		 *
 		\**	                    **/
-		//loadQuest(new GoralskiCollector());
-		//loadQuest(new GoralskiCollector2());
-		//loadQuest(new GoralskiCollector3());
+		loadQuest(new GoralskiCollector());
+		loadQuest(new GoralskiCollector2());
+		loadQuest(new GoralskiCollector3());
 		/** 					**\
 		 *      KOŚCIELISKO 	 *
 		\**	                    **/
