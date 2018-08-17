@@ -52,10 +52,10 @@ import java.util.List;
  */
 public class GoralskiCollector3 extends AbstractQuest {
 
-    private static final List<String> NEEDEDGORAL3 = Arrays.asList("korale", "pas zbójecki", "złota ciupaga z wąsem", "góralski gorset", "cuha góralska", "chusta góralska", "portki bukowe", "polska płytowa tarcza");
+    private static final List<String> NEEDEDGORAL3 = Arrays.asList("korale", "pas zbójecki", "złota ciupaga z wąsem", "góralski gorset", "cuha góralska", "chusta góralska", "portki bukowe", "polska tarcza ciężka");
     private static final String OLD_QUEST = "goralski_kolekcjoner2";
-    private static final String QUEST_SLOT = "goralski_kolekcjoner3";   
-    
+    private static final String QUEST_SLOT = "goralski_kolekcjoner3";
+
     @Override
 	public String getSlotName() {
 		return QUEST_SLOT;
@@ -109,10 +109,10 @@ public class GoralskiCollector3 extends AbstractQuest {
 				null);
 
 		// player asks what items are needed
-		npc.add(ConversationStates.QUEST_3_OFFERED, 
-				Arrays.asList("collection", "kolekcja", "zadanie"), 
+		npc.add(ConversationStates.QUEST_3_OFFERED,
+				Arrays.asList("collection", "kolekcja", "zadanie"),
 				null,
-				ConversationStates.QUEST_3_OFFERED, 
+				ConversationStates.QUEST_3_OFFERED,
 				null,
 				new ChatAction() {
 					@Override
@@ -132,10 +132,10 @@ public class GoralskiCollector3 extends AbstractQuest {
 				});
 		// player says yes
 		npc.add(ConversationStates.QUEST_3_OFFERED,
-				ConversationPhrases.YES_MESSAGES, 
+				ConversationPhrases.YES_MESSAGES,
 				null,
-				ConversationStates.IDLE, 
-				null, 
+				ConversationStates.IDLE,
+				null,
 				new ChatAction() {
 					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser entity) {
@@ -151,11 +151,11 @@ public class GoralskiCollector3 extends AbstractQuest {
 				});
 
 		// player is not willing to help
-		npc.add(ConversationStates.QUEST_3_OFFERED, 
-				ConversationPhrases.NO_MESSAGES, 
+		npc.add(ConversationStates.QUEST_3_OFFERED,
+				ConversationPhrases.NO_MESSAGES,
 				null,
-				ConversationStates.QUEST_3_OFFERED, 
-				null, 
+				ConversationStates.QUEST_3_OFFERED,
+				null,
 				new ChatAction() {
 					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser entity) {
@@ -169,18 +169,18 @@ public class GoralskiCollector3 extends AbstractQuest {
 					}
 				});
 
-		// player asks about an individual item. We used the trick before that all items were named by colour 
+		// player asks about an individual item. We used the trick before that all items were named by colour
 		// (their subclass) - so she would tell them what colour it was. In this case it fails for elvish,
 		// xeno and shadow which are not named by colour. So, this time she'll say, e.g.
 		// It's a shadow item, sorry if that's not much help, so will you find them all?
 		// rather than say for elf item she'd said 'It's a white item, so will you find them all?'
-		// it will still work for red (red_spotted is the subclass), black dragon (black), 
+		// it will still work for red (red_spotted is the subclass), black dragon (black),
 		// golden, mainio (primary coloured), chaos (multicoloured).
 		for(final String itemName : NEEDEDGORAL3) {
-			npc.add(ConversationStates.QUEST_3_OFFERED, 
-				itemName, 
+			npc.add(ConversationStates.QUEST_3_OFFERED,
+				itemName,
 				null,
-				ConversationStates.QUEST_3_OFFERED, 
+				ConversationStates.QUEST_3_OFFERED,
 				null,
 				new ChatAction() {
 					@Override
@@ -198,7 +198,7 @@ public class GoralskiCollector3 extends AbstractQuest {
 							} else {
 								stringBuilder.append(ItemTools.itemNameToDisplayName(item.getItemSubclass()));
 							}
-						
+
 							stringBuilder.append(". Przepraszam, ale to mi nie pomaga! Znajdziesz je wszystkie?");
 							raiser.say(stringBuilder.toString());
 						}
@@ -228,10 +228,10 @@ public class GoralskiCollector3 extends AbstractQuest {
 				ConversationStates.QUESTION_3,
 				"Witaj z powrotem! Przyniosłeś ze sobą jakieś #przedmioty góralskie?", null);
 		// player asks what exactly is missing
-		npc.add(ConversationStates.QUESTION_3, 
-				Arrays.asList("items", "przedmioty", "góralskie", "góral"), 
+		npc.add(ConversationStates.QUESTION_3,
+				Arrays.asList("items", "przedmioty", "góralskie", "góral"),
 				null,
-				ConversationStates.QUESTION_3, 
+				ConversationStates.QUESTION_3,
 				null,
 				new ChatAction() {
 					@Override
@@ -251,10 +251,10 @@ public class GoralskiCollector3 extends AbstractQuest {
 				});
 		// player says he has a required item with him
 		npc.add(ConversationStates.QUESTION_3,
-				ConversationPhrases.YES_MESSAGES, 
+				ConversationPhrases.YES_MESSAGES,
 				null,
 				ConversationStates.QUESTION_3,
-				"Ooo! Jakie #przedmioty góralskie przyniosłeś mi?", 
+				"Ooo! Jakie #przedmioty góralskie przyniosłeś mi?",
 				null);
 
 		for(final String itemName : NEEDEDGORAL3) {
@@ -307,20 +307,20 @@ public class GoralskiCollector3 extends AbstractQuest {
 			});
 		}
 
-		npc.add(ConversationStates.ATTENDING, 
+		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.NO_MESSAGES,
 				new ChatCondition() {
 					@Override
 					public boolean fire(final Player player, final Sentence sentence, final Entity entity) {
 						return !player.isQuestCompleted(QUEST_SLOT);
 					}
-				}, 
+				},
 				ConversationStates.ATTENDING,
-				"Dobrze. Jeżeli potrzebujesz pomocy to powiedz.", 
+				"Dobrze. Jeżeli potrzebujesz pomocy to powiedz.",
 				null);
 
 		// player says he didn't bring any items to different question
-		npc.add(ConversationStates.QUESTION_3, 
+		npc.add(ConversationStates.QUESTION_3,
 				ConversationPhrases.NO_MESSAGES,
 				new ChatCondition() {
 					@Override
@@ -331,19 +331,19 @@ public class GoralskiCollector3 extends AbstractQuest {
 				null);
 
 		// player returns after finishing the quest but not rewarded
-		npc.add(ConversationStates.IDLE, 
+		npc.add(ConversationStates.IDLE,
 				ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
-						new QuestInStateCondition(QUEST_SLOT, "done")), 
+						new QuestInStateCondition(QUEST_SLOT, "done")),
 				ConversationStates.ATTENDING,
-				"Witoj, a oto twoja nagroda, spójrz tylko na tą lśniącą złotym blaskiem #'spinke', czyż nie jest ona prześliczna? Proszę weź nią.. posiada magiczne właściwości... chroni odpowiednio osobę noszącą ten przedmiot. Niech Ci ona służy!", 
+				"Witoj, a oto twoja nagroda, spójrz tylko na tą lśniącą złotym blaskiem #'spinke', czyż nie jest ona prześliczna? Proszę weź nią.. posiada magiczne właściwości... chroni odpowiednio osobę noszącą ten przedmiot. Niech Ci ona służy!",
 				new MultipleActions(new EquipItemAction("spinka", 1, true), new SetQuestAction(QUEST_SLOT, "done;rewarded")));
-	
+
 		//		 player returns after finishing the quest and was rewarded
-		npc.add(ConversationStates.IDLE, 
+		npc.add(ConversationStates.IDLE,
 				ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
-						new QuestInStateCondition(QUEST_SLOT, "done;rewarded")), 
+						new QuestInStateCondition(QUEST_SLOT, "done;rewarded")),
 				ConversationStates.ATTENDING,
 				"Jeszcze raz dziękuję za okazaną pomoc!",
 				null);
@@ -359,17 +359,17 @@ public class GoralskiCollector3 extends AbstractQuest {
 				"Kolekcjoner poprosił mnie abym przyniósł ponownie ubrania gdyż, niektóre poniszczyłu mu się. Słabo musiał je zabezpieczyć...",
 				false);
 	}
-	
+
 	private static void rewardPlayer(final Player player) {
-		player.addKarma(100.0);
-		player.addXP(300000);
+		player.addKarma(35.0);
+		player.addXP(100000);
       	}
-	
+
 	@Override
 	public String getName() {
 		return "GoralskiCollector3";
 	}
-	
+
 	@Override
 	public List<String> getHistory(final Player player) {
 			final List<String> res = new ArrayList<String>();
@@ -383,14 +383,14 @@ public class GoralskiCollector3 extends AbstractQuest {
 			}
 			return res;
 	}
-	
-	// The previous quest likely requires at least this level. 
+
+	// The previous quest likely requires at least this level.
 	// When adding the hint check, remember to check if the itemCollector quest is completed.
 	@Override
 	public int getMinLevel() {
 		return 140;
 	}
-	
+
 	@Override
 	public String getRegion() {
 		return Region.TATRY_MOUNTAIN;
