@@ -135,12 +135,12 @@ public class GoralskiCollector extends AbstractQuest implements BringListOfItems
 
 	@Override
 	public String welcomeBeforeStartingQuest() {
-		return "Witojże w mej krainie górskiej. Chciałbyś zobaczyć me #'ubrania'.. ?";
+		return "Witojże w mej krainie górskiej. Chciałbyś zobaczyć me #'ubrania'..?";
 	}
 
 	@Override
 	public String welcomeDuringActiveQuest() {
-		return "Zawsze chciałem poszerzyć swoją kolejcę o kolejne przedmioty związane z góralstwem! Pomógłbyś mi przynosząc pewne #rzeczy ?";
+		return "Zawsze chciałem poszerzyć swoją kolejcę o kolejne przedmioty związane z góralstwem! Masz przy sobie jakieś #'rzeczy'?";
 	}
 
 	@Override
