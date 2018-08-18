@@ -9,7 +9,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-// Based on few tasks. Zwracac uwage na zmiany w plikach o sprzedazy owcy, mrs.yeti(biega o czas)     
+// Based on few tasks. Zwracac uwage na zmiany w plikach o sprzedazy owcy, mrs.yeti(biega o czas)
 
 package games.stendhal.server.maps.quests;
 
@@ -47,7 +47,7 @@ public class Oscypek extends AbstractQuest {
 	private static final String QUEST_SLOT = "oscypek";
 	private static final int DELAY_IN_MINUTES = 60*3;
 	private static Logger logger = Logger.getLogger(Oscypek.class);
-  
+
 	@Override
 	public String getSlotName() {
 		return QUEST_SLOT;
@@ -101,7 +101,7 @@ public class Oscypek extends AbstractQuest {
 								npc.say("Ej, lichy z ciebie honielnik! Owca jeszcze nie jest dobrze wypasiona");
 								player.addKarma(-10);
 							} else {
-								npc.say("No! Takiego juhasa trza mi było. Teraz pora na jej dojenie. Gieletę, czyli wiaderko mam, ale biegnij za ten czas do Kościeliska. Jest tam #kowal #Jacek. U niego jest moja #puciera.");				
+								npc.say("No! Takiego juhasa trza mi było. Teraz pora na jej dojenie. Gieletę, czyli wiaderko mam, ale biegnij za ten czas do Kościeliska. Jest tam #kowal #Jacek. U niego jest moja #puciera.");
 								//sheep.getZone().remove(sheep);
 								player.removeSheep(sheep);
 								sheep.getZone().remove(sheep);
@@ -141,7 +141,7 @@ public class Oscypek extends AbstractQuest {
 
 
 	private void odbior1() {
-		final SpeakerNPC npc = npcs.get("Kowal Jacek");	
+		final SpeakerNPC npc = npcs.get("Kowal Jacek");
 
 		npc.add(ConversationStates.ATTENDING, "puciera",
 				new QuestInStateCondition(QUEST_SLOT, "puciera_make"),
@@ -288,7 +288,7 @@ public class Oscypek extends AbstractQuest {
 					player.drop("polano");
 					player.addKarma(10);
 					player.addXP(100);
-					npc.say("Dziękuję. Wróć do mnie za kilka godzin, kiedy #oscypki będą gotowe."); 
+					npc.say("Dziękuję. Wróć do mnie za kilka godzin, kiedy #oscypki będą gotowe.");
 					player.setQuest(QUEST_SLOT, "oscypek;"+System.currentTimeMillis());
 				};
 		});
@@ -440,6 +440,12 @@ public class Oscypek extends AbstractQuest {
 	public String getName() {
 		return "Oscypek";
 	}
+
+	@Override
+	public String getRegion() {
+		return Region.ZAKOPANE_CITY;
+	}
+
 	@Override
 	public String getNPCName() {
 		return "Baca Zbyszek";

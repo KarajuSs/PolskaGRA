@@ -33,7 +33,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * QUEST: Speak with Hayunn 
+ * QUEST: Speak with Hayunn
  * <p>
  * PARTICIPANTS: <ul><li> Hayunn Naratha</ul>
  *
@@ -204,7 +204,7 @@ public class MeetPietrek extends AbstractQuest {
 			//This is used if the player returns, asks for #help and then say #yes
 			npc.add(ConversationStates.ATTENDING,
 			ConversationPhrases.YES_MESSAGES, new QuestCompletedCondition(QUEST_SLOT),
-			ConversationStates.ATTENDING, 
+			ConversationStates.ATTENDING,
 			epilog + "Wiesz przypominasz mi mnie, gdy",
 			null);
 
@@ -215,7 +215,7 @@ public class MeetPietrek extends AbstractQuest {
 
 		npc.add(ConversationStates.INFORMATION_8,
 			ConversationPhrases.YES_MESSAGES, new QuestNotCompletedCondition(QUEST_SLOT),
-			ConversationStates.IDLE, 
+			ConversationStates.IDLE,
 			epilog + "Cóż powodzenia w walkach! Ta tarcza powinna Ci pomóc. Tutaj znajdziesz sławę i chwałę. Uważaj na potwory!",
 			new MultipleActions(reward2));
 
@@ -232,7 +232,7 @@ public class MeetPietrek extends AbstractQuest {
 				"Och mam nadzieję, że ktoś się zatrzyma i porozmawia ze mną.",
 				null);
 
-		npc.setPlayerChatTimeout(TIME_OUT); 
+		npc.setPlayerChatTimeout(TIME_OUT);
 	}
 
 	@Override
@@ -251,5 +251,10 @@ public class MeetPietrek extends AbstractQuest {
 	@Override
 	public String getNPCName() {
 		return "Pietrek";
+	}
+
+	@Override
+	public String getRegion() {
+		return Region.ZAKOPANE_CITY;
 	}
 }

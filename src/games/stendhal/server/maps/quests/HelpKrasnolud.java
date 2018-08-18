@@ -10,7 +10,7 @@
  *                                                                         *
  ***************************************************************************/
 // Based on HelpMrsYeti.
- 
+
 package games.stendhal.server.maps.quests;
 
 import games.stendhal.common.parser.Sentence;
@@ -47,7 +47,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
- 
+
 
 public class HelpKrasnolud extends AbstractQuest {
 
@@ -60,19 +60,19 @@ public class HelpKrasnolud extends AbstractQuest {
 	public String getSlotName() {
 		return QUEST_SLOT;
 	}
-	
+
 	private void startQuest() {
 		final SpeakerNPC npc = npcs.get("Krasnolud");
 
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES, 
+				ConversationPhrases.QUEST_MESSAGES,
 				new QuestNotStartedCondition(QUEST_SLOT),
-				ConversationStates.QUEST_OFFERED, 
+				ConversationStates.QUEST_OFFERED,
 				"Potrzebuję mocnego a zarazem dość rzadkiego pancerza. Czy mógłbym mieć do ciebie prośbę byś go dla mnie zdobył?",
 				null);
 
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES, 
+				ConversationPhrases.QUEST_MESSAGES,
 				new QuestCompletedCondition(QUEST_SLOT),
 				ConversationStates.ATTENDING,
 				"Wspaniale! Nareszcie mam zbroje o jakiej marzyłem.",
@@ -115,7 +115,7 @@ public class HelpKrasnolud extends AbstractQuest {
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "helmet"),
 				new PlayerHasItemWithHimCondition("lazurowy hełm")),
 				ConversationStates.ATTENDING, "Bardzo dobrze! Teraz chcę byś jeszcze przyniósł mi przedmioty z listy zanim dam ci #/armor/."
-				+ " Potrzebuję:\n" 
+				+ " Potrzebuję:\n"
      		   + "#'10 skór czerwonego smoka'\n"+ "#'10 skór zielonego smoka'\n"+ "#'10 skór niebieskiego smoka'\n"+ "#'20 skór czarnego smoka'\n"+ "i #'3 złotego smoka'",
 				new MultipleActions(new SetQuestAction(QUEST_SLOT, "armor"), new DropItemAction("lazurowy hełm")));
 
@@ -159,7 +159,7 @@ public class HelpKrasnolud extends AbstractQuest {
 	}
 
 	private void makeHelmet() {
-		// although the player does end up just taking an ordinary knife to salva, this step must be completed 
+		// although the player does end up just taking an ordinary knife to salva, this step must be completed
 		// (must be in quest state 'knife' when they take the knife)
 	final SpeakerNPC npc = npcs.get("Gulimo");
 		npc.add(ConversationStates.ATTENDING, "wielkolud",
@@ -201,7 +201,7 @@ public class HelpKrasnolud extends AbstractQuest {
 		npc.add(ConversationStates.ATTENDING, questTrigger,
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "gotarmor"),
 				new PlayerHasItemWithHimCondition("zbroja lazurowa")),
-				ConversationStates.ATTENDING, "Dziękuję! Wygląda bardzo solidnie. Mam jeszcze jedno zadanie dla ciebie. Uwielbiam małe #smoki. Bądź tak miły i przyprowadź mi jednego.", 
+				ConversationStates.ATTENDING, "Dziękuję! Wygląda bardzo solidnie. Mam jeszcze jedno zadanie dla ciebie. Uwielbiam małe #smoki. Bądź tak miły i przyprowadź mi jednego.",
 				new MultipleActions(tookarmoractions));
 
 		npc.add(
@@ -212,9 +212,9 @@ public class HelpKrasnolud extends AbstractQuest {
 			null);
 
 		npc.add(ConversationStates.ATTENDING,
-				questTrigger, 
-				new OrCondition(new QuestInStateCondition(QUEST_SLOT, "start"), 
-								new QuestInStateCondition(QUEST_SLOT, "kiel_smoka"), 
+				questTrigger,
+				new OrCondition(new QuestInStateCondition(QUEST_SLOT, "start"),
+								new QuestInStateCondition(QUEST_SLOT, "kiel_smoka"),
 								new QuestInStateCondition(QUEST_SLOT, "helmet")),
 				ConversationStates.ATTENDING,
 				"Czekam byś przyniósł zbroję. Poproś Wielkoluda o zbroję.",
@@ -232,7 +232,7 @@ public class HelpKrasnolud extends AbstractQuest {
 		// easy to check if they have a pet or sheep at all
 		npc.add(
 				ConversationStates.ATTENDING, questTrigger,
-				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "dragon"), 
+				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "dragon"),
 								new NotCondition(new PlayerHasPetOrSheepCondition())),
 				ConversationStates.ATTENDING,
 				"Smoki wykluwają się z mitycznego jaja. Możesz je zdobyć od Morgrina ze szkoły magicznej znajdującej się w magicznym mieście. "
@@ -242,7 +242,7 @@ public class HelpKrasnolud extends AbstractQuest {
 		// if they have any pet or sheep, then check if it's a baby dragon
 		npc.add(
 				ConversationStates.ATTENDING, questTrigger,
-				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "dragon"), 
+				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "dragon"),
 								new PlayerHasPetOrSheepCondition()),
 				ConversationStates.ATTENDING,
 				null,
@@ -265,7 +265,7 @@ public class HelpKrasnolud extends AbstractQuest {
 							player.setQuest(QUEST_SLOT,"reward;"+System.currentTimeMillis());
 							player.notifyWorldAboutChanges();
 						} else {
-							npc.say("Jakiego miłego masz pupila. Ja jednak potrzebuję małego smoka. Porozmawiaj z Morgrinem ze szkoły magicznej w sprawie mistycznego jaja.");  
+							npc.say("Jakiego miłego masz pupila. Ja jednak potrzebuję małego smoka. Porozmawiaj z Morgrinem ze szkoły magicznej w sprawie mistycznego jaja.");
 						}
 					}
 			});
@@ -283,7 +283,7 @@ public class HelpKrasnolud extends AbstractQuest {
 
 		npc.add(
 				ConversationStates.ATTENDING, questTrigger,
-				new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT, "reward"), 
+				new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT, "reward"),
 								// delay is in minutes, last parameter is argument of timestamp
 								new NotCondition(new TimePassedCondition(QUEST_SLOT,1,DELAY_IN_MINUTES))),
 				ConversationStates.ATTENDING,
@@ -293,7 +293,7 @@ public class HelpKrasnolud extends AbstractQuest {
 
 		npc.add(
 				ConversationStates.ATTENDING, questTrigger,
-				new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT, "reward"), 
+				new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT, "reward"),
 								// delay is in minutes, last parameter is argument of timestamp
 								new TimePassedCondition(QUEST_SLOT,1,DELAY_IN_MINUTES)),
 				ConversationStates.ATTENDING,
@@ -329,34 +329,34 @@ public class HelpKrasnolud extends AbstractQuest {
 			if ("rejected".equals(questState)) {
 				res.add("Nie mam ochoty bawić się w posłańca.");
 				return res;
-			} 
+			}
 			if ("start".equals(questState)) {
 				return res;
-			} 
+			}
 			res.add("Wielkolud zażądał lazurowego hełmu w zamian za zbroje. Mam udać się do Gulimo po niego i powiedzieć: wielkolud.");
 			if ("gulimo".equals(questState)) {
 				return res;
-			} 
+			}
 			res.add("Gulimo żąda w zamian za hełm 100 kłów smoka.");
 			if ("kiel_smoka".equals(questState)) {
 				return res;
-			} 
+			}
 			res.add("Przyniosłem Gulimo kły, niestety nie miał hełmu. Dał mi podpowiedź, że mogę go kupić u Hagnurk.");
 			if ("helmet".equals(questState)) {
 				return res;
-			} 
+			}
 			res.add("Zaniosłem hełm Wielkoludowi a ten zażądał jeszcze: po 30 skór zielonego, czerwonego, niebieskiego oraz 60 czarnego i 10 złotego smoka.");
 			if ("armor".equals(questState)) {
 				return res;
-			} 
+			}
 			res.add("Dostarczyłem wszystkie skóry Wielkoludowi w końcu dał mi lazurową zbroję dla Krasnoluda");
 			if ("gotarmor".equals(questState)) {
 				return res;
-			} 
+			}
 			res.add("Krasnalud był wdzięczny za przyniesienie zbroi i poprosił mnie abym przyprowadził mu małego smoka.");
 			if ("dragon".equals(questState)) {
 				return res;
-			} 
+			}
 			res.add("No nie ten krasnal postanowił zrobić z biednego smoka gulasz!");
 			if (questState.startsWith("reward")) {
 				if (new TimePassedCondition(QUEST_SLOT,1,DELAY_IN_MINUTES).fire(player, null, null)) {
@@ -365,7 +365,7 @@ public class HelpKrasnolud extends AbstractQuest {
 					res.add("Krasnolud kazał mi wrócić za dzień, aby odebrać nagrodę, więc muszę czekać.");
 				}
 				return res;
-			} 
+			}
 			res.add("Krasnolud nagrodził mnie podniesieniem bazy hp o 50 i dostalem sporo karmy oraz xp.");
 			if (isCompleted(player)) {
 				return res;
@@ -391,5 +391,9 @@ public class HelpKrasnolud extends AbstractQuest {
 	public String getNPCName() {
 		return "Krasnolud";
 	}
-}
 
+  @Override
+	public String getRegion() {
+		return Region.ZAKOPANE_CITY;
+	}
+}

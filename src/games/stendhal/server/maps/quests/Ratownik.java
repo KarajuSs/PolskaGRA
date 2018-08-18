@@ -35,7 +35,7 @@ public class Ratownik extends AbstractQuest {
 
 	private static final String QUEST_SLOT = "ratownik";
 	private static Logger logger = Logger.getLogger(Ratownik.class);
-  
+
 	@Override
 	public String getSlotName() {
 		return QUEST_SLOT;
@@ -44,9 +44,9 @@ public class Ratownik extends AbstractQuest {
 		final SpeakerNPC npc = npcs.get("Ratownik Mariusz");
 
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES, 
+				ConversationPhrases.QUEST_MESSAGES,
 				new QuestNotStartedCondition(QUEST_SLOT),
-				ConversationStates.QUEST_OFFERED, 
+				ConversationStates.QUEST_OFFERED,
 				"W górach zaginął jeden z turystów. Muszę zorganizować akcję ratowniczą. Wszyscy ratownicy już są oprócz juhasa. Możesz go powiadomić?",
 				null);
 
@@ -131,7 +131,7 @@ public class Ratownik extends AbstractQuest {
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					raiser.say("Był tu ladaco jeden jakieś dwa dni temu. Z tego co wiem miał odwiedzić #Wielkoluda. ");
 					player.addKarma(10);
-					player.addXP(200);	
+					player.addXP(200);
 					player.setQuest(QUEST_SLOT, "krok_wielkolud");
 				};
 			});
@@ -218,7 +218,7 @@ public class Ratownik extends AbstractQuest {
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					raiser.say("Oczywiście, że był powsinogą jeden. Wpadł jak piorun z jasnego nieba i wypadł nawet dwóch zdań z nim nie zamieniłam. Potrzebował coś od mojego męża bacy #Zbyszka.");
 					player.addKarma(10);
-					player.addXP(150);		
+					player.addXP(150);
 					player.setQuest(QUEST_SLOT, "krok_zbyszek");
 				};
 			});
@@ -382,30 +382,30 @@ public class Ratownik extends AbstractQuest {
 		if ("rejected".equals(questState)) {
 			res.add("Nie mam czasu na szukanie Juhasa..");
 			return res;
-		} 
+		}
 		if ("start".equals(questState)) {
 			return res;
-		} 
+		}
 		res.add("Znalazłem starego Bacę ale niestety Juhasa tam nie było. Poradził mi abym udał sie do Brzezdoma.");
 		if ("krok_brzezdom".equals(questState)) {
 			return res;
-		} 
+		}
 		res.add("Odnalazłem Brzezdoma. Niestety Juhasa tam też nie było. Dostałem typ abym udał się do gospody w Zakopanem i spytał Jagny o niego.");
 		if ("krok_jagna".equals(questState)) {
 			return res;
-		} 
+		}
 		res.add("Do gospody dotarłem zbyt puźno. Jagna powiedziała mi aby iść do Wielkoluda. Podobno tam udał się Juhas.");
 		if ("krok_wielkolud".equals(questState)) {
 			return res;
-		} 
+		}
 		res.add("Wielkolud poinformował mnie iż Juhas został napadnięty. Odniósł rany więc udał się do szpitala w Zakopanem.");
 		if ("krok_szpital".equals(questState)) {
 			return res;
-		} 
+		}
 		res.add("Boguś był pierwszą osobą, którą spotkałem w szpitalu. Odesłał mnie do Gażdziny Jadźki.");
 		if ("krok_szpital".equals(questState)) {
 			return res;
-		} 
+		}
 		res.add("Gaździna Jadźka poinformowała mnie, że obrażenia Juhasa nie były duże. Opatrzyła mu rany a ten udał się do gaździny Marysiki.");
 		if ("krok_zielarka".equals(questState)) {
 			return res;
@@ -429,7 +429,7 @@ public class Ratownik extends AbstractQuest {
 		res.add("No i znalazłem Juhasa. Niestety ten był niedysponowany. Muszę wrócić do ratownika Mariusza i mu o tym powiedzieć.");
 		if ("krok_mariusz".equals(questState)) {
 			return res;
-		} 
+		}
 		res.add("Ratownik Mariusz wysłuchał co mam do powiedzenia i w nagrodę za moje zaangażowanie dał mi pazur zielonego smoka.");
 		if (isCompleted(player)) {
 			return res;
@@ -446,6 +446,12 @@ public class Ratownik extends AbstractQuest {
 	public String getName() {
 		return "Ratownik";
 	}
+
+	@Override
+	public String getRegion() {
+		return Region.ZAKOPANE_CITY;
+	}
+
 	@Override
 	public String getNPCName() {
 		return "Ratownik Mariusz";

@@ -31,15 +31,15 @@ import java.util.List;
 
 /**
  * QUEST: Speak with Monogenes PARTICIPANTS: - Fryderyk
- * 
+ *
  * STEPS: - Talk to Fryderyk to activate the quest and keep speaking with
  * Fryderyk. - Be polite and say "bye" at the end of the conversation to get a
  * small reward.
- * 
+ *
  * REWARD: broken (- 10 XP (check that user's level is lesser than 2) - No money)
- * 
+ *
  * REPETITIONS: - None
- * 
+ *
  */
 public class MeetFryderyk extends AbstractQuest {
 	@Override
@@ -60,12 +60,12 @@ public class MeetFryderyk extends AbstractQuest {
 		// player before and react accordingly
 		// NPC_name quest doesn't exist anywhere else neither is
 		// used for any other purpose
-		npc.add(ConversationStates.IDLE, 
+		npc.add(ConversationStates.IDLE,
 				ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(
 						new GreetingMatchesNameCondition(npc.getName()),
-						new QuestNotCompletedCondition("Fryderyk")),  
-				ConversationStates.INFORMATION_1, 
+						new QuestNotCompletedCondition("Fryderyk")),
+				ConversationStates.INFORMATION_1,
 				"Witaj nieznajomy! Nie bądź zbyt onieśmielony, gdy ludzie siedzą cicho lub są zajęci... " +
 				"strach przed zbójami i ich hersztem padł na całe Zakopane. Jesteśmy " +
 				"trochę zaniepokojeni. Mogę dać Tobie trochę rad odnośnie zawierania przyjaźni. Chciałbyś je usłyszeć?",
@@ -134,7 +134,7 @@ public class MeetFryderyk extends AbstractQuest {
 			Arrays.asList("bank", "Bank"),
 			"Wyjdziesz z tego budynku i patrząc na wschód#(prawo #na #mapie) widzisz małą rzeczkę oraz most, przez który możesz iść. Gdy go przejdziesz będziesz koło boiska gdzie będzie chodził Herold, z którym możesz zamienić parę słów, jeżeli masz ochotę rzecz jasna. Idąc dalej na wschód#(prawo #na #mapie) zobaczysz budynek, który będzie miał z boku żółty napis #BANK. To jest budynek, o który pytałeś przed chwilą.");
 
-		npc.addReply(  
+		npc.addReply(
 			Arrays.asList("szpital", "Szpital"),
 			"Skieruj się na północ, lecz nie wchodź na most, tylko skieruj się w górę po prawej stronie mostu. Zobaczysz rzekę skieruj się wydłuż niej na północ po czasie zobaczysz, iż rzeka się kończy, lecz po prawo masz budynek z czerwonym krzyżem. Tak, właśnie tak jak już się domyśliłeś to szpital.");
 
@@ -196,11 +196,16 @@ public class MeetFryderyk extends AbstractQuest {
 			}
 			if (isCompleted(player)) {
 				res.add("Rozmawiałem z Fryderykiem i on zaproponował mi mapę. Zawsze mogę spytać się jego o mapę i ją dostanę.");
-			} 
+			}
 			return res;
 	}
 	@Override
 	public String getNPCName() {
 		return "Fryderyk";
+	}
+
+	@Override
+	public String getRegion() {
+		return Region.ZAKOPANE_CITY;
 	}
 }
