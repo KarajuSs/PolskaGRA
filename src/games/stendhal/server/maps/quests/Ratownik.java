@@ -30,6 +30,7 @@ import games.stendhal.server.entity.npc.condition.QuestCompletedCondition;
 import games.stendhal.server.entity.npc.condition.QuestInStateCondition;
 import games.stendhal.server.entity.npc.condition.QuestNotStartedCondition;
 import games.stendhal.server.entity.player.Player;
+import games.stendhal.server.maps.Region;
 
 public class Ratownik extends AbstractQuest {
 
@@ -463,5 +464,10 @@ public class Ratownik extends AbstractQuest {
 	@Override
 	public String getNPCName() {
 		return "Ratownik Mariusz";
+	}
+	
+	@Override
+	public String getRegion() {
+		return Region.ZAKOPANE_CITY;
 	}
 }
