@@ -425,9 +425,9 @@ public class DailyMonsterKuzniceQuest extends AbstractQuest {
 				ConversationStates.ATTENDING,
 				"Gratuluje! Pozwól mi podziekowac w imieniu mieszkanców Zakopanego i dzielnicy!",
 				new MultipleActions(
-						new IncreaseXPDependentOnLevelAction(9, 105.0),
-						new IncreaseAtkXPDependentOnLevelAction(9, 105.0),
-						new IncreaseDefXPDependentOnLevelAction(9, 105.0),
+						new IncreaseXPDependentOnLevelAction(4, 110.0),
+						new IncreaseAtkXPDependentOnLevelAction(4, 110.0),
+						new IncreaseDefXPDependentOnLevelAction(4, 110.0),
 						new IncreaseKarmaAction(5.0),
 						new IncrementQuestAction(QUEST_SLOT, 2, 1),
 						new SetQuestToTimeStampAction(QUEST_SLOT,1),
