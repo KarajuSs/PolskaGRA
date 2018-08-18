@@ -1,4 +1,4 @@
-﻿/***************************************************************************
+/***************************************************************************
  *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
@@ -28,20 +28,18 @@ import games.stendhal.server.entity.npc.action.SayUnstartedQuestDescriptionFromN
 import games.stendhal.server.entity.npc.condition.TriggerIsNPCNameForUnstartedQuestCondition;
 import games.stendhal.server.maps.Region;
 
-/**
- * An oracle who lets players know how they can help others.
- *
- */
 public class FinarfinNPC implements ZoneConfigurator {
 
-	/**
-	 * region that this NPC can give information about
-	 */
 	private final List<String> regions = Arrays.asList(Region.TATRY_MOUNTAIN, Region.ZAKOPANE_CITY);
 
+	/**
+	 * Configure a zone.
+	 *
+	 * @param	zone		The zone to be configured.
+	 * @param	attributes	Configuration attributes.
+	 */
 	@Override
-	public void configureZone(final StendhalRPZone zone,
-			final Map<String, String> attributes) {
+	public void configureZone(final StendhalRPZone zone, final Map<String, String> attributes) {
 		buildNPC(zone);
 	}
 
