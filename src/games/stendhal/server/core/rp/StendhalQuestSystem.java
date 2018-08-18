@@ -202,6 +202,7 @@ public class StendhalQuestSystem {
 		/** 					**\
 		 *         TATRY 		 *
 		\**	                    **/
+		loadQuest(new DailyMonsterKuzniceQuest());
 		loadQuest(new GoralskiCollector());
 		loadQuest(new GoralskiCollector2());
 		loadQuest(new GoralskiCollector3());
