@@ -53,7 +53,7 @@ import java.util.List;
  * 
  * REWARD: 
  * <ul>
- * <li>50 XP</li>
+ * <li>2200 XP</li>
  * <li>Karma: 10</li>
  * </ul>
  * 
@@ -151,7 +151,7 @@ public class ScytheForFryderyk extends AbstractQuest {
 
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
 		reward.add(new DropItemAction("kosa"));
-		reward.add(new IncreaseXPAction(500));
+		reward.add(new IncreaseXPAction(2200));
 		reward.add(new IncreaseKarmaAction(25));
 		reward.add(new EquipItemAction("skórzany hełm"));
 		reward.add(new SetQuestAction(QUEST_SLOT, "done"));

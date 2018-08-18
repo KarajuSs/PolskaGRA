@@ -86,7 +86,7 @@ public class Ratownik extends AbstractQuest {
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					raiser.say("Szukasz Juhasa? Ostatnio go nie widziałem. Może szedł drugą stroną doliny. Wiem, że to ulubiony szlak #Brzezdoma. Spytaj jego.");
 					player.addKarma(10);
-					player.addXP(100);
+					player.addXP(250);
 					player.setQuest(QUEST_SLOT, "krok_brzezdom");
 				};
 			});
@@ -109,7 +109,7 @@ public class Ratownik extends AbstractQuest {
 					raiser.say("Przykro mi ale tędy nie szedł. Poradzę ci coś, idź ty do gospody i spytaj #Jagny."
 					+ " Kto jak kto ale ona powinna coś wiedzieć. Normalnie jak ktoś idzie w góry to zostawia wiadomość, gdzie idzie i którą trasą.");
 					player.addKarma(15);
-					player.addXP(500);
+					player.addXP(750);
 					player.setQuest(QUEST_SLOT, "krok_jagna");
 				};
 			});
@@ -131,7 +131,7 @@ public class Ratownik extends AbstractQuest {
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					raiser.say("Był tu ladaco jeden jakieś dwa dni temu. Z tego co wiem miał odwiedzić #Wielkoluda. ");
 					player.addKarma(10);
-					player.addXP(200);	
+					player.addXP(450);	
 					player.setQuest(QUEST_SLOT, "krok_wielkolud");
 				};
 			});
@@ -153,7 +153,7 @@ public class Ratownik extends AbstractQuest {
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					raiser.say("Tak był tu. Ucięliśmy sobie pogawędkę o tym i tamtym, gdy nagle zaatakowały nas te przeklęte pokutniki. Odniósł drobne obrażenia i udał się do #szpitala w Zakopanem.");
 					player.addKarma(20);
-					player.addXP(1000);
+					player.addXP(1200);
 					player.setQuest(QUEST_SLOT, "krok_szpital");
 				};
 			});
@@ -196,7 +196,7 @@ public class Ratownik extends AbstractQuest {
 					raiser.say("Poczekaj, hm... Tak koło 9 godziny przyszedł, miał lekkie obrażenia. Podobno go i Wielkoluda pokutniki napadły."
 						+ " Opatrzyłam mu rany i miał lecieć do #gaździny  #Maryśki.");
 					player.addKarma(5);
-					player.addXP(100);
+					player.addXP(200);
 					player.setQuest(QUEST_SLOT, "krok_maryska");
 				};
 			});
@@ -218,7 +218,7 @@ public class Ratownik extends AbstractQuest {
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					raiser.say("Oczywiście, że był powsinogą jeden. Wpadł jak piorun z jasnego nieba i wypadł nawet dwóch zdań z nim nie zamieniłam. Potrzebował coś od mojego męża bacy #Zbyszka.");
 					player.addKarma(10);
-					player.addXP(150);		
+					player.addXP(350);		
 					player.setQuest(QUEST_SLOT, "krok_zbyszek");
 				};
 			});
@@ -240,7 +240,7 @@ public class Ratownik extends AbstractQuest {
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					raiser.say("Nie dalej jak trzy godziny temu poszedł sobie. Mówił coś, że ma u #Gerwazego coś do załatwienia.");
 					player.addKarma(10);
-					player.addXP(100);
+					player.addXP(300);
 					player.setQuest(QUEST_SLOT, "krok_gerwazy");
 				};
 			});
@@ -262,7 +262,7 @@ public class Ratownik extends AbstractQuest {
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					raiser.say("A i owszem był u mnie. Napełniłem mu cztery bukłaki wodą, pogadaliśmy sobie chwilę i #poszedł sobie. ");
 					player.addKarma(10);
-					player.addXP(100);
+					player.addXP(300);
 					player.setQuest(QUEST_SLOT, "krok_fryderyk");
 				};
 			});
@@ -289,7 +289,7 @@ public class Ratownik extends AbstractQuest {
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					raiser.say("A jakże był tu nie tak #dawno.");
 					player.addKarma(10);
-					player.addXP(100);
+					player.addXP(300);
 					player.setQuest(QUEST_SLOT, "krok_juhas");
 				};
 			});
@@ -318,7 +318,7 @@ public class Ratownik extends AbstractQuest {
 					raiser.say("Mówisz akcję ratowniczą zarządził Mariusz. Idź i powiedz mu, że jestem #niedysponowany."
 								+ " Jak widzisz trochę wypiłem. A po pijanemu nie wolno w góry wybierać się.");
 					player.addKarma(15);
-					player.addXP(500);
+					player.addXP(700);
 					player.setQuest(QUEST_SLOT, "krok_mariusz");
 				};
 			});
@@ -342,7 +342,7 @@ public class Ratownik extends AbstractQuest {
 					player.setBaseHP(10 + player.getBaseHP());
 					player.heal(10, true);
 					player.addKarma(25);
-					player.addXP(2500);
+					player.addXP(2950);
 					player.setQuest(QUEST_SLOT, "done");
 				};
 			});

@@ -72,7 +72,7 @@ import java.util.List;
  * 
  * REWARD:
  * <ul>
- * <li> 100 XP </li>
+ * <li> 250 XP </li>
  * <li> some karma (5 + (5 | -5)) </li>
  * <li> 3 potions </li>
  * </ul>
@@ -199,7 +199,7 @@ public class WaterForXhiphin extends AbstractQuest {
 		// make sure we drop the checked water not any other water
 		reward.add(new DropInfostringItemAction("woda", CLEAN_WATER_INFOSTRING));
 		reward.add(new EquipItemAction("eliksir", 3));
-		reward.add(new IncreaseXPAction(100));
+		reward.add(new IncreaseXPAction(250));
 		reward.add(new IncrementQuestAction(QUEST_SLOT, 2, 1) );
 		reward.add(new SetQuestToTimeStampAction(QUEST_SLOT,1));
 		reward.add(new SetQuestAction(QUEST_SLOT, 0, "done"));

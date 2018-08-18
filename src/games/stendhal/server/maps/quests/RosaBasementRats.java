@@ -52,7 +52,7 @@ import marauroa.common.Pair;
  * <li> Eonna checks your kills and then thanks you.
  * <p>
  * REWARD:
- * <li> 100 XP, karma
+ * <li> 550 XP, karma
  * <p>
  * REPETITIONS:
  * <li> None.

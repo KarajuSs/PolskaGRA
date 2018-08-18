@@ -52,7 +52,7 @@ import java.util.List;
  * <li> Return the gold bars to Grafindle</ul>
  * 
  * REWARD:<ul>
- * <li> 200 XP
+ * <li> 2000 XP
  * <li> some karma (10)
  * <li> key to nalwor bank customer room
  * </ul>
@@ -218,7 +218,7 @@ public class TakeGoldforGrafindle extends AbstractQuest {
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
 		reward.add(new DropItemAction("sztabka złota", GOLD_AMOUNT));
 		reward.add(new EquipItemAction("klucz do banku Nalwor", 1, true));
-		reward.add(new IncreaseXPAction(200));
+		reward.add(new IncreaseXPAction(2000));
 		reward.add(new SetQuestAction(QUEST_SLOT, "done"));
 		reward.add(new IncreaseKarmaAction(10));
 		
