@@ -511,20 +511,21 @@ public final class ShopList {
 		shops.add("buydragonitems", "pazury tygrysie", 150);
 		shops.add("buydragonitems", "pazur zielonego smoka", 35000);
 		shops.add("buydragonitems", "pazur niebieskiego smoka", 45000);
-		shops.add("buydragonitems", "pazur czerwonego smoka", 55000);
-		shops.add("buydragonitems", "pazur czarnego smoka", 65000);
-		shops.add("buydragonitems", "pazur złotego smoka", 75000);
+		shops.add("buydragonitems", "pazur arktycznego smoka", 55000);
+		shops.add("buydragonitems", "pazur czerwonego smoka", 65000);
+		shops.add("buydragonitems", "pazur czarnego smoka", 75000);
+		shops.add("buydragonitems", "pazur złotego smoka", 85000);
 
 		//bogus kupuje :
-		shops.add("buyskin", "piórko", 4);
 		shops.add("buyskin", "skóra xenocium", 800);
 		shops.add("buyskin", "skóra tygrysa", 1000);
 		shops.add("buyskin", "skóra lwa", 2000);
 		shops.add("buyskin", "skóra zielonego smoka", 2600);
 		shops.add("buyskin", "skóra czerwonego smoka", 3200);
 		shops.add("buyskin", "skóra niebieskiego smoka", 3800);
-		shops.add("buyskin", "skóra czarnego smoka", 4400);
-		shops.add("buyskin", "skóra złotego smoka", 5000);
+		shops.add("buyskin", "skóra arktycznego smoka", 4400);
+		shops.add("buyskin", "skóra czarnego smoka", 5000);
+		shops.add("buyskin", "skóra złotego smoka", 5600);
 
 		//bogus sprzedaje
 		shops.add("sellskin", "buteleczka", 5);
@@ -534,17 +535,14 @@ public final class ShopList {
 		shops.add("sellskin", "kosa", 2000);
 
 		//npc kupujący pióra...
-		/**
 		shops.add("buypiora", "piórko", 4);
-		shops.add("buypiora", "pióro feniksa", 1700);
 		shops.add("buypiora", "pióro anioła", 3200);
-		shops.add("buypiora", "pióro upadłego anioła", 3700);
-		shops.add("buypiora", "pióro mrocznego anioła", 4200);
-		shops.add("buypiora", "pióro archanioła", 5800);
-		shops.add("buypiora", "pióro mrocznego archanioła", 6800);
+		shops.add("buypiora", "pióro upadłego anioła", 4200);
+		shops.add("buypiora", "pióro mrocznego anioła", 5200);
+		shops.add("buypiora", "pióro archanioła", 6000);
+		shops.add("buypiora", "pióro mrocznego archanioła", 7000);
 		shops.add("buypiora", "pióro serafina", 11000);
 		shops.add("buypiora", "pióro azazela", 14000);
-		*/
 
 		//zielarka kupuje
 		shops.add("buyziola", "arandula", 12);
@@ -623,6 +621,13 @@ public final class ShopList {
 		shops.add("stasek", "pałasz", 740);
 		shops.add("stasek", "pordzewiała kosa", 1550);
 		shops.add("stasek", "ciupaga", 45000);
+		
+		//Radomil sprzedaje
+		shops.add("eliksiry", "antidotum", 50);
+		shops.add("eliksiry", "mocne antidotum", 250);
+		shops.add("eliksiry", "eliksir", 375);
+		shops.add("eliksiry", "duży eliksir", 750);
+		shops.add("eliksiry", "wielki eliksir", 1250);
 	}
 
 	private static ShopList instance;
