@@ -40,16 +40,6 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * REWARD:
- * <ul>
- * <li> 500,000 XP </li>
- * <li> 100 Karma (+5 for accepting, -5 for rejecting) </li>
- * <li> scent (when ready) </li>
- * </ul>
- * <p>
- * REPETITIONS: - None.
- */
 public class GoralskiCollector3 extends AbstractQuest {
 
     private static final List<String> NEEDEDGORAL3 = Arrays.asList("korale", "pas zbójecki", "złota ciupaga z wąsem", "góralski gorset", "cuha góralska", "chusta góralska", "portki bukowe", "polska tarcza ciężka");
@@ -386,17 +376,11 @@ public class GoralskiCollector3 extends AbstractQuest {
 			return res;
 	}
 
-	// The previous quest likely requires at least this level.
-	// When adding the hint check, remember to check if the itemCollector quest is completed.
-	@Override
-	public int getMinLevel() {
-		return 140;
-	}
-
 	@Override
 	public String getRegion() {
 		return Region.TATRY_MOUNTAIN;
 	}
+
 	@Override
 	public String getNPCName() {
 		return "Gazda Bartek";

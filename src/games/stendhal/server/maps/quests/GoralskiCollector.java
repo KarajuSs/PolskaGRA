@@ -233,12 +233,6 @@ public class GoralskiCollector extends AbstractQuest implements BringListOfItems
 		return "GoralskiCollector";
 	}
 
-	// You can start collecting just with a simple cloak which you can buy, but maybe not a good idea to send to Fado too early.
-	@Override
-	public int getMinLevel() {
-		return 80;
-	}
-
 	@Override
 	public String getRegion() {
 		return Region.TATRY_MOUNTAIN;

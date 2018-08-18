@@ -294,12 +294,6 @@ public class GoralskiCollector2 extends AbstractQuest {
 		return "GoralskiCollector2";
 	}
 
-	// it can be a long quest so they can always start it before they can necessarily finish all
-	@Override
-	public int getMinLevel() {
-		return 100;
-	}
-
 	@Override
 	public String getNPCName() {
 		return "Gazda Bartek";
