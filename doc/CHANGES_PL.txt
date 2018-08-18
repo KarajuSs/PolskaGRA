@@ -2,11 +2,13 @@
 ---------
 1.03 - MOUNTAINS
 *klient*
-- Przetłumaczono część tekstów w kliencie
+- Przetłumaczono część tekstów
 
 
 *świat gry*
-- Dodano pogodę na mapach tatr
+- Aktywowano mapy Tatr
+- Dodano 11 nowych map Tatr
+- Dodano pogodę na mapach Tatr
 - Pióro azazela można dropnąć z azazela
 - Pazur arktycznego smoka oraz skóra akrtycznego smoka można dropnąć ze smoka arktycznego
 - Dostosowano punkty doświadczenia zdobywane z potworków stendhala do potworów PolskaGRA
@@ -16,7 +18,11 @@
 	-Brązowa skrzynia: money, duży eliksir, wielki eliksir, gigantyczny eliksir, maczuga, skóra zielonego smoka, skóra niebieskiego smoka, futro, korale, ciupaga, spodnie kamienne, kamienna zbroja, buty kamienne, sztylet mroku, kosa, pyrlik, skórzane rękawice, złota kolczuga
 	-Srebrna skrzynia: wielki eliksir, money, gigantyczny eliksir, skóra zielonego smoka, skóra niebieskiego smoka, skóra czerwonego smoka, skóra czarnego smoka korale, lodowy miecz, zbroja cieni, rękawice cieni, spodnie cieni, buty cieni, złote spodnie, sztylet mroku, ciupaga, kamienne spodnie, skórzane wzmocnione rękawice, kamienna tarcza
 	-Złota skrzynia: gigantyczny eliksir, wielki eliksir, money, ciupaga, złote spodnie, złota zbroja zbroja cieni, tarcza płytowa, sztylet mroku, skórzane wzmocnione rękawice, skóra złotego smoka, skóra zielonego smoka, skóra niebieskiego smoka, skóra czerwonego smoka, skóra czarnego smoka, skóra arktycznego smoka, rękawice cieni pas zbójecki miecz lodowy, korale, czarny sztyle, tczarny płaszcz, czarne spodnie, czarne buty, czarna zbroja
-
+- Dodano nowych NPC w Tatrach
+- Dodano nowe pomieszczenia takie jak: tawerna/hostel/ratusz
+- Dodano nowe zadania w Tatrach (jedno z nich znajduje się w nowym ratuszu :))
+- W dzielnicy Zakopanego, w Kuźnicy można sprawdzić kto potrzebuje pomocy w rejonach pasma górskiego jak i w samym Zakopane
+- Kilka nowych outfitów dla NPC
 
 
 *code*
