@@ -75,8 +75,8 @@ public class FinarfinNPC implements ZoneConfigurator {
 			}
 		};
 
+		npc.setEntityClass("executivenpc");
 		npc.setPosition(27, 6);
-		npc.setEntityClass("noimagenpc");
 		npc.setDirection(Direction.DOWN);
 		zone.add(npc);
 	}

@@ -13,8 +13,10 @@ package games.stendhal.server.maps.tatry.kuznice.tavern;
 
 import java.util.Map;
 
+import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
+import games.stendhal.server.entity.RPEntity;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 
 public class TajemniczaOsobaNPC implements ZoneConfigurator {
@@ -39,11 +41,16 @@ public class TajemniczaOsobaNPC implements ZoneConfigurator {
 				addHelp("Może będziesz mógł mi w czymś pomóc.");
 				addGoodbye();
 			}
+			
+			@Override
+			protected void onGoodbye(RPEntity player) {
+				setDirection(Direction.DOWN);
+			}
 		};
 
-		npc.setEntityClass("noimagenpc");
+		npc.setEntityClass("npctajemniczaosoba");
 		npc.setPosition(9, 34);
-		npc.initHP(100);
+		npc.setDirection(Direction.DOWN);
 		zone.add(npc);
 	}
 }

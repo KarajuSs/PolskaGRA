@@ -64,7 +64,6 @@ public class JagienkaNPC implements ZoneConfigurator {
 
 		npc.setEntityClass("npcjagienka");
 		npc.setPosition(26, 29);
-		npc.initHP(100);
 		zone.add(npc);
 	}
 }

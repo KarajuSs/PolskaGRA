@@ -55,9 +55,8 @@ public class SoltysNPC implements ZoneConfigurator {
 			}
 		};
 
-		npc.setEntityClass("noimagenpc");
+		npc.setEntityClass("npcgoral");
 		npc.setPosition(10, 29);
-		npc.initHP(100);
 		zone.add(npc);
 	}
 }
