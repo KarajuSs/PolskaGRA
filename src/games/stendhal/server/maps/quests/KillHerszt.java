@@ -47,7 +47,7 @@ import marauroa.common.Pair;
  * <ul>
  * <li> Gazda Jędrzej
  * </ul>
- * 
+ *
  * STEPS:
  * <ul>
  * <li> Gazda Jędrzej asks you to kill remainging zbójniks and banits from area
@@ -61,7 +61,7 @@ import marauroa.common.Pair;
  * <li> Karma: 20
  * <li> Once base HP bonus of 20
  * </ul>
- * 
+ *
  * REPETITIONS:
  * <ul>
  * <li> not for players with white skull.
@@ -76,7 +76,7 @@ public class KillHerszt extends AbstractQuest {
 	private static final String GAZDA_JEDRZEJ_BASEHP_QUEST_SLOT = "gazda_jedrzej_basehp";
 	private static final String GAZDA_JEDRZEJ_NAGRODA_QUEST_SLOT = "gazda_jedrzej_nagroda";
 
-	
+
 	@Override
 	public String getSlotName() {
 		return QUEST_SLOT;
@@ -244,5 +244,10 @@ public class KillHerszt extends AbstractQuest {
 	@Override
 	public String getNPCName() {
 		return "Gazda Jędrzej";
+	}
+
+	@Override
+	public String getRegion() {
+		return Region.ZAKOPANE_CITY;
 	}
 }
