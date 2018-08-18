@@ -386,7 +386,7 @@ public class DailyMonsterQuest extends AbstractQuest {
 								new TimePassedCondition(QUEST_SLOT, 1, delay))), 
 				ConversationStates.ATTENDING, 
 				null,
-				new DailyQuestAction());		
+				new DailyQuestAction());
 	}
 
 	/**
