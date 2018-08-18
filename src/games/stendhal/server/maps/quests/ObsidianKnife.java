@@ -423,7 +423,7 @@ public class ObsidianKnife extends AbstractQuest {
 				new SetQuestAction(QUEST_SLOT, "knife_offered"));
 
 		npc.add(ConversationStates.QUEST_2_OFFERED,
-				Arrays.asList("knife", "skas","nóż"),
+				Arrays.asList("knife", "saks","nóż"),
 				new LevelGreaterThanCondition(REQUIRED_LEVEL),
 				ConversationStates.QUEST_2_OFFERED,
 				"Zrobię obsydianowy saks jeżeli zdobędziesz kamień, z którego wyrabia się ostrze. Przynieś mi też "

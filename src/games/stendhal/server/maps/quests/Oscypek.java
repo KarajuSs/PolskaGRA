@@ -305,7 +305,7 @@ public class Oscypek extends AbstractQuest {
 				ConversationPhrases.QUEST_MESSAGES,
 				new QuestInStateCondition(QUEST_SLOT, "drewno"),
 				ConversationStates.ATTENDING,
-				"Prosiłem Ciebie o przyniesienie #drewna!",
+				"Prosiłem Ciebie o przyniesienie #'drewna'!",
 				null);
 		}
 
