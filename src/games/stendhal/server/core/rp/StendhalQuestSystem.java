@@ -207,6 +207,7 @@ public class StendhalQuestSystem {
 		loadQuest(new GoralskiCollector2());
 		loadQuest(new GoralskiCollector3());
 		loadQuest(new Imprezowicz());
+		loadQuest(new ZlotyAmulet());
 		/** 					**\
 		 *      KOŚCIELISKO 	 *
 		\**	                    **/
