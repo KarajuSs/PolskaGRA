@@ -184,6 +184,30 @@
 		<portal x="54" y="91" ref="tavern_2_entrance">
 			<destination zone="int_tatry_kuznice_tavern" ref="tavern_2_exit"/>
 		</portal>
+		
+		<portal x="82" y="91" ref="hostel_entrance">
+			<destination zone="int_tatry_kuznice_hostel" ref="hostel_exit"/>
+		</portal>
+		
+		<portal x="89" y="49" ref="train_entrance">
+			<destination zone="int_tatry_kuznice_trainstation" ref="train_exit"/>
+			<attribute name="face">left</attribute>
+		</portal>
+		
+		<!-- <portal x="96" y="74" ref="soltys_house_entrance">
+			<destination zone="int_tatry_kuznice_soltys_house_0" ref="entrance_soltys_house" />
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.KeyedPortal">
+				<parameter name="key">klucz tajemniczej osoby</parameter>
+				<parameter name="rejected">Drzwi są zamknięte.</parameter>
+			</implementation>
+		</portal> -->
+		
+		<portal x="79" y="102" ref="chapel_1_entrance">
+			<destination zone="int_tatry_kuznice_chapel" ref="chapel_1_exit"/>
+		</portal>
+		<portal x="80" y="102" ref="chapel_2_entrance">
+			<destination zone="int_tatry_kuznice_chapel" ref="chapel_2_exit"/>
+		</portal>
 	</zone>
 	<!-- KONIEC Y: 18944 -->
 
@@ -393,6 +417,95 @@
 		<portal x="16" y="13" ref="tavern_2_exit">
 			<destination zone="0_tatry_kuznice" ref="tavern_2_entrance"/>
 			<attribute name="face">right</attribute>
+		</portal>
+	</zone>
+	
+	<!-- hostel  -->
+	<zone name="int_tatry_kuznice_hostel" file="interiors/tatry/hostel.tmx">
+		<configurator class-name="games.stendhal.server.maps.tatry.kuznice.hostel.DzieciakiNPCs" />
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-goralskie</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		
+		<entity x="9" y="3">
+			<implementation
+				class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">sleep-1</parameter>
+				<parameter name="radius">15</parameter>
+			</implementation>
+		</entity>
+
+		<entity x="12" y="20">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
+				<parameter name="sound">creaky-door-1, creaky-door-2, window-close-1</parameter>
+				<parameter name="min">60</parameter>
+				<parameter name="max">120</parameter>
+				<parameter name="radius">15</parameter>
+				<parameter name="volume">10</parameter>
+			</implementation>
+		</entity>
+		<entity x="32" y="19">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
+				<parameter name="sound">creaky-door-1, creaky-door-2, window-close-1</parameter>
+				<parameter name="min">60</parameter>
+				<parameter name="max">120</parameter>
+				<parameter name="radius">15</parameter>
+				<parameter name="volume">10</parameter>
+			</implementation>
+		</entity>
+
+		<portal x="12" y="23" ref="hostel_exit">
+			<destination zone="0_tatry_kuznice" ref="hostel_entrance"/>
+		</portal>
+	</zone>
+	
+	<!-- trainstation  -->
+	<zone name="int_tatry_kuznice_trainstation" file="interiors/tatry/trainstation.tmx">
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-goralskie</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+
+		<entity x="15" y="8">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
+				<parameter name="sound">creaky-door-1, creaky-door-2, window-close-1</parameter>
+				<parameter name="min">60</parameter>
+				<parameter name="max">120</parameter>
+				<parameter name="radius">15</parameter>
+				<parameter name="volume">10</parameter>
+			</implementation>
+		</entity>
+
+		<portal x="11" y="14" ref="train_exit">
+			<destination zone="0_tatry_kuznice" ref="train_entrance"/>
+			<attribute name="face">up</attribute>
+		</portal>
+	</zone>
+	
+	<!-- chapel  -->
+	<zone name="int_tatry_kuznice_chapel" file="interiors/tatry/chapel.tmx">
+		<entity x="10" y="10">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
+				<parameter name="sound">creaky-door-1, creaky-door-2, window-close-1</parameter>
+				<parameter name="min">60</parameter>
+				<parameter name="max">120</parameter>
+				<parameter name="radius">15</parameter>
+				<parameter name="volume">10</parameter>
+			</implementation>
+		</entity>
+
+		<portal x="10" y="19" ref="chapel_1_exit">
+			<destination zone="0_tatry_kuznice" ref="chapel_1_entrance"/>
+			<attribute name="face">up</attribute>
+		</portal>
+		<portal x="9" y="19" ref="chapel_2_exit">
+			<destination zone="0_tatry_kuznice" ref="chapel_2_entrance"/>
+			<attribute name="face">up</attribute>
 		</portal>
 	</zone>
 
