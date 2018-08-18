@@ -132,11 +132,8 @@ public class Ratownik extends AbstractQuest {
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					raiser.say("Był tu ladaco jeden jakieś dwa dni temu. Z tego co wiem miał odwiedzić #Wielkoluda. ");
 					player.addKarma(10);
-<<<<<<< HEAD
 					player.addXP(450);	
-=======
 					player.addXP(200);
->>>>>>> f333cc5a6a168131e2522f27dbdcf65df5ce2c28
 					player.setQuest(QUEST_SLOT, "krok_wielkolud");
 				};
 			});
@@ -223,11 +220,8 @@ public class Ratownik extends AbstractQuest {
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					raiser.say("Oczywiście, że był powsinogą jeden. Wpadł jak piorun z jasnego nieba i wypadł nawet dwóch zdań z nim nie zamieniłam. Potrzebował coś od mojego męża bacy #Zbyszka.");
 					player.addKarma(10);
-<<<<<<< HEAD
 					player.addXP(350);		
-=======
 					player.addXP(150);
->>>>>>> f333cc5a6a168131e2522f27dbdcf65df5ce2c28
 					player.setQuest(QUEST_SLOT, "krok_zbyszek");
 				};
 			});
@@ -464,10 +458,5 @@ public class Ratownik extends AbstractQuest {
 	@Override
 	public String getNPCName() {
 		return "Ratownik Mariusz";
-	}
-	
-	@Override
-	public String getRegion() {
-		return Region.ZAKOPANE_CITY;
 	}
 }
