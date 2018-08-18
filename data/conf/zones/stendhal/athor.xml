@@ -1252,6 +1252,7 @@ Gdy jest remis to dostajesz z powrotem swoją stawkę. Jeżeli wygrasz dostajesz
 
 		<!-- NPCs -->
 		<configurator class-name="games.stendhal.server.maps.athor.cave.GhostNPC" />
+		<configurator class-name="games.stendhal.server.maps.athor.cave.Skille100NPC"/>
 
 		<!-- Portals -->
 		<portal x="118" y="96" ref="quicksand_out">

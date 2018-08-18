@@ -47,17 +47,7 @@ public class Skille100NPC implements ZoneConfigurator {
 			
 			@Override
 			protected void createPath() {
-				final List<Node> nodes = new LinkedList<Node>();
-				nodes.add(new Node(87, 84));
-				nodes.add(new Node(89, 84));
-				nodes.add(new Node(89, 85));
-				nodes.add(new Node(97, 85));
-				nodes.add(new Node(97, 90));
-				nodes.add(new Node(107, 90));
-				nodes.add(new Node(107, 96));
-				nodes.add(new Node(103, 96));
-				nodes.add(new Node(103, 88));
-				setPath(new FixedPath(nodes, true));
+				setPath(null);
 			}
 			
 			@Override
@@ -108,7 +98,8 @@ public class Skille100NPC implements ZoneConfigurator {
 		});
 
 		npc.setEntityClass("blackwizardpriestnpc");
-		npc.setPosition(87, 84);
+		npc.setPosition(75, 109);
+		npc.setDirection(Direction.DOWN);
 		npc.initHP(85);
 		zone.add(npc);
 	}
