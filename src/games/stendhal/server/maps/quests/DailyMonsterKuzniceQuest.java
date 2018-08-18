@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2011 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -63,10 +62,10 @@ public class DailyMonsterKuzniceQuest extends AbstractQuest {
 	private final static int delay = MathHelper.MINUTES_IN_ONE_DAY;
 	private final static int expireDelay = MathHelper.MINUTES_IN_ONE_WEEK;
 
-	
+
 	/** All creatures, sorted by level. */
-	private static List<Creature> sortedcreatures;	
-	
+	private static List<Creature> sortedcreatures;
+
 	private static void refreshCreaturesList(final String excludedCreature) {
 		final Collection<Creature> creatures = SingletonRepository.getEntityManager().getCreatures();
 		sortedcreatures = new LinkedList<Creature>();
@@ -76,15 +75,15 @@ public class DailyMonsterKuzniceQuest extends AbstractQuest {
 			}
 		}
 		Collections.sort(sortedcreatures, new LevelBasedComparator());
-	}	
-	
+	}
+
 	/**
 	 * constructor for quest
 	 */
 	public DailyMonsterKuzniceQuest() {
 		refreshCreaturesList(null);
 	}
-	
+
 	static class DailyKuzniceQuestAction implements ChatAction {
 		//private String debugString;
 
@@ -111,9 +110,9 @@ public class DailyMonsterKuzniceQuest extends AbstractQuest {
 					//questLast = tokens[1];
 					questCount = tokens[2];
 				}
-			
+
 				refreshCreaturesList(previousCreature);
-			
+
 				// Creature selection magic happens here
 				final Creature pickedCreature = pickIdealCreature(player.getLevel(),
 						false, sortedcreatures);
@@ -126,17 +125,17 @@ public class DailyMonsterKuzniceQuest extends AbstractQuest {
 
 				String creatureName = pickedCreature.getName();
 
-			
+
 				raiser.say("Dzielnica Zakopanego, Kuźnice potrzebują twojej pomocy. Idź zabij " + Grammar.a_nounCreature(creatureName)
 						+ " i powiedz #załatwione, gdy skończysz.");
 
 				questLast = "" + new Date().getTime();
 				player.setQuest(
-						QUEST_SLOT, 
+						QUEST_SLOT,
 						creatureName + ",0,1,"+
 						player.getSoloKill(creatureName)+","+
-						player.getSharedKill(creatureName)+";" + 
-						questLast + ";"+ 
+						player.getSharedKill(creatureName)+";" +
+						questLast + ";"+
 						questCount);
 			}
   		}
@@ -197,7 +196,7 @@ public class DailyMonsterKuzniceQuest extends AbstractQuest {
 			if (current < start || start < 0
 					|| current >= creatureList.size()) {
 				if (testMode) {
-					logger.debug("ERROR: <"+level + "> start=" + start + 
+					logger.debug("ERROR: <"+level + "> start=" + start +
 							", current=" + current);
 				}
 				return null;
@@ -287,7 +286,7 @@ public class DailyMonsterKuzniceQuest extends AbstractQuest {
 		}
 		return res;
 	}
-	
+
 	private String getCreatureToKillFromPlayer(Player player) {
 		String actualQuestSlot = player.getQuest(QUEST_SLOT, 0);
 		String[] split = actualQuestSlot.split(",");
@@ -302,7 +301,7 @@ public class DailyMonsterKuzniceQuest extends AbstractQuest {
 	 * player said "quest"
 	 */
 	private void step_1() {
-		// player asking for quest when he have active non-expired quest 
+		// player asking for quest when he have active non-expired quest
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.QUEST_MESSAGES,
 				new AndCondition(
@@ -311,18 +310,18 @@ public class DailyMonsterKuzniceQuest extends AbstractQuest {
 										new QuestNotStartedCondition(QUEST_SLOT),
 										new QuestCompletedCondition(QUEST_SLOT))),
 						new NotCondition(
-								new TimePassedCondition(QUEST_SLOT, 1, expireDelay))), 
-				ConversationStates.ATTENDING, 
+								new TimePassedCondition(QUEST_SLOT, 1, expireDelay))),
+				ConversationStates.ATTENDING,
 				null,
 				new ChatAction() {
 					@Override
 					public void fire(Player player, Sentence sentence, EventRaiser npc) {
-						npc.say("Już dostałeś zadanie na zgładzenie" + 
+						npc.say("Już dostałeś zadanie na zgładzenie" +
 								Grammar.a_nounCreature(player.getQuest(QUEST_SLOT,0).split(",")[0]) +
 								". Powiedz #załatwione kiedy to zrobisz!");
-					}			
+					}
 				});
-		
+
 		// player have expired quest time
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.QUEST_MESSAGES,
@@ -331,29 +330,29 @@ public class DailyMonsterKuzniceQuest extends AbstractQuest {
 								new OrCondition(
 										new QuestNotStartedCondition(QUEST_SLOT),
 										new QuestCompletedCondition(QUEST_SLOT))),
-						new TimePassedCondition(QUEST_SLOT, 1, expireDelay)), 
-				ConversationStates.ATTENDING, 
+						new TimePassedCondition(QUEST_SLOT, 1, expireDelay)),
+				ConversationStates.ATTENDING,
 				null,
 				new ChatAction() {
 					@Override
 					public void fire(Player player, Sentence sentence, EventRaiser npc) {
 						if(player.getQuest(QUEST_SLOT, 0)!=null) {
-								npc.say("Już otrzymałeś zadanie na zgładzenie " + 
+								npc.say("Już otrzymałeś zadanie na zgładzenie " +
 										Grammar.a_nounCreature(player.getQuest(QUEST_SLOT, 0).split(",")[0]) +
 										". Powiedz #załatwione kiedy to zrobisz!" +
 										" Jeżeli nie możesz go znaleźć to może znaczyć, że już nie przychodzi do Semos. Możesz zabić #innego potwora jeżeli chcesz.");
 						}
 					}
 				});
-		
-		// player asking for quest before allowed time interval 
+
+		// player asking for quest before allowed time interval
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.QUEST_MESSAGES,
 				new AndCondition(
 						new QuestCompletedCondition(QUEST_SLOT),
-						new NotCondition( 
-								new TimePassedCondition(QUEST_SLOT, 1, delay))), 
-				ConversationStates.ATTENDING, 
+						new NotCondition(
+								new TimePassedCondition(QUEST_SLOT, 1, delay))),
+				ConversationStates.ATTENDING,
 				null,
 				new SayTimeRemainingAction(QUEST_SLOT,1, delay, "Możesz dostać tylko jedno zadanie dziennie. Proszę wróć za "));
 
@@ -364,10 +363,10 @@ public class DailyMonsterKuzniceQuest extends AbstractQuest {
 						new QuestNotStartedCondition(QUEST_SLOT),
 						new AndCondition(
 								new QuestCompletedCondition(QUEST_SLOT),
-								new TimePassedCondition(QUEST_SLOT, 1, delay))), 
-				ConversationStates.ATTENDING, 
+								new TimePassedCondition(QUEST_SLOT, 1, delay))),
+				ConversationStates.ATTENDING,
 				null,
-				new DailyKuzniceQuestAction());		
+				new DailyKuzniceQuestAction());
 	}
 
 	/**
@@ -385,7 +384,7 @@ public class DailyMonsterKuzniceQuest extends AbstractQuest {
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.FINISH_MESSAGES,
 				new QuestNotStartedCondition(QUEST_SLOT),
-				ConversationStates.ATTENDING, 
+				ConversationStates.ATTENDING,
 				"Obawiam się, że jeszcze nie dałem Tobie #zadania.",
 				null);
 
@@ -393,11 +392,11 @@ public class DailyMonsterKuzniceQuest extends AbstractQuest {
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.FINISH_MESSAGES,
 				new QuestCompletedCondition(QUEST_SLOT),
-				ConversationStates.ATTENDING, 
+				ConversationStates.ATTENDING,
 				"Już ukończyłeś ostatnie zadanie, które Tobie dałem.",
 				null);
 
-		// player didn't killed creature 
+		// player didn't killed creature
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.FINISH_MESSAGES,
 				new AndCondition(
@@ -405,7 +404,7 @@ public class DailyMonsterKuzniceQuest extends AbstractQuest {
 						new QuestNotCompletedCondition(QUEST_SLOT),
 						new NotCondition(
 						        new KilledForQuestCondition(QUEST_SLOT, 0))),
-				ConversationStates.ATTENDING, 
+				ConversationStates.ATTENDING,
 				null,
 				new ChatAction() {
 					@Override
@@ -423,7 +422,7 @@ public class DailyMonsterKuzniceQuest extends AbstractQuest {
 						new QuestStartedCondition(QUEST_SLOT),
 						new QuestNotCompletedCondition(QUEST_SLOT),
 				        new KilledForQuestCondition(QUEST_SLOT, 0)),
-				ConversationStates.ATTENDING, 
+				ConversationStates.ATTENDING,
 				"Gratuluje! Pozwól mi podziekowac w imieniu mieszkanców Zakopanego i dzielnicy!",
 				new MultipleActions(
 						new IncreaseXPDependentOnLevelAction(9, 105.0),
@@ -442,29 +441,29 @@ public class DailyMonsterKuzniceQuest extends AbstractQuest {
 	private void step_4() {
 		// player have no active quest and trying to get another
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.ABORT_MESSAGES, 
+				ConversationPhrases.ABORT_MESSAGES,
 				new OrCondition(
 						new QuestNotStartedCondition(QUEST_SLOT),
 						new QuestCompletedCondition(QUEST_SLOT)),
-				ConversationStates.ATTENDING, 
-				"Obawiam się, że jeszcze nie dałem Tobie #zadania.", 
+				ConversationStates.ATTENDING,
+				"Obawiam się, że jeszcze nie dałem Tobie #zadania.",
 				null);
-		
-		// player have no expired quest 
+
+		// player have no expired quest
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.ABORT_MESSAGES, 
-				new NotCondition( 
+				ConversationPhrases.ABORT_MESSAGES,
+				new NotCondition(
 						new TimePassedCondition(QUEST_SLOT, 1, expireDelay)),
-				ConversationStates.ATTENDING, 
-				"Nie minęło zbyt wiele czasu od rozpoczęcia zadania. Nie pozwolę Ci poddać się tak szybko.", 
+				ConversationStates.ATTENDING,
+				"Nie minęło zbyt wiele czasu od rozpoczęcia zadania. Nie pozwolę Ci poddać się tak szybko.",
 				null);
-		
+
 		// player have expired quest
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.ABORT_MESSAGES, 
+				ConversationPhrases.ABORT_MESSAGES,
 				new TimePassedCondition(QUEST_SLOT, 1, expireDelay),
-				ConversationStates.ATTENDING, 
-				null, 
+				ConversationStates.ATTENDING,
+				null,
 				new DailyKuzniceQuestAction());
 	}
 
@@ -484,7 +483,7 @@ public class DailyMonsterKuzniceQuest extends AbstractQuest {
 	public String getName() {
 		return "DailyMonsterKuzniceQuest";
 	}
-	
+
 	@Override
 	public int getMinLevel() {
 		return 0;
