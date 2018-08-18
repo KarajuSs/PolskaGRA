@@ -50,7 +50,7 @@ import java.util.List;
  * 
  * REWARD:
  * <ul>
- * <li> 10 XP </li>
+ * <li> 150 XP </li>
  * <li> some karma (2) </li>
  * <li> a pair of leather legs </li>
  * </ul>
@@ -155,7 +155,7 @@ public class NewsFromHackim extends AbstractQuest {
 
 					final Item item = SingletonRepository.getEntityManager().getItem("skórzane spodnie");
 					player.equipOrPutOnGround(item);
-					player.addXP(10);
+					player.addXP(150);
 					player.addKarma(2);
 
 					player.notifyWorldAboutChanges();

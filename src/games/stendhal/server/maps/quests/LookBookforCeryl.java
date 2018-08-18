@@ -56,9 +56,9 @@ import java.util.List;
  * 
  * REWARD:
  * <ul>
- * <li> 100 XP </li>
+ * <li> 500 XP </li>
  * <li> some karma (10 + (5 | -5) </li>
- * <li> 50 gold coins </li>
+ * <li> 150 gold coins </li>
  * </ul>
  * 
  * REPETITIONS: None
@@ -185,8 +185,8 @@ public class LookBookforCeryl extends AbstractQuest {
 		/** Complete the quest */
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
 		reward.add(new DropItemAction("księga czarna"));
-		reward.add(new EquipItemAction("money", 50));
-		reward.add(new IncreaseXPAction(100));
+		reward.add(new EquipItemAction("money", 150));
+		reward.add(new IncreaseXPAction(500));
 		reward.add(new IncreaseKarmaAction(10.0));
 		reward.add(new SetQuestAction(QUEST_SLOT, "done"));
 

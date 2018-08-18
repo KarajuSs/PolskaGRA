@@ -49,7 +49,7 @@ import org.apache.log4j.Logger;
  * <li> Return and learn how to click move, and get some URLs
  * </ul>
  *
- * REWARD: <ul><li> 200 XP <li> 50 gold coins <li> studded shield </ul>
+ * REWARD: <ul><li> 200 XP <li> 150 gold coins <li> studded shield </ul>
  *
  * REPETITIONS: <ul><li> Get the URLs as much as wanted but you only get the reward once.</ul>
  */
@@ -150,7 +150,7 @@ public class MeetHayunn extends AbstractQuest {
 	   	// The player has had enough info for now. Send them to semos. When they come back they can learn some more tips.
 
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
-		reward.add(new EquipItemAction("money", 50));
+		reward.add(new EquipItemAction("money", 150));
 		reward.add(new IncreaseXPAction(100));
 		reward.add(new SetQuestAction(QUEST_SLOT, "taught"));
 		reward.add(new ExamineChatAction("monogenes.png", "Monogenes", "North part of Semos city."));

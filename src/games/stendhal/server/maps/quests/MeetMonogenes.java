@@ -37,7 +37,7 @@ import games.stendhal.server.maps.Region;
  * Monogenes. - Be polite and say "bye" at the end of the conversation to get a
  * small reward.
  * 
- * REWARD: broken (- 10 XP (check that user's level is lesser than 2) - No money)
+ * REWARD: broken (- 100 XP (check that user's level is lesser than 2) - No money)
  * 
  * REPETITIONS: - None
  * 
@@ -178,7 +178,7 @@ public class MeetMonogenes extends AbstractQuest {
 		// public void fire(Player player, Sentence sentence, SpeakerNPC engine) {
 		// if (player.getLevel() < 2) {
 		// engine.say("Goodbye! I hope I was of some use to you.");
-		// player.addXP(10);
+		// player.addXP(100);
 		// player.notifyWorldAboutChanges();
 		// } else {
 		// engine.say("I hope to see you again sometime.");

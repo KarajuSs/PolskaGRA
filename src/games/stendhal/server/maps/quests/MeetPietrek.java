@@ -44,7 +44,7 @@ import java.util.List;
  * <li> Return and learn how to double click move, and get some URLs
  * </ul>
  *
- * REWARD: <ul><li> 20 XP <li> 5 gold coins <li> studded shield </ul>
+ * REWARD: <ul><li> 150 XP <li> 25 gold coins <li> puklerz </ul>
  *
  * REPETITIONS: <ul><li> Get the URLs as much as wanted but you only get the reward once.</ul>
  */
@@ -106,7 +106,7 @@ public class MeetPietrek extends AbstractQuest {
 
 		//player returns to Hayunn having killed a rat
 		final List<ChatAction> actions = new LinkedList<ChatAction>();
-		actions.add(new IncreaseXPAction(10));
+		actions.add(new IncreaseXPAction(50));
 		actions.add(new SetQuestAction(QUEST_SLOT, "killed"));
 
 		npc.add(
@@ -153,8 +153,8 @@ public class MeetPietrek extends AbstractQuest {
 		// The player has had enough info for now. Send them to semos. When they come back they can learn some more tips.
 
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
-		reward.add(new EquipItemAction("money", 5));
-		reward.add(new IncreaseXPAction(10));
+		reward.add(new EquipItemAction("money", 25));
+		reward.add(new IncreaseXPAction(50));
 		reward.add(new SetQuestAction(QUEST_SLOT, "taught"));
 		reward.add(new ExamineChatAction("npcgenowefa.png", "Gaździna Jadźka", "Centrum Zakopanego."));
 
@@ -210,7 +210,7 @@ public class MeetPietrek extends AbstractQuest {
 
 		final List<ChatAction> reward2 = new LinkedList<ChatAction>();
 		reward2.add(new EquipItemAction("puklerz"));
-		reward2.add(new IncreaseXPAction(20));
+		reward2.add(new IncreaseXPAction(50));
 		reward2.add(new SetQuestAction(QUEST_SLOT, "done"));
 
 		npc.add(ConversationStates.INFORMATION_8,
