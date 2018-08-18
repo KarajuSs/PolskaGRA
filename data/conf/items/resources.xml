@@ -444,7 +444,7 @@
 			<slot name="trade"/>
 		</equipable>
 	</item>
-	
+
 	<item name="koński włos">
 		<type class="resource" subclass="horsehair" tileid="-1"/>
 		<description>Oto koński włos.</description>
@@ -765,6 +765,26 @@
 		</equipable>
 	</item>
 
+	<item name="pióro mrocznego archanioła">
+		<type class="resource" subclass="pioro_mr_archaniola" tileid="-1"/>
+		<description>Oto pióro mrocznego archanioła. Jest drogocenne i ma wiele ukrytych właściwości.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+		<attributes>
+			<quantity value="1"/>
+			<max_quantity value="2147483647"/>
+		</attributes>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+
 	<item name="pióro mrocznego anioła">
 		<type class="resource" subclass="pioro_mrocznego_aniola" tileid="-1"/>
 		<description>Oto pióro mrocznego anioła. Niezwykle pali cię ręka, gdy je trzymasz.</description>
@@ -824,7 +844,7 @@
 			<slot name="trade"/>
 		</equipable>
 	</item>
-	
+
 	<item name="pióro azazela">
 		<type class="resource" subclass="pioro_azazela" tileid="-1"/>
 		<description>Oto pióro azazela. Gdy niesiesz je przy sobie czujesz jak ogarnia cię mroczna moc.</description>
@@ -1224,7 +1244,7 @@
 			<slot name="trade"/>
 		</equipable>
 	</item>
-	
+
 	<item name="róg jednorożca">
 		<type class="resource" subclass="rog_jednorozca" tileid="-1"/>
 		<description>Oto róg jednorożca. Zaplanuj dobrze do czego go użyjesz.</description>
@@ -1464,7 +1484,7 @@
 			<slot name="trade"/>
 		</equipable>
 	</item>
-	
+
 	<item name="skóra arktycznego smoka">
 		<type class="resource" subclass="skora_arktycznego_smoka" tileid="-1"/>
 		<description>Oto skóra arktycznego smoka. Być może jakiś zdolny krawiec coś z niej uszyje.</description>
@@ -1542,6 +1562,24 @@
 			<slot name="rhand"/>
 			<slot name="bag"/>
 			<slot name="trade"/>
+		</equipable>
+	</item>
+
+	<item name="złoty amulet">
+		<type class="resource" subclass="golden_amulet" tileid="-1"/>
+		<description>Oto złoty amulet. Ma przed czymś chronić?</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<def value="3"/>
+		</attributes>
+		<weight value="1.0"/>
+		<value value="1234"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+			<slot name="neck"/>
 		</equipable>
 	</item>
 </items>
