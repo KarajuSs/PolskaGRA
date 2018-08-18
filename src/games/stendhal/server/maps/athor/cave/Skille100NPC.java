@@ -64,7 +64,7 @@ public class Skille100NPC implements ZoneConfigurator {
 				addJob("Jestem kapłanem, który chroni tę krainę przed złem.");
 				addOffer("Moja jedyna oferta to gdy osiągniesz 100 poziom to nauczę Cię lepiej walczyć z potworami.");
 				addReply("nauczyć",
-						"Moje nauki to pradawna magia, która wspomaga podczas walk z potworami. Gdy osiągniesz 50 poziom, nauczę Cię jej.");
+						"Moje nauki to pradawna magia, która wspomaga podczas walk z potworami. Gdy osiągniesz 100 poziom, nauczę Cię jej.");
 				addGoodbye();
 			}
 
