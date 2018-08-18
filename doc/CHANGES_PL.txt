@@ -3,6 +3,7 @@
 1.03 - MOUNTAINS
 *klient*
 - Przetłumaczono część tekstów
+- Dodano trzy nowe grafiki: złoty amulet, elficki naszyjnik, pióro mrocznego archanioła
 
 
 *świat gry*
@@ -23,6 +24,9 @@
 - Dodano nowe zadania w Tatrach (jedno z nich znajduje się w nowym ratuszu :))
 - W dzielnicy Zakopanego, w Kuźnicy można sprawdzić kto potrzebuje pomocy w rejonach pasma górskiego jak i w samym Zakopane
 - Kilka nowych outfitów dla NPC
+- Dodano trzy nowe przedmioty: złoty amulet (przedmiot potrzebny do zadania) oraz elficki naszyjnik (6 DEF), pióro mrocznego archanioła (rzecz kolekcjonerska; można dropnąć z archanioła ciemności)
+- NPC na skille (na 100 poziom) został przeniesiony z Gdańska do jaskini na wyspie Athor
+- Wynagrodzenie w niektórych zadaniach w krainie faiumoni oraz krainie prasłowiańskiej zostało zmienione (na lepsze)
 
 
 *code*
