@@ -60,7 +60,7 @@ import marauroa.common.Pair;
  * REWARD:
  * <ul>
  * <li> mithril nugget
- * <li> 10000 XP
+ * <li> 50000 XP
  * <li>25 karma in total
  * </ul>
  * 
@@ -177,7 +177,7 @@ public class ProzbaWielkoluda extends AbstractQuest {
 								.getItem("czterolistna koniczyna");
 						player.equipOrPutOnGround(pokutniki);
 						player.addKarma(25.0);
-						player.addXP(10000);
+						player.addXP(50000);
 						final List<ChatAction> actions = new LinkedList<ChatAction>();
 						if (!player.hasQuest(POMOC_DLA_WIELKOLUDA_QUEST_SLOT) || player.getQuest(POMOC_DLA_WIELKOLUDA_QUEST_SLOT).equals("rejected") || !player.getQuest(POMOC_DLA_WIELKOLUDA_QUEST_SLOT).equals("done")) {
 							actions.add(new SetQuestAction(POMOC_DLA_WIELKOLUDA_QUEST_SLOT, "start"));

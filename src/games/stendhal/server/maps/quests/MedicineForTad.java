@@ -58,9 +58,9 @@ import java.util.List;
  * </ul>
  * <p>
  * REWARD:<ul>
- * <li> 270 XP
+ * <li> 550 XP
  * <li> some karma (4)
- * <li> 10 gold coins
+ * <li> 100 gold coins
  * </ul>
  * <p>
  * REPETITIONS:<ul>
@@ -244,8 +244,8 @@ public class MedicineForTad extends AbstractQuest {
 		final SpeakerNPC npc = npcs.get("Tad");
 
 		final List<ChatAction> processStep = new LinkedList<ChatAction>();
-		processStep.add(new EquipItemAction("money", 10));
-		processStep.add(new IncreaseXPAction(10));
+		processStep.add(new EquipItemAction("money", 100));
+		processStep.add(new IncreaseXPAction(150));
 		processStep.add(new SetQuestAction(QUEST_SLOT, 0, STATE_ILISA));
 		
 		// starting the conversation the first time after getting a flask.
@@ -303,7 +303,7 @@ public class MedicineForTad extends AbstractQuest {
 
 		final List<ChatAction> processStep = new LinkedList<ChatAction>();
 		processStep.add(new DropItemAction("flasza"));
-		processStep.add(new IncreaseXPAction(10));
+		processStep.add(new IncreaseXPAction(150));
 		processStep.add(new SetQuestAction(QUEST_SLOT, 0, STATE_HERB));
 
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
@@ -358,7 +358,7 @@ public class MedicineForTad extends AbstractQuest {
 
 		final List<ChatAction> processStep = new LinkedList<ChatAction>();
 		processStep.add(new DropItemAction("arandula"));
-		processStep.add(new IncreaseXPAction(50));
+		processStep.add(new IncreaseXPAction(150));
         processStep.add(new IncreaseKarmaAction(4));
 		processStep.add(new SetQuestAction(QUEST_SLOT, 0, STATE_POTION));
 
@@ -388,7 +388,7 @@ public class MedicineForTad extends AbstractQuest {
                 null);
 
 		final List<ChatAction> processStep = new LinkedList<ChatAction>();
-		processStep.add(new IncreaseXPAction(200));
+		processStep.add(new IncreaseXPAction(100));
 		processStep.add(new SetQuestAction(QUEST_SLOT, 0, STATE_DONE));
 		
 		npc.add(ConversationStates.IDLE,

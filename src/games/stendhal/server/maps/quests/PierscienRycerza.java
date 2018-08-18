@@ -140,7 +140,7 @@ import games.stendhal.server.entity.player.Player;
 		monetaactions.add(new DropItemAction("tarcza z czaszką",1));
 		monetaactions.add(new DropItemAction("spodnie elfickie",1));
 		monetaactions.add(new EquipItemAction("pierścień rycerza", 1, true));
-		monetaactions.add(new IncreaseXPAction(1000));
+		monetaactions.add(new IncreaseXPAction(100000));
 		monetaactions.add(new SetQuestAction(QUEST_SLOT, "done"));
 
 		npc.add(ConversationStates.ATTENDING, Arrays.asList("wyposażenie", "wyposazenie","przedmioty"),

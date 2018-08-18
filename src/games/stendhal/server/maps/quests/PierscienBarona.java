@@ -184,7 +184,7 @@ import games.stendhal.server.entity.player.Player;
 		amuletactions.add(new DropItemAction("siarka",100));
 		amuletactions.add(new DropItemAction("sól",100));
 		amuletactions.add(new EquipItemAction("pierścień barona", 1, true));
-		amuletactions.add(new IncreaseXPAction(1000));
+		amuletactions.add(new IncreaseXPAction(100000));
 		amuletactions.add(new SetQuestAction(QUEST_SLOT, "done"));
 
 		npc.add(ConversationStates.ATTENDING, Arrays.asList("przedmiotów", "przedmioty"),

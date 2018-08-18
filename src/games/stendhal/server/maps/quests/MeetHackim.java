@@ -37,7 +37,7 @@ import java.util.List;
  *
  * STEPS: - Talk to Hackim to activate the quest and keep speaking with Hackim.
  *
- * REWARD: - 10 XP - 5 gold coins
+ * REWARD: - 350 XP - 75 gold coins
  *
  * REPETITIONS: - As much as wanted, but you only get the reward once.
  */
@@ -96,8 +96,8 @@ public class MeetHackim extends AbstractQuest {
 		final String answer = "Zgadnij kto zaopatruje Xin Blanca w broń, którą sprzedaje? Cóż to ja! Ponieważ muszę unikać wzbudzania podejrzeń przemycam tylko małe bronie. Jeżeli potrzebujesz czegoś mocniejszego to musisz zejść do podziemi i zabić jakiegoś potwora.\n";
 
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
-		reward.add(new EquipItemAction("money", 5));
-		reward.add(new IncreaseXPAction(10));
+		reward.add(new EquipItemAction("money", 75));
+		reward.add(new IncreaseXPAction(350));
 		reward.add(new SetQuestAction(QUEST_SLOT, "done"));
 		
 		npc.add(ConversationStates.INFORMATION_3,

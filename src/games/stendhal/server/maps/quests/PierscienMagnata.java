@@ -232,7 +232,7 @@ public class PierscienMagnata extends AbstractQuest {
 		amuletactions.add(new DropItemAction("money",500000));
 		amuletactions.add(new DropItemAction("pierścień barona",1));
 		amuletactions.add(new EquipItemAction("pierścień magnata", 1, true));
-		amuletactions.add(new IncreaseXPAction(1000));
+		amuletactions.add(new IncreaseXPAction(500000));
 		amuletactions.add(new SetQuestAction(QUEST_SLOT, "done"));
 
 		npc.add(ConversationStates.ATTENDING, Arrays.asList("challenge", "pierścień", "pierscien"),
