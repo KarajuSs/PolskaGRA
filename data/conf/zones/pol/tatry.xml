@@ -252,7 +252,7 @@
 	<!-- interiors -->
 	
 	<!-- dolina_koscieliska_n - house -->
-	<zone name="int_tatry_house" file="interiors/tatry/house.tmx">
+	<zone name="int_tatry_koscielisko_house" file="interiors/tatry/house.tmx">
 		<configurator class-name="games.stendhal.server.maps.tatry.mountain.house.ZonaGoralaNPC"/>
 
 		<portal x="13" y="18" ref="exit">
@@ -263,6 +263,8 @@
 	<!-- kuznice  -->
 	<!-- townhall  -->
 	<zone name="int_tatry_kuznice_townhall" file="interiors/tatry/townhall.tmx">
+		<configurator class-name="games.stendhal.server.maps.tatry.kuznice.townhall.FinarfinNPC"/>
+		<configurator class-name="games.stendhal.server.maps.tatry.kuznice.townhall.SoltysNPC"/>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">pol-goralskie</parameter>
@@ -276,6 +278,8 @@
 
 	<!-- tavern  -->
 	<zone name="int_tatry_kuznice_tavern" file="interiors/tatry/tavern.tmx">
+		<configurator class-name="games.stendhal.server.maps.tatry.kuznice.tavern.JagienkaNPC"/>
+		<configurator class-name="games.stendhal.server.maps.tatry.kuznice.tavern.TajemniczaOsobaNPC"/>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">pol-littlemeadow1</parameter>
