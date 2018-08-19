@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="stendhal ../items.xsd ">
-	
+
 	<item name="zwykły skórzany pas">
 		<type class="pas" subclass="zwykly_skorzany_pas" tileid="-1"/>
 		<description>Oto zwykły skórzany pas. Skąd pochodzi ta skóra?</description>
@@ -19,7 +19,7 @@
 			<slot name="pas"/>
 		</equipable>
 	</item>
-	
+
 	<item name="wzmocniony skórzany pas">
 		<type class="pas" subclass="wzmocniony_skorzany_pas" tileid="-1"/>
 		<description>Oto wzmocniony skórzany pas. Co za wytrzymały materiał!</description>
@@ -37,7 +37,7 @@
 			<slot name="pas"/>
 		</equipable>
 	</item>
-	
+
 	<item name="karmazynowy pas">
 		<type class="pas" subclass="karmazynowy_pas" tileid="-1"/>
 		<description>Oto karmazynowy pas. Jego klejnot daje ci większą ochornę.</description>
@@ -57,7 +57,7 @@
 			<slot name="pas"/>
 		</equipable>
 	</item>
-	
+
 	<item name="pas zbójecki">
 		<type class="pas" subclass="pas_zbojecki" tileid="-1"/>
 		<description>Oto pas zbójecki. Idealny dla górala.</description>
@@ -75,7 +75,7 @@
 			<slot name="pas"/>
 		</equipable>
 	</item>
-	
+
 	<item name="kolczany pas">
 		<type class="pas" subclass="kolczany_pas" tileid="-1"/>
 		<description>Oto kolczany pas.</description>
@@ -93,7 +93,7 @@
 			<slot name="pas"/>
 		</equipable>
 	</item>
-	
+
 	<item name="pas elficki">
 		<type class="pas" subclass="elficki_pas_z_rubinem" tileid="-1"/>
 		<description>Oto pas elficki z rubinem. Od tego rubinu czuć jakąś pradawną magie.</description>
@@ -103,6 +103,7 @@
 		</attributes>
 		<weight value="1.0"/>
 		<value value="9"/>
+		<susceptibility type="nature" value="0.91"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
@@ -111,7 +112,7 @@
 			<slot name="pas"/>
 		</equipable>
 	</item>
-	
+
 	<item name="pas krasnoludzki">
 		<type class="pas" subclass="krasnoludzki_pas" tileid="-1"/>
 		<description>Oto pas krasnoludzki. Został wykonany z porządnego materiału.</description>
@@ -129,7 +130,7 @@
 			<slot name="pas"/>
 		</equipable>
 	</item>
-	
+
 	<item name="pas olbrzymi">
 		<type class="pas" subclass="olbrzymi_pas" tileid="-1"/>
 		<description>Oto pas olbrzymi. Znane jest jedynie pochodzenie tego pasa - pochodzi ono od gigantów i same rozmiary tego pasa są ogromne.</description>
