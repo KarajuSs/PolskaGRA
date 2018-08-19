@@ -12,6 +12,7 @@
 package games.stendhal.server.maps.quests;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -36,7 +37,6 @@ import games.stendhal.server.entity.npc.condition.AndCondition;
 import games.stendhal.server.entity.npc.condition.GreetingMatchesNameCondition;
 import games.stendhal.server.entity.npc.condition.NotCondition;
 import games.stendhal.server.entity.npc.condition.PlayerHasItemWithHimCondition;
-import games.stendhal.server.entity.npc.condition.QuestActiveCondition;
 import games.stendhal.server.entity.npc.condition.QuestCompletedCondition;
 import games.stendhal.server.entity.npc.condition.QuestInStateCondition;
 import games.stendhal.server.entity.npc.condition.QuestNotCompletedCondition;
@@ -48,7 +48,7 @@ import games.stendhal.server.maps.Region;
 public class ZlotyAmulet extends AbstractQuest {
 	public static final String QUEST_SLOT = "zloty_amulet";
 	
-	private static final int REQUIRED_MINUTES = 600; // 10 minut w sekundach
+	private static final int REQUIRED_MINUTES = 10; // 10 minut
 
 	@Override
 	public List<String> getHistory(final Player player) {
@@ -112,13 +112,15 @@ public class ZlotyAmulet extends AbstractQuest {
 		final SpeakerNPC npc = npcs.get("Jagienka");
 
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
-			new AndCondition(new QuestActiveCondition(QUEST_SLOT),
+			new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
+					new QuestStateStartsWithCondition(QUEST_SLOT, "start"),
 					new PlayerHasItemWithHimCondition("bryłka złota",20)),
-			ConversationStates.QUEST_ITEM_BROUGHT,
+			ConversationStates.ATTENDING,
 			"Widzę, że masz przy sobie bryłki złota. To dobrze! Podaj mi je, a ja przejdę się do złotnika, dobrze?", null);
 
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
-			new AndCondition(new QuestActiveCondition(QUEST_SLOT),
+				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
+					new QuestStateStartsWithCondition(QUEST_SLOT, "start"),
 					new NotCondition(new PlayerHasItemWithHimCondition("bryłka złota",20))),
 			ConversationStates.ATTENDING,
 			"Hej, wciąż czekam na bryłki złota do mojego amuletu! Pamiętasz?",
@@ -131,7 +133,7 @@ public class ZlotyAmulet extends AbstractQuest {
 		reward1.add(new IncreaseKarmaAction(10));
 		reward1.add(new SetQuestToTimeStampAction(QUEST_SLOT, 1));
 		npc.add(
-			ConversationStates.QUEST_ITEM_BROUGHT,
+			ConversationStates.ATTENDING,
 			ConversationPhrases.YES_MESSAGES,
 			new PlayerHasItemWithHimCondition("bryłka złota",20),
 			ConversationStates.ATTENDING,
@@ -139,7 +141,7 @@ public class ZlotyAmulet extends AbstractQuest {
 			new MultipleActions(reward1));
 
 		npc.add(
-			ConversationStates.QUEST_ITEM_BROUGHT,
+			ConversationStates.ATTENDING,
 			ConversationPhrases.NO_MESSAGES,
 			null,
 			ConversationStates.ATTENDING,
@@ -157,14 +159,14 @@ public class ZlotyAmulet extends AbstractQuest {
 						new NotCondition(new TimePassedCondition(QUEST_SLOT, 1, REQUIRED_MINUTES))),
 				ConversationStates.IDLE, 
 				null,
-				new SayTimeRemainingAction(QUEST_SLOT, 1, REQUIRED_MINUTES, "Złotnik jeszcze nie skończył badań tego złota. Wróć za "));
+				new SayTimeRemainingAction(QUEST_SLOT, 1, REQUIRED_MINUTES, "Złotnik jeszcze nie skończył badać tego złota. Wróć za "));
 
 		npc.add(ConversationStates.IDLE, 
 				ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestStateStartsWithCondition(QUEST_SLOT, "zlotnik;"),
 						new TimePassedCondition(QUEST_SLOT, 1, REQUIRED_MINUTES)),
-				ConversationStates.QUEST_2_OFFERED, 
+				ConversationStates.ATTENDING, 
 				"Złotnik właśnie skończył badać i powiedział, że to złoto idealnie się nadaje na mój złoty amulet! Musisz teraz się przejść do kowala Jacka, który znajduje się w domku na kościelisku południowy-wschód. Powiedz mu moje imię, a będzie wiedział co ma zrobić!", 
 				new ChatAction() {
 					@Override
@@ -182,11 +184,11 @@ public class ZlotyAmulet extends AbstractQuest {
 	private void kowalStep() {
 		final SpeakerNPC npc = npcs.get("Kowal Jacek");
 
-		npc.add(ConversationStates.QUEST_2_OFFERED,
-				"Jagienka",
-				null,
+		npc.add(ConversationStates.ATTENDING, 
+				Arrays.asList("Jagienka", "złoty amulet", "zadanie", "złoto", "bryłki", "amulet"),
+				new QuestInStateCondition(QUEST_SLOT, "kowal"),
 				ConversationStates.QUEST_2_OFFERED,
-				"Kim jest Jagienka? Ahhh.. Już wiem, przypomniałem sobię. Rozumiem, że ona chce zrobić złoty amulet dla siebie?",
+				"Hej! Kim jest Jagienka? Ahhh.. Dobra, już sobie przypomniałem. Rozumiem, że ona chce zrobić złoty amulet dla siebie?",
 				null);
 		
 		npc.add(
@@ -241,9 +243,10 @@ public class ZlotyAmulet extends AbstractQuest {
 		final SpeakerNPC npc = npcs.get("Jagienka");
 		
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
-				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "jagienka"),
+				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
+						new QuestInStateCondition(QUEST_SLOT, "jagienka"),
 						new PlayerHasItemWithHimCondition("złoty amulet")),
-				ConversationStates.QUEST_ITEM_BROUGHT,
+				ConversationStates.ATTENDING,
 				"Hej! Czy ten amulet jest dla mnie? Dziękuję!",
 				new MultipleActions(
 						new IncreaseXPAction(5500),
