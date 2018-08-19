@@ -49,6 +49,7 @@
 		<drops>
 			<item value="money" quantity="[1,159]" probability="19.0"/>
 			<item value="sukno" quantity="[1,1]" probability="1.0"/>
+			<item value="elficki naszyjnik" quantity="[1,1]" probability="0.1"/>
 		</drops>
 		<equips/>
 		<abilities>
@@ -78,6 +79,7 @@
 		<corpse name="human"/>
 		<drops>
 			<item value="money" quantity="[29,59]" probability="25.0"/>
+			<item value="elficki naszyjnik" quantity="[1,1]" probability="0.025"/>
 		</drops>
 		<equips/>
 		<abilities>
@@ -108,6 +110,7 @@
 		<drops>
 			<item value="money" quantity="[29,39]" probability="20.0"/>
 			<item value="tarcza elficka" quantity="[1,1]" probability="0.5"/>
+			<item value="elficki naszyjnik" quantity="[1,1]" probability="0.125"/>
 		</drops>
 		<equips/>
 		<abilities>
@@ -120,6 +123,7 @@
 			<profile name="patrolling"/>
 		</ai>
 	</creature>
+
 	<creature name="elf górski lider">
 		<type class="pol/elfy_gorskie" subclass="ae_elf_gorski_lider" tileid="pol_elfy_gorskie.png:6"/>
 		<description/>
@@ -200,6 +204,7 @@
 			<item value="money" quantity="[29,59]" probability="25.0"/>
 			<item value="różdżka" quantity="[1,1]" probability="5.0"/>
 			<item value="magia ziemi" quantity="[1,15]" probability="30.0"/>
+			<item value="elficki naszyjnik" quantity="[1,1]" probability="0.5"/>
 		</drops>
 		<equips/>
 		<abilities>
@@ -262,6 +267,7 @@
 			<item value="money" quantity="[59,89]" probability="25.0"/>
 			<item value="różdżka" quantity="[1,1]" probability="10.0"/>
 			<item value="magia ziemi" quantity="[1,59]" probability="50.0"/>
+			<item value="elficki naszyjnik" quantity="[1,1]" probability="0.05"/>
 		</drops>
 		<equips/>
 		<abilities>
@@ -292,6 +298,7 @@
 		<drops>
 			<item value="money" quantity="[99,189]" probability="5.0"/>
 			<item value="magia ziemi" quantity="[1,99]" probability="80.0"/>
+			<item value="elficki naszyjnik" quantity="[1,1]" probability="1.0"/>
 		</drops>
 		<equips/>
 		<abilities>
