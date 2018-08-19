@@ -3,7 +3,6 @@
 	xsi:schemaLocation="stendhal ../../creatures.xsd ">
 
 	<!-- START: albino elf -->
-
 	<creature name="elf albinos rycerz">
 		<type class="stendhal/albino_elf" subclass="albino_elf_swordsman" tileid="albino_elf.png:4"/>
 		<description>Oto elf albinos rycerz, który jest profesjonalistą w posługiwaniu się mieczem. Może cię zaatakować od tyłu w mgnieniu oka.</description>
@@ -160,11 +159,9 @@
 			<profile name="patrolling"/>
 		</ai>
 	</creature>
-
 	<!-- END: albino elf -->
 
 	<!-- START: dark elf -->
-
 	<creature name="elf mikrus">
 		<type class="stendhal/dark_elf" subclass="baby_drow" tileid="dark_elf.png:10"/>
 		<description>Oto elf mikrus. Powinieneś wiedzieć, że dzieci mrocznych elfów są całkiem silne i inteligentne. Nie myśl, że możesz je łatwo pokonać!</description>
@@ -685,11 +682,9 @@
 			<profile name="patrolling"/>
 		</ai>
 	</creature>
-
 	<!-- END: dark elf -->
 
 	<!-- START: elf -->
-
 	<creature name="elf">
 		<type class="stendhal/elf" subclass="elf" tileid="elf.png:3"/>
 		<description>Oto elf. Kocha las i życie w pokoju.</description>
@@ -716,6 +711,9 @@
 		</drops>
 		<equips>
 		</equips>
+		<abilities>
+			<damage type="nature"/>
+		</abilities>
 		<ai>
 			<profile name="brave"/>
 			<profile name="offensive"/>
@@ -750,6 +748,9 @@
 		</drops>
 		<equips>
 		</equips>
+		<abilities>
+			<damage type="nature"/>
+		</abilities>
 		<ai>
 			<profile name="brave"/>
 			<profile name="offensive"/>
@@ -785,6 +786,9 @@
 			<slot name="lhand" item="strzała" quantity="10000"/>
 			<slot name="rhand" item="drewniany łuk" quantity="1"/>
 		</equips>
+		<abilities>
+			<damage type="nature"/>
+		</abilities>
 		<ai>
 			<profile name="brave"/>
 			<profile name="offensive"/>
@@ -817,10 +821,12 @@
 			<item value="płaszcz elficki" quantity="[1,1]" probability="0.5"/>
 			<item value="katana" quantity="[1,1]" probability="1.0"/>
 			<item value="tarcza elficka" quantity="[1,1]" probability="0.1"/>
-
 		</drops>
 		<equips>
 		</equips>
+		<abilities>
+			<damage type="nature"/>
+		</abilities>
 		<ai>
 			<profile name="brave"/>
 			<profile name="offensive"/>
@@ -855,6 +861,9 @@
 		</drops>
 		<equips>
 		</equips>
+		<abilities>
+			<damage type="nature"/>
+		</abilities>
 		<ai>
 			<profile name="brave"/>
 			<profile name="offensive"/>
@@ -891,6 +900,9 @@
 		</drops>
 		<equips>
 		</equips>
+		<abilities>
+			<damage type="nature"/>
+		</abilities>
 		<ai>
 			<profile name="brave"/>
 			<profile name="offensive"/>
@@ -926,6 +938,9 @@
 		<equips>
 			<slot name="rhand" item="miecz elficki"/>
 		</equips>
+		<abilities>
+			<damage type="nature"/>
+		</abilities>
 		<ai>
 			<profile name="brave"/>
 			<profile name="offensive"/>
@@ -957,7 +972,8 @@
 		<equips>
 		</equips>
 		<abilities>
-			<damage type="light"/>
+			<damage type="nature"/>
+			<susceptibility type="nature" value="1.25"/>
 			<susceptibility type="dark" value="1.25"/>
 			<susceptibility type="light" value="0.75"/>
 		</abilities>
@@ -995,7 +1011,8 @@
 		<equips>
 		</equips>
 		<abilities>
-			<damage type="light"/>
+			<damage type="nature"/>
+			<susceptibility type="nature" value="1.2"/>
 			<susceptibility type="dark" value="1.2"/>
 			<susceptibility type="light" value="0.8"/>
 		</abilities>
@@ -1031,13 +1048,14 @@
 		</drops>
 		<equips>
 		</equips>
+		<abilities>
+			<damage type="nature"/>
+		</abilities>
 		<ai>
 			<profile name="brave"/>
 			<profile name="offensive"/>
 			<profile name="human"/>
 		</ai>
 	</creature>
-
 	<!-- END: elf -->
-
 </creatures>

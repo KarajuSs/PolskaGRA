@@ -21,6 +21,9 @@
 			<item value="pluszowy miś" quantity="[1,1]" probability="1.0"/>
 		</drops>
 		<equips/>
+		<abilities>
+			<damage type="nature"/>
+		</abilities>
 		<ai>
 			<profile name="coward"/>
 			<profile name="offensive"/>
@@ -48,6 +51,9 @@
 			<item value="sukno" quantity="[1,1]" probability="1.0"/>
 		</drops>
 		<equips/>
+		<abilities>
+			<damage type="nature"/>
+		</abilities>
 		<ai>
 			<profile name="coward"/>
 			<profile name="offensive"/>
@@ -74,6 +80,9 @@
 			<item value="money" quantity="[29,59]" probability="25.0"/>
 		</drops>
 		<equips/>
+		<abilities>
+			<damage type="nature"/>
+		</abilities>
 		<ai>
 			<profile name="brave"/>
 			<profile name="offensive"/>
@@ -101,6 +110,9 @@
 			<item value="tarcza elficka" quantity="[1,1]" probability="0.5"/>
 		</drops>
 		<equips/>
+		<abilities>
+			<damage type="nature"/>
+		</abilities>
 		<ai>
 			<profile name="brave"/>
 			<profile name="offensive"/>
@@ -128,6 +140,9 @@
 			<item value="miecz elficki" quantity="[1,1]" probability="0.5"/>
 		</drops>
 		<equips/>
+		<abilities>
+			<damage type="nature"/>
+		</abilities>
 		<ai>
 			<profile name="brave"/>
 			<profile name="offensive"/>
@@ -156,6 +171,9 @@
 			<item value="skórzane rękawice" quantity="[1,1]" probability="2.5"/>
 		</drops>
 		<equips/>
+		<abilities>
+			<damage type="nature"/>
+		</abilities>
 		<ai>
 			<profile name="brave"/>
 			<profile name="offensive"/>
@@ -184,6 +202,9 @@
 			<item value="magia ziemi" quantity="[1,15]" probability="30.0"/>
 		</drops>
 		<equips/>
+		<abilities>
+			<damage type="nature"/>
+		</abilities>
 		<ai>
 			<profile name="brave"/>
 			<profile name="offensive"/>
@@ -212,6 +233,9 @@
 			<item value="skórzane twarde rękawice" quantity="[1,1]" probability="2.5"/>
 		</drops>
 		<equips/>
+		<abilities>
+			<damage type="nature"/>
+		</abilities>
 		<ai>
 			<profile name="brave"/>
 			<profile name="offensive"/>
@@ -240,6 +264,9 @@
 			<item value="magia ziemi" quantity="[1,59]" probability="50.0"/>
 		</drops>
 		<equips/>
+		<abilities>
+			<damage type="nature"/>
+		</abilities>
 		<ai>
 			<profile name="brave"/>
 			<profile name="offensive"/>
@@ -267,6 +294,9 @@
 			<item value="magia ziemi" quantity="[1,99]" probability="80.0"/>
 		</drops>
 		<equips/>
+		<abilities>
+			<damage type="nature"/>
+		</abilities>
 		<ai>
 			<profile name="brave"/>
 			<profile name="offensive"/>
@@ -294,6 +324,9 @@
 			<item value="magia ziemi" quantity="[1,15]" probability="100.0"/>
 		</drops>
 		<equips/>
+		<abilities>
+			<damage type="nature"/>
+		</abilities>
 		<ai>
 			<profile name="brave"/>
 			<profile name="offensive"/>
@@ -316,6 +349,9 @@
 		<experience value="3554"/>
 		<respawn value="3110"/>
 		<corpse name="human"/>
+		<abilities>
+			<damage type="nature"/>
+		</abilities>
 		<drops>
 			<item value="money" quantity="[9,29]" probability="100.0"/>
 			<item value="rękawice płytowe" quantity="[1,1]" probability="0.25"/>
@@ -330,5 +366,4 @@
 		</ai>
 	</creature>
 	<!-- END: elf gorski -->
-
 </creatures>
