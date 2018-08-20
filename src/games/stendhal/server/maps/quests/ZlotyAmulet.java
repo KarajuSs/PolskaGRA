@@ -64,7 +64,13 @@ public class ZlotyAmulet extends AbstractQuest {
 		if (player.isQuestInState(QUEST_SLOT, "start", "done")) {
 			res.add("Pomogę Jagience ze złotym amuletem.");
 		}
-		if ("start".equals(questState) && player.isEquipped("złoty amulet")
+		if ("start".equals(questState) && player.isEquipped("bryłka złota", 20) || "done".equals(questState)) {
+			res.add("Mam 20 bryłek złota dla Jagienki.");
+		}
+		if ("kowal".equals(questState) || "done".equals(questState)) {
+			res.add("Złotnik stwierdził, że te bryłki złota idealnie się nadają na jej amulet, więc kazała mi pójść do Kowala Jacka i powiedzieć mu jej imię.");
+		}
+		if ("jagienka".equals(questState) && player.isEquipped("złoty amulet")
 				|| "done".equals(questState)) {
 			res.add("Mam złoty amulet dla Jagienki.");
 		}
@@ -129,7 +135,7 @@ public class ZlotyAmulet extends AbstractQuest {
 		final List<ChatAction> reward1 = new LinkedList<ChatAction>();
 		reward1.add(new DropItemAction("bryłka złota",20));
 		reward1.add(new IncreaseXPAction(1250));
-		reward1.add(new SetQuestAction(QUEST_SLOT, "zlotnik"));
+		reward1.add(new SetQuestAction(QUEST_SLOT, "zlotnik;"));
 		reward1.add(new IncreaseKarmaAction(10));
 		reward1.add(new SetQuestToTimeStampAction(QUEST_SLOT, 1));
 		npc.add(
@@ -137,7 +143,7 @@ public class ZlotyAmulet extends AbstractQuest {
 			ConversationPhrases.YES_MESSAGES,
 			new PlayerHasItemWithHimCondition("bryłka złota",20),
 			ConversationStates.ATTENDING,
-			"Za 10 minut wrócę do Ciebie! Będziesz musiał się jeszcze przejść do kowala, aby zrobiłby ten złoty amulet.",
+			"Za 10 minut wrócę do Ciebie!",
 			new MultipleActions(reward1));
 
 		npc.add(
@@ -197,7 +203,7 @@ public class ZlotyAmulet extends AbstractQuest {
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestInStateCondition(QUEST_SLOT, "kowal"), 
 						new PlayerHasItemWithHimCondition("bryłka złota",20)),
-				ConversationStates.QUEST_2_OFFERED,
+				ConversationStates.IDLE,
 				"Dobra. To biorę się od razu do pracy! Przyjdź do mnie za jakieś " + REQUIRED_MINUTES * 3 + " minut.",
 				new MultipleActions(
 						new DropItemAction("bryłka złota",20),
@@ -210,8 +216,8 @@ public class ZlotyAmulet extends AbstractQuest {
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestInStateCondition(QUEST_SLOT, "kowal"),
 						new NotCondition(new PlayerHasItemWithHimCondition("bryłka złota",20))),
-				ConversationStates.QUEST_2_OFFERED,
-				"Jak mam wziąść się do pracy, jeżeli nie posiadasz przy osobie odpowiedniej ilości bryłek złota?!",
+				ConversationStates.IDLE,
+				"Jak mam wziąść się do pracy, jeżeli nie posiadasz przy osobie odpowiedniej ilości bryłek złota?! Dowidzenia.",
 				null);
 		
 		npc.add(ConversationStates.IDLE, 
