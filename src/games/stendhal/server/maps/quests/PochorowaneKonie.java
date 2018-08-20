@@ -46,7 +46,9 @@ public class PochorowaneKonie extends AbstractQuest {
 	private static final int ILE_JEDZENIA = 5;
 
 	// Losowa choroba
-	private static final List<String> CHOROBA = Arrays.asList("grypa końska", "tężec", "zołzy");
+	private static final List<String> CHOROBA = Arrays.asList("grypa końska", "tężec", "zołzy",
+			"łykawość", "lipcówka", "kulawizna", "ochwat", "opoje", "nosacizna", "gruda",
+			"żabka", "surra", "szpat", "sarkoidoza", "afrykański pomór", "brodawczyca");
 	// Losowe przedmioty potrzebne do wyleczenia
 	private static final List<String> LEKI = Arrays.asList("mocne antidotum", "antidotum", "duży eliksir", "eliksir", "mały eliksir");
 	// Losowe jedzenie dla koni
