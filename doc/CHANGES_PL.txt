@@ -33,6 +33,7 @@
 - Klient teraz będzie wymagał od nas Jave w wersji 1.8 zamiast 1.7
 - Zmieniono nieco mnożnik DEF'a (na plus oczywiście)
 - Poprawiono 'jakość' chodzenia gracza oraz kodu gry
+- Dodano nowy skrypt dla GM - /alterkills
 
 
 *naprawa błędów*
@@ -40,6 +41,7 @@
 - Naprawiono błąd, że nie można było atakować z magii i różdżki
 - Naprawiono błąd przez który Wielkolud nie kupował polskiej płytowej tarczy
 - Naprawiono naliczanie ataku do statystyk gracza z rękawic lub pierścieni
+- Poprawiono działanie komendy /away
 
 
 
