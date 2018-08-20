@@ -124,7 +124,6 @@
 		</equipable>
 	</item>
 
-	<!-- DISABLED
 	<item name="pierścień magnata">
 		<type class="ring" subclass="tsoh_ring" tileid="-1"/>
 		<description>Oto pierścień magnata.</description>
@@ -216,5 +215,4 @@
 			<slot name="keyring"/>
 		</equipable>
 	</item>
-	DISABLED -->
 </items>
