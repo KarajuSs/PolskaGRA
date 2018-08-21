@@ -33,7 +33,7 @@
 		</entity>
 		
 		<portal x="89" y="31" ref="entrance">
-			<destination zone="int_tatry_house" ref="exit"/>
+			<destination zone="int_tatry_dolina_koscieliska_house" ref="exit"/>
 		</portal>
 	</zone>
 	
@@ -276,7 +276,7 @@
 	<!-- interiors -->
 	
 	<!-- dolina_koscieliska_n - house -->
-	<zone name="int_tatry_koscielisko_house" file="interiors/tatry/house.tmx">
+	<zone name="int_tatry_dolina_koscieliska_house" file="interiors/tatry/house.tmx">
 		<configurator class-name="games.stendhal.server.maps.tatry.mountain.house.ZonaGoralaNPC"/>
 
 		<portal x="13" y="18" ref="exit">
