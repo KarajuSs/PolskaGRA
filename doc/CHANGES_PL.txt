@@ -1,5 +1,34 @@
 ﻿Changelog
 ---------
+1.03.5
+*klient*
+- Przetłumaczono handel
+
+
+*świat gry*
+- Radomil zyskał nową moc usuwania czaszek z zabójców posiadających dobrą karmę
+- Przywrócono desert
+- Przywrócono pierścienie mieszczanina, rycerza, barona, magnata
+- Elficki naszyjnik można dropnąć z elfów górskich (około 0.025 do 1%)
+- Elfy & elfy górskie atakują siłą natury
+- Elficki set posiada teraz odporność na siłę natury
+- Elficki miecz atakuje siłą natury
+- Poprawiono kafelki na niektórych mapach Faiumoni
+- Poprawiono osiągnięcie 'Heretyk'- od teraz potrzeba wykonać 25 zadań zamiast 50
+- Aenihata przywrócila swoje dawne siły
+
+
+*code*
+- Usunieto pliki takie jak: GuildRing.java & Ring.java (nie korzystane)
+- Pierścienie mieszczanina, rycerza, barona i magnata są teraz opisywane jako Item zamiast GuildRing
+
+
+*naprawa błędów*
+- Naprawiono listę oferty u Wielkoluda
+- Naprawiono wejście do domku na górze w Tatrach
+
+
+
 1.03 - MOUNTAINS
 *klient*
 - Przetłumaczono część tekstów
