@@ -1,5 +1,5 @@
 /***************************************************************************
- *                      (C) Copyright 2018 - Marauroa                      *
+ *                    (C) Copyright 2003-2018 - Marauroa                   *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -38,7 +38,7 @@ import org.apache.log4j.Logger;
  *
  * @author daniel
  */
-public class GuildRing extends Item {
+public class GuildRing extends Ring {
 	/** The cooling period of players of same level in seconds */
 
 	private static final Logger logger = Logger.getLogger(GuildRing.class);
