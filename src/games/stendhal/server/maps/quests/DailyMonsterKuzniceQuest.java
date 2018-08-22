@@ -316,7 +316,7 @@ public class DailyMonsterKuzniceQuest extends AbstractQuest {
 				new ChatAction() {
 					@Override
 					public void fire(Player player, Sentence sentence, EventRaiser npc) {
-						npc.say("Już dostałeś zadanie na zgładzenie" +
+						npc.say("Już dostałeś zadanie na zgładzenie " +
 								Grammar.a_nounCreature(player.getQuest(QUEST_SLOT,0).split(",")[0]) +
 								". Powiedz #załatwione kiedy to zrobisz!");
 					}
