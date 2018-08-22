@@ -127,13 +127,12 @@
 	<item name="pierścień magnata">
 		<type class="ring" subclass="tsoh_ring" tileid="-1"/>
 		<description>Oto pierścień magnata.</description>
-		<implementation class-name="games.stendhal.server.entity.item.GuildRing"/>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
 			<atk value="4"/>
 			<def value="4"/>
-			<amount value="1"/>
 			<min_level value="500"/>
-			<undroppableondeath value="1" />
+			<undroppableondeath value="1"/>
 		</attributes>
 		<weight value="0.1"/>
 		<value value="1"/>
@@ -150,13 +149,12 @@
 	<item name="pierścień barona">
 		<type class="ring" subclass="edragons_clan_ring" tileid="-1"/>
 		<description>Oto pierścień barona.</description>
-		<implementation class-name="games.stendhal.server.entity.item.GuildRing"/>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
 			<atk value="3"/>
 			<def value="3"/>
-			<amount value="1"/>
 			<min_level value="350"/>
-			<undroppableondeath value="1" />
+			<undroppableondeath value="1"/>
 		</attributes>
 		<weight value="0.1"/>
 		<value value="1"/>
@@ -173,13 +171,12 @@
 	<item name="pierścień rycerza">
 		<type class="ring" subclass="zrc_ring" tileid="-1"/>
 		<description>Oto pierścień rycerza.</description>
-		<implementation class-name="games.stendhal.server.entity.item.GuildRing"/>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
 			<atk value="2"/>
 			<def value="2"/>
-			<amount value="1"/>
 			<min_level value="250"/>
-			<undroppableondeath value="1" />
+			<undroppableondeath value="1"/>
 		</attributes>
 		<weight value="0.1"/>
 		<value value="1"/>
@@ -196,13 +193,12 @@
 	<item name="pierścień mieszczanina">
 		<type class="ring" subclass="zion_ring" tileid="-1"/>
 		<description>Oto pierścień mieszczanina.</description>
-		<implementation class-name="games.stendhal.server.entity.item.GuildRing"/>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
 			<atk value="1"/>
 			<def value="1"/>
-			<amount value="1"/>
 			<min_level value="150"/>
-			<undroppableondeath value="1" />
+			<undroppableondeath value="1"/>
 		</attributes>
 		<weight value="0.1"/>
 		<value value="1"/>
