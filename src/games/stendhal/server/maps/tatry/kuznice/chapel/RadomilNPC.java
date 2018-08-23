@@ -35,6 +35,8 @@ import games.stendhal.server.entity.player.Player;
 
 public class RadomilNPC implements ZoneConfigurator {
 	private final ShopList shops = SingletonRepository.getShopList();
+	// ile karmy potrzeba do zdjecia czaszki
+	private static final int AMOUNT = 200;
 
 	/**
 	 * Configure a zone.
@@ -82,16 +84,15 @@ public class RadomilNPC implements ZoneConfigurator {
 
 					@Override
 					public void fireRequestOK(final ItemParserResult res, final Player player, final Sentence sentence, final EventRaiser raiser) {
-						int amount = 200;
 
-						if (player.getKarma() < amount) {
+						if (player.getKarma() < AMOUNT) {
 								raiser.say("Nie pomogłeś wystarczającej liczbie osób! Twoja karma to: " + player.getKarma() + ". Przyjdź kiedy indziej.");
 						} else {
-							if (player.getKarma() >= amount) {
+							if (player.getKarma() >= AMOUNT) {
 								player.rehabilitate();
 								raiser.say("Zdjąłem z Ciebie piętno zabójcy. Uważaj na siebie!");
 							} else {
-								raiser.say("Twoja karma jest na poziomie" + player.getKarma() + ", a potrzebujesz conajmniej " + amount + ", abym mógł zdjąć z Ciebie piętno zabójcy.");
+								raiser.say("Twoja karma jest na poziomie" + player.getKarma() + ", a potrzebujesz conajmniej " + AMOUNT + ", abym mógł zdjąć z Ciebie piętno zabójcy.");
 							}
 						}
 					}
