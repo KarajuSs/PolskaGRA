@@ -3,6 +3,12 @@
 1.04
 *świat gry*
 - Dodano nowe rękawice wampirze (ATK: 2; DEF: 5; LIFESTEAL: 0.05)
+- Miecz ognisty stał się lżejszy dla rycerzy, ale niestety jego siła się zmniejszyła, a lodowy miecz stał się lustrzanym odbiciem miecza ognistego (atk; waga;)
+	- miecz ognisty - 29 / 5 + FIRE
+	- lodowy miecz  - 29 / 5 + ICE
+- Zebranie magów przedyskutowało temat magii ognia i magii ziemi. Doszli do wniosku, że to magia ognia jest bardziej niebezpieczna (atk; obr;)
+	- magia ziemi - 9 / 9 + NATURE (wcześniej - 11 / 11 + NATURE)
+	- magia ognia - 11 / 11 + FIRE (wcześniej - 9 / 9 + FIRE)
 
 
 *code*
