@@ -311,8 +311,8 @@
 		<description>Oto miecz ognisty. Kiedy nim wymachujesz wydaje się, jakby płonął.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="30"/>
-			<rate value="7"/>
+			<atk value="29"/>
+			<rate value="5"/>
 			<min_level value="45"/>
 		</attributes>
 		<weight value="4.0"/>
@@ -421,8 +421,8 @@
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
 			<atk value="29"/>
-			<rate value="6"/>
-			<min_level value="40"/>
+			<rate value="5"/>
+			<min_level value="45"/>
 		</attributes>
 		<weight value="4.0"/>
 		<value value="174207"/>
