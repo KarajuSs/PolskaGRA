@@ -1,6 +1,12 @@
 ﻿Changelog
 ---------
 1.04
+*świat gry*
+- Dodano nowe rękawice wampirze (ATK: 2; DEF: 5; LIFESTEAL: 0.05)
+
+
+*code*
+- Lifesteal z rękawic sumuje się wraz z lifesteal'em w broni lub bez niej
 
 
 
