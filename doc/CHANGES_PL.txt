@@ -1,5 +1,9 @@
 ﻿Changelog
 ---------
+1.04
+
+
+
 1.03.5
 *klient*
 - Przetłumaczono handel
@@ -26,6 +30,7 @@
 *naprawa błędów*
 - Naprawiono listę oferty u Wielkoluda
 - Naprawiono wejście do domku na górze w Tatrach
+- Naprawiono ścieżki graficzne potwora mermaid
 
 
 
