@@ -2347,7 +2347,7 @@ public class Player extends RPEntity implements UseListener {
 			sus *= shield.getSusceptibility(type);
 		}
 
-		String[] armorSlots = { "armor", "head", "legs", "feet", "cloak", "glove", "neck", "finger", "fingerb" };
+		String[] armorSlots = { "armor", "head", "legs", "feet", "cloak", "glove", "neck", "finger", "fingerb", "pas" };
 		for (String slot : armorSlots) {
 			RPObject object = getSlot(slot).getFirst();
 			if (object instanceof Item) {
