@@ -408,7 +408,7 @@
 		<drops>
 			<item value="lazurowy płaszcz elficki" quantity="[1,1]" probability="1.5"/>
 			<item value="trójząb Trzygłowa" quantity="[1,1]" probability="0.5"/>
-			<item value="magia ziemi" quantity="[1,9]" probability="100.0"/>
+			<item value="magia ziemi" quantity="[11,66]" probability="100.0"/>
 		</drops>
 		<equips>
 			<slot name="lhand" item="magia ziemi" quantity="10000"/>
@@ -449,7 +449,7 @@
 		<drops>
 			<item value="czarny płaszcz" quantity="[1,1]" probability="0.05"/>
 			<item value="różdżka Strzyboga" quantity="[1,1]" probability="0.5"/>
-			<item value="magia płomieni" quantity="[1,9]" probability="100.0"/>
+			<item value="magia płomieni" quantity="[11,88]" probability="100.0"/>
 		</drops>
 		<equips>
 			<slot name="lhand" item="strzała" quantity="10000"/>
@@ -490,7 +490,7 @@
 		<drops>
 			<item value="czarny płaszcz smoczy" quantity="[1,1]" probability="0.5"/>
 			<item value="różdżka Swaroga" quantity="[1,1]" probability="0.5"/>
-			<item value="magia mroku" quantity="[1,19]" probability="75.0"/>
+			<item value="magia mroku" quantity="[11,55]" probability="75.0"/>
 		</drops>
 		<equips>
 			<slot name="lhand" item="magia mroku" quantity="10000"/>
@@ -531,8 +531,8 @@
 		<drops>
 			<item value="czarny płaszcz smoczy" quantity="[1,1]" probability="0.5"/>
 			<item value="różdżka Wołosa" quantity="[1,1]" probability="1.5"/>
-			<item value="magia mroku" quantity="[1,19]" probability="75.0"/>
-			<item value="magia światła" quantity="[1,19]" probability="25.0"/>
+			<item value="magia mroku" quantity="[11,88]" probability="75.0"/>
+			<item value="magia światła" quantity="[11,111]" probability="25.0"/>
 		</drops>
 		<equips>
 			<slot name="lhand" item="magia światła" quantity="10000"/>
