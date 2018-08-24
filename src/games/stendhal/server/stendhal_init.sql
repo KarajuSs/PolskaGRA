@@ -34,6 +34,7 @@ create table if not exists character_stats
   finger varchar(32),
   fingerb varchar(32),
   feet varchar(32),
+  pas varchar(32),
 
   zone varchar(50),
 
@@ -60,7 +61,7 @@ create table if not exists halloffame
   points integer not null,
 
   primary key(id)
-  ) 
+  )
  ;
 
 CREATE INDEX IF NOT EXISTS i_halloffame_charname ON halloffame(charname);
@@ -88,7 +89,7 @@ create table if not exists halloffame_archive_alltimes
   points integer not null,
   day date not null,
   primary key(id)
-  ) 
+  )
  ;
 
 CREATE INDEX IF NOT EXISTS i_halloffame_archive_alltimes_day_charname ON halloffame_archive_alltimes(day, charname);
@@ -302,6 +303,6 @@ CREATE TABLE IF NOT EXISTS searchindex
   searchscore INTEGER,
   PRIMARY KEY(id)
   );
-  
+
 CREATE INDEX IF NOT EXISTS i_searchindex_searchterm ON searchindex(searchterm);
 CREATE INDEX IF NOT EXISTS i_searchindex_entitytype_entityname ON searchindex(entitytype, entityname);

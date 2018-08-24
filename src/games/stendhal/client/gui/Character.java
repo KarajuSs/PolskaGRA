@@ -48,7 +48,7 @@ Inspectable {
 	/** Padding between the ItemPanels. */
 	private static final int PADDING = 1;
 	/** The pixel amount the hand slots should be below the armor slot. */
-	private static final int HAND_YSHIFT = 10;
+	private static final int HAND_YSHIFT = 2; // before: 10
 	private static final Logger logger = Logger.getLogger(Character.class);
 
 	/** ItemPanels searchable by the respective slot name. */
@@ -131,6 +131,8 @@ Inspectable {
 		panel = createItemPanel(itemClass, store, "head", "data/gui/helmet-slot.png");
 		middle.add(panel);
 		panel = createItemPanel(itemClass, store, "armor", "data/gui/armor-slot.png");
+		middle.add(panel);
+		panel = createItemPanel(itemClass, store, "pas", "data/gui/belt-slot.png");
 		middle.add(panel);
 		panel = createItemPanel(itemClass, store, "legs", "data/gui/legs-slot.png");
 		middle.add(panel);
