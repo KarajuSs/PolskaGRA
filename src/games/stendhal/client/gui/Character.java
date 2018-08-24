@@ -132,8 +132,6 @@ Inspectable {
 		middle.add(panel);
 		panel = createItemPanel(itemClass, store, "armor", "data/gui/armor-slot.png");
 		middle.add(panel);
-		panel = createItemPanel(itemClass, store, "pas", "data/gui/belt-slot.png");
-		middle.add(panel);
 		panel = createItemPanel(itemClass, store, "legs", "data/gui/legs-slot.png");
 		middle.add(panel);
 		panel = createItemPanel(itemClass, store, "feet", "data/gui/boots-slot.png");
