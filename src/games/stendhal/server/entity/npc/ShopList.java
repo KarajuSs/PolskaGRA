@@ -605,6 +605,30 @@ public final class ShopList {
 		shops.add("juhas", "zwój kirdneh", 1000);
 		shops.add("juhas", "bilet turystyczny", 5000);
 
+		//Stasek sprzedaje
+		shops.add("stasek", "wzmocniona drewniana strzała", 4);
+		shops.add("stasek", "długi łuk", 1500);
+		shops.add("stasek", "peleryna", 25);
+		shops.add("stasek", "hełm kolczy", 120);
+		shops.add("stasek", "zbroja płytowa", 110);
+		shops.add("stasek", "skórzane rękawice", 400);
+		shops.add("stasek", "spodnie nabijane ćwiekami", 75);
+		shops.add("stasek", "buty żelazne", 240);
+		shops.add("stasek", "złoty pyrlik", 355);
+		shops.add("stasek", "bułat", 400);
+		shops.add("stasek", "topór bojowy", 515);
+		shops.add("stasek", "berdysz", 620);
+		shops.add("stasek", "pałasz", 740);
+		shops.add("stasek", "pordzewiała kosa", 1550);
+		shops.add("stasek", "ciupaga", 45000);
+
+		//Radomil sprzedaje
+		shops.add("eliksiry", "antidotum", 50);
+		shops.add("eliksiry", "mocne antidotum", 250);
+		shops.add("eliksiry", "eliksir", 375);
+		shops.add("eliksiry", "duży eliksir", 750);
+		shops.add("eliksiry", "wielki eliksir", 1250);
+
 		// KRAKOW //
 		//Samson sprzedaje:
 		shops.add("sellsamson", "toporek", 25);
@@ -660,6 +684,95 @@ public final class ShopList {
 
 		//Winicjusz sprzedaje:
 		shops.add("sellwinicjusz", "winogrona", 9);
+		
+		//Straznik sprzedaje:
+		shops.add("wawel", "zwój krakowski", 250);
+		shops.add("wawel", "zwój tatrzański", 350);
+
+		//Irek sprzedaje:
+		shops.add("sellwarzywairek", "marchew", 5);
+		shops.add("sellwarzywairek", "sałata", 10);
+		shops.add("sellwarzywairek", "kapusta", 25);
+		shops.add("sellwarzywairek", "pomidor", 20);
+		shops.add("sellwarzywairek", "cukinia", 30);
+		shops.add("sellwarzywairek", "borowik", 35);
+
+		//Zielarka kupuje:
+		shops.add("buyziola", "arandula", 12);
+		shops.add("buyziola", "kokuda", 250);
+		shops.add("buyziola", "kekik", 28);
+		shops.add("buyziola", "sclaria", 28);
+
+		//Mysliwy kupuje:
+		shops.add("buyzeby", "kieł wilczy", 10);
+		shops.add("buyzeby", "kieł niedźwiedzi", 15);
+		shops.add("buyzeby", "kieł tygrysi", 35);
+		shops.add("buyzeby", "dziób ptaka", 200);
+		shops.add("buyzeby", "ząb potwora", 400);
+		shops.add("buyzeby", "kieł smoka", 500);
+		shops.add("buyzeby", "kieł złotej kostuchy", 5000);
+
+		//Przekupka kupuje:
+		shops.add("buywarzywa", "marchew", 2);
+		shops.add("buywarzywa", "sałata", 2);
+		shops.add("buywarzywa", "pieczarka", 4);
+		shops.add("buywarzywa", "opieńka miodowa", 6);
+		shops.add("buywarzywa", "pomidor", 5);
+		shops.add("buywarzywa", "kapusta", 6);
+		shops.add("buywarzywa", "borowik", 6);
+		shops.add("buywarzywa", "szpinak", 6);
+		shops.add("buywarzywa", "brokuł", 7);
+		shops.add("buywarzywa", "por", 7);
+		shops.add("buywarzywa", "kalafior", 8);
+		shops.add("buywarzywa", "cebula", 8);
+		shops.add("buywarzywa", "cukinia", 10);
+
+		//Rybak kupuje:
+		shops.add("buyrybak", "dorsz", 5);
+		shops.add("buyrybak", "palia alpejska", 7);
+		shops.add("buyrybak", "płotka", 7);
+		shops.add("buyrybak", "makrela", 8);
+		shops.add("buyrybak", "okoń", 8);
+		shops.add("buyrybak", "pokolec", 9);
+		shops.add("buyrybak", "pstrąg", 9);
+		shops.add("buyrybak", "błazenek", 10);
+
+		//Rybak Miłorad kupuje:
+		shops.add("buyryby", "dorsz", 6);
+		shops.add("buyryby", "palia alpejska", 7);
+		shops.add("buyryby", "płotka", 7);
+		shops.add("buyryby", "makrela", 8);
+		shops.add("buyryby", "okoń", 9);
+		shops.add("buyryby", "pokolec", 9);
+		shops.add("buyryby", "pstrąg", 9);
+		shops.add("buyryby", "błazenek", 11);
+		
+		//Kacper kupuje:
+		shops.add("buykacper", "śnieżka", 5);
+		shops.add("buykacper", "kamienie", 6);
+		shops.add("buykacper", "bryła lodu", 8);
+
+		//Rzeznik kupuje:
+		shops.add("buymieso", "mięso", 15);
+		shops.add("buymieso", "szynka", 25);
+		shops.add("buymieso", "udko", 12);
+		shops.add("buymieso", "stek", 35);
+
+		//Waldek kupuje:
+		shops.add("buyowoce", "wisienka", 8);
+		shops.add("buyowoce", "jabłko", 5);
+		shops.add("buyowoce", "jabłko niezgody", 15);
+		shops.add("buyowoce", "poziomka", 5);
+		shops.add("buyowoce", "truskawka", 8);
+		shops.add("buyowoce", "gruszka", 6);
+		shops.add("buyowoce", "kokos", 7);
+		shops.add("buyowoce", "ananas", 8);
+
+		//Cheng kupuje:
+		shops.add("buycheng", "bryłka mithrilu", 10);
+		shops.add("buycheng", "bursztyn", 20);
+		shops.add("buycheng", "wielka perła", 1500);
+		shops.add("buycheng", "korale", 10000);
 	}
 
 	private static ShopList instance;
