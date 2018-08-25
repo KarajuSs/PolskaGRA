@@ -65,7 +65,7 @@ import java.util.List;
  *
  * REPETITIONS:
  * <ul>
- * <li>No more than once every 2 days</li>
+ * <li>No more than once every 1 day</li>
  * </ul>
  *
  * NOTES:
@@ -81,7 +81,7 @@ public class BiletTurystyczny extends AbstractQuest {
 
 	private static final int REQUIRED_MONEY = 5000;
 
-	private static final int REQUIRED_MINUTES = 60 * 24 * 2;
+	private static final int REQUIRED_MINUTES = 60 * 24;
 
 	private static final String QUEST_SLOT = "bilet_turystyczny";
 
@@ -93,11 +93,22 @@ public class BiletTurystyczny extends AbstractQuest {
 		final SpeakerNPC npc = npcs.get("Juhas");
 
 		// player says hi before starting the quest
-		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
+		npc.add(ConversationStates.ATTENDING,
+			Arrays.asList("bilet", "bilet turystyczny", "bilety"),
 			new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
-						new QuestNotStartedCondition(QUEST_SLOT)),
+						new QuestNotStartedCondition(QUEST_SLOT),
+						new LevelGreaterThanCondition(REQUIRED_LEVEL-1)),
 			ConversationStates.INFORMATION_1,
-			"CIII! Jesteś ciekaw jakimi towarami #handluję.", null);
+			"CIII! *SZEPT* Nikt nie może wiedzieć jakimi towarami #handluję.", null);
+		
+		// player says hi before starting the quest
+		npc.add(ConversationStates.ATTENDING,
+			Arrays.asList("bilet", "bilet turystyczny", "bilety"),
+			new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
+						new QuestNotStartedCondition(QUEST_SLOT),
+						new LevelLessThanCondition(REQUIRED_LEVEL)),
+			ConversationStates.ATTENDING,
+			"Przepraszam, ale chyba coś nie dosłyszałem... *SZEPT* CIII! Nie mogę Ci powiedzieć czym handluję, ponieważ nie masz wystarczającego doświadczenia z potworami, ale możesz sprawdzić moją inną #'ofertę'.", null);
 
 		// player returns after finishing the quest (it is repeatable) after the
 		// time as finished
@@ -106,7 +117,8 @@ public class BiletTurystyczny extends AbstractQuest {
 			ConversationPhrases.GREETING_MESSAGES,
 			new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 					new QuestStartedCondition(QUEST_SLOT),
-					new TimePassedCondition(QUEST_SLOT, 1, REQUIRED_MINUTES)),  
+					new TimePassedCondition(QUEST_SLOT, 1, REQUIRED_MINUTES),
+					new LevelGreaterThanCondition(REQUIRED_LEVEL-1)),  
 			ConversationStates.QUEST_OFFERED,
 			"Wróciłeś po kolejny bilet turystyczny?", null);
 
@@ -114,9 +126,10 @@ public class BiletTurystyczny extends AbstractQuest {
 		// the time as finished
 		npc.add(
 			ConversationStates.IDLE,
-			ConversationPhrases.GREETING_MESSAGES,
+			Arrays.asList("bilet", "bilet turystyczny", "bilety"),
 			new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 					new QuestStartedCondition(QUEST_SLOT),
+					new LevelGreaterThanCondition(REQUIRED_LEVEL-1),
 					new NotCondition(new TimePassedCondition(QUEST_SLOT, 1, REQUIRED_MINUTES))),  
 			ConversationStates.ATTENDING, 
 			null,
@@ -129,10 +142,17 @@ public class BiletTurystyczny extends AbstractQuest {
 					new QuestNotStartedCondition(QUEST_SLOT), 
 					new LevelGreaterThanCondition(REQUIRED_LEVEL-1)),
 			ConversationStates.QUEST_OFFERED, 
-			"Sprzedaję #bilety turystyczne na pustynię. Możesz kupić, ale będzie Cię kosztować "
+			"Sprzedaję #'bilety turystyczne' na pustynię. Możesz kupić, ale będzie Cię kosztować "
 								+ REQUIRED_MONEY
 								+ " money. Chcesz kupić?",
 			null);
+		
+		npc.add(ConversationStates.QUEST_OFFERED, 
+				Arrays.asList("bilety turystyczne"),
+				null,
+				ConversationStates.QUEST_OFFERED, 
+				"To są pewnego rodzaju zwoje, które wysyłają na wycieczkę do obcej krainy pokrytej piaskiem.",
+				null);
 		
 		// player responds to word 'deal' - low level
 		npc.add(ConversationStates.INFORMATION_1, 
@@ -195,26 +215,6 @@ public class BiletTurystyczny extends AbstractQuest {
 			ConversationStates.ATTENDING,
 			"To nie jest dla każdego. Jeżeli chciałbyś coś to mów.",
 			null);
-
-		// player says 'deal' or asks about beans when NPC is ATTENDING, not
-		// just in information state (like if they said no then changed mind and
-		// are trying to get him to deal again)
-		npc.add(ConversationStates.ATTENDING,
-			Arrays.asList("deal", "ticket", "bilet turystyczny", "yes", "tak"),
-			new LevelGreaterThanCondition(REQUIRED_LEVEL-1),
-			ConversationStates.ATTENDING,
-			"Już mówiliśmy o tym! Spróbuj innym razem.",
-			null);
-			
-		// player says 'deal' or asks about beans when NPC is ATTENDING, not
-		// just in information state (like if they said no then changed mind and
-		// are trying to get him to deal again)
-		npc.add(ConversationStates.ATTENDING,
-			Arrays.asList("deal", "ticket", "bilet turystyczny", "yes", "tak"),
-			new LevelLessThanCondition(REQUIRED_LEVEL),
-			ConversationStates.ATTENDING, 
-			"Nie jesteś wystarczająco przygotowany na taką podróż. Nie masz szans!",
-			null);
 	}
 
 	@Override
@@ -232,7 +232,7 @@ public class BiletTurystyczny extends AbstractQuest {
 		});
 		fillQuestInfo(
 				"Bilet Turystyczny",
-				"Bilet turystyczny wysyła na wycieczkę do obcej krainy pokrytej piaskiem.",
+				"Juhas może sprzedać bilet turystyczny, który wysyła na wycieczkę do obcej krainy pokrytej piaskiem.",
 				false);
 		step_1();
 
@@ -275,6 +275,6 @@ public class BiletTurystyczny extends AbstractQuest {
 	
 	@Override
 	public String getRegion() {
-		return Region.ZAKOPANE_CITY;
+		return Region.SEMOS_CITY;
 	}
 }
