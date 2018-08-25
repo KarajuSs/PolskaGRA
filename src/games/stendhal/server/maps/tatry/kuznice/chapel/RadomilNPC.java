@@ -70,9 +70,9 @@ public class RadomilNPC implements ZoneConfigurator {
 			protected void createDialog() {
 				addGreeting();
 				addJob("Zajmuję się tą kapliczką oraz posiadam niezwykłą moc, która pomaga mi uleczyć rany.");
-				addHelp("Mogę Cię #'uleczyć'.");
+				addHelp("Mogę Cię #'uleczyć' lub #zdjąć z ciebie #'czaszkę'.");
 				new FreeHealerAdder().addHealer(this, 0);
-				addOffer("Mogę Cię uleczyć. Powiedz tylko #'ulecz' oraz sprzedaję antidotum, mocne antidotum, eliksir, duży eliksir i wielki eliksir. Potrafię również zdjąć z Ciebie piętno zabójcy. Powiedz mi tylko #'zdejmij czaszkę'.");
+				addOffer("Potrafię również zdjąć z Ciebie piętno zabójcy. Powiedz mi tylko #'zdejmij czaszkę'.");
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("eliksiry")));
 				
 				addReply("zdejmij", null,
