@@ -26,8 +26,8 @@ import games.stendhal.server.entity.player.Player;
  */
 public class Stocking extends Box {
 
-	private static final String[] ITEMS = { "mega potion", "love potion", "pomegranate",
-			"fish soup", "mithril nugget", "empty scroll", "teddy", "crepes suzette", "vsop koboldish torcibud"};
+	private static final String[] ITEMS = { "wielki eliksir", "eliksir miłości", "granat",
+			"zupa rybna", "bryłka mithrilu", "niezapisany zwój", "pluszowy miś", "naleśniki z polewą czekoladową", "leżakowana nalewka litworowa"};
 
 	/**
 	 * Creates a new Stocking.
@@ -58,7 +58,7 @@ public class Stocking extends Box {
 		final String itemName = ITEMS[Rand.rand(ITEMS.length)];
 		final Item item = SingletonRepository.getEntityManager().getItem(
 				itemName);
-		player.sendPrivateText("Congratulations, you've got "
+		player.sendPrivateText("Gratulacje otrzymałeś "
 				+ Grammar.a_noun(itemName) + "!");
 		player.equipOrPutOnGround(item);
 		player.notifyWorldAboutChanges();

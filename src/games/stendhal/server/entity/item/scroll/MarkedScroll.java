@@ -84,21 +84,21 @@ public class MarkedScroll extends TeleportScroll {
 				if (temp == null) {
 					// invalid zone (the scroll may have been marked in an
 					// old version and the zone was removed)
-					player.sendPrivateText("Oh oh. For some strange reason the scroll did not teleport me to the right place.");
+					player.sendPrivateText("Z dziwnych powodów zwój nie przeniósł mnie tam gdzie chciałem.");
 					logger.warn("marked scroll to unknown zone " + infostring
 							+ " teleported " + player.getName()
 							+ " to Semos instead");
 				} else {
 					if (player.getKeyedSlot("!visited", zoneName) == null) {
-						player.sendPrivateText("Although you have heard a lot of rumors about the destination, "
-								+ "you cannot concentrate on it because you have never been there.");
+						player.sendPrivateText("Słyszałeś wiele opowieści o miejscu, do którego chcesz się przenieść "
+								+ "nie możesz się skoncentrować ponieważ nigdy tam nie byłeś.");
 						return false;
 					} else {
 					        zone = temp;
 					        x = Integer.parseInt(st.nextToken());
 							y = Integer.parseInt(st.nextToken());
 						if (!zone.isTeleportInAllowed(x, y)) {
-							player.sendPrivateText("The strong anti magic aura in the destination area prevents the scroll from working!");
+							player.sendPrivateText("Silna antymagiczna aura blokuje działanie zwoju!");
 							return false;
 						}
 					}
@@ -119,7 +119,7 @@ public class MarkedScroll extends TeleportScroll {
 		final String infostring = getInfoString();
 
 		if (infostring != null) {
-			text += " Upon it is written: " + infostring;
+			text += " Pod spodem widnieje napis: " + infostring;
 		}
 		return (text);
 	}

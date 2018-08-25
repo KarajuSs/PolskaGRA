@@ -177,7 +177,7 @@ public class Item extends PassiveEntity implements TurnListener, EquipListener,
 		// (a bottle, a piece of meat).
 		entity.addAttribute("amount", Type.INT);
 
-		// Some items (range weapons, ammunition, missiles)
+		// Some items (range weapons, ammunition, missiles, magia)
 		// have a range.
 		entity.addAttribute("range", Type.SHORT, Definition.HIDDEN);
 

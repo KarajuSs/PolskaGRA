@@ -5,9 +5,6 @@
  */
 package games.stendhal.server.entity.item.scroll;
 
-import java.util.Map;
-import java.util.StringTokenizer;
-
 //
 //
 
@@ -15,6 +12,9 @@ import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPRuleProcessor;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.player.Player;
+
+import java.util.Map;
+import java.util.StringTokenizer;
 
 /**
  * Represents an teleport scroll that acts as an invitation to an event. The
@@ -30,7 +30,7 @@ public class InvitationScroll extends TeleportScroll {
 	private static final String HOTEL_SPOT = "4 40";
 	/*
 	 * Creates a new invitation teleport scroll.
-	 *
+	 * 
 	 * @param name
 	 * @param clazz
 	 * @param subclass
@@ -43,7 +43,7 @@ public class InvitationScroll extends TeleportScroll {
 
 	/**
 	 * Copy constructor.
-	 *
+	 * 
 	 * @param item
 	 *            item to copy
 	 */
@@ -53,12 +53,12 @@ public class InvitationScroll extends TeleportScroll {
 
 	/**
 	 * Try to teleport to a marked scroll infostring style place.
-	 *
+	 * 
 	 * @param where
 	 *            A location in the form of <em>zone x y</em>.
 	 * @param player
 	 *            The player to teleport.
-	 *
+	 * 
 	 * @return <code>true</code> if teleport was successful.
 	 */
 	protected boolean teleportTo(final String where, final Player player) {
@@ -100,10 +100,10 @@ public class InvitationScroll extends TeleportScroll {
 
 	/**
 	 * Is invoked when a teleporting scroll is actually used.
-	 *
+	 * 
 	 * @param player
 	 *            The player who used the scroll and who will be teleported.
-	 *
+	 * 
 	 * @return <code>true</code> if teleport was successful.
 	 */
 	@Override
@@ -111,13 +111,13 @@ public class InvitationScroll extends TeleportScroll {
 		final String dest = getInfoString();
 
 		if (dest == null) {
-			player.sendPrivateText("This invitation has not been filled in.");
+			player.sendPrivateText("Zaproszenie nie zostało jeszcze wypełnione.");
 			return false;
 		}
 
   		final String[] info = dest.split(",");
 		if (info.length < 2) {
-			player.sendPrivateText("This scroll is so old that it lost its magic.");
+			player.sendPrivateText("Ten zwój jest tak stary, że stracił swoją magiczną moc.");
 			return false;
 		}
 
@@ -126,7 +126,7 @@ public class InvitationScroll extends TeleportScroll {
 		} else if (info[0].equals("honeymoon")) {
 			return handleTeleportToHotel(player, info[1]);
 		} else {
-			player.sendPrivateText("Something seems to be wrong with this invitation scroll");
+			player.sendPrivateText("Coś musi być nie tak z tym zwojem weselnym.");
 			return false;
 		}
 	}
@@ -134,7 +134,7 @@ public class InvitationScroll extends TeleportScroll {
 	private boolean handleTeleportToChurch(final Player player, final String playerName) {
 		final Player engagedPlayer = StendhalRPRuleProcessor.get().getPlayer(playerName);
 		if (engagedPlayer == null) {
-			player.sendPrivateText("There does not seem be a marriage going on, at least " + playerName + " is not online at the moment.");
+			player.sendPrivateText("Nie będzie ślubu dopóki " + playerName + " nie wejdzie do gry.");
 			return false;
 		}
 		//TODO: either activate this by finding out how to put 'marriage' in here:
@@ -150,12 +150,12 @@ public class InvitationScroll extends TeleportScroll {
 	private boolean handleTeleportToHotel(final Player player, final String playerName) {
 		// check player was original recipient
 		if (!player.getTitle().equals(playerName)) {
-			player.sendPrivateText("That invitation scroll was given to " + playerName + ".");
+			player.sendPrivateText("Ten zwój weselny został wręczony " + playerName + ".");
 			return false;
 		}
 		// check player is inside a lovers room when they try to use it
 		if (!player.getZone().getName().startsWith("int_fado_lovers_room")) {
-			player.sendPrivateText("That invitation scroll is only to be used to exit a Fado lovers room.");
+			player.sendPrivateText("Ten zwój weselny można tylko użyć do wyjścia z Fado lovers room.");
 			return false;
 		}
 		return teleportTo(HOTEL_ZONE + " " + HOTEL_SPOT, player);
@@ -179,14 +179,14 @@ public class InvitationScroll extends TeleportScroll {
 			if (info.length == 2) {
 				// if this was set on creation in maps.quests.marriage.Engagement then both engaged players names could be added.
 				if (info[0].equals("marriage")) {
-					return "You read: You are cordially invited to the marriage of " + info[1] + ". Please confirm what time and date you should attend, and then use this scroll to get to Fado Church.";
+					return "Czytasz: Serdecznie zapraszamy na ślub " + info[1] + ". Proszę potwierdzić kiedy i o której godzinie się pojawisz, a później użyj tego zwoju, aby dostać się do kościoła w Fado.";
 				}
 				if (info[0].equals("honeymoon")) {
-					return "You see a scroll which will transport you out of the Fado Lovers Room, and back to Fado Hotel.";
+					return "Oto zwój, który przeniesie Ciebie z Fado Lovers Room z powrotem do Hotelu w Fado.";
 				}
-				return "An invitation to an event.";
+				return "Zaproszenie na ślub.";
 			}
-			return "An invitation to an event.";
+			return "Zaproszenie na ślub.";
 		}
 	}
 }

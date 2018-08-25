@@ -39,6 +39,7 @@ import games.stendhal.server.entity.npc.condition.QuestInStateCondition;
 import games.stendhal.server.entity.npc.condition.QuestStateStartsWithCondition;
 import games.stendhal.server.entity.npc.condition.TimePassedCondition;
 import games.stendhal.server.entity.player.Player;
+import games.stendhal.server.maps.Region;
 import games.stendhal.server.util.TimeUtil;
 
 public class ZlotyRog extends AbstractQuest {
@@ -172,7 +173,7 @@ public class ZlotyRog extends AbstractQuest {
 
 	}
 
-	private void step_3() { 
+	private void step_3() {
 		final SpeakerNPC npc = npcs.get("Bartłomiej");
 
 		npc.add(ConversationStates.ATTENDING,
@@ -185,7 +186,7 @@ public class ZlotyRog extends AbstractQuest {
 
 					final String[] tokens = player.getQuest(QUEST_SLOT).split(";");
 
-					final long delay = REQUIRED_MINUTES * MathHelper.MILLISECONDS_IN_ONE_MINUTE; 
+					final long delay = REQUIRED_MINUTES * MathHelper.MILLISECONDS_IN_ONE_MINUTE;
 					final long timeRemaining = (Long.parseLong(tokens[1]) + delay)
 							- System.currentTimeMillis();
 
@@ -209,7 +210,7 @@ public class ZlotyRog extends AbstractQuest {
 
 		npc.add(
 			ConversationStates.ANY,
-			"piórko", 
+			"piórko",
 			null,
 			ConversationStates.ATTENDING,
 			"W Zakopanem jest dużo gołębi.",
@@ -299,11 +300,11 @@ public class ZlotyRog extends AbstractQuest {
 				res.add("Po złoty róg mam zgłosić się za godzine. Hasło: róg.");
 			}
 			return res;
-		} 
+		}
 		res.add("Warto było czekać na złoty róg. Jest piękny, jego brzmienie też jest niczego sobie...");
 		if (isCompleted(player)) {
 			return res;
-		} 
+		}
 		// if things have gone wrong and the quest state didn't match any of the above, debug a bit:
 		final List<String> debug = new ArrayList<String>();
 		debug.add("Stan zadania to: " + questState);
@@ -314,5 +315,10 @@ public class ZlotyRog extends AbstractQuest {
 	@Override
 	public String getNPCName() {
 		return "Bartłomiej";
+	}
+
+	@Override
+	public String getRegion() {
+		return Region.ZAKOPANE_CITY;
 	}
 }

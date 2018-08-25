@@ -12,6 +12,11 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 import games.stendhal.server.entity.npc.ChatAction;
 import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
@@ -32,14 +37,6 @@ import games.stendhal.server.entity.npc.condition.QuestInStateCondition;
 import games.stendhal.server.entity.npc.condition.QuestNotStartedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-
-import marauroa.common.Pair;
 
 /**
  * QUEST: Club of Thorns
@@ -90,27 +87,21 @@ public class ClubOfThorns extends AbstractQuest {
 			ConversationPhrases.QUEST_MESSAGES,
 			new QuestActiveCondition(QUEST_SLOT),
 			ConversationStates.ATTENDING, 
-			"Zemścij się! #Zabij szefa górskich orków i jego towarzyszy!",
+			"Zemścij się! #Zabij szefa górskich orków!",
 			null);
 
 		npc.add(ConversationStates.ATTENDING,
 			ConversationPhrases.QUEST_MESSAGES,
 			new QuestCompletedCondition(QUEST_SLOT),
 			ConversationStates.ATTENDING,
-			"Saman zemścij się! Dobrze!",
+			"Saman zemścił się! Dobrze!",
 			null);
 
-		final HashMap<String, Pair<Integer, Integer>> toKill = new HashMap<String, Pair<Integer, Integer>>();
-		toKill.put("szef górskich orków", new Pair<Integer, Integer>(0,1));
-		toKill.put("górski ork", new Pair<Integer, Integer>(0,1));
-		toKill.put("górski ork łowca", new Pair<Integer, Integer>(0,2));
-		toKill.put("ork górski wojownik", new Pair<Integer, Integer>(0,2));
-		
 		final List<ChatAction> start = new LinkedList<ChatAction>();
 		start.add(new EquipItemAction("klucz do więzienia Kotoch", 1, true));
 		start.add(new IncreaseKarmaAction(10.0));
 		start.add(new SetQuestAction(QUEST_SLOT, 0, "start"));
-		start.add(new StartRecordingKillsAction(QUEST_SLOT, 1, toKill));
+		start.add(new StartRecordingKillsAction(QUEST_SLOT, 1, "szef górskich orków", 0, 1));
 
 		npc.add(
 			ConversationStates.QUEST_OFFERED,

@@ -36,11 +36,11 @@ public class PlayerTradeSlot extends PlayerSlot {
 	public boolean isReachableForTakingThingsOutOfBy(final Entity entity) {
 		TradeState tradeState = ((Player) getOwner()).getTradeState();
 		if (tradeState == TradeState.NO_ACTIVE_TRADE || tradeState == TradeState.OFFERING_TRADE) {
-			setErrorMessage("You are not trading with someone at the moment.");
+			setErrorMessage("W tym momencie z nikim nie handlujesz.");
 			return false;
 		}
 		if (tradeState != TradeState.MAKING_OFFERS) {
-			setErrorMessage("Your trade offer was been locked. You can cancel the trade if you want to modify it.");
+			setErrorMessage("Twoja oferta została zablokowana. Możesz anulować wymianę jeżeli chcesz coś zmienić.");
 			return false;
 		}
 		return super.isReachableForTakingThingsOutOfBy(entity);

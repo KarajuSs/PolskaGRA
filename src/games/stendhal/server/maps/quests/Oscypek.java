@@ -9,7 +9,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-// Based on few tasks. Zwracac uwage na zmiany w plikach o sprzedazy owcy, mrs.yeti(biega o czas)     
+// Based on few tasks. Zwracac uwage na zmiany w plikach o sprzedazy owcy, mrs.yeti(biega o czas)
 
 package games.stendhal.server.maps.quests;
 
@@ -41,13 +41,14 @@ import games.stendhal.server.entity.npc.condition.QuestNotStartedCondition;
 import games.stendhal.server.entity.npc.condition.QuestStateStartsWithCondition;
 import games.stendhal.server.entity.npc.condition.TimePassedCondition;
 import games.stendhal.server.entity.player.Player;
+import games.stendhal.server.maps.Region;
 
 public class Oscypek extends AbstractQuest {
 
 	private static final String QUEST_SLOT = "oscypek";
 	private static final int DELAY_IN_MINUTES = 60*3;
 	private static Logger logger = Logger.getLogger(Oscypek.class);
-  
+
 	@Override
 	public String getSlotName() {
 		return QUEST_SLOT;
@@ -101,13 +102,13 @@ public class Oscypek extends AbstractQuest {
 								npc.say("Ej, lichy z ciebie honielnik! Owca jeszcze nie jest dobrze wypasiona");
 								player.addKarma(-10);
 							} else {
-								npc.say("No! Takiego juhasa trza mi było. Teraz pora na jej dojenie. Gieletę, czyli wiaderko mam, ale biegnij za ten czas do Kościeliska. Jest tam #kowal #Jacek. U niego jest moja #puciera.");				
+								npc.say("No! Takiego juhasa trza mi było. Teraz pora na jej dojenie. Gieletę, czyli wiaderko mam, ale biegnij za ten czas do Kościeliska. Jest tam #kowal #Jacek. U niego jest moja #puciera.");
 								//sheep.getZone().remove(sheep);
 								player.removeSheep(sheep);
 								sheep.getZone().remove(sheep);
 								player.notifyWorldAboutChanges();
-								player.addKarma(10);
-								player.addXP(100);
+								player.addKarma(15);
+								player.addXP(500);
 								player.setQuest(QUEST_SLOT, "inter1");
 							}
 						} else {
@@ -141,7 +142,7 @@ public class Oscypek extends AbstractQuest {
 
 
 	private void odbior1() {
-		final SpeakerNPC npc = npcs.get("Kowal Jacek");	
+		final SpeakerNPC npc = npcs.get("Kowal Jacek");
 
 		npc.add(ConversationStates.ATTENDING, "puciera",
 				new QuestInStateCondition(QUEST_SLOT, "puciera_make"),
@@ -153,7 +154,7 @@ public class Oscypek extends AbstractQuest {
 						puciera.setBoundTo(player.getName());
 						player.equipOrPutOnGround(puciera);
 						player.addKarma(10);
-						player.addXP(100);
+						player.addXP(150);
 						npc.say("Witaj! Skończyłem go, zanieś wartko ten garniec do bacy");
 						player.setQuest(QUEST_SLOT, "puciera_done");
 					};
@@ -173,7 +174,7 @@ public class Oscypek extends AbstractQuest {
 				public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
 					player.drop("puciera");
 					player.addKarma(10);
-					player.addXP(100);
+					player.addXP(150);
 					npc.say("Aleś długo szedł! O mało co mleko się nie popsuło! Leć jeszcze raz do Kościeliska. Na południe obok doliny Kościeliskiej mieszka #gaździna #Maryśka." +
 					" Jest u niej moja wyprana #grudziarka. Po drodze nazbieraj trochę drewna do rozpalenia watry!");
 					player.setQuest(QUEST_SLOT, "inter2");
@@ -233,7 +234,7 @@ public class Oscypek extends AbstractQuest {
 						grudziarka.setBoundTo(player.getName());
 						player.equipOrPutOnGround(grudziarka);
 						player.addKarma(10);
-						player.addXP(100);
+						player.addXP(150);
 						npc.say("Trzymaj, jest uprana więc jej nie upapraj!");
 						player.setQuest(QUEST_SLOT, "grudziarka_done");
 					};
@@ -253,7 +254,7 @@ public class Oscypek extends AbstractQuest {
 					public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
 						player.drop("grudziarka");
 						player.addKarma(10);
-						player.addXP(100);
+						player.addXP(150);
 						npc.say("Jesteś wreszcie! Dziękuję za grudziarkę. Teraz muszę przecedzić ścięte mleko i pucyć, czyli ugnieść oscypki w drewnianej formie. Potem będą się wędzić nad watrą. Masz #drewno?");
 						player.setQuest(QUEST_SLOT, "drewno");
 					};
@@ -288,7 +289,7 @@ public class Oscypek extends AbstractQuest {
 					player.drop("polano");
 					player.addKarma(10);
 					player.addXP(100);
-					npc.say("Dziękuję. Wróć do mnie za kilka godzin, kiedy #oscypki będą gotowe."); 
+					npc.say("Dziękuję. Wróć do mnie za kilka godzin, kiedy #oscypki będą gotowe.");
 					player.setQuest(QUEST_SLOT, "oscypek;"+System.currentTimeMillis());
 				};
 		});
@@ -304,7 +305,7 @@ public class Oscypek extends AbstractQuest {
 				ConversationPhrases.QUEST_MESSAGES,
 				new QuestInStateCondition(QUEST_SLOT, "drewno"),
 				ConversationStates.ATTENDING,
-				"Prosiłem Ciebie o przyniesienie #drewna!",
+				"Prosiłem Ciebie o przyniesienie #'drewna'!",
 				null);
 		}
 
@@ -344,7 +345,7 @@ public class Oscypek extends AbstractQuest {
 					zyntyca.setQuantity(zyntycaamount);
 					player.equipOrPutOnGround(oscypek);
 					player.equipOrPutOnGround(zyntyca);
-					player.addXP(5000);
+					player.addXP(6500);
 					player.addKarma(50);
 					player.setQuest(QUEST_SLOT, "done");
 				};
@@ -440,6 +441,12 @@ public class Oscypek extends AbstractQuest {
 	public String getName() {
 		return "Oscypek";
 	}
+
+	@Override
+	public String getRegion() {
+		return Region.ZAKOPANE_CITY;
+	}
+
 	@Override
 	public String getNPCName() {
 		return "Baca Zbyszek";

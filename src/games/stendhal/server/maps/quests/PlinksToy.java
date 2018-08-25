@@ -49,7 +49,7 @@ import java.util.List;
  * dropping his teddy. <li> Find the teddy in the Park Of Wolves <li> Bring it back to
  * Plink </ul>
  * 
- * REWARD: <ul><li> a smile <li> 20 XP <li> 10 Karma </ul>
+ * REWARD: <ul><li> a smile <li> 200 XP <li> 10 Karma </ul>
  * 
  * REPETITIONS: <ul><li> None. </ul>
  */
@@ -146,7 +146,7 @@ public class PlinksToy extends AbstractQuest {
 
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
 		reward.add(new DropItemAction("pluszowy miś"));
-		reward.add(new IncreaseXPAction(20));
+		reward.add(new IncreaseXPAction(200));
 		reward.add(new SetQuestAction(QUEST_SLOT, "done"));
 		reward.add(new IncreaseKarmaAction(10));
 		

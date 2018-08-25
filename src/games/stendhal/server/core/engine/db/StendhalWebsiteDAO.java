@@ -139,7 +139,7 @@ public class StendhalWebsiteDAO {
 			+ " outfit=[outfit], outfit_colors='[outfit_colors]', xp=[xp], money='[money]',"
 			+ " married='[married]', atk='[atk]', def='[def]', hp='[hp]', karma='[karma]',"
 			+ " neck='[neck]', head='[head]', cloak='[cloak]',"
-			+ " lhand='[lhand]', armor='[armor]', rhand='[rhand]', pas='[pas]', "
+			+ " lhand='[lhand]', armor='[armor]', rhand='[rhand]', pas='[pas]',"
 			+ " legs='[legs]', glove='[glove]', finger='[finger]', fingerb='[fingerb]', feet='[feet]',"
 			+ " lastseen='[lastseen]', zone='[zone]'"
 			+ " WHERE name='[name]'";

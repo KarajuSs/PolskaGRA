@@ -59,7 +59,7 @@ public class TwilightElixir extends Drink {
 
 	@Override
 	public String describe() {
-		String text = "You see " + Grammar.a_noun(getTitle()) + ".";
+		String text = "Oto " + Grammar.a_noun(getTitle()) + ".";
 		String stats = "";
 		if (hasDescription()) {
 			text = getDescription();
@@ -68,8 +68,8 @@ public class TwilightElixir extends Drink {
 		final String boundTo = getBoundTo();
 
 		if (boundTo != null) {
-			text = text + " It is a special reward for " + boundTo
-					+ ", and cannot be used by others.";
+			text = text + " Oto specjalna nagroda dla " + boundTo
+					+ ", która nie może być używana przez innych.";
 		}
 		return (text + stats);
 	}
@@ -93,16 +93,16 @@ public class TwilightElixir extends Drink {
 				int y = 5;
 				if (zone == null) {
 					// invalid zone (shouldn't happen)
-					user.sendPrivateText("Oh oh. For some strange reason the scroll did not teleport me to the right place.");
+					user.sendPrivateText("Z dziwnych przyczyn zwój nie przeniósł mnie do wybranego miejsca.");
 					logger.warn("twilight elixir to unknown zone hell,"
 								+ " teleported " + user.getName()
 								+ " to Semos instead");
 					zone = SingletonRepository.getRPWorld().getZone("0_semos_city");
 				}
 				((Player) user).teleport(zone, x, y, null, (Player) user);
-				extra = " Now you will go to hell, for thinking of yourself before you think of others.";
+				extra = " Teraz pójdziesz do piekła za myślenie tylko o sobie.";
 			}
- 			user.sendPrivateText("Didn't you know, one man's drink is another man's poison? That elixir was meant for Ida in the twilight zone." + extra);
+ 			user.sendPrivateText("Nie wiesz, że dla jednego człowieka może to być napój, a dla innego trucizna? Ten eliksir był dla Idy w twilight zone." + extra); 
 			return super.onUsed(user);
 		} else {
 			// should never happen.

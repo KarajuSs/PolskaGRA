@@ -41,7 +41,11 @@ public class SendPrivateMessageAction implements ChatAction {
 	 */
 	public SendPrivateMessageAction(String text) {
 		this.text = checkNotNull(text);
-		this.type = NotificationType.PRIVMSG;
+		if(text.startsWith("Administrator #")) {
+			this.type = NotificationType.TELLALL;
+		} else {
+			this.type = NotificationType.PRIVMSG;
+		}
 	}
 
 	/**
@@ -65,7 +69,7 @@ public class SendPrivateMessageAction implements ChatAction {
 	@Override
 	public String toString() {
 		// would need to send the type toString also to include the type here
-		return "Send Private Message<" + type + ", " + text + ">";
+		return "Wyślij Prywatną Wiadomość<" + type + ", " + text + ">";
 	}
 
 	@Override

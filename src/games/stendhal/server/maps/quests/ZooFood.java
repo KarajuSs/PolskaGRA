@@ -66,7 +66,7 @@ import java.util.Map;
  * </ul>
  *
  * REWARD: <ul>
- * <li> 200 XP
+ * <li> 500 XP
  * <li> 10 Karma
  * <li> Supply for cheap medicine and free pet healing for one week
  * </ul>
@@ -228,7 +228,7 @@ public class ZooFood extends AbstractQuest {
 		actions.add(new DropRecordedItemAction(QUEST_SLOT,1));
 		actions.add(new SetQuestAndModifyKarmaAction(QUEST_SLOT, "done;1", 5.0));
 		actions.add(new SetQuestToTimeStampAction(QUEST_SLOT, 1));
-		actions.add(new IncreaseXPAction(200));
+		actions.add(new IncreaseXPAction(500));
 	
 		npc.add(ConversationStates.QUEST_ITEM_BROUGHT,
 			ConversationPhrases.YES_MESSAGES, 

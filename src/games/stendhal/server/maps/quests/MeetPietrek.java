@@ -27,13 +27,14 @@ import games.stendhal.server.entity.npc.condition.QuestCompletedCondition;
 import games.stendhal.server.entity.npc.condition.QuestInStateCondition;
 import games.stendhal.server.entity.npc.condition.QuestNotCompletedCondition;
 import games.stendhal.server.entity.player.Player;
+import games.stendhal.server.maps.Region;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * QUEST: Speak with Hayunn 
+ * QUEST: Speak with Hayunn
  * <p>
  * PARTICIPANTS: <ul><li> Hayunn Naratha</ul>
  *
@@ -44,7 +45,7 @@ import java.util.List;
  * <li> Return and learn how to double click move, and get some URLs
  * </ul>
  *
- * REWARD: <ul><li> 20 XP <li> 5 gold coins <li> studded shield </ul>
+ * REWARD: <ul><li> 150 XP <li> 25 gold coins <li> puklerz </ul>
  *
  * REPETITIONS: <ul><li> Get the URLs as much as wanted but you only get the reward once.</ul>
  */
@@ -106,7 +107,7 @@ public class MeetPietrek extends AbstractQuest {
 
 		//player returns to Hayunn having killed a rat
 		final List<ChatAction> actions = new LinkedList<ChatAction>();
-		actions.add(new IncreaseXPAction(10));
+		actions.add(new IncreaseXPAction(50));
 		actions.add(new SetQuestAction(QUEST_SLOT, "killed"));
 
 		npc.add(
@@ -153,8 +154,8 @@ public class MeetPietrek extends AbstractQuest {
 		// The player has had enough info for now. Send them to semos. When they come back they can learn some more tips.
 
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
-		reward.add(new EquipItemAction("money", 5));
-		reward.add(new IncreaseXPAction(10));
+		reward.add(new EquipItemAction("money", 25));
+		reward.add(new IncreaseXPAction(50));
 		reward.add(new SetQuestAction(QUEST_SLOT, "taught"));
 		reward.add(new ExamineChatAction("npcgenowefa.png", "Gaździna Jadźka", "Centrum Zakopanego."));
 
@@ -204,18 +205,18 @@ public class MeetPietrek extends AbstractQuest {
 			//This is used if the player returns, asks for #help and then say #yes
 			npc.add(ConversationStates.ATTENDING,
 			ConversationPhrases.YES_MESSAGES, new QuestCompletedCondition(QUEST_SLOT),
-			ConversationStates.ATTENDING, 
+			ConversationStates.ATTENDING,
 			epilog + "Wiesz przypominasz mi mnie, gdy",
 			null);
 
 		final List<ChatAction> reward2 = new LinkedList<ChatAction>();
 		reward2.add(new EquipItemAction("puklerz"));
-		reward2.add(new IncreaseXPAction(20));
+		reward2.add(new IncreaseXPAction(50));
 		reward2.add(new SetQuestAction(QUEST_SLOT, "done"));
 
 		npc.add(ConversationStates.INFORMATION_8,
 			ConversationPhrases.YES_MESSAGES, new QuestNotCompletedCondition(QUEST_SLOT),
-			ConversationStates.IDLE, 
+			ConversationStates.IDLE,
 			epilog + "Cóż powodzenia w walkach! Ta tarcza powinna Ci pomóc. Tutaj znajdziesz sławę i chwałę. Uważaj na potwory!",
 			new MultipleActions(reward2));
 
@@ -232,7 +233,7 @@ public class MeetPietrek extends AbstractQuest {
 				"Och mam nadzieję, że ktoś się zatrzyma i porozmawia ze mną.",
 				null);
 
-		npc.setPlayerChatTimeout(TIME_OUT); 
+		npc.setPlayerChatTimeout(TIME_OUT);
 	}
 
 	@Override
@@ -251,5 +252,10 @@ public class MeetPietrek extends AbstractQuest {
 	@Override
 	public String getNPCName() {
 		return "Pietrek";
+	}
+
+	@Override
+	public String getRegion() {
+		return Region.ZAKOPANE_CITY;
 	}
 }

@@ -84,6 +84,7 @@
 		</attributes>
 		<weight value="1.0"/>
 		<value value="7"/>
+		<susceptibility type="nature" value="0.91"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
@@ -252,7 +253,7 @@
 	xenocium at 1.5%
 
 	Possibly add to weekly item quest. -->
-  
+
 	<item name="hełm xenocyjski">
 		<type class="helmet" subclass="xeno_helmet" tileid="-1" />
 		<description>Oto hełm xenocyjski.</description>
@@ -507,6 +508,7 @@
 		</attributes>
 		<weight value="2.0"/>
 		<value value="7"/>
+		<susceptibility type="nature" value="0.91"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>

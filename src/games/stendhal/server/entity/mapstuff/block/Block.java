@@ -126,7 +126,7 @@ public class Block extends ActiveEntity implements ZoneEnterExitListener,
 		this.sounds = sounds;
 		// Count as collision for the client and pathfinder
 		setResistance(100);
-		setDescription("You see a solid block of rock. Are you strong enough to push it away?");
+        setDescription("Oto solidny blok skał. Jesteś wystarczająco silny, aby przepchnąć go?");
 		if (style != null) {
 			put("name", style);
 		} else {

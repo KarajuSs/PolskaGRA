@@ -46,7 +46,7 @@ public class ConversationPhrases {
 			"quest", "favor", "favour", "zadanie", "misja", "zadanko", "przysługa",
 			"przysługę", "przysluga", "przyslugi", "przysluge", "zadaniem", "zadaniu", "zadania");
 	public static final List<String> FINISH_MESSAGES = Arrays.asList("done",
-			"finish", "complete", "zrobione", "skończone", "zakończone", "ukończone");
+			"finish", "complete", "zrobione", "skończone", "zakończone", "ukończone", "załatwione");
 	
 	public static final List<String> ABORT_MESSAGES = Arrays.asList("another", "abort", "inny", "przerwij");
 

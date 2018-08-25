@@ -45,7 +45,7 @@ public class PlaySoundEntity extends UseableEntity {
 	@Override
 	public boolean onUsed(RPEntity user) {
 		if (!nextTo(user)) {
-			user.sendPrivateText("You cannot reach that from here.");
+			user.sendPrivateText("Stąd nie możesz dosięgnąć.");
 			return false;
 		}
 		String sound = sounds[(int) (Math.random() * sounds.length)];

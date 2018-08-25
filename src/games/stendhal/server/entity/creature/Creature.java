@@ -126,6 +126,10 @@ public class Creature extends NPC {
 	/** Respawn time in turns */
 	private int respawnTime;
 
+	private int resistance;
+
+	private int visibility;
+
 	private Map<String, String> aiProfiles;
 	private IdleBehaviour idler;
 
@@ -897,10 +901,10 @@ public class Creature extends NPC {
 				if (strategy.hasValidTarget(this)) {
 					this.setBusy();
 					// this event duration usually is only one turn
-					this.makeNoiseChance(50, "target");
+					this.makeNoiseChance(100, "target");
 				} else {
 				 	this.setIdle();
-					this.makeNoiseChance(100, "idle");
+					this.makeNoiseChance(120, "idle");
 				}
 			}
 			maybeMakeSound();

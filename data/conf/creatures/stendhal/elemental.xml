@@ -15,7 +15,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="50"/>
-		<experience value="1750"/>
+		<experience value="2778"/>
 		<respawn value="1660"/>
 		<corpse name="humanoid"/>
 		<drops>
@@ -44,7 +44,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="60"/>
-		<experience value="2760"/>
+		<experience value="3713"/>
 		<respawn value="1800"/>
 		<corpse name="small_boneless"/>
 		<drops>
@@ -80,7 +80,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="44"/>
-		<experience value="1290"/>
+		<experience value="2196"/>
 		<respawn value="1660"/>
 		<corpse name="humanoid"/>
 		<drops>
@@ -112,7 +112,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="50"/>
-		<experience value="1750"/>
+		<experience value="2744"/>
 		<respawn value="1660"/>
 		<corpse name="humanoid"/>
 		<drops>
@@ -145,7 +145,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="50"/>
-		<experience value="1750"/>
+		<experience value="2775"/>
 		<respawn value="1660"/>
 		<corpse name="humanoid"/>
 		<drops>
@@ -183,7 +183,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="50"/>
-		<experience value="1750"/>
+		<experience value="2650"/>
 		<respawn value="1660"/>
 		<corpse name="humanoid"/>
 		<drops>
@@ -218,7 +218,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="45"/>
-		<experience value="1360"/>
+		<experience value="1387"/>
 		<respawn value="1620"/>
 		<corpse name="humanoid"/>
 		<drops>
@@ -255,7 +255,7 @@
 			<size value="2,2"/>
 		</attributes>
 		<level value="160"/>
-		<experience value="42500"/>
+		<experience value="20679"/>
 		<respawn value="13700"/>
 		<corpse name="giant_humanoid" width="2" height="2"/>
 		<drops>
@@ -298,7 +298,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="32"/>
-		<experience value="640"/>
+		<experience value="1560"/>
 		<respawn value="1380"/>
 		<corpse name="rock" harmless="rock" />
 		<drops>
@@ -337,7 +337,7 @@
 			<size value="3,2"/>
 		</attributes>
 		<level value="170"/>
-		<experience value="50800"/>
+		<experience value="22053"/>
 		<respawn value="16000"/>
 		<corpse name="giant_humanoid" width="2" height="2"/>
 		<drops>
@@ -373,7 +373,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="50"/>
-		<experience value="1750"/>
+		<experience value="2701"/>
 		<respawn value="1660"/>
 		<corpse name="humanoid"/>
 		<drops>
@@ -413,7 +413,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="24"/>
-		<experience value="370"/>
+		<experience value="773"/>
 		<respawn value="1290"/>
 		<corpse name="humanoid"/>
 		<drops>
@@ -445,10 +445,10 @@
 			<size value="5,3"/>
 		</attributes>
 		<level value="80"/>
-		<experience value="5920"/>
+		<experience value="5485"/>
 		<respawn value="2820"/>
 		<blood name="green" />
-		<corpse name="huge_leafy" harmless="huge_leafy" width="5" height="5"/>
+		<corpse name="leafy_5x3" harmless="leafy_5x3" width="5" height="3" />
 		<drops>
 			<item value="money" quantity="[50,70]" probability="100.0"/>
 			<item value="duży eliksir" quantity="[1,2]" probability="20.0"/>
@@ -474,7 +474,7 @@
 	</creature>
 
 	<creature name="uschły drzewiec">
-		<type class="stendhal/ent" subclass="dead_ent" tileid="ent.png:1"/>
+		<type class="stendhal/ent" subclass="old_ent" tileid="ent.png:1"/>
 		<description>Oto uschły drzewiec. Wiele lat widział i wiele przeżył nawałnic. Widzisz jak jest stary bo opadły z niego liście, a i niejedna gałąź już się złamała.</description>
 		<attributes>
 			<atk value="573"/>
@@ -484,10 +484,10 @@
 			<size value="2,2"/>
 		</attributes>
 		<level value="83"/>
-		<experience value="6540"/>
+		<experience value="7113"/>
 		<respawn value="3010"/>
 		<blood name="green" />
-		<corpse name="huge_leafy" harmless="huge_leafy" width="2" height="2"/>     
+		<corpse name="flora_ent" harmless="flora_ent" width="2" height="1"/>
 		<drops>
 			<item value="money" quantity="[30,50]" probability="100.0"/>
 			<item value="duży eliksir" quantity="[1,2]" probability="30.0"/>
@@ -523,10 +523,10 @@
 			<size value="5,3"/>
 		</attributes>
 		<level value="113"/>
-		<experience value="15000"/>
+		<experience value="11476"/>
 		<respawn value="3200"/>
 		<blood name="green" />
-		<corpse name="huge_leafy" harmless="huge_leafy" width="5" height="3"/>
+		<corpse name="leafy_5x3" harmless="leafy_5x3" width="5" height="3"/>
 		<drops>
 			<item value="pieczarka" quantity="[1,6]" probability="50.0"/>
 			<item value="duży eliksir" quantity="[2,3]" probability="10.0"/>

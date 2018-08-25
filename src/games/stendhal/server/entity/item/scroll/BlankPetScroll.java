@@ -64,7 +64,7 @@ public class BlankPetScroll extends Scroll {
 
 		if (zone.isTeleportInAllowed(player.getX(), player.getY())) {
 			final Item summonPetScroll = SingletonRepository.getEntityManager().getItem(
-					"summon pet scroll");
+					"zwój przywołania zwierzątka");
 			summonPetScroll.setInfoString(petName);
 			player.equipOrPutOnGround(summonPetScroll);
 
@@ -75,12 +75,12 @@ public class BlankPetScroll extends Scroll {
 				//petOwner.storePet(pet);
 				player.removePet(pet);
 				pet.getZone().remove(pet);
-				player.sendPrivateText("Amazingly your pet melds with the scroll. It just walked right into the page!");
+				player.sendPrivateText("O dziwo zwierzątko dołączyło za pomocą zwoju. Po prostu weszło na stronę!");
 			}
 
 			return true;
 		} else {
-			player.sendPrivateText("The strong anti magic aura in this area prevents the scroll from working!");
+			player.sendPrivateText("Silna antymagiczna aura na tym obszarze blokuje działanie tego zwoju!");
 			return false;
 		}
 	}

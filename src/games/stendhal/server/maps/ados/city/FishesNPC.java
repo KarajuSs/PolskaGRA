@@ -78,7 +78,7 @@ public class FishesNPC implements ZoneConfigurator {
 		};
 		
 		f2.setPosition(84, 81);
-		f2.setDescription("You see a fish.");
+		f2.setDescription("Oto ryba.");
 		f2.setDirection(Direction.UP);
 		f2.setEntityClass("animal/fish_roach");
 		f2.setVisibility(50); //underwater

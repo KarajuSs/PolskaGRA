@@ -59,7 +59,7 @@ import marauroa.common.Pair;
  * 
  *
  * REWARD:<ul>
- * <li> 50000 XP
+ * <li> 80000 XP
  * <li> 10 greater potion
  * <li> some karma
  * </ul>

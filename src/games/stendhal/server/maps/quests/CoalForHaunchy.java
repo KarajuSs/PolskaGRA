@@ -62,7 +62,7 @@ import java.util.List;
  * REWARD:
  * <ul>
  * <li>Karma +25 in all</li>
- * <li>XP +200 in all</li>
+ * <li>XP +1000 in all</li>
  * <li>Some grilled steaks, random between 1 and 4.</li>
  * </ul>
  *
@@ -158,7 +158,7 @@ public class CoalForHaunchy extends AbstractQuest {
 				null,
 				new MultipleActions(
 						new DropItemAction("węgiel",25), 
-						new IncreaseXPAction(200),
+						new IncreaseXPAction(1000),
 						new IncreaseKarmaAction(20),
 						new ChatAction() {
 							@Override

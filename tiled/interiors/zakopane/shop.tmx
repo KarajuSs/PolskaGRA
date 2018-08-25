@@ -63,19 +63,28 @@
  <tileset firstgid="323" name="protection" tilewidth="32" tileheight="32" tilecount="2" columns="2">
   <image source="../../tileset/logic/protection.png" width="64" height="32"/>
  </tileset>
+ <tileset firstgid="325" name="wood" tilewidth="32" tileheight="32" tilecount="27" columns="3">
+  <image source="../../tileset/pol/waly/int_plazy.png" width="96" height="288"/>
+ </tileset>
+ <tileset firstgid="352" name="door_drewno_int" tilewidth="32" tileheight="32" tilecount="15" columns="5">
+  <image source="../../tileset/pol/domki/drzwi/door_drewno_int.png" width="160" height="96"/>
+ </tileset>
+ <tileset firstgid="367" name="okno" tilewidth="32" tileheight="32" tilecount="16" columns="8">
+  <image source="../../tileset/pol/domki/okna/window_drewno.png" width="256" height="64"/>
+ </tileset>
  <layer name="0_floor" width="16" height="21">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NnYGBgH8WjeBSP4lFMMgYAm6Q4QEAFAAA=
+   H4sIAAAAAAAAC2NhYGBgGcUjFrMRgUf1j+ofKvpDGelrPwA6+TtEQAUAAA==
   </data>
  </layer>
  <layer name="1_terrain" width="16" height="21">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC9XOSQoCMRAF0OqlOIETbh1Ad7rTGzrjJRTE6RBewOEiXsCFv0gFQki66cSNHx5NuvhUFYioGKgEZahAN6cqNKTfJ5Wb8EXP3tCz+jx7Cc4M5rCAJWxldpe53efZDvYp+3Uejr4Z3r2CNWxkN+cp309GPyuu/gHOHidhxu5fU1wEZ5Ioee43+4NECe2PEiW0/4v7h5H3jyPvn0b0df6pfxS+fg06BrLeLnXpN6FlIcc/lzZ8AbN9JQhABQAA
+   H4sIAAAAAAAAC9XO2QnCQBQF0Ew1+qd/2oAL7uJSiE24BptQELcibMClERvww/vIHRhCJiEz/njhkCGPy3s1FQR1Rw1oQg/6OQ2gxf4QJDeyRc/eMIr1ZfYiyRwWsIQVbDm7cx7vy2wH+5T9Oo+EvhnZvYYNhNwtefL7yehnJal/wL+zxYnMxPvXwO5CkoqK5Lnf7BdUxLVfUhHX/i/uL3reX/a8v+rR1/mn/pFs/TFMaGa800zZb0PHURe+aHpRIkAFAAA=
   </data>
  </layer>
  <layer name="2_object" width="16" height="21">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgwATcjBBMLhBmhGB08BuKRwH1gTEwvE2A2AZLuJtSEJcwoAY1Q54RgocqINf9dhT42Q4aN6OA9iAJiJOBOIVM/WlAnA7EGUSqBwDpS7tgQAUAAA==
+   H4sIAAAAAAAAC2NgQAUFjAwM3FCMDgqwiKGDCqAaYSjGJvebsBF0BdVAN9UQ4S90UArUU0aGPloBY6BbTIDYBoubTKngTjWoGfKMEDxUAbnut6PAz3bQuBmMgNz0XwvUUzcI/ZQAdFMiECdhcVshEe6twqOmEoscAEP+Xg9ABQAA
   </data>
  </layer>
  <layer name="3_roof" width="16" height="21">

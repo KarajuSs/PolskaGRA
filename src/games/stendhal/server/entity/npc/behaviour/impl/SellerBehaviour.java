@@ -84,7 +84,7 @@ public class SellerBehaviour extends MerchantBehaviour {
 		}
 
 		if (amount <= 0) {
-			seller.say("Sorry, you must buy at least one item.");
+			seller.say("Przepraszam, ale musisz kupić przynajmniej jeden przedmiot.");
 			return false;
 		}
 
@@ -96,18 +96,17 @@ public class SellerBehaviour extends MerchantBehaviour {
 		if (player.isEquipped("money", price)) {
 			if (player.equipToInventoryOnly(item)) {
 				player.drop("money", price);
-				seller.say("Congratulations! Here "
-						+ Grammar.isare(amount) + " your "
+				seller.say("Gratulacje! Oto twój "
 						+ Grammar.plnoun(amount, chosenItemName) + "!");
 				player.incBoughtForItem(chosenItemName, amount);
 				return true;
 			} else {
-				seller.say("Sorry, but you cannot equip the "
+				seller.say("Przepraszam, ale nie możesz wziąść "
 						+ Grammar.plnoun(amount, chosenItemName) + ".");
 				return false;
 			}
 		} else {
-			seller.say("Sorry, you don't have enough money!");
+			seller.say("Przepraszam, ale nie masz wystarczająco dużo pieniędzy!");
 			return false;
 		}
 	}

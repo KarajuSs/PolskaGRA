@@ -12,6 +12,7 @@
  ***************************************************************************/
 package games.stendhal.client;
 
+import static games.stendhal.common.constants.Actions.MOVE_CONTINUOUS;
 import static java.io.File.separator;
 
 import java.awt.Dimension;
@@ -28,6 +29,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import org.apache.log4j.Logger;
 
+import games.stendhal.client.actions.MoveContinuousAction;
 import games.stendhal.client.gui.StendhalFirstScreen;
 import games.stendhal.client.gui.j2DClient;
 import games.stendhal.client.gui.login.LoginDialog;
@@ -166,9 +168,9 @@ public final class stendhal {
 	 */
 	private static void initUsableDisplaySizes() {
 		// Optimized display dimensions for display resolutions
-		displaySizes.add(new Dimension(1424, 768)); // Smaller 4:3
-		displaySizes.add(new Dimension(1400, 1050)); // Larger 4:3
-		displaySizes.add(new Dimension(1600, 900)); // Larger 16:9
+		displaySizes.add(new Dimension(640, 480)); // Smaller 4:3
+		displaySizes.add(new Dimension(800, 600)); // Larger 4:3
+		displaySizes.add(new Dimension(874, 486)); // Larger 16:9
 	}
 
 	/**
@@ -302,7 +304,23 @@ public final class stendhal {
 
 			waitForLogin();
 			CStatusSender.send();
-
+			
+			/*
+			 * Pass the continuous movement setting is to the server.
+			 * It is done in game loop to ensure that the server version is
+			 * known before sending the command, to avoid sending invalid
+			 * commands.
+			 */
+			GameLoop.get().runOnce(new Runnable() {
+				@Override
+				public void run() {
+					boolean moveContinuous = WtWindowManager.getInstance().getPropertyBoolean(MOVE_CONTINUOUS, false);
+					if (moveContinuous) {
+						new MoveContinuousAction().sendAction(true, false);
+					}
+				}
+			});
+			
 			SwingUtilities.invokeLater(new Runnable() {
 				@Override
 				public void run() {

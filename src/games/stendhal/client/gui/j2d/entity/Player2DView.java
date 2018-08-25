@@ -213,8 +213,7 @@ class Player2DView<T extends Player> extends RPEntity2DView<T> {
 			} else if (!hasBuddy)  {
 				list.add(ActionType.IGNORE.getRepresentation());
 			}
-			StendhalClient client = StendhalClient.get();
-			if (client.serverVersionAtLeast("0.01")) {
+			if (StendhalClient.serverVersionAtLeast("0.01")) {
 			 	list.add(ActionType.TRADE.getRepresentation());
 			 	list.add(ActionType.INVITE.getRepresentation());
 			 	if(System.getProperty("stendhal.pvpchallenge") != null) {

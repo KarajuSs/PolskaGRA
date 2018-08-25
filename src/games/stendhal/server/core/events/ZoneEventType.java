@@ -20,23 +20,23 @@ package games.stendhal.server.core.events;
 public enum ZoneEventType {
 
 	VISIT_SUB1_SEMOS_CATACOMBS(
-			"Screams and wails fill the air of these ghastly catacombs ..."),
+			"Wrzaski i płacz czuć w tych strasznych katakumbach ..."),
 	VISIT_SUB2_SEMOS_CATACOMBS(
-			"Your sense of foreboding grows as you enter deeper to the catacombs. You spy some lethal looking spikes and vow to be careful of them."),
+			"Gdy zagłebiasz się w głąb katakumb twoje złe przeczucia narastają.Dostrzegając śmiertelne kolce przysięgasz sobie, że będziesz bardziej z nimi ostrożny."),
 	VISIT_KIKAREUKIN_CAVE(
-			"Your head spins as the portal lifts you high into the air, past clouds and birds. You're sucked towards a floating group of islands. You're pulled through layers of rock and finally you land in a vast network of caves."),
+			"Po wyjściu z portalu twoja głowa wiruje. Zbijając się wysoko i mijając chmury i ptaki zostałeś wessany na latające wyspy połączone mostami. Brnąc przez warstwy skał ostatecznie wylądąwałeś w sieci jaskiń."),
 	VISIT_KANMARARN_PRISON(
-			"PRISON BREAKOUT! You've stumbled into a heist. It looks like the duergars have come to break their leaders and heroes free from their imprisonment by the dwarves."),
+			"UCIECZKA Z WIĘZIENIA! Natknąłeś się na włamanie. Wygląda na to, że duergary włamały się tutaj, aby uwolnić liderów i bohaterów z więzeinia krasnali."),
 	VISIT_IMPERIAL_CAVES(
-			"Commands and orders are heard from afar. You can only imagine you must be approaching an army of some sort. Worryingly, you can also hear some very very heavy footsteps."),
+			"Z daleka słychać komendy i rozkazy. Możesz sobie tylko wyobrazić, że zbliża się wojsko lub coś w tym rodzaju. Obawiając się słyszysz jakieś bardzo, bardzo ciężkie kroki."),
 	VISIT_MAGIC_CITY_N(
-			"Your skin prickles as you explore further. There is definitely magic here."),
+			"Zwiedzając dalej przechodzą Cię ciarki. Zdecydowanie znajduje się tutaj magia."),
 	VISIT_MAGIC_CITY(
-			"You now sense a strong magical presence. Perhaps sorcerers are nearby, or some strong enchantments?"),
+			"Wyczuwasz silną obecność magi. Czy to możliwe, że w pobliżu są czarodzieje lub jakiś silny czar?"),
 	VISIT_SEMOS_CAVES(
-			"The ground in this cave trembles from the footfalls of GIANTS! The weak should explore no further here. Turn around and run away!"),
+			"Ziemia w tej pieczarze jest pełna śladów GIGANTÓW! Słabsi podróżnicy nie mają tutaj przyszłości. Zawróć i uciekaj!"),
 	VISIT_ADOS_CASTLE(
-			  "You sense that great atrocities have happened here. The castle must be overrun with evil creatures, as the sounds of their last victims ring in your ears. It may be wise to stay away.");
+			"Wyczuwasz wielką tragedię, która miała tutaj miejsce. Zamek musi być opanowany przez złe potwory skoro odgłosy ich ostatnich ofiar dzwonią w twoich uszach. Mądrze byłoby trzymać się stąd z daleka.");
 
 	private String message;
 

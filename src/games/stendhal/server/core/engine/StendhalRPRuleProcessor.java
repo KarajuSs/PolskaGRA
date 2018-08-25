@@ -12,6 +12,8 @@
  ***************************************************************************/
 package games.stendhal.server.core.engine;
 
+import static games.stendhal.common.constants.Actions.AWAY;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -566,6 +568,11 @@ public class StendhalRPRuleProcessor implements IRPRuleProcessor {
 					logger.info(object.get("name") + " logged out shortly before death: Killing it now :)");
 					entry.first().onDead(entry.second());
 				}
+				
+				if (player.has(AWAY)) {
+					player.remove(AWAY);
+					player.setVisibility(100);
+				}
 
 				if (!player.isGhost()) {
 					notifyOnlineStatus(false, player);
@@ -664,7 +671,7 @@ public class StendhalRPRuleProcessor implements IRPRuleProcessor {
 	 *            Support message
 	 */
 	public void sendMessageToSupporters(final String source, final String message) {
-		final String text = source + " asks for support to ADMIN: " + message;
+		final String text = source + " zapytał ADMINISTRATORÓW: " + message;
 		sendMessageToSupporters(text);
 	}
 
@@ -711,14 +718,14 @@ public class StendhalRPRuleProcessor implements IRPRuleProcessor {
 				if(playerToNotifyAbout.isGhost()) {
 					playerToNotifyAbout.addEvent(new PlayerLoggedOnEvent(player.getName()));
 					playerToNotifyAbout.notifyWorldAboutChanges();
-					if (player.isGhost()) {
+					if (player.isGhost() && (player != playerToNotifyAbout)) {
 						player.addEvent(new PlayerLoggedOnEvent(playerToNotifyAbout.getName()));
 						player.notifyWorldAboutChanges();
 					}
 				} else {
 					player.addEvent(new PlayerLoggedOnEvent(playerToNotifyAbout.getName()));
 					player.notifyWorldAboutChanges();
-					if (!player.isGhost()) {
+					if (!player.isGhost() && (player != playerToNotifyAbout)) {
 						playerToNotifyAbout.addEvent(new PlayerLoggedOnEvent(player.getName()));
 						playerToNotifyAbout.notifyWorldAboutChanges();
 					}

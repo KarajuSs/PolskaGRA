@@ -72,8 +72,8 @@ import java.util.List;
  *
  * REWARD:
  * <ul>
- * <li>150 XP if guess is exact</li>
- * <li>90 XP if guess is close</li>
+ * <li>15000 XP if guess is exact</li>
+ * <li>2500 XP if guess is close</li>
  * </ul>
  *
  * REPETITIONS:
@@ -86,8 +86,8 @@ public class GuessKills extends AbstractQuest {
 
     private static final double ACCURACY = 0.02;
     private static final int MIN_KILLS_REQUIRED = 1000;
-    private static final int EXACT_REWARD = 150;
-    private static final int CLOSE_REWARD = 90;
+    private static final int EXACT_REWARD = 15000;
+    private static final int CLOSE_REWARD = 2500;
     private static final int INTERVAL_BETWEEN_TRIES = MathHelper.MINUTES_IN_ONE_WEEK;
 	/** List of existing creatures that may be asked about. */
 	private static final List<Creature> POSSIBLE_CREATURES = new ArrayList<Creature>();

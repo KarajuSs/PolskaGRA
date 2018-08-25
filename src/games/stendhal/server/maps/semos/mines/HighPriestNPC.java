@@ -67,7 +67,7 @@ public class HighPriestNPC implements ZoneConfigurator {
 						"Najstraszniejszy potwór w armii Balrogów.");
 				addGoodbye();
 			}
-			
+
 			@Override
 			protected void onGoodbye(RPEntity player) {
 				setDirection(Direction.LEFT);
@@ -82,8 +82,8 @@ public class HighPriestNPC implements ZoneConfigurator {
 						&& (player.getLevel() >= 150)) {
 					player.setQuest("AenihataReward", "done");
 
-					player.setAtkXP(700000 + player.getAtkXP());
-					player.setDefXP(7000000 + player.getDefXP());
+					player.setAtkXP(1000000 + player.getAtkXP());
+					player.setDefXP(10000000 + player.getDefXP());
 					player.addXP(100000);
 
 					player.incAtkXP();
@@ -94,13 +94,13 @@ public class HighPriestNPC implements ZoneConfigurator {
 					player.setQuest("AenihataFirstChat", "done");
 					((SpeakerNPC) raiser.getEntity()).listenTo(player, "hi");
 				}
-				
+
 			}
-			
+
 		});
 
 		npc.setEntityClass("highpriestnpc");
-		npc.setDescription("Oto Aenihata. Jest Wysokim Kapłanem, który próbuje chronić Faiumoni swoimi umiejętnościami magicznymi.");
+		npc.setDescription("Oto Aenihata. Jest jednym z najpotężniejszych Wysokich Kapłanów, który próbuje chronić Faiumoni swoimi umiejętnościami magicznymi.");
 		npc.setPosition(23, 44);
 		npc.setDirection(Direction.LEFT);
 		npc.initHP(85);

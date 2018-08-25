@@ -14,8 +14,8 @@
 	<group uri="zones/stendhal/semos.xml"/>
 	
 	<!-- Mapa prasłowiańska -->
-	<!-- DISABLED
 	<group uri="zones/pol/desert.xml"/>
+	<!-- DISABLED
 	<group uri="zones/pol/dragon.xml"/>
 	<group uri="zones/pol/dragon_knights.xml"/>
 	<group uri="zones/pol/gdansk.xml"/>

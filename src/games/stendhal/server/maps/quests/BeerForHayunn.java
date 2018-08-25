@@ -176,10 +176,10 @@ public class BeerForHayunn extends AbstractQuest {
 
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
 		reward.add(new DropItemAction("sok z chmielu"));
-		reward.add(new EquipItemAction("money", 20));
+		reward.add(new EquipItemAction("money", 100));
 		reward.add(new IncreaseXPAction(500));
 		reward.add(new SetQuestAction(QUEST_SLOT, "done"));
-		reward.add(new IncreaseKarmaAction(10));
+		reward.add(new IncreaseKarmaAction(15));
 		npc.add(
 			ConversationStates.QUEST_ITEM_BROUGHT,
 			ConversationPhrases.YES_MESSAGES,

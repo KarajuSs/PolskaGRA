@@ -113,7 +113,7 @@ class VisualSettings {
 		toggleComponents(page);
 
 		// Lighting effects
-		JCheckBox mapColoring = SettingsComponentFactory.createSettingsToggle(MAP_COLOR_PROPERTY, "true",
+		JCheckBox mapColoring = SettingsComponentFactory.createSettingsToggle(MAP_COLOR_PROPERTY, true,
 				"Efekty świetlne", "Pokaż nocne światła i inne kolorowe efekty");
 		page.add(mapColoring);
 		// Coloring setting needs a map change to take an effect, so we need to
@@ -129,7 +129,7 @@ class VisualSettings {
 			}
 		});
 
-		JCheckBox weather = SettingsComponentFactory.createSettingsToggle("ui.draw_weather", "true",
+		JCheckBox weather = SettingsComponentFactory.createSettingsToggle("ui.draw_weather", true,
 				"Pokaż pogodę", "Pokazuje efekty pogodowe.");
 		page.add(weather);
 		weather.addItemListener(new ItemListener() {
@@ -144,7 +144,7 @@ class VisualSettings {
 		});
 
 		// blood
-		JCheckBox showBloodToggle = SettingsComponentFactory.createSettingsToggle(GAMESCREEN_BLOOD, "true",
+		JCheckBox showBloodToggle = SettingsComponentFactory.createSettingsToggle(GAMESCREEN_BLOOD, true,
 				"Pokaż krew i zwłoki", "Pokazuje plamy krwi podczas uderzenia w walce i zwłoki.");
 		page.add(showBloodToggle);
 		// Inform players that some images won-t update until after client is restarted.
@@ -162,7 +162,7 @@ class VisualSettings {
 		});
 		
 		// show creature speech bubbles
-		JCheckBox showCreatureSpeechToggle = SettingsComponentFactory.createSettingsToggle(GAMESCREEN_CREATURESPEECH, "true",
+		JCheckBox showCreatureSpeechToggle = SettingsComponentFactory.createSettingsToggle(GAMESCREEN_CREATURESPEECH, true,
 										"Pokaż dymki potworów", "Pokazuje dymki potworów w ekranie klienta");
 		page.add(showCreatureSpeechToggle);
 		showCreatureSpeechToggle.addItemListener(new ItemListener() {
@@ -177,7 +177,7 @@ class VisualSettings {
 		});
 		
 		final JCheckBox scaleScreenToggle = SettingsComponentFactory.createSettingsToggle(SCALE_SCREEN_PROPERTY,
-				"false", "Skaluj widok, aby pasował do okna", "<html>Jeśli znaznaczony to widok gry będzie zeskalowany, aby pasował do dostępnego miejsca,<br>w przeciwnym wypadku będzie domyślny rozmiar grafiki.</html>");
+				false, "Skaluj widok, aby pasował do okna", "<html>Jeśli znaznaczony to widok gry będzie zeskalowany, aby pasował do dostępnego miejsca,<br>w przeciwnym wypadku będzie domyślny rozmiar grafiki.</html>");
 		page.add(scaleScreenToggle);
 		scaleScreenToggle.addItemListener(new ItemListener() {
 			@Override

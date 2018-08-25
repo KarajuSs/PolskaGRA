@@ -1,13 +1,125 @@
-Changelog
+﻿Changelog
 ---------
-
-0.02
+1.04
 *klient*
-- Zwiększono liczbę skinów możliwych do wyboru dla postaci
+- natura broni służy do ustawienia ikonki walki, jeśli jest dostępna
+
+
+*świat gry*
+- Dodano nowe rękawice wampirze (ATK: 2; DEF: 5; LIFESTEAL: 0.05)
+- Miecz ognisty stał się lżejszy dla rycerzy, ale niestety jego siła się zmniejszyła, a lodowy miecz stał się lustrzanym odbiciem miecza ognistego (atk; waga;)
+	- miecz ognisty - 29 / 5 + FIRE
+	- lodowy miecz  - 29 / 5 + ICE
+- Zebranie magów przedyskutowało temat magii ognia i magii ziemi. Doszli do wniosku, że to magia ognia jest bardziej niebezpieczna (atk; obr;)
+	- magia ziemi - 9 / 9 + NATURE (wcześniej - 11 / 11 + NATURE)
+	- magia ognia - 11 / 11 + FIRE (wcześniej - 9 / 9 + FIRE)
+
+
+*code*
+- Lifesteal z rękawic sumuje się wraz z lifesteal'em w broni lub bez niej
+
+
+
+1.03.5
+*klient*
+- Przetłumaczono handel
+
+
+*świat gry*
+- Radomil zyskał nową moc usuwania czaszek z zabójców posiadających dobrą karmę
+- Przywrócono desert
+- Przywrócono pierścienie mieszczanina, rycerza, barona, magnata
+- Elficki naszyjnik można dropnąć z elfów górskich (około 0.025 do 1%)
+- Elfy & elfy górskie atakują siłą natury
+- Elficki set posiada teraz odporność na siłę natury
+- Elficki miecz atakuje siłą natury
+- Poprawiono kafelki na niektórych mapach Faiumoni
+- Poprawiono osiągnięcie 'Heretyk'- od teraz potrzeba wykonać 25 zadań zamiast 50
+- Aenihata przywrócila swoje dawne siły
+
+
+*code*
+- Usunieto pliki takie jak: GuildRing.java & Ring.java (nie korzystane)
+- Pierścienie mieszczanina, rycerza, barona i magnata są teraz opisywane jako Item zamiast GuildRing
+
+
+*naprawa błędów*
+- Naprawiono listę oferty u Wielkoluda
+- Naprawiono wejście do domku na górze w Tatrach
+- Naprawiono ścieżki graficzne potwora mermaid
+
+
+
+1.03 - MOUNTAINS
+*klient*
+- Przetłumaczono część tekstów
+- Dodano trzy nowe grafiki: złoty amulet, elficki naszyjnik, pióro mrocznego archanioła
+
+
+*świat gry*
+- Aktywowano mapy Tatr
+- Dodano 11 nowych map Tatr
+- Dodano pogodę na mapach Tatr
+- Pióro azazela można dropnąć z azazela
+- Pazur arktycznego smoka oraz skóra akrtycznego smoka można dropnąć ze smoka arktycznego
+- Dostosowano punkty doświadczenia zdobywane z potworków stendhala do potworów PolskaGRA
+- Dodano nowego NPC ze sklepem w zakopane
+- Dodano nowe zadanie związane z NPC ze sklepem w zakopane
+- Poprawiono nagrody jakie można dostać otwierająć brązową, srebrną i złotą skrzynie:
+	-Brązowa skrzynia: money, duży eliksir, wielki eliksir, gigantyczny eliksir, maczuga, skóra zielonego smoka, skóra niebieskiego smoka, futro, korale, ciupaga, spodnie kamienne, kamienna zbroja, buty kamienne, sztylet mroku, kosa, pyrlik, skórzane rękawice, złota kolczuga
+	-Srebrna skrzynia: wielki eliksir, money, gigantyczny eliksir, skóra zielonego smoka, skóra niebieskiego smoka, skóra czerwonego smoka, skóra czarnego smoka korale, lodowy miecz, zbroja cieni, rękawice cieni, spodnie cieni, buty cieni, złote spodnie, sztylet mroku, ciupaga, kamienne spodnie, skórzane wzmocnione rękawice, kamienna tarcza
+	-Złota skrzynia: gigantyczny eliksir, wielki eliksir, money, ciupaga, złote spodnie, złota zbroja zbroja cieni, tarcza płytowa, sztylet mroku, skórzane wzmocnione rękawice, skóra złotego smoka, skóra zielonego smoka, skóra niebieskiego smoka, skóra czerwonego smoka, skóra czarnego smoka, skóra arktycznego smoka, rękawice cieni pas zbójecki miecz lodowy, korale, czarny sztyle, tczarny płaszcz, czarne spodnie, czarne buty, czarna zbroja
+- Dodano nowych NPC w Tatrach
+- Dodano nowe pomieszczenia takie jak: tawerna/hostel/ratusz
+- Dodano nowe zadania w Tatrach (jedno z nich znajduje się w nowym ratuszu :))
+- W dzielnicy Zakopanego, w Kuźnicy można sprawdzić kto potrzebuje pomocy w rejonach pasma górskiego jak i w samym Zakopane
+- Kilka nowych outfitów dla NPC
+- Dodano trzy nowe przedmioty: złoty amulet (przedmiot potrzebny do zadania) oraz elficki naszyjnik (6 DEF), pióro mrocznego archanioła (rzecz kolekcjonerska; można dropnąć z archanioła ciemności)
+- NPC na skille (na 100 poziom) został przeniesiony z Gdańska do jaskini na wyspie Athor
+- Wynagrodzenie w niektórych zadaniach w krainie faiumoni oraz krainie prasłowiańskiej zostało zmienione (na lepsze)
+
+
+*code*
+- Klient teraz będzie wymagał od nas Jave w wersji 1.8 zamiast 1.7
+- Zmieniono nieco mnożnik DEF'a (na plus oczywiście)
+- Poprawiono 'jakość' chodzenia gracza oraz kodu gry
+- Dodano nowy skrypt dla GM - /alterkills
+
+
+*naprawa błędów*
+- Naprawiono błąd licznika, który nie pokazywał ile posiadamy w ekwipunku/skrzynce surowców typu 'kryształ ametystu' oraz magii
+- Naprawiono błąd, że nie można było atakować z magii i różdżki
+- Naprawiono błąd przez który Wielkolud nie kupował polskiej płytowej tarczy
+- Naprawiono naliczanie ataku do statystyk gracza z rękawic lub pierścieni
+- Poprawiono działanie komendy /away
+
+
+
+1.02.2
+*świat gry*
+- balans potworów został poprawiony ręcznie, zamiast wykorzystywać skrypt BalanceRPGame.java (Potwory zostały osłabione o -20-25% ATK oraz -10-15% OBR + ilość zdobywanego EXP'a został zwiększony o +20-25%,
+np: wcześniejszy starzec: ATK: 169; OBR: 24; HP: 166; XP: 313;
+nowy starzec: ATK: 135; OBR: 18; HP: 133; XP: 533;
+UWAGA! Nowe statystyki potworów były sprawdzane, jeżeli chodzi o 'wieśniaka' to sprawdzaliśmy na 17 poziomie gracza oraz skillami 22x22!
+Gracz spokojnie go może zabić nie tracąc większej połowy HP!)
+
+
+*naprawa błędów*
+- Poprawiono grafiki drzewców
+
+
+
+1.02.1
+- Naprawa czasu spędzonego w grze
+
+
+
+0.02 - REBIRTH MONSTERS
+*klient*
 - Dodano z powrotem dzień-noc
-- Dodano nowy obrazek strzały z mithrilu
+- Dodano nowy obrazek strzały z mithrilu oraz wzmocnionej drewnianej strzały
 - Dodano brakujący dźwięk słonia
-- Dodano stary dźwięk ze świata POL podczas logowania do gry
+- Dodano stary dźwięk ze świata POL podczas logowania się do gry
 - Dodano nowe outfity NPC:
 	- npckibic.png (Kibic)
 	- npcfryderyk.png (Fryderyk)
@@ -16,6 +128,12 @@ Changelog
 	- npcwikary.png	(Wikary)
 	- npcjuhas.png (Juhas)
 	- npcjuhasboguslaw.png (Boguś)
+	- npcbronek.png (Bronek)
+- Dodano nowe stroje dla postaci gracza:
+	- dress_062/_068.png
+- Dodano kapelusz góralski możliwy do wyboru dla postaci gracza
+- Dodano do ustawień możliwość wyboru między ciemnym a jasnym drewnem jako wygląd klienta
+- Przetłumaczono prawie cały klient
 
 
 *świat gry*
@@ -23,6 +141,7 @@ Changelog
 	- Yerena
 	- Stajenny Marcel
 	- Dr. Wojciech
+- Aktywowano mapy takie jak: kościelisko & pustynia
 - Mapa zakopane została zmieniona wizualnie
 - Mapa kościelisko została zmieniona wizualnie
 - Nowe pomieszczenie na górze w zakopane_s + jaskinia
@@ -34,17 +153,33 @@ bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 - Dodano przedmiot "gruczoł jadowy" do cotygodniowego poszukiwania przedmiotów
 - Dodano pogodę na mapach kościeliska
 - Dodano dwa nowe żywioły do świata gry: natura & woda
-- Dodano nową strzałę z mithrilu (Typ ataku: light; Atk: 9; Range: 6;)
+- Dodano nową strzałę z mithrilu (Typ ataku: light; Atk: 9; Range: 6;) / będzie można je jedynie wytworzyć! / oraz wzmocnioną drewnianą strzałę (Atk: 4; Range: 3;)
 - Obrazek słonia został powiększony z 144x256 na 288x512
 - Nagroda za wykonanie zlecenia u burmistrzów jest teraz bardziej wyjątkowa
+- Znerfiono ciupagi o -2 atk oraz zwykłą ciupagę z 19 do 14 atk; aktualne statystyki [atk / obr / waga / lifesteal]:
+	- ciupaga 				- 14 / 2 / 4 / 0
+	- złota ciupaga 			- 19 / 2 / 4 / 0
+	- złota ciupaga z wąsem 		- 21 / 3 / 3 / 0.01
+	- złota ciupaga z dwoma wąsami 		- 23 / 3 / 3 / 0.02
+	- złota ciupaga z trzema wąsami 	- 23 / 4 / 2 / 0.03 + LIGHT
+- Zbuffowano strzały oraz bełty [atk / range]:
+	- strzała				- 3 / 2
+	- strzała żelazna			- 5 / 3
+	- strzała złota				- 6 / 4
+	- strzała ognia/lodowa/światła/mroku	- 7 / 5 + odpowiednia siła natury
+	- strzała płonąca			- 8 / 5 + FIRE
+	- bełt				- 4 / 3
+	- bełt stalowy			- 5 / 4
+	- bełt złoty			- 6 / 5
+	- bełt płonący			- 8 / 6 + FIRE
+- Został wykorzystany program BalanceRPGame.java (od twórców Stendhala) do zbalansowania potworów ze świata POL
+- Juhas sprzedaje bilet turystyczny
 
 
 *code*
-- Od teraz można przyznać punkty umiejętności ataku / obrony / pkt atk/obr zależne od poziomu gracza jako nagrodę za poprawnie wykonane zadanie
 - Nowy atrybut dla map - "dark" - dzięki, któremu mamy efekt nocy
-- Dodano nową funckję, która sprawdza jaką mamy ustawioną szerokość okna gry i dostosowuje okienka wewnątrz gry
-- Dodano nową funkcję zabezpieczającą konto przy rejestracji
-- Nagroda w postaci punktów umiejętności ataku jak i obrony od teraz nie będzie dawało nam ujemnych statystyk
+- Dodano nową funckję, która sprawdza jaką mamy ustawioną szerokość okna gry i dostosowuje okienka wewnątrz gry [Dla wersji rozszerzonego klienta]
+- Za wykonane zadanie można nagrodzić gracza punktami umiejętności ataku oraz obrony niezależnie jak i zależnie od poziomu gracza
 - Reorganizacja plików XML z potworkami ze świata POL (33 do 11 plików)
 
 
@@ -54,6 +189,23 @@ bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 - Naprawiono błędy z serwerem testowym
 - Naprawiono błąd, który powodował, że informacja o zabitym potworze pojawiała się dwukrotnie
 - Naprawiono błąd z nieśmiertelnymi potworkami
+- Naprawiono błąd, który powodował, że kiedy gracz kliknie myszką (LPM/PPM) na cokolwiek to postać się zatrzymyława
+- Naprawiono błąd, że nagroda w postaci punktów umiejętności ataku jak i obrony dawało nam ujemne statystyki
+
+
+
+0.01.1
+*klient*
+- przetłumaczono część interfejsu (grupy/listę znajomych oraz wiadomości kiedy jesteśmy zatruci)
+
+
+*świat gry*
+- przywrócono Juhasa w int_semos_tavern_0 oraz dodano u niego możliwość kupna zwoju semos za 300 money
+
+
+*naprawa błędów*
+- naprawiono plecak
+- naprawiono tablicę u Xin Blanca w int_semos_tavern_0
 
 
 

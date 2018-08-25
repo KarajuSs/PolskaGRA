@@ -11,6 +11,7 @@
  ***************************************************************************/
 package games.stendhal.server.actions.move;
 
+import static games.stendhal.common.constants.Actions.AWAY;
 import static games.stendhal.common.constants.Actions.DIR;
 import static games.stendhal.common.constants.Actions.MOVE;
 
@@ -46,6 +47,11 @@ public class MoveAction implements ActionListener {
 			}
 
 			player.applyClientDirection(true);
+		}
+		
+		if (player.has(AWAY)) {
+			player.remove(AWAY);
+			player.setVisibility(100);
 		}
 
 		TutorialNotifier.move(player);

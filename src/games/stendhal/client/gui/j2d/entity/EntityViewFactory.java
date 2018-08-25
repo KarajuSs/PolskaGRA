@@ -78,7 +78,7 @@ public class EntityViewFactory {
 
 			// hack to hide blood
 			if (entityClass == Blood2DView.class) {
-				boolean showBlood = Boolean.parseBoolean(WtWindowManager.getInstance().getProperty("gamescreen.blood", "true"));
+				boolean showBlood = WtWindowManager.getInstance().getPropertyBoolean("gamescreen.blood", true);
 				if (!showBlood) {
 					return null;
 				}
@@ -141,6 +141,18 @@ public class EntityViewFactory {
 
 		register("fire", null, null, UseableEntity2DView.class);
 		register("fish_source", null, null, UseableEntity2DView.class);
+		register("source_ametyst", null, null, UseableEntity2DView.class);
+		register("source_carbuncle", null, null, UseableEntity2DView.class);
+		register("source_emerald", null, null, UseableEntity2DView.class);
+		register("source_gold", null, null, UseableEntity2DView.class);
+		register("source_iron", null, null, UseableEntity2DView.class);
+		register("source_mithril", null, null, UseableEntity2DView.class);
+		register("source_obsidian", null, null, UseableEntity2DView.class);
+		register("source_salt", null, null, UseableEntity2DView.class);
+		register("source_sapphire", null, null, UseableEntity2DView.class);
+		register("source_silver", null, null, UseableEntity2DView.class);
+		register("source_sulfur", null, null, UseableEntity2DView.class);
+		register("wood_source", null, null, UseableEntity2DView.class);
 
 		register("game_board", null, null, GameBoard2DView.class);
 		register("gate", null, null, Gate2DView.class);
@@ -157,6 +169,8 @@ public class EntityViewFactory {
 		register("npc", null, null, NPC2DView.class);
 
 		register("cat", null, null, Pet2DView.class);
+		register("owczarek", null, null, Pet2DView.class);
+		register("owczarek_podhalanski", null, null, Pet2DView.class);
 		register("pet", null, null, Pet2DView.class);
 		register("baby_dragon", null, null, Pet2DView.class);
 		register("purple_dragon", null, null, Pet2DView.class);
@@ -185,6 +199,7 @@ public class EntityViewFactory {
 		register("item", "money", null, StackableItem2DView.class);
 		register("item", "missile", null, StackableItem2DView.class);
 		register("item", "ammunition", null, StackableItem2DView.class);
+		register("item", "magia", null, StackableItem2DView.class);
 		register("item", "container", null, StackableItem2DView.class);
 		register("item", "special", null, StackableItem2DView.class);
 

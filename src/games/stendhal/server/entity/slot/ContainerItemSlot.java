@@ -34,7 +34,7 @@ public class ContainerItemSlot extends EntitySlot {
 	@Override
 	public boolean isReachableForTakingThingsOutOfBy(final Entity entity) {
 		// we assume that the content of container items on the ground may not be accessed
-		setErrorMessage("Hey, no pickpocketing.");
+		setErrorMessage("Hej żadnych kradzieży.");
 		return super.hasAsAncestor(entity);
 	}
 

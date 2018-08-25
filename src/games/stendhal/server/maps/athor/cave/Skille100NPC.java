@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -10,17 +9,15 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-package games.stendhal.server.maps.gdansk.forest;
+package games.stendhal.server.maps.athor.cave;
 
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
+import games.stendhal.common.Direction;
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
-import games.stendhal.server.core.pathfinder.FixedPath;
-import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.RPEntity;
 import games.stendhal.server.entity.npc.ChatAction;
 import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
@@ -47,17 +44,7 @@ public class Skille100NPC implements ZoneConfigurator {
 			
 			@Override
 			protected void createPath() {
-				final List<Node> nodes = new LinkedList<Node>();
-				nodes.add(new Node(87, 84));
-				nodes.add(new Node(89, 84));
-				nodes.add(new Node(89, 85));
-				nodes.add(new Node(97, 85));
-				nodes.add(new Node(97, 90));
-				nodes.add(new Node(107, 90));
-				nodes.add(new Node(107, 96));
-				nodes.add(new Node(103, 96));
-				nodes.add(new Node(103, 88));
-				setPath(new FixedPath(nodes, true));
+				setPath(null);
 			}
 			
 			@Override
@@ -65,20 +52,25 @@ public class Skille100NPC implements ZoneConfigurator {
 				addGreeting(null, new ChatAction() {
 					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-						String reply = "Witaj! Jestem tutaj aby #nauczyć Cię czegoś o walce z potworami!";
-
+						String reply = "Witaj, ";
 						if (player.getLevel() < 100) {
-							reply += " Jeszcze nie jesteś godzien! Osiągnij 100 poziom!";
+							reply += "po co do mnie tutaj przybyłeś? Jeszcze nie jesteś godzien, abym mógł Ciebie #'nauczyć' prawdziwej walki z potworami!";
 						} else {
-							reply += " Jesteś godzień przyjąć moje nauki.";
+							reply += "widzę, że już zdobyłeś wystarczającą ilość doświadczenia poprzez walki z potworami, a zatem jesteś godzien przyjąć me nauki!";
 						}
 						raiser.say(reply);
 					}
 				});
-
+				addJob("Jestem kapłanem, który chroni tę krainę przed złem.");
+				addOffer("Moja jedyna oferta to gdy osiągniesz 100 poziom to nauczę Cię lepiej walczyć z potworami.");
 				addReply("nauczyć",
-						"Gdy osiągniesz 100 poziom nauczę Cię lepiej walczyć z potworami.");
+						"Moje nauki to pradawna magia, która wspomaga podczas walk z potworami. Gdy osiągniesz 100 poziom, nauczę Cię jej.");
 				addGoodbye();
+			}
+
+			@Override
+			protected void onGoodbye(RPEntity player) {
+				setDirection(Direction.RIGHT);
 			}
 		};
 
@@ -102,13 +94,13 @@ public class Skille100NPC implements ZoneConfigurator {
 					player.setQuest("AltharisFirstChat", "done");
 					((SpeakerNPC) raiser.getEntity()).listenTo(player, "hi");
 				}
-				
 			}
 			
 		});
 
 		npc.setEntityClass("blackwizardpriestnpc");
-		npc.setPosition(87, 84);
+		npc.setPosition(75, 109);
+		npc.setDirection(Direction.RIGHT);
 		npc.initHP(85);
 		zone.add(npc);
 	}

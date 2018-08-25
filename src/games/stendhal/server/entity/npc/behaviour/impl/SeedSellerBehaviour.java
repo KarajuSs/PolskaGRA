@@ -26,10 +26,10 @@ public class SeedSellerBehaviour extends SellerBehaviour {
         /*
          * flower names should be one word, no blank characters
          */
-		pricelist.put("lilia seed", 10);
-		pricelist.put("daisies seed", 20);
-		pricelist.put("zantedeschia bulb", 15);
-		pricelist.put("pansy seed", 10);
+		pricelist.put("lilia nasionka", 10);
+		pricelist.put("stokrotki nasionka", 20);
+		pricelist.put("bielikrasa bulwa", 15);
+		pricelist.put("bratek nasionka", 10);
 	}
 
 	public SeedSellerBehaviour() {

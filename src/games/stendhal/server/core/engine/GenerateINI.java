@@ -271,7 +271,7 @@ public class GenerateINI {
 		out.println();
 		out.println("server_typeGame=" + gameName);
 		out.println("server_name=" + gameName + " Marauroa server");
-		out.println("server_version=0.02");
+		out.println("server_version=1.04");
 		out.println("server_contact=http://polskagra.net/kontakt-gmgags");
 		out.println();
 		out.println("# Extensions configured on the server. Enable at will.");

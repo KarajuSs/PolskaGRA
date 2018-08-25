@@ -50,7 +50,7 @@ import java.util.List;
  *
  * REWARD:
  * <ul>
- * <li>XP +200</li>
+ * <li>XP +500</li>
  * </ul>
  *
  * REPETITIONS:
@@ -272,7 +272,7 @@ public class CodedMessageFromFinnFarmer extends AbstractQuest {
 					new IncrementQuestAction(QUEST_SLOT, QUEST_INDEX_REPEATED, 1),
 					new SetQuestToTimeStampAction(QUEST_SLOT, QUEST_INDEX_TIME),
 					new SetQuestToFutureRandomTimeStampAction(QUEST_SLOT, QUEST_INDEX_TIME, REQUIRED_MINUTES, REQUIRED_MINUTES),
-					new IncreaseXPAction(200),
+					new IncreaseXPAction(500),
 					new IncreaseKarmaAction(20),
 					new SayTextAction("Dziękuję za powiedzenie Georgowi!"),
 					new SayTextAction("!me tańczę ze szczęścia."),

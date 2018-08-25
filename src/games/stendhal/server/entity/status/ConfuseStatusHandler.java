@@ -39,9 +39,9 @@ public class ConfuseStatusHandler implements StatusHandler<ConfuseStatus> {
 			return;
 		}
 		if (attacker == null) {
-			entity.sendPrivateText(NotificationType.SCENE_SETTING, "You are confused.");
+			entity.sendPrivateText(NotificationType.SCENE_SETTING, "Zostałeś zdezorientowany.");
 		} else {
-			entity.sendPrivateText(NotificationType.SCENE_SETTING, "You have been confused by " + attacker.getName() + ".");
+			entity.sendPrivateText(NotificationType.SCENE_SETTING, "Zostałeś zdezorientowany przez " + attacker.getName() + ".");
 		}
 
 		statusList.activateStatusAttribute("status_" + status.getName());
@@ -64,7 +64,7 @@ public class ConfuseStatusHandler implements StatusHandler<ConfuseStatus> {
 			return;
 		}
 
-		entity.sendPrivateText(NotificationType.SCENE_SETTING, "You are no longer confused.");
+		entity.sendPrivateText(NotificationType.SCENE_SETTING, "Już nie jesteś zdezorientowany.");
 		entity.remove("status_" + status.getName());
 	}
 }

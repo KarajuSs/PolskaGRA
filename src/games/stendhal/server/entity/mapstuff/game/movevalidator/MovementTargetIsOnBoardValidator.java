@@ -26,7 +26,7 @@ public class MovementTargetIsOnBoardValidator implements MoveValidator {
 	@Override
 	public boolean validate(GameBoard board, Player player, BoardToken token, int xIndex, int yIndex) {
 		if ((xIndex < 0) || (yIndex < 0)) {
-			player.sendPrivateText("Please drop the token onto the game board.");
+			player.sendPrivateText("Połóż krążek na planszy gry.");
 			return false;
 		}
 		return true;

@@ -57,10 +57,10 @@ public class HeavyStatusHandler implements StatusHandler<HeavyStatus> {
 				/* status was not inflicted by another entity */
 				if (attacker == null) {
 					entity.sendPrivateText(NotificationType.SCENE_SETTING,
-							"Your feet begin to feel heavy. You are weighed down.");
+							"Twoje stopy zacynają być ciężkie. Jesteś ociężały.");
 				} else {
 					entity.sendPrivateText(NotificationType.SCENE_SETTING,
-							"Your feet begin to feel heavy. You have been weighed down by "
+							"Twoje stopy zacynają być ciężkie. Zostałeś ociężały przez "
 					+ attacker.getName() + ".");
 				}
 
@@ -95,7 +95,7 @@ public class HeavyStatusHandler implements StatusHandler<HeavyStatus> {
 			TurnNotifier.get().notifyInSeconds(duration, new StatusRemover(statusList, nextStatus));
 		} else {
 			entity.remove("status_" + status.getName());
-			entity.sendPrivateText(NotificationType.SCENE_SETTING, "You no longer feel weighed down.");
+			entity.sendPrivateText(NotificationType.SCENE_SETTING, "Już nie czujesz ociężenia.");
 		}
 	}
 }

@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                (C) Copyright 2003-2018 - Faiumoni e.V.                  *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -18,10 +17,9 @@ import static games.stendhal.common.constants.Actions.TYPE;
 import static games.stendhal.common.constants.Actions.WALK;
 import static games.stendhal.common.constants.Common.PATHSET;
 
-import java.awt.event.KeyEvent;
-import java.awt.geom.Rectangle2D;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
@@ -44,22 +42,27 @@ import marauroa.common.game.RPSlot;
  * @author durkham, hendrik
  */
 public class User extends Player {
-	/* The logger instance. */
+	private static final StaticUserProxy NO_USER = new NoUserProxy();
 	private static final Logger logger = Logger.getLogger(User.class);
-
-	private static User instance;
+	private static final String IGNORE_SLOT = "!ignore";
+	
 	private static String groupLootmode;
-	private static Set<String> groupMembers;
-	private final HashSet<String> ignore = new HashSet<String>();
+	private static Set<String> groupMembers = Collections.emptySet();
+	private static StaticUserProxy userProxy = NO_USER;
+	
+	private final Set<String> ignore = new HashSet<String>();
 	private final SpeedPredictor speedPredictor;
 
 	/**
-	 * is the user object not set, yet?
-	 *
-	 * @return true, if the the user object is unknown; false if it is known
+	 * creates a User object
 	 */
-	public static boolean isNull() {
-		return instance == null;
+	public User() {
+		if (isNull()) {
+			speedPredictor = new SpeedPredictor();
+		} else {
+			speedPredictor = new SpeedPredictor(userProxy.getUser().speedPredictor);
+		}
+		userProxy = new NormalUserProxy(this);
 	}
 
 	/**
@@ -68,51 +71,32 @@ public class User extends Player {
 	 * @return user object
 	 */
 	public static User get() {
-		return instance;
+		return userProxy.getUser();
 	}
-
+	
 	/**
-	 * creates a User object
-	 */
-	public User() {
-		if (instance == null) {
-			speedPredictor = new SpeedPredictor();
-		} else {
-			speedPredictor = new SpeedPredictor(instance.speedPredictor);
-		}
-		instance = this;
-	}
-
-	@Override
-	protected void onAway(final String message) {
-		super.onAway(message);
-
-		String text;
-		if (message == null) {
-			text = "Nie jesteś już oznaczony jako oddalony.";
-		} else {
-			text = "Zostałeś oznaczony jako oddalony.";
-		}
-		ClientSingletonRepository.getUserInterface().addEventLine(new HeaderLessEventLine(text, NotificationType.INFORMATION));
-	}
-
-	/**
-	 * is this user an admin with an adminlevel equal or above 600?
+	 * is the user object not set, yet?
 	 *
-	 * @return true, if the user is an admin; false otherwise
+	 * @return true, if the the user object is unknown; false if it is known
 	 */
-	public static boolean isAdmin() {
-		if (isNull()) {
-			return false;
-		}
+	public static boolean isNull() {
+		return userProxy == NO_USER;
+	}
+	
+	/**
+	 * Resets the class to uninitialized.
+	 */
+	static void setNull() {
+		userProxy = NO_USER;
+	}
 
-		final User me = User.get();
-		if (me.rpObject == null) {
-			return false;
-		}
-
-		return me.rpObject.has("adminlevel")
-				&& (me.rpObject.getInt("adminlevel") >= 6);
+	/**
+	 * gets the name of the player's character
+	 *
+	 * @return charname or <code>null</code>
+	 */
+	public static String getCharacterName() {
+		return userProxy.getName();
 	}
 
 	/**
@@ -121,39 +105,179 @@ public class User extends Player {
 	 * @return level
 	 */
 	public static int getPlayerLevel() {
-		if (!isNull()) {
-			final User me = User.get();
-
-			if (me.rpObject != null) {
-				return me.getLevel();
-			}
-		}
-
-		return 0;
+		return userProxy.getPlayerLevel();
 	}
 
 	/**
-	 * checks whether the user owns a sheep
+	 * gets the server release version
 	 *
-	 * @return true, if the user owns a sheep; false otherwise
+	 * @return server release version or <code>null</code>
 	 */
-	public boolean hasSheep() {
-		if (rpObject == null) {
-			return false;
-		}
-		return rpObject.has("sheep");
+	public static String getServerRelease() {
+		return userProxy.getServerRelease();
 	}
 
+	/**
+	 * is the specified charname a buddy of us?
+	 *
+	 * @param name charname to test
+	 * @return true, if it is a buddy, false if it is not a buddy or the user object is unknown.
+	 */
+	public static boolean hasBuddy(String name) {
+		return userProxy.hasBuddy(name);
+	}
+
+	/**
+	 * is this user an admin with an adminlevel equal or above 600?
+	 *
+	 * @return true, if the user is an admin; false otherwise
+	 */
+	public static boolean isAdmin() {
+		return userProxy.isAdmin();
+	}
+
+	/**
+	 * is the player in a group which shares the loot?
+	 *
+	 * @return true if this player is a group and it uses shared looting
+	 */
+	public static boolean isGroupSharingLoot() {
+		return "shared".equals(groupLootmode);
+	}
+
+	/**
+	 * is the named player ignored?
+	 *
+	 * @param name name of player
+	 * @return true, if the player should be ignored; false otherwise
+	 */
+	public static boolean isIgnoring(String name) {
+		return userProxy.isIgnoring(name);
+	}
+
+	/**
+	 * checks if the specified player is in the same group as this player
+	 *
+	 * @param otherPlayer name of the other player
+	 * @return true if the other player is in the same group
+	 */
+	public static boolean isPlayerInGroup(String otherPlayer) {
+		return groupMembers.contains(otherPlayer);
+	}
+	
+	/**
+	 * updates the group information
+	 *
+	 * @param members members
+	 * @param lootmode lootmode
+	 */
+	public static void updateGroupStatus(Collection<String> members, String lootmode) {
+		Set<String> oldGroupMembers = groupMembers;
+
+		if (members == null) {
+			groupMembers = Collections.emptySet();
+		} else {
+			groupMembers = new HashSet<>(members);
+		}
+		groupLootmode = lootmode;
+
+		// fire change event to color of player object on minimap
+		for (IEntity entity : GameObjects.getInstance()) {
+			if ((entity instanceof Player)
+					&& (oldGroupMembers.contains(entity.getName())
+							|| groupMembers.contains(entity.getName()))) {
+				((Player) entity).fireChange(RPEntity.PROP_GROUP_MEMBERSHIP);
+			}
+		}
+	}
+
+	/**
+	 * calculates the squared distance between the user and the specified coordinates
+	 *
+	 * @param x x coordinate
+	 * @param y y coordinate
+	 * @return the squared distance
+	 */
+	static double squaredDistanceTo(final double x, final double y) {
+		return userProxy.squareDistanceTo(x, y);
+	}
+
+	/**
+	 * Add players to the set of ignored players.
+	 * Player names are the attributes prefixed with '_'.
+	 *
+	 * @param ignoreObj The container object for player names
+	 */
+	private void addIgnore(RPObject ignoreObj) {
+		for (String attr : ignoreObj) {
+			if (attr.charAt(0) == '_') {
+				ignore.add(attr.substring(1));
+			}
+		}
+	}
+	
+	/**
+	 * Remove players from the set of ignored players.
+	 * Player names are the attributes prefixed with '_'.
+	 *
+	 * @param ignoreObj The container object for player names
+	 */
+	private void removeIgnore(RPObject ignoreObj) {
+		for (String attr : ignoreObj) {
+			if (attr.charAt(0) == '_') {
+				ignore.remove(attr.substring(1));
+			}
+		}
+	}
+
+	/**
+	 * Returns the objectid for the named item.
+	 *
+	 * @param slotName
+	 *            name of slot to search
+	 * @param itemName
+	 *            name of item
+	 * @return objectid or <code>-1</code> in case there is no such item
+	 */
+	public int findItem(final String slotName, final String itemName) {
+		RPSlot slot = getSlot(slotName);
+		if (slot == null) {
+			return -1;
+		}
+		for (final RPObject item : slot) {
+			if (item.get("name").equals(itemName)) {
+				return item.getID().getObjectID();
+			}
+		}
+
+		return -1;
+	}
+	
 	/**
 	 * checks whether the user owns a pet
 	 *
 	 * @return true, if the user owns a pet; false otherwise
 	 */
 	public boolean hasPet() {
-		if (rpObject == null) {
-			return false;
-		}
 		return rpObject.has("pet");
+	}
+
+	/**
+	 * gets the ID of a pet
+	 *
+	 * @return ID of pet
+	 */
+	public int getPetID() {
+		return rpObject.getInt("pet");
+	}
+	
+	/**
+	 * checks whether the user owns a sheep
+	 *
+	 * @return true, if the user owns a sheep; false otherwise
+	 */
+	public boolean hasSheep() {
+		return rpObject.has("sheep");
 	}
 
 	/**
@@ -166,35 +290,35 @@ public class User extends Player {
 	}
 
 	/**
-	 * gets the ID of a pet
+	 * gets the zone name
 	 *
-	 * @return ID of pet
+	 * @return zone name
 	 */
-	public int getPetID() {
-		return rpObject.getInt("pet");
-	}
-
-	@Override
-	public void onHealed(final int amount) {
-		super.onHealed(amount);
-		ClientSingletonRepository.getUserInterface().addEventLine(
-				new HeaderLessEventLine(
-						getTitle() + " heals "
-						+ Grammar.quantityplnoun(amount, "health point") + ".",
-						NotificationType.HEAL));
+	public String getZoneName() {
+		return getID().getZoneID();
 	}
 
 	/**
-	 * The absolute world area (coordinates) where the player can possibly hear.
-	 * sounds
+	 * Is this object the user of this client?
 	 *
-	 * @return Rectangle2D area
+	 * @return true
 	 */
-	public Rectangle2D getHearingArea() {
-		final double HEARING_RANGE = 20;
-		final double width = HEARING_RANGE * 2;
-		return new Rectangle2D.Double(getX() - HEARING_RANGE, getY()
-				- HEARING_RANGE, width, width);
+	@Override
+	public boolean isUser() {
+		return true;
+	}
+
+	@Override
+	protected void onAway(final String message) {
+		super.onAway(message);
+
+		String text;
+		if (message == null) {
+			text = "Nie jesteś już oznaczony jako oddalony.";
+		} else {
+			text = "Zostałeś oznaczony jako oddalony.";
+		}
+		notifyUser(text, NotificationType.INFORMATION);
 	}
 
 	/**
@@ -244,42 +368,10 @@ public class User extends Player {
 
 		// The first time we ignore it.
 		if (object != null) {
-			if (changes.has("offline")) {
-				final String[] players = changes.get("offline").split(",");
-				for (final String playername : players) {
-					if (getGender().equals("F")) {
-						ClientSingletonRepository.getUserInterface().addEventLine(
-							new HeaderLessEventLine(
-							playername + " opuściła grę.",
-							NotificationType.INFORMATION));
-					} else {
-						ClientSingletonRepository.getUserInterface().addEventLine(
-							new HeaderLessEventLine(
-							playername + " opuścił grę.",
-							NotificationType.INFORMATION));
-					}
-				}
-			}
+			notifyUserAboutPlayerOnlineChanges(changes);
 
-			if (changes.has("online")) {
-				final String[] players = changes.get("online").split(",");
-				for (final String playerName : players) {
-					if (getGender().equals("F")) {
-						ClientSingletonRepository.getUserInterface().addEventLine(
-								new HeaderLessEventLine(
-								playerName + " zawitała do PolskaGRA.",
-								NotificationType.INFORMATION));
-					} else {
-						ClientSingletonRepository.getUserInterface().addEventLine(
-								new HeaderLessEventLine(
-								playerName + " zawitał do PolskaGRA.",
-								NotificationType.INFORMATION));
-					}
-				}
-			}
-
-			if (changes.hasSlot("!ignore")) {
-				RPObject ign = changes.getSlot("!ignore").getFirst();
+			if (changes.hasSlot(IGNORE_SLOT)) {
+				RPObject ign = changes.getSlot(IGNORE_SLOT).getFirst();
 				if (ign != null) {
 					addIgnore(ign);
 				}
@@ -290,217 +382,46 @@ public class User extends Player {
 	@Override
 	public void onChangedRemoved(final RPObject base, final RPObject diff) {
 		super.onChangedRemoved(base, diff);
-		if (diff.hasSlot("!ignore")) {
-			RPObject ign = diff.getSlot("!ignore").getFirst();
+		if (diff.hasSlot(IGNORE_SLOT)) {
+			RPObject ign = diff.getSlot(IGNORE_SLOT).getFirst();
 			if (ign != null) {
 				removeIgnore(ign);
 			}
 		}
 	}
 
-	/**
-	 * Resets the class to uninitialized.
-	 */
-	static void setNull() {
-		instance = null;
-	}
-
-	/**
-	 * Returns the objectid for the named item.
-	 *
-	 * @param slotName
-	 *            name of slot to search
-	 * @param itemName
-	 *            name of item
-	 * @return objectid or <code>-1</code> in case there is no such item
-	 */
-	public int findItem(final String slotName, final String itemName) {
-		RPSlot slot = getSlot(slotName);
-		if (slot == null) {
-			return -1;
-		}
-		for (final RPObject item : slot) {
-			if (item.get("name").equals(itemName)) {
-				final int itemID = item.getID().getObjectID();
-
-				return itemID;
-			}
-		}
-
-		return -1;
-	}
-
-	/**
-	 * Is this object the user of this client?
-	 *
-	 * @return true
-	 */
 	@Override
-	public boolean isUser() {
-		return true;
-	}
-
-	/**
-	 * calculates the squared distance between the user and the specified coordinates
-	 *
-	 * @param x2 x coordinate
-	 * @param y2 y coordinate
-	 * @return the squared distance
-	 */
-	static double squaredDistanceTo(final double x2, final double y2) {
-		if (User.isNull()) {
-			return Double.POSITIVE_INFINITY;
-		}
-		return (User.get().getX() - x2) * (User.get().getX() - x2)
-				+ (User.get().getY() - y2) * (User.get().getY() - y2);
-	}
-
-	/**
-	 * is the named player ignored?
-	 *
-	 * @param name name of player
-	 * @return true, if the player should be ignored; false otherwise
-	 */
-	public static boolean isIgnoring(String name) {
-		if (User.isNull()) {
-			return false;
-		}
-
-		return User.get().ignore.contains(name);
-	}
-
-	/**
-	 * is the specified charname a buddy of us?
-	 *
-	 * @param name charname to test
-	 * @return true, if it is a buddy, false if it is not a buddy or the user object is unknown.
-	 */
-	public static boolean hasBuddy(String name) {
-		if (User.isNull()) {
-			return false;
-		}
-
-		RPObject rpobject = User.get().rpObject;
-		return rpobject.has("buddies", name);
-	}
-
-	/**
-	 * gets the server release version
-	 *
-	 * @return server release version or <code>null</code>
-	 */
-	public static String getServerRelease() {
-		if (User.isNull()) {
-			return null;
-		}
-
-		return User.get().rpObject.get("release");
-	}
-
-	/**
-	 * gets the name of the player's character
-	 *
-	 * @return charname or <code>null</code>
-	 */
-	public static String getCharacterName() {
-		if (User.isNull()) {
-			return null;
-		}
-		return User.get().getName();
-	}
-
-	/**
-	 * Add players to the set of ignored players.
-	 * Player names are the attributes prefixed with '_'.
-	 *
-	 * @param ignoreObj The container object for player names
-	 */
-	private void addIgnore(RPObject ignoreObj) {
-		for (String attr : ignoreObj) {
-			if (attr.charAt(0) == '_') {
-				ignore.add(attr.substring(1));
-			}
-		}
-	}
-
-	/**
-	 * Remove players from the set of ignored players.
-	 * Player names are the attributes prefixed with '_'.
-	 *
-	 * @param ignoreObj The container object for player names
-	 */
-	private void removeIgnore(RPObject ignoreObj) {
-		for (String attr : ignoreObj) {
-			if (attr.charAt(0) == '_') {
-				ignore.remove(attr.substring(1));
-			}
-		}
-	}
-
-	/**
-	 * is the player in a group which shares the loot?
-	 *
-	 * @return true if this player is a group and it uses shared looting
-	 */
-	public static boolean isGroupSharingLoot() {
-		return groupLootmode != null && groupLootmode.equals("shared");
-	}
-
-	/**
-	 * checks if the specified player is in the same group as this player
-	 *
-	 * @param otherPlayer name of the other player
-	 * @return true if the other player is in the same group
-	 */
-	public static boolean isPlayerInGroup(String otherPlayer) {
-		if (groupMembers == null) {
-			return false;
-		}
-		return groupMembers.contains(otherPlayer);
-	}
-
-	/**
-	 * updates the group information
-	 *
-	 * @param members members
-	 * @param lootmode lootmode
-	 */
-	public static void updateGroupStatus(List<String> members, String lootmode) {
-		Set<String> oldGroupMembers = User.groupMembers;
-
-		if (members == null) {
-			User.groupMembers = null;
+	public void onHealed(final int amount) {
+		super.onHealed(amount);
+		if (getGender().equals("F")) {
+			String pointDesc = Grammar.quantityplnoun(amount, "punkt") + " życia";
+			notifyUser(getTitle() + " odzyskała " + pointDesc + ".", NotificationType.HEAL);
 		} else {
-			User.groupMembers = new HashSet<String>(members);
+			String pointDesc = Grammar.quantityplnoun(amount, "punkt" + " życia");
+			notifyUser(getTitle() + " odzyskał " + pointDesc + ".", NotificationType.HEAL);
 		}
-		User.groupLootmode = lootmode;
-
-		// fire change event to color of player object on minimap
-		for (IEntity entity : GameObjects.getInstance()) {
-			if (entity instanceof Player) {
-				if (((oldGroupMembers != null) && oldGroupMembers.contains(entity.getName()))
-						|| ((User.groupMembers != null) && User.groupMembers.contains(entity.getName()))) {
-					((Player) entity).fireChange(RPEntity.PROP_GROUP_MEMBERSHIP);
-				}
+	}
+	
+	private void notifyUser(String message, NotificationType type) {
+		ClientSingletonRepository.getUserInterface().addEventLine(new HeaderLessEventLine(message, type));
+	}
+	
+	private void notifyUserAboutPlayerOnlineChanges(RPObject changes) {
+		if (getGender().equals("F")) {
+			notifyUserAboutPlayerStatus(changes, "offline", " opuściła PolskaGRA.");
+		} else notifyUserAboutPlayerStatus(changes, "offline", " opuścił PolskaGRA.");
+		if (getGender().equals("F")) {
+			notifyUserAboutPlayerStatus(changes, "online", " zawitał do PolskaGRA.");
+		} else notifyUserAboutPlayerStatus(changes, "online", " zawitał do PolskaGRA.");
+	}
+	
+	private void notifyUserAboutPlayerStatus(RPObject changes, String status, String messageEnd) {
+		if (changes.has(status)) {
+			String[] players = changes.get(status).split(",");
+			for (String playername : players) {
+				notifyUser(playername + messageEnd, NotificationType.INFORMATION);
 			}
 		}
-	}
-
-	/**
-	 * gets the zone name
-	 *
-	 * @return zone name
-	 */
-	public String getZoneName() {
-		return rpObject.getID().getZoneID();
-	}
-
-	@Override
-	protected void processPositioning(final RPObject base, final RPObject diff) {
-		if (speedPredictor.isActive() && (diff.has("direction") || diff.has("x") || diff.has("y"))) {
-			speedPredictor.onMoved();
-		}
-		super.processPositioning(base, diff);
 	}
 
 	/**
@@ -529,27 +450,12 @@ public class User extends Player {
 		}
 	}
 
-	/**
-	 * Convert a Direction to the corresponding key code.
-	 *
-	 * @param direction
-	 *        Direction to process
-	 * @return
-	 *         Corresponding key code, otherwise <code>null</code>
-	 */
-	public Integer directionToKeyCode(final Direction direction) {
-		switch (direction) {
-		case LEFT:
-			return KeyEvent.VK_LEFT;
-		case RIGHT:
-			return KeyEvent.VK_RIGHT;
-		case UP:
-			return KeyEvent.VK_UP;
-		case DOWN:
-			return KeyEvent.VK_DOWN;
-		default:
-			return null;
+	@Override
+	protected void processPositioning(final RPObject base, final RPObject diff) {
+		if (speedPredictor.isActive() && (diff.has("direction") || diff.has("x") || diff.has("y"))) {
+			speedPredictor.onMoved();
 		}
+		super.processPositioning(base, diff);
 	}
 
 	/**
@@ -562,5 +468,114 @@ public class User extends Player {
 		stopAction.put(MODE, "stop");
 
 		ClientSingletonRepository.getClientFramework().send(stopAction);
+	}
+
+	/**
+	 * Interface to separate the no user special case from the normal
+	 * situation.
+	 */
+	private static interface StaticUserProxy {
+		String getName();
+		int getPlayerLevel();
+		String getServerRelease();
+		User getUser();
+		boolean hasBuddy(String buddy);
+		boolean isAdmin();
+		boolean isIgnoring(String name);
+		double squareDistanceTo(double x, double y);
+	}
+	
+	private static class NormalUserProxy implements StaticUserProxy {
+		private final User user;
+
+		NormalUserProxy(User user) {
+			this.user = user;
+		}
+
+		@Override
+		public String getName() {
+			return user.getName();
+		}
+
+		@Override
+		public int getPlayerLevel() {
+			return user.getLevel();
+		}
+
+		@Override
+		public String getServerRelease() {
+			return user.rpObject.get("release");
+		}
+
+		@Override
+		public User getUser() {
+			return user;
+		}
+
+		@Override
+		public boolean hasBuddy(String buddy) {
+			return user.rpObject.has("buddies", buddy);
+		}
+
+		@Override
+		public boolean isAdmin() {
+			return ((user.rpObject != null)
+					&& user.rpObject.has("adminlevel")
+					&& (user.rpObject.getInt("adminlevel") >= 6));
+		}
+
+		@Override
+		public double squareDistanceTo(double x, double y) {
+			double xDiff = user.getX() - x;
+			double yDiff = user.getY() - y;
+			return xDiff * xDiff + yDiff * yDiff;
+		}
+
+		@Override
+		public boolean isIgnoring(String name) {
+			return user.ignore.contains(name);
+		}
+	}
+
+	private static class NoUserProxy implements StaticUserProxy {
+		@Override
+		public String getName() {
+			return null;
+		}
+
+		@Override
+		public int getPlayerLevel() {
+			return 0;
+		}
+
+		@Override
+		public String getServerRelease() {
+			return null;
+		}
+
+		@Override
+		public User getUser() {
+			return null;
+		}
+
+		@Override
+		public boolean hasBuddy(String buddy) {
+			return false;
+		}
+
+		@Override
+		public boolean isAdmin() {
+			return false;
+		}
+		
+		@Override
+		public boolean isIgnoring(String name) {
+			return false;
+		}
+
+		@Override
+		public double squareDistanceTo(double x, double y) {
+			return Double.POSITIVE_INFINITY;
+		}
 	}
 }

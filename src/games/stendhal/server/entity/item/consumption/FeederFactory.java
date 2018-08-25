@@ -22,7 +22,7 @@ public final class FeederFactory {
 	private static Eater eater = new Eater();
 
 	public static Feeder get(final ConsumableItem item) {
-		if (item.getName().contains("potion")) {
+		if (item.getName().contains("eliksir")) {
 			return stuffer;
 		}
 

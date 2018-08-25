@@ -37,9 +37,9 @@ public class GoralskiCollector extends AbstractQuest implements BringListOfItems
 			"polska tarcza lekka");
 
 	private static final String QUEST_SLOT = "goralski_kolekcjoner1";
-	
+
 	private BringListOfItemsQuestLogic bringItems;
-	
+
 	@Override
 	public List<String> getHistory(final Player player) {
 		return bringItems.getHistory(player);
@@ -78,13 +78,13 @@ public class GoralskiCollector extends AbstractQuest implements BringListOfItems
 							final Item item = SingletonRepository.getEntityManager().getItem(itemName);
 							StringBuilder stringBuilder = new StringBuilder();
 							stringBuilder.append("Nie widziałeś jeszcze żadnego? Cóż to jest ");
-						
+
 							if (item == null) {
 								stringBuilder.append(itemName);
 							} else {
 								stringBuilder.append(ItemTools.itemNameToDisplayName(item.getItemSubclass()));
 							}
-						
+
 							stringBuilder.append(". znajdziesz to?");
 							raiser.say(stringBuilder.toString());
 						}
@@ -135,14 +135,14 @@ public class GoralskiCollector extends AbstractQuest implements BringListOfItems
 
 	@Override
 	public String welcomeBeforeStartingQuest() {
-		return "Witojże w mej krainie górskiej. Chciałbyś zobaczyć me #'ubrania'.. ?";
+		return "Witojże w mej krainie górskiej. Chciałbyś zobaczyć me #'ubrania'..?";
 	}
 
 	@Override
 	public String welcomeDuringActiveQuest() {
-		return "Zawsze chciałem poszerzyć swoją kolejcę o kolejne przedmioty związane z góralstwem! Pomógłbyś mi przynosząc pewne #rzeczy ?";
+		return "Zawsze chciałem poszerzyć swoją kolejcę o kolejne przedmioty związane z góralstwem! Masz przy sobie jakieś #'rzeczy'?";
 	}
-	
+
 	@Override
 	public String welcomeAfterQuestIsCompleted() {
 		return "Góralskie ubrania wyglądają jak nowe. Niepotrzebuję nowszych. Dziękuję!";
@@ -224,19 +224,13 @@ public class GoralskiCollector extends AbstractQuest implements BringListOfItems
 		final Item korale = SingletonRepository.getEntityManager().getItem("korale");
 		korale.setBoundTo(player.getName());
 		player.equipOrPutOnGround(korale);
-		player.addKarma(50.0);
-		player.addXP(100000);
+		player.addKarma(15.0);
+		player.addXP(35000);
 	}
 
 	@Override
 	public String getName() {
 		return "GoralskiCollector";
-	}
-	
-	// You can start collecting just with a simple cloak which you can buy, but maybe not a good idea to send to Fado too early.
-	@Override
-	public int getMinLevel() {
-		return 80;
 	}
 
 	@Override

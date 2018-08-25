@@ -59,7 +59,7 @@ public class Clock extends Sign {
 			hour = 12;
 		}
 
-		StringBuilder msg = new StringBuilder("The time is ");
+		StringBuilder msg = new StringBuilder("Jest godzina ");
 		msg.append(describeMinute(min));
 		msg.append(Grammar.numberString(hour));
 		msg.append('.');
@@ -75,17 +75,17 @@ public class Clock extends Sign {
 	 */
 	private String describeMinute(int m) {
 		switch (m) {
-		case 5: return "five past ";
-		case 10: return "ten past ";
-		case 15: return "quarter past ";
-		case 20: return "twenty past ";
-		case 25: return "twenty five past ";
-		case 30: return "half past ";
-		case 35: return "twenty five to ";
-		case 40: return "twenty to ";
-		case 45: return "quarter to ";
-		case 50: return "ten to ";
-		case 55: return "five to ";
+		case 5: return "pięć po ";
+		case 10: return "dziesięć po ";
+		case 15: return "kwadrans po ";
+		case 20: return "dwadzieścia po ";
+		case 25: return "dwadzieścia pięć po ";
+		case 30: return "trzydzieści po ";
+		case 35: return "za dwadzieścia pięć ";
+		case 40: return "za dwadzieścia ";
+		case 45: return "za kwadrans ";
+		case 50: return "za dziesięć ";
+		case 55: return "za pięć ";
 		default: return "";
 		}
 	}

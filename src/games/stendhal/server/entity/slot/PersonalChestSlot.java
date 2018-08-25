@@ -50,7 +50,7 @@ public class PersonalChestSlot extends ChestSlot {
 		// not depend on this as the banks have had lots of bugs in the past.
 		if (chest.getAttending() != entity) {
 			if (chest.getAttending() != null) {
-				setErrorMessage("You cannot take items out of " + Grammar.suffix_s(chest.getAttending().getName()) + " bank chest.");
+				setErrorMessage("Nie możesz wziąść przedmiotów ze skrzyi w banku " + Grammar.suffix_s(chest.getAttending().getName()) + ".");
 			}
 			return false;
 		}

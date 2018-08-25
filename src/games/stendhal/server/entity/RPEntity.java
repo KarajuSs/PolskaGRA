@@ -76,24 +76,24 @@ public abstract class RPEntity extends GuidedEntity {
 
 	private static final float WEAPON_DEF_MULTIPLIER = 4.0f;
 
-	private static final float BOOTS_DEF_MULTIPLIER = 1.0f;
+	private static final float BOOTS_DEF_MULTIPLIER = 1.5f;
 
-	private static final float LEG_DEF_MULTIPLIER = 1.5f;
+	private static final float LEG_DEF_MULTIPLIER = 2.0f;
 
-	private static final float HELMET_DEF_MULTIPLIER = 1.5f;
+	private static final float HELMET_DEF_MULTIPLIER = 2.0f;
 
 	private static final float CLOAK_DEF_MULTIPLIER = 1.5f;
 
-	private static final float ARMOR_DEF_MULTIPLIER = 2.5f;
+	private static final float ARMOR_DEF_MULTIPLIER = 3.0f;
 
-	private static final float SHIELD_DEF_MULTIPLIER = 4.0f;
+	private static final float SHIELD_DEF_MULTIPLIER = 4.5f;
 
 	private static final float RING_DEF_MULTIPLIER = 1.0f;
 
 	private static final float NECKLACE_DEF_MULTIPLIER = 1.0f;
 
 	private static final float GLOVE_DEF_MULTIPLIER = 2.0f;
-	
+
 	private static final float PAS_DEF_MULTIPLIER = 1.5f;
 
 	/**
@@ -127,7 +127,7 @@ public abstract class RPEntity extends GuidedEntity {
 	protected int lv_cap;
 
 	private int xp;
-	
+
 	private String gender;
 
 	protected int level;
@@ -539,7 +539,7 @@ public abstract class RPEntity extends GuidedEntity {
 		if (has("hp")) {
 			hp = getInt("hp");
 		}
-		
+
 		if (has("gender")) {
 			gender = get("gender");
 		}
@@ -778,7 +778,7 @@ public abstract class RPEntity extends GuidedEntity {
 		}
 		return super.getName();
 	}
-	
+
 	public void setGender(final String gender) {
 		this.gender = gender;
 		put("gender", gender);
@@ -1161,7 +1161,7 @@ public abstract class RPEntity extends GuidedEntity {
 		base_mana += newBaseMana;
 		put("base_mana", base_mana);
 	}
-	
+
 	public void addatk_xp(final int newatk_xp) {
 		if (Integer.MAX_VALUE - this.atk_xp <= newatk_xp) {
 			return;
@@ -1629,7 +1629,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 			}
 		});
 	}
-	
+
 	public void onHealed(final Entity attacker, final int damage) {
 		logger.debug("Healed " + damage + " points by " + attacker.getID());
 
@@ -2670,7 +2670,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 	 *         left hand.
 	 */
 	public Item getWeapon() {
-		final String[] weaponsClasses = {"club", "sword", "axe", "ranged", "missile"};
+		final String[] weaponsClasses = {"club", "sword", "axe", "ranged", "missile", "wand", "magia"};
 
 		for (final String weaponClass : weaponsClasses) {
 			final String[] slots = { "lhand", "rhand" };
@@ -2735,6 +2735,15 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 		return null;
 	}
 
+	public Item getWandWeapon() {
+		for (final Item weapon : getWeapons()) {
+			if (weapon.isOfClass("wand")) {
+				return weapon;
+			}
+		}
+		return null;
+	}
+
 	/**
 	 * Gets the stack of ammunition (arrows or similar) that this entity is
 	 * holding in its hands.
@@ -2754,6 +2763,19 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 			}
 		}
 
+		return null;
+	}
+
+	public StackableItem getMagia() {
+		final String[] slots = { "lhand", "rhand" };
+
+		for (final String slot : slots) {
+			final StackableItem item = (StackableItem) getEquippedItemClass(
+					slot, "magia");
+			if (item != null) {
+				return item;
+			}
+		}
 		return null;
 	}
 
@@ -2896,7 +2918,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 	public Item getMoney() {
 		return getEquippedItemClass("money", "money");
 	}
-	
+
 	public boolean hasPas() {
 		return isEquippedItemClass("pas", "pas");
 	}
@@ -2941,13 +2963,28 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 
 	public float getItemAtk() {
 		int weapon = 0;
+		int glove = 0;
+		int ring = 0;
+		int ringb = 0;
+		int shield = 0;
 		final List<Item> weapons = getWeapons();
 		for (final Item weaponItem : weapons) {
 			weapon += weaponItem.getAttack();
 		}
 
+		if (hasGloves()) {
+			glove += getGloves().getAttack();
+		} if (hasRing()) {
+			ring += getRing().getAttack();
+		} if (hasRingB()) {
+			ringb += getRingB().getAttack();
+		} if (hasShield()) {
+			shield += getShield().getAttack();
+		}
+
 		// range weapons
 		StackableItem ammunitionItem = null;
+		StackableItem magiaItem = null;
 		if (weapons.size() > 0) {
 			if (weapons.get(0).isOfClass("ranged")) {
 				ammunitionItem = getAmmunition();
@@ -2958,10 +2995,19 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 					// If there is no ammunition...
 					weapon = 0;
 				}
+			} else if (weapons.get(0).isOfClass("wand")) {
+				magiaItem = getMagia();
+
+				if (magiaItem != null) {
+					weapon += magiaItem.getAttack();
+				} else {
+					// If there is no magia...
+					weapon = 0;
+				}
 			}
 		}
 
-		return weapon;
+		return weapon + glove + ring +  ringb + shield;
 	}
 
 	public float getItemDef() {
@@ -3009,27 +3055,27 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 			item = getCloak();
 			cloak = (int) (item.getDefense() / getItemLevelModifier(item));
 		}
-		
+
 		if (hasNecklace()) {
 			item = getNecklace();
 			necklace = (int) (item.getDefense() / getItemLevelModifier(item));
 		}
-		
+
 		if (hasRing()) {
 			item = getRing();
 			ring = (int) (item.getDefense() / getItemLevelModifier(item));
 		}
-		
+
 		if (hasRingB()) {
 			item = getRingB();
 			ringb = (int) (item.getDefense() / getItemLevelModifier(item));
 		}
-		
+
 		if (hasGloves()) {
 			item = getGloves();
 			glove = (int) (item.getDefense() / getItemLevelModifier(item));
 		}
-		
+
 		if (hasPas()) {
 			item = getPas();
 			pas = (int) (item.getDefense() / getItemLevelModifier(item));
@@ -3045,8 +3091,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 				+ HELMET_DEF_MULTIPLIER * helmet + NECKLACE_DEF_MULTIPLIER * necklace
 				+ LEG_DEF_MULTIPLIER * legs + BOOTS_DEF_MULTIPLIER * boots
 				+ RING_DEF_MULTIPLIER * ring + RING_DEF_MULTIPLIER * ringb
-				+ PAS_DEF_MULTIPLIER * pas
-				+ WEAPON_DEF_MULTIPLIER * weapon;
+				+ PAS_DEF_MULTIPLIER * pas + WEAPON_DEF_MULTIPLIER * weapon;
 	}
 
 	/**
@@ -3075,7 +3120,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 		if (hasCloak()) {
 			items.add(getCloak());
 		}
-		
+
 		if (hasRing()) {
 			items.add(getRing());
 		}
@@ -3139,7 +3184,9 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 	 */
 	public int getMaxRangeForArcher() {
 		final Item rangeWeapon = getRangeWeapon();
+		final Item wandWeapon = getWandWeapon();
 		final StackableItem ammunition = getAmmunition();
+		final StackableItem magia = getMagia();
 		final StackableItem missiles = getMissileIfNotHoldingOtherWeapon();
 		int maxRange;
 		if ((rangeWeapon != null) && (ammunition != null)
@@ -3147,6 +3194,9 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 			maxRange = rangeWeapon.getInt("range") + ammunition.getInt("range");
 		} else if ((missiles != null) && (missiles.getQuantity() > 0)) {
 			maxRange = missiles.getInt("range");
+		} else if ((wandWeapon != null) && (magia != null)
+				&& (magia.getQuantity() > 0)) {
+			maxRange = wandWeapon.getInt("range") + magia.getInt("range");
 		} else {
 			// The entity doesn't hold the necessary distance weapons.
 			maxRange = 0;
@@ -3498,7 +3548,22 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 				if (weaponItem.has("lifesteal")) {
 					sumLifesteal += weaponItem.getAttack()
 							* weaponItem.getDouble("lifesteal");
-				}
+					if (!hasGloves() || !getGloves().has("lifesteal")) {
+						sumLifesteal += weaponItem.getAttack()
+								* weaponItem.getDouble("lifesteal");
+					} else if (getGloves().has("lifesteal")) {
+						sumLifesteal += weaponItem.getAttack()
+								* (weaponItem.getDouble("lifesteal") + getGloves().getDouble("lifesteal"));
+					}
+				} else if (!weaponItem.has("lifesteal")) {
+					sumLifesteal += 0;
+					if (!hasGloves() || !getGloves().has("lifesteal")) {
+						sumLifesteal += 0;
+					} else if (getGloves().has("lifesteal")) {
+						sumLifesteal += weaponItem.getAttack()
+								* getGloves().getDouble("lifesteal");
+					}
+				} else return;
 			}
 		}
 

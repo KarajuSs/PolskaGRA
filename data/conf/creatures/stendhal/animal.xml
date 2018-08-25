@@ -15,7 +15,7 @@
 			<size value="3,2"/>
 		</attributes>
 		<level value="155"/>
-		<experience value="38830"/>
+		<experience value="19542"/>
 		<respawn value="5400"/>
 		<corpse name="animal_2x2" width="2" height="2"/>
 		<drops>
@@ -51,7 +51,7 @@
 			<size value="2,2"/>
 		</attributes>
 		<level value="39"/>
-		<experience value="1500" />
+		<experience value="1728" />
 		<respawn value="1230"/>
 		<corpse name="shark_2x2" harmless="shark_2x2" width="2" height="2" />
 		<drops>
@@ -92,7 +92,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="20"/>
-		<experience value="280"/>
+		<experience value="675"/>
 		<respawn value="1260"/>
 		<corpse name="small_boneless" harmless="spiderweb"/>
 		<drops>
@@ -117,7 +117,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="25"/>
-		<experience value="400"/>
+		<experience value="948"/>
 		<respawn value="1300"/>
 		<corpse name="small_boneless" harmless="spiderweb"/>
 		<drops>
@@ -147,7 +147,7 @@
 			<size value="2,2"/>
 		</attributes>
 		<level value="110"/>
-		<experience value="14400"/>
+		<experience value="11070"/>
 		<respawn value="5400"/>
 		<corpse name="huge_animal" harmless="spiderweb_2x2" width="2" height="2"/>
 		<drops>
@@ -218,7 +218,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="1"/>
-		<experience value="5"/>
+		<experience value="10"/>
 		<respawn value="900"/>
 		<corpse name="small_winged" harmless="feathered" />
 		<drops>
@@ -314,7 +314,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="1"/>
-		<experience value="5"/>
+		<experience value="10"/>
 		<respawn value="900"/>
 		<corpse name="small_winged" harmless="feathered" />
 		<drops>
@@ -413,7 +413,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="15"/>
-		<experience value="200"/>
+		<experience value="333"/>
 		<respawn value="1000"/>
 		<corpse name="small_boneless"/>
 		<drops>
@@ -638,7 +638,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="1"/>
-		<experience value="5"/>
+		<experience value="10"/>
 		<respawn value="900"/>
 		<corpse name="animal"/>
 		<drops>
@@ -1385,7 +1385,7 @@
 			<size value="2,2"/>
 		</attributes>
 		<level value="15"/>
-		<experience value="180"/>
+		<experience value="356"/>
 		<respawn value="1230"/>
 		<corpse name="huge_animal" harmless="tail_rodent_large" width="2" height="2" />
 		<drops>
@@ -1423,7 +1423,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="48"/>
-		<experience value="2000"/>
+		<experience value="2674"/>
 		<!-- once in 2 months -->
 		<respawn value="17280000"/>
 		<corpse name="animal"/>
@@ -1455,7 +1455,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="56"/>
-		<experience value="3000"/>
+		<experience value="3429"/>
 		<!-- once in 2 weeks -->
 		<respawn value="4032000"/>
 		<!-- uh, should this one be an animal or humanoid? -->
@@ -1487,7 +1487,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="340"/>
-		<experience value="500000"/>
+		<experience value="122346"/>
 		<!-- once in 6 weeks -->
 		<respawn value="12096000"/>
 		<corpse name="animal"/>
@@ -1616,7 +1616,7 @@
 			<size value="2,2"/>
 		</attributes>
 		<level value="15"/>
-		<experience value="180"/>
+		<experience value="354"/>
 		<respawn value="1230"/>
 		<corpse name="huge_animal" width="2" height="2"/>
 		<drops>
@@ -1650,7 +1650,7 @@
 			<size value="2,2"/>
 		</attributes>
 		<level value="96"/>
-		<experience value="9630"/>
+		<experience value="7818"/>
 		<respawn value="3900"/>
 		<corpse name="small_boneless"/>
 		<drops>
@@ -1680,7 +1680,7 @@
 			<size value="3,2"/>
 		</attributes>
 		<level value="120"/>
-		<experience value="18850"/>
+		<experience value="12918"/>
 		<respawn value="5400"/>
 		<corpse name="huge_animal" width="2" height="2"/>
 		<drops>

@@ -59,7 +59,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="12"/>
-		<experience value="130"/>
+		<experience value="231"/>
 		<respawn value="1210"/>
 		<corpse name="humanoid"/>
 		<drops>
@@ -97,7 +97,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="17"/>
-		<experience value="210"/>
+		<experience value="376"/>
 		<respawn value="1240"/>
 		<corpse name="humanoid"/>
 		<drops>
@@ -133,7 +133,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="22"/>
-		<experience value="320"/>
+		<experience value="677"/>
 		<respawn value="1270"/>
 		<corpse name="humanoid"/>
 		<drops>
@@ -167,7 +167,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="33"/>
-		<experience value="640"/>
+		<experience value="1345"/>
 		<respawn value="1380"/>
 		<corpse name="humanoid"/>
 		<drops>
@@ -203,7 +203,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="10"/>
-		<experience value="110"/>
+		<experience value="100"/>
 		<respawn value="1210"/>
 		<corpse name="humanoid"/>
 		<drops>
@@ -240,7 +240,7 @@
 			<size value="1,1"/>
 		</attributes>
 		<level value="16"/>
-		<experience value="200"/>
+		<experience value="420"/>
 		<respawn value="1230"/>
 		<corpse name="humanoid"/>
 		<drops>
@@ -277,7 +277,7 @@
 			<size value="2,2"/>
 		</attributes>
 		<level value="63"/>
-		<experience value="3100"/>
+		<experience value="3623"/>
 		<respawn value="1870"/>
 		<corpse name="giant_humanoid" width="2" height="2"/>
 		<drops>

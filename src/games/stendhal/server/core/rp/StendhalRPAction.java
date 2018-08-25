@@ -413,6 +413,8 @@ public class StendhalRPAction {
 		StackableItem projectilesItem = null;
 		if (player.getRangeWeapon() != null) {
 			projectilesItem = player.getAmmunition();
+		} if (player.getWandWeapon() != null) {
+			projectilesItem = player.getMagia();
 		}
 		if (projectilesItem == null) {
 			// no arrows... but maybe a spear?

@@ -44,6 +44,7 @@ import games.stendhal.server.entity.npc.condition.QuestNotStartedCondition;
 import games.stendhal.server.entity.npc.condition.QuestStateStartsWithCondition;
 import games.stendhal.server.entity.npc.condition.TimePassedCondition;
 import games.stendhal.server.entity.player.Player;
+import games.stendhal.server.maps.Region;
 import marauroa.common.Pair;
 
 public class KillDragons extends AbstractQuest {
@@ -109,7 +110,7 @@ public class KillDragons extends AbstractQuest {
 					}
 				});
 
-		//player zabil smoka ale nie ma potrzebnych resurce	
+		//player zabil smoka ale nie ma potrzebnych resurce
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, 0,"start"),
 								 new KilledForQuestCondition(QUEST_SLOT, 1),
@@ -192,7 +193,7 @@ public class KillDragons extends AbstractQuest {
 					}
 				});
 
-		//player zabil smoka ale nie ma potrzebnych resurce	
+		//player zabil smoka ale nie ma potrzebnych resurce
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, 0,"szkielet"),
 								 new KilledForQuestCondition(QUEST_SLOT, 1),
@@ -237,7 +238,7 @@ public class KillDragons extends AbstractQuest {
 
 		npc.add(ConversationStates.ATTENDING, questTrigger,
 				new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT, "czas_niebieski"),
-								 // czas minal, dalszy krok 
+								 // czas minal, dalszy krok
 								 new TimePassedCondition(QUEST_SLOT, 1, DELAY_IN_MINUTES)),
 				ConversationStates.ATTENDING,
 				"Talizman zadziałał! Niestety tej nocy przyśnił mi się inny koszmar. #Pomożesz mi?",
@@ -274,7 +275,7 @@ public class KillDragons extends AbstractQuest {
 					}
 				});
 
-		//player zabil smoka ale nie ma potrzebnych resurce	
+		//player zabil smoka ale nie ma potrzebnych resurce
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 			new AndCondition(new QuestInStateCondition(QUEST_SLOT, 0,"niebieski"),
 							 new KilledForQuestCondition(QUEST_SLOT, 1),
@@ -358,7 +359,7 @@ public class KillDragons extends AbstractQuest {
 					}
 				});
 
-		//player zabil smoka ale nie ma potrzebnych resurce	
+		//player zabil smoka ale nie ma potrzebnych resurce
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, 0,"zgnily"),
 								 new KilledForQuestCondition(QUEST_SLOT, 1),
@@ -523,7 +524,7 @@ public class KillDragons extends AbstractQuest {
 					}
 				});
 
-		//player zabil smoka ale nie ma potrzebnych resurce	
+		//player zabil smoka ale nie ma potrzebnych resurce
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, 0,"pustynny"),
 								 new KilledForQuestCondition(QUEST_SLOT, 1),
@@ -605,7 +606,7 @@ public class KillDragons extends AbstractQuest {
 					}
 				});
 
-		//player zabil smoka ale nie ma potrzebnych resurce	
+		//player zabil smoka ale nie ma potrzebnych resurce
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, 0,"zloty"),
 								 new KilledForQuestCondition(QUEST_SLOT, 1),
@@ -688,7 +689,7 @@ public class KillDragons extends AbstractQuest {
 					}
 				});
 
-		//player zabil smoka ale nie ma potrzebnych resurce	
+		//player zabil smoka ale nie ma potrzebnych resurce
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, 0,"dwa_niebieski"),
 								 new KilledForQuestCondition(QUEST_SLOT, 1),
@@ -771,7 +772,7 @@ public class KillDragons extends AbstractQuest {
 					}
 				});
 
-		//player zabil smoka ale nie ma potrzebnych resurce	
+		//player zabil smoka ale nie ma potrzebnych resurce
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, 0,"dwu_zielony"),
 								 new KilledForQuestCondition(QUEST_SLOT, 1),
@@ -1020,7 +1021,7 @@ public class KillDragons extends AbstractQuest {
 					}
 				});
 
-		//player zabil smoka ale nie ma potrzebnych resurce	
+		//player zabil smoka ale nie ma potrzebnych resurce
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, 0,"czarny"),
 								 new KilledForQuestCondition(QUEST_SLOT, 1),
@@ -1103,7 +1104,7 @@ public class KillDragons extends AbstractQuest {
 					}
 				});
 
-		//player zabil smoka ale nie ma potrzebnych resurce	
+		//player zabil smoka ale nie ma potrzebnych resurce
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, 0,"dwuglowy_czarny"),
 								 new KilledForQuestCondition(QUEST_SLOT, 1),
@@ -1186,7 +1187,7 @@ public class KillDragons extends AbstractQuest {
 					}
 				});
 
-		//player zabil smoka ale nie ma potrzebnych resurce	
+		//player zabil smoka ale nie ma potrzebnych resurce
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, 0,"czar_latajacy"),
 								 new KilledForQuestCondition(QUEST_SLOT, 1),
@@ -1274,7 +1275,7 @@ public class KillDragons extends AbstractQuest {
 					}
 				});
 
-		//player zabil smoka ale nie ma potrzebnych resurce	
+		//player zabil smoka ale nie ma potrzebnych resurce
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, 0,"latajacy_zloty"),
 								 new KilledForQuestCondition(QUEST_SLOT, 1),
@@ -1362,7 +1363,7 @@ public class KillDragons extends AbstractQuest {
 					}
 				});
 
-		//player zabil smoka ale nie ma potrzebnych resurce	
+		//player zabil smoka ale nie ma potrzebnych resurce
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, 0,"wawelski"),
 								 new KilledForQuestCondition(QUEST_SLOT, 1),
@@ -1451,10 +1452,10 @@ public class KillDragons extends AbstractQuest {
 			res.add("Nie mam ochoty na walkę ze smokami.");
 			return res;
 		}
-		res.add("Alicja ma koszmary nocne. Mam zabić zielonego smoka i przynieść 5 skór zielonego smoka."); 
+		res.add("Alicja ma koszmary nocne. Mam zabić zielonego smoka i przynieść 5 skór zielonego smoka.");
 		if ("start".equals(questState)) {
 			return res;
-		} 
+		}
 		res.add("Zabiłem zielonego smoka i zaniosłem Alicji jego skóry!");
 		if (questState.startsWith("czas_szkielet")) {
 			if (new TimePassedCondition(QUEST_SLOT,1,DELAY_IN_MINUTES).fire(player, null, null)) {
@@ -1484,7 +1485,7 @@ public class KillDragons extends AbstractQuest {
 		res.add("Powiedz: pomoge.");
 		if ("niebieski?".equals(questState)) {
 			return res;
-		} 
+		}
 		res.add("Alicja ma dalej koszmary nocne. Tym razem mam zabić błękitnego smoka i przynieść 5 skór niebieskiego smoka.");
 		if ("niebieski".equals(questState)) {
 			return res;
@@ -1573,7 +1574,7 @@ public class KillDragons extends AbstractQuest {
 		res.add("Alicja ma dalej koszmary nocne. Tym razem mam zabić niebieskiego dwugłowego smoka i przynieść 10 skór niebieskiego smoka.");
 		if ("dwa_niebieski".equals(questState)) {
 			return res;
-		} 
+		}
 		res.add("Zabiłem niebieskiego smoka i zaniosłem Alicji skóry!");
 		if (questState.startsWith("czas_dwu_zielony")) {
 			if (new TimePassedCondition(QUEST_SLOT,1,DELAY_IN_MINUTES).fire(player, null, null)) {
@@ -1590,7 +1591,7 @@ public class KillDragons extends AbstractQuest {
 		res.add("Alicja ma dalej koszmary nocne. Tym razem mam zabić zielonego dwugłowego smoka i przynieść 10 skór zielonego smoka.");
 		if ("dwu_zielony".equals(questState)) {
 			return res;
-		} 
+		}
 		res.add("Zabiłem zielonego dwugłowego smoka i zaniosłem Alicji skóry!");
 		if (questState.startsWith("czas_arktyczny")) {
 			if (new TimePassedCondition(QUEST_SLOT,1,DELAY_IN_MINUTES).fire(player, null, null)) {
@@ -1607,7 +1608,7 @@ public class KillDragons extends AbstractQuest {
 		res.add("Alicja ma dalej koszmary nocne. Tym razem mam zabić arktycznego smoka i przynieść 10 kłów smoka.");
 		if ("arktyczny".equals(questState)) {
 			return res;
-		} 
+		}
 		res.add("Zabiłem arktycznego smoka i zaniosłem Alicji kły smoka!");
 		if (questState.startsWith("czas_dru_czerwony")) {
 			if (new TimePassedCondition(QUEST_SLOT,1,DELAY_IN_MINUTES).fire(player, null, null)) {
@@ -1730,5 +1731,10 @@ public class KillDragons extends AbstractQuest {
 	@Override
 	public String getNPCName() {
 		return "Alicja";
+	}
+
+	@Override
+	public String getRegion() {
+		return Region.ZAKOPANE_CITY;
 	}
 }

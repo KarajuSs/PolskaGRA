@@ -61,7 +61,7 @@ import java.util.Map;
  * 
  * REWARD:
  * <ul>
- * <li>50 XP</li>
+ * <li>500 XP</li>
  * <li>4 antidote</li>
  * <li>Karma: 10</li>
  * </ul>

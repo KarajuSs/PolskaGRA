@@ -34,7 +34,7 @@ import java.util.List;
  * 
  * STEPS: - Talk to Io to activate the quest and keep speaking with Io.
  * 
- * REWARD: - 10 XP - 5 gold coins
+ * REWARD: - 250 XP - 50 gold coins
  * 
  * REPETITIONS: - As much as wanted, but you only get the reward once.
  */
@@ -146,8 +146,8 @@ public class MeetIo extends AbstractQuest {
 			null);
 
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
-		reward.add(new EquipItemAction("money", 10));
-		reward.add(new IncreaseXPAction(10));
+		reward.add(new EquipItemAction("money", 50));
+		reward.add(new IncreaseXPAction(250));
 		reward.add(new SetQuestAction(QUEST_SLOT, "done"));		
 
 		npc.add(ConversationStates.INFORMATION_6,

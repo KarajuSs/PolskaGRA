@@ -44,7 +44,7 @@ import java.util.List;
  * </ul>
  * REWARD:<ul>
  * <li> 3 pies
- * <li> 100 XP
+ * <li> 275 XP
  * <li> 10 Karma
  * </ul>
  * REPETITIONS: <ul><li> None.</ul>
@@ -206,7 +206,7 @@ public class ToysCollector extends AbstractQuest implements
 				"tarta");
 		pie.setQuantity(3);
 		player.equipOrPutOnGround(pie);
-		player.addXP(100);
+		player.addXP(275);
 		player.addKarma(10.0);
 	}
 

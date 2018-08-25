@@ -194,12 +194,12 @@ public class Portal extends Entity implements UseListener {
 	 */
 	protected boolean usePortal(final Player player) {
 		if (!player.isZoneChangeAllowed()) {
-			player.sendPrivateText("For some reason you cannot get through right now.");
+			player.sendPrivateText("Z jakiegoś powodu nie możesz teraz przejść.");
 			return false;
 		}
 
 		if (!nextTo(player) && has("use")) {
-			player.sendPrivateText("You must come closer before you can use this orb.");
+			player.sendPrivateText("Musisz podejść bliżej, aby użyć kryształu.");
 			return false;
 		}
 
@@ -208,9 +208,9 @@ public class Portal extends Entity implements UseListener {
 			// The pathfinder will do the rest of the work and make the player pass through the portal
 			// Check that mouse movement is allowed first
 			if (!player.getZone().isMoveToAllowed()) {
-				player.sendPrivateText("Mouse movement is not possible here. Use your keyboard.");
+				player.sendPrivateText("Nie jest możliwe posługiwanie się myszką. Użyj klawiatury.");
 			} else if (player.hasStatus(StatusType.POISONED)) {
-				player.sendPrivateText("Poison has disoriented you and you cannot move normally. You only seem able to walk backwards and cannot plan out any route in advance.");
+				player.sendPrivateText("Trucizna zdezorientowała Ciebie i nie możesz normalnie się poruszać. Możesz iść wstecz i nie możesz zaplanować trasy.");
 			} else {
 				final List<Node> path = Path.searchPath(player, this.getX(), this.getY());
 				player.setPath(new FixedPath(path, false));

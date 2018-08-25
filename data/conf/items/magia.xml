@@ -47,9 +47,9 @@
 		</equipable>
 	</item>
 
-	<item name="magia płomieni">
-		<type class="magia" subclass="mana_red" tileid="-1"/>
-		<description>Oto magia płomieni. Czar rzucony za jej pomocą spali twoich wrogów na proch!</description>
+	<item name="magia ziemi">
+		<type class="magia" subclass="mana_green" tileid="-1"/>
+		<description>Oto magia ziemi. Czar rzucony za jej pomocą ma moc odebierania życia!</description>
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
 			<atk value="9"/>
@@ -60,7 +60,7 @@
 		</attributes>
 		<weight value="0.1"/>
 		<value value="2160"/>
-		<damage type="fire"/>
+		<damage type="nature"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
@@ -70,10 +70,10 @@
 			<slot name="rhand"/>
 		</equipable>
 	</item>
-
-	<item name="magia ziemi">
-		<type class="magia" subclass="mana_green" tileid="-1"/>
-		<description>Oto magia ziemi. Czar rzucony za jej pomocą ma moc odebierania życia!</description>
+	
+	<item name="magia płomieni">
+		<type class="magia" subclass="mana_red" tileid="-1"/>
+		<description>Oto magia płomieni. Czar rzucony za jej pomocą spali twoich wrogów na proch!</description>
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
 			<atk value="11"/>
@@ -84,7 +84,7 @@
 		</attributes>
 		<weight value="0.1"/>
 		<value value="2160"/>
-		<damage type="nature"/>
+		<damage type="fire"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>

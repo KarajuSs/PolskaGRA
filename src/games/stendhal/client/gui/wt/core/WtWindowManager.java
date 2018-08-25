@@ -100,20 +100,11 @@ public final class WtWindowManager {
 			}
 		}
 
-		try {
-			final OutputStream os = Persistence.get().getOutputStream(false,
-					stendhal.getGameFolder(), FILE_NAME);
-			try {
-				// ISO-8859-1 is the charset that Properties.load() wants.
-				final OutputStreamWriter writer = new OutputStreamWriter(os, "ISO-8859-1");
-				try {
-					writer.append(buf.toString());
-				} finally {
-					writer.close();
-				}
-			} finally {
-				os.close();
-			}
+		// ISO-8859-1 is the charset that Properties.load() wants.
+		try (OutputStream os = Persistence.get().getOutputStream(false,
+				stendhal.getGameFolder(), FILE_NAME);
+				OutputStreamWriter writer = new OutputStreamWriter(os, "ISO-8859-1")) {
+			writer.append(buf.toString());
 		} catch (final IOException e) {
 			// ignore exception
 			logger.error("Can't write " + stendhal.getGameFolder() + FILE_NAME, e);
@@ -182,21 +173,25 @@ public final class WtWindowManager {
 
 		return MathHelper.parseIntDefault(value, defaultValue);
 	}
-
+	
 	/**
-	public String getPropertyInt(final int key, final String defaultValue) {
-		return properties.getProperty("config." + key, defaultValue);
-	}
-
-	public int getPropertyIntInt(int key, int defaultValue) {
-		String value = getPropertyInt(key, null);
+	 * Returns a boolean property.
+	 *
+	 * @param key
+	 *            Key to look up
+	 * @param defaultValue
+	 *            default value which is returned if the key is not in the
+	 *            configuration file or not a valid boolean
+	 * @return value
+	 */
+	public boolean getPropertyBoolean(String key, boolean defaultValue) {
+		String value = getProperty(key, null);
 		if (value == null) {
 			return defaultValue;
 		}
-
-		return MathHelper.parseIntDefault(value, defaultValue);
+		
+		return Boolean.parseBoolean(value);
 	}
-	*/
 
 	/**
 	 * Register a change listener for a specific configuration change.

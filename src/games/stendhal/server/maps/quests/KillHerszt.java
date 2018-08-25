@@ -37,6 +37,7 @@ import games.stendhal.server.entity.npc.condition.QuestInStateCondition;
 import games.stendhal.server.entity.npc.condition.QuestStateStartsWithCondition;
 import games.stendhal.server.entity.npc.condition.TimePassedCondition;
 import games.stendhal.server.entity.player.Player;
+import games.stendhal.server.maps.Region;
 import games.stendhal.server.util.TimeUtil;
 import marauroa.common.Pair;
 
@@ -47,7 +48,7 @@ import marauroa.common.Pair;
  * <ul>
  * <li> Gazda Jędrzej
  * </ul>
- * 
+ *
  * STEPS:
  * <ul>
  * <li> Gazda Jędrzej asks you to kill remainging zbójniks and banits from area
@@ -61,10 +62,10 @@ import marauroa.common.Pair;
  * <li> Karma: 20
  * <li> Once base HP bonus of 20
  * </ul>
- * 
+ *
  * REPETITIONS:
  * <ul>
- * <li> not for players with red skull.
+ * <li> not for players with white skull.
  * <li> from 30 level.
  * <li> after 14 days.
  * </ul>
@@ -76,7 +77,7 @@ public class KillHerszt extends AbstractQuest {
 	private static final String GAZDA_JEDRZEJ_BASEHP_QUEST_SLOT = "gazda_jedrzej_basehp";
 	private static final String GAZDA_JEDRZEJ_NAGRODA_QUEST_SLOT = "gazda_jedrzej_nagroda";
 
-	
+
 	@Override
 	public String getSlotName() {
 		return QUEST_SLOT;
@@ -244,5 +245,10 @@ public class KillHerszt extends AbstractQuest {
 	@Override
 	public String getNPCName() {
 		return "Gazda Jędrzej";
+	}
+
+	@Override
+	public String getRegion() {
+		return Region.ZAKOPANE_CITY;
 	}
 }

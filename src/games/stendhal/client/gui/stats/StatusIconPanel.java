@@ -157,7 +157,7 @@ class StatusIconPanel extends JComponent {
 	void setAway(String message) {
 		boolean isAway = message != null;
 		if (isAway) {
-			away.setToolTipText("<html>You are away with the message:<br><b>" + message);
+			away.setToolTipText("<html>Jesteś oddalony z wiadomością:<br><b>" + message);
 		}
 		if (away.isVisible() != isAway) {
 			away.setVisible(isAway);

@@ -18,7 +18,7 @@ public class QuestCompletedPortal extends AccessCheckingPortal {
 	private final String questslot;
 
 	public QuestCompletedPortal(final String questslot) {
-		this(questslot, "I am not prepared to go there.");
+		this(questslot, "Nie jestem gotowy, aby tam pójść.");
 	}
 
 	public QuestCompletedPortal(final String questslot, final String rejectMessage) {

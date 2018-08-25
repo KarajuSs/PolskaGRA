@@ -43,7 +43,7 @@ public class TradeCenterMarketSlot extends EntitySlot {
 	@Override
 	public boolean isReachableForTakingThingsOutOfBy(final Entity entity) {
 		if (!(entity instanceof SpeakerNPC)) {
-			setErrorMessage("Only the trade manager may access this " + getName());
+			setErrorMessage("Tylko menedżerowie handlu mają dostęp do " + getName());
 			return false;
 		}
 		return true;

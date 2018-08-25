@@ -31,32 +31,33 @@ import games.stendhal.server.entity.npc.condition.QuestCompletedCondition;
 import games.stendhal.server.entity.npc.condition.QuestInStateCondition;
 import games.stendhal.server.entity.npc.condition.QuestNotCompletedCondition;
 import games.stendhal.server.entity.player.Player;
+import games.stendhal.server.maps.Region;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * QUEST: Scythe For Fryderyk 
- * 
- * PARTICIPANTS: 
+ * QUEST: Scythe For Fryderyk
+ *
+ * PARTICIPANTS:
  * <ul>
  * <li>Monogenes, an old man in Semos city.</li>
  * </ul>
- * 
+ *
  * STEPS:
- * <ul> 
+ * <ul>
  * <li> Monogenes asks you to buy a hat for him.</li>
  * <li> Xin Blanca sells you a leather helmet.</li>
  * <li> Monogenes sees your leather helmet and asks for it and then thanks you.</li>
  * </ul>
- * 
- * REWARD: 
+ *
+ * REWARD:
  * <ul>
- * <li>50 XP</li>
+ * <li>2200 XP</li>
  * <li>Karma: 10</li>
  * </ul>
- * 
+ *
  * REPETITIONS: - None.
  */
 public class ScytheForFryderyk extends AbstractQuest {
@@ -76,7 +77,7 @@ public class ScytheForFryderyk extends AbstractQuest {
 			return res;
 		}
 		res.add("Mam przynieść Fryderykowi kosę.");
-		if ((player.isQuestInState(QUEST_SLOT, "start") 
+		if ((player.isQuestInState(QUEST_SLOT, "start")
 				&& player.isEquipped("kosa"))
 				|| player.isQuestCompleted(QUEST_SLOT)) {
 			res.add("Znalazłem kosę.");
@@ -93,7 +94,7 @@ public class ScytheForFryderyk extends AbstractQuest {
 		fryderyk.add(ConversationStates.ATTENDING,
 			ConversationPhrases.QUEST_MESSAGES,
 			new QuestNotCompletedCondition(QUEST_SLOT),
-			ConversationStates.QUEST_OFFERED, 
+			ConversationStates.QUEST_OFFERED,
 			"Czy mógłbyś przynieść mi #kosę? Potrzebuję ją do żniw.",
 			null);
 
@@ -151,7 +152,7 @@ public class ScytheForFryderyk extends AbstractQuest {
 
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
 		reward.add(new DropItemAction("kosa"));
-		reward.add(new IncreaseXPAction(500));
+		reward.add(new IncreaseXPAction(2200));
 		reward.add(new IncreaseKarmaAction(25));
 		reward.add(new EquipItemAction("skórzany hełm"));
 		reward.add(new SetQuestAction(QUEST_SLOT, "done"));
@@ -192,5 +193,10 @@ public class ScytheForFryderyk extends AbstractQuest {
 	@Override
 	public String getNPCName() {
 		return "Fryderyk";
+	}
+
+	@Override
+	public String getRegion() {
+		return Region.ZAKOPANE_CITY;
 	}
 }

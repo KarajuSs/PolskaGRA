@@ -86,12 +86,7 @@ public final class ItemListImageViewerEvent extends ViewPanel {
 	@Override
 	public void prepareView(final Dimension maxSize) {
 		Dimension screenSize = GameScreen.get().getSize();
-		int maxPreferredWidth;
-		if (screenSize.width >= 1424) {
-			maxPreferredWidth = screenSize.width - 520;
-		} else {
-			maxPreferredWidth = screenSize.width - 120;
-		}
+		int maxPreferredWidth = screenSize.width - 80;
 		if (event.has("caption")) {
 			JLabel caption = new JLabel("<html><div width=" + (maxPreferredWidth
 					- 10) + ">" + event.get("caption") + "</div></html>");

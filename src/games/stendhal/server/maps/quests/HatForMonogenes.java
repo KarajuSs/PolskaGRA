@@ -53,7 +53,7 @@ import java.util.List;
  * 
  * REWARD: 
  * <ul>
- * <li>50 XP</li>
+ * <li>300 XP</li>
  * <li>Karma: 10</li>
  * </ul>
  * 
@@ -152,7 +152,7 @@ public class HatForMonogenes extends AbstractQuest {
 
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
 		reward.add(new DropItemAction("skórzany hełm"));
-		reward.add(new IncreaseXPAction(50));
+		reward.add(new IncreaseXPAction(300));
 		reward.add(new IncreaseKarmaAction(10));
 		reward.add(new SetQuestAction(QUEST_SLOT, "done"));
 

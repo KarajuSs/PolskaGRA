@@ -206,7 +206,7 @@ public class RandomDestinationPortal extends QuestCompletedPortal {
 	protected boolean usePortal(final Player player) {
 		if (!nextTo(player)) {
 			// Too far to use the portal
-			player.sendPrivateText("You must stand nearer to use the orb.");
+			player.sendPrivateText("Musisz stanąć bliżej, aby skorzystać z kuli.");
 			return false;
 		}
 
@@ -214,7 +214,7 @@ public class RandomDestinationPortal extends QuestCompletedPortal {
 
 		// Would happen if the player was below the minimum level for any location
 		if (location == null) {
-			player.sendPrivateText("You can not concentrate well enough to use this orb.");
+			player.sendPrivateText("Nie możesz się skoncentrować na tyle, aby użyć kuli.");
 			return false;
 		}
 

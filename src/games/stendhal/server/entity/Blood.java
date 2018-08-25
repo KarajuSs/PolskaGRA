@@ -101,7 +101,7 @@ public class Blood extends PassiveEntity {
 	 */
 	@Override
 	public String describe() {
-		return ("You see a pool of blood.");
+		return ("Karmazynowa plama krwi zbrukała to miejsce.");
 	}
 
 	//

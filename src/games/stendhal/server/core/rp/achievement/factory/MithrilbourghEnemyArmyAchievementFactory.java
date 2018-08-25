@@ -1,5 +1,5 @@
 /***************************************************************************
- *                   (C) Copyright 2003-2013 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -16,6 +16,7 @@ import java.util.LinkedList;
 
 import games.stendhal.server.core.rp.achievement.Achievement;
 import games.stendhal.server.core.rp.achievement.Category;
+import games.stendhal.server.entity.npc.condition.QuestStateGreaterThanCondition;
 
 /**
  * Factory for MithrilbourghEnemyArmyAchievement
@@ -32,12 +33,16 @@ public class MithrilbourghEnemyArmyAchievementFactory extends AbstractAchievemen
 		LinkedList<Achievement> achievements = new LinkedList<Achievement>();
 
 		// Index where number of completions is stored
-		// final int INDEX = 3;
+		final int IDX = 3;
 
-		/* Disabled until ready to implement
-		achievements.add(createAchievement("quest.special.weekly_army.0005", "Sergeant", "Ukończ zadanie Kill Enemy Army 5 razy",
-				Achievement.MEDIUM_BASE_SCORE, false,
-				new QuestStateGreaterThanCondition("kill_enemy_army", INDEX, 4)));*/
+		achievements.add(createAchievement("quest.special.kill_enemy_army.0005", "Sierżant", "Ukończ zadanie 'Kill Enemy Army' 5 razy",
+				Achievement.MEDIUM_BASE_SCORE, true, new QuestStateGreaterThanCondition("kill_enemy_army", IDX, 4)));
+		achievements.add(createAchievement("quest.special.kill_enemy_army.0025", "Major", "Ukończ zadanie 'Kill Enemy Army' 25 razy",
+				Achievement.HARD_BASE_SCORE, true, new QuestStateGreaterThanCondition("kill_enemy_army", IDX, 24)));
+		achievements.add(createAchievement("quest.special.kill_enemy_army.0050", "Główny generał", "Ukończ zadanie 'Kill Enemy Army' 50 razy",
+				Achievement.HARD_BASE_SCORE, true, new QuestStateGreaterThanCondition("kill_enemy_army", IDX, 49)));
+		achievements.add(createAchievement("quest.special.kill_enemy_army.0100", "Marszałek polowy", "Ukończ zadanie 'Kill Enemy Army' 100 razy",
+				Achievement.HARD_BASE_SCORE, true, new QuestStateGreaterThanCondition("kill_enemy_army", IDX, 99)));
 
 		return achievements;
 	}

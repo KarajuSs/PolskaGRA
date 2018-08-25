@@ -33,7 +33,7 @@ public class PlayerSlot extends EntitySlot {
 
 	@Override
 	public boolean isReachableForTakingThingsOutOfBy(final Entity entity) {
-		setErrorMessage("Hey, no pickpocketing.");
+		setErrorMessage("Hej żadnych kradzieży.");
 		return super.hasAsAncestor(entity);
 	}
 }

@@ -73,6 +73,7 @@ public abstract class AbstractAchievementFactory {
 		list.add(new SemosMonsterQuestAchievementFactory());
 		list.add(new UndergroundZoneAchievementFactory());
 		list.add(new KirdnehItemAchievementFactory());
+		list.add(new MithrilbourghEnemyArmyAchievementFactory());
 		list.add(new ZakopaneItemQuestAchievementsFactory());
 		//list.add(new GdanskJewelleryQuestAchievementFactory());
 		return list;

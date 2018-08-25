@@ -90,9 +90,9 @@ public class Player extends RPEntity {
 			away = message;
 			fireChange(PROP_AWAY);
 			if (message != null) {
-				addTextIndicator("Away", NotificationType.INFORMATION);
+				addTextIndicator("Zajęty", NotificationType.INFORMATION);
 			} else {
-				addTextIndicator("Back", NotificationType.INFORMATION);
+				addTextIndicator("Powrócił", NotificationType.INFORMATION);
 			}
 		}
 	}
@@ -118,9 +118,9 @@ public class Player extends RPEntity {
 			grumpy = message;
 			fireChange(PROP_GRUMPY);
 			if (message != null) {
-				addTextIndicator("Grumpy", NotificationType.INFORMATION);
+				addTextIndicator("Niedostępny", NotificationType.INFORMATION);
 			} else {
-				addTextIndicator("Receptive", NotificationType.INFORMATION);
+				addTextIndicator("Dostępny", NotificationType.INFORMATION);
 			}
 		}
 	}
