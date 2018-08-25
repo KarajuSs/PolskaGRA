@@ -218,9 +218,9 @@ public class StendhalQuestSystem {
 		/** 					**\
 		 *        KRAKÓW		 *
 		\**	                    **/
-		//loadQuest(new SolveWoodcutterTest());
-		//loadQuest(new PierscienBarona());
-		//loadQuest(new WawelBrama());
+		loadQuest(new SolveWoodcutterTest());
+		loadQuest(new PierscienBarona());
+		loadQuest(new WawelBrama());
 		/** 					**\
 		 *     DRAGON_KNIGHTS	 *
 		\**	                    **/
@@ -245,7 +245,7 @@ public class StendhalQuestSystem {
 		\**	                    **/
 		//loadQuest(new BiletTurystyczny());
 		//loadQuest(new DragonsGuard());
-		//loadQuest(new MeetGuslarz());
+		loadQuest(new MeetGuslarz());
 		//loadQuest(new WhereDragon());
 
 		if (System.getProperty("stendhal.christmas") != null) {
