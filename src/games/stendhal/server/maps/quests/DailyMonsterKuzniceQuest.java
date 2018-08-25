@@ -55,7 +55,7 @@ import org.apache.log4j.Logger;
 
 public class DailyMonsterKuzniceQuest extends AbstractQuest {
 
-	private static final String QUEST_SLOT = "daily_kuznice_kill_monster";
+	private static final String QUEST_SLOT = "daily_kuznice";
 	private final SpeakerNPC npc = npcs.get("Sołtys");
 	private static Logger logger = Logger.getLogger("DailyMonsterKuzniceQuest");
 
