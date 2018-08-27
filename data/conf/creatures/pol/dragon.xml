@@ -28,6 +28,11 @@
 			<item value="skóra czarnego smoka" quantity="[1,1]" probability="5.0"/>
 		</drops>
 		<equips/>
+		<abilities>
+			<damage type="dark"/>
+			<susceptibility type="dark" value="0.8"/>
+			<susceptibility type="light" value="1.2"/>
+		</abilities>
 		<ai>
 			<profile name="brave"/>
 			<profile name="animal"/>
@@ -36,7 +41,7 @@
 			<profile name="patrolling"/>
 		</ai>
 	</creature>
-	
+
 	<creature name="dwugłowy lodowy smok">
 		<type class="pol/smoki" subclass="smok_dwuglowy_lodowy" tileid="pol_smoki.png:10"/>
 		<description/>
@@ -61,6 +66,11 @@
 			<item value="skóra arktycznego smoka" quantity="[1,1]" probability="5.0"/>
 		</drops>
 		<equips/>
+		<abilities>
+			<damage type="ice"/>
+			<susceptibility type="ice" value="0.8"/>
+			<susceptibility type="fire" value="1.2"/>
+		</abilities>
 		<ai>
 			<profile name="brave"/>
 			<profile name="animal"/>
@@ -95,6 +105,11 @@
 			<item value="skóra czerwonego smoka" quantity="[1,1]" probability="5.0"/>
 		</drops>
 		<equips/>
+		<abilities>
+			<damage type="fire"/>
+			<susceptibility type="fire" value="0.8"/>
+			<susceptibility type="water" value="1.2"/>
+		</abilities>
 		<ai>
 			<profile name="brave"/>
 			<profile name="animal"/>
@@ -129,6 +144,11 @@
 			<item value="skóra zielonego smoka" quantity="[1,1]" probability="5.0"/>
 		</drops>
 		<equips/>
+		<abilities>
+			<damage type="nature"/>
+			<susceptibility type="nature" value="0.8"/>
+			<susceptibility type="fire" value="1.2"/>
+		</abilities>
 		<ai>
 			<profile name="brave"/>
 			<profile name="animal"/>
@@ -137,7 +157,7 @@
 			<profile name="patrolling"/>
 		</ai>
 	</creature>
-	
+
 	<creature name="lodowy smok">
 		<type class="pol/smoki" subclass="smok_lodowy" tileid="pol_smoki.png:11"/>
 		<description/>
@@ -161,6 +181,11 @@
 			<item value="skóra arktycznego smoka" quantity="[1,1]" probability="0.1"/>
 		</drops>
 		<equips/>
+		<abilities>
+			<damage type="ice"/>
+			<susceptibility type="ice" value="0.8"/>
+			<susceptibility type="fire" value="1.2"/>
+		</abilities>
 		<ai>
 			<profile name="brave"/>
 			<profile name="animal"/>
@@ -260,6 +285,11 @@
 			<item value="skóra arktycznego smoka" quantity="[1,1]" probability="5.0"/>
 		</drops>
 		<equips/>
+		<abilities>
+			<damage type="ice"/>
+			<susceptibility type="ice" value="0.8"/>
+			<susceptibility type="fire" value="1.2"/>
+		</abilities>
 		<ai>
 			<profile name="brave"/>
 			<profile name="animal"/>
@@ -409,5 +439,4 @@
 		</ai>
 	</creature>
 	<!-- END: smoki -->
-
 </creatures>
