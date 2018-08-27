@@ -61,7 +61,7 @@ public class WeaponsCollector extends AbstractQuest implements
 	private static final String QUEST_SLOT = "weapons_collector";
 
   private BringListOfItemsQuestLogic bringItems;
-	
+
 	@Override
 	public List<String> getHistory(final Player player) {
 		return bringItems.getHistory(player);
@@ -132,7 +132,7 @@ public class WeaponsCollector extends AbstractQuest implements
 	@Override
 	public boolean shouldWelcomeAfterQuestIsCompleted() {
 		// because of WeaponsCollector2
-		return false; 
+		return false;
 	}
 
 	@Override
@@ -239,7 +239,7 @@ public class WeaponsCollector extends AbstractQuest implements
 	public String getNPCName() {
 		return "Balduin";
 	}
-	
+
 	@Override
 	public String getRegion() {
 		return Region.ADOS_SURROUNDS;
