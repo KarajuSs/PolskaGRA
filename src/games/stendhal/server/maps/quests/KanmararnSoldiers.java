@@ -262,7 +262,7 @@ public class KanmararnSoldiers extends AbstractQuest {
 				Arrays.asList("treasure", "skarb"),
 				null,
 				ConversationStates.QUEST_OFFERED,
-				"Duży skarb jest #gdzieś w tych podziemiach. Pomożesz mi znalexć moją drużynę?",
+				"Duży skarb jest #gdzieś w tych podziemiach. Pomożesz mi znaleźć moją drużynę?",
 				null);
 
 		henry.add(ConversationStates.QUEST_OFFERED,
