@@ -3,16 +3,28 @@
 1.04
 *klient*
 - natura broni służy do ustawienia ikonki walki, jeśli jest dostępna
+- dodano 3 nowe potwory
 
 
 *świat gry*
-- Dodano nowe rękawice wampirze (ATK: 2; DEF: 5; LIFESTEAL: 0.05)
+- Dodano nowe rękawice wampirze (ATK: 2; DEF: 5; LIFESTEAL: 0.05), które można dropnąć z lorda wampirów (0.04%)
+- Dodano nowe expowiska na desert'cie (6 pięter nowej piramidy)
 - Miecz ognisty stał się lżejszy dla rycerzy, ale niestety jego siła się zmniejszyła, a lodowy miecz stał się lustrzanym odbiciem miecza ognistego (atk; waga;)
 	- miecz ognisty - 29 / 5 + FIRE
 	- lodowy miecz  - 29 / 5 + ICE
 - Zebranie magów przedyskutowało temat magii ognia i magii ziemi. Doszli do wniosku, że to magia ognia jest bardziej niebezpieczna (atk; obr;)
 	- magia ziemi - 9 / 9 + NATURE (wcześniej - 11 / 11 + NATURE)
 	- magia ognia - 11 / 11 + FIRE (wcześniej - 9 / 9 + FIRE)
+- Dodano nowego dwugłowego lodowego smoka, który posiada stare statystyki dwugłowego czarnego smoka, a aktualne statystyki dwugłowego czarnego wyglądają następująco (w nawiasie są jego stare statystyki):
+	- ATK: 3817 (3052)
+	- DEF: 129 (110)
+	- HP: 7593 (6873)
+	- LEVEL: 499 (399)
+	- XP: 486253 (312827)
+- Poszerzono przejścia w ognistej piramidzie
+- U Juhasa można zakupić bilet turystyczny raz na dzień oraz gracz musi posiadać conajmniej 100 poziom. Juhas reaguje na słowo "bilet" lub "bilet turystyczny", gdzie potem będą toczone kolejne dialogi z graczem. UWAGA!!! Juhas nie będzie reagował na "buy bilet turystyczny"!!
+- Dodano typ natury ataku dla smoków, np: dwugłowy czerwony smok posiada typ ataku ognistego, czyli fire, a dwugłowy czarny - dark, itd...
+- Zwiększono drop magii płomieni dla odpowiednich potworów
 
 
 *code*
