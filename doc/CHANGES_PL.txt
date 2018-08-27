@@ -24,7 +24,7 @@
 - Poszerzono przejścia w ognistej piramidzie
 - U Juhasa można zakupić bilet turystyczny raz na dzień oraz gracz musi posiadać conajmniej 100 poziom. Juhas reaguje na słowo "bilet" lub "bilet turystyczny", gdzie potem będą toczone kolejne dialogi z graczem. UWAGA!!! Juhas nie będzie reagował na "buy bilet turystyczny"!!
 - Dodano typ natury ataku dla smoków, np: dwugłowy czerwony smok posiada typ ataku ognistego, czyli fire, a dwugłowy czarny - dark, itd...
-- Zwiększono drop magii płomieni dla odpowiednich potworów
+- Zwiększono drop magii płomieni z odpowiednich potworów
 
 
 *code*
