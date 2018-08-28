@@ -2,8 +2,9 @@
 ---------
 1.04
 *klient*
-- natura broni służy do ustawienia ikonki walki, jeśli jest dostępna
-- dodano 3 nowe potwory
+- Natura broni służy do ustawienia ikonki walki, jeśli jest dostępna
+- Dodano 3 nowe potwory
+- Poprawiono graficznie ubrania dress_62-68.png
 
 
 *świat gry*
