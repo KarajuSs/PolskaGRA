@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -21,12 +20,13 @@ import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.condition.GreetingMatchesNameCondition;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 /**
- * Builds a Teacher NPC who flies on a broomstick. 
+ * Builds a Teacher NPC who flies on a broomstick.
  *
  * @author kymara
  */
@@ -62,13 +62,14 @@ public class TeacherNPC implements ZoneConfigurator {
 						new GreetingMatchesNameCondition(getName()), true,
 						ConversationStates.IDLE, "Siedź cicho i obserwuj mnie!", null);
 	 	     }
-		    
+
 		};
 
 		npc.setDescription("Oto wiedźma latająca na miotle. Wygląda na to, że robi pokaz dla grupy uczniów.");
 		npc.setEntityClass("witch3npc");
 		npc.setPosition(29, 19);
 		npc.initHP(100);
+		npc.setSounds(Arrays.asList("witch-cackle-1"));
 		zone.add(npc);
 	}
 }
