@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -12,6 +11,9 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import games.stendhal.common.MathHelper;
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -22,7 +24,6 @@ import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.action.MultipleActions;
-import games.stendhal.server.entity.npc.action.SetQuestAction;
 import games.stendhal.server.entity.npc.action.SetQuestAndModifyKarmaAction;
 import games.stendhal.server.entity.npc.condition.AndCondition;
 import games.stendhal.server.entity.npc.condition.GreetingMatchesNameCondition;
@@ -32,9 +33,6 @@ import games.stendhal.server.entity.npc.condition.TimePassedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 
-import java.util.LinkedList;
-import java.util.List;
-
 /**
  * QUEST: Kill Spiders
  * <p>
@@ -42,7 +40,7 @@ import java.util.List;
  * <ul>
  * <li> Morgrin
  * </ul>
- * 
+ *
  * STEPS:
  * <ul>
  * <li> Groundskeeper Morgrin ask you to clean up the school basement
@@ -55,7 +53,7 @@ import java.util.List;
  * <li> 5000 XP
  * <li> 10 karma in total
  * </ul>
- * 
+ *
  * REPETITIONS:
  * <ul>
  * <li> after 7 days.
@@ -70,14 +68,14 @@ public class KillSpiders extends AbstractQuest {
 	public String getSlotName() {
 		return QUEST_SLOT;
 	}
-	
+
 	private void step_1() {
 		final SpeakerNPC npc = npcs.get("Morgrin");
 
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES, 
+				ConversationPhrases.QUEST_MESSAGES,
 				null,
-				ConversationStates.ATTENDING, 
+				ConversationStates.ATTENDING,
 				null,
 				new ChatAction() {
 					@Override
@@ -104,10 +102,10 @@ public class KillSpiders extends AbstractQuest {
 				});
 
 		final List<ChatAction> actions = new LinkedList<ChatAction>();
-		actions.add(new SetQuestAction(QUEST_SLOT, "started"));
+		actions.add(new SetQuestAndModifyKarmaAction(QUEST_SLOT, "started", 5.0));
 		//actions.add(new StartRecordingKillsAction(QUEST_SLOT,1,"spider", "poisonous spider", "giant spider"));
 
-		
+
 		npc.add(ConversationStates.QUEST_OFFERED,
 				ConversationPhrases.YES_MESSAGES,
 				null,
@@ -115,8 +113,8 @@ public class KillSpiders extends AbstractQuest {
 				"Dobrze. Zejdź na dół do piwnicy i zabij tam wszystkie potwory!",
 				new MultipleActions(actions));
 
-		npc.add(ConversationStates.QUEST_OFFERED, 
-				ConversationPhrases.NO_MESSAGES, 
+		npc.add(ConversationStates.QUEST_OFFERED,
+				ConversationPhrases.NO_MESSAGES,
 				null,
 				ConversationStates.ATTENDING,
 				"Dobrze, muszę znaleźć kogoś innego kto mi pomoże w tej 'małej' robótce!",
@@ -133,7 +131,7 @@ public class KillSpiders extends AbstractQuest {
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestInStateCondition(QUEST_SLOT, "start")),
-				ConversationStates.ATTENDING, 
+				ConversationStates.ATTENDING,
 				null,
 				new ChatAction() {
 					@Override
@@ -154,12 +152,12 @@ public class KillSpiders extends AbstractQuest {
 						}
 		 			}
 				});
-		
+
 		// support for new quests.
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestInStateCondition(QUEST_SLOT, 0, "started")),
-				ConversationStates.ATTENDING, 
+				ConversationStates.ATTENDING,
 				null,
 				new ChatAction() {
 					@Override
@@ -198,12 +196,12 @@ public class KillSpiders extends AbstractQuest {
 	public String getName() {
 		return "KillSpiders";
 	}
-	
+
 	@Override
 	public int getMinLevel() {
 		return 70;
 	}
-	
+
 	@Override
 	public List<String> getHistory(final Player player) {
  		LinkedList<String> history = new LinkedList<String>();
@@ -233,14 +231,14 @@ public class KillSpiders extends AbstractQuest {
 		}
 		if (sp2) {
 			history.add("Zabiłem pająka ptasznika w piwnicy.");
-		}			
+		}
 		if (sp3) {
 			history.add("Zabiłem królową pająków w piwnicy.");
 		}
 		if (sp1 && sp2 && sp3) {
 			history.add("Zabiłem wszystkie 3 pająki w piwnicy. Teraz wracam do Morgrin, aby odebra moją nagrodę.");
 		}
-		
+
 		// here is support for old-style quest
 		if (sp) {
 			final boolean osp1 = player.hasKilled("pająk");
@@ -259,16 +257,16 @@ public class KillSpiders extends AbstractQuest {
 				history.add("Zabiłem wszystkie 3 pająki w piwnicy. Teraz wracam do Morgrin, aby odebra moją nagrodę.");
 			}
 		}
-		
-		return history;		
+
+		return history;
 	}
-	
+
 	@Override
 	public boolean isRepeatable(final Player player) {
 		return new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT,"killed;"),
 				 new TimePassedCondition(QUEST_SLOT, 1, MathHelper.MINUTES_IN_ONE_WEEK)).fire(player,null, null);
 	}
-	
+
 	@Override
 	public boolean isCompleted(final Player player) {
 		return new QuestStateStartsWithCondition(QUEST_SLOT,"killed;").fire(player, null, null);
@@ -278,7 +276,7 @@ public class KillSpiders extends AbstractQuest {
 	public String getNPCName() {
 		return "Morgrin";
 	}
-	
+
 	@Override
 	public String getRegion() {
 		return Region.FADO_CAVES;

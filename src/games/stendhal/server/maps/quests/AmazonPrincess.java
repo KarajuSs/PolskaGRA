@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2011 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -11,6 +10,10 @@
  *                                                                         *
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import games.stendhal.common.Rand;
 import games.stendhal.common.grammar.Grammar;
@@ -25,7 +28,6 @@ import games.stendhal.server.entity.npc.action.EquipItemAction;
 import games.stendhal.server.entity.npc.action.InflictStatusOnNPCAction;
 import games.stendhal.server.entity.npc.action.MultipleActions;
 import games.stendhal.server.entity.npc.action.SayTimeRemainingAction;
-import games.stendhal.server.entity.npc.action.SetQuestAction;
 import games.stendhal.server.entity.npc.action.SetQuestAndModifyKarmaAction;
 import games.stendhal.server.entity.npc.condition.AndCondition;
 import games.stendhal.server.entity.npc.condition.NotCondition;
@@ -38,10 +40,6 @@ import games.stendhal.server.entity.npc.condition.QuestStateStartsWithCondition;
 import games.stendhal.server.entity.npc.condition.TimePassedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * QUEST: The Amazon Princess
@@ -82,9 +80,9 @@ public class AmazonPrincess extends AbstractQuest {
 	private void offerQuestStep() {
 		final SpeakerNPC npc = npcs.get("Princess Esclara");
 npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES, 
+				ConversationPhrases.QUEST_MESSAGES,
 				new QuestNotStartedCondition(QUEST_SLOT),
-				ConversationStates.QUEST_OFFERED, 
+				ConversationStates.QUEST_OFFERED,
 				"Napiłabym się drinka, powinien być egzotyczny. Czy możesz mi go przynieść?",
 				null);
 npc.add(ConversationStates.ATTENDING,
@@ -107,7 +105,7 @@ npc.add(ConversationStates.ATTENDING,
 		ConversationStates.ATTENDING,
 		null,
 		new SayTimeRemainingAction(QUEST_SLOT, 1, REQUIRED_MINUTES, "Jestem pełna, aby wypić następny napój przez co najmniej "));
-		
+
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.QUEST_MESSAGES, null,
 				ConversationStates.ATTENDING,
@@ -119,7 +117,7 @@ npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.YES_MESSAGES, null,
 				ConversationStates.ATTENDING,
 				"Dziękuję! Jeżeli go znajdziesz to powiedz #napój a będę wiedziała, że go masz. W zamian dam Ci nagrodę.",
-				new SetQuestAction(QUEST_SLOT, "start"));
+				new SetQuestAndModifyKarmaAction(QUEST_SLOT, "start", 5.0));
 
 		// Player says no, they've lost karma.
 		npc.add(ConversationStates.QUEST_OFFERED,
@@ -138,10 +136,10 @@ npc.add(ConversationStates.ATTENDING,
 		npc.add(
 			ConversationStates.ATTENDING, triggers,
 			new AndCondition(new QuestInStateCondition(QUEST_SLOT, "start"), new PlayerHasItemWithHimCondition("napój z oliwką")),
-			ConversationStates.ATTENDING, 
+			ConversationStates.ATTENDING,
 			null,
 			new MultipleActions(
-						new DropItemAction("napój z oliwką"), 
+						new DropItemAction("napój z oliwką"),
 						new ChatAction() {
 							@Override
 							public void fire(final Player player,
@@ -151,9 +149,9 @@ npc.add(ConversationStates.ATTENDING,
 								new EquipItemAction("tarta z rybnym nadzieniem", pieAmount, true).fire(player, sentence, npc);
 								npc.say("Dziękuję!! Weź tą " +
 										Grammar.thisthese(pieAmount) + " " +
-										Grammar.quantityplnoun(pieAmount, "tarta z rybnym nadzieniem", "") + 
+										Grammar.quantityplnoun(pieAmount, "tarta z rybnym nadzieniem", "") +
 										" z mojej kuchni i pocałunek ode mnie.");
-								new SetQuestAndModifyKarmaAction(getSlotName(), "drinking;" 
+								new SetQuestAndModifyKarmaAction(getSlotName(), "drinking;"
 																 + System.currentTimeMillis(), 15.0).fire(player, sentence, npc);
 							}
 						},
@@ -208,7 +206,7 @@ npc.add(ConversationStates.ATTENDING,
                 res.add("Dostarczyłem napój dla księżniczki, ale założę się, że jest gotowa na następny. Może będę miał więcej tart z rybą.");
             } else {
                 res.add("Princess Esclara uwielbia napój z oliwką, dostarczyłem go jej. Dostałem tartę z nadzieniem rybnym i pocałunek!!");
-            }			
+            }
 		}
 		return res;
 	}
@@ -222,29 +220,29 @@ npc.add(ConversationStates.ATTENDING,
 	public String getName() {
 		return "AmazonPrincess";
 	}
-	
+
 	// Amazon is dangerous below this level - don't hint to go there
 	@Override
 	public int getMinLevel() {
 		return 70;
 	}
-	
+
 	@Override
 	public boolean isRepeatable(final Player player) {
 		return new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT,"drinking;"),
 				 new TimePassedCondition(QUEST_SLOT, 1, REQUIRED_MINUTES)).fire(player,null, null);
 	}
-	
+
 	@Override
 	public boolean isCompleted(final Player player) {
 		return new QuestStateStartsWithCondition(QUEST_SLOT,"drinking;").fire(player, null, null);
 	}
-	
+
 	@Override
 	public String getRegion() {
 		return Region.AMAZON_ISLAND;
 	}
-	
+
 	@Override
 	public String getNPCName() {
 		return "Princess Esclara";
