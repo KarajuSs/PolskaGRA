@@ -236,7 +236,7 @@ public class KillSpiders extends AbstractQuest {
 			history.add("Zabiłem królową pająków w piwnicy.");
 		}
 		if (sp1 && sp2 && sp3) {
-			history.add("Zabiłem wszystkie 3 pająki w piwnicy. Teraz wracam do Morgrin, aby odebra moją nagrodę.");
+			history.add("Zabiłem wszystkie 3 pająki w piwnicy. Teraz wracam do Morgrin, aby odebrać moją nagrodę.");
 		}
 
 		// here is support for old-style quest
