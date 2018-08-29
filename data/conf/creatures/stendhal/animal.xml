@@ -1512,7 +1512,7 @@
 
 	<creature name="kaiman">
 		<type class="stendhal/animal" subclass="caiman" tileid="animal.png:6"/>
-		<description>Oto kaimany. Kryją się nad wodą.</description>
+		<description>Oto kaiman. Kryją się nad wodą.</description>
 		<attributes>
 			<atk value="49"/>
 			<def value="9"/>
@@ -1534,6 +1534,10 @@
 		<ai>
 			<says>
 				<noise state="idle follow fight" value="Grrr Grrr!"/>
+				<sound value="baby_croc-1" />
+        		<sound value="baby_croc-2" />
+        		<sound value="baby_croc-3" />
+        		<sound value="baby_croc-4" />
 			</says>
 			<profile name="animal"/>
 			<profile name="offensive"/>
