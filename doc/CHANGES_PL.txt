@@ -36,6 +36,7 @@
 - Dodany został dźwięk wiedźmy NPC Esolte Vietta
 - Tekstury na większości map zostały poprawione (np: Tatry, pustynia, dreamscape)
 - Na niektórych mapach Tatr rosną grzyby
+- Zmieniono system otrzymywania skilli za osiągnięty poziom z 50/100/150/200/250/300 na 50/100/150/350/550 (zmieniliśmy NPC, którzy nagradzali nas 'skillami' za osiągnięty poziom, lecz kiedy osiągniecie dany poziom i przejdziecie się do danego NPC to nie pożałujecie :) )
 
 
 *code*
