@@ -187,6 +187,7 @@ public class StendhalQuestSystem {
 		loadQuest(new HerbsForJadzka());
 		loadQuest(new KillDragons());
 		loadQuest(new KillHerszt());
+		loadQuest(new KillMtElves());
 		loadQuest(new Labirynt());
 		loadQuest(new MeetFryderyk());
 		loadQuest(new MeetPietrek());
