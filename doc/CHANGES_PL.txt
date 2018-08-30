@@ -3,8 +3,10 @@
 1.04
 *klient*
 - Natura broni służy do ustawienia ikonki walki, jeśli jest dostępna
-- Dodano 3 nowe potwory
+- Dodano nowe dźwieki kajmana
+- Dodano 4 nowe fryzury do wyboru dla postaci gracza
 - Poprawiono graficznie ubrania dress_62-68.png
+- Poprawiono graficznie elficki naszyjnik
 
 
 *świat gry*
@@ -26,6 +28,9 @@
 - U Juhasa można zakupić bilet turystyczny raz na dzień oraz gracz musi posiadać conajmniej 100 poziom. Juhas reaguje na słowo "bilet" lub "bilet turystyczny", gdzie potem będą toczone kolejne dialogi z graczem. UWAGA!!! Juhas nie będzie reagował na "buy bilet turystyczny"!!
 - Dodano typ natury ataku dla smoków, np: dwugłowy czerwony smok posiada typ ataku ognistego, czyli fire, a dwugłowy czarny - dark, itd...
 - Zwiększono drop magii płomieni z odpowiednich potworów
+- Kajmany wydają dźwieki
+- Dodany został dźwięk wiedźmy NPC Esolte Vietta
+- Tekstury na większości map zostały poprawione (np: Tatry, pustynia, dreamscape)
 
 
 *code*
