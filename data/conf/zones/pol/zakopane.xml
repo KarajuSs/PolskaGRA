@@ -1536,6 +1536,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 	
 	<!-- Bat Tower 3 -->
 	<zone name="int_zakopane_bat_tower_3"  file="interiors/zakopane/bat_tower_3.tmx">
+		<configurator class-name="games.stendhal.server.maps.zakopane.tower.WizardNPC"/>
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
 		<attributes>
 			<parameter name="color_method">time</parameter>
