@@ -35,6 +35,7 @@
 - Kajmany wydają dźwieki
 - Dodany został dźwięk wiedźmy NPC Esolte Vietta
 - Tekstury na większości map zostały poprawione (np: Tatry, pustynia, dreamscape)
+- Na niektórych mapach Tatr rosną grzyby
 
 
 *code*
