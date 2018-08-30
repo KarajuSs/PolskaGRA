@@ -181,6 +181,7 @@ public class StendhalQuestSystem {
 		/** 					**\
 		 *       ZAKOPANE		 *
 		\**	                    **/
+		loadQuest(new ClearTower());
 		loadQuest(new GazdaWojtekDailyItemQuest());
 		loadQuest(new HelpKrasnolud());
 		loadQuest(new HerbsForJadzka());
