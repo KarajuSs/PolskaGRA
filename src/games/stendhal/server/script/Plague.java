@@ -14,7 +14,6 @@ package games.stendhal.server.script;
 import java.util.List;
 
 import games.stendhal.common.MathHelper;
-import games.stendhal.server.core.config.annotations.ServerModeUtil;
 import games.stendhal.server.core.scripting.ScriptImpl;
 import games.stendhal.server.entity.creature.Creature;
 import games.stendhal.server.entity.creature.RaidCreature;

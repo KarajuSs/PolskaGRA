@@ -12,15 +12,11 @@
 package games.stendhal.server.script;
 
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.Task;
 import games.stendhal.server.core.scripting.ScriptImpl;
 import games.stendhal.server.entity.player.Player;
-import marauroa.server.game.container.PlayerEntry;
-import marauroa.server.game.container.PlayerEntryContainer;
 
 /**
  * Logout all players in the game.
