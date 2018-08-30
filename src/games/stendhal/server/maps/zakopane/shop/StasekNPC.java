@@ -43,12 +43,6 @@ public class StasekNPC implements ZoneConfigurator {
 		final SpeakerNPC npc = new SpeakerNPC("Stasek") {
 
 			@Override
-			protected void createPath() {
-				// NPC doesn't move
-				setPath(null);
-			}
-
-			@Override
 			protected void createDialog() {
 				addGreeting("Pozdrawiam, przyjacielu.");
 				addHelp("Może będziesz mi potrzebny...");
