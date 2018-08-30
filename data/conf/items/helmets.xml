@@ -373,7 +373,7 @@
 		<description>Widzisz hełm z mithrilu.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="19"/>
+			<def value="24"/>
 		</attributes>
 		<weight value="12.0"/>
 		<value value="323032"/>
