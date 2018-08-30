@@ -302,30 +302,11 @@ public class PochorowaneKonie extends AbstractQuest {
 					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
 						final String leki = Rand.rand(LEKI);
-						npc.say("Będę potrzebował " + ILE_LEKOW + " #'" + leki + "'. Przyniesiesz mi je?");
+						npc.say("Będę potrzebował " + ILE_LEKOW + " #'" + leki + "'. Jak będziesz to posiadał to przypomnij mi mówiąc #'" + leki + "'.");
 						player.setQuest(QUEST_SLOT, leki);
-					}
-				});
-		
-		npc.add(ConversationStates.QUEST_OFFERED,
-				ConversationPhrases.YES_MESSAGES, null,
-				ConversationStates.IDLE, null,
-				new ChatAction() {
-					@Override
-					public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
-						final String leki = player.getQuest(QUEST_SLOT);
-						npc.say("Dobrze, to przynieś mi to co potrzebuję oraz wróć do mnie i przypomnij mi mówiąc #'"
-							+ leki + "'.");
 						player.addKarma(5.0);
 					}
 				});
-		
-		npc.add(ConversationStates.QUEST_OFFERED,
-				ConversationPhrases.NO_MESSAGES,
-				null,
-				ConversationStates.IDLE,
-				"Już tak było blisko do wyleczenia koni stajennego... Cóż.. Dowidzenia.",
-				new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -35.0));
 	}
 	
 	private void step6() {
@@ -370,8 +351,8 @@ public class PochorowaneKonie extends AbstractQuest {
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestStateStartsWithCondition(QUEST_SLOT, "godzina;"),
 						new NotCondition(new TimePassedCondition(QUEST_SLOT, 1, REQUIRED_MINUTES * 60))),
-				ConversationStates.IDLE, 
-				null, 
+				ConversationStates.IDLE,
+				null,
 				new SayTimeRemainingAction(QUEST_SLOT, 1, REQUIRED_MINUTES * 60, "Musimy jeszcze poczekać na efekty lekarstw! Poczekaj i wróć za "));
 
 		npc.add(ConversationStates.IDLE, 
