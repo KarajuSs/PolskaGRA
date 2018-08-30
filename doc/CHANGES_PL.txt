@@ -9,6 +9,10 @@
 - Poprawiono graficznie elficki naszyjnik
 
 
+*serwer*
+- Przetłumaczono wszystkie skrypty oraz dodano kilka nowych dla administratorów
+
+
 *świat gry*
 - Dodano nowe rękawice wampirze (ATK: 2; DEF: 5; LIFESTEAL: 0.05), które można dropnąć z lorda wampirów (0.04%)
 - Dodano nowe expowiska na desert'cie (6 pięter nowej piramidy)
