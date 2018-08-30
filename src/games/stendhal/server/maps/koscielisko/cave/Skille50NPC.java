@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -84,7 +83,7 @@ public class Skille50NPC implements ZoneConfigurator {
 
 					player.setAtkXP(45000 + player.getAtkXP());
 					player.setDefXP(90000 + player.getDefXP());
-					player.addXP(20000);
+					player.addXP(50000);
 
 					player.incAtkXP();
 					player.incDefXP();
