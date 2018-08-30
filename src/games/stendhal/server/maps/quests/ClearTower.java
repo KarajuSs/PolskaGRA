@@ -30,7 +30,6 @@ import games.stendhal.server.entity.npc.condition.AndCondition;
 import games.stendhal.server.entity.npc.condition.GreetingMatchesNameCondition;
 import games.stendhal.server.entity.npc.condition.KilledForQuestCondition;
 import games.stendhal.server.entity.npc.condition.NotCondition;
-import games.stendhal.server.entity.npc.condition.QuestActiveCondition;
 import games.stendhal.server.entity.npc.condition.QuestInStateCondition;
 import games.stendhal.server.entity.npc.condition.QuestNotStartedCondition;
 import games.stendhal.server.entity.player.Player;
@@ -76,12 +75,6 @@ public class ClearTower extends AbstractQuest {
 				ConversationStates.QUEST_OFFERED,
 				"Jako pierwsze twe zadanie ode mnie, masz wyczyścić wieżę z zalęgłych tutaj potworów. Zrobisz to?",
 				null);
-
-		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES, 
-				new QuestActiveCondition(QUEST_SLOT),
-				ConversationStates.ATTENDING, 
-				"To nie wszystko...", null);
 
 		final List<ChatAction> start = new LinkedList<ChatAction>();
 		final HashMap<String, Pair<Integer, Integer>> toKill = 
@@ -136,7 +129,7 @@ public class ClearTower extends AbstractQuest {
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestInStateCondition(QUEST_SLOT, 0, "start"), new NotCondition(new KilledForQuestCondition(QUEST_SLOT, 1))),
-				ConversationStates.QUEST_STARTED,
+				ConversationStates.IDLE,
 				"Jeszcze nie skończyłeś, wróć do mnie jak wybijesz &'wszystkie' potwory w wieży.",
 				null);
 	}
