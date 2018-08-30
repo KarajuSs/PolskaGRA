@@ -54,7 +54,7 @@ public class BringMagic extends AbstractQuest {
 		return res;
 		}
 		if ("done".equals(questState)) {
-			res.add("Za pomoc w zadanich otrzymałem wspaniały magiczny hełm od Czarnoksiężnika.");
+			res.add("Za pomoc w zadaniach otrzymałem wspaniały magiczny hełm od Czarnoksiężnika.");
 		}
 		return res;
 	}
