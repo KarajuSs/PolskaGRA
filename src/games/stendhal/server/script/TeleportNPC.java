@@ -1,6 +1,3 @@
-/* $Id$
- * $Log$
- */
 package games.stendhal.server.script;
 
 import java.util.List;
@@ -24,12 +21,12 @@ public class TeleportNPC extends ScriptImpl {
 	public void execute(Player admin, List<String> args) {
 		super.execute(admin, args);
 		if (args.size() != 4) {
-			admin.sendPrivateText(NotificationType.ERROR, "/script TeleportNPC npc zone x y");
+			admin.sendPrivateText(NotificationType.ERROR, "/script TeleportNPC npc obszar x y");
 			return;
 		}
 		StendhalRPZone zone = StendhalRPWorld.get().getZone(args.get(1));
 		if (zone == null) {
-			admin.sendPrivateText(NotificationType.ERROR, "Zone " + args.get(1) + " does not exist.");
+			admin.sendPrivateText(NotificationType.ERROR, "Obszar " + args.get(1) + " nie istnieje.");
 			return;
 		}
 		int x = MathHelper.parseInt(args.get(2));

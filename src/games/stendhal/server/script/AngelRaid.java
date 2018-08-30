@@ -25,16 +25,16 @@ public class AngelRaid extends CreateRaid {
 	@Override
 	protected Map<String, Integer> createArmy() {
 		final Map<String, Integer> attackArmy = new HashMap<String, Integer>();
-		attackArmy.put("baby angel", 20);
-		attackArmy.put("angel", 6);
-		attackArmy.put("dark angel", 2);
-		attackArmy.put("archangel", 1);
+		attackArmy.put("aniołek", 20);
+		attackArmy.put("anioł", 6);
+		attackArmy.put("anioł ciemności", 2);
+		attackArmy.put("archanioł", 1);
 		// no dark archangel here as archers can still hit you as you run from them
 		return attackArmy;
 	}
 
 	@Override
 	protected String getInfo() {
-		return "Not safe for players below level 150";
+		return "Niebezpieczny dla wojowników poniżej poziomu 150";
 	}
 }

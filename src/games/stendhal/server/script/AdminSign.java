@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2011 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -49,7 +48,7 @@ public class AdminSign extends ScriptImpl {
 				sandbox.setZone(sandbox.getZone(player));
 			} else {
 				if (!sandbox.setZone(myZone)) {
-					sandbox.privateText(player, "Zone not found.");
+					sandbox.privateText(player, "Obszar nie znaleziony.");
 					return;
 				}
 			}
@@ -86,7 +85,7 @@ public class AdminSign extends ScriptImpl {
 			// syntax error, print help text
 			sandbox.privateText(
 					player,
-					"This script creates, lists or removes signs. Syntax: \r\nAdminSign.class <zone> <x> <y> <text> The first 3 parameters can be \"-\".\r\nAdminSign.class list\r\nAdminSign.class del <n>");
+					"Ten skrypt tworzy, wyświetla listę lub usuwa znaki. Użyj: \r\nAdminSign.class <obszar> <x> <y> <text> pierwsze trzy parametry mogą być \"-\".\r\nAdminSign.class list\r\nAdminSign.class del <n>");
 		}
 	}
 
@@ -103,7 +102,7 @@ public class AdminSign extends ScriptImpl {
 		try {
 			i = Integer.parseInt(args.get(1));
 		} catch (final NumberFormatException e) {
-			sandbox.privateText(player, "Please specify a number");
+			sandbox.privateText(player, "Podaj numer");
 			return;
 		}
 
@@ -112,11 +111,11 @@ public class AdminSign extends ScriptImpl {
 			storage.remove(Integer.valueOf(i));
 			sandbox.remove(sign);
 			final StringBuilder sb = new StringBuilder();
-			sb.append("Removed sign ");
+			sb.append("Usunięto znak ");
 			signToString(sb, sign);
 			sandbox.privateText(player, sb.toString());
 		} else {
-			sandbox.privateText(player, "Sign " + i + " does not exist");
+			sandbox.privateText(player, "Znak " + i + " nie istnieje");
 		}
 	}
 
@@ -138,7 +137,7 @@ public class AdminSign extends ScriptImpl {
 	 */
 	public void list(final Player player) {
 		final StringBuilder sb = new StringBuilder();
-		sb.append("Listing signs:");
+		sb.append("Lista znaków:");
 
 		int i = 1;
 		while (i <= signcounter) {
@@ -157,7 +156,7 @@ public class AdminSign extends ScriptImpl {
 	@Override
 	public void execute(final Player admin, final List<String> args) {
 		if (args.size() == 0) {
-			admin.sendPrivateText("/script AdminSign.class zone x y text (the first three parameters may be \"-\"\n/script AdminSign.class list\n/script AdminSign.class del <n>");
+			admin.sendPrivateText("/script AdminSign.class obszar x y tekst (pierwsze trzy parametry mogą być \"-\"\n/script AdminSign.class list\n/script AdminSign.class del <n>");
 			return;
 		}
 

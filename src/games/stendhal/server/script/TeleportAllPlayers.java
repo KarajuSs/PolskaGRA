@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2011 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -33,7 +32,7 @@ public class TeleportAllPlayers extends ScriptImpl {
 	public void execute(Player admin, List<String> args) {
 		StendhalRPZone targetZone = (StendhalRPZone) SingletonRepository.getRPWorld().getRPZone(args.get(0));
 		if (targetZone == null) {
-			admin.sendPrivateText(NotificationType.ERROR, "No such zone.");
+			admin.sendPrivateText(NotificationType.ERROR, "Nie ma takiego obszaru.");
 			return;
 		}
 

@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -25,15 +24,15 @@ public class OrcRaid extends CreateRaid {
 	@Override
 	protected Map<String, Integer> createArmy() {
 		final Map<String, Integer> attackArmy = new HashMap<String, Integer>();
-		attackArmy.put("orc warrior", 7);
-		attackArmy.put("orc hunter", 5);
-		attackArmy.put("orc chief", 3);
-		attackArmy.put("orc", 6);
-		attackArmy.put("mountain orc", 3);
-		attackArmy.put("troll", 4);
-		attackArmy.put("red troll", 7);
-		attackArmy.put("cave troll", 2);
-   		attackArmy.put("green dragon", 3);
+		attackArmy.put("ork wojownik", 7);
+		attackArmy.put("ork łowca", 5);
+		attackArmy.put("szef orków", 3);
+		attackArmy.put("ork", 6);
+		attackArmy.put("górski ork", 3);
+		attackArmy.put("trol", 4);
+		attackArmy.put("czerwony trol", 7);
+		attackArmy.put("trol jaskiniowy", 2);
+		attackArmy.put("zielony smok", 3);
 
 		return attackArmy;
 	}

@@ -21,13 +21,13 @@ public class SummonSpell  extends ScriptImpl{
 	@Override
 	public void execute(final Player admin, final List<String> args) {
 		if(args.size() != 2) {
-			admin.sendPrivateText("Usage: [character] [spell name].");
+			admin.sendPrivateText("Użyj: [postać] [nazwa zaklęcia].");
 			return;
 		}
 		final EntityManager em = SingletonRepository.getEntityManager();
 		final Spell spell = em.getSpell(args.get(1));
 		if(spell == null) {
-			admin.sendPrivateText("The spell "+ args.get(1) +" was not found.");
+			admin.sendPrivateText("Zaklęcie "+ args.get(1) +" nie zostało znalezione.");
 			return;
 		}
 		final String name = args.get(0);

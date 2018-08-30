@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -34,7 +33,7 @@ public class ResetTutorial extends ScriptImpl {
 
 		// admin help
 		if (args.size() == 0) {
-			admin.sendPrivateText("Need player name as parameter.");
+			admin.sendPrivateText("Potrzebne jest imię wojownika jako parametr.");
 			return;
 		}
 
@@ -51,6 +50,6 @@ public class ResetTutorial extends ScriptImpl {
 
 		// notify the player
 		player.sendPrivateText(NotificationType.SUPPORT,
-				"Your tutorial state was reset by " + admin.getTitle());
+				"Stan twojego przewodnika został zresetowany przez " + admin.getTitle());
 	}
 }

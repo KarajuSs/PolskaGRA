@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -31,19 +30,19 @@ public class FieldInspect extends ScriptImpl {
 
 		// help text
 		if (args.size() == 0) {
-			admin.sendPrivateText("/script FieldInspect <entity name or number>");
+			admin.sendPrivateText("/script FieldInspect <nazwa jednostki lub numer>");
 			return;
 		}
 
 		Object entity = EntityHelper.entityFromTargetName(args.get(0), admin);
 		if (entity == null) {
-			admin.sendPrivateText("Entity not found");
+			admin.sendPrivateText("Jednostka nie znaleziona");
 			return;
 		}
 
 		FieldLister fl = new FieldLister(entity);
 		fl.scan();
-		admin.sendPrivateText("Entity is of class " + entity.getClass().getName() + "\r\n" + fl.getResult());
+		admin.sendPrivateText("Jednostka jest klasy " + entity.getClass().getName() + "\r\n" + fl.getResult());
 	}
 
 }

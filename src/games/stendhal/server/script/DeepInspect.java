@@ -41,9 +41,9 @@ public class DeepInspect extends ScriptImpl {
 	public void execute(final Player admin, final List<String> args) {
 		super.execute(admin, args);
 		if ((args.size() != 2) || (!(args.get(0).equals("character") || args.get(0).equals("username")))) {
-			admin.sendPrivateText("usage: {\"character\" | \"username\"} <name>.");
-			admin.sendPrivateText("character will do an inspection of an online character.");
-			admin.sendPrivateText("username will do an inspection of all characters belonging to that account as they are stored in the database.");
+			admin.sendPrivateText("użyj: {\"postać\" | \"nazwaużytkownika\"} <nazwa>.");
+			admin.sendPrivateText("postać zrobi inspekcję dostępnej w grze postaci.");
+			admin.sendPrivateText("nazwa użytkownika zrobi inspekcję wszystkim postaciom należącym do tego konta czyli tym, które są powiązane w bazie danych.");
 			return;
 		}
 		if (args.get(0).equals("character")) {
@@ -62,7 +62,7 @@ public class DeepInspect extends ScriptImpl {
 	private void inspectOnline(final Player admin, final String charname) {
 		Player player = SingletonRepository.getRuleProcessor().getPlayer(charname);
 		if (player == null) {
-			admin.sendPrivateText(NotificationType.ERROR, "There is no character called " + charname + " online.");
+			admin.sendPrivateText(NotificationType.ERROR, "Nie ma w grze postaci zwanej " + charname + ".");
 			return;
 		}
 		inspect(admin, player);
@@ -96,7 +96,7 @@ public class DeepInspect extends ScriptImpl {
 	 */
 	private void inspect(final Player admin, final RPObject target) {
 		final StringBuilder sb = new StringBuilder();
-		sb.append("Inspecting " + target.get("name") + "\n");
+		sb.append("Badam " + target.get("name") + "\n");
 
 		for (final String value : target) {
 			sb.append(value + ": " + target.get(value) + "\n");

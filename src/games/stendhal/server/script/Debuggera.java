@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -58,9 +57,9 @@ public class Debuggera extends ScriptImpl {
 //		public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 //			// TODO debuggeraEnabled = enabled;
 //			if (enabled) {
-//				raiser.say("Thanks.");
+//				raiser.say("Dziękuję.");
 //			} else {
-//				raiser.say("OK, I will not talk to strangers");
+//				raiser.say("Dobrze nie będę rozmawiała z obcymi");
 //			}
 //		}
 //	}
@@ -75,7 +74,7 @@ public class Debuggera extends ScriptImpl {
 		@Override
 		public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 			// list quest
-			final StringBuilder sb = new StringBuilder("Your quest states are:");
+			final StringBuilder sb = new StringBuilder("Stan twoich zadań:");
 			final List<String> quests = player.getQuests();
 			for (final String quest : quests) {
 				sb.append("\r\n" + quest + " = " + player.getQuest(quest));
@@ -169,18 +168,18 @@ public class Debuggera extends ScriptImpl {
 					if (direction == Direction.DOWN) {
 						switch (textCounter) {
 						case 0:
-							engine.say("Across the land,");
+							engine.say("Przez ląd");
 							inversedSpeed--;
 							break;
 						case 1:
-							engine.say("Across the sea.");
+							engine.say("Przez morze.");
 							inversedSpeed--;
 							break;
 						case 2:
-							engine.say("Friends forever,");
+							engine.say("Przyjaciele na zawsze");
 							break;
 						case 3:
-							engine.say("We will always be.");
+							engine.say("Zawsze będziemy.");
 							break;
 						default:
 							// Teleport to a near by spot
@@ -238,7 +237,7 @@ public class Debuggera extends ScriptImpl {
 		public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 			this.player = player;
 			counter = 0;
-			player.sendPrivateText("Let's start");
+			player.sendPrivateText("Zaczynajmy");
 			SingletonRepository.getTurnNotifier().notifyInTurns(10, this);
 		}
 
@@ -255,14 +254,14 @@ public class Debuggera extends ScriptImpl {
 				for (int i = 0; i < tele_xy.length; i++) {
 					if (player.teleport(zone, tele_xy[i][0], tele_xy[i][1],
 							null, null)) {
-						player.sendPrivateText("Welcome in " + zoneName);
+						player.sendPrivateText("Witaj w " + zoneName);
 						foundSpot = true;
 						break;
 					}
 				}
 
 				if (!foundSpot) {
-					player.sendPrivateText("Sorry, did not find a free spot in "
+					player.sendPrivateText("Nie znalazłem wolnego miejsca w "
 							+ zoneName);
 				}
 			} catch (final Exception e) {
@@ -306,29 +305,31 @@ public class Debuggera extends ScriptImpl {
 
 		//
 		npc.add(ConversationStates.IDLE, Arrays.asList("hi", "hello",
-				"greetings", "hola"), null, ConversationStates.IDLE,
-				"My mom said, i am not allowed to talk to strangers.", null);
-		npc.behave("bye", "Bye.");
+				"greetings", "hola", "cześć", "witaj", "witam",
+				"hej", "dzień dobry", "dobry wieczór"), null, ConversationStates.IDLE,
+				"Moja mama powiedziała, że nie powinnam rozmawiać z obcymi.", null);
+		npc.behave("bye", "Dowidzenia.");
 
 		// Greating and admins may enable or disable her
 		npc.add(ConversationStates.IDLE, Arrays.asList("hi", "hello",
-				"greetings", "hola"), new AdminCondition(),
+				"greetings", "hola", "cześć", "witaj", "witam",
+				"hej", "dzień dobry", "dobry wieczór"), new AdminCondition(),
 				ConversationStates.ATTENDING,
-				"Hi, game master. Do you think i am #crazy?", null);
+				"Witaj administratorze. Czy sądzisz, że jestem #szalona?", null);
 
 //		npc.add(ConversationStates.IDLE, [ "hi","hello","greetings","hola" ],
 //				new AdminCondition(), ConversationStates.QUESTION_1,
-//				"May I talk to strangers?", null);
+//				"Czy mogę rozmawiać z obcymi?", null);
 //		npc.add(ConversationStates.QUESTION_1, SpeakerNPC.YES_MESSAGES, new AdminCondition(),
 //				ConversationStates.ATTENDING, null, new DebuggeraEnablerAction(true));
 //		npc.add(ConversationStates.QUESTION_1, ConversationPhrases.NO_MESSAGES, new AdminCondition(),
 //				ConversationStates.ATTENDING, null, new DebuggeraEnablerAction(false));
 
-		npc.behave(Arrays.asList("insane", "crazy", "mad"),
-				"Why are you so mean? I AM NOT INSANE. My mummy says, I am a #special child.");
+		npc.behave(Arrays.asList("szalona", "insane", "crazy", "mad"),
+				"Dlaczego jesteś taki skromny? NIE JESTEM SZALONA. Moja mama powiedziała, że jestem #szczególnym dzieckiem.");
 		npc.behave(
-				Arrays.asList("special", "special child"),
-				"I can see another world in my dreams. That are more thans dreams. There the people are sitting in front of machines called computers. This are realy strange people. They cannot use telepathy without something they call inter-network. But these people and machines are somehow connected to our world. If I concentrate, I can #change thinks in our world.");
+				Arrays.asList("szczególnym", "special", "special child"),
+				"Mogę zobaczyć inne światy w moich snach. Są czymś więcej niż snami. Tam ludzie siedzą przy maszynach zwanymi komputerami. To są dziwni ludzie. Nie mogą używać telepatii bez czegoś zwanego inter-network, ale Ci ludzie i maszyny są jakoś połączeni z całym światem. Jeżeli się skoncentruję to mogę #zmienić parę rzeczy w naszym świecie.");
 		// npc.behave("verschmelzung", "\r\nYou have one hand,\r\nI have the
 		// other.\r\nPut them together,\r\nWe have each other.");
 		npc.add(
@@ -336,45 +337,45 @@ public class Debuggera extends ScriptImpl {
 				Arrays.asList("susi"),
 				null,
 				ConversationStates.ATTENDING,
-				"Yes, she is my twin sister. People consider her normal because she hides her special abilities.",
+				"Tak to moja bliźniacza siostra. Ludzie uważają ją za normalną ponieważ ukrywa swoje specjalne zdolności.",
 				null);
 
 		// change
 		npc.add(ConversationStates.ATTENDING,
-				Arrays.asList("change", "change"), new QuestInStateCondition(
+				Arrays.asList("zmienić", "change", "change"), new QuestInStateCondition(
 						"debuggera", "friends"), ConversationStates.ATTENDING,
-				"I can teleport you.", null);
+				"Mogę Cię teleportować.", null);
 		npc.add(ConversationStates.ATTENDING,
-				Arrays.asList("change", "change"),
+				Arrays.asList("zmienić", "change", "change"),
 				new QuestNotInStateCondition("debuggera", "friends"),
 				ConversationStates.ATTENDING,
-				"Do you want to become my #friend?", null);
+				"Czy chcesz zostać moim #przyjacielem?", null);
 
 		// friends
 		npc.add(ConversationStates.ATTENDING,
-				Arrays.asList("friend", "friends"), new QuestInStateCondition(
+				Arrays.asList("przyjacielem", "friend", "friends"), new QuestInStateCondition(
 						"debuggera", "friends"), ConversationStates.ATTENDING,
-				"We are friends.", null);
+				"Jesteśmy przyjaciółmi.", null);
 		npc.add(
 				ConversationStates.ATTENDING,
-				Arrays.asList("friend", "friends"),
+				Arrays.asList("przyjacielem", "friend", "friends"),
 				new QuestNotInStateCondition("debuggera", "friends"),
 				ConversationStates.INFORMATION_1,
-				"Please repeat:\r\n                        \"A circle is round,\"",
+				"Proszę powtórz za mną:\r\n                        \"A circle is round,\"",
 				null);
 		npc.add(ConversationStates.INFORMATION_1, Arrays.asList(
-				"A circle is round,", "A circle is round"), null,
-				ConversationStates.INFORMATION_2, "\"it has no end.\"", null);
+				"Kółko jest okrągłe", "Kółko jest okrągłe"), null,
+				ConversationStates.INFORMATION_2, "\"i nie ma końca.\"", null);
 		npc.add(ConversationStates.INFORMATION_2, Arrays.asList(
-				"it has no end.", "it has no end"), null,
-				ConversationStates.INFORMATION_3, "\"That's how long,\"", null);
+				"i nie ma końca.", "i nie ma końca."), null,
+				ConversationStates.INFORMATION_3, "\"To tak długo,\"", null);
 		npc.add(ConversationStates.INFORMATION_3, Arrays.asList(
-				"That's how long,", "That's how long", "Thats how long,",
-				"Thats how long"), null, ConversationStates.INFORMATION_4,
-				"\"I will be your friend.\"", null);
+				"To tak długo,", "To tak długo", "To tak długo,",
+				"To tak długo"), null, ConversationStates.INFORMATION_4,
+				"\"będę twoim przyjacielem.\"", null);
 		npc.add(ConversationStates.INFORMATION_4, Arrays.asList(
-				"I will be your friend.", "I will be your friend"), null,
-				ConversationStates.ATTENDING, "Cool. We are friends now.",
+				"będę twoim przyjacielem.", "będę twoim przyjacielem"), null,
+				ConversationStates.ATTENDING, "Wspaniale. Jesteśmy teraz przyjaciółmi.",
 				new SetQuestAction("debuggera", "friends"));
 
 		// quests

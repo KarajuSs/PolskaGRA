@@ -1,6 +1,3 @@
-/**
- *
- */
 package games.stendhal.server.script;
 
 import java.util.List;
@@ -18,7 +15,7 @@ public class OfflineClearSentence extends AbstractOfflineAction {
 	@Override
 	public boolean validateParameters(Player admin, List<String> args) {
 		if (args.size() != 1) {
-			admin.sendPrivateText("/script OfflineClearSentence.class <playername>");
+			admin.sendPrivateText("/script OfflineClearSentence.class <nazwa wojownika>");
 			return false;
 		}
 		return true;

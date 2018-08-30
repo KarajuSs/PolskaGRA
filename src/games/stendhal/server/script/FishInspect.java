@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -59,7 +58,7 @@ public class FishInspect extends ScriptImpl implements TurnListener {
 					seen.add(player.getName());
 
 					final StringBuilder sb = new StringBuilder();
-					sb.append("Inspecting " + player.getName() + "\n");
+					sb.append("Badam " + player.getName() + "\n");
 					boolean caught = false;
 					boolean warn = false;
 
@@ -77,23 +76,23 @@ public class FishInspect extends ScriptImpl implements TurnListener {
 						for (final RPObject object : slot) {
 							if (object instanceof StackableItem) {
 								final StackableItem item = (StackableItem) object;
-								if ("cod".equals(item.getName()) && (item.getQuantity() > 300)) {
+								if ("dorsz".equals(item.getName()) && (item.getQuantity() > 300)) {
 									caught = true;
-								} else if ("trout".equals(item.getName()) && (item.getQuantity() > 300)) {
+								} else if ("pstrąg".equals(item.getName()) && (item.getQuantity() > 300)) {
 									caught = true;
-								} else if ("mackerel".equals(item.getName()) && (item.getQuantity() > 300)) {
-                                   					caught = true;
-                                				} else if ("perch".equals(item.getName()) && (item.getQuantity() > 300)) {
-                                					caught = true;
-                                				} else if ("roach".equals(item.getName()) && (item.getQuantity() > 300)) {
-                                    					caught = true;
-                                				} else if ("surgeonfish".equals(item.getName()) && (item.getQuantity() > 300)) {
-                                    					caught = true;
-                                				} else if ("clownfish".equals(item.getName()) && (item.getQuantity() > 300)) {
-                                    					caught = true;
-                                				} else if ("char".equals(item.getName()) && (item.getQuantity() > 300)) {
-                                    					caught = true;
-                                				}
+								} else if ("makrela".equals(item.getName()) && (item.getQuantity() > 300)) {
+									caught = true;
+								} else if ("okoń".equals(item.getName()) && (item.getQuantity() > 300)) {
+									caught = true;
+								} else if ("płotka".equals(item.getName()) && (item.getQuantity() > 300)) {
+									caught = true;
+								} else if ("pokolec".equals(item.getName()) && (item.getQuantity() > 300)) {
+									caught = true;
+								} else if ("błazenek".equals(item.getName()) && (item.getQuantity() > 300)) {
+									caught = true;
+								} else if ("palia alpejska".equals(item.getName()) && (item.getQuantity() > 300)) {
+									caught = true;
+								}
 							}
 							sb.append("   " + object + "\n");
 						}
@@ -104,10 +103,10 @@ public class FishInspect extends ScriptImpl implements TurnListener {
 
 						new GameEvent("fish inspect", "jail", player.getName(), Integer.toString(-1), "possible macro use to get fish").raise();
 						SingletonRepository.getJail().imprison(player.getName(), player, -1, "possible macro use to get fish");
-						player.sendPrivateText(NotificationType.SUPPORT, "Please use /support to talk to an admin about your large amount of fish which may have been obtained illegally.");
+						player.sendPrivateText(NotificationType.SUPPORT, "Użyj /support, aby porozmawiać z administratorem o zbyt dużej ilości ryb, które mogą pochodzić z nielegalnego zródła.");
 						player.notifyWorldAboutChanges();
 
-						message = "auto jailed " + player.getName() + " because of a large number of fish";
+						message = "aresztowano " + player.getName() + " ze względu na zbyt dużą ilość ryb";
 					}
 
 					if (warn || caught) {

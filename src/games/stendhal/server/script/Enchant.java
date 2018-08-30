@@ -1,4 +1,3 @@
-/* $Id$ */
 /***************************************************************************
  *                   (C) Copyright 2003-2010 - Stendhal                    *
  ***************************************************************************
@@ -35,7 +34,7 @@ public class Enchant extends ScriptImpl {
 		super.execute(admin, args);
 
 		if (args.isEmpty()) {
-			admin.sendPrivateText("Usage: /script Enchant.class creature");
+			admin.sendPrivateText("Użyj: /script Enchant.class potwór");
 			return;
 		}
 
@@ -56,14 +55,14 @@ public class Enchant extends ScriptImpl {
 		final Creature tempCreature = sandbox.getCreature(creatureClass);
 
 		if (tempCreature == null) {
-			admin.sendPrivateText("No such creature");
+			admin.sendPrivateText("Nie ma takiego potwora");
 			return;
 		}
 
 		if (tempCreature.isRare() && !ServerModeUtil.isTestServer()) {
 			// Rare creatures should not be summoned even in raids
 			// Require parameter -Dstendhal.testserver=junk
-			admin.sendPrivateText("Rare creatures may not be summoned.");
+			admin.sendPrivateText("Rzadkie potwory nie mogą być przywoływane.");
 			return;
 		}
 
@@ -78,7 +77,7 @@ public class Enchant extends ScriptImpl {
 		final int newatk = LOW_ATK;
 		final int newHP = HIGH_HP;
 		creature.setName(creaturename);
-		creature.setDescription(creature.describe() + " It has been magically enchanted, with its normal attack power converted into longer life.");
+		creature.setDescription(creature.describe() + " Został magicznie zaklęty. Normalna siła ataku została przeliczona na długość życia.");
 		creature.setAtk(newatk);
 		creature.initHP(newHP);
 

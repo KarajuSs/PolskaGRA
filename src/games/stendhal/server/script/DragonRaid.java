@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -25,19 +24,19 @@ public class DragonRaid extends CreateRaid {
 	@Override
 	protected Map<String, Integer> createArmy() {
 		final Map<String, Integer> attackArmy = new HashMap<String, Integer>();
-		attackArmy.put("red dragon", 2);
-		attackArmy.put("green dragon", 2);
-		attackArmy.put("bone dragon", 3);
-		attackArmy.put("twin headed dragon", 2);
-		attackArmy.put("blue dragon", 3);
-		attackArmy.put("chaos red dragonrider", 2);
-		attackArmy.put("chaos green dragonrider", 2);
-		attackArmy.put("flying golden dragon", 2);
-		attackArmy.put("black dragon", 1);
+		attackArmy.put("czerwony smok", 2);
+		attackArmy.put("zielony smok", 2);
+		attackArmy.put("szkielet smoka", 3);
+		attackArmy.put("smok dwugłowy niebieski", 2);
+		attackArmy.put("błękitny smok", 3);
+		attackArmy.put("jeździec chaosu na czerwonym smoku", 2);
+		attackArmy.put("jeździec chaosu na zielonym smoku", 2);
+		attackArmy.put("latający złoty smok", 2);
+		attackArmy.put("czarny smok", 1);
 		return attackArmy;
 	}
 	@Override
 	protected String getInfo() {
-		return "Not safe for players below level 150.";
+		return "Niebezpieczny dla wojowników poniżej poziomu 150.";
 	}
 }

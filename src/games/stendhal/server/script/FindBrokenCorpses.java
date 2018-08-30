@@ -1,5 +1,5 @@
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -43,15 +43,15 @@ public class FindBrokenCorpses extends ScriptImpl {
 			String name = creature.getName();
 
 			if (wDiff > 0) {
-				addProblem(name, "Corpse too narrow by " + wDiff);
+				addProblem(name, "Zwłoki zbyt wąskie o " + wDiff);
 			} else if (wDiff < -ALLOWED_EXTRA) {
-				addProblem(name, "Corpse too wide by " + -wDiff);
+				addProblem(name, "Zwłoki zbyt szerokie o " + -wDiff);
 			}
 
 			if (hDiff > 0) {
-				addProblem(name, "Corpse too short by " + hDiff);
+				addProblem(name, "Zwłoki zbyt krótkie o " + hDiff);
 			} else if (hDiff < -ALLOWED_EXTRA) {
-				addProblem(name, "Corpse too tall by " + -hDiff);
+				addProblem(name, "Zwłoki zbyt długie o " + -hDiff);
 			}
 		}
 
@@ -81,9 +81,9 @@ public class FindBrokenCorpses extends ScriptImpl {
 	private void reportProblems(Player admin) {
 		String message;
 		if (problems.isEmpty()) {
-			message = "No problematic corpses found!";
+			message = "Nie znaleziono problemów związanych ze zwłokami!";
 		} else {
-			StringBuilder builder = new StringBuilder("Problems:");
+			StringBuilder builder = new StringBuilder("Problemy:");
 			for (Entry<String, List<String>> entry : problems.entrySet()) {
 				builder.append("\n");
 				builder.append(entry.getKey());

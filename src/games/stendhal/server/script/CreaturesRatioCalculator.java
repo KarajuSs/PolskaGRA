@@ -1,4 +1,3 @@
-/* $Id$ */
 package games.stendhal.server.script;
 
 import java.util.Collection;
@@ -127,16 +126,16 @@ public class CreaturesRatioCalculator extends ScriptImpl {
 		try {
 			if(args.isEmpty()) {
 				range = 10;
-				r.append("list range value omitted, used 10.\n");
+				r.append("pominięta lista zakresu wartości, używane 10.\n");
 			} else {
 				range = Integer.valueOf(args.get(0));
 				if((range < 1) || (range > creatures.size()-1)) {
-					r.append("too big or too small list range value, used 10.\n");
+					r.append("zbyt duża lub zbyt mała lista zakresu wartości, używane 10.\n");
 					range = 10;
 				}
 			}
 		} catch (NumberFormatException e) {
-			r.append("cant read properly list range value, used 10.\n");
+			r.append("nie można poprawnie odczytać listy zakresu wartości, używane 10.\n");
 			range = 10;
 		}
 		r.append("count results:\n");

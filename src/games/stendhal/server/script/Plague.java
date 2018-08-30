@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -33,7 +32,7 @@ public class Plague extends ScriptImpl {
 
 		// help
 		if (args.size() == 0) {
-			admin.sendPrivateText("/script Plague.class [ringcount] <creature>");
+			admin.sendPrivateText("/script Plague.class [liczba pierścieni] <potwór>");
 			return;
 		}
 
@@ -63,12 +62,13 @@ public class Plague extends ScriptImpl {
 		final Creature tempCreature = sandbox.getCreature(creatureClass);
 
 		if (tempCreature == null) {
-			admin.sendPrivateText("No such creature");
-		} else if (tempCreature.isRare() && !ServerModeUtil.isTestServer()) {
+			admin.sendPrivateText("Nie ma takiego potwora");
+		/*} else if (tempCreature.isRare() && !ServerModeUtil.isTestServer()) {
 			// Rare creatures should not be summoned even in raids
 			// Require parameter -Dstendhal.testserver=junk
-			admin.sendPrivateText("Creatures with the rare property may only be summoned on test servers "
-												+ "which are activated with the vm parameter: -Dstendhal.testserver=junk");
+			admin.sendPrivateText("Potwory z rzadkimi przedmiotami mogą być przywoływane tylko na testowych serwerach. "
+												+ "które są uruchamiane z parametrem: -Dstendhal.testserver=junk");
+		*/
 		} else {
 			final Creature creature = new RaidCreature(tempCreature);
 
@@ -82,7 +82,7 @@ public class Plague extends ScriptImpl {
 					}
 				}
 			} else {
-				admin.sendPrivateText("That's too many! Please keep <ringcount> less or equal to "
+				admin.sendPrivateText("To zbyt dużo! Trzymaj [liczba pierścieni] mniej lub około "
 						+ MAX_RING_COUNT + ".");
 			}
 		}

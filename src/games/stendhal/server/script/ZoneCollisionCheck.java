@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -96,7 +95,7 @@ public class ZoneCollisionCheck extends ScriptImpl {
 	}
 
 	private void usage() {
-		admin.sendPrivateText("Usage: /script ZoneCollisionCheck.class [badness]\n\tBadness parameter is the minimum number of failing checks next to each other");
+		admin.sendPrivateText("Użyj: /script ZoneCollisionCheck.class [badness]\n\tParametr badness jest to minimalna liczba nieudanych sprawdzeń w stosunku do innych");
 	}
 
 	private void checkZone(StendhalRPZone zone) {

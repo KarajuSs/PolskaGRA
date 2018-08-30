@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -56,7 +55,7 @@ public class EntitySearch extends ScriptImpl {
 			// get the proper case of the characters in the string
 			targetName = tempc.getName();
 		} else {
-			sandbox.privateText(player, "Not Found");
+			sandbox.privateText(player, "Nie znaleziony");
 			return;
 		}
 
@@ -79,7 +78,7 @@ public class EntitySearch extends ScriptImpl {
 		}
 
 		// make string
-		res.append("\r\nRespawn points for " + targetName + " : ");
+		res.append("\r\nMiejsca występowania " + targetName + " : ");
 		for (final Map.Entry<String, Integer> e : zoneCount.entrySet()) {
 			res.append("\r\n[" + e.getValue() + "]\t" + e.getKey());
 		}
@@ -91,7 +90,7 @@ public class EntitySearch extends ScriptImpl {
 	public void findNonRespawn(final Player player) {
 		final StringBuilder res = new StringBuilder();
 
-		res.append("\r\nNon-Respawn creatures (minus domestic animals):");
+		res.append("\r\nPotwory, które nie występują (za wyjątkiem domowych zwierząt):");
 
 		for (final IRPZone irpzone : SingletonRepository.getRPWorld()) {
 			final StendhalRPZone zone = (StendhalRPZone) irpzone;
@@ -118,7 +117,7 @@ public class EntitySearch extends ScriptImpl {
 	private void findPet(Player player) {
 		final StringBuilder res = new StringBuilder();
 
-		res.append("\r\nDomestic animals):");
+		res.append("\r\nZwierzętka):");
 
 		for (final IRPZone irpzone : SingletonRepository.getRPWorld()) {
 			final StendhalRPZone zone = (StendhalRPZone) irpzone;
@@ -128,11 +127,11 @@ public class EntitySearch extends ScriptImpl {
 					final DomesticAnimal pet = (DomesticAnimal) rpObj;
 					final String zoneName = zone.getName();
 					res.append("\r\n" + pet.getRPClass().getName());
-					res.append(" named " + pet.getTitle());
+					res.append(" zwany " + pet.getTitle());
 					res.append(" (" + pet.getLevel() + ")");
-					res.append(" at " + zoneName + " " + pet.getX() + " " + pet.getY());
+					res.append(" jest w " + zoneName + " " + pet.getX() + " " + pet.getY());
 					if (pet.getOwner() != null) {
-						res.append(" owned by " + pet.getOwner().getName());
+						res.append(" należy do " + pet.getOwner().getName());
 					}
 				}
 			}
@@ -150,7 +149,7 @@ public class EntitySearch extends ScriptImpl {
 	public void findByZoneName(final Player player, final String targetName) {
 		final StringBuilder res = new StringBuilder();
 
-		res.append("\r\nRespawn points for zone names containing: "
+		res.append("\r\nMiejsca występowania potworów w obszarze: "
 				+ targetName);
 		for (final IRPZone irpzone : SingletonRepository.getRPWorld()) {
 			final StendhalRPZone zone = (StendhalRPZone) irpzone;
@@ -173,7 +172,7 @@ public class EntitySearch extends ScriptImpl {
 				}
 				// Output one zone
 				if (!creatureCount.isEmpty()) {
-					res.append("\r\nRespawn points for " + zoneName);
+					res.append("\r\nMiejsca występowania dla " + zoneName);
 				}
 				for (final Map.Entry<String, Integer> e : creatureCount.entrySet()) {
 					res.append("\r\n[" + e.getValue() + "]\t" + e.getKey());
@@ -198,10 +197,10 @@ public class EntitySearch extends ScriptImpl {
 			findByZoneName(admin, args.get(1));
 		} else {
 			admin.sendPrivateText(
-					"/script EntitySearch.class cname '<creatureName>'\n"
+					"/script EntitySearch.class cname '<nazwa potwora>'\n"
 					+ "/script EntitySearch.class nonrespawn\n"
 					+ "/script EntitySearch.class pet\n"
-					+ "/script EntitySearch.class zname <partialZoneName>");
+					+ "/script EntitySearch.class zname <nazwa obszaru>");
 		}
 
 	}

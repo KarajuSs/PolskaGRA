@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -18,24 +17,30 @@ import java.util.Map;
 /**
  * @author kymara
  *
- * Not safe for players below level 10
+ * Atak zbrojnego rycertswa!
  */
-public class BeholderRaid extends CreateRaid {
+public class SoldiersRaid extends CreateRaid {
 
 	@Override
 	protected Map<String, Integer> createArmy() {
 		final Map<String, Integer> attackArmy = new HashMap<String, Integer>();
-		attackArmy.put("oczko", 7);
-		attackArmy.put("zielony glut", 4);
-		attackArmy.put("oko", 5);
-		attackArmy.put("oko starsze", 1);
-		attackArmy.put("wąż", 3);
-		attackArmy.put("żmija", 4);
+		attackArmy.put("strażnik bramy", 5);
+		attackArmy.put("czarny rycerz", 2);
+		attackArmy.put("rycerz szmaragdowy", 3);
+		attackArmy.put("rycerz szafirowy", 3);
+		attackArmy.put("rycerz karmazynowy", 3);
+		attackArmy.put("rycerz w złotej zbroi", 2);
+		attackArmy.put("rycerz śmierci", 4);
+		attackArmy.put("rycerz mithrilbourgh", 1);
+		attackArmy.put("rycerz imperium", 1);
+		attackArmy.put("elf albinos rycerz", 1);
+		attackArmy.put("elf ciemnosci rycerz", 1);
+		attackArmy.put("rycerz madaram", 1);
+		attackArmy.put("rycerz chaos", 1);
 		return attackArmy;
 	}
-
 	@Override
 	protected String getInfo() {
-		return "Nie jest bezpieczna dla wojowników poniżej 12 poziomu";
+		return "Atak zbrojnego rycertswa!";
 	}
 }

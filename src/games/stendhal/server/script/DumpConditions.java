@@ -1,4 +1,3 @@
-/* $Id$ */
 package games.stendhal.server.script;
 
 import java.util.Collection;

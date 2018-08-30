@@ -13,32 +13,55 @@ package games.stendhal.server.script;
 
 import java.util.List;
 
-import games.stendhal.common.NotificationType;
-import games.stendhal.server.core.engine.StendhalRPRuleProcessor;
+import games.stendhal.server.core.rp.StendhalQuestSystem;
 import games.stendhal.server.core.scripting.ScriptImpl;
 import games.stendhal.server.entity.player.Player;
+import games.stendhal.server.maps.quests.MeetGuslarz;
 
 /**
- * sets the welcome text players see on login.
+ * Starts or stops Guslarz.
  *
- * @author hendrik
+ * @author edi18028
  */
-public class SetWelcomeText extends ScriptImpl {
+public class Guslarz extends ScriptImpl {
 
 	@Override
-	public void execute(Player admin, List<String> args) {
-		if (args.isEmpty()) {
-			admin.sendPrivateText(NotificationType.ERROR, "Brakuje argumentu.");
+	public void execute(final Player admin, final List<String> args) {
+		if (args.size() != 1) {
+			admin.sendPrivateText("/script Guslarz.class {true|false}");
 			return;
 		}
 
-		if (args.size() > 1) {
-			admin.sendPrivateText(NotificationType.ERROR, "Zbyt dużo argumentów. Użyj cudzysłowów.");
+		boolean enable = Boolean.parseBoolean(args.get(0));
+		if (enable) {
+			startGusla(admin);
+		} else {
+			stopGusla();
+		}
+	}
+
+	/**
+	 * Starts Gusla.
+	 *
+	 * @param admin adminstrator running the script
+	 */
+	private void startGusla(Player admin) {
+		if (System.getProperty("stendhal.guslarz") != null) {
+			admin.sendPrivateText("Guślarz jest aktywowany.");
 			return;
 		}
+		System.setProperty("stendhal.guslarz", "true");
+		StendhalQuestSystem.get().loadQuest(new MeetGuslarz());
+	}
 
-		StendhalRPRuleProcessor.setWelcomeMessage(args.get(0));
-		admin.sendPrivateText("Ustaw tekst powitania na: " + args.get(0));
+	/**
+	 * Ends Gusla.
+	 *
+	 * @param admin adminstrator running the script
+	 */
+	private void stopGusla() {
+		System.getProperties().remove("stendhal.guslarz");
+		StendhalQuestSystem.get().unloadQuest(MeetGuslarz.QUEST_NAME);
 	}
 
 }

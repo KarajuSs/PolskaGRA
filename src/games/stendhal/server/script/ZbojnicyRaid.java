@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -18,24 +17,25 @@ import java.util.Map;
 /**
  * @author kymara
  *
- * Not safe for players below level 10
+ * Atak hordy zbójeckiej
  */
-public class BeholderRaid extends CreateRaid {
+public class ZbojnicyRaid extends CreateRaid {
 
 	@Override
 	protected Map<String, Integer> createArmy() {
 		final Map<String, Integer> attackArmy = new HashMap<String, Integer>();
-		attackArmy.put("oczko", 7);
-		attackArmy.put("zielony glut", 4);
-		attackArmy.put("oko", 5);
-		attackArmy.put("oko starsze", 1);
-		attackArmy.put("wąż", 3);
-		attackArmy.put("żmija", 4);
+		attackArmy.put("zbójnik leśny oszust", 4);
+		attackArmy.put("zbójnik leśny", 5);
+		attackArmy.put("zbójnik leśny tchórzliwy", 4);
+		attackArmy.put("zbójnik leśny starszy", 3);
+		attackArmy.put("zbójnik leśny zwiadowca", 3);
+		attackArmy.put("banitka", 2);
+		attackArmy.put("banita", 3);
+		attackArmy.put("banita gajowy", 2);
 		return attackArmy;
 	}
-
 	@Override
 	protected String getInfo() {
-		return "Nie jest bezpieczna dla wojowników poniżej 12 poziomu";
+		return "Atak hordy zbójeckiej.";
 	}
 }

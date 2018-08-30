@@ -12,33 +12,34 @@
 package games.stendhal.server.script;
 
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
-import games.stendhal.common.NotificationType;
-import games.stendhal.server.core.engine.StendhalRPRuleProcessor;
+import games.stendhal.server.core.engine.SingletonRepository;
+import games.stendhal.server.core.engine.Task;
 import games.stendhal.server.core.scripting.ScriptImpl;
 import games.stendhal.server.entity.player.Player;
+import marauroa.server.game.container.PlayerEntry;
+import marauroa.server.game.container.PlayerEntryContainer;
 
 /**
- * sets the welcome text players see on login.
+ * Logout all players in the game.
  *
- * @author hendrik
+ * @author edi18028
  */
-public class SetWelcomeText extends ScriptImpl {
-
+public class LogoutAllPlayers extends ScriptImpl {
 	@Override
-	public void execute(Player admin, List<String> args) {
-		if (args.isEmpty()) {
-			admin.sendPrivateText(NotificationType.ERROR, "Brakuje argumentu.");
-			return;
-		}
+	public void execute(final Player admin, final List<String> args) {
+		super.execute(admin, args);
 
-		if (args.size() > 1) {
-			admin.sendPrivateText(NotificationType.ERROR, "Zbyt dużo argumentów. Użyj cudzysłowów.");
-			return;
-		}
-
-		StendhalRPRuleProcessor.setWelcomeMessage(args.get(0));
-		admin.sendPrivateText("Ustaw tekst powitania na: " + args.get(0));
+		SingletonRepository.getRuleProcessor().getOnlinePlayers().forAllPlayersExecute(
+			new Task<Player>() {
+				public void execute(final Player player) {
+					if (!player.getName().equals(admin.getName()) || !player.getName().equals("postman")) {
+						SingletonRepository.getRuleProcessor().getRPManager().disconnectPlayer(player);
+					}
+				}
+		});
+		admin.sendPrivateText("Wszyscy wojownicy zostali wylogowani");
 	}
-
 }

@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -16,26 +15,26 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author kymara
- *
- * Not safe for players below level 10
+ * @author Tomko
  */
-public class BeholderRaid extends CreateRaid {
+public class MagicyRaid extends CreateRaid {
 
 	@Override
 	protected Map<String, Integer> createArmy() {
 		final Map<String, Integer> attackArmy = new HashMap<String, Integer>();
-		attackArmy.put("oczko", 7);
-		attackArmy.put("zielony glut", 4);
-		attackArmy.put("oko", 5);
-		attackArmy.put("oko starsze", 1);
-		attackArmy.put("wąż", 3);
-		attackArmy.put("żmija", 4);
-		return attackArmy;
-	}
+		attackArmy.put("pustelnik", 10);
+		attackArmy.put("uczeń czarnoksiężnika", 10);
+		attackArmy.put("czarnoksiężnik", 5);
+		attackArmy.put("uczeń czarnoksiężnika mroku", 10);
+		attackArmy.put("czarnoksiężnik mroku", 5);
+		attackArmy.put("pokutnik z bagien", 5);
+		attackArmy.put("pokutnik z wrzosowisk", 5);
+		attackArmy.put("pokutnik nocny", 5);
+		attackArmy.put("pokutnik wieczorny", 5);
+		attackArmy.put("pokutnik z łąk", 5);
+		attackArmy.put("czarownica z Aenye", 5);
+		attackArmy.put("mega mag", 1);
 
-	@Override
-	protected String getInfo() {
-		return "Nie jest bezpieczna dla wojowników poniżej 12 poziomu";
+		return attackArmy;
 	}
 }
