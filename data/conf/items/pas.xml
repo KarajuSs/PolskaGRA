@@ -47,7 +47,45 @@
 		</attributes>
 		<weight value="1.0"/>
 		<value value="5"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+			<slot name="pas"/>
+		</equipable>
+	</item>
+	
+	<item name="kolczany pas">
+		<type class="pas" subclass="kolczany_pas" tileid="-1"/>
+		<description>Oto kolczany pas.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<def value="6"/>
+		</attributes>
+		<weight value="1.0"/>
+		<value value="6"/>
 		<susceptibility type="ice" value="1.11"/>
+		<susceptibility type="fire" value="1.11"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+			<slot name="pas"/>
+		</equipable>
+	</item>
+	
+	<item name="złoty kolczany pas">
+		<type class="pas" subclass="zloty_kolczany_pas" tileid="-1"/>
+		<description>Oto złoty kolczany pas.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<def value="7"/>
+		</attributes>
+		<weight value="1.0"/>
+		<value value="7"/>
+		<susceptibility type="ice" value="0.91"/>
 		<susceptibility type="fire" value="0.91"/>
 		<equipable>
 			<slot name="ground"/>
@@ -63,28 +101,10 @@
 		<description>Oto pas zbójecki. Idealny dla górala.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="6"/>
+			<def value="8"/>
 		</attributes>
 		<weight value="1.0"/>
 		<value value="6"/>
-		<equipable>
-			<slot name="ground"/>
-			<slot name="content"/>
-			<slot name="bag"/>
-			<slot name="trade"/>
-			<slot name="pas"/>
-		</equipable>
-	</item>
-
-	<item name="kolczany pas">
-		<type class="pas" subclass="kolczany_pas" tileid="-1"/>
-		<description>Oto kolczany pas.</description>
-		<implementation class-name="games.stendhal.server.entity.item.Item"/>
-		<attributes>
-			<def value="7"/>
-		</attributes>
-		<weight value="1.0"/>
-		<value value="7"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
