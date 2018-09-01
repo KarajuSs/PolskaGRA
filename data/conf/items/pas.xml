@@ -25,10 +25,30 @@
 		<description>Oto wzmocniony skórzany pas. Co za wytrzymały materiał!</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
+			<def value="3"/>
+		</attributes>
+		<weight value="1.0"/>
+		<value value="3"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+			<slot name="pas"/>
+		</equipable>
+	</item>
+
+	<item name="kolczany pas">
+		<type class="pas" subclass="kolczany_pas" tileid="-1"/>
+		<description>Oto kolczany pas.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
 			<def value="4"/>
 		</attributes>
 		<weight value="1.0"/>
 		<value value="4"/>
+		<susceptibility type="ice" value="1.11"/>
+		<susceptibility type="fire" value="1.11"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
@@ -47,6 +67,7 @@
 		</attributes>
 		<weight value="1.0"/>
 		<value value="5"/>
+		<susceptibility type="fire" value="0.91"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
@@ -55,18 +76,17 @@
 			<slot name="pas"/>
 		</equipable>
 	</item>
-	
-	<item name="kolczany pas">
-		<type class="pas" subclass="kolczany_pas" tileid="-1"/>
-		<description>Oto kolczany pas.</description>
+
+	<item name="złoty kolczany pas">
+		<type class="pas" subclass="zloty_kolczany_pas" tileid="-1"/>
+		<description>Oto złoty kolczany pas.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
 			<def value="6"/>
 		</attributes>
 		<weight value="1.0"/>
 		<value value="6"/>
-		<susceptibility type="ice" value="1.11"/>
-		<susceptibility type="fire" value="1.11"/>
+		<susceptibility type="light" value="0.91"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
@@ -75,18 +95,17 @@
 			<slot name="pas"/>
 		</equipable>
 	</item>
-	
-	<item name="złoty kolczany pas">
-		<type class="pas" subclass="zloty_kolczany_pas" tileid="-1"/>
-		<description>Oto złoty kolczany pas.</description>
+
+	<item name="pas elficki">
+		<type class="pas" subclass="elficki_pas_z_rubinem" tileid="-1"/>
+		<description>Oto pas elficki z rubinem. Od tego rubinu czuć jakąś pradawną magie.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
 			<def value="7"/>
 		</attributes>
 		<weight value="1.0"/>
 		<value value="7"/>
-		<susceptibility type="ice" value="0.91"/>
-		<susceptibility type="fire" value="0.91"/>
+		<susceptibility type="nature" value="0.91"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
@@ -104,26 +123,7 @@
 			<def value="8"/>
 		</attributes>
 		<weight value="1.0"/>
-		<value value="6"/>
-		<equipable>
-			<slot name="ground"/>
-			<slot name="content"/>
-			<slot name="bag"/>
-			<slot name="trade"/>
-			<slot name="pas"/>
-		</equipable>
-	</item>
-
-	<item name="pas elficki">
-		<type class="pas" subclass="elficki_pas_z_rubinem" tileid="-1"/>
-		<description>Oto pas elficki z rubinem. Od tego rubinu czuć jakąś pradawną magie.</description>
-		<implementation class-name="games.stendhal.server.entity.item.Item"/>
-		<attributes>
-			<def value="9"/>
-		</attributes>
-		<weight value="1.0"/>
-		<value value="9"/>
-		<susceptibility type="nature" value="0.91"/>
+		<value value="8"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
@@ -138,10 +138,30 @@
 		<description>Oto pas krasnoludzki. Został wykonany z porządnego materiału.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
+			<def value="9"/>
+		</attributes>
+		<weight value="1.0"/>
+		<value value="9"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+			<slot name="pas"/>
+		</equipable>
+	</item>
+
+	<item name="pas wampirzy">
+		<type class="pas" subclass="wampirzy_pas" tileid="-1"/>
+		<description>Oto pas wampirzy.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
 			<def value="10"/>
 		</attributes>
 		<weight value="1.0"/>
 		<value value="10"/>
+		<susceptibility type="ice" value="0.91"/>
+		<susceptibility type="fire" value="0.91"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
@@ -156,10 +176,10 @@
 		<description>Oto pas olbrzymi. Znane jest jedynie pochodzenie tego pasa - pochodzi ono od gigantów i same rozmiary tego pasa są ogromne.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="13"/>
+			<def value="11"/>
 		</attributes>
 		<weight value="1.0"/>
-		<value value="13"/>
+		<value value="11"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
