@@ -27,7 +27,7 @@ public class DragonRaid extends CreateRaid {
 		attackArmy.put("czerwony smok", 2);
 		attackArmy.put("zielony smok", 2);
 		attackArmy.put("szkielet smoka", 3);
-		attackArmy.put("smok dwugłowy niebieski", 2);
+		attackArmy.put("dwugłowy niebieski smok", 2);
 		attackArmy.put("błękitny smok", 3);
 		attackArmy.put("jeździec chaosu na czerwonym smoku", 2);
 		attackArmy.put("jeździec chaosu na zielonym smoku", 2);

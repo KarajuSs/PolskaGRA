@@ -660,7 +660,7 @@ public class KillDragons extends AbstractQuest {
 
 		//kogo ma zabic w nastepnym kroku
 		final HashMap<String, Pair<Integer, Integer>> toKill = new HashMap<String, Pair<Integer, Integer>>();
-							toKill.put("smok dwugłowy niebieski", new Pair<Integer, Integer>(1,0));
+							toKill.put("dwugłowy niebieski smok", new Pair<Integer, Integer>(1,0));
 		final List<ChatAction> actions = new LinkedList<ChatAction>();
 							actions.add(new SetQuestAction(QUEST_SLOT, 0, "dwa_niebieski"));
 							actions.add(new StartRecordingKillsAction(QUEST_SLOT, 1, toKill));
@@ -669,7 +669,7 @@ public class KillDragons extends AbstractQuest {
 		npc.add(ConversationStates.ATTENDING, Arrays.asList("pomożesz", "pomozesz", "pomoge"),
 				new QuestInStateCondition(QUEST_SLOT, "dwa_niebieski?"),
 				ConversationStates.ATTENDING,
-				"Och, wspaniale! Tej nocy przyśnił mi się #'/smok dwugłowy niebieski/', proszę odszukaj go i zabij."
+				"Och, wspaniale! Tej nocy przyśnił mi się #'/dwugłowy niebieski smok/', proszę odszukaj go i zabij."
 				+ " Przynieś mi też jego 10 skór niebieskiego smoka. Jeśli włożę je pod poduszkę, będą odstraszały koszmary."
 				+ " Pamiętaj, że musisz zabić go samodzielnie, bo skóry nie będą działały jak talizman!",
 				new MultipleActions(actions));
