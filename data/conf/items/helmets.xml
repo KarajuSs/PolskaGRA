@@ -319,6 +319,7 @@
 		<value value="74536"/>
 		<susceptibility type="nature" value="0.91"/>
 		<susceptibility type="fire" value="0.91"/>
+		<susceptibility type="water" value="0.91"/>
 		<susceptibility type="ice" value="0.91"/>
 		<susceptibility type="dark" value="0.91"/>
 		<susceptibility type="light" value="0.91"/>
