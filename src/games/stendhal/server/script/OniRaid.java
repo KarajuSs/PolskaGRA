@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -25,11 +24,11 @@ public class OniRaid extends CreateRaid {
 	@Override
 	protected Map<String, Integer> createArmy() {
 		final Map<String, Integer> attackArmy = new HashMap<String, Integer>();
-		attackArmy.put("oni warrior", 7);
-		attackArmy.put("oni archer", 5);
-		attackArmy.put("oni queen", 3);
-		attackArmy.put("oni king", 3);
-		attackArmy.put("oni priest", 6);
+		attackArmy.put("oni wojownik", 7);
+		attackArmy.put("oni łucznik", 5);
+		attackArmy.put("oni królowa", 3);
+		attackArmy.put("oni król", 3);
+		attackArmy.put("oni kapłan", 6);
 
 
 		return attackArmy;

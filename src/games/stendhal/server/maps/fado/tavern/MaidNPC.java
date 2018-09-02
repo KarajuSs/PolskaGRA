@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -16,6 +15,7 @@ import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.CollisionAction;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
@@ -85,15 +85,16 @@ public class MaidNPC implements ZoneConfigurator {
 				offers.put("udko", 50);
 				offers.put("chleb", 50);
 				offers.put("kanapka", 150);
-	 
+
 				new SellerAdder().addSeller(this, new SellerBehaviour(offers));
 				addGoodbye("Dowidzenia. Wszyscy, ty i klienci sprawiacie, że praca jest ciężka ...");
 			}
 		};
 
-		tavernMaid.setPlayerChatTimeout(TIME_OUT); 
+		tavernMaid.setPlayerChatTimeout(TIME_OUT);
 		tavernMaid.setEntityClass("oldmaidnpc");
 		tavernMaid.setPosition(10, 16);
+		tavernMaid.setCollisionAction(CollisionAction.STOP);
 		tavernMaid.initHP(100);
 		tavernMaid.setDescription("Oto Old Mother Helena. Jest świetną kucharką a jej zupa jest znana w całej krainie Faumoni i nie tylko.");
 		zone.add(tavernMaid);

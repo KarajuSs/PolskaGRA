@@ -11,23 +11,32 @@
  ***************************************************************************/
 package games.stendhal.server.maps.tatry.kuznice.chapel;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import games.stendhal.common.grammar.ItemParserResult;
+import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.action.BehaviourAction;
 import games.stendhal.server.entity.npc.behaviour.adder.FreeHealerAdder;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
+import games.stendhal.server.entity.npc.behaviour.impl.Behaviour;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
+import games.stendhal.server.entity.player.Player;
 
 public class RadomilNPC implements ZoneConfigurator {
 	private final ShopList shops = SingletonRepository.getShopList();
+	// ile karmy potrzeba do zdjecia czaszki
+	private static final int AMOUNT = 200;
 
 	/**
 	 * Configure a zone.
@@ -61,10 +70,33 @@ public class RadomilNPC implements ZoneConfigurator {
 			protected void createDialog() {
 				addGreeting();
 				addJob("Zajmuję się tą kapliczką oraz posiadam niezwykłą moc, która pomaga mi uleczyć rany.");
-				addHelp("Mogę Cię #'uleczyć'.");
+				addHelp("Mogę Cię #'uleczyć' lub #zdjąć z ciebie #'czaszkę'.");
 				new FreeHealerAdder().addHealer(this, 0);
-				addOffer("Mogę Cię uleczyć. Powiedz tylko #'ulecz' oraz sprzedaję antidotum, mocne antidotum, eliksir, duży eliksir i wielki eliksir.");
+				addOffer("Potrafię również zdjąć z Ciebie piętno zabójcy. Powiedz mi tylko #'zdejmij czaszkę'.");
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("eliksiry")));
+				
+				addReply("zdejmij", null,
+						new BehaviourAction(new Behaviour("czaszkę"), Arrays.asList("remove", "zdejmij"), "offer") {
+					@Override
+					public void fireSentenceError(Player player, Sentence sentence, EventRaiser raiser) {
+						raiser.say(sentence.getErrorString() + " Próbujesz mnie oszukać?");
+					}
+
+					@Override
+					public void fireRequestOK(final ItemParserResult res, final Player player, final Sentence sentence, final EventRaiser raiser) {
+
+						if (player.getKarma() < AMOUNT) {
+								raiser.say("Nie pomogłeś wystarczającej liczbie osób! Twoja karma to: " + player.getKarma() + ". Przyjdź kiedy indziej.");
+						} else {
+							if (player.getKarma() >= AMOUNT) {
+								player.rehabilitate();
+								raiser.say("Zdjąłem z Ciebie piętno zabójcy. Uważaj na siebie!");
+							} else {
+								raiser.say("Twoja karma jest na poziomie" + player.getKarma() + ", a potrzebujesz conajmniej " + AMOUNT + ", abym mógł zdjąć z Ciebie piętno zabójcy.");
+							}
+						}
+					}
+				});
 				addGoodbye();
 			}
 		};

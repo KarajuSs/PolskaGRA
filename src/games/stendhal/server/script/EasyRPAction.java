@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -33,7 +32,7 @@ public class EasyRPAction extends ScriptImpl {
 		super.execute(admin, args);
 
 		if ((args.size() == 0) || (args.size() % 2 != 0)) {
-			admin.sendPrivateText("/script EasyRPAction.class <key1> <value1> [<key2> <value2>] ...");
+			admin.sendPrivateText("/script EasyRPAction.class <klucz1> <wartość1> [<klucz2> <wartość2>] ...");
 			return;
 		}
 

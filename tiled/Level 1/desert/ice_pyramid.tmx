@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="122" height="122" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="icewall" tilewidth="32" tileheight="32" tilecount="8" columns="2">
+  <image source="../../tileset/pol/waly/icewall.png" width="64" height="128"/>
+ </tileset>
+ <tileset firstgid="9" name="rope_ladder" tilewidth="32" tileheight="32" tilecount="20" columns="5">
+  <image source="../../tileset/ground/ladder/rope_ladder.png" width="160" height="128"/>
+ </tileset>
+ <tileset firstgid="29" name="rock_snow" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/pol/natura/rock_snow.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="30" name="brown" tilewidth="32" tileheight="32" tilecount="5" columns="5">
+  <image source="../../tileset/ground/brown.png" width="160" height="32"/>
+ </tileset>
+ <tileset firstgid="35" name="ground_snow05" tilewidth="32" tileheight="32" tilecount="18" columns="3">
+  <image source="../../tileset/pol/podloze/ground_snow05.png" width="96" height="192"/>
+ </tileset>
+ <tileset firstgid="53" name="../../tileset/logic/collision.png" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="54" name="../../tileset/logic/collision.png" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="55" name="giant_human" tilewidth="32" tileheight="32" tilecount="13" columns="13">
+  <image source="../../tileset/logic/creature/giant_human.png" width="416" height="32"/>
+ </tileset>
+ <tileset firstgid="68" name="pol_smoki" tilewidth="32" tileheight="32" tilecount="12" columns="12">
+  <image source="../../tileset/logic/creature/pol_smoki.png" width="384" height="32"/>
+ </tileset>
+ <tileset firstgid="80" name="pol_olbrzymy" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../../tileset/logic/creature/pol_olbrzymy.png" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="84" name="huge_animal" tilewidth="32" tileheight="32" tilecount="14" columns="14">
+  <image source="../../tileset/logic/creature/huge_animal.png" width="451" height="32"/>
+ </tileset>
+ <layer name="0_floor" width="122" height="122">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3YMRHAMAwEQTFJL/4AjSLJjG+LRXCF5d+ZWQAAAAAAgEs8/ErnBp0bdG7QuUHnBp0bdG7QuUHnBp0bdG7QuUHnBp0bdG7QuUHnBp0bdG7QuUHnBp0bdG7QuUHnBp0bdG7QuUHnBp0bdG7QuUHnBp0bdG7QuUHnBp0bdG7QuUHnBp0bdG7QuUHnBp0bdG7QuUHnBp0bdG7QuUHnBp0bdG7QuUHnBp0bdG7QuUHnBp0bdG7QuUHnBp0bdG7QuUHnBp0bdG7QuUHnBp0bdG7QuUHnBp0bdG7QuUHnBp0bdG7QuUHnBp0bdG7QuUHnBp0bdG7QuUHnBp0bdG74qjMA8C5ve4M7rsHN3qBzg394g92lwdbWYFtt0LnhAJNjfCGQ6AAA
+  </data>
+ </layer>
+ <layer name="1_terrain" width="122" height="122">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3XMU4bURhG0SGBgFLTsASkpGH/i8MuIqHB84gjE/Pmnit9zeDC0tFYP3fLstzYrvfjsO+L9t7twrkQ50acG9Wcf65WaeR8t1z/Trz0Hle79vf5jLv6VCPnPb7nT6vtrdvB85Lz3uPciHMjzo0u6bzHO3y2je7qrefnOnvPr9/Ic+s55/ni3IhzI86NODfi3IhzI86NODfi3IhzI86NODfi3IhzI86NODfi3IhzI86NODfi3IhzI86NODfi3IhzI86NODfi3IhzI86NODfi3IhzI86NODfi3IhzI86NODfi3IhzI86NODfi3IhzI86NODfi3IhzI86NODfi3IhzI86NODfi3IhzI86NODfi3IhzI86NODfi3IhzI86NODfi3IhzI86NODfi3IhzI86NODfi3IhzI86NODfi3IhzI86NODfi3IhzI86NODfi3IhzI86NODfi3Ihzo//hfH/Yt0n3uNq1v8+/7mHD5pLOM/e02t7i3Ihzo5Hz78NeTvyN83x9dJ/9Wt5bc56vv/ndXlvPfFdXN7rD3763zxuf09ytnU/9fmv+Tt3bR+ut20xzNvq/6o838/kbOb/NOz53R+dz7urnMz5rX2fHO/wVA/dQl5DoAAA=
+  </data>
+ </layer>
+ <layer name="2_object" width="122" height="122">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3RuwkAIBBEQdHA/jvWAjT1w87AJhcdvFIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPhZu/0AR+icQecMOmfQOYPOGXTOoHOGPlcXW9nded8AVIbdwpDoAAA=
+  </data>
+ </layer>
+ <layer name="3_roof" width="122" height="122">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAODfAKIuN0iQ6AAA
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="122" height="122">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAODfAKIuN0iQ6AAA
+  </data>
+ </layer>
+ <layer name="objects" width="122" height="122">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3dwQmEQBBEUdPyruBJXHfPYv5RaASCsFgz43sR/HtDddcBULNvOuA0pQMKMaYDAACoypIOeMicDgAAAAB4ITdcgHb06QAAAACAwg3pAAAAAAAAAAAAAAAAAKiI/zoAAAAAADzBvjYAQHk+6QAAAAAAAAAAAKAoezoAAAAAAAAAAIBqzOmAhq3pAAAAmralA26Y0gEXfukAAP7mAJ7zfm6Q6AAA
+  </data>
+ </layer>
+ <layer name="collision" width="122" height="122">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3WQYoiUBBEQS/V97/aXGCim5ZBJ61X8DYpghKb//V4PL7qRN1nX843Lucbl/ONy/nGfef87rfhK96b7/49r3pT//RZt3U537icb1zONy7nG/cvnd/9nqznzZ75TuVcOVfOlXPlfDHZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaM95M9loz3kz2WjPeTPZaL/k/Mn/5fHD/tvvdP/v5Xzjcr5xOd+4nG/cs86119/uu8+6z7mcb1zONy7nG5fzjXv327Be1x9Us3lTkOgAAA==
+  </data>
+ </layer>
+ <layer name="protection" width="122" height="122">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAODfAKIuN0iQ6AAA
+  </data>
+ </layer>
+</map>

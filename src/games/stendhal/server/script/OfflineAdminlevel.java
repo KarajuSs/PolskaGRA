@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -35,7 +34,7 @@ public class OfflineAdminlevel extends AbstractOfflineAction {
 	@Override
 	public boolean validateParameters(final Player admin, final List<String> args) {
 		if (args.size() != 2) {
-			admin.sendPrivateText("/script OfflineAdminlevel.class <playername> <newlevel>");
+			admin.sendPrivateText("/script OfflineAdminlevel.class <wojownik> <nowypoziom>");
 			return false;
 		}
 		return true;

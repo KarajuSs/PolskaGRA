@@ -6,7 +6,7 @@
   
 	<item name="pierścień leczniczy">
 		<type class="ring" subclass="medicinal_ring" tileid="-1"/>
-		<description>Oto pierścień leczniczy. Może cię ochronić przed zatruciem.</description>
+		<description>Oto pierścień leczniczy. Może cię ochronić przed zatruciem gdy nosisz go na palcu.</description>
 		<implementation class-name="games.stendhal.server.entity.item.StatusResistantItem"/>
 		<attributes>
 		</attributes>
@@ -26,7 +26,7 @@
 	<!-- DISABLED
 	<item name="pierścień antyjadowy">
 		<type class="ring" subclass="antivenom_ring" tileid="-1"/>
-		<description>Oto pierścień antyjadowy. Posiada dobre właściwości chroniące przed zatruciem.</description>
+		<description>Oto pierścień antyjadowy. Posiada dobre właściwości chroniące przed zatruciem gdy nosisz go na palcu.</description>
 		<implementation class-name="games.stendhal.server.entity.item.StatusResistantItem"/>
 		<attributes>
 		</attributes>
@@ -45,7 +45,7 @@
 
 	<item name="pierścień antytoksynowy gm">
 		<type class="ring" subclass="antitoxin_ring" tileid="-1"/>
-		<description>Oto pierścień antytoksynowy gm. Będziesz odporny na truciznę.</description>
+		<description>Oto pierścień antytoksynowy gm. Będziesz odporny na truciznę gdy nosisz go na palcu.</description>
 		<implementation class-name="games.stendhal.server.entity.item.StatusResistantItem"/>
 		<attributes>
 		</attributes>
@@ -124,17 +124,15 @@
 		</equipable>
 	</item>
 
-	<!-- DISABLED
 	<item name="pierścień magnata">
 		<type class="ring" subclass="tsoh_ring" tileid="-1"/>
 		<description>Oto pierścień magnata.</description>
-		<implementation class-name="games.stendhal.server.entity.item.GuildRing"/>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
 			<atk value="4"/>
 			<def value="4"/>
-			<amount value="1"/>
 			<min_level value="500"/>
-			<undroppableondeath value="1" />
+			<undroppableondeath value="1"/>
 		</attributes>
 		<weight value="0.1"/>
 		<value value="1"/>
@@ -151,13 +149,12 @@
 	<item name="pierścień barona">
 		<type class="ring" subclass="edragons_clan_ring" tileid="-1"/>
 		<description>Oto pierścień barona.</description>
-		<implementation class-name="games.stendhal.server.entity.item.GuildRing"/>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
 			<atk value="3"/>
 			<def value="3"/>
-			<amount value="1"/>
 			<min_level value="350"/>
-			<undroppableondeath value="1" />
+			<undroppableondeath value="1"/>
 		</attributes>
 		<weight value="0.1"/>
 		<value value="1"/>
@@ -174,13 +171,12 @@
 	<item name="pierścień rycerza">
 		<type class="ring" subclass="zrc_ring" tileid="-1"/>
 		<description>Oto pierścień rycerza.</description>
-		<implementation class-name="games.stendhal.server.entity.item.GuildRing"/>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
 			<atk value="2"/>
 			<def value="2"/>
-			<amount value="1"/>
 			<min_level value="250"/>
-			<undroppableondeath value="1" />
+			<undroppableondeath value="1"/>
 		</attributes>
 		<weight value="0.1"/>
 		<value value="1"/>
@@ -197,13 +193,12 @@
 	<item name="pierścień mieszczanina">
 		<type class="ring" subclass="zion_ring" tileid="-1"/>
 		<description>Oto pierścień mieszczanina.</description>
-		<implementation class-name="games.stendhal.server.entity.item.GuildRing"/>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
 			<atk value="1"/>
 			<def value="1"/>
-			<amount value="1"/>
 			<min_level value="150"/>
-			<undroppableondeath value="1" />
+			<undroppableondeath value="1"/>
 		</attributes>
 		<weight value="0.1"/>
 		<value value="1"/>
@@ -216,5 +211,4 @@
 			<slot name="keyring"/>
 		</equipable>
 	</item>
-	DISABLED -->
 </items>

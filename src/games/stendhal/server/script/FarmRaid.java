@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -25,21 +24,21 @@ public class FarmRaid extends CreateRaid {
 	@Override
 	protected Map<String, Integer> createArmy() {
 		final Map<String, Integer> attackArmy = new HashMap<String, Integer>();
-		attackArmy.put("piglet", 4);
-		attackArmy.put("cow", 3);
-		attackArmy.put("mother hen", 4);
-		attackArmy.put("goat", 3);
-		attackArmy.put("horse", 2);
-		attackArmy.put("chick", 5);
-		attackArmy.put("bull", 2);
-		attackArmy.put("ram", 5);
-		attackArmy.put("mouse", 5);
-		attackArmy.put("white horse", 2);
+		attackArmy.put("prosiak", 4);
+		attackArmy.put("krowa", 3);
+		attackArmy.put("kokoszka", 4);
+		attackArmy.put("koza", 3);
+		attackArmy.put("koń", 2);
+		attackArmy.put("pisklak", 5);
+		attackArmy.put("byk", 2);
+		attackArmy.put("baran", 5);
+		attackArmy.put("mysz domowa", 5);
+		attackArmy.put("biały koń", 2);
 		return attackArmy;
 	}
 
 	@Override
 	protected String getInfo() {
-		return "A raid safe for lowest level Player.";
+		return "Rajd bezpieczny dla wojowników z niskim poziomem.";
 	}
 }

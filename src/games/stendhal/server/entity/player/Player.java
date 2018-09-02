@@ -198,7 +198,7 @@ public class Player extends RPEntity implements UseListener {
 			outfit = Outfit.getRandomOutfit();
 		}
 		player.setOutfit(outfit);
-		
+
 		if (((player.getOutfit().getBody() > 5) && (player.getOutfit().getBody() < 12)) || (player.getOutfit().getBody() == 13)) {
 			player.put("gender", "F");
 		} else {
@@ -1495,7 +1495,7 @@ public class Player extends RPEntity implements UseListener {
 	public void setSharedKill(final String name) {
 		killRec.setSharedKill(name);
 	}
-	
+
 	/**
 	 * Changes solo kills count to specified value.
 	 *
@@ -1505,7 +1505,7 @@ public class Player extends RPEntity implements UseListener {
 	public void setSoloKillCount(final String name, final int count) {
 		killRec.setSoloKillCount(name, count);
 	}
-	
+
  	/**
 	 * Changes shared kills count to specified value.
 	 *
@@ -2025,10 +2025,10 @@ public class Player extends RPEntity implements UseListener {
 		setKeyedSlot("!visited", zoneName,
 				Long.toString(System.currentTimeMillis()));
 		trade.cancelTrade();
-		
+
 		if((zoneName.equals("0_ados_city_n")) || (zoneName.equals("0_fado_city"))
 			|| (zoneName.equals("0_kalavan_city")) || (zoneName.equals("0_kirdneh_city"))
-			|| (zoneName.equals("0_nalwor_city")) || (zoneName.equals("0_semos_city")) 
+			|| (zoneName.equals("0_nalwor_city")) || (zoneName.equals("0_semos_city"))
 			|| (zoneName.equals("0_zakopane_s"))) {
 			if(getQuest(zoneName) == null) {
 				setQuest(zoneName,"done");

@@ -7,13 +7,32 @@
 		<description>W te czarne buty nie możesz wcisnąć całej nogi. Może przyniosą tobie niefart?</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="15"/>
+			<def value="17"/>
 			<min_level value="150"/>
 		</attributes>
 		<weight value="17.0"/>
 		<value value="23625"/>
 		<susceptibility type="light" value="1.11"/>
 		<susceptibility type="dark" value="0.91"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+			<slot name="feet"/>
+		</equipable>
+	</item>
+
+	<item name="buty wampirze">
+		<type class="boots" subclass="vampire_boots" tileid="-1"/>
+		<description>Oto buty wampirze. Czujesz jakby w tych butach płynęła krew.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<def value="15"/>
+			<min_level value="125"/>
+		</attributes>
+		<weight value="15.0"/>
+		<value value="23625"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
@@ -91,6 +110,7 @@
 		<weight value="9.0"/>
 		<value value="2401"/>
 		<susceptibility type="fire" value="1.11"/>
+		<susceptibility type="nature" value="0.91"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>

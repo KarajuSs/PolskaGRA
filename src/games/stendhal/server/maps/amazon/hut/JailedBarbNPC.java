@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -16,6 +15,7 @@ import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.CollisionAction;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 
 import java.util.Arrays;
@@ -78,6 +78,7 @@ public class JailedBarbNPC implements ZoneConfigurator {
 
 		JailedBarbNPC.setEntityClass("jailedbarbariannpc");
 		JailedBarbNPC.setPosition(11, 12);
+		JailedBarbNPC.setCollisionAction(CollisionAction.STOP);
 		JailedBarbNPC.initHP(100);
 		JailedBarbNPC.setDescription("Widzisz uwięzionego barbarzyńce Lorenza. Co on zrobił amazonkom?");
 		zone.add(JailedBarbNPC);

@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -32,12 +31,12 @@ public class DropPlayerItems extends ScriptImpl {
 		super.execute(admin, args);
 
 		if (args.size() < 2) {
-			admin.sendPrivateText("<player> [<amount>] '<item>'");
+			admin.sendPrivateText("<wojownik> [<ilość>] '<przedmiot>'");
 			return;
 		}
 
 		if (args.size() > 3) {
-			admin.sendPrivateText("<player> [<amount>] '<item>' - and don't forget those quotes if the item name has spaces");
+			admin.sendPrivateText("<wojownik> [<ilość>] '<przedmiot>' - i nie zapomnij o cudzysłowach jeżeli nazwa przedmiotu zawiera spacje");
 			return;
 		}
 
@@ -74,9 +73,9 @@ public class DropPlayerItems extends ScriptImpl {
 			result = player.drop(singularItemName, amount);
 		}
 
-		final String msg = "Admin " + admin.getName() + " removed " + amount
+		final String msg = "Administrator " + admin.getName() + " usunął " + amount
 				+ " " + Grammar.plnoun(amount, singularItemName)
-				+ " from player " + player.getName() + ": #" + result;
+				+ " wojownikowi " + player.getName() + ": #" + result;
 
 		admin.sendPrivateText(msg);
 

@@ -603,7 +603,6 @@ public final class ShopList {
 		shops.add("juhas", "zwój fado", 900);
 		shops.add("juhas", "zwój kalavan", 1000);
 		shops.add("juhas", "zwój kirdneh", 1000);
-		shops.add("juhas", "bilet turystyczny", 5000);
 
 		//Stasek sprzedaje
 		shops.add("stasek", "wzmocniona drewniana strzała", 4);

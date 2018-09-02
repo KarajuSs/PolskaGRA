@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -38,8 +37,8 @@ public class QuestAchievementFactory extends AbstractAchievementFactory {
 				Achievement.MEDIUM_BASE_SCORE, true, new QuestStateGreaterThanCondition("elf_princess", 2, 24)));
 		
 		// Kill Monks quest achievement
-		questAchievements.add(createAchievement("quest.special.kill_monks.0050", "Heretyk", "Ukończ zadanie 'Zabij Mnichów' 50 razy",
-				Achievement.MEDIUM_BASE_SCORE, true, new QuestStateGreaterThanCondition("kill_monks", 2, 49)));
+		questAchievements.add(createAchievement("quest.special.kill_monks.0025", "Heretyk", "Ukończ zadanie 'Zabij Mnichów' 25 razy",
+				Achievement.HARD_BASE_SCORE, true, new QuestStateGreaterThanCondition("kill_monks", 2, 24)));
 
 		// Maze
 		questAchievements.add(createAchievement("quest.special.maze", "Kierunkowskaz", "Ukończył labirynt", 

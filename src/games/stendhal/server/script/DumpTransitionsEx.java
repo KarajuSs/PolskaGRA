@@ -35,7 +35,7 @@ public class DumpTransitionsEx extends ScriptImpl {
 	public void execute(final Player admin, final List<String> args) {
 
 		if (args.size() < 1) {
-			admin.sendPrivateText("/script DumpTransitionsEx.class <npcname>");
+			admin.sendPrivateText("/script DumpTransitionsEx.class <imię npc>");
 			return;
 		}
 
@@ -45,7 +45,7 @@ public class DumpTransitionsEx extends ScriptImpl {
 		}
 		final SpeakerNPC npc = SingletonRepository.getNPCList().get(npcName.toString().trim());
 		if (npc == null) {
-			admin.sendPrivateText("There is no NPC called " + npcName);
+			admin.sendPrivateText("Nie ma NPC-a zwanego " + npcName);
 			return;
 		}
 		dump(npc);

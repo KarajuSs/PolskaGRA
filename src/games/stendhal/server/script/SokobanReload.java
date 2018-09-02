@@ -1,6 +1,3 @@
-/* $Id$
- * $Log$
- */
 package games.stendhal.server.script;
 
 import java.io.BufferedReader;

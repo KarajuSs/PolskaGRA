@@ -1,5 +1,5 @@
 /***************************************************************************
- *                 (C) Copyright 2003-2015 - Faiumoni e.V.                 *
+ *                 (C) Copyright 2003-2018 - Faiumoni e.V.                 *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -32,12 +32,12 @@ public class ChangeMap extends ScriptImpl {
 	public void execute(final Player admin, final List<String> args) {
 		final StendhalRPWorld world = SingletonRepository.getRPWorld();
 		if (args.size() != 2) {
-			sandbox.privateText(admin, "Usage: /script modified_zone path_to_tmx");
+			sandbox.privateText(admin, "Użyj: /script zmodyfikowany_obszar ścieżka_do_tmx");
 			return;
 		}
 		IRPZone zn = world.getRPZone(args.get(0));
 		if (!(zn instanceof StendhalRPZone)) {
-			sandbox.privateText(admin, "Zone not found: '" + args.get(1) + "'");
+			sandbox.privateText(admin, "Obaszer nie znaleziony: '" + args.get(1) + "'");
 			return;
 		}
 		StendhalRPZone zone = (StendhalRPZone) zn;
@@ -45,14 +45,14 @@ public class ChangeMap extends ScriptImpl {
 		try {
 			map = TMXLoader.load(args.get(1));
 		} catch (Exception e) {
-			sandbox.privateText(admin, "Failed to load map: " + e);
+			sandbox.privateText(admin, "Nie powiodło się ładowanie mapy: " + e);
 			return;
 		}
 		try {
 			updateZone(zone, map);
 			zone.notifyOnlinePlayers();
 		} catch (IOException e) {
-			sandbox.privateText(admin, "Failed to update map: " + e);
+			sandbox.privateText(admin, "Nie powiodła się aktualizacja mapy: " + e);
 		}
 	}
 

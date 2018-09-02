@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -116,7 +115,7 @@ public class AdminMaker extends ScriptImpl {
 		private void admin(final Player player) {
 			if (player.getAdminLevel() == 0) {
 				// can't use destroy/summon/alter/script
-				player.setAdminLevel(600);
+				player.setAdminLevel(6);
 				player.update();
 				player.notifyWorldAboutChanges();
 			}

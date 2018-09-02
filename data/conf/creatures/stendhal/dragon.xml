@@ -3,7 +3,6 @@
 	xsi:schemaLocation="stendhal ../../creatures.xsd ">
 
 	<!-- START: chaos -->
-
 	<creature name="jeździec chaosu na zielonym smoku">
 		<type class="stendhal/huge_animal" subclass="chaos_green_dragonrider" tileid="huge_animal.png:3"/>
 		<description>Oto jeździec chaosu na zielonym smoku. Nie myl go z normalnym zielonym smokiem, który jest kontrolowany przez tajmeniczego maga siedzącego na jego grzbiecie.</description>
@@ -90,11 +89,9 @@
 			<profile name="strategy" params="archer(9),,dual attack"/>
 		</ai>
 	</creature>
-
 	<!-- END: chaos -->
 
 	<!-- START: dragon -->
-
 	<creature name="zielony smok">
 		<type class="stendhal/huge_animal" subclass="green_dragon" tileid="huge_animal.png:6"/>
 		<description>Oto zielony smok. Jego skrzydła są zbyt małe by unieść go w powietrze, ale i tak wygląda potężnie, a jego zielonkawa skóra wydaje się go całkiem dobrze bronić.</description>
@@ -301,11 +298,9 @@
 			<profile name="strategy" params="archer(9),attack weakest,dual attack"/>
 		</ai>
 	</creature>
-
 	<!-- STOP: dragon -->
 
 	<!-- START: flying -->
-
 	<creature name="złoty smok">
 		<type class="stendhal/huge_animal" subclass="flying_golden_dragon" tileid="huger_animal.png:0"/>
 		<description>Oto latający złoty smok. Gdy rozpościera swe skrzydła przechodzi cię dreszcz... ten mityczny potwór wygląda na potężnego!</description>
@@ -348,9 +343,9 @@
 		</ai>
 	</creature>
 
-	<creature name="smok dwugłowy niebieski">
+	<creature name="dwugłowy niebieski smok">
 		<type class="stendhal/huge_animal" subclass="twin_head_dragon" tileid="huge_animal.png:10"/>
-		<description>Oto smok dwugłowy niebieski. Dwugłowe wpatrują się w Ciebie swoimi czterema ślepiami!</description>
+		<description>Oto dwugłowy niebieski smok. Dwugłowe wpatrują się w Ciebie swoimi czterema ślepiami!</description>
 		<attributes>
 			<atk value="1836"/>
 			<def value="96"/>
@@ -374,7 +369,7 @@
 		<equips>
 		</equips>
 		<abilities>
-			<damage rangedType="fire"/>
+			<damage type="water"/>
 		</abilities>
 		<ai>
 			<says>
@@ -386,10 +381,7 @@
 			<profile name="offensive"/>
 			<profile name="heal" params="5,50"/>
 			<profile name="patrolling"/>
-			<profile name="strategy" params="archer,attack weakest,dual attack"/>
 		</ai>
 	</creature>
-
 	<!-- STOP: flying -->
-
 </creatures>

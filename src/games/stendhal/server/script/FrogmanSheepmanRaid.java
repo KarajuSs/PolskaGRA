@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -25,18 +24,18 @@ public class FrogmanSheepmanRaid extends CreateRaid {
 	@Override
 	protected Map<String, Integer> createArmy() {
 		final Map<String, Integer> attackArmy = new HashMap<String, Integer>();
-		attackArmy.put("frogman", 7);
-		attackArmy.put("elite frogman", 4);
-		attackArmy.put("wizard frogman", 2);
-		attackArmy.put("sheepman", 6);
-		attackArmy.put("armored sheepman", 3);
-		attackArmy.put("elder sheepman", 2);
-		attackArmy.put("elite sheepman", 1);
+		attackArmy.put("żabiczłek", 7);
+		attackArmy.put("żabiczłek elitarny", 4);
+		attackArmy.put("żabiczłek czarodziej", 2);
+		attackArmy.put("turoń", 6);
+		attackArmy.put("turoń uzbrojony", 3);
+		attackArmy.put("starszy turoń", 2);
+		attackArmy.put("turoń elitarny", 1);
 		return attackArmy;
 	}
 
 	@Override
 	protected String getInfo() {
-		return "Not safe for players below level 30";
+		return "Nie jest bezpieczny dla wojowników poniżej 30 poziomu";
 	}
 }

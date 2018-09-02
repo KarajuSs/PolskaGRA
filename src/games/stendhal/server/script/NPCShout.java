@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -31,7 +30,7 @@ public class NPCShout extends ScriptImpl {
 		super.execute(admin, args);
 
 		if (args.size() < 2) {
-			admin.sendPrivateText("Usage: /script NPCShout.class npc text");
+			admin.sendPrivateText("Użyj: /script NPCShout.class npc tekst");
 		} else {
 			final StringBuilder sb = new StringBuilder();
 			sb.append(args.get(0));

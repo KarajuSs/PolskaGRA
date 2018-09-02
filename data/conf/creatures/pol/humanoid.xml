@@ -834,7 +834,7 @@
 		<corpse name="humanoid"/>
 		<drops>
 			<item value="money" quantity="[99,599]" probability="100.0"/>
-			<item value="magia płomieni" quantity="[1,44]" probability="30.0"/>
+			<item value="magia płomieni" quantity="[22,88]" probability="55.0"/>
 			<item value="bełt płonący" quantity="[1,19]" probability="100.0"/>
 			<item value="różdżka Swaroga" quantity="[1,1]" probability="0.1"/>
 			<item value="czarne rękawice" quantity="[1,1]" probability="0.001"/>
@@ -868,7 +868,7 @@
 		<drops>
 			<item value="money" quantity="[1410,1410]" probability="1.0"/>
 			<item value="ognista tarcza" quantity="[1,1]" probability="5.0"/>
-			<item value="magia deszczu" quantity="[1,11]" probability="10.0"/>
+			<item value="magia deszczu" quantity="[22,88]" probability="20.0"/>
 			<item value="trójząb Trzygłowa" quantity="[1,1]" probability="0.05"/>
 			<item value="lazurowe rękawice" quantity="[1,1]" probability="0.01"/>
 		</drops>
@@ -900,7 +900,7 @@
 		<corpse name="humanoid"/>
 		<drops>
 			<item value="money" quantity="[99,299]" probability="100.0"/>
-			<item value="magia płomieni" quantity="[1,22]" probability="5.0"/>
+			<item value="magia płomieni" quantity="[44,222]" probability="30.0"/>
 			<item value="bełt płonący" quantity="[1,14]" probability="70.0"/>
 			<item value="trójząb Trzygłowa" quantity="[1,1]" probability="0.1"/>
 			<item value="karmazynowe rękawice" quantity="[1,1]" probability="0.01"/>
@@ -935,7 +935,7 @@
 			<item value="money" quantity="[11,111]" probability="100.0"/>
 			<item value="ognista tarcza" quantity="[1,1]" probability="1.0"/>
 			<item value="miecz ognisty" quantity="[1,1]" probability="2.0"/>
-			<item value="magia płomieni" quantity="[1,11]" probability="5.0"/>
+			<item value="magia płomieni" quantity="[22,44]" probability="15.0"/>
 			<item value="bełt płonący" quantity="[1,10]" probability="10.0"/>
 			<item value="złote rękawice" quantity="[1,1]" probability="0.001"/>
 		</drops>
@@ -967,6 +967,7 @@
 		<corpse name="humanoid"/>
 		<drops>
 			<item value="money" quantity="[7,53]" probability="100.0"/>
+			<item value="magia płomieni" quantity="[44,99]" probability="20.0"/>
 			<item value="karmazynowa tarcza" quantity="[1,1]" probability="0.5"/>
 			<item value="karmazynowy hełm" quantity="[1,1]" probability="0.005"/>
 			<item value="piekielny sztylet" quantity="[1,1]" probability="0.0001"/>

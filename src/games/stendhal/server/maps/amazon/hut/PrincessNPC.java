@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -16,6 +15,7 @@ import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.CollisionAction;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 
 import java.util.Arrays;
@@ -76,6 +76,7 @@ public class PrincessNPC implements ZoneConfigurator {
 
 		princessNPC.setEntityClass("amazoness_princessnpc");
 		princessNPC.setPosition(6, 13);
+		princessNPC.setCollisionAction(CollisionAction.STOP);
 		princessNPC.initHP(100);
 		princessNPC.setDescription("Widzisz księżniczke Esclara. Pachnie kokosem i ananasem...");
 		zone.add(princessNPC);

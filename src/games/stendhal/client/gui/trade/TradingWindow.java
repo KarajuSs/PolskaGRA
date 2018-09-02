@@ -73,17 +73,17 @@ class TradingWindow extends InternalManagedWindow {
 		 * Create the trading partner's side
 		 */
 		JComponent partnerColumn = SBoxLayout.createContainer(SBoxLayout.VERTICAL, padding);
-		partnersOfferLabel = new JLabel("Partner's offer");
+		partnersOfferLabel = new JLabel("Biuro partnera");
 		partnersOfferLabel.setAlignmentX(CENTER_ALIGNMENT);
 		partnerColumn.add(partnersOfferLabel);
 		partnerSlots = new SlotGrid(2, 2);
 		partnerColumn.add(partnerSlots);
 
-		partnerOfferStatus = new JLabel("Changing");
+		partnerOfferStatus = new JLabel("Zmieniam");
 		partnerOfferStatus.setAlignmentX(CENTER_ALIGNMENT);
 		partnerColumn.add(partnerOfferStatus);
 
-		acceptButton = new JButton("Accept");
+		acceptButton = new JButton("Zaakceptuj");
 		acceptButton.setEnabled(false);
 		acceptButton.addActionListener(new ActionListener() {
 			@Override
@@ -102,7 +102,7 @@ class TradingWindow extends InternalManagedWindow {
 		 * Create user offer's side
 		 */
 		JComponent myColumn = SBoxLayout.createContainer(SBoxLayout.VERTICAL, SBoxLayout.COMMON_PADDING);
-		JLabel myOfferLabel = new JLabel("My offer");
+		JLabel myOfferLabel = new JLabel("Moja oferta");
 		myOfferLabel.setAlignmentX(CENTER_ALIGNMENT);
 		myColumn.add(myOfferLabel);
 
@@ -111,11 +111,11 @@ class TradingWindow extends InternalManagedWindow {
 		myColumn.add(mySlots);
 		slotRow.add(myColumn);
 
-		myOfferStatus = new JLabel("Changing");
+		myOfferStatus = new JLabel("Zmieniam");
 		myOfferStatus.setAlignmentX(CENTER_ALIGNMENT);
 		myColumn.add(myOfferStatus);
 
-		offerButton = new JButton("Offer");
+		offerButton = new JButton("Zaoferuj");
 		offerButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -132,7 +132,7 @@ class TradingWindow extends InternalManagedWindow {
 		content.add(new JSeparator(SwingConstants.HORIZONTAL), SLayout.EXPAND_X);
 
 		// Cancel button
-		cancelButton = new JButton("Cancel");
+		cancelButton = new JButton("Anuluj");
 		cancelButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -159,8 +159,8 @@ class TradingWindow extends InternalManagedWindow {
 	 * @param name
 	 */
 	void setPartnerName(String name) {
-		setTitle("Trading with " + name);
-		partnersOfferLabel.setText(Grammar.suffix_s(name) + " offer");
+		setTitle("Handel z " + name);
+		partnersOfferLabel.setText("Oferta " + Grammar.suffix_s(name));
 	}
 
 	/**
@@ -191,19 +191,19 @@ class TradingWindow extends InternalManagedWindow {
 		switch (state) {
 		case NO_ACTIVE_TRADE:
 			indicator.setForeground(Color.GRAY);
-			indicator.setText("Inactive");
+			indicator.setText("Nieaktywny");
 			break;
 		case MAKING_OFFERS:
 			indicator.setForeground(Color.GRAY);
-			indicator.setText("Changing");
+			indicator.setText("Zmieniam");
 			break;
 		case LOCKED:
 			indicator.setForeground(Color.WHITE);
-			indicator.setText("Offered");
+			indicator.setText("Zaoferowałeś");
 			break;
 		case DEAL_WAITING_FOR_OTHER_DEAL:
 			indicator.setForeground(Color.GREEN);
-			indicator.setText("ACCEPTED");
+			indicator.setText("ZAAKCEPTOWANE");
 			break;
 		default:
 

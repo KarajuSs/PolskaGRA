@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -47,7 +46,7 @@ public abstract class AbstractOfflineAction extends ScriptImpl {
 
 		// check that player is offline
 		if (StendhalRPRuleProcessor.get().getPlayer(characterName) != null) {
-			admin.sendPrivateText("This player is currently online. Please use the normal commands.");
+			admin.sendPrivateText("Ten wojownik akurat znajduje się w grze. Użyj normalnych komend.");
 			return;
 		}
 
@@ -58,7 +57,7 @@ public abstract class AbstractOfflineAction extends ScriptImpl {
 
 			// check that the player exists
 			if (!characterDAO.hasCharacter(characterName)) {
-				admin.sendPrivateText("No player with that name.");
+				admin.sendPrivateText("Nie ma wojownika o takim imieniu.");
 				TransactionPool.get().commit(transaction);
 				return;
 			}

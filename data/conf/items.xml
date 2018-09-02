@@ -41,7 +41,7 @@
 	<group uri="items/necklaces.xml"/>
 	<group uri="items/wand.xml"/>
 	<group uri="items/pas.xml"/>
-	
+
 	<!-- DISABLED ITEMS
 	<group uri="items/monety.xml"/>
 	<group uri="items/capturetheflag.xml"/>

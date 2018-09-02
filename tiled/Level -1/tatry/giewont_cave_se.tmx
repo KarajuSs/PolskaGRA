@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="128" height="128" tilewidth="32" tileheight="32" nextobjectid="1">
- <tileset firstgid="1" name="earth_snow" tilewidth="32" tileheight="32" tilecount="96" columns="12">
+ <tileset firstgid="1" name="earth_dark" tilewidth="32" tileheight="32" tilecount="96" columns="12">
   <image source="../../tileset/ground/ridge/earth_dark.png" width="384" height="256"/>
  </tileset>
  <tileset firstgid="97" name="collision.png" tilewidth="32" tileheight="32" tilecount="1" columns="1">
@@ -12,12 +12,15 @@
  <tileset firstgid="130" name="brown" tilewidth="32" tileheight="32" tilecount="5" columns="5">
   <image source="../../tileset/ground/brown.png" width="160" height="32"/>
  </tileset>
- <tileset firstgid="135" name="ground_magma02" tilewidth="32" tileheight="32" tilecount="18" columns="3">
-  <image source="../../tileset/pol/podloze/ground_magma02.png" width="96" height="192"/>
+ <tileset firstgid="135" name="light_5x5" tilewidth="32" tileheight="32" tilecount="25" columns="5">
+  <image source="../../tileset/light/light_5x5.png" width="160" height="160"/>
+ </tileset>
+ <tileset firstgid="160" name="ground_magma01" tilewidth="32" tileheight="32" tilecount="18" columns="3">
+  <image source="../../tileset/pol/podloze/ground_magma01.png" width="96" height="192"/>
  </tileset>
  <layer name="0_floor" width="128" height="128">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3cMW7DMBQFQd3dfc6cCxgOAln6pHaK6SnucyMYeh3H8QIAAAAA4DY/b0yfiftafzJ9Xma628FznG1vB/v6Znsb2McV3W1gfVd3t4E13dndBtYx1d0Gur1tQHP92731190GdNe/29sG9Na/3fs/G3jibqbvekVn72q6qeaz/Vfew/Td7uDqu9N8bdP3qNs8v6M2/dv0b9O/Tf82/dv0b9O/Tf+u6fd/6I/+rNNe/wb92/Rv07/L/2ja9G/Tv03/Nv3b9G/Tv03/Nv3b9G/Tv01/9G/Tv01/9G/Tv01/9G/TH/3b9Ef/Nv3b9G/TH/3b9Ef/Nv3b9G/Tv03/Nv3b9G/Tv03/Nv3b9G/Tv03/Nv3b9G/Tv03/Nv3b9O/667tAvhv0bGf728Pevt3fHvZydX/bWNdke7uYN93ZHvS3Be1tQX9b0N4W9LcJ7e1AezvQ3xa0twHt7UB7O9DeBrS3Ae3tQHsb0N0O5u+iarq79mvQHO25egfTz8bMFqafg5ktTJ+ZmT1Mnw0A6PgFCAl8bQAAAQA=
+   H4sIAAAAAAAAC+3cwW3DMBQFQfXuYtJmGjAcBLL0Se0c5k5xny+CoddxHC8AAAAAAG7z88b0mbiv9SfT52Wmux08x9n2drCvb7a3gX1c0d0G1nd1dxtY053dbWAdU91toNvbBjTXv91bf91tQHf9u71tQG/9273/s4En7mb6rld09q6mm2o+23/lPUzf7Q6uvjvN1zZ9j7rN8ztq079N/zb92/Rv079N/zb92/Tvmn7/h/7ozzrt9W/Qv03/Nv27/I+mTf82/dv0b9O/Tf82/dv0b9O/Tf82/dv0R/82/dv0R/82/dv0R/82/dG/TX/0b9O/Tf82/dG/TX/0b9O/Tf82/dv0b9O/Tf82/dv0b9O/Tf82/dv0b9O/Tf82/dv0b9O/Tf+uv74L5LtBz3a2vz3s7dv97WEvV/e3jXVNtreLedOd7UF/W9DeFvS3Be1tQX+b0N4OtLcD/W1BexvQ3g60twPtbUB7G9DeDrS3Ad3tYP4uqqa7a78GzdGeq3cw/WzMbGH6OZjZwvSZmdnD9NkAgI5f0tAkZwAAAQA=
   </data>
  </layer>
  <layer name="1_terrain" width="128" height="128">
@@ -55,14 +58,14 @@
    H4sIAAAAAAAAC+3BAQEAAACAkP6v7ggKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAauuOl9cAAAEA
   </data>
  </layer>
- <layer name="blend_ground" width="128" height="128" opacity="0.4">
+ <layer name="blend_ground" width="128" height="128" visible="0" opacity="0.4">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3BAQEAAACAkP6v7ggKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAauuOl9cAAAEA
+   H4sIAAAAAAAAC+3RSQ6CQABEUe4fBkEGNeJZqQUnYNGd4HvJ31dSTQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFzRpi71aUiPunMobExTeqY5LXXnUJj//9uatvRK7/SpO4fCvmd7+p0BAAAAAAAAAAAAwJ0cN/bLmgAAAQA=
   </data>
  </layer>
- <layer name="blend_roof" width="128" height="128" opacity="0.4">
+ <layer name="blend_roof" width="128" height="128" visible="0" opacity="0.4">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3BAQEAAACAkP6v7ggKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAauuOl9cAAAEA
+   H4sIAAAAAAAAC+3RSQ6CQABEUe4fBkEGNeJZqQUnYNGd4HvJ31dSTQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFzRpi71aUiPunMobExTeqY5LXXnUJj//9uatvRK7/SpO4fCvmd7+p0BAAAAAAAAAAAAwJ0cN/bLmgAAAQA=
   </data>
  </layer>
 </map>

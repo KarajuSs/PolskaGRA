@@ -1,8 +1,83 @@
 ﻿Changelog
 ---------
+1.04
+*klient*
+- Natura broni służy do ustawienia ikonki walki, jeśli jest dostępna
+- Dodano nowe dźwieki kajmana
+- Dodano 4 nowe fryzury do wyboru dla postaci gracza
+- Poprawiono graficznie ubrania dress_62-68.png
+- Poprawiono graficznie elficki naszyjnik
+
+
+*serwer*
+- Przetłumaczono wszystkie skrypty oraz dodano kilka nowych dla administratorów
+
+
+*świat gry*
+- Dodano nowe rękawice wampirze (ATK: 2; DEF: 5; LIFESTEAL: 0.05), które można dropnąć z lorda wampirów (0.04%)
+- Dodano nowe expowiska na desert'cie (6 pięter nowej piramidy)
+- Miecz ognisty stał się lżejszy dla rycerzy, ale niestety jego siła się zmniejszyła, a lodowy miecz stał się lustrzanym odbiciem miecza ognistego (atk; waga;)
+	- miecz ognisty - 29 / 5 + FIRE
+	- lodowy miecz  - 29 / 5 + ICE
+- Zebranie magów przedyskutowało temat magii ognia i magii ziemi. Doszli do wniosku, że to magia ognia jest bardziej niebezpieczna (atk; obr;)
+	- magia ziemi - 9 / 9 + NATURE (wcześniej - 11 / 11 + NATURE)
+	- magia ognia - 11 / 11 + FIRE (wcześniej - 9 / 9 + FIRE)
+- Dodano nowego dwugłowego lodowego smoka, który posiada stare statystyki dwugłowego czarnego smoka, a aktualne statystyki dwugłowego czarnego wyglądają następująco (w nawiasie są jego stare statystyki):
+	- ATK: 3817 (3052)
+	- DEF: 129 (110)
+	- HP: 7593 (6873)
+	- LEVEL: 499 (399)
+	- XP: 486253 (312827)
+- Poszerzono przejścia w ognistej piramidzie
+- U Juhasa można zakupić bilet turystyczny raz na dzień oraz gracz musi posiadać conajmniej 100 poziom. Juhas reaguje na słowo "bilet" lub "bilet turystyczny", gdzie potem będą toczone kolejne dialogi z graczem. UWAGA!!! Juhas nie będzie reagował na "buy bilet turystyczny"!!
+- Dodano typ natury ataku dla smoków, np: dwugłowy czerwony smok posiada typ ataku ognistego, czyli fire, a dwugłowy czarny - dark, itd...
+- Zwiększono drop magii płomieni z odpowiednich potworów
+- Kajmany wydają dźwieki
+- Dodany został dźwięk wiedźmy NPC Esolte Vietta
+- Tekstury na większości map zostały poprawione (np: Tatry, pustynia, dreamscape)
+- Na niektórych mapach Tatr rosną grzyby
+- Zmieniono system otrzymywania skilli za osiągnięty poziom z 50/100/150/200/250/300 na 50/100/150/350/550 (zmieniliśmy NPC, którzy nagradzali nas 'skillami' za osiągnięty poziom, lecz kiedy osiągniecie dany poziom i przejdziecie się do danego NPC to nie pożałujecie :) )
+
+
+*code*
+- Lifesteal z rękawic sumuje się wraz z lifesteal'em w broni lub bez niej
+
+
+
+1.03.5
+*klient*
+- Przetłumaczono handel
+
+
+*świat gry*
+- Radomil zyskał nową moc usuwania czaszek z zabójców posiadających dobrą karmę
+- Przywrócono desert
+- Przywrócono pierścienie mieszczanina, rycerza, barona, magnata
+- Elficki naszyjnik można dropnąć z elfów górskich (około 0.025 do 1%)
+- Elfy & elfy górskie atakują siłą natury
+- Elficki set posiada teraz odporność na siłę natury
+- Elficki miecz atakuje siłą natury
+- Poprawiono kafelki na niektórych mapach Faiumoni
+- Poprawiono osiągnięcie 'Heretyk'- od teraz potrzeba wykonać 25 zadań zamiast 50
+- Aenihata przywrócila swoje dawne siły
+
+
+*code*
+- Usunieto pliki takie jak: GuildRing.java & Ring.java (nie korzystane)
+- Pierścienie mieszczanina, rycerza, barona i magnata są teraz opisywane jako Item zamiast GuildRing
+
+
+*naprawa błędów*
+- Naprawiono listę oferty u Wielkoluda
+- Naprawiono wejście do domku na górze w Tatrach
+- Naprawiono ścieżki graficzne potwora mermaid
+
+
+
 1.03 - MOUNTAINS
 *klient*
 - Przetłumaczono część tekstów
+- Dodano trzy nowe grafiki: złoty amulet, elficki naszyjnik, pióro mrocznego archanioła
 
 
 *świat gry*
@@ -23,12 +98,16 @@
 - Dodano nowe zadania w Tatrach (jedno z nich znajduje się w nowym ratuszu :))
 - W dzielnicy Zakopanego, w Kuźnicy można sprawdzić kto potrzebuje pomocy w rejonach pasma górskiego jak i w samym Zakopane
 - Kilka nowych outfitów dla NPC
+- Dodano trzy nowe przedmioty: złoty amulet (przedmiot potrzebny do zadania) oraz elficki naszyjnik (6 DEF), pióro mrocznego archanioła (rzecz kolekcjonerska; można dropnąć z archanioła ciemności)
+- NPC na skille (na 100 poziom) został przeniesiony z Gdańska do jaskini na wyspie Athor
+- Wynagrodzenie w niektórych zadaniach w krainie faiumoni oraz krainie prasłowiańskiej zostało zmienione (na lepsze)
 
 
 *code*
 - Klient teraz będzie wymagał od nas Jave w wersji 1.8 zamiast 1.7
 - Zmieniono nieco mnożnik DEF'a (na plus oczywiście)
 - Poprawiono 'jakość' chodzenia gracza oraz kodu gry
+- Dodano nowy skrypt dla GM - /alterkills
 
 
 *naprawa błędów*
@@ -36,6 +115,7 @@
 - Naprawiono błąd, że nie można było atakować z magii i różdżki
 - Naprawiono błąd przez który Wielkolud nie kupował polskiej płytowej tarczy
 - Naprawiono naliczanie ataku do statystyk gracza z rękawic lub pierścieni
+- Poprawiono działanie komendy /away
 
 
 

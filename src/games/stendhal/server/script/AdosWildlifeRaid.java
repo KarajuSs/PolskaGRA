@@ -48,12 +48,12 @@ public class AdosWildlifeRaid implements TurnListener {
 	public void createSoldiers(StendhalRPZone zone) {
 
 		// main entrance
-		createSoldier(zone, "Soldier", 55, 47);
-		createSoldier(zone, "Soldier", 56, 47);
-		createSoldier(zone, "Soldier", 57, 47);
+		createSoldier(zone, "Żołnierz", 55, 47);
+		createSoldier(zone, "Żołnierz", 56, 47);
+		createSoldier(zone, "Żołnierz", 57, 47);
 
 		// backdoor
-		createSoldier(zone, "Soldier", 43, 23);
+		createSoldier(zone, "Żołnierz", 43, 23);
 	}
 
 	/**
@@ -73,44 +73,44 @@ public class AdosWildlifeRaid implements TurnListener {
 		switch (turnCounter) {
 
 			case 0:
-				shout("Katinka shouts: Help. There are two Orcs approaching our Wildlife Refuge");
+				shout("Katinka krzyczy: Pomocy. Zbliżają się dwa Orki do naszego Schroniska dla zwierząt");
 				wait = 5 * 3;
 				break;
 
 			case 1:
-				shout("Head of Soldiers shouts: Katinka, stay calm.");
+				shout("Dowódca Żołnierzy krzyczy: Katinka uspokój się.");
 				break;
 
 			case 2:
-				shout("Head of Soldiers shouts: I will send one of our soldiers called Marcus to help you.");
+				shout("Dowódca Żołnierzy krzyczy: Wyślę tobie jednego z moich żołnierzy zwanego Marcus, aby ci pomógł.");
 				wait = 60 * 3;
 				break;
 
 			case 3:
-				shout("Marcus shouts: I killed those two Orcs. But further investigation showed:");
+				shout("Marcus krzyczy: Zabiłem te dwa Orki, ale dalsze dochodzenie wykazało:");
 				break;
 
 			case 4:
-				shout("Marcus shouts: They were only in the vanguard of a huge bunch of Warrior Orcs.");
+				shout("Marcus krzyczy: Byli tylko zwiadem dużej zgrai wojowniczych Orków.");
 				break;
 
 			case 5:
-				shout("Marcus shouts: We need reinforcements within about 10 minutes.");
+				shout("Marcus krzyczy: Potrzebujemy posiłków w ciągu 10 minut.");
 				wait = 10 * 3;
 				break;
 
 			case 6:
-				shout("Io Flotto shouts: I created a portal near Carmen in the south west of Semos.");
+				shout("Io Flotto krzyczy: Utworzyłam portal obok Carmen w południowo-zachodniej części Semos.");
 				break;
 
 			case 7:
-				shout("Io Flotto shouts: You can use it to get to the Ados Wildlife Refuge in time.");
+				shout("Io Flotto krzyczy: Możesz z niego skorzystać, aby na czas dostać się do Schroniska dla zwierząt w Ados.");
 				wait = 120 * 3;
 				break;
 
 			case 8:
-				shout("Katinka shouts: Argh! They have eaten our boars. Help us!");
-				// shout("Dr. Feelgood shouts: Help! Help us! The Ados Wildlife Refuge is under heavy attack by a bunch of hungry Orc Warriors.");
+				shout("Katinka krzyczy: Argh! Jedzą nasze dziki. Pomóżcie nam!");
+				// shout("Dr. Feelgood krzyczy: Pomocy! Pomóżcie nam! Schronisko dla zwierząt w Ados jest pod silnym atakiem zgrai głodnych wojowniczych Orków.");
 				wait = 600 * 3;
 				break;
 

@@ -51,7 +51,7 @@ public class MeetHackim extends AbstractQuest {
 	public String getSlotName() {
 		return QUEST_SLOT;
 	}
-	
+
 	@Override
 	public List<String> getHistory(final Player player) {
 		final List<String> res = new ArrayList<String>();
@@ -84,13 +84,13 @@ public class MeetHackim extends AbstractQuest {
 			ConversationStates.INFORMATION_2,
 			"*szept* Idź do oberży i porozmawiaj z człowiekiem zwącym się #Xin #Blanca... kupuje i sprzedaje ekwipunek, który mógłby Cię zainteresować. Chcesz usłyszeć więcej?",
 			null);
-		
+
 		npc.add(
 			ConversationStates.INFORMATION_2,
 			yesTrigger,
 			null,
 			ConversationStates.INFORMATION_3,
-			"Zapytaj go co ma do #zaoferowania i zobacz co możesz #kupić i #sprzedać. Na przykład jeżeli masz studded shield, którego nie chcesz to możesz sprzedać mówiąc#'sell studded shield'.",
+			"Zapytaj go co ma do #zaoferowania i zobacz co możesz #kupić i #sprzedać. Na przykład jeżeli masz studded shield, którego nie chcesz to możesz sprzedać mówiąc #'sprzedam tarcza ćwiekowa'.",
 			null);
 
 		final String answer = "Zgadnij kto zaopatruje Xin Blanca w broń, którą sprzedaje? Cóż to ja! Ponieważ muszę unikać wzbudzania podejrzeń przemycam tylko małe bronie. Jeżeli potrzebujesz czegoś mocniejszego to musisz zejść do podziemi i zabić jakiegoś potwora.\n";
@@ -99,18 +99,18 @@ public class MeetHackim extends AbstractQuest {
 		reward.add(new EquipItemAction("money", 75));
 		reward.add(new IncreaseXPAction(350));
 		reward.add(new SetQuestAction(QUEST_SLOT, "done"));
-		
+
 		npc.add(ConversationStates.INFORMATION_3,
-				Arrays.asList("buy", "sell", "offer", "sell studded shield"),
+				Arrays.asList("buy", "sell", "offer", "sell studded shield", "kupię", "sprzedam", "oferta", "sprzedam tarcza ćwiekowa"),
 				new QuestNotCompletedCondition(QUEST_SLOT),
-				ConversationStates.IDLE, 
+				ConversationStates.IDLE,
 				answer + "Jeżeli ktoś Cię zapyta to nie znasz mnie!",
 				new MultipleActions(reward));
 
 		npc.add(ConversationStates.INFORMATION_3,
-				Arrays.asList("buy", "sell", "offer", "sell studded shield"),
+				Arrays.asList("buy", "sell", "offer", "sell studded shield", "kupię", "sprzedam", "oferta", "sprzedam tarcza ćwiekowa"),
 				new QuestCompletedCondition(QUEST_SLOT),
-				ConversationStates.IDLE, 
+				ConversationStates.IDLE,
 				answer + "Gdzie dostałeś tę broń? W sklepie z zabawkami?",
 				null);
 
@@ -144,7 +144,7 @@ public class MeetHackim extends AbstractQuest {
 	public String getName() {
 		return "MeetHackim";
 	}
-	
+
 	@Override
 	public String getRegion() {
 		return Region.SEMOS_CITY;

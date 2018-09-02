@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -29,17 +28,17 @@ public class SetWelcomeText extends ScriptImpl {
 	@Override
 	public void execute(Player admin, List<String> args) {
 		if (args.isEmpty()) {
-			admin.sendPrivateText(NotificationType.ERROR, "Argument missing.");
+			admin.sendPrivateText(NotificationType.ERROR, "Brakuje argumentu.");
 			return;
 		}
 
 		if (args.size() > 1) {
-			admin.sendPrivateText(NotificationType.ERROR, "Too many arguments. Please use quotes.");
+			admin.sendPrivateText(NotificationType.ERROR, "Zbyt dużo argumentów. Użyj cudzysłowów.");
 			return;
 		}
 
 		StendhalRPRuleProcessor.setWelcomeMessage(args.get(0));
-		admin.sendPrivateText("Set welcome text to: " + args.get(0));
+		admin.sendPrivateText("Ustaw tekst powitania na: " + args.get(0));
 	}
 
 }

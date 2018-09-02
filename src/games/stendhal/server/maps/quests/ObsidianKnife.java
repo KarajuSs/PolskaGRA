@@ -337,7 +337,7 @@ public class ObsidianKnife extends AbstractQuest {
 				Arrays.asList("książkę o kamieniach", "książka o kamieniach"),
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "seeking_book"), new QuestCompletedCondition("ceryl_book")),
 				ConversationStates.ATTENDING,
-				"Obecnie #'książka o kamieniach' jest dosc popularna ...",
+				"Obecnie #'książka o kamieniach' jest dość popularna ...",
 				null);
 		
 		npc.add(ConversationStates.ATTENDING,

@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -34,19 +33,19 @@ public class ResetSlot extends ScriptImpl {
 
 		// admin help
 		if (args.size() < 2) {
-			admin.sendPrivateText("Need player name and slot name as parameter.");
+			admin.sendPrivateText("Potrzebna jest nazwa wojownika oraz nazwa slotu jako parametr.");
 			return;
 		}
 
 		// find the player and slot
 		final Player player = SingletonRepository.getRuleProcessor().getPlayer(args.get(0));
 		if (player == null) {
-			admin.sendPrivateText("No such player: " + args.get(0));
+			admin.sendPrivateText("Nie ma takiego wojownika: " + args.get(0));
 			return;
 		}
 		final RPSlot slot = player.getSlot(args.get(1));
 		if (slot == null) {
-			admin.sendPrivateText("No such slot: " + args.get(1));
+			admin.sendPrivateText("Nie ma takiego slotu: " + args.get(1));
 			return;
 		}
 
@@ -59,7 +58,7 @@ public class ResetSlot extends ScriptImpl {
 
 		// notify the player
 		player.sendPrivateText(NotificationType.SUPPORT,
-				"Your " + args.get(1) + " state was reset by "
+				"Stan twojego " + args.get(1) + " został zresetowany przez "
 				+ admin.getTitle());
 	}
 }

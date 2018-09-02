@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2011 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -38,10 +37,10 @@ public class AdminPortal extends ScriptImpl {
 			// syntax error, print help text
 			sandbox.privateText(
 					admin,
-					"This script creates portals:\n" +
-					"/script AdminPortal.class <destination-zone> <destination-ref>\n" +
-					"/script AdminPortal.class <name> <destination-zone> <destination-ref>\n" +
-					"/script AdminPortal.class <name> <destination-zone> <destination-ref> level <min-level> <max-level> [<reject-message>]");
+					"Ten skrypt tworzy portale:\n" +
+					"/script AdminPortal.class <obszar-docelowy> <cel-powrotny>\n" +
+					"/script AdminPortal.class <nazwa> <obszar-docelowy> <cel-powrotny>\n" +
+					"/script AdminPortal.class <nazwa> <obszar-docelowy> <cel-powrotny> level <min-poziom> <maks-poziom> [<wiadomość-wykluczająca>]");
 		}
 	}
 
@@ -96,7 +95,7 @@ public class AdminPortal extends ScriptImpl {
 			}
 			return new LevelCheckingPortal(Integer.parseInt(args.get(4)), Integer.parseInt(args.get(5)), rejectMessage);
 		}
-		throw new IllegalArgumentException("Invalid portal type.");
+		throw new IllegalArgumentException("Nieprawidłowy typ portalu.");
 	}
 
 	/**

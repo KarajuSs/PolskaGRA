@@ -17,7 +17,7 @@ import java.util.Map;
 
 /**
  * @author kymara
- *
+ * 
  * Not safe for players below level 5
  */
 public class AnimalRaid extends CreateRaid {
@@ -25,24 +25,24 @@ public class AnimalRaid extends CreateRaid {
 	@Override
 	protected Map<String, Integer> createArmy() {
 		final Map<String, Integer> attackArmy = new HashMap<String, Integer>();
-		attackArmy.put("monkey", 2);
-		attackArmy.put("grass snake", 2);
-		attackArmy.put("beaver", 2);
-		attackArmy.put("tiger", 2);
-		attackArmy.put("lion", 3);
+		attackArmy.put("małpa", 2);
+		attackArmy.put("żmija", 2);
+		attackArmy.put("bóbr", 2);
+		attackArmy.put("tygrys", 2);
+		attackArmy.put("lew", 3);
 		attackArmy.put("panda", 2);
-		attackArmy.put("penguin", 4);
-		attackArmy.put("caiman", 3);
-		attackArmy.put("babybear", 2);
-		attackArmy.put("black bear", 1);
-		attackArmy.put("elephant", 3);
-		attackArmy.put("crocodile", 2);
+		attackArmy.put("pingwin", 4);
+		attackArmy.put("kaiman", 3);
+		attackArmy.put("miś", 2);
+		attackArmy.put("niedźwiedź grizli", 1);
+		attackArmy.put("słoń", 3);
+		attackArmy.put("krokodyl", 2);
 
 		return attackArmy;
 	}
 
 	@Override
 	protected String getInfo() {
-		return " * Not safe for players below level 5";
+		return " * Niebezpieczny dla wojowników poniżej poziomu 5";
 	}
 }

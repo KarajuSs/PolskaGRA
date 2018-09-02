@@ -7,13 +7,32 @@
 		<description>Oto para czarnych spodni.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="15"/>
-			<min_level value="200"/>
+			<def value="19"/>
+			<min_level value="190"/>
 		</attributes>
 		<weight value="25.0"/>
 		<value value="23625"/>
 		<susceptibility type="light" value="1.11"/>
 		<susceptibility type="dark" value="0.91"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+			<slot name="legs"/>
+		</equipable>
+	</item>
+
+	<item name="spodnie wampirze">
+		<type class="legs" subclass="vampire_legs" tileid="-1"/>
+		<description>Oto para spodni wampirzych.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<def value="17"/>
+			<min_level value="170"/>
+		</attributes>
+		<weight value="21.0"/>
+		<value value="23625"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
@@ -109,6 +128,7 @@
 		<weight value="12.0"/>
 		<value value="1512"/>
 		<susceptibility type="fire" value="1.11"/>
+		<susceptibility type="nature" value="0.91"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
@@ -199,7 +219,7 @@
 		<description>Oto para spodni z mithrilu. Na pewno dobrze będą ci służyć.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="18"/>
+			<def value="20"/>
 			<min_level value="200"/>
 		</attributes>
 		<weight value="22.0"/>

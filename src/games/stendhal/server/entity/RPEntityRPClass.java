@@ -114,7 +114,7 @@ public class RPEntityRPClass {
 		entity.addRPSlot("legs", 1, Definition.PRIVATE);
 		entity.addRPSlot("feet", 1, Definition.PRIVATE);
 			entity.addRPSlot("back", 1, Definition.PRIVATE);
-			entity.addRPSlot("pas", 1, Definition.PRIVATE);
+      entity.addRPSlot("pas", 1, Definition.PRIVATE);
 			entity.addRPSlot("belt", 1, Definition.PRIVATE);
 		entity.addRPSlot("money", 1, Definition.PRIVATE);
 

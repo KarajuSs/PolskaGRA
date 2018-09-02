@@ -67,7 +67,7 @@
 		</ai>
 	</creature>
 	<!-- END: kamienne -->
-	
+
 	<!-- START: kamienne wielkie -->
 	<creature name="głaz">
 		<type class="pol/kamienne_wielkie" subclass="glaz" tileid="pol_kamienne_wielkie.png:0"/>
@@ -164,7 +164,7 @@
 		</ai>
 	</creature>
 	<!-- END: kamienne wielkie -->
-	
+
 	<!-- START: sniegowe -->
 	<creature name="kula śnieżna">
 		<type class="pol/sniegowe" subclass="kula_sniezna" tileid="pol_sniegowe.png:0"/>
@@ -225,8 +225,47 @@
 			<profile name="rare"/>
 		</ai>
 	</creature>
+
+	<creature name="lodowy starszy olbrzym">
+		<type class="pol/olbrzymy" subclass="lodowy_starszy_olbrzym" tileid="pol_olbrzymy.png:3"/>
+		<description>Oto lodowy starszy olbrzym. Jego skóra pokryta jest szadzią, a jego oddech jest niczym mroźny powiew północnego wiatru.</description>
+		<attributes>
+			<atk value="1836"/>
+			<def value="80"/>
+			<hp value="1728"/>
+			<speed value="1.0"/>
+			<size value="2,2"/>
+		</attributes>
+		<level value="240"/>
+		<experience value="112386"/>
+		<respawn value="15700"/>
+		<corpse name="giant_humanoid" width="2" height="2"/>
+		<drops>
+			<item value="wielki eliksir" quantity="[2,6]" probability="40.0"/>
+			<item value="serce olbrzyma" quantity="[1,1]" probability="85.0"/>
+			<item value="money" quantity="[100,3050]" probability="100.0"/>
+			<item value="lodowa zbroja" quantity="[1,1]" probability="2.0"/>
+			<item value="lodowy młot bojowy" quantity="[1,1]" probability="1.0"/>
+			<item value="hełm lodowy" quantity="[1,1]" probability="0.25"/>
+			<item value="lodowe rękawice" quantity="[1,1]" probability="0.075"/>
+			<item value="lodowa kusza" quantity="[1,1]" probability="0.85"/>
+		</drops>
+		<equips>
+		</equips>
+		<abilities>
+			<damage type="ice"/>
+			<susceptibility type="ice" value="0.4"/>
+			<susceptibility type="fire" value="1.7"/>
+		</abilities>
+		<ai>
+			<profile name="brave"/>
+			<profile name="animal"/>
+			<profile name="offensive"/>
+			<profile name="heal" params="10,75"/>
+		</ai>
+	</creature>
 	<!-- END: sniegowe -->
-	
+
 	<!-- START: pasterze -->
 	<creature name="pasterz drzew">
 		<type class="pol/pasterze_drzew" subclass="pasterz_drzew" tileid="pol_pasterze_drzew.png:0"/>
@@ -277,6 +316,7 @@
 			<item value="miecz ognisty" quantity="[1,1]" probability="0.8"/>
 			<item value="ognista tarcza" quantity="[1,1]" probability="0.9"/>
 			<item value="ogniste rękawice" quantity="[1,1]" probability="0.0025"/>
+			<item value="magia płomieni" quantity="[30,200]" probability="70.0"/>
 		</drops>
 		<equips/>
 		<abilities>
@@ -314,6 +354,7 @@
 			<item value="miecz lodowy" quantity="[1,1]" probability="5.0"/>
 			<item value="lodowa tarcza" quantity="[1,1]" probability="1.0"/>
 			<item value="lodowe rękawice" quantity="[1,1]" probability="0.025"/>
+			<item value="magia deszczu" quantity="[30,200]" probability="70.0"/>
 		</drops>
 		<equips/>
 		<abilities>
@@ -346,7 +387,7 @@
 		<respawn value="1999"/>
 		<corpse name="other"/>
 		<drops>
-			<item value="magia płomieni" quantity="[1,9]" probability="70.0"/>
+			<item value="magia płomieni" quantity="[1,99]" probability="90.0"/>
 			<item value="ogniste rękawice" quantity="[1,1]" probability="0.0005"/>
 			<item value="ognista tarcza" quantity="[1,1]" probability="1.0"/>
 			<item value="miecz ognisty" quantity="[1,1]" probability="10.0"/>

@@ -1,5 +1,5 @@
 /***************************************************************************
- *                   (C) Copyright 2003-2011 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -48,7 +48,7 @@ public class SummonChest extends ScriptImpl {
 				sandbox.setZone(sandbox.getZone(player));
 			} else {
 				if (!sandbox.setZone(myZone)) {
-					sandbox.privateText(player, "Zone not found.");
+					sandbox.privateText(player, "Nie znaleziono obszaru.");
 					return;
 				}
 			}
@@ -79,7 +79,7 @@ public class SummonChest extends ScriptImpl {
 			// syntax error, print help text
 			sandbox.privateText(
 					player,
-					"This script creates, lists or removes chests. Syntax: \r\nSummonChest.class <zone> <x> <y>. The first 3 parameters can be \"-\".\r\nSummonChest.class list\r\nSummonChest.class del <n>");
+					"Ten skrypt tworzy, wyświetla listę lub usuwa skrzynie. Składnia: \r\nSummonChest.class <obszar> <x> <y>. Pierwsze 3 parametry mogą być \"-\".\r\nSummonChest.class list\r\nSummonChest.class del <n>");
 		}
 	}
 
@@ -96,7 +96,7 @@ public class SummonChest extends ScriptImpl {
 		try {
 			i = Integer.parseInt(args.get(1));
 		} catch (final NumberFormatException e) {
-			sandbox.privateText(player, "Please specify a number");
+			sandbox.privateText(player, "Proszę podaj numer");
 			return;
 		}
 
@@ -109,7 +109,7 @@ public class SummonChest extends ScriptImpl {
 			chestToString(sb, chest);
 			sandbox.privateText(player, sb.toString());
 		} else {
-			sandbox.privateText(player, "Chest " + i + " does not exist");
+			sandbox.privateText(player, "Skrzynia " + i + " nie istnieje");
 		}
 	}
 
@@ -150,7 +150,7 @@ public class SummonChest extends ScriptImpl {
 	@Override
 	public void execute(final Player admin, final List<String> args) {
 		if (args.size() == 0) {
-			admin.sendPrivateText("/script SummonChest.class zone x y (the first three parameters may be \"-\"\n/script SummonChest.class list\n/script SummonChest.class del <n>");
+			admin.sendPrivateText("/script SummonChest.class obszar x y (pierwsze trzy parametry mogą być \"-\"\n/script SummonChest.class list\n/script SummonChest.class del <n>");
 			return;
 		}
 

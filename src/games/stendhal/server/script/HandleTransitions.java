@@ -1,5 +1,5 @@
 /***************************************************************************
- *                   (C) Copyright 2003-2012 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -31,16 +31,16 @@ import games.stendhal.server.entity.player.Player;
 public class HandleTransitions extends ScriptImpl {
 
 	private void usage(final Player admin) {
-		admin.sendPrivateText("Usage /script AlterTransitions.class <npc> <-><command> <args>.\n" +
-				"Commands are:\n" +
-				"\nadd - adds transition to npc's fsm.\n" +
-				"\tArgs: \"label\" \"trigger\" \"text to speak\"\n" +
-				"\ndel - remove transition from npc's fsm.\n" +
-				"\tArgs: \"label\"\n" +
-				"\nalter - alter transition content.\n" +
-				"\tArgs: \"label\" \"trigger\" \"test to speak\"\n" +
-				"\nlist - show existing transitions table.\n" +
-				"\tArgs: none\n" +
+		admin.sendPrivateText("Użyj /script AlterTransitions.class <npc> <-><polecenie> <argumenty>.\n" +
+				"Polecenia:\n" +
+				"\nadd - dodaje zmianę do npca.\n" +
+				"\tArgumenty: \"nazwa\" \"wywołanie\" \"tekst do wypowiedzenia\"\n" +
+				"\ndel - usuwa zmainę z npca.\n" +
+				"\tArgumenty: \"nazwa\"\n" +
+				"\nalter - zmienia zmianę.\n" +
+				"\tArgumenty: \"nazwa\" \"wywołanie\" \"tekst do wypowiedzenia\"\n" +
+				"\nlist - pokazuje listę aktualnych zmian.\n" +
+				"\tArgumenty: nic\n" +
 				"");
 	}
 
@@ -59,19 +59,18 @@ public class HandleTransitions extends ScriptImpl {
 		// npc
         final String npc_name = args.get(0);
         if(npc_name.equals("")) {
-        	admin.sendPrivateText("Empty NPC name isnot allowed.");
+        	admin.sendPrivateText("Nie dozwolona jest pusta nazwa NPCa.");
         	return;
         }
     	SpeakerNPC npc=SingletonRepository.getNPCList().get(npc_name);
     	if(npc==null) {
-    		admin.sendPrivateText("no such NPC in game ("+npc_name+").");
-    		return;
+    		admin.sendPrivateText("brak NPCa ("+npc_name+") w grze.");
     	}
 
         // check command
         String command = args.get(1);
         if(!command.startsWith("-")) {
-        	admin.sendPrivateText("command should start with \"-\"");
+        	admin.sendPrivateText("polecenie powinno się zaczynać od \"-\"");
         	return;
         } else {
         	command = command.substring(1);
@@ -94,11 +93,11 @@ public class HandleTransitions extends ScriptImpl {
         	final String trigger=arguments.get(1);
         	final String text=arguments.get(2);
         	if(label.equals("")) {
-        		admin.sendPrivateText("label should not be empty for "+command);
+        		admin.sendPrivateText("nazwa nie powinna być pusta dla "+command);
         		return;
         	}
         	npc.add(ConversationStates.ANY, trigger, null, ConversationStates.ANY, text, null, label);
-        	admin.sendPrivateText("transition added.");
+        	admin.sendPrivateText("dodano zmainę.");
         	return;
 
         } else if(command.equals("del")) {
@@ -108,13 +107,13 @@ public class HandleTransitions extends ScriptImpl {
         	}
         	final String label=arguments.get(0);
         	if(label.equals("")) {
-        		admin.sendPrivateText("label should not be empty for "+command);
+        		admin.sendPrivateText("nazwa nie powinna być pusta dla "+command);
         		return;
         	}
         	if(npc.del(label)) {
-        		admin.sendPrivateText("transition deleted successfully.");
+        		admin.sendPrivateText("zmiana została usunięta.");
         	} else {
-        		admin.sendPrivateText("failed to delete transition.");
+        		admin.sendPrivateText("nie powiodło się usuwanie zmiany.");
         	}
         	return;
 
@@ -129,7 +128,7 @@ public class HandleTransitions extends ScriptImpl {
         	final String trigger=arguments.get(1);
         	final String text=arguments.get(2);
         	if(label.equals("")) {
-        		admin.sendPrivateText("label should not be empty for "+command);
+        		admin.sendPrivateText("nazwa nie powinna być pusta dla "+command);
         		return;
         	}
         	npc.del(label);
@@ -141,13 +140,13 @@ public class HandleTransitions extends ScriptImpl {
         	StringBuilder sb = new StringBuilder();
         	List<Transition> tr = npc.getTransitions();
         	for(Transition t: tr) {
-        		sb.append("Transition: ("+t.toString()+")\n");
+        		sb.append("Zmiany: ("+t.toString()+")\n");
         	}
     		admin.sendPrivateText(sb.toString());
     		return;
 
         } else {
-        	admin.sendPrivateText("unknown command ("+command+")");
+        	admin.sendPrivateText("nieznane polecenie ("+command+")");
         	return;
         }
 	}

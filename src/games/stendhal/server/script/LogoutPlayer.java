@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -34,18 +33,18 @@ public class LogoutPlayer extends ScriptImpl {
 
 		// help text
 		if (args.size() == 0) {
-			admin.sendPrivateText("/script LogoutPlayer.class <playername> logs a player out");
+			admin.sendPrivateText("/script LogoutPlayer.class <wojownik> wyloguje wojownika");
 			return;
 		}
 
 		try {
 			final Player player = SingletonRepository.getRuleProcessor().getPlayer(args.get(0));
 			if (player == null) {
-				admin.sendPrivateText("Player is not online");
+				admin.sendPrivateText("Wojownik nie jest dostępny");
 				return;
 			}
 			SingletonRepository.getRuleProcessor().getRPManager().disconnectPlayer(player);
-			admin.sendPrivateText(args.get(0) + " has been logged out");
+			admin.sendPrivateText(args.get(0) + " został wylogowany");
 		} catch (final Exception e) {
 			logger.error(e, e);
 		}

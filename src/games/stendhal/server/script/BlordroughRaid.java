@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -25,16 +24,16 @@ public class BlordroughRaid extends CreateRaid {
 	@Override
 	protected Map<String, Integer> createArmy() {
 		final Map<String, Integer> attackArmy = new HashMap<String, Integer>();
-		attackArmy.put("elder giant", 5);
-		attackArmy.put("imperial general giant", 5);
-		attackArmy.put("blordrough quartermaster", 9);
-		attackArmy.put("blordrough corporal", 6);
-		attackArmy.put("blordrough storm trooper", 8);
-		attackArmy.put("master giant", 2);
+		attackArmy.put("olbrzym starszy", 5);
+		attackArmy.put("imperialny generał gigant", 5);
+		attackArmy.put("blordrough kwatermistrz", 9);
+		attackArmy.put("uzbrojony lider", 6);
+		attackArmy.put("superczłowiek", 8);
+		attackArmy.put("olbrzym mistrz", 2);
 		return attackArmy;
 	}
 	@Override
 	protected String getInfo() {
-		return "Not safe for players below level 150.";
+		return "Niebezpieczny dla wojowników poniżej poziomu 150.";
 	}
 }

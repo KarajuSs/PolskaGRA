@@ -248,7 +248,7 @@ public class StendhalQuestSystem {
 		/**						**\
 		 *         INNE  	 	 *
 		\**	                    **/
-		//loadQuest(new BiletTurystyczny());
+		loadQuest(new BiletTurystyczny());
 		//loadQuest(new DragonsGuard());
 		//loadQuest(new MeetGuslarz());
 		//loadQuest(new WhereDragon());

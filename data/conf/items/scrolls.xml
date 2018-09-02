@@ -312,7 +312,7 @@
 			<slot name="keyring"/>
 		</equipable>
 	</item>
-	
+
 	<item name="zwój wieliczka">
 		<type class="scroll" subclass="wieliczka" tileid="-1"/>
 		<description>Oto zwój wieliczka, który przeniesie cię do miejsca, gdzie znajdziesz niezliczone pokłady soli.</description>
@@ -360,7 +360,7 @@
 		<description>Oto bilet turystyczny. Przeniesie cię na chwilę do dziwnej krainy, gdzie możesz zwiedzać dziwne, szpiczaste budowle.</description>
 		<implementation class-name="games.stendhal.server.entity.item.scroll.LastMinuteScroll"/>
 		<attributes>
-			<infostring value="0_desert_pyramid_nw 120 30 32400 0_semos_city 30 40"/>
+			<infostring value="0_desert_pyramid_nw 120 6 32400 0_semos_city 30 40"/>
 			<quantity value="1"/>
 		</attributes>
 		<weight value="0.01"/>

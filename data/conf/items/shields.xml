@@ -116,6 +116,7 @@
 		<weight value="34.0"/>
 		<value value="275128"/>
 		<susceptibility type="fire" value="1.11"/>
+		<susceptibility type="nature" value="0.91"/>
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
@@ -332,7 +333,7 @@
 			<slot name="trade"/>
 		</equipable>
 	</item>
- 
+
 	<item name="tarcza z czaszką">
 		<type class="shield" subclass="skull_shield" tileid="-1"/>
 		<description>Oto tarcza z czaszką. Troszkę straszna, nieprawdaż?</description>

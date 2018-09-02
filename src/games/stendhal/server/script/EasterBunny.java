@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -48,7 +47,7 @@ public class EasterBunny extends ScriptImpl {
 	 */
 	private void startEaster(Player admin) {
 		if (System.getProperty("stendhal.easterbunny") != null) {
-			admin.sendPrivateText("Easter Bunny is already active.");
+			admin.sendPrivateText("Króliczek Wielkanocny jest aktywny.");
 			return;
 		}
 		System.setProperty("stendhal.easterbunny", "true");

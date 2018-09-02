@@ -1,4 +1,3 @@
-/* $Id$ */
 package games.stendhal.server.script;
 
 import java.util.List;
@@ -53,13 +52,13 @@ public class Maria extends ScriptImpl {
 //		}
 //
 //		public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-//			if (player.drop("coupon")) {
+//			if (player.drop("kupon")) {
 //				final Item beer = sandbox.getItem("beer");
 //				player.equipOrPutOnGround(beer);
-//				raiser.say("Here is your free beer.");
+//				raiser.say("Oto twoje darmowe piwo.");
 //				player.setQuest("MariaCoupon", "done");
 //			} else {
-//				raiser.say("Sorry, you don't have a coupon. You can get one from Maria.");
+//				raiser.say("Nie posiadasz coupon to nie dostaniesz od Marii.");
 //			}
 //		}
 //	}
@@ -83,7 +82,7 @@ public class Maria extends ScriptImpl {
 				shop = args.get(0);
 			} else {
 				admin.sendPrivateText(args.get(0)
-						+ " not recognised as a shop name. Using default food&drinks");
+						+ " nie rozpoznaję jako nazwy sklepu. Używam domyślnej food&drinks");
 			}
 		}
 		// If this script is executed by an admin, Maria will be placed next to him.
@@ -98,16 +97,16 @@ public class Maria extends ScriptImpl {
 		sandbox.add(npc);
 
 		// Create Dialog
-		npc.behave("greet", "Hi, how can I help you?");
+		npc.behave("greet", "Witaj. W czym mogę pomóc?");
 		npc.behave(
 				"job",
-				"I am one of the bar maids at Semos' #tavern and doing outside services. We sell fine beers and food.");
-		npc.behave("tavern",
+				"Jestem barmanką w #tawernie w Semos i usługuję na zewnątrz. Sprzedajemy napoje i jedzenie.");
+		npc.behave("tawernie",
 //			"I have a #coupon for a free beer in Semos' tavern. "+
-			"It is on the left side of the temple.");
+			"Znajduje się z lewej strony świątyni.");
 		npc.behave("help",
-				"You can see what I #offer and take a break to meet new people!");
-		npc.behave("bye", "Bye bye!");
+				"Możesz otrzymać #ofertę napojów lub zrobić przerwę na poznanie nowych ludzi!");
+		npc.behave("bye", "Dowidzenia, dowidzenia!");
 		try {
 			npc.behave("sell", SingletonRepository.getShopList().get(shop));
 		} catch (final NoSuchMethodException e) {
@@ -133,7 +132,7 @@ public class Maria extends ScriptImpl {
 					new ChatAction() {
 				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-						((SpeakerNPC) raiser.getEntity()).listenTo(player, "hi");
+						((SpeakerNPC) raiser.getEntity()).listenTo(player, "cześć");
 					}
 			});
 
@@ -145,7 +144,7 @@ public class Maria extends ScriptImpl {
 							new NakedCondition(),
 							new QuestNotInStateCondition(QUEST_SLOT, 0,"seen_naked")),
 					ConversationStates.ATTENDING,
-					"Who are you? Aiiieeeee!!! You're naked! Quickly, right-click on yourself and choose SET OUTFIT! If you don't I'll call the guards!",
+					"Kim jesteś? Aiiieeeee!!! Jesteś nagi! Szybko naciśnij na sobie prawy przycisk i wybierz USTAW WYGLĄD! Jeśli tego nie zrobisz to zawołam strażników!",
 					new MultipleActions(
 							new SetQuestAction(QUEST_SLOT,0, "seen_naked"),
 							new SetQuestToTimeStampAction(QUEST_SLOT,1)));
@@ -159,12 +158,12 @@ public class Maria extends ScriptImpl {
 							new QuestInStateCondition(QUEST_SLOT, 0, "seen_naked")),
 					ConversationStates.ATTENDING,
 					// this message doesn't get seen by the player himself as he gets sent to jail, but it would explain to bystanders why he is gone
-					"Ugh, you STILL haven't put any clothes on. To jail for you!",
+					"WCIĄŻ nie założyłeś żadnych ubrań. Idź za to do więzienia!",
 					// Jail the player
 					new MultipleActions(
 							new SetQuestAction(QUEST_SLOT,0, "seen_naked"),
 							new SetQuestToTimeStampAction(QUEST_SLOT,1),
-							new JailAction(JAIL_TIME, "Maria jailed you for being naked in public!")));
+							new JailAction(JAIL_TIME, "Maria aresztowała cię za chodzenie nago w miejscu publicznym!")));
 	}
 
 }

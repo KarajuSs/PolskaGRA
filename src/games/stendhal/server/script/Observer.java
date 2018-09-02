@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -31,17 +30,17 @@ public class Observer extends ScriptImpl {
 	@Override
 	public void execute(Player admin, List<String> args) {
 		if (!Boolean.parseBoolean(System.getProperty("stendhal.observer", "false"))) {
-			admin.sendPrivateText(NotificationType.ERROR, "Script not allowed on this server");
+			admin.sendPrivateText(NotificationType.ERROR, "Skrypt nie jest dozwolony na tym serwerze");
 			return;
 		}
 
 		if (admin.getAdminLevel() < 2000) {
-			admin.sendPrivateText(NotificationType.ERROR, "adminlevel 2000 required,");
+			admin.sendPrivateText(NotificationType.ERROR, "wymagany jest 2000 poziom administratora,");
 			return;
 		}
 
 		if (args.size() != 1 || (!args.get(0).equals("show") && !args.get(0).equals("hide"))) {
-			admin.sendPrivateText("Usage: /script Observer.class hide|show");
+			admin.sendPrivateText("Użyj: /script Observer.class hide|show");
 			return;
 		}
 

@@ -1,4 +1,3 @@
-/* $Id$ */
 package games.stendhal.server.script;
 
 import java.util.List;
@@ -20,7 +19,7 @@ public class EventTest extends ScriptImpl {
 	@Override
 	public void execute(final Player admin, final List<String> args) {
 		if (args.size() < 1) {
-			admin.sendPrivateText("Usage: /script EventTest.class {some-text}");
+			admin.sendPrivateText("Użyj: /script EventTest.class {jakiś tekst}");
 			return;
 		}
 

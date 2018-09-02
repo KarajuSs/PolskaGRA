@@ -93,7 +93,7 @@ public abstract class RPEntity extends GuidedEntity {
 	private static final float NECKLACE_DEF_MULTIPLIER = 1.0f;
 
 	private static final float GLOVE_DEF_MULTIPLIER = 2.0f;
-	
+
 	private static final float PAS_DEF_MULTIPLIER = 1.5f;
 
 	/**
@@ -127,7 +127,7 @@ public abstract class RPEntity extends GuidedEntity {
 	protected int lv_cap;
 
 	private int xp;
-	
+
 	private String gender;
 
 	protected int level;
@@ -539,7 +539,7 @@ public abstract class RPEntity extends GuidedEntity {
 		if (has("hp")) {
 			hp = getInt("hp");
 		}
-		
+
 		if (has("gender")) {
 			gender = get("gender");
 		}
@@ -778,7 +778,7 @@ public abstract class RPEntity extends GuidedEntity {
 		}
 		return super.getName();
 	}
-	
+
 	public void setGender(final String gender) {
 		this.gender = gender;
 		put("gender", gender);
@@ -1161,7 +1161,7 @@ public abstract class RPEntity extends GuidedEntity {
 		base_mana += newBaseMana;
 		put("base_mana", base_mana);
 	}
-	
+
 	public void addatk_xp(final int newatk_xp) {
 		if (Integer.MAX_VALUE - this.atk_xp <= newatk_xp) {
 			return;
@@ -1629,7 +1629,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 			}
 		});
 	}
-	
+
 	public void onHealed(final Entity attacker, final int damage) {
 		logger.debug("Healed " + damage + " points by " + attacker.getID());
 
@@ -2734,7 +2734,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 
 		return null;
 	}
-	
+
 	public Item getWandWeapon() {
 		for (final Item weapon : getWeapons()) {
 			if (weapon.isOfClass("wand")) {
@@ -2765,7 +2765,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 
 		return null;
 	}
-	
+
 	public StackableItem getMagia() {
 		final String[] slots = { "lhand", "rhand" };
 
@@ -2918,7 +2918,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 	public Item getMoney() {
 		return getEquippedItemClass("money", "money");
 	}
-	
+
 	public boolean hasPas() {
 		return isEquippedItemClass("pas", "pas");
 	}
@@ -2971,7 +2971,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 		for (final Item weaponItem : weapons) {
 			weapon += weaponItem.getAttack();
 		}
-		
+
 		if (hasGloves()) {
 			glove += getGloves().getAttack();
 		} if (hasRing()) {
@@ -3055,27 +3055,27 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 			item = getCloak();
 			cloak = (int) (item.getDefense() / getItemLevelModifier(item));
 		}
-		
+
 		if (hasNecklace()) {
 			item = getNecklace();
 			necklace = (int) (item.getDefense() / getItemLevelModifier(item));
 		}
-		
+
 		if (hasRing()) {
 			item = getRing();
 			ring = (int) (item.getDefense() / getItemLevelModifier(item));
 		}
-		
+
 		if (hasRingB()) {
 			item = getRingB();
 			ringb = (int) (item.getDefense() / getItemLevelModifier(item));
 		}
-		
+
 		if (hasGloves()) {
 			item = getGloves();
 			glove = (int) (item.getDefense() / getItemLevelModifier(item));
 		}
-		
+
 		if (hasPas()) {
 			item = getPas();
 			pas = (int) (item.getDefense() / getItemLevelModifier(item));
@@ -3091,8 +3091,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 				+ HELMET_DEF_MULTIPLIER * helmet + NECKLACE_DEF_MULTIPLIER * necklace
 				+ LEG_DEF_MULTIPLIER * legs + BOOTS_DEF_MULTIPLIER * boots
 				+ RING_DEF_MULTIPLIER * ring + RING_DEF_MULTIPLIER * ringb
-				+ PAS_DEF_MULTIPLIER * pas
-				+ WEAPON_DEF_MULTIPLIER * weapon;
+				+ PAS_DEF_MULTIPLIER * pas + WEAPON_DEF_MULTIPLIER * weapon;
 	}
 
 	/**
@@ -3121,7 +3120,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 		if (hasCloak()) {
 			items.add(getCloak());
 		}
-		
+
 		if (hasRing()) {
 			items.add(getRing());
 		}
@@ -3549,7 +3548,22 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 				if (weaponItem.has("lifesteal")) {
 					sumLifesteal += weaponItem.getAttack()
 							* weaponItem.getDouble("lifesteal");
-				}
+					if (!hasGloves() || !getGloves().has("lifesteal")) {
+						sumLifesteal += weaponItem.getAttack()
+								* weaponItem.getDouble("lifesteal");
+					} else if (getGloves().has("lifesteal")) {
+						sumLifesteal += weaponItem.getAttack()
+								* (weaponItem.getDouble("lifesteal") + getGloves().getDouble("lifesteal"));
+					}
+				} else if (!weaponItem.has("lifesteal")) {
+					sumLifesteal += 0;
+					if (!hasGloves() || !getGloves().has("lifesteal")) {
+						sumLifesteal += 0;
+					} else if (getGloves().has("lifesteal")) {
+						sumLifesteal += weaponItem.getAttack()
+								* getGloves().getDouble("lifesteal");
+					}
+				} else return;
 			}
 		}
 
