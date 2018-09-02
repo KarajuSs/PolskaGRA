@@ -3,7 +3,6 @@
 	xsi:schemaLocation="stendhal ../../creatures.xsd ">
 
 	<!-- START: oni -->
-
 	<creature name="oni wojownik">
 		<type class="stendhal/oni" subclass="oni_warrior" tileid="oni.png:0"/>
 		<description>Oto oni wojownik. Jego fioletowy kolor skóry nie powinien uśpić twojej czujności!</description>
@@ -158,7 +157,5 @@
 			<profile name="human"/>
 		</ai>
 	</creature>
-
 	<!-- END: oni -->
-
 </creatures>
