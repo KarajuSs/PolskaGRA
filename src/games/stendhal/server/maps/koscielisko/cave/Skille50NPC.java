@@ -42,11 +42,6 @@ public class Skille50NPC implements ZoneConfigurator {
 		final SpeakerNPC npc = new SpeakerNPC("Choros") {
 
 			@Override
-			protected void createPath() {
-				setPath(null);
-			}
-
-			@Override
 			protected void createDialog() {
 				addGreeting(null, new ChatAction() {
 					@Override
@@ -72,7 +67,6 @@ public class Skille50NPC implements ZoneConfigurator {
 				setDirection(Direction.DOWN);
 			}
 		};
-
 
 		npc.addInitChatMessage(null, new ChatAction() {
 			@Override
@@ -102,7 +96,6 @@ public class Skille50NPC implements ZoneConfigurator {
 		npc.setDescription("Oto Choros. Jest Wysokim Kapłanem, który może Cię czegoś nauczyć.");
 		npc.setPosition(38, 3);
 		npc.setDirection(Direction.DOWN);
-		npc.initHP(85);
 		zone.add(npc);
 	}
 }

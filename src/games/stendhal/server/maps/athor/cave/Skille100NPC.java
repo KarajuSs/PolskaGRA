@@ -40,12 +40,6 @@ public class Skille100NPC implements ZoneConfigurator {
 
 	private void buildMineArea(final StendhalRPZone zone) {
 		final SpeakerNPC npc = new SpeakerNPC("Altharis") {
-
-			
-			@Override
-			protected void createPath() {
-				setPath(null);
-			}
 			
 			@Override
 			protected void createDialog() {
@@ -74,7 +68,6 @@ public class Skille100NPC implements ZoneConfigurator {
 			}
 		};
 
-
 		npc.addInitChatMessage(null, new ChatAction() {
 			@Override
 			public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
@@ -101,7 +94,6 @@ public class Skille100NPC implements ZoneConfigurator {
 		npc.setEntityClass("blackwizardpriestnpc");
 		npc.setPosition(75, 109);
 		npc.setDirection(Direction.RIGHT);
-		npc.initHP(85);
 		zone.add(npc);
 	}
 }
