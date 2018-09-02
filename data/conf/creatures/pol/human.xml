@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <creatures xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="stendhal ../../creatures.xsd ">
-	
+
 	<!-- START: piraci -->
 	<creature name="pirat">
 		<type class="pol/pol_piraci" subclass="pirat" tileid="pol_piraci.png:0"/>
@@ -208,7 +208,7 @@
 		</ai>
 	</creature>
 	<!-- END: piraci -->
-	
+
 	<!-- START: magowie -->
 	<creature name="Baba Dżaga">
 		<type class="pol/magowie" subclass="baba_jaga1" tileid="pol_magowie.png:0"/>
@@ -556,7 +556,7 @@
 		</ai>
 	</creature>
 	<!-- END: magowie -->
-	
+
 	<!-- START: zbojnicy lesni -->
 	<creature name="zbójnik leśny">
 		<type class="pol/zbojnicy_lesni" subclass="zbojnik_lesny_mlodszy" tileid="pol_zbojnicy_lesni.png:0"/>
@@ -1017,7 +1017,7 @@
 		</ai>
 	</creature>
 	<!-- END: zbojnicy gorscy -->
-	
+
 	<!-- START: wiesniacy -->
 	<creature name="wieśniak">
 		<type class="pol/wiesniacy" subclass="wiesniak" tileid="pol_wiesniacy.png:0"/>
@@ -1124,7 +1124,7 @@
 		</ai>
 	</creature>
 	<!-- END: wiesniacy -->
-	
+
 	<!-- START: rycerze -->
 	<creature name="rycerz szafirowy">
 		<type class="pol/rycerze" subclass="rycerz_blekitny" tileid="pol_rycerze.png:0"/>
@@ -1258,6 +1258,7 @@
 			<item value="czarne buty" quantity="[1,1]" probability="0.003"/>
 			<item value="czarny hełm" quantity="[1,1]" probability="0.0025"/>
 			<item value="czarny sztylet" quantity="[1,1]" probability="0.0025"/>
+			<item value="czarny pas" quantity="[1,1]" probability="0.04"/>
 		</drops>
 		<equips/>
 		<ai>
@@ -1362,7 +1363,7 @@
 		</ai>
 	</creature>
 	<!-- END: rycerze -->
-	
+
 	<!-- START: rycerze jazda -->
 	<creature name="rycerz na białym koniu">
 		<type class="pol/rycerze_jazda" subclass="rycerz_na_bialym_koniu" tileid="pol_rycerze_jazda.png:0"/>
@@ -1384,6 +1385,7 @@
 			<item value="czarne buty" quantity="[1,1]" probability="0.003"/>
 			<item value="czarny hełm" quantity="[1,1]" probability="0.0025"/>
 			<item value="czarny sztylet" quantity="[1,1]" probability="0.0025"/>
+			<item value="czarny pas" quantity="[1,1]" probability="0.005"/>
 		</drops>
 		<equips/>
 		<ai>
