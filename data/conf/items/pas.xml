@@ -189,6 +189,46 @@
 		</equipable>
 	</item>
 
+	<item name="złoty pas">
+		<type class="pas" subclass="zloty_pas" tileid="-1"/>
+		<description>Oto złoty pas.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<def value="12"/>
+		</attributes>
+		<weight value="1.0"/>
+		<value value="12"/>
+		<susceptibility type="dark" value="1.11"/>
+		<susceptibility type="light" value="0.91"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+			<slot name="pas"/>
+		</equipable>
+	</item>
+
+	<item name="czarny pas">
+		<type class="pas" subclass="czarny_pas" tileid="-1"/>
+		<description>Oto czarny pas.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<def value="13"/>
+		</attributes>
+		<weight value="1.0"/>
+		<value value="13"/>
+		<susceptibility type="dark" value="0.91"/>
+		<susceptibility type="light" value="1.11"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+			<slot name="pas"/>
+		</equipable>
+	</item>
+
 	<item name="pas z mithrilu">
 		<type class="pas" subclass="pas_z_mithrilu" tileid="-1"/>
 		<description>Oto pas z mirhtilu.</description>
