@@ -9,25 +9,23 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-package games.stendhal.server.maps.zakopane.shop;
+package games.stendhal.server.maps.zakopane.tower;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
-import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
-import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
-import games.stendhal.server.entity.npc.ShopList;
+import games.stendhal.server.core.pathfinder.FixedPath;
+import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
-import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
-import games.stendhal.server.entity.npc.behaviour.impl.QuestCompletedSellerBehaviour;
 
 /**
  * @author KarajuSs
  */
 
-public class StasekNPC implements ZoneConfigurator {
-   private final ShopList shops = SingletonRepository.getShopList();
+public class WizardNPC implements ZoneConfigurator {
 	/**
 	 * Configure a zone.
 	 *
@@ -40,23 +38,28 @@ public class StasekNPC implements ZoneConfigurator {
 	}
 
 	private void buildNPC(final StendhalRPZone zone) {
-		final SpeakerNPC npc = new SpeakerNPC("Stasek") {
+		final SpeakerNPC npc = new SpeakerNPC("Czarnoksiężnik") {
+
+			@Override
+			protected void createPath() {
+				final List<Node> nodes = new LinkedList<Node>();
+				nodes.add(new Node(3, 3));
+				nodes.add(new Node(11, 3));
+				setPath(new FixedPath(nodes, true));
+			}
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Pozdrawiam, przyjacielu.");
-				addHelp("Może będziesz mi potrzebny...");
-				addJob("Zarządzam właśnie tym sklepem z uzbrojeniem.");
-				addGoodbye("Miło było Cię poznać.");
-				new SellerAdder().addSeller(this, new QuestCompletedSellerBehaviour("wegiel_na_opal", "Musiałbyś wykonać moje #'zadanie', abym mógł tobie zaufać!", shops.get("stasek")), false);
+				addGreeting("Witaj w wieży...");
+				addHelp("Mam dla Ciebie pewne #'zadanie'...");
+				addOffer("Mam dla Ciebie pewne #'zadanie'...");
+				addGoodbye();
 			}
 		};
 
-		npc.setEntityClass("barman3npc");
-		npc.setPosition(5, 6);
-		npc.setDirection(Direction.DOWN);
-		npc.initHP(100);
-		npc.setDescription("Oto Stasek. Prowadzi bardzo atraktycjny sklep.");
+		npc.setEntityClass("noimagenpc");
+		npc.setPosition(7, 3);
+		npc.setDescription("Oto czarnoksiężnik.");
 		zone.add(npc);
 	}
 }

@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="15" height="15" tilewidth="32" tileheight="32">
- <tileset firstgid="1" name="../../tileset/logic/collision.png" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="15" height="15" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="../../tileset/logic/collision.png" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="../../tileset/logic/collision.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="2" name="kafelki_kamienne_zwykle" tilewidth="32" tileheight="32">
+ <tileset firstgid="2" name="kafelki_kamienne_zwykle" tilewidth="32" tileheight="32" tilecount="6" columns="2">
   <image source="../../tileset/pol/domki/podloga/kafelki_kamienne_zwykle.png" width="64" height="96"/>
  </tileset>
- <tileset firstgid="8" name="sciany_kamienne" tilewidth="32" tileheight="32">
+ <tileset firstgid="8" name="sciany_kamienne" tilewidth="32" tileheight="32" tilecount="30" columns="6">
   <image source="../../tileset/pol/domki/sciany_kamienne.png" width="192" height="160"/>
  </tileset>
- <tileset firstgid="38" name="tower_stone_ucha" tilewidth="32" tileheight="32">
+ <tileset firstgid="38" name="tower_stone_ucha" tilewidth="32" tileheight="32" tilecount="18" columns="9">
   <image source="../../tileset/pol/domki/okna/tower_stone_ucha.png" width="288" height="64"/>
  </tileset>
- <tileset firstgid="56" name="green_stairs" tilewidth="32" tileheight="32">
+ <tileset firstgid="56" name="green_stairs" tilewidth="32" tileheight="32" tilecount="4" columns="2">
   <image source="../../tileset/building/stairs/green_stairs.png" width="64" height="64"/>
  </tileset>
- <tileset firstgid="60" name="animal" tilewidth="32" tileheight="32">
-  <image source="../../tileset/logic/creature/animal.png" width="928" height="32"/>
+ <tileset firstgid="60" name="animal" tilewidth="32" tileheight="32" tilecount="30" columns="30">
+  <image source="../../tileset/logic/creature/animal.png" width="960" height="32"/>
+ </tileset>
+ <tileset firstgid="90" name="gargoyle" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../../tileset/logic/creature/gargoyle.png" width="128" height="32"/>
  </tileset>
  <layer name="0_floor" width="15" height="15">
   <data encoding="base64" compression="gzip">
@@ -45,7 +48,7 @@
  </layer>
  <layer name="objects" width="15" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGLrAk0L5wQKGijthwJeOduELm6EWbrgAAIfzfG6EAwAA
+   H4sIAAAAAAAAC2NgGNogmoB8DBDH0sMhIwj40smeKDrZM9AAAMuooHOEAwAA
   </data>
  </layer>
  <layer name="collision" width="15" height="15" opacity="0.47">
