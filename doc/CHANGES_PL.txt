@@ -5,6 +5,7 @@
 - Natura broni służy do ustawienia ikonki walki, jeśli jest dostępna
 - Dodano nowe dźwieki kajmana
 - Dodano 4 nowe fryzury do wyboru dla postaci gracza
+- Dodano kilka nowych outfitów dla NPC
 - Poprawiono graficznie ubrania dress_62-68.png
 - Poprawiono graficznie elficki naszyjnik
 
@@ -37,6 +38,14 @@
 - Tekstury na większości map zostały poprawione (np: Tatry, pustynia, dreamscape)
 - Na niektórych mapach Tatr rosną grzyby
 - Zmieniono system otrzymywania skilli za osiągnięty poziom z 50/100/150/200/250/300 na 50/100/150/350/550 (zmieniliśmy NPC, którzy nagradzali nas 'skillami' za osiągnięty poziom, lecz kiedy osiągniecie dany poziom i przejdziecie się do danego NPC to nie pożałujecie :) )
+- Zmieniono nazwę potwora z "smok dwugłowy niebieski" na "dwugłowy niebieski smok"
+- Zmieniono parametry przedmiotu
+	- "magiczny hełm kolczy" z 25 DEF na 21 DEF oraz dodano odporność na NATURE + WATER 110%
+	- "hełm z mithrilu" z 19 DEF na 24 DEF
+- Dodano nowego NPC o nazwie "Czarnoksiężnik", który znajduje się w wieży na mapie 0_zakopane_c
+- Dodano 5 nowych zadań w świecie prasłowiańskim (4 nowe zadania w Zakopane; 1 zaś w Kuźnicy)
+- Dodano nowy przedmiot o nazwie "wyniki badań" (przedmiot zadaniowy)
+- Gargulce znajdujące się na 3 piętrze wieży w zakopane_c zostały przeniesione piętro niżej ze względu na "Czarnoksiężnika"
 
 
 *code*
