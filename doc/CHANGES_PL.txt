@@ -56,6 +56,10 @@
 - Lifesteal z rękawic sumuje się wraz z lifesteal'em w broni lub bez niej
 
 
+*naprawa błędów*
+- Naprawiono zadanie na tarcze z mithrilu
+
+
 
 1.03.5
 *klient*
