@@ -1,4 +1,3 @@
-/* $Id$ */
 /***************************************************************************
  *                   (C) Copyright 2003-2010 - Stendhal                    *
  ***************************************************************************
@@ -37,12 +36,12 @@ import games.stendhal.server.util.TimeUtil;
 
 /**
  * QUEST: The mithril shield forging.
- * 
+ *
  * PARTICIPANTS:
  * <ul>
  * <li> Baldemar, mithrilbourgh elite wizard, will forge a mithril shield.
  * </ul>
- * 
+ *
  * STEPS:
  * <ul>
  * <li> Baldemar tells you about shield.
@@ -52,15 +51,15 @@ import games.stendhal.server.util.TimeUtil;
  * <li> Baldemar checks if you have ever killed a black giant alone, or not
  * <li> Baldemar forges the shield for you
  * </ul>
- * 
+ *
  * REWARD:
  * <ul>
  * <li> mithril shield
  * <li> 95000 XP
  * <li> some karma (25)
  * </ul>
- * 
- * 
+ *
+ *
  * REPETITIONS:
  * <ul>
  * <li> None.
@@ -127,7 +126,7 @@ public class StuffForBaldemar extends AbstractQuest {
 				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 					if (!player.hasQuest(QUEST_SLOT) || "rejected".equals(player.getQuest(QUEST_SLOT))) {
-						raiser.say("ogę wykuć tarczę zrobioną z mithrilu z kilkoma innymi rzeczami. Czy chciałbyś, abym ją wykonał?");
+						raiser.say("Mogę wykuć tarczę zrobioną z mithrilu z kilkoma innymi rzeczami. Czy chciałbyś, abym ją wykonał?");
 					} else if (player.isQuestCompleted(QUEST_SLOT)) {
 						raiser.say("Wolałbym, abyś pozwolił mi się trochę rozerwać.");
 						raiser.setCurrentState(ConversationStates.ATTENDING);
@@ -202,8 +201,8 @@ public class StuffForBaldemar extends AbstractQuest {
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
 
 					final String[] tokens = player.getQuest(QUEST_SLOT).split(";");
-					
-					final long delay = REQUIRED_MINUTES * MathHelper.MILLISECONDS_IN_ONE_MINUTE; 
+
+					final long delay = REQUIRED_MINUTES * MathHelper.MILLISECONDS_IN_ONE_MINUTE;
 					final long timeRemaining = Long.parseLong(tokens[1]) + delay
 							- System.currentTimeMillis();
 
@@ -217,7 +216,7 @@ public class StuffForBaldemar extends AbstractQuest {
 					raiser.say("Skończyłem wykuwanie twojej nowej tarczy z mithrilu. Ciesz się. Teraz pójdę sprawdzić co Trillium położyła za ladą dla mnie. ;)");
 					player.addXP(95000);
 					player.addKarma(25);
-					final Item mithrilshield = SingletonRepository.getEntityManager().getItem("mithril shield");
+					final Item mithrilshield = SingletonRepository.getEntityManager().getItem("tarcza z mithrilu");
 					mithrilshield.setBoundTo(player.getName());
 					player.equipOrPutOnGround(mithrilshield);
 					player.notifyWorldAboutChanges();
