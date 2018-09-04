@@ -105,7 +105,7 @@
 			<parameter name="color">#5a0572</parameter>
 			<parameter name="blend_method">bleach</parameter>
 		</attributes>
-		<configurator class-name="games.stendhal.server.maps.kikareukin.cave.Skille300NPC"/>
+		<configurator class-name="games.stendhal.server.maps.kikareukin.cave.Skille350NPC"/>
 	</zone>
 
 
