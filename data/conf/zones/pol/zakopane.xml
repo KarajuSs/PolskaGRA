@@ -81,11 +81,11 @@
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=-1)</parameter>
 		</attributes>
-		
+
 		<configurator class-name="games.stendhal.server.maps.zakopane.gorasmoka.AddBalloonListener"/>
 		<configurator class-name="games.stendhal.server.maps.zakopane.gorasmoka.OzoNPC"/>
 		<configurator class-name="games.stendhal.server.maps.zakopane.plains.RatownikNPC"/>
-		
+
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">pol-littlemeadow2</parameter>
@@ -122,7 +122,7 @@
 				<parameter name="volume">5</parameter>
 			</implementation>
 		</entity>
-		
+
 		<portal x="61" y="73" ref="hostel_entrance">
 			<destination zone="int_zakopane_hostel" ref="hostel_exit"/>
 		</portal>
@@ -180,7 +180,7 @@
 			<parameter name="weather">varying(temperature=-2)</parameter>
 		<!-- <parameter name="file" condition="stendhal.christmas">Level 0/zakopane/zakopane_c_xmas.tmx</parameter> -->
 		</attributes>
-		
+
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">pol-goralskie</parameter>
@@ -219,19 +219,19 @@
 		<portal x="67" y="57" ref="zakopane_entrance">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
 		</portal>
-		
+
 		<portal x="76" y="118" ref="townhall_entrance">
 			<destination zone="int_zakopane_townhall" ref="townhall_exit"/>
 		</portal>
-		
+
 		<portal x="93" y="65" ref="chapel_entrance_1">
 			<destination zone="int_zakopane_chapel" ref="chapel_1_exit"/>
 		</portal>
-		
+
 		<portal x="124" y="88" ref="playroom_entrance">
 			<destination zone="int_zakopane_playroom" ref="playroom_exit"/>
 		</portal>
-		
+
 		<portal x="58" y="5" ref="bt_exit">
 			<destination zone="int_zakopane_bat_tower_1" ref="bt_enter"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.KeyedPortal">
@@ -239,7 +239,7 @@
 				<parameter name="rejected">Potrzebujesz liny aby się wspiąć.</parameter>
 			</implementation>
 		</portal>
-		
+
 		<portal x="105" y="24" ref="exit1">
 			<destination zone="int_semos_guard_house" ref="zakopane_exit"/>
 		</portal>
@@ -249,7 +249,7 @@
 		<portal x="107" y="24" ref="exit3">
 			<destination zone="int_semos_guard_house" ref="zakopane_exit"/>
 		</portal>
-		
+
 		<portal x="102" y="110" ref="shop_entrance">
 			<destination zone="int_zakopane_shop" ref="shop_exit"/>
 		</portal>
@@ -261,12 +261,12 @@
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=-1)</parameter>
 		</attributes>
-		
+
 		<configurator class-name="games.stendhal.server.maps.zakopane.city.GazdaJedrzejNPC"/>
 		<configurator class-name="games.stendhal.server.maps.zakopane.city.BuklakNPC"/>
 		<configurator class-name="games.stendhal.server.maps.zakopane.city.ButelkaNPC"/>
 		<configurator class-name="games.stendhal.server.maps.zakopane.city.ButeleczkaNPC"/>
-		
+
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">pol-littlemeadow2</parameter>
@@ -349,7 +349,7 @@
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=-2)</parameter>
 		</attributes>
-		
+
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">pol-goralskie</parameter>
@@ -406,14 +406,14 @@
 				<parameter name="volume">30</parameter>
 			</implementation>
 		</entity>
-		
+
 		<portal x="97" y="48" ref="church_entrance_1">
 			<destination zone="int_zakopane_church" ref="church_1_exit"/>
 		</portal>
 		<portal x="98" y="48" ref="church_entrance_2">
 			<destination zone="int_zakopane_church" ref="church_2_exit"/>
 		</portal>
-		
+
 		<portal x="78" y="56" ref="stable_entrance_1">
 			<destination zone="int_zakopane_stable" ref="stable_1_exit"/>
 		</portal>
@@ -429,14 +429,14 @@
 			<parameter name="weather">varying(temperature=-2)</parameter>
 		<!-- <parameter name="file" condition="stendhal.christmas">Level 0/zakopane/zakopane_s_xmas.tmx</parameter> -->
 		</attributes>
-		
+
 		<configurator class-name="games.stendhal.server.maps.zakopane.city.BacaZbyszekNPC"/>
 		<configurator class-name="games.stendhal.server.maps.zakopane.city.FryderykNPC"/>
 		<configurator class-name="games.stendhal.server.maps.zakopane.city.GawedziarzNPC"/>
 		<configurator class-name="games.stendhal.server.maps.zakopane.city.HeroldNPC"/>
-		
+
 		<configurator class-name="games.stendhal.server.maps.zakopane.city.CommonChest"/>
-		
+
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">pol-goralskie</parameter>
@@ -635,7 +635,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		<portal x="63" y="39" ref="football_entrance_5">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
 		</portal>
-		
+
 		<!-- po zmianach -->
 		<portal x="51" y="49" ref="hospital_entrance_1">
 			<destination zone="int_zakopane_hospital" ref="hospital_1_exit"/>
@@ -646,14 +646,14 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		<portal x="52" y="50" ref="hospital_entrance_3">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
 		</portal>
-		
+
 		<portal x="102" y="42" ref="bank_entrace_1">
 			<destination zone="int_zakopane_bank_0" ref="bank_exit_1"/>
 		</portal>
 		<portal x="103" y="42" ref="bank_entrace_2">
 			<destination zone="int_zakopane_bank_0" ref="bank_exit_2"/>
 		</portal>
-	
+
 		<!-- Houses -->
 		<portal x="79" y="67" ref="house_216_entrance">
 			<destination zone="int_zakopane_house_216" ref="house_216_exit"/>
@@ -777,20 +777,20 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 	</zone>
 
 	<!-- zakopane_se -->
-	
+
 	<zone name="0_zakopane_se" level="0" x="513440" y="18688" file="Level 0/zakopane/zakopane_se.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=-2)</parameter>
 		</attributes>
-		
+
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">pol-goralskie</parameter>
 				<parameter name="volume">15</parameter>
 			</implementation>
 		</entity>
-		
+
 		<entity x="54" y="58">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
 				<parameter name="sound">creak-1</parameter>
@@ -807,22 +807,22 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 				<parameter name="volume">70</parameter>
 			</implementation>
 		</entity>
-		
+
 		<portal x="48" y="23" ref="underground_1_enter">
 			<destination zone="-1_zakopane_underground" ref="underground_1_exit"/>
 		</portal>
-		
+
 		<portal x="45" y="41" ref="bakery_entrance">
 			<destination zone="int_zakopane_bakery" ref="entrance_bakery"/>
 		</portal>
-		
+
 		<portal x="54" y="58" ref="mill_entrance">
 			<destination zone="int_zakopane_mill_0" ref="entrance_mill"/>
 		</portal>
 		<portal x="55" y="58" ref="mill_entrance_left">
 			<destination zone="int_zakopane_mill_0" ref="entrance_mill_left"/>
 		</portal>
-		
+
 		<!-- House seller -->
 		<portal x="96" y="86" ref="house_200_entrance">
 			<destination zone="int_zakopane_seller_house" ref="house_200_exit"/>
@@ -948,7 +948,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 	<zone name="int_zakopane_bakery" file="interiors/zakopane/bakery.tmx">
 		<configurator class-name="games.stendhal.server.maps.zakopane.bakery.ChefNPC"/>
 		<configurator class-name="games.stendhal.server.maps.zakopane.bakery.ShopAssistantNPC"/>
-		
+
 		<portal x="26" y="14" ref="entrance_bakery">
 			<destination zone="0_zakopane_se" ref="bakery_entrance"/>
 		</portal>
@@ -960,7 +960,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 	<zone name="int_zakopane_bank_0" file="interiors/zakopane/bank_0.tmx">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
 		<configurator class-name="games.stendhal.server.maps.zakopane.shop.market.TradeCenterZoneConfigurator"/>
-		
+
 		<entity x="11" y="7">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
 				<parameter name="sound">creaky-door-1, creaky-door-2, coins-1, coins-2, window-close-1</parameter>
@@ -1101,14 +1101,14 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 				<parameter name="height">2</parameter>
 			</implementation>
 		</entity>
-		
+
 		<entity x="17" y="33">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.area.OnePlayerArea">
 				<parameter name="width">3</parameter>
 				<parameter name="height">2</parameter>
 			</implementation>
 		</entity>
-		
+
 		<entity x="16" y="36">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.area.OnePlayerArea">
 				<parameter name="width">3</parameter>
@@ -1121,26 +1121,26 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 				<parameter name="height">2</parameter>
 			</implementation>
 		</entity>
-		
+
 		<!-- Bank Chests -->
 		<entity x="24" y="21">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.chest.PersonalChest">
-				<parameter name="slot">bank_zakopane</parameter>
+				<parameter name="slot">bank</parameter>
 			</implementation>
 		</entity>
 		<entity x="25" y="24">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.chest.PersonalChest">
-				<parameter name="slot">bank_zakopane</parameter>
+				<parameter name="slot">bank</parameter>
 			</implementation>
 		</entity>
 		<entity x="23" y="24">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.chest.PersonalChest">
-				<parameter name="slot">bank_zakopane</parameter>
+				<parameter name="slot">bank</parameter>
 			</implementation>
 		</entity>
 		<entity x="24" y="27">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.chest.PersonalChest">
-				<parameter name="slot">bank_zakopane</parameter>
+				<parameter name="slot">bank</parameter>
 			</implementation>
 		</entity>
 		<entity x="22" y="27">
@@ -1193,21 +1193,21 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 				<parameter name="slot">bank_zakopane</parameter>
 			</implementation>
 		</entity>
-		
+
 		<!-- stoliki-->
-		
+
 		<entity x="24" y="22">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
 			<attribute name="description">Oto śliczny drewniany stolik.</attribute>
 		</entity>
-		
+
 		<entity x="25" y="23">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
 			<attribute name="description">Oto śliczny drewniany stolik.</attribute>
 		</entity>
-		
+
 		<entity x="23" y="25">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
@@ -1219,7 +1219,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
 			<attribute name="description">Oto śliczny drewniany stolik.</attribute>
 		</entity>
-		
+
 		<entity x="23" y="29">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
@@ -1260,26 +1260,26 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
 			<attribute name="description">Oto śliczny drewniany stolik.</attribute>
-		</entity>	
+		</entity>
 
 		<entity x="20" y="38">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
 			<attribute name="description">Oto śliczny drewniany stolik.</attribute>
 		</entity>
-		
+
 		<entity x="18" y="40">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
 			<attribute name="description">Oto śliczny drewniany stolik.</attribute>
 		</entity>
-		
+
 		<entity x="19" y="41">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
 			<attribute name="description">Oto śliczny drewniany stolik.</attribute>
 		</entity>
-		
+
 		<entity x="39" y="24">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
@@ -1287,7 +1287,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<attribute name="width">3</attribute>
 			<attribute name="height">3</attribute>
 		</entity>
-		
+
 		<entity x="39" y="32">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
@@ -1295,7 +1295,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<attribute name="width">3</attribute>
 			<attribute name="height">4</attribute>
 		</entity>
-		
+
 		<entity x="39" y="41">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
@@ -1303,7 +1303,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<attribute name="width">3</attribute>
 			<attribute name="height">3</attribute>
 		</entity>
-		
+
 		<entity x="4" y="45">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
@@ -1311,25 +1311,25 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<attribute name="width">7</attribute>
 			<attribute name="height">2</attribute>
 		</entity>
-		
+
 		<portal x="33" y="50" ref="bank_exit_1">
 			<destination zone="0_zakopane_s" ref="bank_entrace_1"/>
 		</portal>
-		
+
 		<portal x="34" y="50" ref="bank_exit_2">
 			<destination zone="0_zakopane_s" ref="bank_entrace_2"/>
 		</portal>
-		<!-- 
+		<!--
 		<portal x="2" y="16" ref="skarbiec_in_1">
 			<destination zone="int_zakopane_bank_-1" ref="skarbiec_out_1"/>
 		</portal>
-		
+
 		<portal x="2" y="17" ref="skarbiec_in_2">
 			<destination zone="int_zakopane_bank_-1" ref="skarbiec_out_2"/>
 		</portal>
 		-->
 	</zone>
-	
+
 	<!-- -1 bank -->
 	<!--
 	<zone name="int_zakopane_bank_-1"  file="interiors/zakopane/bank_-1.tmx">
@@ -1338,30 +1338,30 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 	</attributes>
 		<configurator class-name="games.stendhal.server.maps.zakopane.bank.ItemsOnTableSkarbiec"/>
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
-		
-		
-		
+
+
+
 		<portal x="2" y="16" ref="skarbiec_out_1">
 			<destination zone="int_zakopane_bank_0" ref="skarbiec_in_1"/>
 		</portal>
-		
+
 		<portal x="2" y="17" ref="skarbiec_out_2">
 			<destination zone="int_zakopane_bank_0" ref="skarbiec_in_2"/>
 		</portal>
-		
-		
-		
+
+
+
 		<portal x="46" y="6" ref="kara">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
 		</portal>
-		
+
 		<portal x="6" y="15" ref="1c1">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
 		<portal x="7" y="15" ref="1c2">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
-		
+
 		<portal x="10" y="12" ref="2c1">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
@@ -1371,7 +1371,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		<portal x="12" y="12" ref="2c3">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
-		
+
 		<portal x="22" y="12" ref="3c1">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
@@ -1381,7 +1381,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		<portal x="24" y="12" ref="3c3">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
-		
+
 		<portal x="32" y="12" ref="4c1">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
@@ -1391,7 +1391,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		<portal x="34" y="12" ref="4c3">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
-		
+
 		<portal x="43" y="12" ref="5c1">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
@@ -1401,14 +1401,14 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		<portal x="45" y="12" ref="5c3">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
-		
+
 		<portal x="6" y="19" ref="6c1">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
 		<portal x="7" y="19" ref="6c2">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
-		
+
 		<portal x="10" y="46" ref="7c1">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
@@ -1418,11 +1418,11 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		<portal x="12" y="46" ref="7c3">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
-		
+
 		<portal x="30" y="28" ref="8c1">
 			<destination zone="int_zakopane_bank_-1" ref="kara"/>
 		</portal>
-	
+
 		<entity x="23" y="33">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
@@ -1430,7 +1430,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<attribute name="width">1</attribute>
 			<attribute name="height">2</attribute>
 		</entity>
-		
+
 		<entity x="26" y="33">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
@@ -1438,7 +1438,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<attribute name="width">1</attribute>
 			<attribute name="height">2</attribute>
 		</entity>
-		
+
 		<entity x="34" y="33">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
@@ -1446,7 +1446,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<attribute name="width">1</attribute>
 			<attribute name="height">2</attribute>
 		</entity>
-		
+
 		<entity x="37" y="33">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
@@ -1454,53 +1454,53 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<attribute name="width">1</attribute>
 			<attribute name="height">2</attribute>
 		</entity>
-		
+
 	</zone>
 	-->
 	<!-- Bat Tower 0 -->
-	
+
 	<zone name="int_zakopane_bat_tower_0"  file="interiors/zakopane/bat_tower_0.tmx">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
 		<attributes>
 			<parameter name="color_method">dark</parameter>
 		</attributes>
-		
+
 		<portal x="13" y="2" ref="bt_upto_1">
 			<destination zone="int_zakopane_bat_tower_1" ref="bt_downto_0"/>
 		</portal>
-		
+
 		<portal x="1" y="12" ref="bt_downto_-1">
 			<destination zone="int_zakopane_bat_tower_-1" ref="bt_upto_0"/>
 		</portal>
 	</zone>
-	
+
 	<!-- Bat Tower -1 -->
 	<zone name="int_zakopane_bat_tower_-1"  file="interiors/zakopane/bat_tower_-1.tmx">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
 		<attributes>
 			<parameter name="color_method">dark</parameter>
 		</attributes>
-		
+
 		<portal x="1" y="12" ref="bt_upto_0">
 			<destination zone="int_zakopane_bat_tower_0" ref="bt_downto_-1"/>
 		</portal>
 	</zone>
-	
+
 	<!-- Bat Tower 1 -->
 	<zone name="int_zakopane_bat_tower_1"  file="interiors/zakopane/bat_tower_1.tmx">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
 		<attributes>
 			<parameter name="color_method">time</parameter>
 		</attributes>
-		
+
 		<portal x="12" y="11" ref="bt_upto_2">
 			<destination zone="int_zakopane_bat_tower_2" ref="bt_downto_1"/>
 		</portal>
-		
+
 		<portal x="13" y="2" ref="bt_downto_0">
 			<destination zone="int_zakopane_bat_tower_0" ref="bt_upto_1"/>
 		</portal>
-		
+
 		<portal x="2" y="14" ref="bt_enter">
 			<destination zone="0_zakopane_c" ref="bt_exit"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.KeyedPortal">
@@ -1509,31 +1509,31 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			</implementation>
 		</portal>
 	</zone>
-	
+
 	<!-- Bat Tower 2 -->
 	<zone name="int_zakopane_bat_tower_2"  file="interiors/zakopane/bat_tower_2.tmx">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
 		<attributes>
 			<parameter name="color_method">time</parameter>
 		</attributes>
-		
+
 		<entity x="0" y="0">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.area.MessagingArea">
 				<parameter name="coversZone">true</parameter>
 				<parameter name="enterMessage">Przebywanie tutaj przyprawia Cię o dreszcze. Lepiej nie krocz wyżej.</parameter>
 			</implementation>
 		</entity>
-		
+
 		<portal x="7" y="7" ref="bt_upto_3">
 			<destination zone="int_zakopane_bat_tower_3" ref="bt_downto_2"/>
 		</portal>
-		
+
 		<portal x="12" y="11" ref="bt_downto_1">
 			<destination zone="int_zakopane_bat_tower_1" ref="bt_upto_2"/>
 		</portal>
-		
-	</zone>	
-	
+
+	</zone>
+
 	<!-- Bat Tower 3 -->
 	<zone name="int_zakopane_bat_tower_3"  file="interiors/zakopane/bat_tower_3.tmx">
 		<configurator class-name="games.stendhal.server.maps.zakopane.tower.WizardNPC"/>
@@ -1541,11 +1541,11 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		<attributes>
 			<parameter name="color_method">time</parameter>
 		</attributes>
-		
+
 		<portal x="7" y="7" ref="bt_downto_2">
 			<destination zone="int_zakopane_bat_tower_2" ref="bt_upto_3"/>
 		</portal>
-		
+
 	</zone>
 
 
@@ -1554,7 +1554,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		<configurator class-name="games.stendhal.server.maps.zakopane.blacksmith.KowalAndrzejNPC"/>
 		<configurator class-name="games.stendhal.server.maps.zakopane.blacksmith.KrasnoludNPC"/>
 		<configurator class-name="games.stendhal.server.maps.zakopane.blacksmith.DwojakiElwirkaNPC"/>
-		
+
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
 				<parameter name="sound">hammer-1, smith-1</parameter>
@@ -1587,7 +1587,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 	<zone name="int_zakopane_hospital" file="interiors/zakopane/hospital.tmx">
 		<configurator class-name="games.stendhal.server.maps.zakopane.hospital.BogusNPC"/>
 		<configurator class-name="games.stendhal.server.maps.zakopane.hospital.GazdzinaJadzkaNPC"/>
-		
+
 		<entity x="7" y="5">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.ShopSign">
 				<parameter name="shop">sellskin</parameter>
@@ -1629,7 +1629,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 	<!-- Hostel -->
 	<zone name="int_zakopane_hostel" file="interiors/zakopane/hostel.tmx">
 		<configurator class-name="games.stendhal.server.maps.zakopane.hostel.BronekNPC"/>
-		
+
 		<entity x="16" y="15">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.ShopSign">
 				<parameter name="shop">buydragonitems</parameter>
@@ -1651,7 +1651,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 	<!-- Houses -->
 	<zone name="int_zakopane_seller_house" file="interiors/zakopane/house_200.tmx">
 		<configurator class-name="games.stendhal.server.maps.zakopane.house.AlicjaNPC"/>
-		
+
 		<portal x="19" y="23" ref="house_200_exit">
 			<destination zone="0_zakopane_se" ref="house_200_entrance"/>
 		</portal>
@@ -1659,7 +1659,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 
 	<zone name="int_zakopane_house_201" file="interiors/zakopane/house_201.tmx" accessible="false">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
-		
+
 		<portal x="5" y="24" ref="house_201_exit">
 			<destination zone="0_zakopane_se" ref="house_201_entrance"/>
 		</portal>
@@ -1703,11 +1703,11 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 
 	<zone name="int_zakopane_house_204" file="interiors/zakopane/house_204.tmx" accessible="false">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
-		
+
 		<portal x="2" y="22" ref="house_204_gora">
 			<destination zone="int_zakopane_house_204_1" ref="house_204_dol"/>
 		</portal>
-		
+
 		<portal x="5" y="23" ref="house_204_exit_1">
 			<destination zone="0_zakopane_se" ref="house_204_entrance_1"/>
 		</portal>
@@ -1872,7 +1872,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 	<zone name="int_zakopane_home" file="interiors/zakopane/home.tmx">
 		<configurator class-name="games.stendhal.server.maps.zakopane.home.AdasNPC"/>
 		<configurator class-name="games.stendhal.server.maps.zakopane.home.PietrekNPC"/>
-		
+
 		<attributes>
 			<parameter name="file" condition="stendhal.christmas">interiors/zakopane/home_xmas.tmx</parameter>
 		</attributes>
@@ -1901,7 +1901,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		<entity x="23" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign"/>
 				<attribute name="text">
-Szukaj podobnych do tego liścików, tabliczek lub znaków. Każdy może zawierać ważne wskazówki.				
+Szukaj podobnych do tego liścików, tabliczek lub znaków. Każdy może zawierać ważne wskazówki.
 				</attribute>
 			<attribute name="class">notes1</attribute>
 		</entity>
@@ -1971,15 +1971,15 @@ Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z po
 	<!-- Mill 1 -->
 	<zone name="int_zakopane_mill_1" file="interiors/zakopane/mill_1.tmx">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleport"/>
-		
+
 		<portal x="3" y="19" ref="entrance_down">
 			<destination zone="int_zakopane_mill_0" ref="entrance_up"/>
 		</portal>
-		
+
 		<portal x="17" y="17" ref="mill1_exit">
 			<destination zone="int_zakopane_mill_0" ref="mill_0"/>
 		</portal>
-		
+
 		<portal x="9" y="6" ref="teleport_smok">
 			<destination zone="6_zakopane_clouds" ref="teleport_smok1"/>
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.QuestCheckingPortal">
@@ -1987,7 +1987,7 @@ Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z po
 				<parameter name="rejected">Jeżeli Ilisa zapyta Ciebie to powiedz #tak iż dostałeś wiadomość od kuli.</parameter>
 			</implementation>
 		</portal>
-		
+
 		<portal x="7" y="9" ref="mill_1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
 		</portal>
@@ -2065,7 +2065,7 @@ Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z po
 	<!-- Playroom -->
 	<zone name="int_zakopane_playroom" file="interiors/zakopane/playroom.tmx">
 		<configurator class-name="games.stendhal.server.maps.zakopane.playroom.Playroomset"/>
-		
+
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">pol-littlemeadow1</parameter>
@@ -2080,7 +2080,7 @@ Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z po
 				<parameter name="radius">5</parameter>
 			</implementation>
 		</entity>
-		
+
 		<portal x="40" y="25" ref="playroom_exit">
 			<destination zone="0_zakopane_c" ref="playroom_entrance"/>
 		</portal>
@@ -2095,14 +2095,14 @@ Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z po
 			<destination zone="0_zakopane_s" ref="postoffice_entrance_right"/>
 		</portal>
 	</zone>
-	
+
 	<!-- Shop -->
 	<zone name="int_zakopane_shop" file="interiors/zakopane/shop.tmx">
 		<configurator class-name="games.stendhal.server.maps.zakopane.shop.StasekNPC"/>
 		<portal x="5" y="19" ref="shop_exit">
 			<destination zone="0_zakopane_c" ref="shop_entrance"/>
 		</portal>
-		
+
 		<entity x="8" y="7">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.ShopSign">
 				<parameter name="shop">stasek</parameter>
@@ -2118,7 +2118,7 @@ Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z po
 	<zone name="int_zakopane_stable" file="interiors/zakopane/stable.tmx">
 		<configurator class-name="games.stendhal.server.maps.zakopane.stable.StableNPC"/>
 		<configurator class-name="games.stendhal.server.maps.zakopane.stable.VetNPC"/>
-	
+
 		<entity x="15" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
 				<parameter name="sound">pol-horse1</parameter>
@@ -2198,11 +2198,11 @@ Jesteś w bezpiecznym miejscu. Zanim zdecydujesz się wyjść zapoznaj się z po
 			<destination zone="-1_zakopane_catacombs" ref="catacombs_1_exit" />
 			<attribute name="hidden" />
 		</portal>
-		
+
 		<portal x="11" y="2" ref="catacombs_2_exit">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination" />
 		</portal>
-	</zone>	
+	</zone>
 
 	<!-- Townhall -->
 	<zone name="int_zakopane_townhall" file="interiors/zakopane/townhall.tmx">
@@ -2245,7 +2245,7 @@ Aktualne ceny u Gazdy Wojtka:
 			<destination zone="0_zakopane_e" ref="trainstation_entrance_2"/>
 		</portal>
 	</zone>
-	
+
 	<zone name="int_zakopane_mountain_room" file="interiors/zakopane/mountain_room.tmx">
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
@@ -2253,19 +2253,19 @@ Aktualne ceny u Gazdy Wojtka:
 				<parameter name="volume">15</parameter>
 			</implementation>
 		</entity>
-		
+
 		<portal x="4" y="1" ref="mountain_cave_entrance">
 			<destination zone="-1_zakopane_mountain_cave" ref="mountain_cave_exit"/>
 			<attribute name="face">down</attribute>
 		</portal>
-		
+
 		<portal x="4" y="13" ref="mountain_exit">
 			<destination zone="0_zakopane_s" ref="mountain_entrance"/>
 		</portal>
 	</zone>
 
 	<!-- Level -1 -->
-	
+
 	<zone name="-1_zakopane_mountain_cave" level="-1" x="513056" y="18176" file="Level -1/zakopane/mountain_cave.tmx">
 		<configurator class-name="games.stendhal.server.maps.zakopane.mountain.ResetLVLNPC"/>
 		<attributes>
@@ -2305,9 +2305,9 @@ Aktualne ceny u Gazdy Wojtka:
 			<attribute name="face">left</attribute>
 		</portal>
 	</zone>
-	
+
 	<!-- underground -->
-	
+
 	<zone name="-1_zakopane_underground" file="Level -1/zakopane/underground.tmx">
 		<attributes>
 			<parameter name="color_method">dark</parameter>
@@ -2318,27 +2318,27 @@ Aktualne ceny u Gazdy Wojtka:
 				<parameter name="volume">20</parameter>
 			</implementation>
 		</entity>
-		
+
 		<portal x="78" y="11" ref="underground_1_exit">
 			<destination zone="0_zakopane_se" ref="underground_1_enter"/>
 		</portal>
-		
+
 		<portal x="1" y="123" ref="underground_2_enter">
 			<destination zone="-2_zakopane_underground" ref="underground_2_exit"/>
 		</portal>
-	</zone>	
-	
+	</zone>
+
 	<!-- catacombs-->
 		<zone name="-1_zakopane_catacombs" file="Level -1/zakopane/catacombs.tmx">
 		<attributes>
 			<parameter name="color_method">dark</parameter>
 		</attributes>
-		
+
 		<portal x="27" y="10" ref="catacombs_1_exit">
 			<destination zone="int_zakopane_chapel" ref="catacombs_2_exit"/>
 		</portal>
 
-		</zone>	
+		</zone>
 
 	<!-- Level -2 -->
 
@@ -2378,23 +2378,23 @@ Aktualne ceny u Gazdy Wojtka:
 		</portal>
 	</zone>
 	<!-- underground -->
-	
+
 	<zone name="-2_zakopane_underground" file="Level -2/zakopane/underground.tmx">
 		<attributes>
 			<parameter name="color_method">dark</parameter>
 		</attributes>
-					
+
 		<portal x="1" y="123" ref="underground_2_exit">
 			<destination zone="-1_zakopane_underground" ref="underground_2_enter"/>
 		</portal>
-	</zone>	
+	</zone>
 
 	<!-- Level -3 -->
 
 	<!-- zakopane_e -->
 	<zone name="-3_zakopane_mines" level="-2" x="513440" y="18560" file="Level -3/zakopane/mines.tmx">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
-		
+
 		<attributes>
 			<parameter name="color_method">dark</parameter>
 		</attributes>
@@ -2518,7 +2518,7 @@ Aktualne ceny u Gazdy Wojtka:
 
 	<zone name="1_football_playground" level="1" x="513312" y="18688" file="Level 1/zakopane/football_playground.tmx">
 		<configurator class-name="games.stendhal.server.maps.zakopane.stadium.KibicNPC"/>
-		
+
 		<entity x="0" y="23">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
 				<parameter name="sound">pol-boisko-tlo</parameter>
@@ -2710,10 +2710,10 @@ Aktualne ceny u Gazdy Wojtka:
 		<attributes>
 			<parameter name="color_method">time</parameter>
 		</attributes>
-		
+
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleport"/>
 		<configurator class-name="games.stendhal.server.maps.zakopane.clouds.SmokNPC"/>
-		
+
 		<entity x="13" y="13">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
 				<parameter name="sound">pol-halny</parameter>
