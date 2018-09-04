@@ -107,8 +107,8 @@ public class WhereDragon extends AbstractQuest {
 
 			final List<Node> nodes = new LinkedList<Node>();
 				nodes.add(new Node(x, y));
-				nodes.add(new Node(x - 2, y));
-				nodes.add(new Node(x - 2, y - 2));
+				nodes.add(new Node(x - 4, y));
+				nodes.add(new Node(x - 4, y - 2));
 				nodes.add(new Node(x, y - 2));
 				setPath(new FixedPath(nodes, true));
 		}
@@ -235,7 +235,7 @@ public class WhereDragon extends AbstractQuest {
 		zone.add(npc);
 
 		zone = world.getZone("int_zakopane_mountain_room");
-		npc = new DragonNPC("Hikari", 6, 5);
+		npc = new DragonNPC("Hikari", 6, 7);
 		zone.add(npc);
 	}
 

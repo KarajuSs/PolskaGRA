@@ -11,47 +11,100 @@
 	<zone name="0_wieliczka_nw" level="0" x="513952" y="18560" file="Level 0/wieliczka/wieliczka_nw.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-littlemeadow1</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
 	</zone>
 
 	<!-- wieliczka_n -->
 	<zone name="0_wieliczka_n" level="0" x="514080" y="18560" file="Level 0/wieliczka/wieliczka_n.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-littlemeadow1</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
 	</zone>
 
 	<!-- wieliczka_ne -->
 	<zone name="0_wieliczka_ne" level="0" x="514208" y="18560" file="Level 0/wieliczka/wieliczka_ne.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-littlemeadow1</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
 	</zone>
 
 	<!-- wieliczka_ne2 -->
 	<zone name="0_wieliczka_ne2" level="0" x="514336" y="18560" file="Level 0/wieliczka/wieliczka_ne2.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-littlemeadow1</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
 	</zone>
 
 	<!-- wieliczka_w -->
 	<zone name="0_wieliczka_w" level="0" x="513952" y="18688" file="Level 0/wieliczka/wieliczka_w.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-littlemeadow1</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
 	</zone>
 
 	<!-- wieliczka_c -->
 	<zone name="0_wieliczka_c" level="0" x="514080" y="18688" file="Level 0/wieliczka/wieliczka_c.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-littlemeadow1</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+
 		<portal x="31" y="77" ref="mines_1_entrance">
 			<destination zone="-1_wieliczka_salt_mines_c" ref="mines_1_exit"/>
 		</portal>
 		<portal x="32" y="77" ref="mines_2_entrance">
 			<destination zone="-1_wieliczka_salt_mines_c" ref="mines_2_exit"/>
+		</portal>
+
+		<portal x="65" y="85" ref="wieliczka_restart_life">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
 		</portal>
 	</zone>
 
@@ -59,42 +112,90 @@
 	<zone name="0_wieliczka_e" level="0" x="514208" y="18688" file="Level 0/wieliczka/wieliczka_e.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-littlemeadow1</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
 	</zone>
 
 	<!-- wieliczka_e2 -->
 	<zone name="0_wieliczka_e2" level="0" x="514336" y="18688" file="Level 0/wieliczka/wieliczka_e2.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-littlemeadow1</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
 	</zone>
 
 	<!-- wieliczka_sw -->
 	<zone name="0_wieliczka_sw" level="0" x="513952" y="18816" file="Level 0/wieliczka/wieliczka_sw.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-littlemeadow1</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
 	</zone>
 
 	<!-- wieliczka_s -->
 	<zone name="0_wieliczka_s" level="0" x="514080" y="18816" file="Level 0/wieliczka/wieliczka_s.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-littlemeadow1</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
 	</zone>
 
 	<!-- wieliczka_se -->
 	<zone name="0_wieliczka_se" level="0" x="514208" y="18816" file="Level 0/wieliczka/wieliczka_se.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-littlemeadow1</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
 	</zone>
 
 	<!-- wieliczka_se2 -->
 	<zone name="0_wieliczka_se2" level="0" x="514336" y="18816" file="Level 0/wieliczka/wieliczka_se2.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
+			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-littlemeadow1</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
 	</zone>
 
 	<!-- interiors -->
@@ -227,7 +328,7 @@
 			<parameter name="color_method">dark</parameter>
 		</attributes>
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
-		<configurator class-name="games.stendhal.server.maps.pol.wieliczka.mines.Skille250NPC"/>
+		<configurator class-name="games.stendhal.server.maps.wieliczka.mines.Skille550NPC"/>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">pol-dj_zai-darkbells</parameter>
@@ -509,5 +610,4 @@
 	<!-- Level 5 -->
 
 	<!-- Level 6 -->
-
 </zones>

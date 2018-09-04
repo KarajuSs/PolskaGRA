@@ -61,8 +61,6 @@ public class ObtainAchievementsFactory extends AbstractAchievementFactory {
 		achievements.add(createAchievement("quest.special.goralcollector", "Góralski kolekcjoner", "Ukończył ostatnie zadanie u góralskiego kolekcjonera", 
 				Achievement.LEGENDARY_BASE_SCORE, true,
 				new QuestCompletedCondition("goralski_kolekcjoner3")));
-				
-		
 
 		return achievements;
 	}

@@ -71,6 +71,20 @@
 				<parameter name="rejected">Nie możesz tam pójść ponieważ nie odwiedziłeś tej krainy.</parameter>
 			</implementation>
 		</portal>
+		<portal x="52" y="19" ref="afterlife_warszawa_exit">
+			<destination zone="0_warszawa_nw" ref="warszawa_restart_life"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.QuestCheckingPortal">
+				<parameter name="quest">0_warszawa_nw</parameter>
+				<parameter name="rejected">Nie możesz tam pójść ponieważ nie odwiedziłeś tej krainy.</parameter>
+			</implementation>
+		</portal>
+		<portal x="52" y="7" ref="afterlife_wieliczka_exit">
+			<destination zone="0_wieliczka_c" ref="wieliczka_restart_life"/>
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.QuestCheckingPortal">
+				<parameter name="quest">0_wieliczka_c</parameter>
+				<parameter name="rejected">Nie możesz tam pójść ponieważ nie odwiedziłeś tej krainy.</parameter>
+			</implementation>
+		</portal>
 
 		<entity x="31" y="3">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign"/>
@@ -115,6 +129,16 @@
 		<entity x="50" y="12">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign"/>
 			<attribute name="text">#Semos
+			</attribute>
+		</entity>
+		<entity x="50" y="18">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign"/>
+			<attribute name="text">#Warszawa
+			</attribute>
+		</entity>
+		<entity x="50" y="6">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign"/>
+			<attribute name="text">#Wieliczka
 			</attribute>
 		</entity>
 

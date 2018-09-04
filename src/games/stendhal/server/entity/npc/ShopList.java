@@ -598,7 +598,7 @@ public final class ShopList {
 		shops.add("juhas", "zwój tatrzański", 250);
 		shops.add("juhas", "zwój semos", 300);
 		shops.add("juhas", "zwój krakowski", 400);
-		//shops.add("juhas", "zwój wieliczka", 600);
+		shops.add("juhas", "zwój wieliczka", 600);
 		shops.add("juhas", "zwój ados", 800);
 		shops.add("juhas", "zwój fado", 900);
 		shops.add("juhas", "zwój kalavan", 1000);
@@ -683,7 +683,7 @@ public final class ShopList {
 
 		//Winicjusz sprzedaje:
 		shops.add("sellwinicjusz", "winogrona", 9);
-		
+
 		//Straznik sprzedaje:
 		shops.add("wawel", "zwój krakowski", 250);
 		shops.add("wawel", "zwój tatrzański", 350);

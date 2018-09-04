@@ -201,7 +201,7 @@ public class StendhalQuestSystem {
 		loadQuest(new WegielNaOpal());
 		loadQuest(new ZakopaneClouds());
 		loadQuest(new ZlotaCiupaga());
-		//loadQuest(new ZlotaCiupagaDwaWasy());
+		loadQuest(new ZlotaCiupagaDwaWasy());
 		loadQuest(new ZlotyRog());
 		/** 					**\
 		 *         TATRY 		 *
@@ -216,10 +216,10 @@ public class StendhalQuestSystem {
 		 *      KOŚCIELISKO 	 *
 		\**	                    **/
 		loadQuest(new BramaZrc());
-		//loadQuest(new PierscienRycerza());
+		loadQuest(new PierscienRycerza());
 		loadQuest(new ProzbaWielkoluda());
 		loadQuest(new StazNaGornika());
-		//loadQuest(new ZagadkiBrzezdoma());
+		loadQuest(new ZagadkiBrzezdoma());
 		/** 					**\
 		 *        KRAKÓW		 *
 		\**	                    **/
@@ -229,14 +229,14 @@ public class StendhalQuestSystem {
 		/** 					**\
 		 *     DRAGON_KNIGHTS	 *
 		\**	                    **/
-		//loadQuest(new ClearQuestPierscien());
-		//loadQuest(new MeeteD());
-		//loadQuest(new PierscienMagnata());
-		//loadQuest(new PierscienMieszczanina());
+		loadQuest(new ClearQuestPierscien());
+		loadQuest(new MeeteD());
+		loadQuest(new PierscienMagnata());
+		loadQuest(new PierscienMieszczanina());
 		/** 					**\
 		 *         DESERT		 *
 		\**	                    **/
-		//loadQuest(new ZlotaCiupagaJedenWas());
+		loadQuest(new ZlotaCiupagaJedenWas());
 		/** 					**\
 		 *         GDAŃSK		 *
 		\**	                    **/
@@ -251,7 +251,7 @@ public class StendhalQuestSystem {
 		loadQuest(new BiletTurystyczny());
 		//loadQuest(new DragonsGuard());
 		loadQuest(new MeetGuslarz());
-		//loadQuest(new WhereDragon());
+		loadQuest(new WhereDragon());
 
 		if (System.getProperty("stendhal.christmas") != null) {
 			loadQuest(new GoodiesForRudolph());

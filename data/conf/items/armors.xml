@@ -349,25 +349,6 @@
 		</equipable>
 	</item>
 
-	<item name="wampirza zbroja">
-		<type class="armor" subclass="vampire_armor" tileid="-1"/>
-		<description>Oto wampirza zbroja. Czuć bardzo dziwny metalowy zapach krwi.</description>
-		<implementation class-name="games.stendhal.server.entity.item.Item"/>
-		<attributes>
-			<def value="28"/>
-			<min_level value="140"/>
-		</attributes>
-		<weight value="45.0"/>
-		<value value="86000"/>
-		<equipable>
-			<slot name="ground"/>
-			<slot name="content"/>
-			<slot name="bag"/>
-			<slot name="trade"/>
-			<slot name="armor"/>
-		</equipable>
-	</item>
-
 	<item name="zbroja mainiocyjska">
 		<type class="armor" subclass="mainio_armor" tileid="-1"/>
 		<description>Oto straszna zbroja mainiocyjska. Brak jej subtelności, ale nie ma to znaczenia, jeśli poznasz jej wytrzymałość w walce.</description>

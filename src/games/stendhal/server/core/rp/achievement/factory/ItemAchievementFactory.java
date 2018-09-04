@@ -64,7 +64,7 @@ public class ItemAchievementFactory extends AbstractAchievementFactory {
 		itemAchievements.add(createAchievement("item.set.elvish", "Zmora Nalwor", "Zdobył elficki zestaw",
 				Achievement.MEDIUM_BASE_SCORE, true,
 				new PlayerLootedNumberOfItemsCondition(1, "zbroja elficka", "elficki kapelusz", "płaszcz elficki", "spodnie elfickie",
-						"buty elfickie", "tarcza elficka", "miecz elficki")));
+						"buty elfickie", "tarcza elficka", "miecz elficki", "elficki naszyjnik", "pas elficki")));
 
 		itemAchievements.add(createAchievement("item.set.shadow", "Mieszkaniec cienia", "Zdobył cały zestaw cieni", 
 				Achievement.MEDIUM_BASE_SCORE, true,
@@ -79,17 +79,17 @@ public class ItemAchievementFactory extends AbstractAchievementFactory {
 		itemAchievements.add(createAchievement("item.set.golden", "Złote dziecko", "Zdobył cały złoty zestaw", 
 				Achievement.MEDIUM_BASE_SCORE, true,
 				new PlayerLootedNumberOfItemsCondition(1, "złota zbroja", "złoty hełm", "złoty płaszcz", "złote spodnie",
-						"złote buty", "złota tarcza", "złota klinga", "złoty pyrlik", "złoty buzdygan", "złoty kiścień", "złote rękawice")));
+						"złote buty", "złota tarcza", "złota klinga", "złoty pyrlik", "złoty buzdygan", "złoty kiścień", "złote rękawice", "złoty pas")));
 
 		itemAchievements.add(createAchievement("item.set.black", "Przejdź na ciemną strone", "Zdobył cały czarny zestaw", 
 				Achievement.HARD_BASE_SCORE, true,
 				new PlayerLootedNumberOfItemsCondition(1, "czarna zbroja", "czarny hełm", "czarny płaszcz", "czarne spodnie",
-						"czarne buty", "czarna tarcza", "czarny miecz", "czarna halabarda", "czarny sztylet", "czarna kosa", "czarne rękawice")));
+						"czarne buty", "czarna tarcza", "czarny miecz", "czarna halabarda", "czarny sztylet", "czarna kosa", "czarne rękawice", "czarny pas")));
 						
 		itemAchievements.add(createAchievement("item.set.mithril", "Przejdź na jasną strone", "Zdobył cały zestaw z mithrilu", 
 				Achievement.LEGENDARY_BASE_SCORE, true,
 				new PlayerLootedNumberOfItemsCondition(1, "zbroja z mithrilu", "hełm z mithrilu", "płaszcz z mithrilu", "spodnie z mithrilu",
-						"buty z mithrilu", "tarcza z mithrilu", "rękawice z mithrilu")));
+						"buty z mithrilu", "tarcza z mithrilu", "rękawice z mithrilu", "pas z mithrilu")));
 
 		itemAchievements.add(createAchievement("item.set.mainio", "Wspaniałe Rzeczy", "Zdobył cały zestaw mainiocyjski",
 				Achievement.HARD_BASE_SCORE, true,
@@ -110,6 +110,11 @@ public class ItemAchievementFactory extends AbstractAchievementFactory {
 				Achievement.MEDIUM_BASE_SCORE, false,
 				new PlayerLootedNumberOfItemsCondition(1, "czarny płaszcz smoczy", "lazurowy płaszcz smoczy", "kościany płaszcz smoczy",
 						"szmaragdowy płaszcz smoczy", "karmazynowy płaszcz smoczy")));
+		
+		itemAchievements.add(createAchievement("item.set.wampirze", "Wampir", "Zdobył wampirzy zestaw",
+				Achievement.LEGENDARY_BASE_SCORE, true,
+				new PlayerLootedNumberOfItemsCondition(1, "zbroja wampirza", "spodnie wampirze", "płaszcz wampirzy", "rękawice wampirze",
+						"buty wampirze", "pas wampirzy")));
 
 		return itemAchievements;
 	}
