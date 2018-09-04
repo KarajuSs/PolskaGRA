@@ -24,7 +24,7 @@ public class SetNPCPath extends ScriptImpl {
 	public void execute(Player admin, List<String> args) {
 		super.execute(admin, args);
 		if (args.size() != 2) {
-			admin.sendPrivateText(NotificationType.ERROR, "/script SetPathNPC npc \"x1 y1 x2 y2 x3 y3\"");
+			admin.sendPrivateText(NotificationType.ERROR, "/script SetNPCPath npc \"x1 y1 x2 y2 x3 y3\"");
 			return;
 		}
 		SpeakerNPC npc = NPCList.get().get(args.get(0));
