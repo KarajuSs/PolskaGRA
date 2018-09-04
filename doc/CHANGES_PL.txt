@@ -50,6 +50,7 @@
 - Gargulce znajdujące się na 3 piętrze wieży w zakopane_c zostały przeniesione piętro niżej ze względu na "Czarnoksiężnika"
 - Dodano 13 (12 + 1 stary) nowych przedmiotów - pasów [skórzany pas; wzmocniony skórzany pas; kolczany pas; karmazynowy pas; złoty kolczany pas; pas elficki; pas zbójecki (stary przedmiot); pas krasnoludzki; pas wampirzy; pas olbrzymi; złoty pas; czarny pas; pas z mithrilu]
 - W jaskini kikareukin znajduje się NPC, który nagradza nas za zdobyty 350 poziom
+- Dodano 4 semońskie skrzynie w górnej części zakopiańskiego banku oraz dodano tabliczki z jakiej krainy pochodzą te skrzynie
 
 
 *code*
