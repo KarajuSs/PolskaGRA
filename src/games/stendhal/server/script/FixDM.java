@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -33,7 +32,7 @@ public class FixDM extends ScriptImpl {
 
 		// help text
 		if (args.size() < 1) {
-			admin.sendPrivateText("Usage /script FixDM.class <player>. Check they have killed all the creatures!");
+			admin.sendPrivateText("Użyj /script FixDM.class <wojownik>. Sprawdza czy zabił wszystkie potwory!");
 			return;
 		}
 
@@ -44,21 +43,21 @@ public class FixDM extends ScriptImpl {
 
 			// old state
 			if (!target.hasQuest(questName)) {
-				admin.sendPrivateText(target.getTitle() + " has never done a deathmatch.");
+				admin.sendPrivateText(target.getTitle() + " nigdy nie zrobił deathmatcha.");
 				return;
 			}
 			String oldQuestState = target.getQuest(questName);
 			if (oldQuestState.equals("done")) {
-				admin.sendPrivateText(target.getTitle() + " completed the last deathmatch successfully. No DM is in progress.");
+				admin.sendPrivateText(target.getTitle() + " ostatnio pomyślnie zaliczył deathmatcha. Nie wykonuje teraz DMa.");
 				return;
 			}
 			final String[] questpieces = oldQuestState.split(";");
 			if (questpieces.length < 2) {
-				admin.sendPrivateText(target.getTitle() + " had a deathmatch state in " + oldQuestState + "  , i.e. a deathmatch was bailed or cancelled? You're going to need to fix his helmet manually, if you're sure it should be. The quest state has been fixed to #done.");
+				admin.sendPrivateText(target.getTitle() + " ukończył deathmatch ze stanem " + oldQuestState + "  ,np. czy nie uciekł z deathmatcha lub przerwał go? Musisz naprawić jego hełm ręcznie o ile powinienen być naprawiony. Zadanie powinno być ustawione na #done.");
 				target.setQuest(questName, "done");
-				target.sendPrivateText("Admin " + admin.getTitle()
-								   + " changed your state of the quest '" + questName
-									   + "' from '" + oldQuestState + "' to 'done'. They need to fix your helmet, still.");
+				target.sendPrivateText("Administrator " + admin.getTitle()
+								   + " zmienił stan Twojego zadania '" + questName
+									   + "' z '" + oldQuestState + "' na 'done'. Wciąż musi naprawić Twój hełm.");
 				return;
 			} else {
 				String newQuestState = "victory;" + questpieces[1] + ";" + questpieces[2];
@@ -66,14 +65,14 @@ public class FixDM extends ScriptImpl {
 				target.setQuest(questName, newQuestState);
 
 				// notify admin and altered player
-				target.sendPrivateText("Try claiming victory again now that " + admin.getTitle()
-									   + " has waved a magic wand.");
-				admin.sendPrivateText("Changed the state of quest '" + questName
-									  + "' from '" + oldQuestState + "' to '" + newQuestState
-									  + "'. Told " + target.getTitle() + " to claim victory again.");
+				target.sendPrivateText("Spróbuj ponownie zawołać victory, a " + admin.getTitle()
+									   + " uderzy magiczną różdżką.");
+				admin.sendPrivateText("Zmienił stan zadania '" + questName
+									  + "' z '" + oldQuestState + "' na '" + newQuestState
+									  + "'. Powiedz " + target.getTitle() + ", aby znowu zawołał victory.");
 			}
 		} else {
-				admin.sendPrivateText(args.get(0) + " is not logged in");
+				admin.sendPrivateText(args.get(0) + " nie jest zalogowany");
 		}
 	}
 }

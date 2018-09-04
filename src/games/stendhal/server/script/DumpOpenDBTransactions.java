@@ -1,4 +1,3 @@
-/* $Id$ */
 package games.stendhal.server.script;
 
 import java.util.List;
@@ -22,7 +21,7 @@ public class DumpOpenDBTransactions extends ScriptImpl {
 		}
 
 		TransactionPool.get().dumpOpenTransactions();
-		admin.sendPrivateText("Transactions have been dumped to the log file.");
+		admin.sendPrivateText("Transakcja została zapisana do dziennika.");
 	}
 
 }

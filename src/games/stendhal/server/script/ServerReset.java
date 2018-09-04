@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -36,7 +35,7 @@ public class ServerReset extends ScriptImpl {
 
 		try {
 			final String text = admin.getTitle()
-					+ " started emergency shutdown of the server.";
+					+ " rozpoczął awaryjne zamknięcie serwera.";
 			SingletonRepository.getRuleProcessor().tellAllPlayers(NotificationType.SUPPORT, text);
 
 		} catch (final Throwable e) {

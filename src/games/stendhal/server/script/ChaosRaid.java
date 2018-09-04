@@ -1,4 +1,3 @@
-/* $Id$ */
 /***************************************************************************
  *                   (C) Copyright 2003-2010 - Stendhal                    *
  ***************************************************************************
@@ -25,22 +24,22 @@ public class ChaosRaid extends CreateRaid {
 	@Override
 	protected Map<String, Integer> createArmy() {
 		final Map<String, Integer> attackArmy = new HashMap<String, Integer>();
-		attackArmy.put("chaos warrior", 4);
-		attackArmy.put("chaos soldier", 3);
-		attackArmy.put("chaos commander", 4);
-		attackArmy.put("chaos lord", 3);
-		attackArmy.put("chaos sorcerer", 3);
-		attackArmy.put("chaos overlord", 3);
-		attackArmy.put("chaos dragonrider", 3);
-		attackArmy.put("chaos red dragonrider", 2);
-		attackArmy.put("chaos green dragonrider", 2);
-		attackArmy.put("black giant", 1);
-		attackArmy.put("black dragon", 1);
+		attackArmy.put("wojownik chaosu", 4);
+		attackArmy.put("żołnierz chaosu", 3);
+		attackArmy.put("komandor chaosu", 4);
+		attackArmy.put("lord chaosu", 3);
+		attackArmy.put("czarnoksiężnik chaosu", 3);
+		attackArmy.put("chaosu lord wywyższony", 3);
+		attackArmy.put("jeździec smoków chaosu", 3);
+		attackArmy.put("jeździec chaosu na czerwonym smoku", 2);
+		attackArmy.put("jeździec chaosu na zielonym smoku", 2);
+		attackArmy.put("czarny olbrzym", 1);
+		attackArmy.put("czarny smok", 1);
 		return attackArmy;
 	}
 
 	@Override
 	protected String getInfo() {
-		return "Not safe for players below level 150";
+		return "Niebezpieczny dla wojowników poni|ej poziomu 150";
 	}
 }

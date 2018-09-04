@@ -3,7 +3,6 @@
 	xsi:schemaLocation="stendhal ../../creatures.xsd ">
 
 	<!-- START: amazon -->
-
 	<creature name="amazonka łucznik">
 		<type class="stendhal/amazon" subclass="amazoness_archer" tileid="amazon.png:1"/>
 		<description>Oto amazonka łucznik. Świetnie posługuje się łukiem, a jej strzały są bardzo niebezpieczne, gdy wystrzeli je w Twoim kierunku!</description>
@@ -24,6 +23,7 @@
 			<item value="kusza łowcy" quantity="[1,1]" probability="1.0"/>
 			<item value="buty karmazynowe" quantity="[1,1]" probability="5.0"/>
 			<item value="zbroja karmazynowa" quantity="[1,1]" probability="0.5"/>
+			<item value="karmazynowy pas" quantity="[1,1]" probability="0.05"/>
 		</drops>
 		<equips>
 			<slot name="lhand" item="strzała płonąca" quantity="10000"/>
@@ -56,6 +56,7 @@
 			<item value="strzała płonąca" quantity="[4,10]" probability="30.0"/>
 			<item value="spodnie karmazynowe" quantity="[1,1]" probability="2.5"/>
 			<item value="buty karmazynowe" quantity="[1,1]" probability="5.5"/>
+			<item value="karmazynowy pas" quantity="[1,1]" probability="1.05"/>
 		</drops>
 		<equips>
 			<slot name="lhand" item="strzała płonąca" quantity="10000"/>
@@ -114,6 +115,7 @@
 			<item value="money" quantity="[1,30]" probability="100.0"/>
 			<item value="karmazynowa tarcza" quantity="[1,1]" probability="1.0"/>
 			<item value="spodnie karmazynowe" quantity="[1,1]" probability="2.5"/>
+			<item value="karmazynowy pas" quantity="[1,1]" probability="0.25"/>
 			<item value="kanapka" quantity="[1,1]" probability="5.5"/>
 		</drops>
 		<equips>
@@ -173,6 +175,7 @@
 			<item value="money" quantity="[10,40]" probability="100.0"/>
 			<item value="karmazynowy hełm" quantity="[1,1]" probability="12.0"/>
 			<item value="płaszcz karmazynowy" quantity="[1,1]" probability="4.5"/>
+			<item value="karmazynowy pas" quantity="[1,1]" probability="1.05"/>
 		</drops>
 		<equips>
 		</equips>
@@ -232,6 +235,7 @@
 			<item value="włócznia" quantity="[2,5]" probability="10.0"/>
 			<item value="kusza łowcy" quantity="[1,1]" probability="2.0"/>
 			<item value="spodnie karmazynowe" quantity="[1,1]" probability="3.0"/>
+			<item value="karmazynowy pas" quantity="[1,1]" probability="2.0"/>
 			<item value="płaszcz karmazynowy" quantity="[1,1]" probability="2.5"/>
 		</drops>
 		<equips>
@@ -261,6 +265,7 @@
 			<item value="money" quantity="[10,70]" probability="100.0"/>
 			<item value="zbroja karmazynowa" quantity="[1,1]" probability="5.0"/>
 			<item value="płaszcz karmazynowy" quantity="[1,1]" probability="6.5"/>
+			<item value="karmazynowy pas" quantity="[1,1]" probability="2.35"/>
 			<item value="karmazynowy hełm" quantity="[1,1]" probability="5.0"/>
 		</drops>
 		<equips>
@@ -291,6 +296,7 @@
 			<item value="miecz cesarski" quantity="[1,1]" probability="1.0"/>
 			<item value="płaszcz karmazynowy" quantity="[1,1]" probability="8.5"/>
 			<item value="karmazynowy hełm" quantity="[1,1]" probability="6.0"/>
+			<item value="karmazynowy pas" quantity="[1,1]" probability="1.5"/>
 		</drops>
 		<equips>
 		</equips>
@@ -299,11 +305,9 @@
 			<profile name="offensive"/>
 		</ai>
 	</creature>
-
 	<!-- END: amazon -->
 
 	<!-- START: assassin -->
-
 	<creature name="bandyta">
 		<type class="stendhal/human" subclass="bandit" tileid="human_evil.png:1"/>
 		<description>Oto chudy i niski bandyta. Jest gotowy odebrać ci życie oraz portfel</description>
@@ -322,7 +326,8 @@
 			<item value="money" quantity="[10,70]" probability="100.0"/>
 			<item value="zbroja płytowa" quantity="[1,1]" probability="7.0"/>
 			<item value="zbroja barbarzyńcy" quantity="[1,1]" probability="0.5"/>
-			<item value="złota zbroja" quantity="[1,1]" probability="0.0050"/>
+			<item value="złota zbroja" quantity="[1,1]" probability="0.005"/>
+			<item value="złoty pas" quantity="[1,1]" probability="0.05"/>
 			<item value="buty nabijane ćwiekami" quantity="[1,1]" probability="3.0"/>
 			<item value="peleryna" quantity="[1,1]" probability="5.5"/>
 			<item value="sztylecik" quantity="[1,1]" probability="5.0"/>
@@ -622,11 +627,9 @@
 			<profile name="patrolling"/>
 		</ai>
 	</creature>
-
 	<!-- END: assassin -->
 
 	<!-- START: barbarian -->
-
 	<creature name="barbarzyńca">
 		<type class="stendhal/human" subclass="barbarian" tileid="human_barbarian.png:3"/>
 		<description></description>
@@ -645,6 +648,7 @@
 			<item value="money" quantity="[10,20]" probability="100.0"/>
 			<item value="zbroja barbarzyńcy" quantity="[1,1]" probability="0.5"/>
 			<item value="złota zbroja" quantity="[1,1]" probability="0.05"/>
+			<item value="złoty pas" quantity="[1,1]" probability="0.4"/>
 			<item value="złoty pyrlik" quantity="[1,1]" probability="1.0"/>
 			<item value="tarcza z czaszką" quantity="[1,1]" probability="0.5"/>
 			<item value="nóż z kości" quantity="[1,1]" probability="10.0"/>
@@ -677,6 +681,7 @@
 			<item value="butelka wody" quantity="[1,2]" probability="30.0"/>
 			<item value="zbroja barbarzyńcy" quantity="[1,1]" probability="2.5"/>
 			<item value="złota zbroja" quantity="[1,1]" probability="0.25"/>
+			<item value="złoty pas" quantity="[1,1]" probability="1.0"/>
 			<item value="młot bojowy" quantity="[1,1]" probability="1.0"/>
 			<item value="złoty hełm" quantity="[1,1]" probability="0.5"/>
 			<item value="hełm barbarzyńcy" quantity="[1,1]" probability="12.5"/>
@@ -710,6 +715,7 @@
 			<item value="zbroja barbarzyńcy" quantity="[1,1]" probability="5.0"/>
 			<item value="złota zbroja" quantity="[1,1]" probability="0.5"/>
 			<item value="złote buty" quantity="[1,1]" probability="1.0"/>
+			<item value="złoty pas" quantity="[1,1]" probability="0.3"/>
 			<item value="młot bojowy" quantity="[1,1]" probability="1.0"/>
 			<item value="młot chaosu" quantity="[1,1]" probability="0.0050"/>
 			<item value="złota tarcza" quantity="[1,1]" probability="0.05"/>
@@ -862,11 +868,9 @@
 			<profile name="attack weakest"/>
 		</ai>
 	</creature>
-
 	<!-- END: barbarian -->
 
 	<!-- START: blordrough -->
-
 	<creature name="blordrough kwatermistrz">
 		<type class="stendhal/human" subclass="armored_warrior" tileid="human_armored.png:0"></type>
 		<description>Oto człowiek, który oddał swoje życie jak marionetka armi Blordroughtów, a wszystko to dla miłości smoków. Jest niezwykle szczęśliwy.</description>
@@ -970,11 +974,9 @@
 			<profile name="patrolling"/>
 		</ai>
 	</creature>
-
 	<!-- END: blordrough -->
 
 	<!-- START: cannibal -->
-
 	<creature name="kanibalska">
 		<type class="stendhal/human" subclass="cannibalwoman" tileid="human.png:1"/>
 		<description>Oto pani kanibalska. Chce przyrządzić zupę z Twoich kości!</description>
@@ -1078,11 +1080,9 @@
 			<profile name="patrolling"/>
 		</ai>
 	</creature>
-
 	<!-- END: cannibal -->
 
 	<!-- START: chaos -->
-
 	<creature name="żołnierz chaosu">
 		<type class="stendhal/chaos" subclass="chaos_soldier" tileid="chaos.png:4"/>
 		<description>Oto żołnierz chaosu. Żołnierze chaosu są sługami zła. Zabicie ciebie jest jednym z ich niecnych planów.</description>
@@ -1489,11 +1489,9 @@
 			<profile name="heal" params="5,50"/>
 		</ai>
 	</creature>
-
 	<!-- END: chaos -->
 
 	<!-- START: imperial -->
-
 	<creature name="obrońca imperium">
 		<type class="stendhal/human" subclass="imperial_defender" tileid="human_imperial.png:5"/>
 		<description></description>
@@ -1512,6 +1510,7 @@
 			<item value="money" quantity="[5,40]" probability="100.0"/>
 			<item value="zbroja płytowa" quantity="[1,1]" probability="7.0"/>
 			<item value="złota zbroja" quantity="[1,1]" probability="0.3"/>
+			<item value="złoty pas" quantity="[1,1]" probability="0.02"/>
 			<item value="tarcza jednorożca" quantity="[1,1]" probability="2.0"/>
 			<item value="tarcza cieni" quantity="[1,1]" probability="1.0"/>
 		</drops>
@@ -1805,6 +1804,7 @@
 			<item value="zbroja cieni" quantity="[1,1]" probability="0.4"/>
 			<item value="tarcza cieni" quantity="[1,1]" probability="0.07"/>
 			<item value="miecz dwuręczny" quantity="[1,1]" probability="2.5"/>
+			<item value="złoty pas" quantity="[1,1]" probability="0.0075"/>
 			<item value="złoty kiścień" quantity="[1,1]" probability="2.0"/>
 		</drops>
 		<equips>
@@ -1988,11 +1988,9 @@
 			<profile name="lifesteal" params="0.1"/>
 		</ai>
 	</creature>
-
 	<!-- END: imperial -->
 
 	<!-- START: kalavan -->
-
 	<creature name="gospodyni z kalavan">
 		<type class="stendhal/human" subclass="kalavan_housewife" tileid="human_kalavan.png:2"/>
 		<description>Oto gospodyni z kalavan. Mieszka w mieście Kalavan i jest bardzo zła na wrednych ludzi, którzy chcą ukraść jej jedzenie z kuchni i zniszczyć jej piękny ogród!</description>
@@ -2111,11 +2109,9 @@
 			<profile name="patrolling"/>
 		</ai>
 	</creature>
-
 	<!-- END: kalavan -->
 
 	<!-- START: madaram -->
-
 	<creature name="madaram łucznik">
 		<type class="stendhal/madaram" subclass="madaram_archer" tileid="madaram.png:1"/>
 		<description></description>
@@ -2628,11 +2624,9 @@
 			<profile name="human"/>
 		</ai>
 	</creature>
-
 	<!-- END: madaram -->
 
 	<!-- START: mithrilbourgh -->
-
 	<creature name="mithrilbourgh żołnierz">
 		<type class="stendhal/human" subclass="soldier_common" tileid="human_soldier.png:2"/>
 		<description></description>
@@ -2913,11 +2907,9 @@
 			<profile name="attack weakest"/>
 		</ai>
 	</creature>
-
 	<!-- END: mithrilbourgh -->
 
 	<!-- START: monk -->
-
 	<creature name="mnich">
 		<type class="stendhal/human" subclass="monk" tileid="human.png:4"/>
 		<description>Oto mnich. Mnichowie są bardzo spokojni i pokojowi. Żyją samotnie między sobą, ale nie lubią być niepokojeni przez innych.</description>
@@ -3037,7 +3029,6 @@
 			<profile name="patrolling"/>
 		</ai>
 	</creature>
-
 	<!-- END: monk -->
 
 	<!-- START: pirate -->
@@ -3242,7 +3233,6 @@
 	<!-- END: pireate -->
 
 	<!-- START: risecia -->
-
 	<creature name="risecia zbir">
 		<type class="stendhal/human" subclass="risecia_thug" tileid="human.png:8"/>
 		<description>Oto risecia zbir. Trzymaj się od niego z daleka!</description>
@@ -3381,11 +3371,9 @@
 			<profile name="attack weakest"/>
 		</ai>
 	</creature>
-
 	<!-- END: risecia -->
 
 	<!-- START: wizard -->
-
 	<creature name="mała wiedźma">
 		<type class="stendhal/human" subclass="littlewitch" tileid="human_little.png:0"/>
 		<description>Oto mała wiedźma. Są małymi złymi dziewczynkami, które są bardzo niebezpieczne.</description>
@@ -3450,7 +3438,5 @@
 			<profile name="patrolling"/>
 		</ai>
 	</creature>
-
 	<!-- END: wizard -->
-
 </creatures>

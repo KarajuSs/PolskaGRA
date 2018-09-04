@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -25,23 +24,23 @@ public class DrowRaid extends CreateRaid {
 	@Override
 	protected Map<String, Integer> createArmy() {
 		final Map<String, Integer> attackArmy = new HashMap<String, Integer>();
-		attackArmy.put("dark elf", 10);
-		attackArmy.put("dark elf archer", 2);
-		attackArmy.put("dark elf elite archer", 2);
-		attackArmy.put("dark elf captain", 5);
-		attackArmy.put("dark elf knight", 3);
-		attackArmy.put("dark elf general", 1);
-		attackArmy.put("dark elf wizard", 2);
-		attackArmy.put("dark elf viceroy", 1);
-		attackArmy.put("dark elf sacerdotist", 3);
-		attackArmy.put("dark elf matronmother", 1);
-		attackArmy.put("dark elf master", 1);
-		attackArmy.put("dark elf ranger", 3);
-		attackArmy.put("dark elf admiral", 3);
+		attackArmy.put("elf ciemności", 20);
+		attackArmy.put("elf ciemności łucznik", 5);
+		attackArmy.put("elf ciemności łucznik elitarny", 5);
+		attackArmy.put("elf ciemności kapitan", 7);
+		attackArmy.put("elf ciemnosci rycerz", 3);
+		attackArmy.put("elf ciemności generał", 1);
+		attackArmy.put("elf ciemności czarownik", 2);
+		attackArmy.put("elf ciemności królewicz", 1);
+		attackArmy.put("elf ciemności czarnoksiężnik", 3);
+		attackArmy.put("elf ciemności matrona", 1);
+		attackArmy.put("elf ciemności mistrz", 1);
+		attackArmy.put("elf ciemności komandos", 3);
+		attackArmy.put("elf ciemności admirał", 3);
 		return attackArmy;
 	}
 	@Override
 	protected String getInfo() {
-		return "Not safe for players below level 150.";
+		return "Niebezpieczny dla wojowników poniżej poziomu 150.";
 	}
 }

@@ -1,5 +1,5 @@
 /***************************************************************************
- *                   (C) Copyright 2003-2012 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -42,9 +42,9 @@ public class NPCPathCheck extends ScriptImpl {
 			}
 		}
 		if (found) {
-			res.insert(0, "The following problems were found:\n");
+			res.insert(0, "Znaleziono następujące problemy:\n");
 		} else {
-			res.insert(0, "No problems found in NPC paths.");
+			res.insert(0, "Nie znaleziono problemów ze ścieżkami NPCów.");
 		}
 
 		admin.sendPrivateText(res.toString());
@@ -68,7 +68,7 @@ public class NPCPathCheck extends ScriptImpl {
 		if (!path.isLoop()) {
 			ok = false;
 			msg.append(npc.getName());
-			msg.append(" has a path that is not a loop.\n");
+			msg.append(" ma ścieżkę, która nie jest pętlą.\n");
 		}
 		if (!checkNodes(npc, path, msg)) {
 			ok = false;
@@ -127,7 +127,7 @@ public class NPCPathCheck extends ScriptImpl {
 		while ((entity.getX() != second.getX()) || (entity.getY() != second.getY())) {
 			if (zone.collides(entity.getX(), entity.getY())) {
 				msg.append(npc.getName());
-				msg.append(" will hit collision at (");
+				msg.append(" uderzy w przeszkodę na at (");
 				msg.append(entity.getX());
 				msg.append(",");
 				msg.append(entity.getY());

@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -49,7 +48,7 @@ public class MineTown extends ScriptImpl {
 	 */
 	private void startSemosMineTowns(Player admin) {
 		if (StendhalQuestSystem.get().getQuest(MineTownRevivalWeeks.QUEST_NAME) != null) {
-			admin.sendPrivateText("Mine Town Revival Weeks are already active.");
+			admin.sendPrivateText("Mine Town Revival Weeks jest aktywny.");
 			return;
 		}
 		StendhalQuestSystem.get().loadQuest(new MineTownRevivalWeeks());
@@ -62,7 +61,7 @@ public class MineTown extends ScriptImpl {
 	 */
 	private void stopSemosMineTowns(Player admin) {
 		if (StendhalQuestSystem.get().getQuest(MineTownRevivalWeeks.QUEST_NAME) == null) {
-			admin.sendPrivateText("Mine Town Revival Weeks are not active.");
+			admin.sendPrivateText("Mine Town Revival Weeks nie jest aktywny.");
 			return;
 		}
 		StendhalQuestSystem.get().unloadQuest(MineTownRevivalWeeks.QUEST_NAME);

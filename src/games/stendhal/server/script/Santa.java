@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -48,7 +47,7 @@ public class Santa extends ScriptImpl {
 	 */
 	private void startChristmas(Player admin) {
 		if (System.getProperty("stendhal.santa") != null) {
-			admin.sendPrivateText("Santa is already active.");
+			admin.sendPrivateText("Mikołaj jest już aktywowany.");
 			return;
 		}
 		System.setProperty("stendhal.santa", "true");
@@ -62,7 +61,7 @@ public class Santa extends ScriptImpl {
 	 */
 	private void stopChristmas(Player admin) {
 		if (System.getProperty("stendhal.santa") == null) {
-			admin.sendPrivateText("Santa is not active.");
+			admin.sendPrivateText("Santa nie jest aktywny.");
 			return;
 		}
 		System.getProperties().remove("stendhal.santa");

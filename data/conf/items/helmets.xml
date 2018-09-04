@@ -313,11 +313,13 @@
 		<description>Widzisz magiczny hełm kolczy.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="25"/>
+			<def value="21"/>
 		</attributes>
 		<weight value="15.0"/>
 		<value value="74536"/>
+		<susceptibility type="nature" value="0.91"/>
 		<susceptibility type="fire" value="0.91"/>
+		<susceptibility type="water" value="0.91"/>
 		<susceptibility type="ice" value="0.91"/>
 		<susceptibility type="dark" value="0.91"/>
 		<susceptibility type="light" value="0.91"/>
@@ -374,7 +376,7 @@
 		<description>Widzisz hełm z mithrilu.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<def value="19"/>
+			<def value="24"/>
 		</attributes>
 		<weight value="12.0"/>
 		<value value="323032"/>

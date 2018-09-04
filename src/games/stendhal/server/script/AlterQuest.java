@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -32,7 +31,7 @@ public class AlterQuest extends ScriptImpl {
 
 		// help text
 		if (args.size() < 2) {
-			admin.sendPrivateText("Usage /script AlterQuest.class <player> <questname> <state>. Ommit <state> to remove the quest.");
+			admin.sendPrivateText("Użyj /script AlterQuest.class <wojownik> <nazwa_zadania> <stan>. Pomiń <stan>, aby usunąć zadanie.");
 			return;
 		}
 
@@ -58,15 +57,15 @@ public class AlterQuest extends ScriptImpl {
 			target.setQuest(questName, newQuestState);
 
 			// notify admin and altered player
-			target.sendPrivateText(NotificationType.SUPPORT, "Admin " + admin.getTitle()
-					+ " changed your state of the quest '" + questName
-					+ "' from '" + oldQuestState + "' to '" + newQuestState
+			target.sendPrivateText(NotificationType.SUPPORT, "Administrator " + admin.getTitle()
+					+ " zmienił stan twojego zadania '" + questName
+					+ "' z '" + oldQuestState + "' na '" + newQuestState
 					+ "'");
-			admin.sendPrivateText("Changed the state of quest '" + questName
-					+ "' from '" + oldQuestState + "' to '" + newQuestState
+			admin.sendPrivateText("Zmieniono stan zadania '" + questName
+					+ "' z '" + oldQuestState + "' na '" + newQuestState
 					+ "'");
 		} else {
-			admin.sendPrivateText(args.get(0) + " is not logged in");
+			admin.sendPrivateText(args.get(0) + " nie jest zalogowany");
 		}
 	}
 

@@ -1,5 +1,5 @@
 /***************************************************************************
- *                    (C) Copyright 2003-2010 - Stendhal                   *
+ *                    (C) Copyright 2003-2018 - Stendhal                   *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -23,7 +23,6 @@ import games.stendhal.server.entity.player.Player;
 import marauroa.server.db.DBTransaction;
 import marauroa.server.db.TransactionPool;
 
-
 /**
  * Executes an sql statement. WARNING: This is a quick hack: The sql statement and the post processing is hard coding and it blocks the server creating lag.
  *
@@ -38,7 +37,7 @@ public class ExecuteSQL extends ScriptImpl {
 		try {
 			try {
 				if (!transaction.doesColumnExist(args.get(0), args.get(1))) {
-					admin.sendPrivateText("Column " + args.get(1) + " does not exist");
+					admin.sendPrivateText("Nie istnieje kolumna " + args.get(1));
 				}
 
 				String sql = "SELECT level, " + args.get(1) + " FROM character_stats, characters, account WHERE admin<600 AND charname=name AND player_id=account.id AND account.status='active' ORDER BY 1, 2";

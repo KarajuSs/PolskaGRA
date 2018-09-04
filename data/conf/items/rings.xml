@@ -6,7 +6,7 @@
   
 	<item name="pierścień leczniczy">
 		<type class="ring" subclass="medicinal_ring" tileid="-1"/>
-		<description>Oto pierścień leczniczy. Może cię ochronić przed zatruciem.</description>
+		<description>Oto pierścień leczniczy. Może cię ochronić przed zatruciem gdy nosisz go na palcu.</description>
 		<implementation class-name="games.stendhal.server.entity.item.StatusResistantItem"/>
 		<attributes>
 		</attributes>
@@ -26,7 +26,7 @@
 	<!-- DISABLED
 	<item name="pierścień antyjadowy">
 		<type class="ring" subclass="antivenom_ring" tileid="-1"/>
-		<description>Oto pierścień antyjadowy. Posiada dobre właściwości chroniące przed zatruciem.</description>
+		<description>Oto pierścień antyjadowy. Posiada dobre właściwości chroniące przed zatruciem gdy nosisz go na palcu.</description>
 		<implementation class-name="games.stendhal.server.entity.item.StatusResistantItem"/>
 		<attributes>
 		</attributes>
@@ -45,7 +45,7 @@
 
 	<item name="pierścień antytoksynowy gm">
 		<type class="ring" subclass="antitoxin_ring" tileid="-1"/>
-		<description>Oto pierścień antytoksynowy gm. Będziesz odporny na truciznę.</description>
+		<description>Oto pierścień antytoksynowy gm. Będziesz odporny na truciznę gdy nosisz go na palcu.</description>
 		<implementation class-name="games.stendhal.server.entity.item.StatusResistantItem"/>
 		<attributes>
 		</attributes>

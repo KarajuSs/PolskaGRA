@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -43,11 +42,6 @@ public class Skille50NPC implements ZoneConfigurator {
 		final SpeakerNPC npc = new SpeakerNPC("Choros") {
 
 			@Override
-			protected void createPath() {
-				setPath(null);
-			}
-
-			@Override
 			protected void createDialog() {
 				addGreeting(null, new ChatAction() {
 					@Override
@@ -74,7 +68,6 @@ public class Skille50NPC implements ZoneConfigurator {
 			}
 		};
 
-
 		npc.addInitChatMessage(null, new ChatAction() {
 			@Override
 			public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
@@ -84,7 +77,7 @@ public class Skille50NPC implements ZoneConfigurator {
 
 					player.setAtkXP(45000 + player.getAtkXP());
 					player.setDefXP(90000 + player.getDefXP());
-					player.addXP(20000);
+					player.addXP(50000);
 
 					player.incAtkXP();
 					player.incDefXP();
@@ -103,7 +96,6 @@ public class Skille50NPC implements ZoneConfigurator {
 		npc.setDescription("Oto Choros. Jest Wysokim Kapłanem, który może Cię czegoś nauczyć.");
 		npc.setPosition(38, 3);
 		npc.setDirection(Direction.DOWN);
-		npc.initHP(85);
 		zone.add(npc);
 	}
 }

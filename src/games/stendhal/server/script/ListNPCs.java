@@ -1,4 +1,3 @@
-/* $Id$ */
 package games.stendhal.server.script;
 
 import java.util.List;
@@ -24,8 +23,8 @@ public class ListNPCs extends ScriptImpl {
 		final NPCList npcs = SingletonRepository.getNPCList();
 		for (final String name : npcs.getNPCs()) {
 			final SpeakerNPC npc = npcs.get(name);
-			res.append("\r\n" + name + "\t is in ");
-			res.append(npc.getZone().getName() + " at (");
+			res.append("\r\n" + name + "\t jest w ");
+			res.append(npc.getZone().getName() + " (");
 			res.append(npc.getX() + ", " + npc.getY() + ")");
 		}
 		admin.sendPrivateText(res.toString());

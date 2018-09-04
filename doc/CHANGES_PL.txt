@@ -2,21 +2,63 @@
 ---------
 1.04
 *klient*
-- natura broni służy do ustawienia ikonki walki, jeśli jest dostępna
+- Natura broni służy do ustawienia ikonki walki, jeśli jest dostępna
+- Dodano nowe dźwieki kajmana
+- Dodano 4 nowe fryzury do wyboru dla postaci gracza
+- Dodano kilka nowych outfitów dla NPC
+- Dodano 12 nowych grafik pasów
+- Dodano nowy slot: pas
+- Poprawiono graficznie ubrania dress_62-68.png
+- Poprawiono graficznie elficki naszyjnik
+
+
+*serwer*
+- Przetłumaczono wszystkie skrypty oraz dodano kilka nowych dla administratorów
 
 
 *świat gry*
-- Dodano nowe rękawice wampirze (ATK: 2; DEF: 5; LIFESTEAL: 0.05)
+- Dodano nowe rękawice wampirze (ATK: 2; DEF: 5; LIFESTEAL: 0.05), które można dropnąć z lorda wampirów (0.04%)
+- Dodano nowe expowiska na desert'cie (6 pięter nowej piramidy)
 - Miecz ognisty stał się lżejszy dla rycerzy, ale niestety jego siła się zmniejszyła, a lodowy miecz stał się lustrzanym odbiciem miecza ognistego (atk; waga;)
 	- miecz ognisty - 29 / 5 + FIRE
 	- lodowy miecz  - 29 / 5 + ICE
 - Zebranie magów przedyskutowało temat magii ognia i magii ziemi. Doszli do wniosku, że to magia ognia jest bardziej niebezpieczna (atk; obr;)
 	- magia ziemi - 9 / 9 + NATURE (wcześniej - 11 / 11 + NATURE)
 	- magia ognia - 11 / 11 + FIRE (wcześniej - 9 / 9 + FIRE)
+- Dodano nowego dwugłowego lodowego smoka, który posiada stare statystyki dwugłowego czarnego smoka, a aktualne statystyki dwugłowego czarnego wyglądają następująco (w nawiasie są jego stare statystyki):
+	- ATK: 3817 (3052)
+	- DEF: 129 (110)
+	- HP: 7593 (6873)
+	- LEVEL: 499 (399)
+	- XP: 486253 (312827)
+- Poszerzono przejścia w ognistej piramidzie
+- U Juhasa można zakupić bilet turystyczny raz na dzień oraz gracz musi posiadać conajmniej 100 poziom. Juhas reaguje na słowo "bilet" lub "bilet turystyczny", gdzie potem będą toczone kolejne dialogi z graczem. UWAGA!!! Juhas nie będzie reagował na "buy bilet turystyczny"!!
+- Dodano typ natury ataku dla smoków, np: dwugłowy czerwony smok posiada typ ataku ognistego, czyli fire, a dwugłowy czarny - dark, itd...
+- Zwiększono drop magii płomieni z odpowiednich potworów
+- Kajmany wydają dźwieki
+- Dodany został dźwięk wiedźmy NPC Esolte Vietta
+- Tekstury na większości map zostały poprawione (np: Tatry, pustynia, dreamscape)
+- Na niektórych mapach Tatr rosną grzyby
+- Zmieniono system otrzymywania skilli za osiągnięty poziom z 50/100/150/200/250/300 na 50/100/150/350/550 (zmieniliśmy NPC, którzy nagradzali nas 'skillami' za osiągnięty poziom, lecz kiedy osiągniecie dany poziom i przejdziecie się do danego NPC to nie pożałujecie :) )
+- Zmieniono nazwę potwora z "smok dwugłowy niebieski" na "dwugłowy niebieski smok"
+- Zmieniono parametry przedmiotu
+	- "magiczny hełm kolczy" z 25 DEF na 21 DEF oraz dodano odporność na NATURE + WATER 110%
+	- "hełm z mithrilu" z 19 DEF na 24 DEF
+- Dodano nowego NPC o nazwie "Czarnoksiężnik", który znajduje się w wieży na mapie 0_zakopane_c
+- Dodano 5 nowych zadań w świecie prasłowiańskim (4 nowe zadania w Zakopane; 1 zaś w Kuźnicy)
+- Dodano nowy przedmiot o nazwie "wyniki badań" (przedmiot zadaniowy)
+- Gargulce znajdujące się na 3 piętrze wieży w zakopane_c zostały przeniesione piętro niżej ze względu na "Czarnoksiężnika"
+- Dodano 13 (12 + 1 stary) nowych przedmiotów - pasów [skórzany pas; wzmocniony skórzany pas; kolczany pas; karmazynowy pas; złoty kolczany pas; pas elficki; pas zbójecki (stary przedmiot); pas krasnoludzki; pas wampirzy; pas olbrzymi; złoty pas; czarny pas; pas z mithrilu]
+- W jaskini kikareukin znajduje się NPC, który nagradza nas za zdobyty 350 poziom
+- Dodano 4 semońskie skrzynie w górnej części zakopiańskiego banku oraz dodano tabliczki z jakiej krainy pochodzą te skrzynie
 
 
 *code*
 - Lifesteal z rękawic sumuje się wraz z lifesteal'em w broni lub bez niej
+
+
+*naprawa błędów*
+- Naprawiono zadanie na tarcze z mithrilu
 
 
 

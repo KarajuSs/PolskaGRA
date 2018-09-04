@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -26,7 +25,7 @@ import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.player.Player;
 
-public class Skille300NPC implements ZoneConfigurator {
+public class Skille350NPC implements ZoneConfigurator {
 	/**
 	 * Configure a zone.
 	 *
@@ -42,9 +41,8 @@ public class Skille300NPC implements ZoneConfigurator {
 	}
 
 	private void buildMineArea(final StendhalRPZone zone) {
-		final SpeakerNPC npc = new SpeakerNPC("Deviotis") {
+		final SpeakerNPC npc = new SpeakerNPC("Festris") {
 
-			
 			@Override
 			protected void createPath() {
 				final List<Node> nodes = new LinkedList<Node>();
@@ -58,57 +56,55 @@ public class Skille300NPC implements ZoneConfigurator {
 				nodes.add(new Node(110, 84));
 				setPath(new FixedPath(nodes, true));
 			}
-			
+
 			@Override
 			protected void createDialog() {
 				addGreeting(null, new ChatAction() {
 					@Override
 					public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-						String reply = "Witaj! Jestem tutaj aby #nauczyć Cię czegoś o walce z potworami!";
-
-						if (player.getLevel() < 300) {
-							reply += " Jeszcze nie jesteś godzien! Osiągnij 250 poziom!";
+						String reply = "Witaj, ";
+						if (player.getLevel() < 350) {
+							reply += "po co do mnie tutaj przybyłeś? Jeszcze nie jesteś godzien, abym mógł Ciebie #'nauczyć' prawdziwej walki z potworami!";
 						} else {
-							reply += " Jesteś godzień przyjąć moje nauki.";
+							reply += "widzę, że już zdobyłeś wystarczającą ilość doświadczenia poprzez walki z potworami, a zatem jesteś godzien przyjąć me nauki!";
 						}
 						raiser.say(reply);
 					}
 				});
-
+				addJob("Jestem kapłanem, który chroni tę krainę przed złem.");
+				addOffer("Moja jedyna oferta to gdy osiągniesz 350 poziom to nauczę Cię lepiej walczyć z potworami.");
 				addReply("nauczyć",
-						"Gdy osiągniesz 300 poziom nauczę Cię lepiej walczyć z potworami.");
+						"Moje nauki to pradawna magia, która wspomaga podczas walk z potworami. Gdy osiągniesz 350 poziom, nauczę Cię jej.");
 				addGoodbye();
 			}
 		};
 
-
 		npc.addInitChatMessage(null, new ChatAction() {
 			@Override
 			public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-				if (!player.hasQuest("DeviotisReward")
-						&& (player.getLevel() >= 300)) {
-					player.setQuest("DeviotisReward", "done");
+				if (!player.hasQuest("FestrisReward")
+						&& (player.getLevel() >= 350)) {
+					player.setQuest("FestrisReward", "done");
 
-					player.setAtkXP(400000 + player.getAtkXP());
-					player.setDefXP(1080000 + player.getDefXP());
-					player.addXP(20000);
+					player.setAtkXP(750000 + player.getAtkXP());
+					player.setDefXP(1750000 + player.getDefXP());
+					player.addXP(350000);
 
 					player.incAtkXP();
 					player.incDefXP();
 				}
 
-				if (!player.hasQuest("DeviotisFirstChat")) {
-					player.setQuest("DeviotisFirstChat", "done");
+				if (!player.hasQuest("FestrisFirstChat")) {
+					player.setQuest("FestrisFirstChat", "done");
 					((SpeakerNPC) raiser.getEntity()).listenTo(player, "hi");
 				}
-				
+
 			}
-			
+
 		});
 
 		npc.setEntityClass("blackwizardpriestnpc");
 		npc.setPosition(112, 76);
-		npc.initHP(85);
 		zone.add(npc);
 	}
 }

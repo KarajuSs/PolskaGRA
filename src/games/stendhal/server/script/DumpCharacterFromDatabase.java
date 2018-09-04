@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                    (C) Copyright 2003-2010 - Stendhal                   *
+ *                    (C) Copyright 2003-2018 - Stendhal                   *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -36,7 +35,7 @@ public class DumpCharacterFromDatabase extends ScriptImpl {
 	@Override
 	public void execute(Player admin, List<String> args) {
 		if (args.size() != 1) {
-			admin.sendPrivateText("Usage: /script DumpCharacterFromDatabase <rpobjectid>\nSELECT object_id FROM characters WHERE charname='xxx'");
+			admin.sendPrivateText("Użyj: /script DumpCharacterFromDatabase <rpobjectid>\nSELECT object_id FROM characters WHERE charname='xxx'");
 			return;
 		}
 

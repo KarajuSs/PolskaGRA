@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2011 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -117,8 +116,8 @@ public class ServerDown extends ScriptImpl {
 				addHelp("Dziękuję za twoją ofertę, ale teraz nie mam nic dla ciebie. Poczekaj i odpocznij");
 				addReply(Arrays.asList("place", "miejscu"), "To jest... Pomyśl o tym jak o teatrze. Przestrzeń i czas są poza rzeczywistością.");
 				addReply(Arrays.asList("reality", "rzeczywistością", "rzeczywistość"), "Aby zabrać ciebie w miejsce poza rzeczywistością muszę pozbyć się braku wiary.");
-				addReply("polskagra", "Moce, które aktualnie przywracają rzeczywistość PolskaGRA. Poczekaj i zrelaksuj się.");
-				
+				addReply("polskagra", "Moce, które aktualnie przywracają rzeczywistość PolskaGra. Poczekaj i zrelaksuj się.");
+
 				addGoodbye();
 			}
 		};

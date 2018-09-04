@@ -1,4 +1,3 @@
-/* $Id$ */
 package games.stendhal.server.script;
 
 import java.util.List;
@@ -43,8 +42,8 @@ public class DumpTurnListenerEvents extends ScriptImpl {
 		}
 
 		// send result
-		admin.sendPrivateText("Statistics: " + "\n" + counter.getMap()
-				+ "\nCounted turn events:" + events.size()
-				+ "\nOutdated turn events: " + outdated);
+		admin.sendPrivateText("Statystyki: " + "\n" + counter.getMap()
+				+ "\nIlość zdarzeń:" + events.size()
+				+ "\nNieaktualne zdarzenia: " + outdated);
 	}
 }

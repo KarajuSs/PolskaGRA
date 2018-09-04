@@ -1,5 +1,5 @@
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -45,9 +45,9 @@ public class SetNPCPathReversible extends ScriptImpl {
 		} else if (reverseOnCollision.equals("false")) {
 			npc.setCollisionAction(null);
 		} else {
-			admin.sendPrivateText(NotificationType.ERROR, "Unknown argument \""
-					+ reverseOnCollision + "\". Please declare using \"true\""
-					+ " or \"false\".");
+			admin.sendPrivateText(NotificationType.ERROR, "Nieznany argument \""
+					+ reverseOnCollision + "\". Proszę używaj \"true\""
+					+ " lub \"false\".");
 		}
 	}
 }

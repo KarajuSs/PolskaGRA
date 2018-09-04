@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -59,7 +58,7 @@ public class BugInspect extends ScriptImpl implements TurnListener {
 					seen.add(player.getName());
 
 					final StringBuilder sb = new StringBuilder();
-					sb.append("Inspecting " + player.getName() + "\n");
+					sb.append("Sprawdzam " + player.getName() + "\n");
 					boolean caught = false;
 					boolean warn = false;
 
@@ -80,13 +79,13 @@ public class BugInspect extends ScriptImpl implements TurnListener {
 								if (!"money".equals(item.getName()) && (item.getQuantity() > 10000)) {
 									caught = true;
 								}
-								if ("money".equals(item.getName()) && (item.getQuantity() > 10000000)) {
+								if ("money".equals(item.getName()) && (item.getQuantity() > 100000000)) {
 									caught = true;
 								}
-								if (!"money".equals(item.getName()) && (item.getQuantity() > 1000)) {
+								if (!"money".equals(item.getName()) && (item.getQuantity() > 7000)) {
 									warn = true;
 								}
-								if ("money".equals(item.getName()) && (item.getQuantity() > 100000)) {
+								if ("money".equals(item.getName()) && (item.getQuantity() > 1000000)) {
 									warn = true;
 								}
 							}
@@ -94,15 +93,15 @@ public class BugInspect extends ScriptImpl implements TurnListener {
 						}
 					}
 
-					String message = player.getName() + " has a large amount of items";
+					String message = player.getName() + " posiada sporą ilość przedmiotów";
 					if (caught) {
 
 						new GameEvent("bug inspect", "jail", player.getName(), Integer.toString(-1), "possible bug abuse").raise();
-						SingletonRepository.getJail().imprison(player.getName(), player, -1, "possible bug abuse");
-						player.sendPrivateText(NotificationType.SUPPORT, "Please use /support to talk to an admin about your large amount of items which may have been the result of a bug.");
+						SingletonRepository.getJail().imprison(player.getName(), player, -1, "prawdopodobnie luka w grze");
+						player.sendPrivateText(NotificationType.SUPPORT, "Użyj /support aby porozmawiać z najemnikiem o ilości twoich przedmiotów, które mogą być wynikiem luki w grze.");
 						player.notifyWorldAboutChanges();
 
-						message = "auto jailed " + player.getName() + " because of a large number of items";
+						message = "aresztowano " + player.getName() + " z powodu dużej ilości przedmiotów";
 					}
 
 					if (warn || caught) {

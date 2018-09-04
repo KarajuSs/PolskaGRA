@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -31,7 +30,7 @@ public class NPCShoutZone extends ScriptImpl {
 		super.execute(admin, args);
 
 		if (args.size() < 3) {
-			admin.sendPrivateText("Usage: /script NPCShoutZone.class npc zone text");
+			admin.sendPrivateText("Użyj: /script NPCShoutZone.class npc obszar tekst");
 		} else {
 			final StringBuilder sb = new StringBuilder();
 			sb.append(args.get(0));
@@ -47,7 +46,7 @@ public class NPCShoutZone extends ScriptImpl {
 			}
 
 			if (targetZone != null) {
-				sb.append("to those in " + targetZoneName + ": ");
+				sb.append(" w " + targetZoneName + ": ");
 				for (int i = 2; i < args.size(); i++) {
 					sb.append(args.get(i));
 					sb.append(" ");
@@ -58,7 +57,7 @@ public class NPCShoutZone extends ScriptImpl {
 				}
 				SingletonRepository.getRuleProcessor().sendMessageToSupporters(text);
 			} else {
-				admin.sendPrivateText("zone " + targetZoneName + "not found");
+				admin.sendPrivateText("obszar " + targetZoneName + " nie został znaleziony");
 			}
 
 		}

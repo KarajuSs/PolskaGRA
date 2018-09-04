@@ -181,15 +181,19 @@ public class StendhalQuestSystem {
 		/** 					**\
 		 *       ZAKOPANE		 *
 		\**	                    **/
+		loadQuest(new BringMagic());
+		loadQuest(new ClearTower());
 		loadQuest(new GazdaWojtekDailyItemQuest());
 		loadQuest(new HelpKrasnolud());
 		loadQuest(new HerbsForJadzka());
 		loadQuest(new KillDragons());
 		loadQuest(new KillHerszt());
+		loadQuest(new KillMtElves());
 		loadQuest(new Labirynt());
 		loadQuest(new MeetFryderyk());
 		loadQuest(new MeetPietrek());
 		loadQuest(new Oscypek());
+		loadQuest(new PochorowaneKonie());
 		loadQuest(new PomocChlopcowi());
 		loadQuest(new Ratownik());
 		loadQuest(new ResetLVL());
@@ -207,6 +211,7 @@ public class StendhalQuestSystem {
 		loadQuest(new GoralskiCollector2());
 		loadQuest(new GoralskiCollector3());
 		loadQuest(new Imprezowicz());
+		loadQuest(new ZlotyAmulet());
 		/** 					**\
 		 *      KOŚCIELISKO 	 *
 		\**	                    **/
@@ -243,7 +248,7 @@ public class StendhalQuestSystem {
 		/**						**\
 		 *         INNE  	 	 *
 		\**	                    **/
-		//loadQuest(new BiletTurystyczny());
+		loadQuest(new BiletTurystyczny());
 		//loadQuest(new DragonsGuard());
 		loadQuest(new MeetGuslarz());
 		//loadQuest(new WhereDragon());

@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -33,14 +32,14 @@ public class ServerShutdown extends ScriptImpl {
 	@Override
 	public void execute(final Player admin, final List<String> args) {
 		final String text = admin.getTitle()
-				+ " started shutdown of the server.";
+				+ " rozpoczął zamykanie serwera.";
 
 		SingletonRepository.getRuleProcessor().tellAllPlayers(NotificationType.SUPPORT, text);
 
 		new Thread(
 			new Runnable() {
     			@Override
-				public void run() {
+    			public void run() {
     				//marauroad.finish() is already called using a JRE shutdown hook, so we don't need
     				// to call it here directly:
     				//marauroad.getMarauroa().finish();

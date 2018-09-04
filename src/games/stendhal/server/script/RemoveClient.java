@@ -17,7 +17,7 @@ public class RemoveClient extends ScriptImpl {
 	@Override
 	public void execute(Player admin, List<String> args) {
 		if (args.size() != 1) {
-			admin.sendPrivateText("Usage: /script RemoveClient.class <clientid>");
+			admin.sendPrivateText("Użyj: /script RemoveClient.class <idklienta>");
 		}
 
 		PlayerEntry playerEntry = PlayerEntryContainer.getContainer().get(Integer.parseInt(args.get(0)));

@@ -84,6 +84,9 @@
  <tileset firstgid="882" name="banner" tilewidth="32" tileheight="32" tilecount="20" columns="1">
   <image source="../../tileset/pol/wyposazenie/banner.png" width="32" height="640"/>
  </tileset>
+ <tileset firstgid="902" name="mushroom" tilewidth="32" tileheight="32" tilecount="6" columns="6">
+  <image source="../../tileset/logic/item/mushroom.png" width="192" height="32"/>
+ </tileset>
  <layer name="0_floor" width="128" height="128">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+2YMU4DUQwFQ80BOA3npeCSNEggRJLNxvaz/aaYDoHXM/t/yNvlcnmDcF4TuPX33r9RPzfgH2rd478f+PcG/4B/b/AP+Ids9/jvDf69qTr78d+Tqncf/z3JdP/bv/o5od4/735vMs/+V/y3h3ffm4p7H/994XOfN/j3hrvfG/x7w2c/b3j3feHs9wb/3uDeG/x7g39f+M7PG959b/DvDd/5+cLd7w3+vcG/L9nu8d8b/PvyqHv876LCv/oZIc49/vfA2e8N/r3Bvzf49wb/3uDfG/x7M9X/s7PBef9H96zwTws9/Uc3kHluOeHknx7wTwdxe1T6z+pB7WNSA0d+t+J/QM6Gun119J/Vg9pTx/084r/D90B0ELuXaf4jW1DP32UXU/1H7EM9Z3f/fxtQP2fGXtQzdm9gsv8ju1HPNsk/DfQG/+f2o55L7d/hDqABzgD84397Axl3gIv/Dg18vPxQ3cCt37nJ/60dqefKfDb8ezSA/+f3pJ5N4f/oZwD181XsSj2XqgH872gA/zF7Us9X3YCb/80N4D9uT+oZqxpw9P/IntRzZjeA/50d4D/W/8QO8B/vf1oLZ+ff7j+qgckdHHG/uYEo/xMaOPvuP+u/+26cGjgK/r0b+M//1jsgo4HJHVxzv7mBDP/TGrjnfXMHWf67d/Co83stTO0j23+3BqK8bzkfKvx3aKDCOw30bKDaPf57NYD/Pv6rO1C4n+a/ewOfLz9McI//HucA/r0bwP8M/1kN4H6O/4wO8E8D+J/nP7oD3M/0H9kB7mc3ENEC7uf779iB2pdrAxF3A+7p4EwLai+0UHsmnN2X2plrA9FnA/5nN6BoYav/6S3gnzbwTwsVz6veezfUzisaUNw1E1G7z3CkuGemo/Yf6Qr/szs4O/O1+dU7nYba/zVvR34W//s6uObwiHv87+rgmbMB9nVw9uwAnxbUu9qM2i3++6D2jH+d984dqPfjQtcO1Htx4r+d498LtW/890DtHf961O7x3wP8g8r/F/XPw1AAAAEA
@@ -111,7 +114,7 @@
  </layer>
  <layer name="objects" width="128" height="128">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3cQQ6CQAwFUKJXMxgTBM/s3jsRNrAhASMWyrx3gi6Y8NsOVBUAAAAAAAAAAEvel70rAOComuveFQAAAAAAEOFjZ5iWfS8AAAADd72AOeZ+AEC0h94EvmLfC5TqLjMA/Mz8FyiBWRMcj3MJE5kcANbbOkd6D3MWLz3WyPcQwL9kzg2Za4cIN/mheLVnAAAAIDV7EgAAALb0DO4zW30tAAAAAAAAAEAqnfseKbmnQxT/+gEAlsgLAAAAAAAAAAAAAFCWHrN32XMAAAEA
+   H4sIAAAAAAAAC+3cPQ7CMAwG0AquhkBI/J2Kcq7u3IkNFpCCaEydvDd3yNCmn+20wwAAAECU6/rfKwAAINooAwIANGNalV2nDwjQn4O9HwAAAACgC/fCmSHLUzrvBQAAoG3OegHv6PsBANH2ahP4inkv0KudzADwM/1foAd6TbA8nkt4kckBoNzcOdJ7mFZc1FhPvocAasmcGzKvHSJs5Ifubd0DAAAAqZmTAAAAMKdjcJ15UtcCAAAAAAAAAKRydt4jJed0iOJfP1DHzT4OfDAm3B/kBairdm6QSwDakTFLAgAAAAAAAACQ0wOWzVx3AAABAA==
   </data>
  </layer>
  <layer name="collision" width="128" height="128" opacity="0.3">

@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -25,19 +24,19 @@ public class DwarfRaid extends CreateRaid {
 	@Override
 	protected Map<String, Integer> createArmy() {
 		final Map<String, Integer> attackArmy = new HashMap<String, Integer>();
-		attackArmy.put("dwarf", 7);
-		attackArmy.put("dwarf guardian", 6);
-		attackArmy.put("elder dwarf", 6);
-		attackArmy.put("leader dwarf", 4);
-		attackArmy.put("hero dwarf", 5);
+		attackArmy.put("krasnal", 7);
+		attackArmy.put("krasnal strażnik", 6);
+		attackArmy.put("krasnal starszy", 6);
+		attackArmy.put("krasnal lider", 4);
+		attackArmy.put("krasnal bohater", 5);
 		attackArmy.put("duergar", 3);
-		attackArmy.put("elder duergar", 3);
-		attackArmy.put("duergar axeman", 3);
+		attackArmy.put("duergar starszy", 3);
+		attackArmy.put("duergar z toporem", 3);
 
 		return attackArmy;
 	}
 	@Override
 	protected String getInfo() {
-		return "Not safe for players below level 30.";
+		return "Niebezpieczny dla wojowników poniżej poziomu 30.";
 	}
 }

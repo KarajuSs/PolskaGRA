@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -25,16 +24,16 @@ public class FairyRaid extends CreateRaid {
 	@Override
 	protected Map<String, Integer> createArmy() {
 		final Map<String, Integer> attackArmy = new HashMap<String, Integer>();
-		attackArmy.put("littlefairy", 7);
-		attackArmy.put("littlewizard", 2);
-		attackArmy.put("littlewitch", 2);
-		attackArmy.put("clurichaun", 6);
-		attackArmy.put("leprechaun", 7);
+		attackArmy.put("mała wróżka", 7);
+		attackArmy.put("mały czarodziej", 2);
+		attackArmy.put("mała wiedźma", 2);
+		attackArmy.put("karzełek amarantowy", 6);
+		attackArmy.put("karzełek jadeitowy", 7);
 		return attackArmy;
 	}
 
 	@Override
 	protected String getInfo() {
-		return "Not safe for players below level 20";
+		return "Nie jest bezpieczny dla wojowników poniżej 20 poziomu";
 	}
 }

@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -25,11 +24,11 @@ public class GnomeRaid extends CreateRaid {
 	@Override
 	protected Map<String, Integer> createArmy() {
 		final Map<String, Integer> attackArmy = new HashMap<String, Integer>();
-		attackArmy.put("gnome", 12);
-		attackArmy.put("mage gnome", 7);
-		attackArmy.put("infantry gnome", 10);
-		attackArmy.put("cavalryman gnome", 10);
-		attackArmy.put("dark gargoyle", 2);
+		attackArmy.put("gnom", 12);
+		attackArmy.put("panna gnom", 7);
+		attackArmy.put("gnom zwiadowca", 10);
+		attackArmy.put("gnom kawalerzysta", 10);
+		attackArmy.put("mroczny gargulec", 2);
 
 		return attackArmy;
 	}

@@ -1,4 +1,3 @@
-/* $Id$ */
 package games.stendhal.server.script;
 
 import java.util.Iterator;
@@ -31,6 +30,6 @@ public class CountObjects extends ScriptImpl {
 				count++;
 			}
 		}
-		admin.sendPrivateText("Number of objects " + count);
+		admin.sendPrivateText("Liczba obiektów " + count);
 	}
 }

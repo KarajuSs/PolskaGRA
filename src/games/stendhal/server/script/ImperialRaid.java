@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -25,21 +24,21 @@ public class ImperialRaid extends CreateRaid {
 	@Override
 	protected Map<String, Integer> createArmy() {
 		final Map<String, Integer> attackArmy = new HashMap<String, Integer>();
-		attackArmy.put("imperial chief", 2);
-		attackArmy.put("imperial knight", 2);
-		attackArmy.put("imperial general", 1);
-		attackArmy.put("imperial commander", 2);
-		attackArmy.put("imperial scientist", 3);
-		attackArmy.put("imperial priest", 1);
-		attackArmy.put("imperial defender", 5);
-		attackArmy.put("imperial experiment", 2);
-		attackArmy.put("imperial mutant", 2);
-		attackArmy.put("imperial general giant", 2);
+		attackArmy.put("obrońca imperium", 2);
+		attackArmy.put("rycerz imperium", 2);
+		attackArmy.put("generał imperium", 1);
+		attackArmy.put("komandor imperium", 2);
+		attackArmy.put("uczony imperium", 3);
+		attackArmy.put("kapłan imperium", 1);
+		attackArmy.put("obrońca imperium", 5);
+		attackArmy.put("eksperyment imperium", 2);
+		attackArmy.put("mutant imperium", 2);
+		attackArmy.put("imperialny generał gigant", 2);
 		return attackArmy;
 	}
 
 	@Override
 	protected String getInfo() {
-		return "Not safe for players below level 150";
+		return "Nie jest bezpieczny dla wojowników poniżej 150 poziomu";
 	}
 }

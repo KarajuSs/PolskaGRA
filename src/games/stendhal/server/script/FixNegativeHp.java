@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -37,7 +36,7 @@ public class FixNegativeHp extends ScriptImpl implements LoginListener {
 	@Override
 	public void onLoggedIn(Player player) {
 		if (player.getHP() <= 0) {
-			SingletonRepository.getRuleProcessor().sendMessageToSupporters("JailKeeper", "set hp of player " + player.getName() + " from " + player.getHP() + " to 1.");
+			SingletonRepository.getRuleProcessor().sendMessageToSupporters("JailKeeper", "ustawił PZ wojownikowi " + player.getName() + " z " + player.getHP() + " na 1.");
 			player.setHP(1);
 		}
 	}

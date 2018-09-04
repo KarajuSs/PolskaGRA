@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -43,9 +42,9 @@ public class TestShowItemList extends ScriptImpl {
 		List<Item> itemList = new LinkedList<Item>();
 
 		if (args.isEmpty()) {
-			itemList.add(prepareItem("club", 100));
-			itemList.add(prepareItem("leather armor", -100));
-			itemList.add(prepareItem("ice sword", -10000));
+			itemList.add(prepareItem("maczuga", 100));
+			itemList.add(prepareItem("skórzana zbroja", -100));
+			itemList.add(prepareItem("miecz lodowy", -10000));
 		} else {
 			ShopList shops = SingletonRepository.getShopList();
 			Map<String, Integer> items = shops.get(args.get(0));
@@ -54,8 +53,8 @@ public class TestShowItemList extends ScriptImpl {
 			}
 		}
 
-		ShowItemListEvent event = new ShowItemListEvent("Aramyk Shop",
-				"Please talk to Aramyk to buy or sell items.",
+		ShowItemListEvent event = new ShowItemListEvent("Sklep Aramyk",
+				"Porozmawiaj z Aramykiem, aby kupić lub sprzedać przedmioty.",
 				itemList);
 		admin.addEvent(event);
 		admin.notifyWorldAboutChanges();

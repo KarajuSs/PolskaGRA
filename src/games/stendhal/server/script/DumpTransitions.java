@@ -1,4 +1,3 @@
-/* $Id$ */
 package games.stendhal.server.script;
 
 import java.util.List;
@@ -75,9 +74,9 @@ public class DumpTransitions extends ScriptImpl {
 			for(Expression expr : transition.getTriggers()) {
 				final String transitionName = getExtendedTransitionName(transition, expr.toString());
 
-				dumpedTable.append(" [ label = \"" + transitionName + "\" ];\r\n");
-			}
+			dumpedTable.append(" [ label = \"" + transitionName + "\" ];\r\n");
 		}
+	}
 	}
 
 	private static String getExtendedTransitionName(final Transition transition, String transitionName) {

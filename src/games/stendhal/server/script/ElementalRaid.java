@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -25,17 +24,17 @@ public class ElementalRaid extends CreateRaid {
 	@Override
 	protected Map<String, Integer> createArmy() {
 		final Map<String, Integer> attackArmy = new HashMap<String, Integer>();
-		attackArmy.put("fire elemental", 7);
-		attackArmy.put("water elemental", 7);
-		attackArmy.put("ice elemental", 7);
-		attackArmy.put("earth elemental", 7);
-		attackArmy.put("djinn", 5);
-		attackArmy.put("air elemental", 7);
+		attackArmy.put("żywioł ognia", 7);
+		attackArmy.put("żywioł wody", 7);
+		attackArmy.put("żywioł lodu", 7);
+		attackArmy.put("żywioł ziemi", 7);
+		attackArmy.put("dżin", 5);
+		attackArmy.put("żywioł powietrza", 7);
 		return attackArmy;
 	}
 
 	@Override
 	protected String getInfo() {
-		return "Less safe for players below level 50";
+		return "Mniej bezpieczny dla wojowników poniżej poziomu 50";
 	}
 }
