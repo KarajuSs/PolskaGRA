@@ -38,6 +38,7 @@ public class HouseUtilities {
 		"0_ados_city_s",
 		"0_ados_wall",
 		"0_athor_island",
+		"0_zakopane_s",
 		"0_zakopane_se"
 	};
 	
