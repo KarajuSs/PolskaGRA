@@ -10,6 +10,11 @@
 	<zone name="0_dragon_land_n" level="0" x="513824" y="18048" file="Level 0/dragon/land_n.tmx">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportOut"/>
+		<attributes>
+			<parameter name="color_method">time</parameter>
+			<parameter name="weather">varying</parameter>
+		</attributes>
+
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">pol-inthedark3</parameter>
@@ -46,6 +51,11 @@
 	<zone name="0_dragon_land_s" level="0" x="513824" y="18176" file="Level 0/dragon/land_s.tmx">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportOut"/>
+		<attributes>
+			<parameter name="color_method">time</parameter>
+			<parameter name="weather">varying</parameter>
+		</attributes>
+
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">pol-inthedark3</parameter>
@@ -244,9 +254,9 @@
 	<zone name="-1_dragon_cave" level="-1" x="513824" y="18176" file="Level -1/dragon/cave.tmx">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportOut"/>
-		<configurator class-name="games.stendhal.server.maps.pol.dragon.cave.eFuRNPC"/>
-		<configurator class-name="games.stendhal.server.maps.pol.dragon.cave.JolandaNPC"/>
-		<configurator class-name="games.stendhal.server.maps.pol.dragon.cave.Dragon"/>
+		<configurator class-name="games.stendhal.server.maps.dragon.cave.eFuRNPC"/>
+		<configurator class-name="games.stendhal.server.maps.dragon.cave.JolandaNPC"/>
+		<configurator class-name="games.stendhal.server.maps.dragon.cave.Dragon"/>
 		<attributes>
 			<parameter name="color_method">dark</parameter>
 		</attributes>
