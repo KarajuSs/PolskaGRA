@@ -18,6 +18,8 @@
 
 *świat gry*
 - Aktywowano mapy takie jak: Kraków, Wieliczka, Warszawa, Dragon_land, Dragon_knights, labirynt (od Ozo)
+- W int_afterlife dodano teleporty do: Krakowia, Wieliczki i Warszawy
+- Juhas sprzedaje: zwój krakowski, zwój wieliczka
 - Dodano na wszystkich powyższych mapach pogodę (oprócz labiryntu)
 - Wszystkie zadania w krainie prasłowiańskim zostały aktywowane
 - Dodano 13-nastego smoka o imieniu "Hikari"
