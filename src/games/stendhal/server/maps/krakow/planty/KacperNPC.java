@@ -71,7 +71,7 @@ public class KacperNPC implements ZoneConfigurator {
 		};
 
 		npc.setDescription("Oto chłopak budujący zamek lodowy.");
-		npc.setEntityClass("kid9npc");
+		npc.setEntityClass("kid7npc");
 		npc.setPosition(10, 2);
 		npc.initHP(100);
 		zone.add(npc);
