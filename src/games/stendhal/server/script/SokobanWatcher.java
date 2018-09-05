@@ -35,6 +35,7 @@ public class SokobanWatcher extends ScriptImpl implements TurnListener {
 		zone.add(wall);
 	}
 
+	@SuppressWarnings("unchecked")
 	private void cleanup() {
 
 			// all events that are equal to this one should be forgotten.
@@ -49,8 +50,9 @@ public class SokobanWatcher extends ScriptImpl implements TurnListener {
 				// set. This is to avoid ConcurrentModificationExceptions.
 				final Set<TurnListener> toBeRemoved = new HashSet<TurnListener>();
 				for (TurnListener t : set) {
-					if (t.getClass().getName().indexOf("SokobanWatcher") > -1)
+					if (t.getClass().getName().indexOf("SokobanWatcher") > -1) {
 						toBeRemoved.add(t);
+					}
 				}
 				for (final TurnListener event : toBeRemoved) {
 					set.remove(event);
