@@ -1,5 +1,9 @@
 ﻿Changelog
 ---------
+1.05
+
+
+
 1.04 - PRASŁOWIAŃSTWO
 *klient*
 - Natura broni służy do ustawienia ikonki walki, jeśli jest dostępna
