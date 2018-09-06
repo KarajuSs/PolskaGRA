@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.Map;
 
 import games.stendhal.server.core.config.ZoneConfigurator;
-import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
@@ -46,7 +45,8 @@ public class KingKrakNPC implements ZoneConfigurator {
 			@Override
 			protected void createPath() {
 				final List<Node> nodes = new LinkedList<Node>();
-				nodes.add(new Node(x, y)); // CHWILOWO BRAK ROZPLANOWANIA
+				nodes.add(new Node(22, 55));
+				nodes.add(new Node(22, 58));
 				setPath(new FixedPath(nodes, true));
 			}
 
@@ -61,7 +61,7 @@ public class KingKrakNPC implements ZoneConfigurator {
 
 		npc.setDescription("Oto Król Krak. Wygląda już na starego ale na mądrego władcę, który rządzi całym państwem Polan ze swojego zamku na Wawelskim Wzgórzu.");
 		npc.setEntityClass("noimagenpc"); // kingnpc
-		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
+		npc.setPosition(22, 55);
 		npc.initHP(100);
 		zone.add(npc);
 	}

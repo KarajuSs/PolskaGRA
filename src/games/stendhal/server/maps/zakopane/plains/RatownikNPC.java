@@ -53,8 +53,8 @@ public class RatownikNPC implements ZoneConfigurator {
 			@Override
 			protected void createPath() {
 				final List<Node> nodes = new LinkedList<Node>();
-				nodes.add(new Node(108, 3));
-				nodes.add(new Node(125, 3));
+				nodes.add(new Node(108, 11));
+				nodes.add(new Node(125, 11));
 				nodes.add(new Node(125, 67));
 				nodes.add(new Node(108, 67));
 				setPath(new FixedPath(nodes, true));
@@ -71,7 +71,7 @@ public class RatownikNPC implements ZoneConfigurator {
 		};
 
 		ratownikNPC.setEntityClass("npcratownik");
-		ratownikNPC.setPosition(108, 3);
+		ratownikNPC.setPosition(108, 11);
 		ratownikNPC.initHP(1000);
 		zone.add(ratownikNPC);
 	}

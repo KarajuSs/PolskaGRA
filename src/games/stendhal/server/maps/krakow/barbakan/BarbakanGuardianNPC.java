@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.Map;
 
 import games.stendhal.server.core.config.ZoneConfigurator;
-import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
@@ -46,7 +45,8 @@ public class BarbakanGuardianNPC implements ZoneConfigurator {
 			@Override
 			protected void createPath() {
 				final List<Node> nodes = new LinkedList<Node>();
-				nodes.add(new Node(x, y)); // CHWILOWO BRAK ROZPLANOWANIA
+				nodes.add(new Node(67, 34));
+				nodes.add(new Node(77, 34));
 				setPath(new FixedPath(nodes, true));
 			}
 
@@ -65,7 +65,7 @@ public class BarbakanGuardianNPC implements ZoneConfigurator {
 
 		npc.setDescription("Oto żołnierz Gwardii Królewskiej strzegący północnej bramy miasta i Barbakanu.");
 		npc.setEntityClass("noimagenpc"); // soldiernpc
-		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
+		npc.setPosition(72, 34); // CHWILOWO BRAK ROZPLANOWANIA
 		npc.initHP(100);
 		zone.add(npc);
 	}

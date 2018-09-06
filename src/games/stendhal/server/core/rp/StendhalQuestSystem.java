@@ -225,6 +225,7 @@ public class StendhalQuestSystem {
 		\**	                    **/
 		loadQuest(new SolveWoodcutterTest());
 		loadQuest(new PierscienBarona());
+		loadQuest(new KrolewskiPlaszcz());
 		loadQuest(new WawelBrama());
 		/** 					**\
 		 *     DRAGON_KNIGHTS	 *
