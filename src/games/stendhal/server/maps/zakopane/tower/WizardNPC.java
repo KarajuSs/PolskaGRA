@@ -57,7 +57,7 @@ public class WizardNPC implements ZoneConfigurator {
 			}
 		};
 
-		npc.setEntityClass("noimagenpc");
+		npc.setEntityClass("highpriestnpc");
 		npc.setPosition(7, 3);
 		npc.setDescription("Oto czarnoksiężnik.");
 		zone.add(npc);

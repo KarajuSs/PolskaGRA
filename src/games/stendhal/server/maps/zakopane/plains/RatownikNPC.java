@@ -70,7 +70,7 @@ public class RatownikNPC implements ZoneConfigurator {
 			}
 		};
 
-		ratownikNPC.setEntityClass("man_006_npc");
+		ratownikNPC.setEntityClass("npcratownik");
 		ratownikNPC.setPosition(108, 3);
 		ratownikNPC.initHP(1000);
 		zone.add(ratownikNPC);

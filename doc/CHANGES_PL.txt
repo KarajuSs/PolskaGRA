@@ -1,6 +1,10 @@
 ﻿Changelog
 ---------
-1.04
+1.05
+
+
+
+1.04 - PRASŁOWIAŃSTWO
 *klient*
 - Natura broni służy do ustawienia ikonki walki, jeśli jest dostępna
 - Dodano nowe dźwieki kajmana
@@ -17,6 +21,13 @@
 
 
 *świat gry*
+- Aktywowano mapy takie jak: Kraków, Wieliczka, Warszawa, Dragon_land, Dragon_knights, labirynt (od Ozo)
+- W int_afterlife dodano teleporty do: Krakowia, Wieliczki i Warszawy
+- Juhas sprzedaje: zwój krakowski, zwój wieliczka
+- Dodano na wszystkich powyższych mapach pogodę (oprócz labiryntu)
+- Wszystkie zadania w krainie prasłowiańskim zostały aktywowane
+- Dodano 13-nastego smoka o imieniu "Hikari"
+- Dodano kilka nowych osiągnięć
 - Dodano nowe rękawice wampirze (ATK: 2; DEF: 5; LIFESTEAL: 0.05), które można dropnąć z lorda wampirów (0.04%)
 - Dodano nowe expowiska na desert'cie (6 pięter nowej piramidy)
 - Miecz ognisty stał się lżejszy dla rycerzy, ale niestety jego siła się zmniejszyła, a lodowy miecz stał się lustrzanym odbiciem miecza ognistego (atk; waga;)
@@ -50,15 +61,17 @@
 - Gargulce znajdujące się na 3 piętrze wieży w zakopane_c zostały przeniesione piętro niżej ze względu na "Czarnoksiężnika"
 - Dodano 13 (12 + 1 stary) nowych przedmiotów - pasów [skórzany pas; wzmocniony skórzany pas; kolczany pas; karmazynowy pas; złoty kolczany pas; pas elficki; pas zbójecki (stary przedmiot); pas krasnoludzki; pas wampirzy; pas olbrzymi; złoty pas; czarny pas; pas z mithrilu]
 - W jaskini kikareukin znajduje się NPC, który nagradza nas za zdobyty 350 poziom
-- Dodano 4 semońskie skrzynie w górnej części zakopiańskiego banku oraz dodano tabliczki z jakiej krainy pochodzą te skrzynie
+- Dodano 4 semońskie skrzynie w górnej części zakopiańskiego banku oraz dodano tabliczki z jakiej krainy te skrzynie pochodzą
 
 
 *code*
-- Lifesteal z rękawic sumuje się wraz z lifesteal'em w broni lub bez niej
+- Lifesteal z rękawic wampirzych sumuje się wraz z lifesteal'em w broni lub bez niej (lifesteal'a)
 
 
 *naprawa błędów*
 - Naprawiono zadanie na tarcze z mithrilu
+- Naprawiono błąd, który powodował, że miejsca gracza się niezapisywały
+- Naprawiono błąd z nowymi domkami, które znajdują się na mapie 0_zakopane_s
 
 
 
