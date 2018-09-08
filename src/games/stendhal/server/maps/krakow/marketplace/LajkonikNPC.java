@@ -50,7 +50,13 @@ public class LajkonikNPC implements ZoneConfigurator {
 			@Override
 			protected void createPath() {
 				final List<Node> nodes = new LinkedList<Node>();
-				nodes.add(new Node(x, y)); // CHWILOWO BRAK ROZPLANOWANIA
+				nodes.add(new Node(88, 44));
+				nodes.add(new Node(84, 44));
+				nodes.add(new Node(84, 52));
+				nodes.add(new Node(84, 52));
+				nodes.add(new Node(88, 52));
+				nodes.add(new Node(88, 48));
+				nodes.add(new Node(101, 48));
 				setPath(new FixedPath(nodes, true));
 			}
 
@@ -67,7 +73,7 @@ public class LajkonikNPC implements ZoneConfigurator {
 
 		npc.setDescription("Oto Lajkonik. Jest jednym z symboli miasta Krakowa. Jeżeli go spytasz opowie ci historię wydarzenia z 1287 roku.");
 		npc.setEntityClass("noimagenpc"); // npclajkonik
-		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
+		npc.setPosition(88, 45);
 		npc.initHP(100);
 		zone.add(npc);
 	}

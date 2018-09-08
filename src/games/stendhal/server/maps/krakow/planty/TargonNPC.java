@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.Map;
 
 import games.stendhal.server.core.config.ZoneConfigurator;
-import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
@@ -46,7 +45,14 @@ public class TargonNPC implements ZoneConfigurator {
 			@Override
 			protected void createPath() {
 				final List<Node> nodes = new LinkedList<Node>();
-				nodes.add(new Node(x, y)); // CHWILOWO BRAK ROZPLANOWANIA
+				nodes.add(new Node(95, 32));
+				nodes.add(new Node(95, 31));
+				nodes.add(new Node(92, 31));
+				nodes.add(new Node(92, 25));
+				nodes.add(new Node(100, 25));
+				nodes.add(new Node(100, 31));
+				nodes.add(new Node(99, 31));
+				nodes.add(new Node(99, 32));
 				setPath(new FixedPath(nodes, true));
 			}
 
@@ -62,7 +68,7 @@ public class TargonNPC implements ZoneConfigurator {
 
 		npc.setDescription("Oto Targon. Kupuje tylko w pełni wypasione owce i płaci za nie całkiem dobrze.");
 		npc.setEntityClass("noimagenpc"); // npctargon
-		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
+		npc.setPosition(98, 32);
 		npc.initHP(100);
 		zone.add(npc);
 	}
