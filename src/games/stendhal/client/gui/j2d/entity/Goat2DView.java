@@ -22,7 +22,7 @@ import games.stendhal.client.entity.User;
  */
 class Goat2DView extends DomesticAnimal2DView<Goat> {
 	/**
-	 * The weight that a sheep becomes fat (big).
+	 * The weight that a goat becomes big.
 	 */
 	private static final int BIG_WEIGHT = 60;
 
