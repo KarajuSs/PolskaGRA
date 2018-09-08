@@ -121,10 +121,10 @@
   <image source="../../tileset/pol/natura/drzewa/tree_buk_las.png" width="224" height="192"/>
  </tileset>
  <tileset firstgid="765" name="jozin" tilewidth="32" tileheight="32" tilecount="4" columns="4">
-  <image source="E:/Program Files/Serwery/Builders/pol-0.43/tiled/tileset/logic/creature/pol_mutanty_wielkie.png" width="128" height="32"/>
+  <image source="../../tileset/logic/creature/pol_mutanty_wielkie.png" width="128" height="32"/>
  </tileset>
  <tileset firstgid="769" name="pol_pokutniki" tilewidth="32" tileheight="32" tilecount="5" columns="5">
-  <image source="E:/Program Files/Serwery/Builders/pol-0.43/tiled/tileset/logic/creature/pol_pokutniki.png" width="160" height="32"/>
+  <image source="../../tileset/logic/creature/pol_pokutniki.png" width="160" height="32"/>
  </tileset>
  <layer name="0_floor" width="128" height="128">
   <data encoding="base64" compression="gzip">
