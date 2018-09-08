@@ -10,6 +10,7 @@
 	<!-- krakow_nw -->
 	<zone name="0_krakow_nw" level="0" x="513312" y="17664" file="Level 0/krakow/krakow_nw.tmx">
 		<configurator class-name="games.stendhal.server.maps.krakow.planty.EdragonNPC"/>
+		<configurator class-name="games.stendhal.server.maps.krakow.planty.KajetanNPC"/>
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
@@ -43,6 +44,7 @@
 
 	<!-- krakow_rynek -->
 	<zone name="0_krakow_rynek" level="0" x="513440" y="17792" file="Level 0/krakow/krakow_rynek.tmx">
+		<configurator class-name="games.stendhal.server.maps.krakow.marketplace.LajkonikNPC"/>
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
@@ -183,6 +185,7 @@
 	<!-- krakow_wawel_e -->
 	<zone name="0_krakow_wawel_e" level="0" x="513568" y="18048" file="Level 0/krakow/krakow_wawel_e.tmx">
 		<configurator class-name="games.stendhal.server.maps.krakow.wawel.KingKrakNPC"/>
+		<configurator class-name="games.stendhal.server.maps.krakow.planty.TargonNPC"/>
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
@@ -191,6 +194,7 @@
 
 	<!-- krakow_wisla_w -->
 	<zone name="0_krakow_wisla_w" level="0" x="513312" y="18176" file="Level 0/krakow/krakow_wisla_w.tmx">
+		<configurator class-name="games.stendhal.server.maps.krakow.planty.ThomasNPC"/>
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
@@ -201,6 +205,10 @@
 				<parameter name="volume">15</parameter>
 			</implementation>
 		</entity>
+		
+		<portal x="74" y="52" ref="fisher_hut_entrance">
+			<destination zone="int_krakow_fisher_hut" ref="fisher_hut_exit"/>
+		</portal>
 	</zone>
 
 	<!-- krakow_wisla -->
@@ -339,6 +347,7 @@ Południe: Zakopane
 
 	<!-- krakow_wisla_s -->
 	<zone name="0_krakow_wisla_s" level="0" x="513440" y="18304" file="Level 0/krakow/krakow_wisla_s.tmx">
+		<configurator class-name="games.stendhal.server.maps.krakow.forest.WagabundusNPC"/>
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
@@ -553,6 +562,13 @@ Południe: Zakopane
 		<configurator class-name="games.stendhal.server.maps.krakow.woodcutter.WoodcutterNPC"/>
 		<portal x="7" y="14" ref="woodcutter_exit">
 			<destination zone="0_krakow_wisla" ref="woodcutter_entrance"/>
+		</portal>
+	</zone>
+	
+	<!-- Fisher hut -->
+	<zone name="int_krakow_fisher_hut" file="interiors/krakow/fisher_hut.tmx">
+		<portal x="7" y="14" ref="fisher_hut_exit">
+			<destination zone="0_krakow_wisla_w" ref="fisher_hut_entrance"/>
 		</portal>
 	</zone>
 
