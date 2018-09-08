@@ -168,6 +168,27 @@
 				<parameter name="rejected">Jeżeli strażnik zapyta cię czy chcesz wejść to powiedz #'tak'.</parameter>
 			</implementation>
 		</portal>
+
+		<entity x="35" y="33">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.Gate">
+				<parameter name="image">gate</parameter>
+				<parameter name="orientation">v</parameter>
+				<parameter name="condition">new LevelGreaterThanCondition(99)</parameter>
+				<parameter name="autoclose">2</parameter>
+				<parameter name="message">Jesteś jeszcze zbyt słaby, aby móc przejść.</parameter>
+			</implementation>
+		</entity>
+
+		<entity x="36" y="33">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.Gate">
+				<parameter name="image">gate</parameter>
+				<parameter name="orientation">h</parameter>
+				<parameter name="condition">new LevelGreaterThanCondition(99)</parameter>
+				<parameter name="autoclose">2</parameter>
+				<parameter name="message">Jesteś jeszcze zbyt słaby, aby móc przejść.</parameter>
+			</implementation>
+		</entity>
+
 		<portal x="102" y="79" ref="brama_destination">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
 		</portal>
