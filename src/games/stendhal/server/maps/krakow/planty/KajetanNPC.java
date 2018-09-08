@@ -45,14 +45,20 @@ public class KajetanNPC implements ZoneConfigurator {
 			@Override
 			protected void createPath() {
 				final List<Node> nodes = new LinkedList<Node>();
-				nodes.add(new Node(103, 110));
-				nodes.add(new Node(110, 110));
-				nodes.add(new Node(110, 111));
+				nodes.add(new Node(111, 110));
 				nodes.add(new Node(111, 111));
-				nodes.add(new Node(111, 112));
+				nodes.add(new Node(112, 111));
 				nodes.add(new Node(112, 112));
-				nodes.add(new Node(112, 113));
+				nodes.add(new Node(114, 112));
+				nodes.add(new Node(114, 113));
 				nodes.add(new Node(117, 113));
+				nodes.add(new Node(114, 113));
+				nodes.add(new Node(114, 112));
+				nodes.add(new Node(112, 112));
+				nodes.add(new Node(112, 111));
+				nodes.add(new Node(111, 111));
+				nodes.add(new Node(111, 110));
+				nodes.add(new Node(103, 110));
 				setPath(new FixedPath(nodes, true));
 			}
 
@@ -60,7 +66,7 @@ public class KajetanNPC implements ZoneConfigurator {
 			protected void createDialog() {
 				addGreeting("Witaj, co Cię do mnie sprowadza?");
 				addJob("Zajmuję się wypasaniem kóz.");
-				addOffer("Mogę Ci zaoferować kozę do wypasenia, gdy osiągnie ona wagę równą 100 to będziesz mógł ją mi sprzedać.");
+				addOffer("Mogę Ci zaoferować kozę do wypasenia, gdy osiągnie ona wagę równą 100 to będziesz mógł ją sprzedać Targonowi.");
 				// zakup kozy: 60 money, karmi się trawą
 				addGoodbye();
 			}
@@ -68,7 +74,7 @@ public class KajetanNPC implements ZoneConfigurator {
 
 		npc.setDescription("Oto Kajetan. Zajmuje się wypasaniem kóz.");
 		npc.setEntityClass("noimagenpc"); // pasterz
-		npc.setPosition(106, 110);
+		npc.setPosition(103, 110);
 		npc.initHP(100);
 		zone.add(npc);
 	}
