@@ -62,6 +62,7 @@
 - Dodano 13 (12 + 1 stary) nowych przedmiotów - pasów [skórzany pas; wzmocniony skórzany pas; kolczany pas; karmazynowy pas; złoty kolczany pas; pas elficki; pas zbójecki (stary przedmiot); pas krasnoludzki; pas wampirzy; pas olbrzymi; złoty pas; czarny pas; pas z mithrilu]
 - W jaskini kikareukin znajduje się NPC, który nagradza nas za zdobyty 350 poziom
 - Dodano 4 semońskie skrzynie w górnej części zakopiańskiego banku oraz dodano tabliczki z jakiej krainy te skrzynie pochodzą
+- Zadanie na złotą ciupagę z jednym wąsem nie jest wymagany przedmiot: 'krew smoka', a na złotą ciupagę z dwoma wąsami nie są wymagane następujące przedmioty: 'pazur niebieskiego smoka' (podmieniono na 'pazur zielonego smoka') & 'pazur czarnego smoka'. Dodatkowo zwiększono nagrodę w postaci punktów doświadczenia w pierwszym zadaniu z 20'000 na 250'000 oraz drugiego zadania z 20'000 na 500'000
 
 
 *code*
@@ -72,6 +73,7 @@
 - Naprawiono zadanie na tarcze z mithrilu
 - Naprawiono błąd, który powodował, że miejsca gracza się niezapisywały
 - Naprawiono błąd z nowymi domkami, które znajdują się na mapie 0_zakopane_s
+- Poprawiono zadania na złotą ciupagę z jednym wąsem & z dwoma wąsami
 
 
 
