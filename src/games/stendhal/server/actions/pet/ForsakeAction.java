@@ -63,8 +63,7 @@ public class ForsakeAction implements ActionListener {
 				} else {
 					logger.error("sheep not found in disown action: " + action.toString());
 				}
-			}
-			if (species.equals(GOAT)) {
+			} else if (species.equals(GOAT)) {
 				final Goat goat = player.getGoat();
 
 				if (goat != null) {

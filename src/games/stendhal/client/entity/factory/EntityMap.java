@@ -32,6 +32,7 @@ import games.stendhal.client.entity.Fire;
 import games.stendhal.client.entity.GameBoard;
 import games.stendhal.client.entity.Gate;
 import games.stendhal.client.entity.Goat;
+import games.stendhal.client.entity.GoatFood;
 import games.stendhal.client.entity.GrainField;
 import games.stendhal.client.entity.HousePortal;
 import games.stendhal.client.entity.IEntity;
@@ -125,6 +126,7 @@ public final class EntityMap {
 		register("block", null, null, Block.class);
 
 		register("food", null, null, SheepFood.class);
+		register("food", null, null, GoatFood.class);
 		register("chest", null, null, Chest.class);
 
 		register("corpse", null, null, Corpse.class);

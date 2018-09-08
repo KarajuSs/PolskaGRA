@@ -52,7 +52,7 @@ class Goat2DView extends DomesticAnimal2DView<Goat> {
 		if (user != null) {
 			if (!user.hasGoat()) {
 				list.add(ActionType.OWN.getRepresentation());
-			} else if ((goat != null) && (user.getSheepID() == goat.getID()
+			} else if ((goat != null) && (user.getGoatID() == goat.getID()
 					.getObjectID())) {
 				list.add(ActionType.LEAVE_GOAT.getRepresentation());
 			}

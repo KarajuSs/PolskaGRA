@@ -228,6 +228,7 @@ public class PlayerDieer {
 		}
 
 		final Goat goat = player.getGoat();
+
 		if (goat != null) {
 			player.removeGoat(goat);
 		}

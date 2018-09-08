@@ -140,8 +140,7 @@ public class OwnAction implements ActionListener {
 			} else {
 				player.setSheep((Sheep) animal);
 			}
-		}
-		if (animal instanceof Goat) {
+		} if (animal instanceof Goat) {
 			if (player.getGoat() != null) {
 				player.sendPrivateText("Już masz własną kozę.");
 			} else {
