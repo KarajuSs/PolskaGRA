@@ -175,17 +175,15 @@ public class ZlotaCiupagaJedenWas extends AbstractQuest {
 		ciupagaactions.add(new DropItemAction("złoty róg",1));
 		ciupagaactions.add(new DropItemAction("polano",4));
 		ciupagaactions.add(new DropItemAction("money",120000));
-		ciupagaactions.add(new DropItemAction("krew smoka",3));
 		ciupagaactions.add(new SetQuestAction(QUEST_SLOT, "forging;" + System.currentTimeMillis()));
 
-		npc.add(ConversationStates.ATTENDING, Arrays.asList("krew smoka", "smok", "done", "przedmioty"),
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("done", "przedmioty"),
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "przedmioty"),
 								 new PlayerHasItemWithHimCondition("złota ciupaga",1),
 								 new PlayerHasItemWithHimCondition("sztabka złota",70),
 								 new PlayerHasItemWithHimCondition("złoty róg",1),
 								 new PlayerHasItemWithHimCondition("polano",4),
-								 new PlayerHasItemWithHimCondition("money",120000),
-								 new PlayerHasItemWithHimCondition("krew smoka",3)),
+								 new PlayerHasItemWithHimCondition("money",120000)),
 				ConversationStates.ATTENDING, "Widzę, że masz wszystko o co cię prosiłem. Wróć za 8 godzin a ciupaga będzie gotowa. Przypomnij mi mówiąc #/nagroda/",
 				new MultipleActions(ciupagaactions));
 
@@ -196,16 +194,14 @@ public class ZlotaCiupagaJedenWas extends AbstractQuest {
 												  new PlayerHasItemWithHimCondition("sztabka złota",70),
 												  new PlayerHasItemWithHimCondition("złoty róg",1),
 												  new PlayerHasItemWithHimCondition("polano",4),
-												  new PlayerHasItemWithHimCondition("money",120000),
-												  new PlayerHasItemWithHimCondition("krew smoka",3)))),
+												  new PlayerHasItemWithHimCondition("money",120000)))),
 				ConversationStates.ATTENDING, "Potrzebuję:\n"
 									+"#'1 złotą ciupagę'\n" 
 									+"#'70 sztabek złota'\n"
 									+"#'1 złoty róg'\n"
 									+"#'4 polana'\n"
 									+"#'120000 money'\n"
-									+"#'3 krew smoka'\n"
-									+"Proszę przynieś mi to wszystko naraz. Słowo klucz to #'/krew smoka/'. Dziękuję!", null);
+									+"Proszę przynieś mi to wszystko naraz. Jeżeli zapomnisz co masz przynieść to powiedz #'przypomnij'. Dziękuję!", null);
 
 	}
 
@@ -234,7 +230,7 @@ public class ZlotaCiupagaJedenWas extends AbstractQuest {
 					}
 
 					raiser.say("Warto było czekać. A oto złota ciupaga z wąsem. Dowidzenia!");
-					player.addXP(20000);
+					player.addXP(250000);
 					player.addKarma(100);
 					final Item zlotyRog = SingletonRepository.getEntityManager().getItem("złota ciupaga z wąsem");
 					zlotyRog.setBoundTo(player.getName());
