@@ -27,6 +27,7 @@ public final class Actions {
 	public static final String FORSAKE = "forsake";
 	public static final String PET = "pet";
 	public static final String SHEEP = "sheep";
+	public static final String GOAT = "goat";
 
 	//push
 	public static final String PUSH = "push";

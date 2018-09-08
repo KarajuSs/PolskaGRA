@@ -59,6 +59,9 @@ public class PassiveEntityRespawnPointFactory {
 		} else if (clazz.contains("sheepfood")) {
 			passiveEntityrespawnPoint = new SheepFood();
 
+		} else if (clazz.contains("goatfood")) {
+			passiveEntityrespawnPoint = new GoatFood();
+
 		} else if (clazz.contains("vegetable")) {
 			passiveEntityrespawnPoint = createVegetable(type);
 

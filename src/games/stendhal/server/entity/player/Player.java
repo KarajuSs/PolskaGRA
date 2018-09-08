@@ -60,6 +60,7 @@ import games.stendhal.server.entity.RPEntity;
 import games.stendhal.server.entity.creature.DomesticAnimal;
 import games.stendhal.server.entity.creature.Pet;
 import games.stendhal.server.entity.creature.Sheep;
+import games.stendhal.server.entity.creature.Goat;
 import games.stendhal.server.entity.item.Corpse;
 import games.stendhal.server.entity.item.Item;
 import games.stendhal.server.entity.item.RingOfLife;
@@ -1129,6 +1130,10 @@ public class Player extends RPEntity implements UseListener {
 	public void removeSheep(final Sheep sheep) {
 		getPetOwner().removeSheep(sheep);
 	}
+	
+	public void removeGoat(final Goat goat) {
+		getPetOwner().removeGoat(goat);
+	}
 
 	public void removePet(final Pet pet) {
 		getPetOwner().removePet(pet);
@@ -1136,6 +1141,10 @@ public class Player extends RPEntity implements UseListener {
 
 	public boolean hasSheep() {
 		return getPetOwner().hasSheep();
+	}
+
+	public boolean hasGoat() {
+		return getPetOwner().hasGoat();
 	}
 
 	public boolean hasPet() {
@@ -1169,6 +1178,14 @@ public class Player extends RPEntity implements UseListener {
 	 */
 	public Sheep getSheep() {
 		return getPetOwner().getSheep();
+	}
+
+	public void setGoat(final Goat goat) {
+		getPetOwner().setGoat(goat);
+	}
+
+	public Goat getGoat() {
+		return getPetOwner().getGoat();
 	}
 
 	public Pet getPet() {
@@ -1868,6 +1885,14 @@ public class Player extends RPEntity implements UseListener {
 			}
 		}
 
+		final Goat goat = getGoat();
+
+		if (goat != null) {
+			if (squaredDistance(goat) > 7 * 7) {
+				return false;
+			}
+		}
+
 		final Pet pet = getPet();
 
 		if (pet != null) {
@@ -2197,6 +2222,10 @@ public class Player extends RPEntity implements UseListener {
 
 		if (hasSheep()) {
 			animals.add(getSheep());
+		}
+
+		if (hasGoat()) {
+			animals.add(getGoat());
 		}
 
 		return animals;

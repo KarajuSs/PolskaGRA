@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -183,6 +182,8 @@ public class EntityViewFactory {
 
 		register("sheep", null, null, Sheep2DView.class);
 		register("food", null, null, SheepFood2DView.class);
+		register("goat", null, null, Goat2DView.class);
+		register("food", null, null, GoatFood2DView.class);
 		register("spell", null, null, Spell2DView.class);
 
 		register("sign", null, null, Sign2DView.class);

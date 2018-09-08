@@ -39,6 +39,7 @@ import games.stendhal.server.core.rp.pvp.PlayerVsPlayerChallengeManager;
 import games.stendhal.server.entity.Entity;
 import games.stendhal.server.entity.RPEntity;
 import games.stendhal.server.entity.creature.DomesticAnimal;
+import games.stendhal.server.entity.creature.Goat;
 import games.stendhal.server.entity.creature.Pet;
 import games.stendhal.server.entity.creature.Sheep;
 import games.stendhal.server.entity.item.Item;
@@ -240,6 +241,8 @@ public class StendhalRPAction {
 			} else {
 				if (victim instanceof Sheep) {
 					name = "" + name;
+				} else if (victim instanceof Goat) {
+					name = "biedna " + name;
 				} else {
 					name = "biedny " + name;
 				}
@@ -597,6 +600,7 @@ public class StendhalRPAction {
 		}
 
 		Sheep sheep = null;
+		Goat goat = null;
 		Pet pet = null;
 
 		// Remove from old zone (if any) during zone change
@@ -613,6 +617,15 @@ public class StendhalRPAction {
 					sheep.stop();
 
 					player.removeSheep(sheep);
+				}
+
+				goat = player.getGoat();
+
+				if (goat != null) {
+					goat.clearPath();
+					goat.stop();
+
+					player.removeGoat(goat);
 				}
 
 				pet = player.getPet();
@@ -650,6 +663,16 @@ public class StendhalRPAction {
 				} else {
 					// Didn't fit?
 					player.sendPrivateText("Wygląda na to, że twoja owca zginęła, gdy wpadłeś w tarapaty.");
+				}
+			}
+			
+			if (goat != null) {
+				if (placePet(zone, player, goat)) {
+					player.setGoat(goat);
+					goat.setOwner(player);
+				} else {
+					// Didn't fit?
+					player.sendPrivateText("Wygląda na to, że twoja koza zginęła, gdy wpadłeś w tarapaty.");
 				}
 			}
 

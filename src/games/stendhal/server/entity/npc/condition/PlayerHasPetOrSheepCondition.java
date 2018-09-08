@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -27,12 +26,12 @@ public class PlayerHasPetOrSheepCondition implements ChatCondition {
 
 	@Override
 	public boolean fire(final Player player, final Sentence sentence, final Entity entity) {
-		return (player.hasPet() || player.hasSheep());
+		return (player.hasPet() || player.hasSheep() || player.hasGoat());
 	}
 
 	@Override
 	public String toString() {
-		return "wojownik posiada zwierzątko lub owcę";
+		return "wojownik posiada zwierzątko lub owcę lub kozę";
 	}
 
 	@Override

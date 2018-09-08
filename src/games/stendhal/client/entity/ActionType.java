@@ -71,6 +71,14 @@ public enum ActionType {
 			return rpaction;
 		}
 	},
+	LEAVE_GOAT("forsake", "Zostaw kozę") {
+		@Override
+		public RPAction fillTargetInfo(final IEntity entity) {
+			RPAction rpaction = super.fillTargetInfo(entity);
+			rpaction.put("species", "goat");
+			return rpaction;
+		}
+	},
 	LEAVE_PET("forsake", "Zostaw zwierzątko") {
 		@Override
 		public RPAction fillTargetInfo(final IEntity entity) {

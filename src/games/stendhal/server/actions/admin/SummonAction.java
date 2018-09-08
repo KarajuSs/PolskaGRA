@@ -30,6 +30,7 @@ import games.stendhal.server.entity.creature.Cat;
 //import games.stendhal.server.entity.creature.Owczarek;
 //import games.stendhal.server.entity.creature.OwczarekPodhalanski;
 import games.stendhal.server.entity.creature.Creature;
+import games.stendhal.server.entity.creature.Goat;
 import games.stendhal.server.entity.creature.RaidCreature;
 import games.stendhal.server.entity.creature.Sheep;
 import games.stendhal.server.entity.mapstuff.block.Block;
@@ -116,6 +117,13 @@ public class SummonAction extends AdministrationAction {
 				} else {
 					final Sheep sheep = new Sheep(player);
 					found(type, sheep);
+				}
+			} else if ("goat".equals(type)) {
+				if (player.hasGoat()) {
+					error("Już masz własną kozę!");
+				} else {
+					final Goat goat = new Goat(player);
+					found(type, goat);
 				}
 			} 
 	    }

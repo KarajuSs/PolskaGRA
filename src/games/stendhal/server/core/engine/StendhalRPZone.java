@@ -56,6 +56,7 @@ import games.stendhal.server.entity.creature.DomesticAnimal;
 import games.stendhal.server.entity.creature.Owczarek;
 import games.stendhal.server.entity.creature.OwczarekPodhalanski;
 import games.stendhal.server.entity.creature.Sheep;
+import games.stendhal.server.entity.creature.Goat;
 import games.stendhal.server.entity.item.Item;
 import games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination;
 import games.stendhal.server.entity.mapstuff.portal.Portal;
@@ -63,6 +64,7 @@ import games.stendhal.server.entity.mapstuff.spawner.CreatureRespawnPoint;
 import games.stendhal.server.entity.mapstuff.spawner.PassiveEntityRespawnPoint;
 import games.stendhal.server.entity.mapstuff.spawner.PassiveEntityRespawnPointFactory;
 import games.stendhal.server.entity.mapstuff.spawner.SheepFood;
+import games.stendhal.server.entity.mapstuff.spawner.GoatFood;
 import games.stendhal.server.entity.npc.NPC;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.player.Player;
@@ -103,6 +105,8 @@ public class StendhalRPZone extends MarauroaRPZone {
 	 * The sheep foods in the zone.
 	 */
 	private final List<SheepFood> sheepFoods;
+	
+	private final List<GoatFood> goatFoods;
 
 	private final List<CreatureRespawnPoint> respawnPoints;
 
@@ -190,6 +194,7 @@ public class StendhalRPZone extends MarauroaRPZone {
 		bloods = new LinkedList<Blood>();
 		npcs = new LinkedList<NPC>();
 		sheepFoods = new LinkedList<SheepFood>();
+		goatFoods = new LinkedList<GoatFood>();
 		respawnPoints = new LinkedList<CreatureRespawnPoint>();
 		plantGrowers = new LinkedList<PassiveEntityRespawnPoint>();
 		players = new LinkedList<Player>();
@@ -301,6 +306,10 @@ public class StendhalRPZone extends MarauroaRPZone {
 	 */
 	public List<SheepFood> getSheepFoodList() {
 		return sheepFoods;
+	}
+
+	public List<GoatFood> getGoatFoodList() {
+		return goatFoods;
 	}
 
 	public List<CreatureRespawnPoint> getRespawnPointList() {
@@ -640,6 +649,10 @@ public class StendhalRPZone extends MarauroaRPZone {
 				final Sheep sheep = new Sheep();
 				sheep.setPosition(x, y);
 				add(sheep);
+			} else if (clazz.contains("goat.png")) {
+				final Goat goat = new Goat();
+				goat.setPosition(x, y);
+				add(goat);
 			} else if (clazz.contains("logic/creature")) {
 				// get the default EntityManager
 				final EntityManager manager = SingletonRepository.getEntityManager();
@@ -924,6 +937,12 @@ public class StendhalRPZone extends MarauroaRPZone {
 			}
 		} else if (object instanceof SheepFood) {
 			sheepFoods.add((SheepFood) object);
+		} else if (object instanceof Goat) {
+			if (((Goat) object).wasOwned()) {
+				playersAndFriends.add((Goat) object);
+			}
+		} else if (object instanceof GoatFood) {
+			goatFoods.add((GoatFood) object);
 		} else if (object instanceof BabyDragon) {
 			playersAndFriends.add((BabyDragon) object);
 		} else if (object instanceof Owczarek) {
@@ -998,6 +1017,10 @@ public class StendhalRPZone extends MarauroaRPZone {
 			playersAndFriends.remove(object);
 		} else if (object instanceof SheepFood) {
 			sheepFoods.remove(object);
+		} else if (object instanceof Goat) {
+			playersAndFriends.remove(object);
+		} else if (object instanceof GoatFood) {
+			goatFoods.remove(object);
 		} else if (object instanceof BabyDragon) {
 			playersAndFriends.remove(object);
 		} else if (object instanceof Owczarek) {
@@ -1462,6 +1485,7 @@ public class StendhalRPZone extends MarauroaRPZone {
 			os.append("portals: " + portals.size() + "\n");
 			os.append("respawnPoints: " + respawnPoints.size() + "\n");
 			os.append("sheepFoods: " + sheepFoods.size() + "\n");
+			os.append("goatFoods: " + goatFoods.size() + "\n");
 			os.append("objects: " + objects.size() + "\n");
 			logger.info(os);
 		}

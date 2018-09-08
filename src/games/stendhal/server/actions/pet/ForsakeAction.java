@@ -14,6 +14,7 @@ package games.stendhal.server.actions.pet;
 import static games.stendhal.common.constants.Actions.FORSAKE;
 import static games.stendhal.common.constants.Actions.PET;
 import static games.stendhal.common.constants.Actions.SHEEP;
+import static games.stendhal.common.constants.Actions.GOAT;
 import static games.stendhal.common.constants.Actions.SPECIES;
 
 import org.apache.log4j.Logger;
@@ -21,6 +22,7 @@ import org.apache.log4j.Logger;
 import games.stendhal.server.actions.ActionListener;
 import games.stendhal.server.actions.CommandCenter;
 import games.stendhal.server.core.engine.GameEvent;
+import games.stendhal.server.entity.creature.Goat;
 import games.stendhal.server.entity.creature.Pet;
 import games.stendhal.server.entity.creature.Sheep;
 import games.stendhal.server.entity.player.Player;
@@ -60,6 +62,21 @@ public class ForsakeAction implements ActionListener {
 					new GameEvent(player.getName(), "leave", Integer.toString(sheep.getWeight())).raise();
 				} else {
 					logger.error("sheep not found in disown action: " + action.toString());
+				}
+			}
+			if (species.equals(GOAT)) {
+				final Goat goat = player.getGoat();
+
+				if (goat != null) {
+					player.removeGoat(goat);
+
+					// HACK: Avoid a problem on database
+					if (goat.has(DB_ID)) {
+						goat.remove(DB_ID);
+					}
+					new GameEvent(player.getName(), "leave", Integer.toString(goat.getWeight())).raise();
+				} else {
+					logger.error("goat not found in disown action: " + action.toString());
 				}
 			} else if (species.equals(PET)) {
 				final Pet pet = player.getPet();
