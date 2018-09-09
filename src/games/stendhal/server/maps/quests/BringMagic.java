@@ -92,21 +92,31 @@ public class BringMagic extends AbstractQuest {
 			"No cóż... już na początku wiedziałem, że się nie nadasz.",
 			new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -15.0));
 		
-		npc.add(ConversationStates.QUEST_3_OFFERED,
+		npc.add(ConversationStates.ATTENDING,
 			Arrays.asList("lista", "listę", "list"),
 			new QuestCompletedCondition("kill_mountain_elves"),
-			ConversationStates.QUEST_3_OFFERED,
+			ConversationStates.ATTENDING,
 			"\nOto lista potrzebnych mi przedmiotów: "
 				+ "\n100 magia ziemi,"
 				+ "\n100 magia płomieni,"
 				+ "\n100 magia deszczu,"
 				+ "\n100 magia mroku"
 				+ "\noraz 100 magii światła."
-				+ " Przyniesiesz mi to?", null);
+				+ " Masz mi to przynieść.", null);
 	}
 
 	private void step_2() {
 		final SpeakerNPC npc = npcs.get("Czarnoksiężnik");
+
+		final List<ChatAction> reward = new LinkedList<ChatAction>();
+		reward.add(new DropItemAction("magia ziemi", 100));
+		reward.add(new DropItemAction("magia płomieni", 100));
+		reward.add(new DropItemAction("magia deszczu", 100));
+		reward.add(new DropItemAction("magia mroku", 100));
+		reward.add(new DropItemAction("magia światła", 100));
+		reward.add(new IncreaseXPAction(50000));
+		reward.add(new SetQuestAction(QUEST_SLOT, "helmet"));
+		reward.add(new IncreaseKarmaAction(10));
 
 		npc.add(ConversationStates.IDLE,
 			ConversationPhrases.GREETING_MESSAGES,
@@ -117,8 +127,9 @@ public class BringMagic extends AbstractQuest {
 					new PlayerHasItemWithHimCondition("magia deszczu", 100),
 					new PlayerHasItemWithHimCondition("magia mroku", 100),
 					new PlayerHasItemWithHimCondition("magia światła", 100)),
-			ConversationStates.QUEST_ITEM_BROUGHT, 
-			"Czuję, że masz przy sobie magię i to każdego rodzaju. Czy jest to dla mnie?", null);
+			ConversationStates.ATTENDING, 
+			"Dziękuję, że przyniosłeś dla mnie magię. Teraz jeżeli chcesz otrzymać lepszą nagrodę to przynieś mi #'hełm kolczy', który otrzymałeś wcześniej ode mnie.",
+			new MultipleActions(reward));
 
 		npc.add(ConversationStates.IDLE,
 			ConversationPhrases.GREETING_MESSAGES,
@@ -134,34 +145,13 @@ public class BringMagic extends AbstractQuest {
 			"Słuchaj... Wiem, że nie masz przy sobie tej magii, o którą Ciebie prosiłem... Potrafię to wyczuć.",
 			null);
 
-		final List<ChatAction> reward = new LinkedList<ChatAction>();
-		reward.add(new DropItemAction("magia ziemi", 100));
-		reward.add(new DropItemAction("magia płomieni", 100));
-		reward.add(new DropItemAction("magia deszczu", 100));
-		reward.add(new DropItemAction("magia mroku", 100));
-		reward.add(new DropItemAction("magia światła", 100));
-		reward.add(new IncreaseXPAction(50000));
-		reward.add(new SetQuestAction(QUEST_SLOT, "helmet"));
-		reward.add(new IncreaseKarmaAction(10));
 		npc.add(
-			ConversationStates.QUEST_ITEM_BROUGHT,
-			ConversationPhrases.YES_MESSAGES,
-			new AndCondition(new PlayerHasItemWithHimCondition("magia ziemi", 100),
-					new PlayerHasItemWithHimCondition("magia płomieni", 100),
-					new PlayerHasItemWithHimCondition("magia deszczu", 100),
-					new PlayerHasItemWithHimCondition("magia mroku", 100),
-					new PlayerHasItemWithHimCondition("magia światła", 100),
+			ConversationStates.ATTENDING,
+			Arrays.asList("hełm kolczy"),
+			new AndCondition(
 					new NotCondition(new PlayerHasItemWithHimCondition("hełm kolczy"))),
 			ConversationStates.ATTENDING,
-			"Ahh..  Doskonale! Przynieś mi #'hełm kolczy', a Twoja nagroda za pomoc w wielu moich zadaniach będzie wyjątkowa.",
-			new MultipleActions(reward));
-
-		npc.add(
-			ConversationStates.QUEST_ITEM_BROUGHT,
-			ConversationPhrases.NO_MESSAGES,
-			null,
-			ConversationStates.ATTENDING,
-			"A niech Cie .....",
+			"Hełm kolczy jest doskonałą ochroną dla twojej głowy. Jeżeli miałbym go ulepszyć to lepiej żebyś mi go przyniósł.",
 			null);
 	}
 
