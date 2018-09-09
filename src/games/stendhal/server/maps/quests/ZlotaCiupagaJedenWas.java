@@ -16,6 +16,8 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import games.stendhal.common.MathHelper;
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -78,6 +80,8 @@ public class ZlotaCiupagaJedenWas extends AbstractQuest {
 	private static final String QUEST_SLOT = "zlota_ciupaga_was";
 
 	private static final String NAGRODA_WIELKOLUDA_QUEST_SLOT = "nagroda_wielkoluda";
+
+	private static Logger logger = Logger.getLogger(ZlotaCiupagaJedenWas.class);
 
 	@Override
 	public String getSlotName() {
@@ -290,6 +294,7 @@ public class ZlotaCiupagaJedenWas extends AbstractQuest {
 		// if things have gone wrong and the quest state didn't match any of the above, debug a bit:
 		final List<String> debug = new ArrayList<String>();
 		debug.add("Stan zadania to: " + questState);
+		logger.error("Historia nie pasuje do stanu poszukiwania " + questState);
 		return debug;
 	}
 
