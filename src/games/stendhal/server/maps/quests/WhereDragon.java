@@ -164,7 +164,7 @@ public class WhereDragon extends AbstractQuest {
 									.getItem(items[Rand.rand(items.length)]);
 								item.setBoundTo(player.getName());
 								player.equipOrPutOnGround(item);
-								player.addXP(4000);
+								player.addXP(7000);
 							}
 						}
 						player.notifyWorldAboutChanges();
