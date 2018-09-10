@@ -48,13 +48,13 @@
  <tileset firstgid="352" name="peiniek" tilewidth="32" tileheight="32" tilecount="3" columns="3">
   <image source="../../tileset/pol/natura/pieniek.png" width="96" height="32"/>
  </tileset>
- <tileset firstgid="355" name="drewki" tilewidth="32" tileheight="32" tilecount="6" columns="3">
-  <image source="../../tileset/item/firewood.png" width="96" height="64"/>
+ <tileset firstgid="355" name="drewki" tilewidth="32" tileheight="32" tilecount="12" columns="3">
+  <image source="../../tileset/item/firewood.png" width="96" height="128"/>
  </tileset>
- <tileset firstgid="361" name="latarnia_blask" tilewidth="32" tileheight="32" tilecount="25" columns="5">
+ <tileset firstgid="367" name="latarnia_blask" tilewidth="32" tileheight="32" tilecount="25" columns="5">
   <image source="../../tileset/pol/oswietlenie/latarnia_blask.png" width="160" height="160"/>
  </tileset>
- <tileset firstgid="386" name="latarnia_blaszczysko" tilewidth="32" tileheight="32" tilecount="25" columns="5">
+ <tileset firstgid="392" name="latarnia_blaszczysko" tilewidth="32" tileheight="32" tilecount="25" columns="5">
   <image source="../../tileset/pol/oswietlenie/latarnia_blaszczysko.png" width="160" height="160"/>
  </tileset>
  <layer name="0_floor" width="128" height="128">
@@ -92,19 +92,19 @@
    eJzt0kFu40AMBEDl/5/e0yDZReSMFK+aMywChRxiW2SrP47j+LhpzN3vV7bLbT9N93w63PhqOufS6dazufsb6Xt04D096JhB9w5cvWe323Xg855uN+uAW+Uyf2d6h6rGpPdwn4zclc0qvYObslntlNdu98is3x2yu39DeoeVjUnv0W33SlbMccWdK1stz5V2XcWY9B677LmiFbKtvt/qxqT3QAfQAXQAHUAH0AF0AB0g34Ej9Oz0/fzdg8QzE88m34HvJp1Bd0++h7NJZ9DdU+9hZtJZdPVE/rOTzqKrJ/OfnXQm3TyZ++ykM+nmydyvTjqbLhJ5z046my4SeV+ddEa7S+Y8O+mMdlch59lJZ7WrCvlenXRmu6mQ69VJZ7abSrlenfS+u6iY5+yk99xFxTxnp8ou6bx27ECyC7PP+x/PTuec3uM37+XdObz67Xc/t4IV7pmdd/92h/c/7krvkOjA2ffPfufuc6pb7abZufPuzz678/vv1oF////d36u/uYPV7pudq9959bn0zTpwrwtXPnP22fSNOvC7Dny96Tjmv7NiFjrwvknflMwyvcMTXXj12fQNFfJL7/FkF75OeucKdsri6qT3rWLHLGYnvSc6gA6gC9TpwJj0vuS7kN4THUAXqNOBMel90QXqdGBMem90gTpdSO+LLqAL1OvAmPTe5LuQ3hddQBfQAXQBXaB+F9J7ku/AmPS+5LuQ3hNdQAfQBXQAXUAHqNmF9G5kO5Dei2wX0rsAAAAAAAAAAAAAAAAAAAAAQGd/AHMAPDs=
   </data>
  </layer>
- <layer name="protection" width="128" height="128" visible="0">
+ <layer name="protection" width="128" height="128" opacity="0.2">
   <data encoding="base64" compression="zlib">
-   eJzt0jEKQ0EMA9FP7n/oVO6TEBhZngdqFyzt63mel4nPr6h3m7Ldv2+j9/APfO8fd9Eb0Gnw60109ylp8c09dOdpafHJLXTXqbmA7jg97eh+N6QV3eumtKH73JY2dJ8b04LucXO2o/tryGZ0dy3ZiO6sLZvQXbVmC7qn5qSj+7mQZHQ3V5KK7uVSEtGdXEsauo+LSUJ3cTUp6B4uJwHdwfXQ6PsNi77dsH+Avtuw/4C+17B/gL7VsH+AvtOwf4C+0bB/gL7PsH+Avs3wf+AJuM/wf+ABbjL+AZP3BwZ9q/EPGP4PDPpmw/+BQd9u/APGP2D4PzDoDq4nCd3F1SShu7iaRHQn15KM7uZKktHdXEg6up8L2YDuqD1b0D01Zwu6p+ZsQ/fVmG3ovhqzDd1XWzaju2tJA7rD7WlAd7g5TeguN6YR3emmtKJ73ZIL6I6TcwXdc2ouojtPylV07ykRv4H78+gd3D8HvYn78+hd3D8HvZH756D3cv8c9Hbun4Pe0f159Jbun4Pe1f1z0Bu7fw56b/fn0Zu7fw7313B/DfeX+2u4v4b7y/013F/ur+H+cn8N95f7a7i/JEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSlOENMgw0qQ==
+   eJzt0kFqA0EQQ9HB9z90Vg3ZBCbMmC9V/QfCq8RuqT7XdX1u5i93/74paW976s3/dfd7mjPRN95I7+QN/N9bb6T38QaeefI+ehf3Z9B7eAMcegdvgEVvQGc7uv+EbEX3npRt6L4TswXdc3Kmo/ttyER0p22ZhO6yNVPQPTanHd3fhLSie5uURnRn09KE7mpqGtAdTU86up8NSUZ3syWp6F62JQ3dx8YkobvYmhR0D5uTgO5ge2j0+w2Lfrthb4B+t2FvgH6zYW+Afq9hb4B+q2FvgH6n4W/g+sJvN303cL3we03/HdBvNfwNHPSbjTdg+Bs46Lcb/gYOuoPtSUB3sD0J6A62JwndxdYkojvZlkR0J5uSju5nQ1rQPU1OC7qnqWlCdzU1bei+JqYR3dmktKJ7m5R2dH8T0o7urz0T0B225/r12Y7usjUT0Z02ZSq616ZMRnfbkunoftOzAd1xejahu07NJnTXqdmI7jwpW9G9p0T8Bu7Po3dw/xz0Ju7Po3dx/xz0Ru6fg97L/XPQ27l/DnpH9+fRW7p/DnpX989Bb+z+Oei93Z9Hb+7+Odxfh/vrcH+5vw731+H+cn8d7i/31+H+cn8d7i/31+H+kiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJUoYf/UUykw==
   </data>
  </layer>
  <layer name="blend_ground" width="128" height="128" opacity="0.4">
   <data encoding="base64" compression="zlib">
-   eJzt0UkOgkAARNHm6ogoKI44nta6ghtJ7PeSv6+kSgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDvtE0pq9SldeqbpRfxS5v8vU1DGtPO/1XZ5+8pHdIxnfxflXP+vqRrmtPN/1W55+9HeqZXevsfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/tIHXyMN+A==
+   eJzt0UkOgkAARNHm9ogoKI44HtW6ghtJ7PeSv6+kSgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDvtE0pq9SldeqbpRfxS5v8vU1DGtPO/1XZ5+8pHdIxnfxflXP+vqRrmtPN/1W55+9HeqZXevsfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/tIHDMEOjg==
   </data>
  </layer>
  <layer name="blend_roof" width="128" height="128" opacity="0.4">
   <data encoding="base64" compression="zlib">
-   eJzt0UkKgDAURMGfqzvFxEvbV3CjIFXw9g1dBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM8srWpNW9rT0b5exJt6/j7TSDNd/gcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+I0b4DgFTA==
+   eJzt0UkKgDAURMGf2zvFxBvbV3CjIFXw9g1dBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM8srWpNW9rT0b5exJt6/j7TSDNd/gcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+I0bc1MFiA==
   </data>
  </layer>
 </map>
