@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -25,9 +24,6 @@ import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import org.apache.log4j.Logger;
-
-//
-//
 
 import games.stendhal.client.IGameScreen;
 import games.stendhal.client.stendhal;
@@ -813,7 +809,9 @@ public abstract class Entity2DView<T extends IEntity> implements EntityView<T> {
 		 * Special admin options
 		 */
 		if (User.isAdmin()) {
+			list.add(ActionType.ADMIN_GAG.getRepresentation());
 			list.add(ActionType.ADMIN_INSPECT.getRepresentation());
+			list.add(ActionType.ADMIN_JAIL.getRepresentation());
 			list.add(ActionType.ADMIN_DESTROY.getRepresentation());
 			if (!this.isContained()) {
 				list.add(ActionType.ADMIN_ALTER.getRepresentation());
@@ -882,6 +880,7 @@ public abstract class Entity2DView<T extends IEntity> implements EntityView<T> {
 		}
 
 		final int id = entity.getID().getObjectID();
+		final String type = entity.getType();
 
 		switch (at) {
 		case LOOK:
@@ -891,8 +890,20 @@ public abstract class Entity2DView<T extends IEntity> implements EntityView<T> {
 			at.send(at.fillTargetInfo(entity));
 			break;
 
+		case ADMIN_GAG:
+			j2DClient.get().setChatLine("/gag " + entity.getTitle() + " ");
+			break;
+
+		case ADMIN_JAIL:
+			j2DClient.get().setChatLine("/jail " + entity.getTitle() + " ");
+			break;
+
 		case ADMIN_ALTER:
-			j2DClient.get().setChatLine("/alter #" + id + " ");
+			if (type.equals("player")) {
+				j2DClient.get().setChatLine("/alter " + entity.getTitle() + " ");
+			} else {
+				j2DClient.get().setChatLine("/altercreature #" + id + " '" + entity.getTitle() + "';atk;def;hp;xp");
+			}
 			break;
 
 		default:
