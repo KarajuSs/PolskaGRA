@@ -109,7 +109,15 @@ public class HellTimer implements ZoneConfigurator, ZoneEnterExitListener {
 			+ " Masy zabitych niewinnych stworzeń sprawiają, że kwalifikujesz się do naszego"
 			+ " platynowego programu, a na dodatek osobiście się dla ciebie"
 			+ " przygotowaliśmy ...", "Wskakujesz do dołu, aby uciec od"
-			+ " sprzedawcy."
+			+ " sprzedawcy."},
+		{ "Nauczyciel piekieł krzyczy: $NAME! Zauważyłem cię! Co ty sobie myślisz"
+			+ " przychodząc tutaj? Idź natychmiast do domu! Oraz chcę, żebyś"
+			+ " napisał #''Ukończę pracę domową przed rozpoczęciem gry online''."
+			+ " Sto razy ... Najlepiej pismo odręczne. Do poniedziałku."
+			+ " Niech to zostanie podpisane przez twoich rodziców. Kiedy skończysz,"
+			+ " napiszesz wypracowanie na tysiąc słów na temat #''Piekło nie jest miejscem dla żywych''.",
+			"Nauczyciel odwraca się, chwytając laskę, a ty decydujesz,"
+			+ " że lepiej zacząć biec do dołu."
 		}
 	};
 	private static final String PIT_ZONE_NAME = "int_hell_pit";
