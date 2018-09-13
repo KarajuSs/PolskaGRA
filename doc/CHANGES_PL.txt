@@ -1,6 +1,31 @@
 ﻿Changelog
 ---------
 1.05
+*świat gry*
+- Dodano nowy przedmiot: "środek uspokajający", który leczy/zapobiega stanom szokującym
+- Przetłumaczono wiadomości + zagadki w Piekle [hell]
+- Minimalne zwiększenie rozmiarów smoków (chodzi o okrąg pod potworkiem) z 3,2 na 3,3
+- Poprawiono wiele map
+
+
+*klient*
+- Rozmiary klienta zostały odrobinę powiększone z 640x480 (pikseli) na 800x600 (pikseli)
+- "Dymki" z wiadomościami zostały poszerzone o 100px (pikseli) [z 240px na 340px]
+- Nazwy map pod minimapą w lewym panelu zostaną podmieniane (np: nazwa mapy: 0_zakopane_s; efekt końcowy w kliencie: Zakopane S)
+- Więcej grafik natury broni służącej do ustawienia ikonki walki, jeśli jest dostępna
+- Zmieniono kolorystyke potwora 'dwugłowego lodowego smoka'
+- Wiele nowych outfitów dla NPC
+
+
+*code*
+- Nowa implementacja sprawdzania statusu 'uzdrowienia' dla przedmiotów typu: antidotum & mocne antidotum & środek uspokajający
+
+
+*naprawa błędów*
+- Poprawiono opis 'pasa z mithrilu'
+- Poprawiono naliczanie 13-nastego smoka
+- Poprawiono ostatnie zadanie u "Czarnoksiężnika"
+- Naprawiono naliczanie czasu podczas wykonywania / ulepszania złotych ciupag (tak samo z jednym wąsem i z dwoma wąsami)
 
 
 
