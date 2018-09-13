@@ -624,6 +624,30 @@
 			<slot name="rhand"/>
 		</equipable>
 	</item>
+	
+	<item name="środek uspokajający">
+	    <type class="drink" subclass="sedative" tileid="-1" />
+	    <description>Oto środek uspokajający. Jego działanie może ochronić cię przed wstrząsem.</description>
+	    <implementation class-name="games.stendhal.server.entity.item.StatusHealer" />
+	    <attributes>
+	      <immunization value="shocked" />
+	      <amount value="400" />
+	      <frequency value="1"/>
+	      <quantity value="1"/>
+	      <regen value="1"/>
+	      <menu value="Wypij|Użyj" />
+	    </attributes>
+	    <weight value="1.0" />
+	    <value value="1" />
+	    <equipable>
+	      <slot name="ground" />
+	      <slot name="content" />
+	      <slot name="lhand" />
+	      <slot name="rhand" />
+	      <slot name="bag" />
+	      <slot name="trade" />
+	    </equipable>
+	  </item>
 
 	<!--<item name="święta woda">
 		<type class="drink" subclass="holy_water" tileid="-1"/>
