@@ -78,6 +78,18 @@
 		<portal x="76" y="66" ref="sukiennice_8_entrance">
 			<destination zone="int_krakow_sukiennice" ref="sukiennice_8_exit"/>
 		</portal>
+		
+		<!-- Bakery -->
+		<portal x="112" y="63" ref="bakery_entrance">
+			<destination zone="int_krakow_bakery" ref="bakery_exit"/>
+		</portal>
+		<!-- Tavern -->
+		<portal x="80" y="28" ref="tavern1_entrance">
+			<destination zone="int_krakow_tavern" ref="tavern1_exit"/>
+		</portal>
+		<portal x="75" y="28" ref="tavern2_entrance">
+			<destination zone="int_krakow_tavern" ref="tavern2_exit"/>
+		</portal>
 	</zone>
 
 	<!-- krakow_e -->
@@ -413,6 +425,30 @@ Południe: Zakopane
 	</zone>
 
 	<!-- interiors -->
+	<!-- Bakery -->
+	<zone name="int_krakow_bakery" file="interiors/krakow/bakery.tmx">
+		<configurator class-name="games.stendhal.server.maps.krakow.bakery.EdnaNPC"/>
+		<configurator class-name="games.stendhal.server.maps.krakow.bakery.LanoszNPC"/>
+
+		<portal x="26" y="14" ref="bakery_exit">
+			<destination zone="0_krakow_rynek" ref="bakery_entrance"/>
+		</portal>
+	</zone>
+
+	<!-- Tavern -->
+	<zone name="int_krakow_tavern" file="interiors/krakow/tavern.tmx">
+		<!-- <configurator class-name="games.stendhal.server.maps.krakow.bakery.BarmankaNPC"/>
+		<configurator class-name="games.stendhal.server.maps.krakow.bakery.MrManasNPC"/>
+		<configurator class-name="games.stendhal.server.maps.krakow.bakery.MerchandNPC"/>
+		<configurator class-name="games.stendhal.server.maps.krakow.bakery.KarczmarkaNPC"/> -->
+
+		<portal x="23" y="23" ref="tavern1_exit">
+			<destination zone="0_krakow_rynek" ref="tavern1_entrance"/>
+		</portal>
+		<portal x="13" y="23" ref="tavern2_exit">
+			<destination zone="0_krakow_rynek" ref="tavern2_entrance"/>
+		</portal>
+	</zone>
 
 	<!-- Saddler house -->
 	<zone name="int_krakow_saddler_house" file="interiors/krakow/saddler_house.tmx">
