@@ -194,6 +194,9 @@ public class StatusList {
 		if(statusType.getName().equals("poisoned")) {
 			lstatus = "truciznę";
 		}
+		if(statusType.getName().equals("shocked")) {
+			lstatus = "wstrząsy";
+		}
 		entity.sendPrivateText("Już nie jesteś odporny na " + lstatus + ".");
 	}
 
