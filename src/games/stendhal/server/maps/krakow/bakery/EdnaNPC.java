@@ -18,11 +18,11 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import games.stendhal.server.core.config.ZoneConfigurator;
-import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.behaviour.adder.ProducerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.ProducerBehaviour;
 
 /**
@@ -49,7 +49,10 @@ public class EdnaNPC implements ZoneConfigurator {
 			@Override
 			protected void createPath() {
 				final List<Node> nodes = new LinkedList<Node>();
-				nodes.add(new Node(x, y)); // CHWILOWO BRAK ROZPLANOWANIA
+				nodes.add(new Node(24, 8));
+				nodes.add(new Node(24, 6));
+				nodes.add(new Node(27, 6));
+				nodes.add(new Node(27, 8));
 				setPath(new FixedPath(nodes, true));
 			}
 
@@ -58,21 +61,20 @@ public class EdnaNPC implements ZoneConfigurator {
 				addGreeting();
 				addJob("Specjalizuje się w pieczeniu znakomitego chleba");
 				addOffer("Mogę dla Ciebie przygotować #'chleb' z miejscowych świeżych składników. Powiedz tylko #'upiecz'.");
-				// 2x flour = bread
-				// czas: 7 min za szt
-				final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
-				requiredResources.put("mąka", 2);
-
-				final ProducerBehaviour behaviour = new ProducerBehaviour("edna_bake_bread",
-						Arrays.asList("bake", "upiecz"), "chleb", requiredResources, 7 * 60);
-
 				addGoodbye("Żegnaj, mam nadzieję, że jeszcze wrócisz do naszej piekarni!");
 			}
 		};
+		final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
+		requiredResources.put("mąka", 2);
+
+		final ProducerBehaviour behaviour = new ProducerBehaviour("edna_bake_bread",
+				Arrays.asList("bake", "upiecz"), "chleb", requiredResources, 7 * 60);
+		new ProducerAdder().addProducer(npc, behaviour,
+				"Witaj! Jakże miło, że zawitałeś do naszej piekarni! Mogę dla ciebie upiec #'chleb'.");
 
 		npc.setDescription("Oto Edna. Wraz ze swoim mężem prowadzą najlepszą piekarnię w cały Kraku.");
 		npc.setEntityClass("housewifenpc");
-		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
+		npc.setPosition(27, 8);
 		npc.initHP(100);
 		zone.add(npc);
 	}
