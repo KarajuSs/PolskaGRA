@@ -22,7 +22,6 @@ import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
-import games.stendhal.server.entity.mapstuff.sign.Sign;
 import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.BuyerAdder;
@@ -77,23 +76,6 @@ public class BogusNPC implements ZoneConfigurator {
 		npc.setDescription("Oto Boguś wyglądający na uczciwego.");
 		npc.setEntityClass("npcjuhasboguslaw");
 		npc.setPosition(4, 4);
-		npc.initHP(100);
 		zone.add(npc);
-
-		// Add a book with the shop offers
-		final Sign book = new Sign();
-		book.setPosition(9, 5);
-		book.setText(" -- Skup -- \n piórko\t 3\n skóra lwa\t 1500\n skóra tygrysa\t 1000\n skóra białego tygrysa\t 250\n skóra zielonego smoka\t 2600\n skóra niebieskiego smoka\t 2600\n"+
-		" skóra czerwonego smoka\t 2600\n skóra złotego smoka\t 2800\n skóra czarnego smoka\t 3300\n skóra xenocium\t 450");
-		book.setEntityClass("book_red");
-		book.setResistance(10);
-		zone.add(book);
-
-		final Sign book2 = new Sign();
-		book2.setPosition(7, 5);
-		book2.setText(" -- Sprzedaż -- \n buteleczka\t 5\n butelka\t 7\n krótki miecz 500\n topór\t 800\n kosa\t 2000");
-		book2.setEntityClass("book_blue");
-		book2.setResistance(10);
-		zone.add(book2);
 	}
 }
