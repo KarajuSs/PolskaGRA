@@ -1,4 +1,4 @@
-
+﻿
 data/sprites/ (should be moved to data/sprites/pet ?)
 
 baby_dragon.*             Kimmo Rundelin (kiheru); CC BY-SA 3.0; Stendhal; Copyright © 2017-2018 Kimmo Rundelin
@@ -8,3 +8,4 @@ sheep.png                 ???; ???; ???
 shorn-sheep_more_fur.png  ???; ???; ???
 shorn-sheep_some_fur.png  ???; ???; ???
 shorn-sheep.png           ???; ???; ???
+goat.png                  KarajuSs; OGA BY 3.0; PolskaGRA
