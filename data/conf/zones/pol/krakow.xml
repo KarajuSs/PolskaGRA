@@ -437,10 +437,29 @@ Południe: Zakopane
 
 	<!-- Tavern -->
 	<zone name="int_krakow_tavern" file="interiors/krakow/tavern.tmx">
-		<!-- <configurator class-name="games.stendhal.server.maps.krakow.bakery.BarmankaNPC"/>
-		<configurator class-name="games.stendhal.server.maps.krakow.bakery.MrManasNPC"/>
-		<configurator class-name="games.stendhal.server.maps.krakow.bakery.MerchandNPC"/>
-		<configurator class-name="games.stendhal.server.maps.krakow.bakery.KarczmarkaNPC"/> -->
+		<configurator class-name="games.stendhal.server.maps.krakow.tavern.BarmankaNPC"/>
+		<configurator class-name="games.stendhal.server.maps.krakow.tavern.KarczmarkaNPC"/>
+		<configurator class-name="games.stendhal.server.maps.krakow.tavern.MrManasNPC"/>
+		<configurator class-name="games.stendhal.server.maps.krakow.tavern.MerchandNPC"/>
+
+		<entity x="4" y="22">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.ShopSign">
+				<parameter name="shop">buymerchand</parameter>
+				<parameter name="title">Sklep Merchanda (sprzedaż)</parameter>
+				<parameter name="seller">true</parameter>
+				<parameter name="caption">Możesz kupić te rzeczy od Merchanda.</parameter>
+			</implementation>
+			<attribute name="class">book_blue</attribute>
+		</entity>
+		<entity x="5" y="22">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.ShopSign">
+				<parameter name="shop">sellmerchand</parameter>
+				<parameter name="title">Sklep Merchanda (skup)</parameter>
+				<parameter name="seller">false</parameter>
+				<parameter name="caption">Możesz sprzedać te rzeczy Merchandowi.</parameter>
+			</implementation>
+			<attribute name="class">book_red</attribute>
+		</entity>
 
 		<portal x="23" y="23" ref="tavern1_exit">
 			<destination zone="0_krakow_rynek" ref="tavern1_entrance"/>

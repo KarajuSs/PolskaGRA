@@ -20,6 +20,7 @@ import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.mapstuff.sign.Sign;
 import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
@@ -50,7 +51,8 @@ public class BarmankaNPC implements ZoneConfigurator {
 			@Override
 			protected void createPath() {
 				final List<Node> nodes = new LinkedList<Node>();
-				nodes.add(new Node(x, y)); // CHWILOWO BRAK ROZPLANOWANIA
+				nodes.add(new Node(22, 7));
+				nodes.add(new Node(26, 7));
 				setPath(new FixedPath(nodes, true));
 			}
 
@@ -60,15 +62,20 @@ public class BarmankaNPC implements ZoneConfigurator {
 				addJob("Jestem barmanką w tej karczmie.");
 				addOffer("Spójrz na tablice za mną, sprzedaję to co widnieje właśnie na niej.");
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("sellidris")), false);
-				// piwo - 10, wino - 15, flaska - 5, ser - 20, marchew - 10, jabłko - 10, mięso - 40, szynka - 80
 				addGoodbye();
 			}
 		};
 
-		npc.setDescription("Oto śliczna Idris. Jest barmanką w gospodzie.");
-		npc.setEntityClass("noimagenpc"); // npcgrannyalina
-		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
-		npc.initHP(100);
+		final Sign book = new Sign();
+		book.setPosition(27, 5);
+		book.setText("-- Idris sprzedaje --\n sok z chmielu\t 10\n napój z winogron\t 15\n flaska\t\t 5\n ser\t\t 20\n marchew\t\t 10\n jabłko\t\t 10\n mięso\t\t 40\n szynka\t\t 80");
+		book.setEntityClass("blackboard");
+		book.setResistance(20);
+		zone.add(book);
+
+		npc.setDescription("Oto śliczna Idris. Jest barmanką w tej karczmie.");
+		npc.setEntityClass("noimagenpc"); // npcidris
+		npc.setPosition(26, 7);
 		zone.add(npc);
 	}
 }

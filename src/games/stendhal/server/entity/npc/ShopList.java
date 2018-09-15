@@ -650,8 +650,8 @@ public final class ShopList {
 		shops.add("selllajkonik", "wzmocniona drewniana strzała", 6);
 
 		//Idris sprzedaje:
-		shops.add("sellidris", "piwo", 10);
-		shops.add("sellidris", "wino", 15);
+		shops.add("sellidris", "sok z chmielu", 10);
+		shops.add("sellidris", "napój z winogron", 15);
 		shops.add("sellidris", "flaska", 5);
 		shops.add("sellidris", "ser", 20);
 		shops.add("sellidris", "marchew", 10);

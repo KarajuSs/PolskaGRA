@@ -11,19 +11,17 @@
  ***************************************************************************/
 package games.stendhal.server.maps.krakow.tavern;
 
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
+import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
-import games.stendhal.server.core.pathfinder.FixedPath;
-import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.RPEntity;
 import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
-import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
-import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
+import games.stendhal.server.entity.npc.behaviour.adder.BuyerAdder;
+import games.stendhal.server.entity.npc.behaviour.impl.BuyerBehaviour;
 
 /**
  * Builds an NPC
@@ -48,27 +46,23 @@ public class MrManasNPC implements ZoneConfigurator {
 		final SpeakerNPC npc = new SpeakerNPC("Mr Manas") {
 
 			@Override
-			protected void createPath() {
-				final List<Node> nodes = new LinkedList<Node>();
-				nodes.add(new Node(x, y)); // CHWILOWO BRAK ROZPLANOWANIA
-				setPath(new FixedPath(nodes, true));
-			}
-
-			@Override
 			protected void createDialog() {
 				addGreeting();
 				addJob("Kiedyś chciałem zostać czarodziejem, ale nie mam do tego talentu.. Dlatego staram się nie poddawać w tej kwesti!");
-				addOffer("Skupię od Ciebie #'magię ziemi', #'magię ognia', #'magię deszczu', #'magię światła' oraz #'magię mroku'.");
-				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("buymanas")), false);
-				// kupno: magia ziemi - 5; ognia - 7; deszczu - 10; mroku - 14; światła - 16
+				addOffer("Skupię od Ciebie #'magię ziemi', #'magię płomieni', #'magię deszczu', #'magię światła' oraz #'magię mroku'.");
+				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buymanas")), false);
 				addGoodbye("Nie zapomnij dostarczyć dla mnie magii!");
+			}
+			@Override
+			protected void onGoodbye(RPEntity player) {
+				setDirection(Direction.UP);
 			}
 		};
 
-		npc.setDescription("Oto Mr Manas. Kiedyś chciał zostać czarodziejem, jednak okazało się, że nie ma do tego talentu. Jednak nie przestał interesować się magią.");
+		npc.setDescription("Oto Mr Manas. Kiedyś chciał zostać czarodziejem, jednak okazało się, że nie ma do tego talentu. Lecz nie przestał interesować się magią.");
 		npc.setEntityClass("noimagenpc"); // npcmanas
-		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
-		npc.initHP(100);
+		npc.setPosition(12, 13);
+		npc.setDirection(Direction.UP);
 		zone.add(npc);
 	}
 }
