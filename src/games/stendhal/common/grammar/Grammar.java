@@ -1200,30 +1200,6 @@ public class Grammar {
 			return "jedenasta";
 		case 12:
 			return "dwunasta";
-		case 13:
-			return "trzynasta";
-		case 14:
-			return "czternasta";
-		case 15:
-			return "piętnasta";
-		case 16:
-			return "szesnasta";
-		case 17:
-			return "siedemnasta";
-		case 18:
-			return "osiemnasta";
-		case 19:
-			return "dziewiętnasta";
-		case 20:
-			return "dwudziesta";
-		case 21:
-			return "dwudziesta-pierwsza";
-		case 22:
-			return "dwudziesta-druga";
-		case 23:
-			return "dwudziesta-trzecia";
-		case 24:
-			return "dwudziesta-czwarta";
 		default:
 			return Integer.toString(n);
 		}

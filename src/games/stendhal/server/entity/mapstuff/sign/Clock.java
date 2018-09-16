@@ -51,10 +51,10 @@ public class Clock extends Sign {
 		int hour = cal.get(Calendar.HOUR);
 		if (min > 30) {
 			// For getting the hour right for the "x to y" versions
-			hour = (hour + 1) % 24;
+			hour = (hour + 1) % 12;
 		}
 		if (hour == 0) {
-			hour = 24;
+			hour = 12;
 		}
 
 		StringBuilder msg = new StringBuilder("Jest godzina ");
