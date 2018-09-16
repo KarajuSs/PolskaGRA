@@ -10,10 +10,19 @@
 
 	<!-- Pyramid NW -->
 	<zone name="0_desert_pyramid_nw" level="0" x="513184" y="0" file="Level 0/desert/pyramid_nw.tmx">
+		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
 		<attributes>
 			<parameter name="color_method">time</parameter>
 		</attributes>
-		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+
+		<!-- Music -->
+		<entity x="0" y="0">
+		  <implementation
+			class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+			<parameter name="sound">caravan</parameter>
+		  </implementation>
+		</entity>
+
 		<entity x="127" y="127">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
 				<parameter name="sound">wind-2</parameter>
@@ -46,10 +55,19 @@
 
 	<!-- Pyramid NE -->
 	<zone name="0_desert_pyramid_ne" level="0" x="513312" y="0" file="Level 0/desert/pyramid_ne.tmx">
+		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
 		<attributes>
 			<parameter name="color_method">time</parameter>
 		</attributes>
-		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+
+		<!-- Music -->
+		<entity x="0" y="0">
+		  <implementation
+			class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+			<parameter name="sound">caravan</parameter>
+		  </implementation>
+		</entity>
+
 		<entity x="127" y="127">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
 				<parameter name="sound">wind-2</parameter>
@@ -68,10 +86,19 @@
 
 	<!-- Pyramid SW -->
 	<zone name="0_desert_pyramid_sw" level="0" x="513184" y="128" file="Level 0/desert/pyramid_sw.tmx">
+		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
 		<attributes>
 			<parameter name="color_method">time</parameter>
 		</attributes>
-		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+
+		<!-- Music -->
+		<entity x="0" y="0">
+		  <implementation
+			class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+			<parameter name="sound">caravan</parameter>
+		  </implementation>
+		</entity>
+
 		<entity x="127" y="0">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
 				<parameter name="sound">wind-2</parameter>
@@ -129,10 +156,19 @@
 
 	<!-- Pyramid SE -->
 	<zone name="0_desert_pyramid_se" level="0" x="513312" y="128" file="Level 0/desert/pyramid_se.tmx">
+		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
 		<attributes>
 			<parameter name="color_method">time</parameter>
 		</attributes>
-		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+
+		<!-- Music -->
+		<entity x="0" y="0">
+		  <implementation
+			class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+			<parameter name="sound">caravan</parameter>
+		  </implementation>
+		</entity>
+
 		<entity x="0" y="0">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
 				<parameter name="sound">wind-2</parameter>
