@@ -1175,31 +1175,55 @@ public class Grammar {
 	public static String numberString(final int n) {
 		switch (n) {
 		case 0:
-			return "zero";
+			return "zerowa";
 		case 1:
-			return "jeden";
+			return "pierwsza";
 		case 2:
-			return "dwa";
+			return "druga";
 		case 3:
-			return "trzy";
+			return "trzecia";
 		case 4:
-			return "cztery";
+			return "czwarta";
 		case 5:
-			return "pięć";
+			return "piąta";
 		case 6:
-			return "sześć";
+			return "szósta";
 		case 7:
-			return "siedem";
+			return "siódma";
 		case 8:
-			return "osiem";
+			return "ósma";
 		case 9:
-			return "dziewięć";
+			return "dziewiąta";
 		case 10:
-			return "dziesięć";
+			return "dziesiąta";
 		case 11:
-			return "jedenaście";
+			return "jedenasta";
 		case 12:
-			return "dwanaście";
+			return "dwunasta";
+		case 13:
+			return "trzynasta";
+		case 14:
+			return "czternasta";
+		case 15:
+			return "piętnasta";
+		case 16:
+			return "szesnasta";
+		case 17:
+			return "siedemnasta";
+		case 18:
+			return "osiemnasta";
+		case 19:
+			return "dziewiętnasta";
+		case 20:
+			return "dwudziesta";
+		case 21:
+			return "dwudziesta-pierwsza";
+		case 22:
+			return "dwudziesta-druga";
+		case 23:
+			return "dwudziesta-trzecia";
+		case 24:
+			return "dwudziesta-czwarta";
 		default:
 			return Integer.toString(n);
 		}
