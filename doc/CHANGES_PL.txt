@@ -6,6 +6,7 @@
 - Przetłumaczono wiadomości + zagadki w Piekle [hell]
 - Minimalne zwiększenie rozmiarów smoków (chodzi o okrąg pod potworkiem) z 3,2 na 3,3
 - Poprawiono wiele map
+- Zegary ma mapach pokazują nam godzinę, jeżeli klikniemy na niego PPM i wybierzemy opcję 'zobacz'
 
 
 *klient*
@@ -14,14 +15,18 @@
 - Nazwy map pod minimapą w lewym panelu zostaną podmieniane (np: nazwa mapy: 0_zakopane_s; efekt końcowy w kliencie: Zakopane S)
 - Więcej grafik natury broni służącej do ustawienia ikonki walki, jeśli jest dostępna
 - Zmieniono kolorystyke potwora 'dwugłowego lodowego smoka'
+- Zwiększono maksymalną ilość liter w tekstach (rozmowy z NPC/graczami tzw. 'chmurki') z 84 na 124
 - Wiele nowych outfitów dla NPC
+- Dodano muzykę na pustynnych mapach (desert) oraz na mapie 1_dreamscape
 
 
 *code*
 - Nowa implementacja sprawdzania statusu 'uzdrowienia' dla przedmiotów typu: antidotum & mocne antidotum & środek uspokajający
+- Dodano nowy skrypt dla administratorów ułatwiający wyszukanie nieużywanych grafik przedmiotów bądź potworów
 
 
 *naprawa błędów*
+- Wyciszono pomniejsze błędy kompilatora
 - Poprawiono opis 'pasa z mithrilu'
 - Poprawiono naliczanie 13-nastego smoka
 - Poprawiono ostatnie zadanie u "Czarnoksiężnika"
