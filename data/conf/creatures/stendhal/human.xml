@@ -523,7 +523,7 @@
 
 	<creature name="samurai">
 		<type class="stendhal/human" subclass="samurai" tileid="human_evil.png:5"/>
-		<description></description>
+		<description>Oto samurai. Jeśli nie zdołałby utrzymać swego honoru, mógłby odzyskać go, wykonując seppuku.</description>
 		<attributes>
 			<atk value="585"/>
 			<def value="73"/>
