@@ -54,6 +54,16 @@
 			</implementation>
 		</entity>
 
+		<entity x="104" y="30">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
+				<parameter name="sound">churchbell</parameter>
+				<parameter name="min">30</parameter>
+				<parameter name="max">90</parameter>
+				<parameter name="radius">90</parameter>
+				<parameter name="volume">120</parameter>
+			</implementation>
+		</entity>
+
 		<portal x="64" y="63" ref="sukiennice_1_entrance">
 			<destination zone="int_krakow_sukiennice" ref="sukiennice_1_exit"/>
 		</portal>
