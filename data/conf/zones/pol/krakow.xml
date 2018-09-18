@@ -15,6 +15,13 @@
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-krolewskie-miasto2</parameter>
+				<parameter name="volume">65</parameter>
+			</implementation>
+		</entity>
 	</zone>
 
 	<!-- krakow_n -->
@@ -24,6 +31,13 @@
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-krolewskie-miasto2</parameter>
+				<parameter name="volume">65</parameter>
+			</implementation>
+		</entity>
 	</zone>
 
 	<!-- krakow_ne -->
@@ -32,6 +46,13 @@
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-krolewskie-miasto2</parameter>
+				<parameter name="volume">65</parameter>
+			</implementation>
+		</entity>
 	</zone>
 
 	<!-- krakow_w -->
@@ -40,6 +61,13 @@
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-krolewskie-miasto1</parameter>
+				<parameter name="volume">80</parameter>
+			</implementation>
+		</entity>
 	</zone>
 
 	<!-- krakow_rynek -->
@@ -51,6 +79,13 @@
 		</attributes>
 		<entity x="52" y="62">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BellSoundSource">
+			</implementation>
+		</entity>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-krolewskie-miasto2</parameter>
+				<parameter name="volume">65</parameter>
 			</implementation>
 		</entity>
 
@@ -88,7 +123,7 @@
 		<portal x="76" y="66" ref="sukiennice_8_entrance">
 			<destination zone="int_krakow_sukiennice" ref="sukiennice_8_exit"/>
 		</portal>
-		
+
 		<!-- Bakery -->
 		<portal x="112" y="63" ref="bakery_entrance">
 			<destination zone="int_krakow_bakery" ref="bakery_exit"/>
@@ -108,6 +143,13 @@
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-krolewskie-miasto2</parameter>
+				<parameter name="volume">65</parameter>
+			</implementation>
+		</entity>
 	</zone>
 
 	<!-- krakow_sw -->
@@ -116,6 +158,13 @@
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-krolewskie-miasto1</parameter>
+				<parameter name="volume">80</parameter>
+			</implementation>
+		</entity>
 	</zone>
 
 	<!-- krakow_s -->
@@ -124,6 +173,13 @@
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-krolewskie-miasto2</parameter>
+				<parameter name="volume">65</parameter>
+			</implementation>
+		</entity>
 	</zone>
 
 	<!-- krakow_se -->
@@ -132,6 +188,13 @@
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-krolewskie-miasto2</parameter>
+				<parameter name="volume">65</parameter>
+			</implementation>
+		</entity>
 	</zone>
 
 	<!-- krakow_wisla_nw -->
@@ -143,8 +206,8 @@
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
-				<parameter name="sound">pol-littlemeadow2</parameter>
-				<parameter name="volume">15</parameter>
+				<parameter name="sound">pol-krolewskie-miasto1</parameter>
+				<parameter name="volume">80</parameter>
 			</implementation>
 		</entity>
 
@@ -161,8 +224,8 @@
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
-				<parameter name="sound">pol-littlemeadow2</parameter>
-				<parameter name="volume">15</parameter>
+				<parameter name="sound">pol-krolewskie-miasto2</parameter>
+				<parameter name="volume">65</parameter>
 			</implementation>
 		</entity>
 		<entity x="64" y="64">
@@ -233,6 +296,13 @@
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-krolewskie-miasto2</parameter>
+				<parameter name="volume">65</parameter>
+			</implementation>
+		</entity>
 	</zone>
 
 	<!-- krakow_wisla_w -->
@@ -244,11 +314,11 @@
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
-				<parameter name="sound">pol-littlemeadow2</parameter>
-				<parameter name="volume">15</parameter>
+				<parameter name="sound">pol-krolewskie-miasto1</parameter>
+				<parameter name="volume">80</parameter>
 			</implementation>
 		</entity>
-		
+
 		<portal x="74" y="52" ref="fisher_hut_entrance">
 			<destination zone="int_krakow_fisher_hut" ref="fisher_hut_exit"/>
 		</portal>
@@ -262,8 +332,8 @@
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
-				<parameter name="sound">pol-littlemeadow2</parameter>
-				<parameter name="volume">15</parameter>
+				<parameter name="sound">pol-krolewskie-miasto1</parameter>
+				<parameter name="volume">80</parameter>
 			</implementation>
 		</entity>
 		<entity x="64" y="64">
@@ -339,8 +409,8 @@
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
-				<parameter name="sound">pol-littlemeadow2</parameter>
-				<parameter name="volume">15</parameter>
+				<parameter name="sound">pol-krolewskie-miasto1</parameter>
+				<parameter name="volume">80</parameter>
 			</implementation>
 		</entity>
 		<entity x="64" y="64">
@@ -370,6 +440,13 @@
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-krolewskie-miasto1</parameter>
+				<parameter name="volume">80</parameter>
+			</implementation>
+		</entity>
 		<entity x="64" y="64">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
 				<parameter name="sound">wind-1</parameter>
@@ -395,6 +472,13 @@ Południe: Zakopane
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-krolewskie-miasto1</parameter>
+				<parameter name="volume">80</parameter>
+			</implementation>
+		</entity>
 		<entity x="64" y="64">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
 				<parameter name="sound">wind-1</parameter>
@@ -411,6 +495,13 @@ Południe: Zakopane
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-krolewskie-miasto1</parameter>
+				<parameter name="volume">80</parameter>
+			</implementation>
+		</entity>
 		<entity x="57" y="13">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
 				<parameter name="sound">saur-4, saur-3</parameter>
@@ -650,7 +741,7 @@ Południe: Zakopane
 			<destination zone="0_krakow_wisla" ref="woodcutter_entrance"/>
 		</portal>
 	</zone>
-	
+
 	<!-- Fisher hut -->
 	<zone name="int_krakow_fisher_hut" file="interiors/krakow/fisher_hut.tmx">
 		<portal x="7" y="14" ref="fisher_hut_exit">
