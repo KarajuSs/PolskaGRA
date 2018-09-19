@@ -66,7 +66,7 @@
 		<corpse name="giant_humanoid" harmless="halo_large" width="2" height="2"/>
 		<drops>
 			<item value="wielki eliksir" quantity="[2,5]" probability="50.0"/>
-			<item value="pióro mrocznego archanioła" quantity="[1,1]" probability="80.0"/>
+			<item value="pióro archanioła ciemności" quantity="[1,1]" probability="80.0"/>
 			<item value="zupa" quantity="[2,4]" probability="50.0"/>
 			<item value="serce olbrzyma" quantity="[1,1]" probability="90.0"/>
 			<item value="czarny pas" quantity="[1,1]" probability="5.0"/>
