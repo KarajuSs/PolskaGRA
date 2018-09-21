@@ -243,7 +243,7 @@ youngsoldiernpc.png           Svetlana Kushnariova (Cabbit); OGA BY 3.0; https:/
 youngwitchnpc.*               Svetlana Kushnariova (Cabbit), Jordan Irwin (AntumDeluge); OGA BY 3.0; https://opengameart.org/node/72969
 youngwomannpc.png             Svetlana Kushnariova (Cabbit); OGA BY 3.0; https://opengameart.org/node/24823
 npc_eDragon.png               PolskaOnLine; OGA BY 3.0; PolskaOnLine
-npc_flisak1.png               PolskaOnLine; OGA BY 3.0; PolskaOnLine
+npcflisak1.png                Svetlana Kushnariova (Cabbit), KarajuSs; OGA BY 3.0; PolskaGRA
 npc_flisak2.png               PolskaOnLine; OGA BY 3.0; PolskaOnLine
 npc_straniarz.png             PolskaOnLine; OGA BY 3.0; PolskaOnLine
 npcbaca.png                   PolskaOnLine; OGA BY 3.0; PolskaOnLine
