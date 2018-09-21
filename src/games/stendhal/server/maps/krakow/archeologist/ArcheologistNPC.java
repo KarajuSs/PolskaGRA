@@ -11,19 +11,16 @@
  ***************************************************************************/
 package games.stendhal.server.maps.krakow.archeologist;
 
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
+import games.stendhal.common.Direction;
 import games.stendhal.server.core.config.ZoneConfigurator;
-import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
-import games.stendhal.server.core.pathfinder.FixedPath;
-import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.RPEntity;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 
 /**
- * Builds an NPC
+ * Build a NPC
  *
  * @author KarajuSs
  */
@@ -44,13 +41,6 @@ public class ArcheologistNPC implements ZoneConfigurator {
 		final SpeakerNPC npc = new SpeakerNPC("Amileusz") {
 
 			@Override
-			protected void createPath() {
-				final List<Node> nodes = new LinkedList<Node>();
-				nodes.add(new Node(x, y)); // CHWILOWO BRAK POMIESZCZENIA
-				setPath(new FixedPath(nodes, true));
-			}
-
-			@Override
 			protected void createDialog() {
 				addGreeting();
 				addJob("Jestem archeologiem i zbieram różne cenne znaleziska.");
@@ -58,12 +48,16 @@ public class ArcheologistNPC implements ZoneConfigurator {
 				addOffer("Na chwilę obecną nie mam nic Tobie do zaoferowania!");
 				addGoodbye();
 			}
+			@Override
+			protected void onGoodbye(RPEntity player) {
+				setDirection(Direction.UP);
+			}
 		};
 
 		npc.setDescription("Oto archeolog Amileusz ubrany w swój ulubiony stary szlafrok.");
 		npc.setEntityClass("noimagenpc"); // npcarchelogist
-		npc.setPosition(x, y); // CHWILOWO BRAK POMIESZCZENIA
-		npc.initHP(100);
+		npc.setPosition(10, 6);
+		npc.setDirection(Direction.UP);
 		zone.add(npc);
 	}
 }
