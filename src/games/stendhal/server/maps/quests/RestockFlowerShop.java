@@ -44,51 +44,50 @@ import java.util.List;
 
 /**
  * QUEST: Restock the Flower Shop
- * 
+ *
  * PARTICIPANTS:
  * <ul>
  * <li>Seremela, the elf girl who watches over Nalwor's flower shop</li>
  * </ul>
- * 
+ *
  * STEPS:
  * <ul>
  * <li>Seremela asks you to bring a variety of flowers to restock the flower shop and 15 bottles of water to maintain them</li>
  * <li>Bring the requested amounts water and each flower type to Seremela</li>
  * </ul>
- * 
+ *
  * REWARD:
  * <ul>
  * <li>1000 XP</li>
  * <li>25 karma</li>
  * <li>5 nalwor city scrolls</li>
  * </ul>
- * 
+ *
  * REPETITIONS:
  * <ul>
  * <li>Once every 3 days</li>
  * </ul>
- * 
+ *
  * @author AntumDeluge
  *
  */
 public class RestockFlowerShop extends AbstractQuest {
 	public static final String QUEST_SLOT = "restock_flowershop";
-	
+
 	// Different types of flowers needed in quest
 	private static final List<String> flowerTypes = Arrays.asList(
 			"stokrotki", "lilia", "bratek", "róża", "bielikrasa");
-	public static List<Integer> requestedQuantities = Arrays.asList();
-	
+
 	private final int MAX_FLOWERS = flowerTypes.size() * 10;
-	
+
 	private static final int REQ_WATER = 15;
-	
+
 	// Time player must wait to repeat quest (3 days)
 	private static final int WAIT_TIME = 60 * 24 * 3;
-	
+
 	// Quest NPC
 	private final SpeakerNPC npc = npcs.get("Seremela");
-	
+
 	@Override
 	public List<String> getHistory(final Player player) {
 		final List<String> res = new ArrayList<String>();
@@ -101,10 +100,10 @@ public class RestockFlowerShop extends AbstractQuest {
 		} else if (!player.isQuestInState(QUEST_SLOT, 0, "done")) {
 			String questState = player.getQuest(QUEST_SLOT);
 			res.add("Zaoferowałem pomoc " + npcName + " w uzupełnieniu zapasów kwiaciarni.");
-			
+
 			final ItemCollection remaining = new ItemCollection();
 			remaining.addFromQuestStateString(questState);
-			
+
 			// Check to avoid ArrayIndexOutOfBoundsException
 			if (remaining.size() > 0) {
 				String requestedFlowers = "Wciąż potrzebuję przynieść następujące kwiatki: " + Grammar.enumerateCollection(remaining.toStringList()) + ".";
@@ -117,20 +116,20 @@ public class RestockFlowerShop extends AbstractQuest {
                 res.add("Teraz" + npcName + " ma odpowiedni zapas kwiatów.");
             }
 		}
-		
+
 		return res;
 	}
-	
-	
+
+
 	private void setupBasicResponses() {
-		
+
 		List<List<String>> keywords = Arrays.asList(
 				Arrays.asList("flower", "kwiat"),
 				ConversationPhrases.HELP_MESSAGES);
 		List<String> responses = Arrays.asList(
 				"Czyż kwiatki nie są piękne?",
 				"Hmmmm, Nie sądzę, aby było coś w czym mógłbym pomóc.");
-		
+
 		for (int i = 0; i < responses.size(); i++) {
 			npc.add(ConversationStates.ANY,
 					keywords.get(i),
@@ -140,9 +139,9 @@ public class RestockFlowerShop extends AbstractQuest {
 					null);
 		}
 	}
-	
+
 	private void setupActiveQuestResponses() {
-		
+
 		// Player asks to be reminded of remaining flowers required
 		npc.add(ConversationStates.ATTENDING,
 				Arrays.asList("flower", "remind", "what", "item", "list", "something", "kwiat", "przypomnij", "co", "przedmiot", "lista", "coś"),
@@ -150,14 +149,14 @@ public class RestockFlowerShop extends AbstractQuest {
 				ConversationStates.QUESTION_1,
 				null,
 				new SayRequiredItemsFromCollectionAction(QUEST_SLOT, "Wciąż potrzebuję [items]. Czy przyniosłeś mi?"));
-		
+
         npc.add(ConversationStates.QUESTION_1,
 				Arrays.asList("flower", "remind", "what", "item", "list", "something", "kwiat", "przypomnij", "co", "przedmiot", "lista", "coś"),
                 new QuestActiveCondition(QUEST_SLOT),
                 ConversationStates.QUESTION_1,
                 null,
                 new SayRequiredItemsFromCollectionAction(QUEST_SLOT, "Wciąż potrzebuję [items]. Czy przyniosłeś mi?"));
-        
+
         // Player asks to be reminded of remaining flowers required
         npc.add(ConversationStates.QUESTION_1,
 				Arrays.asList("flower", "remind", "what", "item", "list", "kwiat", "przypomnij", "co", "przedmiot", "lista"),
@@ -165,7 +164,7 @@ public class RestockFlowerShop extends AbstractQuest {
                 ConversationStates.QUESTION_1,
                 null,
                 new SayRequiredItemsFromCollectionAction(QUEST_SLOT, "Wciąż potrzebuję [items]. Czy przyniosłeś mi?"));
-        
+
 		List<List<String>> keywords = Arrays.asList(
 				Arrays.asList("daisy", "bunch of daisies", "bunches of daisies", "lilia", "pansy", "stokrotki", "bukiet stokrotek", "bukiety stokreotek", "Lilia", "bratek"),
 				Arrays.asList("rose", "róża"),
@@ -186,7 +185,7 @@ public class RestockFlowerShop extends AbstractQuest {
 		responses.add("Fleur pracuje na targu w Kirdneh.");
 		responses.add("Zapytaj barmanki w Semos.");
 		responses.add("Mogę ci #przypomnieć, które #kwiaty potrzebuję. także pomogę ci wskazać miejsce #gdzie trochę ich występuje.");
-		
+
 		for (int f = 0; f < responses.size(); f++) {
 			npc.add(ConversationStates.ANY,
 					keywords.get(f),
@@ -196,9 +195,9 @@ public class RestockFlowerShop extends AbstractQuest {
 					null);
 		}
 	}
-	
+
 	private void prepareRequestingStep() {
-		
+
 		// Player requests quest
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.QUEST_MESSAGES,
@@ -208,7 +207,7 @@ public class RestockFlowerShop extends AbstractQuest {
 				ConversationStates.QUEST_OFFERED,
 				"Kwiaciarnia ma problem z kwiatami. Pomożesz mi uzupełnić zapasy?",
 				null);
-		
+
 		// Player requests quest after started
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.QUEST_MESSAGES,
@@ -216,7 +215,7 @@ public class RestockFlowerShop extends AbstractQuest {
 				ConversationStates.ATTENDING,
 				"Wciąż nie kupiłeś mi #kwiatów, o które prosiłam.",
 				null);
-		
+
 		// Player requests quest before wait period ended
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.QUEST_MESSAGES,
@@ -224,7 +223,7 @@ public class RestockFlowerShop extends AbstractQuest {
 				ConversationStates.ATTENDING,
 				null,
 				new SayTimeRemainingAction(QUEST_SLOT, 1, WAIT_TIME, "Kwiaty, które kupiłeś szybko się sprzedają. Może znów będę potrzebowała twojej pomocy"));
-		
+
 		// Player accepts quest
 		npc.add(ConversationStates.QUEST_OFFERED,
 				ConversationPhrases.YES_MESSAGES,
@@ -237,7 +236,7 @@ public class RestockFlowerShop extends AbstractQuest {
 						new AddItemToCollectionAction(QUEST_SLOT, "woda", REQ_WATER),
 						new SayRequiredItemsFromCollectionAction(QUEST_SLOT, "Wspaniale! To jest to czego potrzebuję: [items]."))
 		);
-		
+
 		// Player rejects quest
 		npc.add(ConversationStates.QUEST_OFFERED,
 				ConversationPhrases.NO_MESSAGES,
@@ -246,15 +245,15 @@ public class RestockFlowerShop extends AbstractQuest {
 				"Przykro mi to słyszeć.",
 				new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -5.0));
 	}
-	
-	
+
+
 	private void prepareBringingStep() {
 		List<String> requestedItems = new ArrayList<String>();
 		for (String f : flowerTypes) {
 			requestedItems.add(f);
 		}
 		requestedItems.add("woda");
-		
+
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
 		reward.add(new IncreaseXPAction(1000));
 		reward.add(new IncreaseKarmaAction(25.0));
@@ -262,9 +261,9 @@ public class RestockFlowerShop extends AbstractQuest {
 		reward.add(new SetQuestAction(QUEST_SLOT, "done"));
 		reward.add(new SetQuestToTimeStampAction(QUEST_SLOT, 1));
 		reward.add(new SayTextAction("Bardzo dziękuję! Teraz mogę zrealizować wszystkie zamówienia."));
-		
+
 		ChatAction rewardAction = new MultipleActions(reward);
-		
+
 		/* add triggers for the item names */
 		for (String item : requestedItems) {
 			npc.add(ConversationStates.QUESTION_1,
@@ -281,7 +280,7 @@ public class RestockFlowerShop extends AbstractQuest {
 							ConversationStates.IDLE
 							));
 		}
-		
+
 		// NPC asks if player brought items
 		npc.add(ConversationStates.IDLE,
 				ConversationPhrases.GREETING_MESSAGES,
@@ -289,7 +288,7 @@ public class RestockFlowerShop extends AbstractQuest {
 				ConversationStates.QUESTION_1,
 				"Czy przyniosłeś #coś dla sklepu?",
 				null);
-		
+
 		// Player confirms brought flowers
 		npc.add(ConversationStates.QUESTION_1,
 				ConversationPhrases.YES_MESSAGES,
@@ -297,7 +296,7 @@ public class RestockFlowerShop extends AbstractQuest {
 				ConversationStates.QUESTION_1,
 				"Co przyniosłeś?",
 				null);
-		
+
 		// Player didn't bring flowers
 		npc.add(ConversationStates.QUESTION_1,
 				ConversationPhrases.NO_MESSAGES,
@@ -305,7 +304,7 @@ public class RestockFlowerShop extends AbstractQuest {
 				ConversationStates.ATTENDING,
 				"Nie przestawaj wąchać róż# Zamówienia wracają. Mogę ci #przypomnieć co masz przynieść.",
 				null);
-		
+
 		// Player offers item that wasn't requested
 		npc.add(ConversationStates.QUESTION_1,
 				"",
@@ -313,7 +312,7 @@ public class RestockFlowerShop extends AbstractQuest {
 				ConversationStates.QUESTION_1,
 				"Nie sądzę, aby to dobrze wyglądało w sklepie.",
 				null);
-		
+
 		// Player says "bye" or "no" while listing flowers
 		List<String> endDiscussionPhrases = new ArrayList<String>();
 		for (String phrase : ConversationPhrases.NO_MESSAGES) {
@@ -329,32 +328,38 @@ public class RestockFlowerShop extends AbstractQuest {
 				"Proszę wróć, gdy znajdziesz jakieś kwiaty.",
 				null);
 	}
-	
-	
+
+	@Override
+	public boolean isRepeatable(Player player) {
+		return new AndCondition(
+				new NotCondition(new QuestActiveCondition(QUEST_SLOT)),
+				new TimePassedCondition(QUEST_SLOT, 1, WAIT_TIME)).fire(player, null, null);
+	}
+
 	@Override
 	public String getNPCName() {
 		return npc.getName();
 	}
-	
+
 	@Override
 	public String getSlotName() {
 		return QUEST_SLOT;
 	}
-	
+
 	@Override
 	public String getName() {
 		return "RestockFlowerShop";
 	}
-	
+
 	public String getTitle() {
 		return "Odnowienie Zapasów Kwiaciarni";
 	}
-	
+
 	@Override
 	public int getMinLevel() {
 		return 0;
 	}
-	
+
 	@Override
 	public String getRegion() {
 		return Region.NALWOR_CITY;
