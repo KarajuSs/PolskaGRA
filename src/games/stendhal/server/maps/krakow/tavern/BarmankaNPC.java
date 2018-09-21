@@ -27,7 +27,7 @@ import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
 
 /**
- * Builds an NPC
+ * Build a NPC
  *
  * @author KarajuSs
  */

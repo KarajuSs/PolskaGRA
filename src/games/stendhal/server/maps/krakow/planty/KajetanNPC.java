@@ -22,7 +22,7 @@ import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 
 /**
- * Builds an NPC
+ * Build a NPC
  *
  * @author KarajuSs
  */

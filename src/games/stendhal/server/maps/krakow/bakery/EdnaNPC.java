@@ -26,7 +26,7 @@ import games.stendhal.server.entity.npc.behaviour.adder.ProducerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.ProducerBehaviour;
 
 /**
- * Builds an NPC
+ * Build a NPC
  *
  * @author KarajuSs
  */
