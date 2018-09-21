@@ -63,7 +63,7 @@ experiencedwarriornpc.*       Svetlana Kushnariova (Cabbit), Stephen Challener (
 fierywaterdistillernpc.png    Svetlana Kushnariova (Cabbit), olonu; OGA BY 3.0; https://opengameart.org/node/72969
 fireelementalnpc.png          Svetlana Kushnariova (Cabbit); OGA BY 3.0; https://opengameart.org/node/72969
 fishermannpc.*                Svetlana Kushnariova (Cabbit), Jordan Irwin (AntumDeluge); OGA BY 3.0; https://opengameart.org/node/72969
-fishermansdaughternpc.png     ???; ???; ???
+fishermansdaughternpc.*       Svetlana Kushnariova (Cabbit), Jordan Irwin (AntumDeluge); OGA BY 3.0; https://opengameart.org/node/72969
 fishsoupmakernpc.png          ???, Svetlana Kushnariova (Cabbit), Jordan Irwin (AntumDeluge); ???; https://opengameart.org/node/72969; Chef hat author is not confirmed
 floattingladynpc.*            Svetlana Kushnariova (Cabbit), Nila122, Jordan Irwin (AntumDeluge); CC BY-SA 3.0; https://opengameart.org/node/72969, https://opengameart.org/node/29293
 friendlywizardnpc.png         ???; ???; ???
@@ -242,37 +242,37 @@ youngnpc.png                  Svetlana Kushnariova (Cabbit), olonu; OGA BY 3.0; 
 youngsoldiernpc.png           Svetlana Kushnariova (Cabbit); OGA BY 3.0; https://opengameart.org/node/72969
 youngwitchnpc.*               Svetlana Kushnariova (Cabbit), Jordan Irwin (AntumDeluge); OGA BY 3.0; https://opengameart.org/node/72969
 youngwomannpc.png             Svetlana Kushnariova (Cabbit); OGA BY 3.0; https://opengameart.org/node/24823
-npc_eDragon.png               Tomko?; ???; PolskaOnLine
-npc_flisak1.png               ???; ???; PolskaOnLine
-npc_flisak2.png               ???; ???; PolskaOnLine
-npc_straniarz.png             ???; ???; PolskaOnLine
-npcbaca.png                   Tomko?; ???; PolskaOnLine
+npc_eDragon.png               PolskaOnLine; OGA BY 3.0; PolskaOnLine
+npc_flisak1.png               PolskaOnLine; OGA BY 3.0; PolskaOnLine
+npc_flisak2.png               PolskaOnLine; OGA BY 3.0; PolskaOnLine
+npc_straniarz.png             PolskaOnLine; OGA BY 3.0; PolskaOnLine
+npcbaca.png                   PolskaOnLine; OGA BY 3.0; PolskaOnLine
 npcbronek.png                 Svetlana Kushnariova (Cabbit), KarajuSs; OGA BY 3.0; PolskaGRA
-npcdzieckogoralskie.png       Tomko?; ???; PolskaOnLine
-npcdziewczynka.png            Tomko?; ???; PolskaOnLine
-npcedgard.png                 ???; ???; ???
+npcdzieckogoralskie.png       PolskaOnLine; OGA BY 3.0; PolskaOnLine
+npcdziewczynka.png            PolskaOnLine; OGA BY 3.0; PolskaOnLine
+npcedgard.png                 PolskaOnLine; OGA BY 3.0; ???
 npcfryderyk.png               Svetlana Kushnariova (Cabbit), KarajuSs; OGA BY 3.0; PolskaGRA
-npcgazda.png                  Tomko?; ???; PolskaOnLine
-npcgazdajedrzej.png           Tomko?; ???; PolskaOnLine
+npcgazda.png                  PolskaOnLine; OGA BY 3.0; PolskaOnLine
+npcgazdajedrzej.png           PolskaOnLine; OGA BY 3.0; PolskaOnLine
 npcgenowefa.png               Svetlana Kushnariova (Cabbit), KarajuSs; OGA BY 3.0; PolskaGRA
 npcgoral.png                  Svetlana Kushnariova (Cabbit), KarajuSs; OGA BY 3.0; PolskaGRA
-npcguslarz.png                Tomko?; ???; PolskaOnLine
+npcguslarz.png                Tomko?; OGA BY 3.0; PolskaOnLine
 npcjagienka.png               Svetlana Kushnariova (Cabbit), KarajuSs; OGA BY 3.0; PolskaGRA
 npcjuhas.png                  Svetlana Kushnariova (Cabbit), KarajuSs; OGA BY 3.0; PolskaGRA
 npcjuhasboguslaw.png          Svetlana Kushnariova (Cabbit), KarajuSs; OGA BY 3.0; PolskaGRA
 npckibic.png                  Svetlana Kushnariova (Cabbit), KarajuSs; OGA BY 3.0; PolskaGRA
-npcksiaze.png                 Tomko?; ???; PolskaOnLine
-npclesniczy.png               Tomko?; ???; PolskaOnLine
-npcmagik.png                  Tomko?; ???; PolskaOnLine
-npcksiaze.png                 Tomko?; ???; PolskaOnLine
+npcksiaze.png                 PolskaOnLine; OGA BY 3.0; PolskaOnLine
+npclesniczy.png               PolskaOnLine; OGA BY 3.0; PolskaOnLine
+npcmagik.png                  PolskaOnLine; OGA BY 3.0; PolskaOnLine
+npcksiaze.png                 PolskaOnLine; OGA BY 3.0; PolskaOnLine
 npcratownik.png               Svetlana Kushnariova (Cabbit), KarajuSs; OGA BY 3.0; PolskaGRA
-npcsmok.png                   Tomko?; ???; PolskaOnLine
-npcstarybaca.png              Tomko?; ???; PolskaOnLine
-npcstaryprzewodnik.png        Tomko?; ???; PolskaOnLine
+npcsmok.png                   PolskaOnLine; OGA BY 3.0; PolskaOnLine
+npcstarybaca.png              PolskaOnLine; OGA BY 3.0; PolskaOnLine
+npcstaryprzewodnik.png        PolskaOnLine; OGA BY 3.0; PolskaOnLine
 npctajemniczaosoba.png        Svetlana Kushnariova (Cabbit), KarajuSs; OGA BY 3.0; PolskaGRA
-npcwielkolud.png              ???; ???; ???
+npcwielkolud.png              PolskaOnLine?; OGA BY 3.0; ???
 npcwikary.png                 Svetlana Kushnariova (Cabbit), KarajuSs; OGA BY 3.0; PolskaGRA
-npczakonnik.png               ???; ???; ???
+npczakonnik.png               PolskaOnLine?; OGA BY 3.0; ???
 
 data/sprites/npc/alternative/
 
