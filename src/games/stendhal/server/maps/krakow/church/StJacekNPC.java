@@ -50,7 +50,10 @@ public class StJacekNPC implements ZoneConfigurator {
 			@Override
 			protected void createPath() {
 				final List<Node> nodes = new LinkedList<Node>();
-				nodes.add(new Node(x, y)); // CHWILOWO BRAK ROZPLANOWANIA
+				nodes.add(new Node(32, 16));
+				nodes.add(new Node(32, 18));
+				nodes.add(new Node(35, 18));
+				nodes.add(new Node(35, 16));
 				setPath(new FixedPath(nodes, true));
 			}
 
@@ -58,8 +61,8 @@ public class StJacekNPC implements ZoneConfigurator {
 			protected void createDialog() {
 				addGreeting();
 				addJob("Jestem mnichem.");
+				addHelp("Nie potrzebuję pomocy, ale możesz zobaczyć moją #'ofertę'.");
 				addOffer("Mam do sprzedania różne eliksiry lecznicze.");
-				// antidotum - 50; duże antidotum - 250; mały eliksir - 100; eliskir - 250; duży eliksir - 400; wielki eliksir - 900
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("sellstjacek")), false);
 				addGoodbye("Niech Bóg Cię prowadzi!");
 			}
@@ -67,7 +70,7 @@ public class StJacekNPC implements ZoneConfigurator {
 
 		npc.setDescription("Oto St Jacek. Jest mnichem i zajmuje się z sprzedażą eliksirów.");
 		npc.setEntityClass("noimagenpc"); // npcjacek
-		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
+		npc.setPosition(35, 16);
 		npc.initHP(100);
 		zone.add(npc);
 	}

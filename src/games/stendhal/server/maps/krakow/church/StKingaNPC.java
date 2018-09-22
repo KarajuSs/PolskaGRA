@@ -16,11 +16,11 @@ import java.util.List;
 import java.util.Map;
 
 import games.stendhal.server.core.config.ZoneConfigurator;
-import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.behaviour.adder.FreeHealerAdder;
 
 /**
  * Build a NPC
@@ -46,22 +46,25 @@ public class StKingaNPC implements ZoneConfigurator {
 			@Override
 			protected void createPath() {
 				final List<Node> nodes = new LinkedList<Node>();
-				nodes.add(new Node(x, y)); // CHWILOWO BRAK ROZPLANOWANIA
+				nodes.add(new Node(26, 4));
+				nodes.add(new Node(37, 4));
 				setPath(new FixedPath(nodes, true));
 			}
 
 			@Override
 			protected void createDialog() {
-				addGreeting();
+				addGreeting("Witaj, w czym mogę #'pomóc'?");
 				addJob("Potrafię wyleczyć najgroźniejsze rany u rycerzy i wojoników.");
+				addHelp("Mogę Cię #'uleczyć'.");
 				addOffer("Mogłabym Ciebie #'uleczyć' nie pobierając za to opłaty.");
+				new FreeHealerAdder().addHealer(this, 0);
 				addGoodbye("Niech Bóg Cię prowadzi!");
 			}
 		};
 
-		npc.setDescription("Oto St Jacek. Jest mnichem i zajmuje się z sprzedażą eliksirów.");
-		npc.setEntityClass("noimagenpc"); // npcjacek
-		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
+		npc.setDescription("Oto St Kinga. Jest mnichem i zajmuje się leczeniem ran u dzielnych wojowników.");
+		npc.setEntityClass("noimagenpc"); // npckinga
+		npc.setPosition(37, 4);
 		npc.initHP(100);
 		zone.add(npc);
 	}

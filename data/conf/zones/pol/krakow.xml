@@ -124,6 +124,10 @@
 			<destination zone="int_krakow_sukiennice" ref="sukiennice_8_exit"/>
 		</portal>
 
+		<!-- Church -->
+		<portal x="104" y="47" ref="church_entrance">
+			<destination zone="int_krakow_church" ref="church_exit"/>
+		</portal>
 		<!-- Bakery -->
 		<portal x="112" y="63" ref="bakery_entrance">
 			<destination zone="int_krakow_bakery" ref="bakery_exit"/>
@@ -538,6 +542,26 @@ Południe: Zakopane
 
 		<portal x="26" y="14" ref="bakery_exit">
 			<destination zone="0_krakow_rynek" ref="bakery_entrance"/>
+		</portal>
+	</zone>
+
+	<!-- Church -->
+	<zone name="int_krakow_church" file="interiors/krakow/church.tmx">
+		<configurator class-name="games.stendhal.server.maps.krakow.church.HonoratNPC"/>
+		<configurator class-name="games.stendhal.server.maps.krakow.church.StJacekNPC"/>
+		<configurator class-name="games.stendhal.server.maps.krakow.church.StKingaNPC"/>
+
+		<portal x="12" y="23" ref="church_exit">
+			<destination zone="0_krakow_rynek" ref="church_entrance"/>
+		</portal>
+		<portal x="10" y="23" ref="church_exit">
+			<destination zone="0_krakow_rynek" ref="church_entrance"/>
+		</portal>
+		<portal x="11" y="23" ref="church_exit">
+			<destination zone="0_krakow_rynek" ref="church_entrance"/>
+		</portal>
+		<portal x="13" y="23" ref="church_exit">
+			<destination zone="0_krakow_rynek" ref="church_entrance"/>
 		</portal>
 	</zone>
 
