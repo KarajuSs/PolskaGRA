@@ -50,7 +50,10 @@ public class SamsonNPC implements ZoneConfigurator {
 			@Override
 			protected void createPath() {
 				final List<Node> nodes = new LinkedList<Node>();
-				nodes.add(new Node(x, y)); // CHWILOWO BRAK ROZPLANOWANIA
+				nodes.add(new Node(17, 89));
+				nodes.add(new Node(17, 90));
+				nodes.add(new Node(20, 90));
+				nodes.add(new Node(20, 89));
 				setPath(new FixedPath(nodes, true));
 			}
 
@@ -59,7 +62,6 @@ public class SamsonNPC implements ZoneConfigurator {
 				addGreeting("Witaj w mej kuźni, wojowniku!");
 				addJob("Specjalizuje się w przetapianiu miedzi, ale również możesz o ode mnie otrzymać dobry sprzęt!");
 				addOffer("Sprzedaję: toporek 25, topór jednoręczny 35, topór 50, pyrlik 90, pordzewiała kosa 210, misa do płukania złota 270.");
-				// small axe - 25; hand axe 35; axe - 50; hammer - 90; old scythe - 210; gold pan - 270;
 				// 3x copper ore + 2x wood = 1x copper
 				// czas: 7 min na szt.
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("sellsamson")), false);
@@ -68,8 +70,8 @@ public class SamsonNPC implements ZoneConfigurator {
 		};
 
 		npc.setDescription("Oto Samson. Jest miejscowym kowalem i specjalizuje się w przetapianiu miedzi. Dodatkowo prowadzi też sprzedaż potrzebnych do pracy narzędzi.");
-		npc.setEntityClass("noimagenpc"); // blackmisthnpc
-		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
+		npc.setEntityClass("blacksmithnpc");
+		npc.setPosition(20, 89);
 		npc.initHP(100);
 		zone.add(npc);
 	}
