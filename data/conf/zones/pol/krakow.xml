@@ -73,6 +73,7 @@
 	<!-- krakow_rynek -->
 	<zone name="0_krakow_rynek" level="0" x="513440" y="17792" file="Level 0/krakow/krakow_rynek.tmx">
 		<configurator class-name="games.stendhal.server.maps.krakow.marketplace.LajkonikNPC"/>
+		<configurator class-name="games.stendhal.server.maps.krakow.blacksmith.SamsonNPC"/>
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
@@ -86,6 +87,13 @@
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">pol-krolewskie-miasto2</parameter>
 				<parameter name="volume">65</parameter>
+			</implementation>
+		</entity>
+
+		<entity x="17" y="87">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="volume">20</parameter>
 			</implementation>
 		</entity>
 
@@ -131,6 +139,13 @@
 		<!-- Bakery -->
 		<portal x="112" y="63" ref="bakery_entrance">
 			<destination zone="int_krakow_bakery" ref="bakery_exit"/>
+		</portal>
+		<!-- Blacksmith -->
+		<portal x="27" y="93" ref="bs1_entrance">
+			<destination zone="int_krakow_blacksmith" ref="bs1_exit"/>
+		</portal>
+		<portal x="28" y="93" ref="bs2_entrance">
+			<destination zone="int_krakow_blacksmith" ref="bs2_exit"/>
 		</portal>
 		<!-- Tavern -->
 		<portal x="80" y="28" ref="tavern1_entrance">
@@ -540,8 +555,48 @@ Południe: Zakopane
 		<configurator class-name="games.stendhal.server.maps.krakow.bakery.EdnaNPC"/>
 		<configurator class-name="games.stendhal.server.maps.krakow.bakery.LanoszNPC"/>
 
+		<entity x="16" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="volume">20</parameter>
+			</implementation>
+		</entity>
+
 		<portal x="26" y="14" ref="bakery_exit">
 			<destination zone="0_krakow_rynek" ref="bakery_entrance"/>
+		</portal>
+	</zone>
+
+	<!-- Blacksmith -->
+	<zone name="int_krakow_blacksmith" file="interiors/krakow/blacksmith.tmx">
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
+				<parameter name="sound">hammer-1, smith-1</parameter>
+				<parameter name="min">10</parameter>
+				<parameter name="max">60</parameter>
+				<parameter name="volume">50</parameter>
+			</implementation>
+		</entity>
+		<entity x="11" y="3">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
+				<parameter name="sound">fire-sparkes-1, fire-3, fire-8</parameter>
+				<parameter name="min">5</parameter>
+				<parameter name="max">30</parameter>
+				<parameter name="volume">50</parameter>
+			</implementation>
+		</entity>
+		<entity x="11" y="3">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="volume">20</parameter>
+			</implementation>
+		</entity>
+
+		<portal x="15" y="14" ref="bs1_exit">
+			<destination zone="0_krakow_rynek" ref="bs1_entrance"/>
+		</portal>
+		<portal x="16" y="14" ref="bs2_exit">
+			<destination zone="0_krakow_rynek" ref="bs2_entrance"/>
 		</portal>
 	</zone>
 
@@ -550,6 +605,38 @@ Południe: Zakopane
 		<configurator class-name="games.stendhal.server.maps.krakow.church.HonoratNPC"/>
 		<configurator class-name="games.stendhal.server.maps.krakow.church.StJacekNPC"/>
 		<configurator class-name="games.stendhal.server.maps.krakow.church.StKingaNPC"/>
+
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">church</parameter>
+				<parameter name="volume">80</parameter>
+			</implementation>
+		</entity>
+
+		<entity x="4" y="4">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="volume">20</parameter>
+			</implementation>
+		</entity>
+		<entity x="4" y="8">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="volume">20</parameter>
+			</implementation>
+		</entity>
+		<entity x="19" y="4">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="volume">20</parameter>
+			</implementation>
+		</entity>
+		<entity x="19" y="8">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="volume">20</parameter>
+			</implementation>
+		</entity>
 
 		<portal x="12" y="23" ref="church_exit">
 			<destination zone="0_krakow_rynek" ref="church_entrance"/>
