@@ -104,12 +104,12 @@
  </tileset>
  <layer name="0_floor" width="40" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2WSwrCMBCGm6uIeARRd4KXDA22Z3LRI7jwCC7ECSQ4pHnM5AERuvgglM7wz5em7TIMw1604QG9l4L+uv4FnMSas+daiNC9z0h/Crr+A8ywVsC9AqPppXu+TX9KjTQotKbWc5gy+k9mHomgzndNEPPBmR879M0nK+bL2R/s3e6zr97NycmHa0dmPvzscubL8Wd9cPNZhzZjy3yaHXAgZnOfw9D+UnNSao7AhZkvdf6p5yR0LjhZYg45789cf7lYh73msw7d91+IUL5UTcn3iXv+c/yVfj979set3/xt/v7R302U0dpfjXwz6lnDnxK//49a/nrd3y+JLdR8AA8AAA==
+   H4sIAAAAAAAAC+2WTQrCMBBGk6uIeAZdCl4yNNieyUWP4MIjuBAnkOAQO81MfiRCFw9K6Uy/eWnazkqpvW7DDXrPBf1d/QM46m9OC+coqGvvK/05uPoXMMGxBa4VGHwv1/Pp+3NqjMeiY269hDGj/+jnMQjufOcEaz4k82OHS/OZivly1gd7D+u8VB/nlOTDtYMwH352JfPl+As+pPmCw5CxZT7HDjgws8XPIbW+3JySe0pI7X/uPqH2RY2MzqHk/flLf9hhr/mCw/j9R0HlS9WUfJ+k+z/HX+n3s2d/0vrN3+bvH/1ddBmt/dXIN6GeNfxZ/fn/qOWv1/V9AzIe2CQADwAA
   </data>
  </layer>
  <layer name="1_terrain" width="40" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2XSQrCQBBF0wfyGoIiguAuoOLsQldeQMGDOBt14bgW1x5CxYV4Cz8kBTGkk47RblE/PHqqqnyqexNN+2vMNG0CDGauuxh7oM9ZOxVnJimQtmKyttiMbR5z2adYyqd6pCnmMzC39gYYh2DEWX+T2iDKoSXRR4LT24xHTidArQX2loKsPO5Zt87obZG/PNYFUAQl9uiPYnWPumucbQTZBniH5K+MnAqogprDn0o1gMGhrtAXKcdMIpg3mUnEti9bvDfk9BckV4ZE/KnUM/6O4PSi7ycZH54/vxyZUn2///6Fk8r+nRF/Cdnzd/bvipo3H3+/+v4OISF9cv+c/wtuCtI/kXqi8uvvCexd/O0Ecu3386zu6e/VqwAPAAA=
+   H4sIAAAAAAAAC2NgGAXLGRkYVgDxSkYIfyGQXgTEi3Hw0YEXIwQHAnEIVE08kto4JLYnFnGYWph+mHkwsArIXg3Ea6BiS4D0UiBehoM/nEATELvhwI10dIcPjrCNw6OnlQSzNgDFNhKJN+GJ52ioHCxtwdyXBOQnA3EKEKcyoroPpjYaj7mbgXJbiMRbSUiHMPelAfWkA3EGEGeiuW8gQR4Qr8SBcwfQXTCQwAjBukB2CSME6yKJ4wNmQHkrKpcZuNIQuvtI0UsPQIz7BhKQ4777QPyASvb7MeLGuNxHSA89wUDH72j4UQYGMvweAtU/pjDMaRl+z4FmviTgvpGa/k5TiGFgMIcfen8BGyAl/Igxj1hAKHwfAPFBLO7bT4Re5PghFwAAw1pzXgAPAAA=
   </data>
  </layer>
  <layer name="2_object" width="40" height="24">
@@ -137,7 +137,7 @@
    H4sIAAAAAAAAC+2V3QrAIAiF2/vf97yxi8EQzb+j20UHpGCp36xsXmPMY1C79YyW+XuM5rKsQwoRW6qXlMf6X7QuCL7dmsg3Gj+z71xO7Wzt1nJ8EXnqp92haHwEX/RedfIhfTN82XhIVfU+lKr5Os5fRocvJ0+v1PwrRONLc6s/WlIft76DnXzcPmtMX9Wv2jeSI2t/ZkMzVrB52bvyLkWa/SIADwAA
   </data>
  </layer>
- <layer name="protection" width="40" height="24" opacity="0.43">
+ <layer name="protection" width="40" height="24" visible="0" opacity="0.43">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3DAQkAAAwDoL1/gNVdj6NgL6mqqqo+PxgrYR8ADwAA
   </data>
