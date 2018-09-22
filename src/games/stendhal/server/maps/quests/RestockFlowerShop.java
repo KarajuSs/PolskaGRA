@@ -11,6 +11,7 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
+import games.stendhal.common.MathHelper;
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.server.entity.npc.ChatAction;
 import games.stendhal.server.entity.npc.ConversationPhrases;
@@ -78,19 +79,19 @@ public class RestockFlowerShop extends AbstractQuest {
 	private static final List<String> flowerTypes = Arrays.asList(
 			"stokrotki", "lilia", "bratek", "róża", "bielikrasa");
 
-	private final int MAX_FLOWERS = flowerTypes.size() * 10;
+	private static final int MAX_FLOWERS = flowerTypes.size() * 10;
 
 	private static final int REQ_WATER = 15;
 
 	// Time player must wait to repeat quest (3 days)
-	private static final int WAIT_TIME = 60 * 24 * 3;
+	private static final int WAIT_TIME = 3 * MathHelper.MINUTES_IN_ONE_DAY;
 
 	// Quest NPC
 	private final SpeakerNPC npc = npcs.get("Seremela");
 
 	@Override
 	public List<String> getHistory(final Player player) {
-		final List<String> res = new ArrayList<String>();
+		final List<String> res = new ArrayList<>();
 		if (!player.hasQuest(QUEST_SLOT)) {
 			return res;
 		}
@@ -105,7 +106,7 @@ public class RestockFlowerShop extends AbstractQuest {
 			remaining.addFromQuestStateString(questState);
 
 			// Check to avoid ArrayIndexOutOfBoundsException
-			if (remaining.size() > 0) {
+			if (!remaining.isEmpty()) {
 				String requestedFlowers = "Wciąż potrzebuję przynieść następujące kwiatki: " + Grammar.enumerateCollection(remaining.toStringList()) + ".";
 				res.add(requestedFlowers);
 			}
@@ -175,16 +176,16 @@ public class RestockFlowerShop extends AbstractQuest {
 				Arrays.asList("fleur"),
 				Arrays.asList("flask", "butelka"),
 				ConversationPhrases.HELP_MESSAGES);
-		List<String> responses = new ArrayList<String>();
-		responses.add("#Jenny ma nasiona tego typu kwiatków.");
-		responses.add("#Fleur zawsze posiada najpiękniejsze róże.");
-		responses.add("Bielikrasa to mój ulubiony kwiat. Niektórzy nazywają je arum lub lilie choć nimi nie są. Zapytaj #Jenny czy nie ma jakiś bulw.");
-		responses.add("Potrzebuję wody, aby moje #kwiaty były świeże. Musisz znaleść źródło wody i wziąść jej trochę do #butelek. Może jest toś kto sprzedaje wodę.");
-		responses.add("#Jenny dużo wie o kwiatach. Może też porozmawiasz z #Fleur.");
-		responses.add("Możesz spotkać Jenny w pobliżu młyna obok Semos. Tam gdzie mieli się zboże na mąkę.");
-		responses.add("Fleur pracuje na targu w Kirdneh.");
-		responses.add("Zapytaj barmanki w Semos.");
-		responses.add("Mogę ci #przypomnieć, które #kwiaty potrzebuję. także pomogę ci wskazać miejsce #gdzie trochę ich występuje.");
+		List<String> responses = Arrays.asList(
+						"#Jenny ma nasiona tego typu kwiatków.",
+						"#Fleur zawsze posiada najpiękniejsze róże.",
+						"Bielikrasa to mój ulubiony kwiat. Niektórzy nazywają je arum lub lilie choć nimi nie są. Zapytaj #Jenny czy nie ma jakiś bulw.",
+						"Potrzebuję wody, aby moje #kwiaty były świeże. Musisz znaleść źródło wody i wziąść jej trochę do #butelek. Może jest toś kto sprzedaje wodę.",
+						"#Jenny dużo wie o kwiatach. Może też porozmawiasz z #Fleur.",
+						"Możesz spotkać Jenny w pobliżu młyna obok Semos. Tam gdzie mieli się zboże na mąkę.",
+						"Fleur pracuje na targu w Kirdneh.",
+						"Zapytaj barmanki w Semos.",
+						"Mogę ci #przypomnieć, które #kwiaty potrzebuję. także pomogę ci wskazać miejsce #gdzie trochę ich występuje.");
 
 		for (int f = 0; f < responses.size(); f++) {
 			npc.add(ConversationStates.ANY,
@@ -248,21 +249,16 @@ public class RestockFlowerShop extends AbstractQuest {
 
 
 	private void prepareBringingStep() {
-		List<String> requestedItems = new ArrayList<String>();
-		for (String f : flowerTypes) {
-			requestedItems.add(f);
-		}
+		List<String> requestedItems = new ArrayList<>(flowerTypes);
 		requestedItems.add("woda");
 
-		final List<ChatAction> reward = new LinkedList<ChatAction>();
-		reward.add(new IncreaseXPAction(1000));
-		reward.add(new IncreaseKarmaAction(25.0));
-		reward.add(new EquipItemAction("zwój nalwor", 5));
-		reward.add(new SetQuestAction(QUEST_SLOT, "done"));
-		reward.add(new SetQuestToTimeStampAction(QUEST_SLOT, 1));
-		reward.add(new SayTextAction("Bardzo dziękuję! Teraz mogę zrealizować wszystkie zamówienia."));
-
-		ChatAction rewardAction = new MultipleActions(reward);
+		ChatAction rewardAction = new MultipleActions(
+				new IncreaseXPAction(1000),
+				new IncreaseKarmaAction(25.0),
+				new EquipItemAction("zwój nalwor", 5),
+				new SetQuestAction(QUEST_SLOT, "done"),
+				new SetQuestToTimeStampAction(QUEST_SLOT, 1),
+				new SayTextAction("Bardzo dziękuję! Teraz mogę zrealizować wszystkie zamówienia."));
 
 		/* add triggers for the item names */
 		for (String item : requestedItems) {
@@ -314,13 +310,9 @@ public class RestockFlowerShop extends AbstractQuest {
 				null);
 
 		// Player says "bye" or "no" while listing flowers
-		List<String> endDiscussionPhrases = new ArrayList<String>();
-		for (String phrase : ConversationPhrases.NO_MESSAGES) {
-			endDiscussionPhrases.add(phrase);
-		}
-		for (String phrase : ConversationPhrases.GOODBYE_MESSAGES) {
-			endDiscussionPhrases.add(phrase);
-		}
+		List<String> endDiscussionPhrases = new ArrayList<>(ConversationPhrases.NO_MESSAGES);
+		endDiscussionPhrases.addAll(ConversationPhrases.GOODBYE_MESSAGES);
+
 		npc.add(ConversationStates.QUESTION_1,
 				endDiscussionPhrases,
 				null,
