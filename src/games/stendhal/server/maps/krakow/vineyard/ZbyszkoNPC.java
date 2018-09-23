@@ -18,11 +18,11 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import games.stendhal.server.core.config.ZoneConfigurator;
-import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.behaviour.adder.ProducerAdder;
 import games.stendhal.server.entity.npc.behaviour.impl.ProducerBehaviour;
 
 /**
@@ -49,30 +49,49 @@ public class ZbyszkoNPC implements ZoneConfigurator {
 			@Override
 			protected void createPath() {
 				final List<Node> nodes = new LinkedList<Node>();
-				nodes.add(new Node(x, y)); // CHWILOWO BRAK ROZPLANOWANIA
+				nodes.add(new Node(26, 13));
+				nodes.add(new Node(26, 19));
+				nodes.add(new Node(27, 19));
+				nodes.add(new Node(27, 28));
+				nodes.add(new Node(18, 28));
+				nodes.add(new Node(18, 25));
+				nodes.add(new Node(17, 25));
+				nodes.add(new Node(17, 17));
+				nodes.add(new Node(4, 17));
+				nodes.add(new Node(4, 5));
+				nodes.add(new Node(10, 5));
+				nodes.add(new Node(4, 5));
+				nodes.add(new Node(4, 17));
+				nodes.add(new Node(17, 17));
+				nodes.add(new Node(17, 25));
+				nodes.add(new Node(18, 25));
+				nodes.add(new Node(18, 28));
+				nodes.add(new Node(27, 28));
+				nodes.add(new Node(27, 19));
+				nodes.add(new Node(26, 19));
+				nodes.add(new Node(26, 13));
 				setPath(new FixedPath(nodes, true));
 			}
 
 			@Override
 			protected void createDialog() {
-				addGreeting();
 				addJob("Zajmuje się tą winnicą oraz produkujemy tutaj najwyższej jakości wino!");
 				addOffer("Mogę Tobie przygotować doskonałe wino jakie jeszcze nikt nie widział, jeżeli zdobędziesz dla mnie winogrona od #'brata'. Powiedz mi tylko #'zrób', a wykonam dla Ciebie to wino.");
-				addReply("brat", "Mój brat ma na imię Winicjusz.");
+				addReply("brat", "Mój brat ma na imię Winicjusz, który powinien się znajdować zaraz obok naszego domu.");
+				addGoodbye();
 
 				final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
-				requiredResources.put("winogrona", 2);
-
+				requiredResources.put("kiść winogron", 2);
 				final ProducerBehaviour behaviour = new ProducerBehaviour("zbyszko_make_vine",
-						Arrays.asList("make", "zrób"), "wino", requiredResources, 1 * 60);
-
-				addGoodbye();
+						Arrays.asList("make", "zrób"), "napój z winogron", requiredResources, 1 * 60);
+				new ProducerAdder().addProducer(this, behaviour,
+						"Witajże w moim domu! Co potrzebujesz?");
 			}
 		};
 
 		npc.setDescription("Oto Zbyszko. Jest bratem Winicjusza i może przygotować doskonałe wino dla Ciebie.");
 		npc.setEntityClass("noimagenpc"); // npczbyszko
-		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
+		npc.setPosition(26, 13);
 		npc.initHP(100);
 		zone.add(npc);
 	}
