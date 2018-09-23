@@ -560,6 +560,9 @@ sugarcane.png       ???; ???; ???
 wood.png            Daniel Herding (mort); GPL 2.0; Stendhal
 wool.png            Nadine Schlonies (dine); GPL 2.0; Stendhal
 yarn.png            tiborius; GPL 2.0; Stendhal
+/**pol**/
+copper_ore.*        KarajuSs; GPL 2.0; PolskaGRA
+copper_bar.*        KarajuSs; GPL 2.0; PolskaGRA
 
 data/sprites/items/ring/
 
