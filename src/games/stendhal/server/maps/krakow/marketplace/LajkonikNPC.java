@@ -57,6 +57,8 @@ public class LajkonikNPC implements ZoneConfigurator {
 				nodes.add(new Node(88, 52));
 				nodes.add(new Node(88, 48));
 				nodes.add(new Node(101, 48));
+				nodes.add(new Node(88, 48));
+				nodes.add(new Node(88, 45));
 				setPath(new FixedPath(nodes, true));
 			}
 
