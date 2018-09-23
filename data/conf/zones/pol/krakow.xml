@@ -93,6 +93,7 @@
 		<entity x="17" y="87">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
 				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">15</parameter>
 				<parameter name="volume">20</parameter>
 			</implementation>
 		</entity>
@@ -558,6 +559,7 @@ Południe: Zakopane
 		<entity x="16" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
 				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">15</parameter>
 				<parameter name="volume">20</parameter>
 			</implementation>
 		</entity>
@@ -588,6 +590,7 @@ Południe: Zakopane
 		<entity x="11" y="3">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
 				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">15</parameter>
 				<parameter name="volume">20</parameter>
 			</implementation>
 		</entity>
@@ -616,24 +619,28 @@ Południe: Zakopane
 		<entity x="4" y="4">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
 				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">15</parameter>
 				<parameter name="volume">20</parameter>
 			</implementation>
 		</entity>
 		<entity x="4" y="8">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
 				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">15</parameter>
 				<parameter name="volume">20</parameter>
 			</implementation>
 		</entity>
 		<entity x="19" y="4">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
 				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">15</parameter>
 				<parameter name="volume">20</parameter>
 			</implementation>
 		</entity>
 		<entity x="19" y="8">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
 				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">15</parameter>
 				<parameter name="volume">20</parameter>
 			</implementation>
 		</entity>
