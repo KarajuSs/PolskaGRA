@@ -11,9 +11,11 @@
  ***************************************************************************/
 package games.stendhal.server.maps.krakow.blacksmith;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -22,7 +24,9 @@ import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.behaviour.adder.ProducerAdder;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
+import games.stendhal.server.entity.npc.behaviour.impl.ProducerBehaviour;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
 
 /**
@@ -59,13 +63,19 @@ public class SamsonNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("Witaj w mej kuźni, wojowniku!");
 				addJob("Specjalizuje się w przetapianiu miedzi, ale również możesz o ode mnie otrzymać dobry sprzęt!");
 				addOffer("Sprzedaję: toporek 25, topór jednoręczny 35, topór 50, pyrlik 90, pordzewiała kosa 210, misa do płukania złota 270.");
-				// 3x copper ore + 2x wood = 1x copper
-				// czas: 7 min na szt.
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("sellsamson")), false);
 				addGoodbye();
+
+				final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
+				requiredResources.put("polano", 2);
+				requiredResources.put("ruda miedzi", 1);
+
+				final ProducerBehaviour behaviour = new ProducerBehaviour("samson_cast_copper",
+						Arrays.asList("cast", "odlej"), "sztabka miedzi", requiredResources, 7 * 60);
+				new ProducerAdder().addProducer(this, behaviour,
+						"Witaj w mej kuźni, wojowniku! Jeżeli będziesz coś potrzebował to zagadaj do mnie. Mogę dla Ciebie #odlać szatbkę miedzi. Powiedz mi tylko #'odlej sztabka miedzi'.");
 			}
 		};
 
