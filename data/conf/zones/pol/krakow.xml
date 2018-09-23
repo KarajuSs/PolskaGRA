@@ -109,6 +109,16 @@
 			</implementation>
 		</entity>
 
+		<entity x="21" y="87">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
+				<parameter name="sound">water-2</parameter>
+				<parameter name="min">10</parameter>
+				<parameter name="max">15</parameter>
+				<parameter name="radius">8</parameter>
+				<parameter name="volume">30</parameter>
+			</implementation>
+		</entity>
+
 		<portal x="64" y="63" ref="sukiennice_1_entrance">
 			<destination zone="int_krakow_sukiennice" ref="sukiennice_1_exit"/>
 		</portal>
@@ -155,6 +165,20 @@
 		</portal>
 		<portal x="75" y="28" ref="tavern2_entrance">
 			<destination zone="int_krakow_tavern" ref="tavern2_exit"/>
+		</portal>
+		<!-- Vineyard house -->
+		<portal x="21" y="121" ref="vyh_entrance">
+			<destination zone="int_krakow_vineyard_house_0" ref="vyh_exit"/>
+		</portal>
+		
+		<!-- Poziom -1 - canals -->
+		<portal x="90" y="87" ref="canals_entrance">
+			<destination zone="-1_krakow_canals" ref="canals_exit"/>
+			<attribute name="face">up</attribute>
+		</portal>
+		<portal x="91" y="87" ref="canals_entrance">
+			<destination zone="-1_krakow_canals" ref="canals_exit"/>
+			<attribute name="face">up</attribute>
 		</portal>
 	</zone>
 
@@ -667,6 +691,13 @@ Południe: Zakopane
 		<configurator class-name="games.stendhal.server.maps.krakow.tavern.MrManasNPC"/>
 		<configurator class-name="games.stendhal.server.maps.krakow.tavern.MerchandNPC"/>
 
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-klawesyn</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+
 		<entity x="4" y="22">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.ShopSign">
 				<parameter name="shop">buymerchand</parameter>
@@ -691,6 +722,27 @@ Południe: Zakopane
 		</portal>
 		<portal x="13" y="23" ref="tavern2_exit">
 			<destination zone="0_krakow_rynek" ref="tavern2_entrance"/>
+		</portal>
+	</zone>
+
+	<!-- Vineyard house 0 -->
+	<zone name="int_krakow_vineyard_house_0" file="interiors/krakow/vineyard_house_0.tmx">
+		<configurator class-name="games.stendhal.server.maps.krakow.vineyard.ZbyszkoNPC"/>
+
+		<portal x="22" y="2" ref="vyh_-1_entrance">
+			<destination zone="int_krakow_vineyard_house_-1" ref="vyh_-1_exit"/>
+			<attribute name="face">right</attribute>
+		</portal>
+		<portal x="15" y="30" ref="vyh_exit">
+			<destination zone="0_krakow_rynek" ref="vyh_entrance"/>
+		</portal>
+	</zone>
+
+	<!-- Vineyard house -1 -->
+	<zone name="int_krakow_vineyard_house_-1" file="interiors/krakow/vineyard_house_-1.tmx">
+		<portal x="11" y="7" ref="vyh_-1_exit">
+			<destination zone="int_krakow_vineyard_house_0" ref="vyh_-1_entrance"/>
+			<attribute name="face">right</attribute>
 		</portal>
 	</zone>
 
@@ -896,6 +948,23 @@ Południe: Zakopane
 	</zone>
 
 	<!-- Level -1 -->
+	<!-- krakow rynek -->
+	<zone name="-1_krakow_canals" level="-1" x="513312" y="17792" file="Level -1/krakow/canals.tmx">
+		<attributes>
+			<parameter name="color_method">dark</parameter>
+		</attributes>
+		<entity x="1" y="1">
+			<implementation
+				class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">sewers</parameter>
+			</implementation>
+		</entity>
+
+		<portal x="62" y="67" ref="canals_exit">
+			<destination zone="0_krakow_rynek" ref="canals_entrance"/>
+			<attribute name="face">left</attribute>
+		</portal>
+	</zone>
 
 	<!-- Wawels cave -->
 	<zone name="-1_krakow_cave" level="-1" x="513568" y="18048" file="Level -1/krakow/smok_wawelski_cave.tmx">
