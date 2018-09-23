@@ -76,7 +76,7 @@ public class GoldsmithNPC implements ZoneConfigurator {
 
 				// Joshua makes gold if you bring him gold nugget and wood
 				final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
-				requiredResources.put("polano", 2);
+				requiredResources.put("polano", 3);
 				requiredResources.put("bryłka złota", 1);
 
 				final ProducerBehaviour behaviour = new ProducerBehaviour("joshua_cast_gold",
