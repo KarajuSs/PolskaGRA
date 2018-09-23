@@ -8,6 +8,7 @@
 - Poprawiono wiele map
 - Zegary ma mapach pokazują nam godzinę, jeżeli klikniemy na niego PPM i wybierzemy opcję 'zobacz'
 - Zmieniono nazwę przedmiotu z: 'pióro mrocznego archanioła' na 'pióro archanioła ciemności'
+- Dodano opisy dla potworów: 'elf ciemności matrona' & 'samurai'
 
 
 *klient*
@@ -19,11 +20,15 @@
 - Zwiększono maksymalną ilość liter w tekstach (rozmowy z NPC/graczami tzw. 'chmurki') z 84 na 124
 - Wiele nowych outfitów dla NPC
 - Dodano muzykę na pustynnych mapach (desert) oraz na mapie 1_dreamscape
+- Obraz potwora "coś" został zmieniony na bardziej abstrakcyjny
 
 
 *code*
 - Nowa implementacja sprawdzania statusu 'uzdrowienia' dla przedmiotów typu: antidotum & mocne antidotum & środek uspokajający
 - Dodano nowy skrypt dla administratorów ułatwiający wyszukanie nieużywanych grafik przedmiotów bądź potworów
+- Paski statusu (m.in. status zdrowia) przesuwa się w dół w momencie kiedy postać gracza / potwora etc. "wychodzi" poza nasze pole widzenia na ekranie
+- Przerobiono częściowo kod gry / skryptów
+- Potrzeba od teraz 20 poziom administratora, aby móc korzystać ze skryptów
 
 
 *naprawa błędów*
@@ -32,6 +37,7 @@
 - Poprawiono naliczanie 13-nastego smoka
 - Poprawiono ostatnie zadanie u "Czarnoksiężnika"
 - Naprawiono naliczanie czasu podczas wykonywania / ulepszania złotych ciupag (tak samo z jednym wąsem i z dwoma wąsami)
+- Naprawiono wyświetlanie powtarzalności misji: 'odnowienie zapasów kwiaciarni' w dzienniku zdarzeń
 
 
 
