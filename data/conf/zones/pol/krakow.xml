@@ -74,6 +74,7 @@
 	<zone name="0_krakow_rynek" level="0" x="513440" y="17792" file="Level 0/krakow/krakow_rynek.tmx">
 		<configurator class-name="games.stendhal.server.maps.krakow.marketplace.LajkonikNPC"/>
 		<configurator class-name="games.stendhal.server.maps.krakow.blacksmith.SamsonNPC"/>
+		<configurator class-name="games.stendhal.server.maps.krakow.vineyard.WinicjuszNPC"/>
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>

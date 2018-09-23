@@ -682,7 +682,7 @@ public final class ShopList {
 		shops.add("buymanas", "magia światła", 16);
 
 		//Winicjusz sprzedaje:
-		shops.add("sellwinicjusz", "winogrona", 9);
+		shops.add("sellwinicjusz", "kiść winogron", 9);
 
 		//Straznik sprzedaje:
 		shops.add("wawel", "zwój krakowski", 250);

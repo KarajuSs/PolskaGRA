@@ -11,6 +11,7 @@
  ***************************************************************************/
 package games.stendhal.server.maps.krakow.vineyard;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -50,7 +51,10 @@ public class WinicjuszNPC implements ZoneConfigurator {
 			@Override
 			protected void createPath() {
 				final List<Node> nodes = new LinkedList<Node>();
-				nodes.add(new Node(x, y)); // CHWILOWO BRAK ROZPLANOWANIA
+				nodes.add(new Node(14, 118));
+				nodes.add(new Node(9, 118));
+				nodes.add(new Node(9, 120));
+				nodes.add(new Node(14, 120));
 				setPath(new FixedPath(nodes, true));
 			}
 
@@ -59,15 +63,15 @@ public class WinicjuszNPC implements ZoneConfigurator {
 				addGreeting();
 				addJob("Zajmuje się tą winnicą oraz produkujemy tutaj najwyższej jakości wino!");
 				addOffer("Możesz ode mnie kupić winogrona, które możesz zanieść do mojego #'brata'. Zrobi on dla Ciebie najlepsze wino jakie jeszcze nikt nie widział!");
-				addReply("brat", "Mój brat ma na imię Zbyszko.");
-				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("buywinicjusz")), false);
+				addReply(Arrays.asList("brat", "brata", "brother"), "Mój brat ma na imię Zbyszko, który powinien się znajdować w środku domu.");
+				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("sellwinicjusz")), false);
 				addGoodbye();
 			}
 		};
 
 		npc.setDescription("Oto Winicjusz. Jest plantatorem i na pobliskim wzgórzu uprawia soczyste winogrona, z których potem produkuje się doskonałe wino.");
 		npc.setEntityClass("noimagenpc"); // npcwinicjusz
-		npc.setPosition(x, y); // CHWILOWO BRAK ROZPLANOWANIA
+		npc.setPosition(14, 120);
 		npc.initHP(100);
 		zone.add(npc);
 	}
