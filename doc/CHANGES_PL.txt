@@ -1,6 +1,6 @@
 ﻿Changelog
 ---------
-1.05
+1.05 - KRÓLESTWO POLAN
 *świat gry*
 - Dodano nowy przedmiot: "środek uspokajający", który leczy/zapobiega stanom szokującym
 - Przetłumaczono wiadomości + zagadki w Piekle [hell]
@@ -21,6 +21,7 @@
 - Gdzieś w Krakowskim grodzie można sprzedać magię
 - Dodano nowy dungeon w Krakowie
 - Ogromna ilość zmian na mapach
+- Dodano wiele nowych pomieszczeń w Krakowie
 
 
 *klient*
@@ -35,7 +36,7 @@
 - Dodano kilka dźwięków oraz dwie specjalne piosenki dla Krakowskich map
 - Zmieniono obraz potwora "coś" na bardziej abstrakcyjny
 - Dodano efekt otwierania bramy obok królewskiego grodu
-- Dodano grafikę kozy & rosnącego winogrona & rudy miedzi & sztabki miedzi
+- Dodano grafikę kozy & rosnących winogron & rudy miedzi & sztabki miedzi
 
 
 *code*
