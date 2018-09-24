@@ -58,6 +58,7 @@ import games.stendhal.server.entity.mapstuff.useable.WaterSpringSource;
 import games.stendhal.server.entity.mapstuff.useable.WellSource;
 import games.stendhal.server.entity.mapstuff.useable.SourceAmetyst;
 import games.stendhal.server.entity.mapstuff.useable.SourceCarbuncle;
+import games.stendhal.server.entity.mapstuff.useable.SourceCopper;
 import games.stendhal.server.entity.mapstuff.useable.SourceEmerald;
 import games.stendhal.server.entity.mapstuff.useable.SourceGold;
 import games.stendhal.server.entity.mapstuff.useable.SourceIron;
@@ -181,6 +182,9 @@ public class RPClassGenerator {
 		}
 		if (!RPClass.hasRPClass("source_gold")) {
 			SourceGold.generateRPClass();
+		}
+		if (!RPClass.hasRPClass("source_copper")) {
+			SourceCopper.generateRPClass();
 		}
 		if (!RPClass.hasRPClass("source_iron")) {
 			SourceIron.generateRPClass();

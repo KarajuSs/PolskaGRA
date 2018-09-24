@@ -369,6 +369,21 @@ kopalnia węgla!
 			</implementation>
 		</entity>
 
+		<entity x="20" y="3">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.useable.SourceCopper"/>
+		</entity>
+		<entity x="34" y="40">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.useable.SourceCopper"/>
+		</entity>
+		<entity x="61" y="17">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.useable.SourceCopper"/>
+		</entity>
+		<entity x="40" y="2">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.useable.SourceCopper"/>
+		</entity>
+		<entity x="56" y="12">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.useable.SourceCopper"/>
+		</entity>
 		<entity x="4" y="49">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.useable.SourceAmetyst"/>
 		</entity>

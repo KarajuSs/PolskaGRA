@@ -23,14 +23,13 @@ import org.apache.log4j.Logger;
 /**
  * @author KarajuSs
  */
-public class SourceGold extends PlayerActivityEntity {
-	private static final Logger logger = Logger.getLogger(SourceGold.class);
+public class SourceCopper extends PlayerActivityEntity {
+	private static final Logger logger = Logger.getLogger(SourceCopper.class);
 
 	/**
 	 * The equipment needed.
 	 */
 	private static final String NEEDED_EQUIPMENT_1 = "kilof";
-	private static final String NEEDED_EQUIPMENT_2 = "lina";
 
 	/**
 	 * The chance that prospecting is successful.
@@ -43,10 +42,10 @@ public class SourceGold extends PlayerActivityEntity {
 	private final String itemName;
 
 	/**
-	 * Create a gold source.
+	 * Create a copper source.
 	 */
-	public SourceGold() {
-		this("bryłka złota");
+	public SourceCopper() {
+		this("ruda miedzi");
 	}
 
 	/**
@@ -58,26 +57,22 @@ public class SourceGold extends PlayerActivityEntity {
 	}
 
 	/**
-	 * Create a gold source.
+	 * Create a copper source.
 	 * 
 	 * @param itemName
 	 *            The name of the item to be prospected.
 	 */
-	public SourceGold(final String itemName) {
+	public SourceCopper(final String itemName) {
 		this.itemName = itemName;
 		put("class", "source");
-		put("name", "source_gold");
+		put("name", "source_copper");
 		setMenu("Wydobądź");
 		setDescription("Wszystko wskazuje na to, że tutaj coś jest.");
 		setResistance(100);
 	}
 
-	//
-	// SourceGold
-	//
-
 	public static void generateRPClass() {
-		final RPClass rpclass = new RPClass("source_gold");
+		final RPClass rpclass = new RPClass("source_copper");
 		rpclass.isA("entity");
 	}
 
@@ -92,7 +87,7 @@ public class SourceGold extends PlayerActivityEntity {
 	 * @return The probability of success.
 	 */
 	private double getSuccessProbability(final Player player) {
-		double probability = 0.02;
+		double probability = FINDING_PROBABILITY;
 
 		final String skill = player.getSkill("mining");
 
@@ -102,10 +97,6 @@ public class SourceGold extends PlayerActivityEntity {
 
 		return probability + player.useKarma(0.02);
 	}
-
-	//
-	// PlayerActivityEntity
-	//
 
 	/**
 	 * Get the time it takes to perform this activity.
@@ -124,11 +115,11 @@ public class SourceGold extends PlayerActivityEntity {
 	 */
 	@Override
 	protected boolean isPrepared(final Player player) {
-		if (player.isEquipped(NEEDED_EQUIPMENT_1) && player.isEquipped(NEEDED_EQUIPMENT_2)) {
+		if (player.isEquipped(NEEDED_EQUIPMENT_1)) {
 			return true;
 		}
 
-		player.sendPrivateText("Potrzebujesz kilofa i liny do wydobywania złota.");
+		player.sendPrivateText("Potrzebujesz kilofa do wydobywania złota.");
 		return false;
 	}
 
@@ -178,6 +169,6 @@ public class SourceGold extends PlayerActivityEntity {
 	 */
 	@Override
 	protected void onStarted(final Player player) {
-		player.sendPrivateText("Rozpocząłeś wydobywanie złota.");
+		player.sendPrivateText("Rozpocząłeś wydobywanie miedzi.");
 	}
 }
