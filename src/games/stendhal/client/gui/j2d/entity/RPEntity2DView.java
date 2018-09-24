@@ -12,7 +12,6 @@
  ***************************************************************************/
 package games.stendhal.client.gui.j2d.entity;
 
-
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -257,12 +256,16 @@ abstract class RPEntity2DView<T extends RPEntity> extends ActiveEntity2DView<T> 
 		}
 
 		if (nameColor == null) {
-			if (adminlevel >= 800) {
-				nameColor = new Color(200, 200, 0);
-			} else if (adminlevel >= 400) {
-				nameColor = Color.yellow;
+			if (adminlevel >= 1000) {
+				nameColor = new Color(150, 149, 34); // ciemny żółty
+			} else if (adminlevel >= 20) {
+				nameColor = new Color(200, 200, 0); // żółty
+			} else if (adminlevel >= 7) {
+				nameColor = new Color(255, 255, 172); // jasny żółty
+			} else if (adminlevel >= 3) {
+				nameColor = new Color(185, 255, 185); // jasna zieleń
 			} else if (adminlevel > 0) {
-				nameColor = new Color(255, 255, 172);
+				nameColor = new Color(205, 255, 205); // blada zieleń
 			} else {
 				nameColor = Color.white;
 			}
