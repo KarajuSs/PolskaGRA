@@ -20,9 +20,6 @@ import games.stendhal.client.entity.IEntity;
 import games.stendhal.client.gui.Inspectable;
 import games.stendhal.client.gui.styled.cursor.StendhalCursor;
 
-//
-//
-
 /**
  * The view of an entity.
  *
