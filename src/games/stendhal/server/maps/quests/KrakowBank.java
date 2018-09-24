@@ -1,5 +1,5 @@
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -12,6 +12,11 @@
 // Based on WizardBank.
 
 package games.stendhal.server.maps.quests;
+
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import games.stendhal.common.Direction;
 import games.stendhal.common.parser.Sentence;
@@ -41,39 +46,26 @@ import games.stendhal.server.entity.npc.condition.QuestNotCompletedCondition;
 import games.stendhal.server.entity.npc.condition.QuestNotStartedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.util.TimeUtil;
-
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import marauroa.common.game.IRPZone;
 
-/**
- * Controls player access to the Wizard's Bank via an NPC. 
- * <p>He takes a fee to enter. Players are allowed only 5 minutes access at once.
- * 
- * @author kymara
- */
-
-public class ZakopaneBank extends AbstractQuest implements LoginListener {
+public class KrakowBank extends AbstractQuest implements LoginListener {
 
 	// constants
-	private static final String QUEST_SLOT = "zakopane_bank";
+	private static final String QUEST_SLOT = "krakowski_bank";
 
 	private static final String GRAFINDLE_QUEST_SLOT = "grafindle_gold";
 
 	private static final String ZARA_QUEST_SLOT = "suntan_cream_zara";
 
-	private static final String ZONE_NAME = "int_zakopane_bank_0";
+	private static final String ZONE_NAME = "int_krakow_bank_0";
 
-	private static final String ZONE_NAME_1 = "int_zakopane_bank_1";
+	private static final String ZONE_NAME_1 = "int_krakow_bank_1";
 
-	/** Time (in Seconds) allowed in the bank. */
-	private static final int TIME = 60 * 5;
+	/** Time (in Seconds) allowed in the bank. ~ 10 min */
+	private static final int TIME = 60 * 10; 
 
 	// Cost to access chests
-	private static final int COST = 1000;
+	private static final int COST = 2000;
 
 	// "static" data
 	private StendhalRPZone zone = null;
@@ -182,17 +174,9 @@ public class ZakopaneBank extends AbstractQuest implements LoginListener {
 	}
 
 	private void createNPC() {
-
-		npc = new SpeakerNPC("Bankier Kazimierz") {
-			@Override
-			protected void createPath() {
-				// NPC doesn't move
-				setPath(null);
-			}
-
+		npc = new SpeakerNPC("Bankier Tibor") {
 			@Override
 			protected void createDialog() {
-
 				// has been here before
 				add(ConversationStates.IDLE,
 						ConversationPhrases.GREETING_MESSAGES,
@@ -202,7 +186,7 @@ public class ZakopaneBank extends AbstractQuest implements LoginListener {
 								new QuestCompletedCondition(QUEST_SLOT)),
 						ConversationStates.ATTENDING,
 						null,
-						new SayTextAction("Witaj w Banku w Zakopanem, [name]. Czy chcesz zapłacić za dostęp do skrzyń na piętrze?"));
+						new SayTextAction("Witaj w Krakowskim Banku, [name]. Czy chcesz zapłacić za dostęp do skrzyń na piętrze?"));
 
 				// never started quest
 				add(ConversationStates.IDLE,
@@ -213,7 +197,7 @@ public class ZakopaneBank extends AbstractQuest implements LoginListener {
 								new QuestNotStartedCondition(QUEST_SLOT)),
 						ConversationStates.ATTENDING,
 						null,
-						new SayTextAction("Witaj w Banku w Zakopanem, [name]."));
+						new SayTextAction("Witaj w Krakowskim Banku, [name]."));
 
 				// currently in bank
 				add(ConversationStates.IDLE,
@@ -224,7 +208,7 @@ public class ZakopaneBank extends AbstractQuest implements LoginListener {
 								new QuestActiveCondition(QUEST_SLOT)),
 						ConversationStates.ATTENDING,
 						null,
-						new SayTextAction("Witaj w Banku w Zakopanem, [name]. Możesz wyjść wcześniej. Jeżeli chcesz to powiedz tylko #wyjście.."));
+						new SayTextAction("Witaj w Krakowskim Banku, [name]. Możesz wyjść wcześniej. Jeżeli chcesz to powiedz tylko #wyjście.."));
 
 				// hasn't got access to all banks yet
 				add(ConversationStates.IDLE,
@@ -259,10 +243,10 @@ public class ZakopaneBank extends AbstractQuest implements LoginListener {
 								new PlayerHasItemWithHimCondition("money", COST), 
 								new QuestNotActiveCondition(QUEST_SLOT)),
 								ConversationStates.ATTENDING,
-								"Skrzynie banków Semos, Nalwor, Ados i Fado są po mojej prawej.",
+								"Skrzynie banków Zakopane, Semos, Nalwor, Ados i Fado są po mojej prawej.",
 								new MultipleActions(
 										new DropItemAction("money", COST),
-										new TeleportAction(ZONE_NAME, 41, 15, Direction.DOWN),
+										new TeleportAction(ZONE_NAME, 19, 5, Direction.UP),
 										new SetQuestAction(QUEST_SLOT, "start"),
 										new ChatAction() {
 											@Override
@@ -312,10 +296,10 @@ public class ZakopaneBank extends AbstractQuest implements LoginListener {
 						Arrays.asList("leave", "wyjście", "wyjdź"),
 						new QuestActiveCondition(QUEST_SLOT),
 						ConversationStates.ATTENDING,
-						"Dziękuję za skorzystanie z Banku w Zakopanem",
+						"Dziękuję za skorzystanie z Krakowskiego Banku",
 						// we used to use teleportAway() here 
 						new MultipleActions(
-								new TeleportAction(ZONE_NAME, 34, 15, Direction.DOWN),
+								new TeleportAction(ZONE_NAME, 21, 9, Direction.DOWN),
 								new SetQuestAction(QUEST_SLOT, "done"),
 								new ChatAction() {
 									@Override
@@ -325,12 +309,14 @@ public class ZakopaneBank extends AbstractQuest implements LoginListener {
 
 
 				addJob("Kontroluje dostęp do tej części banku. Bez #opłaty za wejście nie dostaniesz się dalej.");
-				addOffer("Sądzę, że oferowana usługa #podatkowa nie jest zbyt dużym dla Ciebie obciążeniem.");
+				addOffer("Sądzę, że oferowana usługa #podatkowa nie jest zbyt dużym dla Ciebie obciążeniem. Słyszałem, że w jeden z #najpopularniejszych banków, który znajdował się w #'Zakopane', #przestał oferować dostęp do innych banków.");
 
 				addReply(Arrays.asList("fiscal", "podatkowa"),
 						"Nie znasz znaczenia tego słowa? Powinieneś spędzać więcej czau w bibliotece. Słyszałem, że w Ados jest najlepsza.");
+				addReply(Arrays.asList("najpopularniejszy", "najpopularniejszym", "najpopularniejszych", "przestał", "Zakopane", "bank", "zakopane", "zako", "pne"),
+						"Czyli jednak to prawda? No cóż.. Taką możliwość nadal oferuje nasz Krakowski Bank.");
 
-				addHelp("Ta część banku ma dostęp do każdego banku. Będziesz musiał zapłacić #opłatę za ten przywilej. Nie jesteśmy instytucją charytatywną. Powiedz #opłata #1000 jeżeli zdecydujesz się.");
+				addHelp("Ta część banku ma dostęp do każdego banku. Będziesz musiał zapłacić #opłatę za ten przywilej. Nie jesteśmy instytucją charytatywną. Powiedz #opłata #2000 jeżeli zdecydujesz się.");
 
 				addQuest("Możesz korzystać z banku tylko jeżeli masz prawo do używania skrzyni w Nalwor.");
 
@@ -340,7 +326,7 @@ public class ZakopaneBank extends AbstractQuest implements LoginListener {
 
 		npc.setDescription("Oto strażnik skarbca, z którym nie powinieneś zadzierać.");
 		npc.setEntityClass("youngnpc");
-		npc.setPosition(35, 14);
+		npc.setPosition(21, 6);
 		npc.initHP(100);
 		zone.add(npc);
 	}
@@ -366,14 +352,14 @@ public class ZakopaneBank extends AbstractQuest implements LoginListener {
 		if (player != null) {
 			final IRPZone playerZone = player.getZone();
 			if (playerZone.equals(zone)) {
-				player.teleport(zone, 32, 14, Direction.DOWN, player);
+				player.teleport(zone, 21, 9, Direction.DOWN, player);
 
 				// complete the quest if it already started
 				if (player.hasQuest(QUEST_SLOT)) {
 					player.setQuest(QUEST_SLOT, "done");
 				}
 			} else if (playerZone.equals(zone_1)) {
-				player.teleport(zone_1, 28, 3, Direction.DOWN, player);
+				player.teleport(zone_1, 5, 3, Direction.DOWN, player);
 
 				// complete the quest if it already started
 				if (player.hasQuest(QUEST_SLOT)) {
@@ -386,8 +372,8 @@ public class ZakopaneBank extends AbstractQuest implements LoginListener {
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-			"Bank Zakopane",
-			"Chcesz mieć dostęp do wszystkich skrzyń na raz? Skożystaj z piętra w banku zakopane.",
+			"Krakowski Bank",
+			"Chcesz mieć dostęp do wszystkich skrzyń na raz? Skorzystaj z piętra w krakowskim banku.",
 			false);
 
 		SingletonRepository.getLoginNotifier().addListener(this);
@@ -399,7 +385,7 @@ public class ZakopaneBank extends AbstractQuest implements LoginListener {
 
 	@Override
 	public String getName() {
-		return "ZakopaneBank";
+		return "KrakowskiBank";
 	}
 
 	@Override
@@ -413,6 +399,6 @@ public class ZakopaneBank extends AbstractQuest implements LoginListener {
 	}
 	@Override
 	public String getNPCName() {
-		return "Bankier Kazimierz";
+		return "Bankier Tibor";
 	}
 }
