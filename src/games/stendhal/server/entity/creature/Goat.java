@@ -47,8 +47,8 @@ public class Goat extends DomesticAnimal {
 
 	/** the logger instance. */
 	private static final Logger logger = Logger.getLogger(Goat.class);
-	private static final List<String> largeGoatSounds = Arrays.asList("goat-2", "goat-4");
-	private static final List<String> smallGoatSounds = Arrays.asList("goat-1", "goat-3");
+	private static final List<String> largeGoatSounds = Arrays.asList("goat-2");
+	private static final List<String> smallGoatSounds = Arrays.asList("goat-1");
 
 	/**
 	 * The amount of hunger that indicates hungry.
