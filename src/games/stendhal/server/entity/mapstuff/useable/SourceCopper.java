@@ -58,7 +58,7 @@ public class SourceCopper extends PlayerActivityEntity {
 
 	/**
 	 * Create a copper source.
-	 * 
+	 *
 	 * @param itemName
 	 *            The name of the item to be prospected.
 	 */
@@ -80,10 +80,10 @@ public class SourceCopper extends PlayerActivityEntity {
 	 * Calculates the probability that the given player finds stone. This is
 	 * based on the player's mining skills, however even players with no skills
 	 * at all have a 5% probability of success.
-	 * 
+	 *
 	 * @param player
 	 *            The player,
-	 * 
+	 *
 	 * @return The probability of success.
 	 */
 	private double getSuccessProbability(final Player player) {
@@ -100,7 +100,7 @@ public class SourceCopper extends PlayerActivityEntity {
 
 	/**
 	 * Get the time it takes to perform this activity.
-	 * 
+	 *
 	 * @return The time to perform the activity (in seconds).
 	 */
 	@Override
@@ -110,7 +110,7 @@ public class SourceCopper extends PlayerActivityEntity {
 
 	/**
 	 * Decides if the activity can be done.
-	 * 
+	 *
 	 * @return <code>true</code> if successful.
 	 */
 	@Override
@@ -119,13 +119,13 @@ public class SourceCopper extends PlayerActivityEntity {
 			return true;
 		}
 
-		player.sendPrivateText("Potrzebujesz kilofa do wydobywania złota.");
+		player.sendPrivateText("Potrzebujesz kilofa do wydobywania miedzi.");
 		return false;
 	}
 
 	/**
 	 * Decides if the activity was successful.
-	 * 
+	 *
 	 * @return <code>true</code> if successful.
 	 */
 	@Override
@@ -136,7 +136,7 @@ public class SourceCopper extends PlayerActivityEntity {
 
 	/**
 	 * Called when the activity has finished.
-	 * 
+	 *
 	 * @param player
 	 *            The player that did the activity.
 	 * @param successful
@@ -163,7 +163,7 @@ public class SourceCopper extends PlayerActivityEntity {
 
 	/**
 	 * Called when the activity has started.
-	 * 
+	 *
 	 * @param player
 	 *            The player starting the activity.
 	 */
