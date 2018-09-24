@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="26" height="20" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="kafelki_rozne" tilewidth="32" tileheight="32" tilecount="80" columns="16">
+  <image source="../../tileset/pol/domki/podloga/kafelki_rozne.png" width="512" height="160"/>
+ </tileset>
+ <tileset firstgid="81" name="int_plazy" tilewidth="32" tileheight="32" tilecount="27" columns="3">
+  <image source="../../tileset/pol/waly/int_plazy.png" width="96" height="288"/>
+ </tileset>
+ <tileset firstgid="108" name="barierki_sznurkowe" tilewidth="32" tileheight="32" tilecount="6" columns="3">
+  <image source="../../tileset/pol/ogrodzenie/barierki_sznurkowe.png" width="96" height="64"/>
+ </tileset>
+ <tileset firstgid="114" name="schody_drewniane" tilewidth="32" tileheight="32" tilecount="36" columns="6">
+  <image source="../../tileset/pol/domki/schody/schody_drewniane.png" width="192" height="192"/>
+ </tileset>
+ <tileset firstgid="150" name="barierki_zlote" tilewidth="32" tileheight="32" tilecount="15" columns="5">
+  <image source="../../tileset/pol/ogrodzenie/barierki_zlote.png" width="160" height="96"/>
+ </tileset>
+ <tileset firstgid="165" name="lawka_ciemna" tilewidth="32" tileheight="32" tilecount="12" columns="3">
+  <image source="../../tileset/pol/wyposazenie/lawki_krzesla/lawka_ciemna.png" width="96" height="128"/>
+ </tileset>
+ <tileset firstgid="177" name="sztabki_zlota" tilewidth="32" tileheight="32" tilecount="6" columns="2">
+  <image source="../../tileset/pol/wyposazenie/sztabki_zlota.png" width="64" height="96"/>
+ </tileset>
+ <tileset firstgid="183" name="wood_fire" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../../tileset/pol/wyposazenie/wood_fire.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="187" name="miecze" tilewidth="32" tileheight="32" tilecount="32" columns="8">
+  <image source="../../tileset/pol/wyposazenie/miecze.png" width="256" height="128"/>
+ </tileset>
+ <tileset firstgid="219" name="statua_z_mieczem" tilewidth="32" tileheight="32" tilecount="54" columns="6">
+  <image source="../../tileset/pol/posagi/statua_z_mieczem.png" width="192" height="288"/>
+ </tileset>
+ <tileset firstgid="273" name="kolumny" tilewidth="32" tileheight="32" tilecount="30" columns="10">
+  <image source="../../tileset/pol/posagi/kolumny.png" width="320" height="96"/>
+ </tileset>
+ <tileset firstgid="303" name="statua" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../../tileset/pol/posagi/statua.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="307" name="flames_half" tilewidth="32" tileheight="32" tilecount="12" columns="12">
+  <image source="../../tileset/pol/oswietlenie/flames_half.png" width="384" height="32"/>
+ </tileset>
+ <tileset firstgid="319" name="door_s" tilewidth="32" tileheight="32" tilecount="6" columns="3">
+  <image source="../../tileset/building/door/door_s.png" width="96" height="64"/>
+ </tileset>
+ <tileset firstgid="325" name="protection" tilewidth="32" tileheight="32" tilecount="2" columns="2">
+  <image source="../../tileset/logic/protection.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="327" name="collision" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="328" name="flagi" tilewidth="32" tileheight="32" tilecount="36" columns="3">
+  <image source="../../tileset/pol/wyposazenie/flagi.png" width="96" height="384"/>
+ </tileset>
+ <tileset firstgid="364" name="iron_lamp" tilewidth="32" tileheight="32" tilecount="3" columns="1">
+  <image source="../../tileset/furniture/light/iron_lamp.png" width="32" height="96"/>
+ </tileset>
+ <tileset firstgid="367" name="flames" tilewidth="32" tileheight="32" tilecount="6" columns="6">
+  <image source="../../tileset/furniture/light/flames.png" width="192" height="32"/>
+ </tileset>
+ <tileset firstgid="373" name="okna" tilewidth="32" tileheight="32" tilecount="16" columns="8">
+  <image source="../../tileset/pol/domki/okna/window_drewno.png" width="256" height="64"/>
+ </tileset>
+ <layer name="0_floor" width="26" height="20">
+  <data encoding="base64" compression="zlib">
+   eJyTZGBgkKQjjgZicyiOprPdo3gUD1XMCcU5QJxLZZyHZP4oHsWjeBTDMAAq6ypB
+  </data>
+ </layer>
+ <layer name="1_terrain" width="26" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzlkVsKwjAQRacbsmupSq2Pou0Cqm5MBbVaV+cNTqHExEacoR9eOOTBMIdJEiIaMyMQd85STMAULMAS3MCd91KsQMqenF5pwIPec3XchdasHR6J1LyewUXRY/tsj2vuKgrv66u1PbXH9Wu0383n2YKdMPsB5zH55t/70vayPeb+gPX4gVOnT0it6Tnku0nP4/No5B/m0fZsQKFEyZ4ZyJSZgyf2YHP/
+  </data>
+ </layer>
+ <layer name="2_object" width="26" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztU7cOwjAUTAZ6/QmEKAtIsFJn/obeiwTMwA78ASV8HxfJFuZhh4DwxkmnOPfuzk6UGIYaLfP5vmm+eqhGMzIU4CmCJ6zP4IhkhpIOqvEM76C4CesLeAXzyORcnI/D9lusi3fohGU89nuHFM6W/uBZMvBmid8S1lPMZg59Hsy8oE/i8UMLgEGH/ByzhYvzhuAJgxGJNwotBsYVPXmiL8GVJq6FfTbgVhN35Bn34OHHPAr9XbzD3of/iVvYnX1woKH7j9+Cfwe68M13kBD8yS/P1niTs+d0HzcZGToKvc30Eq5lxorpnFHpNiaK2ZjpVVxrjHXTOUP1O4hHR2U=
+  </data>
+ </layer>
+ <layer name="3_roof" width="26" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBh4YMDIwKDPSJp6UoEoUI8YEH8Gsr8A8Vcsar4B8Xcg/gHE4kC1Ekj2bATiTUTYIw/UowDEP4HsX0D8G4uaP0D8F4j/AbEiUK0SGf6Bgf8gAqifEYsZTEAxZiBmocB8agBy4msoghwq+hOXWaB8kktFe3Lx5L3VQLwGD15LptqBAiPNP4LAeBWCxq0wI3n+8SAirUlD7QFhWSLUYzPTm8g0LcMIwcQAYs0cBbgBAPW8NsI=
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="26" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgF1AYljMSrzSdBLTrIJUEvKWpHAXmgiIphXIjDLGragc9MWqSX0TRIfyDECMG0Ah5Asz0ZULEHDezzBpopjWSuLCNEbBTQFgAAdOcHFw==
+  </data>
+ </layer>
+ <layer name="objects" width="26" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGwShABQAIIAAB
+  </data>
+ </layer>
+ <layer name="collision" width="26" height="20" opacity="0.3">
+  <data encoding="base64" compression="zlib">
+   eJxzZ2RgcB/GGBngEscGyDGfEkCqPaTaj66eHLvIlcdnHz51pMjhsoNWYKDsGcj8M5D+oNQcWgFs9lDbP7jsGWn+QbeHHP8Q0ofLP6TaQa90TWsMAGQpUvk=
+  </data>
+ </layer>
+ <layer name="protection" width="26" height="20" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjAJU4MpIGzxqz6g9I8Ge4QIAvIswIQ==
+  </data>
+ </layer>
+</map>

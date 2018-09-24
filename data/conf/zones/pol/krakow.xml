@@ -119,6 +119,14 @@
 			</implementation>
 		</entity>
 
+		<entity x="78" y="28">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-klawesyn</parameter>
+				<parameter name="volume">25</parameter>
+				<parameter name="radius">8</parameter>
+			</implementation>
+		</entity>
+
 		<portal x="64" y="63" ref="sukiennice_1_entrance">
 			<destination zone="int_krakow_sukiennice" ref="sukiennice_1_exit"/>
 		</portal>
@@ -330,6 +338,10 @@
 				<parameter name="message">Jesteś jeszcze zbyt słaby, aby móc przejść.</parameter>
 			</implementation>
 		</entity>
+
+		<portal x="120" y="77" ref="hof_entrance">
+			<destination zone="int_krakow_halloffame" ref="hof_exit"/>
+		</portal>
 
 		<portal x="102" y="79" ref="brama_destination">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination"/>
@@ -1486,6 +1498,73 @@ Południe: Zakopane
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
 		<portal x="7" y="14" ref="fisher_hut_exit">
 			<destination zone="0_krakow_wisla_w" ref="fisher_hut_entrance"/>
+		</portal>
+	</zone>
+
+	<!-- Hall of Fame house -->
+	<zone name="int_krakow_halloffame" file="interiors/krakow/hof_house.tmx">
+		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+		<entity x="1" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
+				<parameter name="sound">pol-littlemeadow1</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		<entity x="2" y="9">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">7</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		<entity x="3" y="8">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">7</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		<entity x="22" y="8">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">7</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		<entity x="23" y="9">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">7</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		<entity x="7" y="3">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">7</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		<entity x="18" y="3">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">7</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		<entity x="4" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">10</parameter>
+				<parameter name="volume">20</parameter>
+			</implementation>
+		</entity>
+
+		<portal x="13" y="18" ref="hof_exit">
+			<destination zone="0_krakow_wawel_w" ref="hof_entrance"/>
+		</portal>
+		<portal x="12" y="18" ref="hof_exit">
+			<destination zone="0_krakow_wawel_w" ref="hof_entrance"/>
 		</portal>
 	</zone>
 
