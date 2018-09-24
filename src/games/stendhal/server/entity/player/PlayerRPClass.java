@@ -91,6 +91,7 @@ public class PlayerRPClass {
 		player.addRPSlot("bank_fado", 36, Definition.HIDDEN);
 		player.addRPSlot("bank_nalwor", 36, Definition.HIDDEN);
 		player.addRPSlot("bank_zakopane", 36, Definition.HIDDEN);
+		player.addRPSlot("bank_krakow", 36, Definition.HIDDEN);
 
 		// Kills recorder - needed for quest
 		player.addRPSlot("!kills", 1, Definition.HIDDEN);

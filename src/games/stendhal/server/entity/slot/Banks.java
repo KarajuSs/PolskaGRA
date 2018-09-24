@@ -28,6 +28,8 @@ public enum Banks {
 	NALWOR("bank_nalwor"),
 	/** bank in Zakopane. */
 	ZAKOPANE("bank_zakopane"),
+	/** bank in Krakow. */
+	KRAKOW("bank_krakow"),
 	/** mini-bank in zaras house. */
 	ZARAS("zaras_chest_ados");
 
