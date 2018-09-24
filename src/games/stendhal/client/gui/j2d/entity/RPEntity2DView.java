@@ -860,7 +860,7 @@ abstract class RPEntity2DView<T extends RPEntity> extends ActiveEntity2DView<T> 
 	public void setVisibleScreenArea(Rectangle area) {
 		Rectangle drawingArea = getDrawingArea();
 		int drawTop = drawingArea.y - getStatusBarHeight();
-		int visibleTop = area.y + 5;
+		int visibleTop = area.y;
 		statusBarYOffset = Math.max(0, visibleTop - drawTop);
 	}
 
