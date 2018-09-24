@@ -90,7 +90,7 @@ public class ZbyszkoNPC implements ZoneConfigurator {
 		};
 
 		npc.setDescription("Oto Zbyszko. Jest bratem Winicjusza i może przygotować doskonałe wino dla Ciebie.");
-		npc.setEntityClass("noimagenpc"); // npczbyszko
+		npc.setEntityClass("buyernpc");
 		npc.setPosition(26, 13);
 		npc.initHP(100);
 		zone.add(npc);

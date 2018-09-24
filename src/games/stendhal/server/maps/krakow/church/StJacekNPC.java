@@ -69,7 +69,7 @@ public class StJacekNPC implements ZoneConfigurator {
 		};
 
 		npc.setDescription("Oto St Jacek. Jest mnichem i zajmuje się z sprzedażą eliksirów.");
-		npc.setEntityClass("noimagenpc"); // npcjacek
+		npc.setEntityClass("npcjacek");
 		npc.setPosition(35, 16);
 		npc.initHP(100);
 		zone.add(npc);
