@@ -1,6 +1,43 @@
 ﻿Changelog
 ---------
 1.05
+*świat gry*
+- Dodano nowy przedmiot: "środek uspokajający", który leczy/zapobiega stanom szokującym
+- Przetłumaczono wiadomości + zagadki w Piekle [hell]
+- Minimalne zwiększenie rozmiarów smoków (chodzi o okrąg pod potworkiem) z 3,2 na 3,3
+- Poprawiono wiele map
+- Zegary ma mapach pokazują nam godzinę, jeżeli klikniemy na niego PPM i wybierzemy opcję 'zobacz'
+- Zmieniono nazwę przedmiotu z: 'pióro mrocznego archanioła' na 'pióro archanioła ciemności'
+- Dodano opisy dla potworów: 'elf ciemności matrona' & 'samurai'
+
+
+*klient*
+- Rozmiary klienta zostały odrobinę powiększone z 640x480 (pikseli) na 800x600 (pikseli)
+- "Dymki" z wiadomościami zostały poszerzone o 100px (pikseli) [z 240px na 340px]
+- Nazwy map pod minimapą w lewym panelu zostaną podmieniane (np: nazwa mapy: 0_zakopane_s; efekt końcowy w kliencie: Zakopane S)
+- Więcej grafik natury broni służącej do ustawienia ikonki walki, jeśli jest dostępna
+- Zmieniono kolorystyke potwora 'dwugłowego lodowego smoka'
+- Zwiększono maksymalną ilość liter w tekstach (rozmowy z NPC/graczami tzw. 'chmurki') z 84 na 124
+- Wiele nowych outfitów dla NPC
+- Dodano muzykę na pustynnych mapach (desert) oraz na mapie 1_dreamscape
+- Obraz potwora "coś" został zmieniony na bardziej abstrakcyjny
+
+
+*code*
+- Nowa implementacja sprawdzania statusu 'uzdrowienia' dla przedmiotów typu: antidotum & mocne antidotum & środek uspokajający
+- Dodano nowy skrypt dla administratorów ułatwiający wyszukanie nieużywanych grafik przedmiotów bądź potworów
+- Paski statusu (m.in. status zdrowia) przesuwa się w dół w momencie kiedy postać gracza / potwora etc. "wychodzi" poza nasze pole widzenia na ekranie
+- Przerobiono częściowo kod gry / skryptów
+- Potrzeba od teraz 20 poziom administratora, aby móc korzystać ze skryptów
+
+
+*naprawa błędów*
+- Wyciszono pomniejsze błędy kompilatora
+- Poprawiono opis 'pasa z mithrilu'
+- Poprawiono naliczanie 13-nastego smoka
+- Poprawiono ostatnie zadanie u "Czarnoksiężnika"
+- Naprawiono naliczanie czasu podczas wykonywania / ulepszania złotych ciupag (tak samo z jednym wąsem i z dwoma wąsami)
+- Naprawiono wyświetlanie powtarzalności misji: 'odnowienie zapasów kwiaciarni' w dzienniku zdarzeń
 
 
 
@@ -62,6 +99,7 @@
 - Dodano 13 (12 + 1 stary) nowych przedmiotów - pasów [skórzany pas; wzmocniony skórzany pas; kolczany pas; karmazynowy pas; złoty kolczany pas; pas elficki; pas zbójecki (stary przedmiot); pas krasnoludzki; pas wampirzy; pas olbrzymi; złoty pas; czarny pas; pas z mithrilu]
 - W jaskini kikareukin znajduje się NPC, który nagradza nas za zdobyty 350 poziom
 - Dodano 4 semońskie skrzynie w górnej części zakopiańskiego banku oraz dodano tabliczki z jakiej krainy te skrzynie pochodzą
+- Zadanie na złotą ciupagę z jednym wąsem nie jest wymagany przedmiot: 'krew smoka', a na złotą ciupagę z dwoma wąsami nie są wymagane następujące przedmioty: 'pazur niebieskiego smoka' (podmieniono na 'pazur zielonego smoka') & 'pazur czarnego smoka'. Dodatkowo zwiększono nagrodę w postaci punktów doświadczenia w pierwszym zadaniu z 20'000 na 250'000 oraz drugiego zadania z 20'000 na 500'000
 
 
 *code*
@@ -72,6 +110,7 @@
 - Naprawiono zadanie na tarcze z mithrilu
 - Naprawiono błąd, który powodował, że miejsca gracza się niezapisywały
 - Naprawiono błąd z nowymi domkami, które znajdują się na mapie 0_zakopane_s
+- Poprawiono zadania na złotą ciupagę z jednym wąsem & z dwoma wąsami
 
 
 

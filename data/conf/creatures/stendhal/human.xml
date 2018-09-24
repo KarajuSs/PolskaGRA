@@ -523,7 +523,7 @@
 
 	<creature name="samurai">
 		<type class="stendhal/human" subclass="samurai" tileid="human_evil.png:5"/>
-		<description></description>
+		<description>Oto samurai. Jeśli nie zdołałby utrzymać swego honoru, mógłby odzyskać go, wykonując seppuku.</description>
 		<attributes>
 			<atk value="585"/>
 			<def value="73"/>
@@ -2250,6 +2250,7 @@
 			<item value="money" quantity="[5,43]" probability="100.0"/>
 			<item value="butelka wody" quantity="[1,1]" probability="5.0"/>
 			<item value="antidotum" quantity="[2,5]" probability="20.0"/>
+			<item value="środek uspokajający" quantity="[1,2]" probability="5.0"/>
 		</drops>
 		<equips>
 		</equips>

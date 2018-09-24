@@ -1,5 +1,5 @@
 /***************************************************************************
- *                (C) Copyright 2003-2013 - Faiumoni e. V.                 *
+ *                (C) Copyright 2003-2018 - Arianne                        *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -12,46 +12,72 @@
 package games.stendhal.server.entity.item.consumption;
 
 import java.lang.ref.WeakReference;
+import java.util.Collections;
+import java.util.Set;
 
 import games.stendhal.server.core.events.TurnListener;
 import games.stendhal.server.entity.RPEntity;
+import games.stendhal.server.entity.status.StatusList;
 import games.stendhal.server.entity.status.StatusType;
 
 /**
- * timesout antidotes
+ * Times out status healing/immunizing items.
  *
  * @author hendrik
+ * @author AntumDeluge
  */
-class AntidoteEater implements TurnListener {
+public class StatusHealerEater implements TurnListener {
 
 	private WeakReference<RPEntity> entityReference;
 
+	private Set<StatusType> statuses = Collections.emptySet();
+
 	/**
-	 * creates an antidote
+	 * Constructor defining one status healed by the item.
 	 *
-	 * @param entity entity
+	 * @param entity
+	 * 			Entity the item is used on.
+	 * @param status
+	 * 			Status type this item cures.
 	 */
-	public AntidoteEater(final RPEntity entity) {
+	public StatusHealerEater(final RPEntity entity, final StatusType status) {
 		entityReference = new WeakReference<RPEntity>(entity);
+		statuses.add(status);
+	}
+
+	/**
+	 * Constructor defining multiple statuses healed by the item.
+	 *
+	 * @param entity
+	 * 			Entity the item is used on.
+	 * @param status
+	 * 			List of statuses this item cures.
+	 */
+	public StatusHealerEater(final RPEntity entity, final Set<StatusType> status) {
+		entityReference = new WeakReference<RPEntity>(entity);
+		statuses = status;
 	}
 
 	@Override
-	public void onTurnReached(final int currentTurn) {
+	public void onTurnReached(int currentTurn) {
 		RPEntity entity = entityReference.get();
-
 		if (entity == null) {
 			return;
 		}
-		entity.getStatusList().removeImmunity(StatusType.POISONED);
+
+		StatusList entityStatuses = entity.getStatusList();
+		for (StatusType st: statuses) {
+			entityStatuses.removeImmunity(st);
+		}
 	}
 
 	@Override
 	public boolean equals(final Object obj) {
-		if (! (obj instanceof AntidoteEater)) {
+		if (! (obj instanceof StatusHealerEater)) {
 			return false;
 		}
 
-		final AntidoteEater other = (AntidoteEater) obj;
+		final StatusHealerEater other = (StatusHealerEater) obj;
 		RPEntity entity = entityReference.get();
 		if (entity == null) {
 			return other.entityReference.get() == null;

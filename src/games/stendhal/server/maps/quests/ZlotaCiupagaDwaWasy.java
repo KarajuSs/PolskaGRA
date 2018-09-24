@@ -16,6 +16,8 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import games.stendhal.common.MathHelper;
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -47,6 +49,8 @@ public class ZlotaCiupagaDwaWasy extends AbstractQuest {
 
 	private static final String KRASNOLUD_QUEST_SLOT = "krasnolud";
 
+	private static Logger logger = Logger.getLogger(ZlotaCiupagaDwaWasy.class);
+
 	@Override
 	public String getSlotName() {
 		return QUEST_SLOT;
@@ -66,7 +70,7 @@ public class ZlotaCiupagaDwaWasy extends AbstractQuest {
 							if(player.getKarma() >= 1000) {
 								if(player.hasKilled("serafin")) {
 									if (!player.hasQuest(QUEST_SLOT) || "rejected".equals(player.getQuest(QUEST_SLOT))) {
-										raiser.say("Musisz być dzielnym wojownikiem skoro dotarłeś aż tu. Mam dla ciebie Zadanie, czy jesteś gotów?");
+										raiser.say("Musisz być dzielnym wojownikiem skoro dotarłeś aż tu. Mam dla ciebie zadanie, czy jesteś gotów?");
 									} else if (player.getQuest(QUEST_SLOT).startsWith("done;")) {
 										if (player.isQuestCompleted(QUEST_SLOT)) {
 											raiser.say("Jestem bardzo wdzięczny za pomoc. Moje smoki w końcu mnie słuchają.");
@@ -125,9 +129,8 @@ public class ZlotaCiupagaDwaWasy extends AbstractQuest {
 	private void step_2() {
 		final SpeakerNPC npc = npcs.get("Krasnolud");
 		final List<ChatAction> ciupagaactions = new LinkedList<ChatAction>();
-		ciupagaactions.add(new DropItemAction("pazur niebieskiego smoka",1));
+		ciupagaactions.add(new DropItemAction("pazur zielonego smoka",1));
 		ciupagaactions.add(new DropItemAction("pazur czerwonego smoka",1));
-		ciupagaactions.add(new DropItemAction("pazur czarnego smoka",1));
 		ciupagaactions.add(new DropItemAction("złota ciupaga z wąsem",1));
 		ciupagaactions.add(new DropItemAction("sztabka złota",150));
 		ciupagaactions.add(new DropItemAction("money",1200000));
@@ -137,9 +140,8 @@ public class ZlotaCiupagaDwaWasy extends AbstractQuest {
 
 		npc.add(ConversationStates.ATTENDING, Arrays.asList("przedmioty", "przypomnij", "ciupaga"),
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "start"),
-								 new PlayerHasItemWithHimCondition("pazur niebieskiego smoka",1),
+								 new PlayerHasItemWithHimCondition("pazur zielonego smoka",1),
 								 new PlayerHasItemWithHimCondition("pazur czerwonego smoka",1),
-								 new PlayerHasItemWithHimCondition("pazur czarnego smoka",1),
 								 new PlayerHasItemWithHimCondition("złota ciupaga z wąsem",1),
 								 new PlayerHasItemWithHimCondition("sztabka złota",150),
 								 new PlayerHasItemWithHimCondition("money",1200000),
@@ -151,9 +153,8 @@ public class ZlotaCiupagaDwaWasy extends AbstractQuest {
 		npc.add(ConversationStates.ATTENDING, Arrays.asList("przypomnij", "Władca Smoków", "władca", "smok"),
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "start"),
 								 new NotCondition(
-								 new AndCondition(new PlayerHasItemWithHimCondition("pazur niebieskiego smoka",1),
+								 new AndCondition(new PlayerHasItemWithHimCondition("pazur zielonego smoka",1),
 												  new PlayerHasItemWithHimCondition("pazur czerwonego smoka",1),
-												  new PlayerHasItemWithHimCondition("pazur czarnego smoka",1),
 												  new PlayerHasItemWithHimCondition("złota ciupaga z wąsem",1),
 												  new PlayerHasItemWithHimCondition("sztabka złota",150),
 												  new PlayerHasItemWithHimCondition("money",1200000),
@@ -161,15 +162,14 @@ public class ZlotaCiupagaDwaWasy extends AbstractQuest {
 												  new PlayerHasItemWithHimCondition("pióro serafina",2)))),
 				ConversationStates.ATTENDING, "Tak wiem Władca Smoków mówił mi o tobie. Zajmuję się udoskonalaniem złotej ciupagi.\n"
 									+"Do jej udoskonalenia potrzebuję:\n"
-									+"#'1 pazur niebieskiego smoka'\n"
+									+"#'1 pazur zielonego smoka'\n"
 									+"#'1 pazur czerwonego smoka'\n"
-									+"#'1 pazur czarnego smoka'\n"
 									+"#'1 złota ciupaga z wąsem'\n"
 									+"#'150 sztabek złota'\n"
 									+"#'1200000 money'\n"
 									+"#'10 polan' oraz\n"
 									+"#'2 pióra serafina'\n"
-									+"Proszę przynieś mi to wszystko naraz. Jeżeli zapomnisz co masz przynieść to powiedz #przypomnij. Dziękuję!", null);
+									+"Proszę przynieś mi to wszystko naraz. Jeżeli zapomnisz co masz przynieść to powiedz #'przypomnij'. Dziękuję!", null);
 
 	}
 
@@ -198,7 +198,7 @@ public class ZlotaCiupagaDwaWasy extends AbstractQuest {
 					}
 
 					raiser.say("Warto było czekać. A oto i ona, czyż nie jest wspaniała!");
-					player.addXP(20000);
+					player.addXP(500000);
 					player.addKarma(100);
 					final Item zlotaCiupagaZDwomaWasami = SingletonRepository.getEntityManager().getItem("złota ciupaga z dwoma wąsami");
 					zlotaCiupagaZDwomaWasami.setBoundTo(player.getName());
@@ -253,6 +253,7 @@ public class ZlotaCiupagaDwaWasy extends AbstractQuest {
 		// if things have gone wrong and the quest state didn't match any of the above, debug a bit:
 		final List<String> debug = new ArrayList<String>();
 		debug.add("Stan zadania to: " + questState);
+		logger.error("Historia nie pasuje do stanu poszukiwania " + questState);
 		return debug;
 	}
 

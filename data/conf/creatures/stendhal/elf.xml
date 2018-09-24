@@ -641,7 +641,7 @@
 
 	<creature name="elf ciemności matrona">
 		<type class="stendhal/dark_elf" subclass="dark_elf_matronmother" tileid="dark_elf.png:5"/>
-		<description></description>
+		<description>Ciemna i spowita, ta matriarcha rządzi swoim klanem delikatnym dotykiem i ostrymi kłami. Ekspert od jadów i trucizn, nigdy nie chciałbyś odwrócić się od niej.</description>
 		<attributes>
 			<atk value="869"/>
 			<def value="136"/>

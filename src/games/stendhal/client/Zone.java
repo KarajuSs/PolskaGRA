@@ -397,7 +397,7 @@ public class Zone {
 	 * 
 	 * @return secret.
 	 */
-	CollisionDetection getSecret() {
+	public CollisionDetection getSecret() {
 		return secret;
 	}
 

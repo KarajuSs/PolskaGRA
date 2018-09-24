@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -12,16 +11,18 @@
  ***************************************************************************/
 package games.stendhal.client.gui.map;
 
-import javax.swing.JComponent;
-import javax.swing.SwingUtilities;
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import javax.swing.JComponent;
+import javax.swing.SwingUtilities;
+
 import games.stendhal.client.GameObjects;
 import games.stendhal.client.StendhalClient;
+import games.stendhal.client.StendhalClient.ZoneChangeListener;
+import games.stendhal.client.Zone;
 import games.stendhal.client.entity.DomesticAnimal;
 import games.stendhal.client.entity.EntityChangeListener;
 import games.stendhal.client.entity.HousePortal;
@@ -31,18 +32,22 @@ import games.stendhal.client.entity.Portal;
 import games.stendhal.client.entity.RPEntity;
 import games.stendhal.client.entity.User;
 import games.stendhal.client.entity.WalkBlocker;
+import games.stendhal.client.entity.Wall;
 import games.stendhal.client.gui.layout.SBoxLayout;
 import games.stendhal.client.gui.layout.SLayout;
 import games.stendhal.client.listener.PositionChangeListener;
 import games.stendhal.common.CollisionDetection;
 
-public class MapPanelController implements GameObjects.GameObjectListener, PositionChangeListener {
+/**
+ * Controller object for the map panel.
+ */
+public class MapPanelController implements GameObjects.GameObjectListener, PositionChangeListener, ZoneChangeListener {
 	private static final boolean supermanMode = (System.getProperty("stendhal.superman") != null);
 	private final JComponent container;
 	private final MapPanel panel;
 	private final InformationPanel infoPanel;
 	final Map<IEntity, MapObject> mapObjects = new ConcurrentHashMap<IEntity, MapObject>();
-	double x, y;
+	private double x, y;
 
 	/**
 	 * <code>true</code> if the map should be repainted, <code>false</code>
@@ -50,6 +55,11 @@ public class MapPanelController implements GameObjects.GameObjectListener, Posit
 	 */
 	private volatile boolean needsRefresh;
 
+	/**
+	 * Create a MapPanelController.
+	 *
+	 * @param client client object
+	 */
 	public MapPanelController(final StendhalClient client) {
 		container = new MapContainer();
 		container.setLayout(new SBoxLayout(SBoxLayout.VERTICAL));
@@ -59,7 +69,7 @@ public class MapPanelController implements GameObjects.GameObjectListener, Posit
 
 		infoPanel = new InformationPanel();
 		infoPanel.setBackground(Color.BLACK);
-		container.add(infoPanel, SBoxLayout.constraint(SLayout.EXPAND_X));
+		container.add(infoPanel, SLayout.EXPAND_X);
 
 		client.getGameObjects().addGameObjectListener(this);
 	}
@@ -104,9 +114,11 @@ public class MapPanelController implements GameObjects.GameObjectListener, Posit
 			object = new PortalMapObject(entity);
 		} else if (entity instanceof WalkBlocker) {
 			object = new WalkBlockerMapObject(entity);
+		} else if (entity instanceof Wall) {
+			object = new WallMapObject(entity);
 		} else if (entity instanceof DomesticAnimal) {
 			// Only own pets and sheep are drawn but this is checked in the map object so the user status is always up to date
-			object = new DomesticAnimalMapObject((DomesticAnimal)entity);
+			object = new DomesticAnimalMapObject((DomesticAnimal) entity);
 		} else if (supermanMode && User.isAdmin()) {
 			if (entity instanceof RPEntity) {
 				object = new RPEntityMapObject(entity);
@@ -135,6 +147,7 @@ public class MapPanelController implements GameObjects.GameObjectListener, Posit
 		}
 	}
 
+
 	/**
 	 * Remove an entity from the map entity list.
 	 *
@@ -142,8 +155,7 @@ public class MapPanelController implements GameObjects.GameObjectListener, Posit
 	 */
 	@Override
 	public void removeEntity(final IEntity entity) {
-		if (mapObjects.containsKey(entity)) {
-			mapObjects.remove(entity);
+		if (mapObjects.remove(entity) != null) {
 			needsRefresh = true;
 		}
 	}
@@ -168,7 +180,7 @@ public class MapPanelController implements GameObjects.GameObjectListener, Posit
 	 *            The zone name.
 	 * @param dangerLevel zone danger level
 	 */
-	public void update(final CollisionDetection cd, final CollisionDetection pd, final CollisionDetection sd,
+	private void update(final CollisionDetection cd, final CollisionDetection pd, final CollisionDetection sd,
 			final String zone, final double dangerLevel) {
 		// Panel will do the relevant part in EDT.
 		panel.update(cd, pd, sd);
@@ -213,6 +225,20 @@ public class MapPanelController implements GameObjects.GameObjectListener, Posit
 				}
 			});
 		}
+	}
+
+	@Override
+	public void onZoneChange(Zone zone) {
+	}
+
+	@Override
+	public void onZoneChangeCompleted(Zone zone) {
+		update(zone.getCollision(), zone.getProtection(), zone.getSecret(), zone.getReadableName(), zone.getDangerLevel());
+	}
+
+	@Override
+	public void onZoneUpdate(Zone zone) {
+		update(zone.getCollision(), zone.getProtection(), zone.getSecret(), zone.getReadableName(), zone.getDangerLevel());
 	}
 
 	/**

@@ -258,8 +258,9 @@
 	<item name="antidotum">
 		<type class="drink" subclass="antidote" tileid="-1"/>
 		<description>To jest antidotum, aby odkazić cię i obronić od jadu przez chwilkę.</description>
-		<implementation class-name="games.stendhal.server.entity.item.Drink"/>
+		<implementation class-name="games.stendhal.server.entity.item.StatusHealer"/>
 		<attributes>
+			<immunization value="poisoned"/>
 			<amount value="400"/>
 			<frequency value="1"/>
 			<quantity value="1"/>
@@ -281,8 +282,9 @@
 	<item name="mocne antidotum">
 		<type class="drink" subclass="greater_antidote" tileid="-1"/>
 		<description>To jest mocne antidotum, aby odkazić cię i obronić od jadu przez dłuższą chwilkę.</description>
-		<implementation class-name="games.stendhal.server.entity.item.Drink"/>
+		<implementation class-name="games.stendhal.server.entity.item.StatusHealer"/>
 		<attributes>
+			<immunization value="poisoned"/>
 			<amount value="800"/>
 			<frequency value="1"/>
 			<quantity value="1"/>
@@ -624,6 +626,30 @@
 			<slot name="rhand"/>
 		</equipable>
 	</item>
+	
+	<item name="środek uspokajający">
+	    <type class="drink" subclass="sedative" tileid="-1" />
+	    <description>Oto środek uspokajający. Jego działanie może ochronić cię przed wstrząsem.</description>
+	    <implementation class-name="games.stendhal.server.entity.item.StatusHealer" />
+	    <attributes>
+	      <immunization value="shocked" />
+	      <amount value="400" />
+	      <frequency value="1"/>
+	      <quantity value="1"/>
+	      <regen value="1"/>
+	      <menu value="Wypij|Użyj" />
+	    </attributes>
+	    <weight value="1.0" />
+	    <value value="1" />
+	    <equipable>
+	      <slot name="ground" />
+	      <slot name="content" />
+	      <slot name="lhand" />
+	      <slot name="rhand" />
+	      <slot name="bag" />
+	      <slot name="trade" />
+	    </equipable>
+	  </item>
 
 	<!--<item name="święta woda">
 		<type class="drink" subclass="holy_water" tileid="-1"/>

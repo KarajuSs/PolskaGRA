@@ -805,9 +805,9 @@
 		</equipable>
 	</item>
 
-	<item name="pióro mrocznego archanioła">
+	<item name="pióro archanioła ciemności">
 		<type class="resource" subclass="pioro_mr_archaniola" tileid="-1"/>
-		<description>Oto pióro mrocznego archanioła. Jest drogocenne i ma wiele ukrytych właściwości.</description>
+		<description>Oto pióro archanioła ciemności. Jest drogocenne i ma wiele ukrytych właściwości.</description>
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
 			<quantity value="1"/>

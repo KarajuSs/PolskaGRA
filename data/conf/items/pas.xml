@@ -231,7 +231,7 @@
 
 	<item name="pas z mithrilu">
 		<type class="pas" subclass="pas_z_mithrilu" tileid="-1"/>
-		<description>Oto pas z mirhtilu.</description>
+		<description>Oto pas z mithrilu.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
 			<def value="14"/>

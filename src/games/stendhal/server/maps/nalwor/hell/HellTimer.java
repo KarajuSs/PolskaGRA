@@ -35,12 +35,12 @@ public class HellTimer implements ZoneConfigurator, ZoneEnterExitListener {
 	private static final String QUEST_SLOT = "hell_timer";
 	/**
 	 * The mean time player may normally stay in hell (excluding grace time).
-	 * The actual time is random. 
+	 * The actual time is random.
 	 */
 	private static final int MEAN_WAIT_TIME = MathHelper.SECONDS_IN_ONE_HOUR;
 	/**
 	 * The mean time player may stay in hell (excluding grace time) when they
-	 * have been caught recently. The actual time is random. 
+	 * have been caught recently. The actual time is random.
 	 */
 	private static final int SHORT_WAIT_TIME = 3 * MathHelper.SECONDS_IN_ONE_MINUTE;
 	/**
@@ -65,63 +65,65 @@ public class HellTimer implements ZoneConfigurator, ZoneEnterExitListener {
 	 */
 	private static final int GRACE_TIME_INTERVAL = 5;
 	private static final int LAWYER_FEE = 10000;
-	private static final String STD_MSG = "An irresistible force drags you to the Pit";
-	private static final String LAWYER_MSG = "The lawyer sends you to the reapers.";
+	private static final String STD_MSG = "Jakaś nieprzeparta siła wciąga cię do Piekła.";
+	private static final String LAWYER_MSG = "Prawnik wysyła cię do żniwiarzy.";
 	private static final String[][] MESSAGES = {
-		{ "Hell's guardian tells you: Hey, what's a live soul doing in hell?"
-			+ " You'll need to answer to the reapers.", STD_MSG },
-		{ "Fire brander tells you: Don't try to fool me, I won't brand live"
-			+ " skin. The color would be all wrong, and rebranding can't be"
-			+ " done correctly every day, like with proper, dead soul. You'll"
-			+ " get no branding from me! And don't come back until you're"
-			+ " dead!", STD_MSG },
-		{ "Flagellator tells you: *slash*. Hmm, what a weird scream. I don't"
-			+ " think you belong here. Try to explain that to the bosses!",
+		{ "Strażnik piekieł krzyczy: Hej, co robią żywe dusze w piekle?"
+			+ " Będziesz musiał odpowiedzieć na pytania od żniwiarzy.", STD_MSG },
+		{ "Ognik brander krzyczy: Niepróbuj mnie oszukać! Nie oznaczę żywej"
+			+ " skóry. Mógłby być źle dobrany kolor, a proces transformacji nie może"
+			+ " być wykonany każdego dnia poprawnie, tak jak w przypadku martwej duszy."
+			+ " Nie zdobędziesz ode mnie brandingu! I nie wracaj, dopóki nie umrzesz!", STD_MSG },
+		{ "Biczownik krzyczy: *slash*. Hmm, co to za dziwny krzyk. Nie"
+			+ " sądzę, że ty należysz tutaj. Spróbuj wyjaśnić to szefom!",
 			STD_MSG },
-		{ "Master skinner tells you: Ah, that will make a nice tanned hide..."
-			+ " yikes, that thing underneath is alive! Get away! I have no use"
-			+ " for fur animals that can't regrow their skin!", STD_MSG },
-		{ "Apprentice nail puller tells you: *tug*. Huh, that was loose, and it"
-			+ " seems to grow back awfully slow. Sorry, but something must be"
-			+ " wrong with your nails, I'll send you to my superiors for"
-			+ " checking.", STD_MSG },
-		{ "Soul cooker tells you: Oh, you are not ripe enough for cooking. I'll"
-			+ " need to report you for the reapers. But don't be sad. *pat* "
-			+ "*pat*. In just a few years you'll be dead, and then we can cook"
-			+ " you every day! I'll promise to make the oil extra hot for you"
-			+ " then.", STD_MSG },
-		// The contract also says: "In case you do not wish to agree to this
-		// contract, fall back up immediately".
-		{ "Lawyer tells you: As per the contract you agreed to by falling down"
-			+ " the chasm, it's strictly forbidden to stay in hell while alive."
-			+ " You can remedy that by forfeiting your live status. However, as"
-			+ " your legal counsel, I advice that it would be more advantageous"
-			+ " for ... you take the matter to the reapers for arbitration."
-			+ " Thank you for paying my fee of $FEE money! I recommend you to"
-			+ " contact me again in case you visit the hell while alive again. "
-			+ "Farewell, it's been pleasant to do business with you!",
-			LAWYER_MSG },
-		{ "Hell's janitor tells you: Get away from here! I have enough work with"
-			+ " just demons and the dead making a mess.", STD_MSG },
-		{ "Hell's accountant tells you: You are not properly registered as a"
-			+ " resident here. Here, fill forms F42 and H6 to apply for the"
-			+ " necessary paperwork for applying the permission to register as"
-			+ " a candidate to request a permission for applying for"
-			+ " residency.", "You volunteer to jump to the Pit instead." },
-		{ "Hell's marketeer tells you: Hello friend! I have a wonderful offer"
-			+ " only for you, $NAME! Here, look at these  brochures about"
-			+ " spending your afterlife in Hell while I tell about the unique"
-			+ " opportunity, $NAME, that we have reserved personally for you."
-			+ " The masses of slaughtered innocents makes you eligible for our"
-			+ " platinum program, and on top of that we have arranged"
-			+ " personally for you...", "You jump to the pit to escape the"
-			+ " salesman." 
+		{ "Mistrz grabarz krzyczy: Ach, to będzie fajna, opalona skórka ..."
+			+ " yikes, ta rzecz jest żywa! WYNOŚ SIĘ STĄD! Nie będę używał"
+			+ " zwierzęcego futra, która może odrastać!", STD_MSG },
+		{ "Praktyczny ściągacz do paznokci krzyczy: *tug*. Huh, to było zbyt luźne"
+			+ " i wygląda na to, że odrastają powoli. Przykro mi, ale coś musi być nie"
+			+ " tak z twoimi paznokciami, wyślę cię do moich przełożonych na sprawdzenie.", STD_MSG },
+		{ "Kuchnia dusz krzyczy: Och, nie jesteś wystarczająco dojrzały do ​​gotowania."
+			+ " Będę musiał zgłosić cię do żniwiarzy. Ale nie smuć się. *pat* "
+			+ "*pat*. Za kilka lat będziesz martwy, a potem będziemy gotować"
+			+ " cię każdego dnia! Obiecuję, że sprawię, że olej stanie się "
+			+ " dla ciebie gorący.", STD_MSG },
+		{ "Prawnik krzyczy: Zgodnie z umową, do której się zgodziłeś, spadając w"
+			+ " przepaść, surowo zabrania się przebywania w piekle, gdy się żyje."
+			+ " Możesz temu zaradzić, tracąc status żywej istoty. Jednakże,"
+			+ " jako twój doradca prawny, radzę, że byłoby to bardziej korzystne"
+			+ " dla ... zabierasz sprawę do żniwiarzy w arbitrażu."
+			+ " Dziękuję za opłacenie mnie w wysokości $FEE money! Zalecam, abyś"
+			+ " ponownie się ze mną skontaktował, na wypadek, gdybyś odwiedził jeszcze "
+			+ " raz piekło żywy. Żegnaj, miło było robić z tobą interesy!", LAWYER_MSG },
+		{ "Woźny piekieł krzyczy: Idź stąd! Mam dość pracy z demonami, a martwi robią bałagan.", STD_MSG },
+		{ "Księgowy piekieł krzyczy: Nie jesteś zarejestrowany jako rezydent tutaj."
+			+ " Proszę w takim razie wypełnij oto te formularze F42 oraz H6, aby"
+			+ " aby ubiegać się o pozwolenie na zarejestrowanie się jako kandydat"
+			+ " do złożenia wniosku o pozwolenie na możliwy pobyt w Piekle.",
+				"Zgłaszasz się na ochotnika, aby wskoczyć do Otchłani." },
+		{ "Sprzedawczyni piekieł krzyczy: Witaj przyjacielu! Mam wspaniałą ofertę"
+			+ " tylko dla ciebie, $NAME! Spójrz na broszury o spędzeniu swojego"
+			+ " życia pozagrobowego w Piekle, podczas gdy mówię o wyjątkowej okazji,"
+			+ " $NAME, to zarejestrowaliśmy już ciebie osobiście."
+			+ " Masy zabitych niewinnych stworzeń sprawiają, że kwalifikujesz się do naszego"
+			+ " platynowego programu, a na dodatek osobiście się dla ciebie"
+			+ " przygotowaliśmy ...", "Wskakujesz do dołu, aby uciec od"
+			+ " sprzedawcy."},
+		{ "Nauczyciel piekieł krzyczy: $NAME! Zauważyłem cię! Co ty sobie myślisz"
+			+ " przychodząc tutaj? Idź natychmiast do domu! Oraz chcę, żebyś"
+			+ " napisał #''Ukończę pracę domową przed rozpoczęciem gry online''."
+			+ " Sto razy ... Najlepiej pismo odręczne. Do poniedziałku."
+			+ " Niech to zostanie podpisane przez twoich rodziców. Kiedy skończysz,"
+			+ " napiszesz wypracowanie na tysiąc słów na temat #''Piekło nie jest miejscem dla żywych''.",
+			"Nauczyciel odwraca się, chwytając laskę, a ty decydujesz,"
+			+ " że lepiej zacząć biec do dołu."
 		}
 	};
 	private static final String PIT_ZONE_NAME = "int_hell_pit";
-	
+
 	Map<Player, TurnListener> runningTimers = new IdentityHashMap<>();
-	
+
 	@Override
 	public void configureZone(StendhalRPZone zone,
 			Map<String, String> attributes) {
@@ -149,9 +151,9 @@ public class HellTimer implements ZoneConfigurator, ZoneEnterExitListener {
 				seconds = Rand.randExponential(MEAN_WAIT_TIME);
 			} else {
 				timer = new TimerStage1(player, true);
-				player.sendPrivateText("Since you were recently caught without "
-						+ "permission in hell, the guardians may be prepared "
-						+ "for your return");
+				player.sendPrivateText("Ponieważ zostałeś złapany w Piekle bez "
+						+ "pozwolenia, strażnicy mogą być przygotowani "
+						+ "na twój powrót");
 				seconds = Rand.randExponential(SHORT_WAIT_TIME);
 			}
 			runningTimers.put(player, timer);
@@ -168,11 +170,11 @@ public class HellTimer implements ZoneConfigurator, ZoneEnterExitListener {
 			}
 		}
 	}
-	
+
 	private class TimerStage1 implements TurnListener {
 		private final Player player;
 		private final boolean recaught;
-		
+
 		TimerStage1(Player player, boolean recaught) {
 			this.player = player;
 			this.recaught = recaught;
@@ -180,7 +182,7 @@ public class HellTimer implements ZoneConfigurator, ZoneEnterExitListener {
 
 		@Override
 		public void onTurnReached(int currentTurn) {
-			player.sendPrivateText(NotificationType.SCENE_SETTING, "An infernal official has noticed you and approaches.");
+			player.sendPrivateText(NotificationType.SCENE_SETTING, "Piekielny urzędnik zauważył cię i podchodzi.");
 			// The state is set immediately so that the player can't avoid
 			// being kicked out by logging out when they get the message
 			new SetQuestToTimeStampAction(QUEST_SLOT, 0).fire(player, null, null);
@@ -190,7 +192,7 @@ public class HellTimer implements ZoneConfigurator, ZoneEnterExitListener {
 			SingletonRepository.getTurnNotifier().notifyInSeconds(GRACE_TIME_INTERVAL, timer);
 		}
 	}
-	
+
 	/**
 	 * Timer that sends the player the message from the official, and does any
 	 * extra action.
@@ -198,7 +200,7 @@ public class HellTimer implements ZoneConfigurator, ZoneEnterExitListener {
 	private class TimerStage2 implements TurnListener {
 		private final Player player;
 		private final boolean recaught;
-		
+
 		TimerStage2(Player player, boolean recaught) {
 			this.player = player;
 			this.recaught = recaught;
@@ -208,8 +210,8 @@ public class HellTimer implements ZoneConfigurator, ZoneEnterExitListener {
 		public void onTurnReached(int currentTurn) {
 			String[] msg;
 			if (recaught) {
-				msg = new String[]{"Hell's guardian tells you: Ha, caught you."
-						+ " The reapers warned me you might try to sneak back here.",
+				msg = new String[]{"Strażnik piekieł krzyczy: Ha, złapałem cię."
+						+ " Żniwiarze ostrzegli mnie, że mógłbyś spróbować tu wrócić.",
 						STD_MSG };
 			} else {
 				msg = Rand.rand(MESSAGES);
@@ -234,7 +236,7 @@ public class HellTimer implements ZoneConfigurator, ZoneEnterExitListener {
 			SingletonRepository.getTurnNotifier().notifyInSeconds(GRACE_TIME_INTERVAL, timer);
 		}
 	}
-	
+
 	/**
 	 * Timer that sends the player the leaving message and starts blanking the
 	 * screen.
@@ -242,7 +244,7 @@ public class HellTimer implements ZoneConfigurator, ZoneEnterExitListener {
 	private class TimerStage3 implements TurnListener {
 		private final Player player;
 		private final String message;
-		
+
 		TimerStage3(Player player, String message) {
 			this.player = player;
 			this.message = message;
@@ -257,17 +259,17 @@ public class HellTimer implements ZoneConfigurator, ZoneEnterExitListener {
 			player.addEvent(new GlobalVisualEffectEvent("blacken", 1000 * GRACE_TIME_INTERVAL));
 		}
 	}
-	
+
 	/**
 	 * The timer that finally sends the player to the pit.
 	 */
 	private class FinalTimer implements TurnListener {
 		private final Player player;
-		
+
 		FinalTimer(Player player) {
 			this.player = player;
 		}
-		
+
 		@Override
 		public void onTurnReached(int currentTurn) {
 			StendhalRPZone pit = SingletonRepository.getRPWorld().getZone(PIT_ZONE_NAME);

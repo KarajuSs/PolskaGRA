@@ -140,7 +140,7 @@ public class FerryConveyerGdanskNPC implements ZoneConfigurator {
 		};
 
 		npc.setPosition(22, 90);
-		npc.setEntityClass("npc_flisak1");
+		npc.setEntityClass("npcflisak1");
 		npc.setDirection(Direction.LEFT);
 		zone.add(npc);
 	}

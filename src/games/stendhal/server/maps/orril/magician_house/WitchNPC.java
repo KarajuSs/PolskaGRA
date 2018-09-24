@@ -22,7 +22,6 @@ import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
-import games.stendhal.server.entity.CollisionAction;
 import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
@@ -115,7 +114,6 @@ public class WitchNPC implements ZoneConfigurator {
 
 		npc.setEntityClass("witchnpc");
 		npc.setPosition(24, 7);
-		npc.setCollisionAction(CollisionAction.STOP);
 		npc.initHP(100);
 		npc.setDescription("Widzisz wiedźmę Jynath. Ona lata na miotle.");
 		npc.setSounds(Arrays.asList("witch-cackle-1"));

@@ -69,7 +69,7 @@ public class WhereDragon extends AbstractQuest {
 		}
 		final String npcDoneText = player.getQuest(QUEST_SLOT);
 		final String[] done = npcDoneText.split(";");
-		final int left = 12 - done.length;
+		final int left = 13 - done.length;
 		return left < 0;
 	}
 
@@ -133,7 +133,7 @@ public class WhereDragon extends AbstractQuest {
 						final String npcDoneText = player.getQuest(QUEST_SLOT);
 						final String[] done = npcDoneText.split(";");
 						final List<String> list = Arrays.asList(done);
-						final int left = 12 - list.size();
+						final int left = 13 - list.size();
 
 						if (list.contains(raiser.getName())) {
 							if (left > -1) {
@@ -164,7 +164,7 @@ public class WhereDragon extends AbstractQuest {
 									.getItem(items[Rand.rand(items.length)]);
 								item.setBoundTo(player.getName());
 								player.equipOrPutOnGround(item);
-								player.addXP(4000);
+								player.addXP(7000);
 							}
 						}
 						player.notifyWorldAboutChanges();
@@ -231,7 +231,7 @@ public class WhereDragon extends AbstractQuest {
 		zone.add(npc);
 
 		zone = world.getZone("-1_krakow_cave");
-		npc = new DragonNPC("Decida", 86, 42);
+		npc = new DragonNPC("Decida", 86, 44);
 		zone.add(npc);
 
 		zone = world.getZone("int_zakopane_mountain_room");

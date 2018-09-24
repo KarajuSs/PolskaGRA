@@ -16,6 +16,8 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import games.stendhal.common.MathHelper;
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -79,6 +81,8 @@ public class ZlotaCiupaga extends AbstractQuest {
 	private static final String QUEST_SLOT = "andrzej_make_zlota_ciupaga";
 
 	private static final String GAZDA_JEDRZEJ_NAGRODA_QUEST_SLOT = "gazda_jedrzej_nagroda";
+
+	private static Logger logger = Logger.getLogger(ZlotaCiupaga.class);
 
 	@Override
 	public String getSlotName() {
@@ -263,14 +267,21 @@ public class ZlotaCiupaga extends AbstractQuest {
 			}
 			return res;
 		}
+		res.add("Kowal Andrzej wręczył mi złotą ciupagę.");
 		if (isCompleted(player)) {
-			res.add("Kowal Andrzej wręczył mi złotą ciupagę.");
-		} else if(isRepeatable(player)) {
-			res.add("Kowal Andrzej jest gotowy zrobić dla mnie złotą ciupagę jeszcze raz!");
+			return res;
+		}
+		res.add("Kowal Andrzej jest gotowy zrobić dla mnie złotą ciupagę jeszcze raz!");
+		if(isRepeatable(player)) {
+			return res;
 		} else {
 			res.add("Kowal Andrzej jest teraz zajęty mam przyjść innym razem.");
 		}
-		return res;
+		// if things have gone wrong and the quest state didn't match any of the above, debug a bit:
+		final List<String> debug = new ArrayList<String>();
+		debug.add("Stan zadania to: " + questState);
+		logger.error("Historia nie pasuje do stanu poszukiwania " + questState);
+		return debug;
 	}
 
 	@Override

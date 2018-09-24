@@ -540,7 +540,7 @@ public final class ShopList {
 		shops.add("buypiora", "pióro upadłego anioła", 4200);
 		shops.add("buypiora", "pióro mrocznego anioła", 5200);
 		shops.add("buypiora", "pióro archanioła", 6000);
-		shops.add("buypiora", "pióro mrocznego archanioła", 7000);
+		shops.add("buypiora", "pióro archanioła ciemności", 7000);
 		shops.add("buypiora", "pióro serafina", 11000);
 		shops.add("buypiora", "pióro azazela", 14000);
 
