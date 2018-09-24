@@ -25,3 +25,5 @@ the_forsaken_mine.ogg        Storyteller; GPL
 the_magical_tower.ogg        Storyteller; GPL
 the_old_tavern.ogg           Storyteller; GPL
 warriors_fight.ogg           Storyteller; GPL
+pol-krolewskie-miasto1.ogg   Hitctrl; CC-BY 3.0; https://opengameart.org/content/rpg-never-go-full-bard
+pol-krolewskie-miasto2.ogg   RandomMind; CC0; https://opengameart.org/content/medieval-the-bards-tale

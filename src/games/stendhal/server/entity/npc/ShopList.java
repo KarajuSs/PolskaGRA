@@ -327,7 +327,7 @@ public final class ShopList {
 		shops.add("buyoddsandends", "czarna perła", 100);
 		shops.add("buyoddsandends", "czterolistna koniczyna", 60);
 		shops.add("buyoddsandends", "mieczyk", 5);
-		shops.add("buyoddsandends", "sztylet", 20);
+		shops.add("buyoddsandends", "sztylecik", 20);
 		shops.add("buyoddsandends", "pierścień z czaszką", 250);
 		shops.add("buyoddsandends", "mocne antidotum", 80);
 		shops.add("buyoddsandends", "kolorowe kulki", 80);
@@ -438,7 +438,7 @@ public final class ShopList {
 		shops.add("buyfishes", "dorsz", 10);
 
 		// semos trading - swords)
-		shops.add("tradeswords", "sztylet", 10);
+		shops.add("tradeswords", "sztylecik", 10);
 
 		// party time! For maria for example. Bit more expensive than normal
 		shops.add("sellparty", "napój z oliwką", 100);
@@ -620,15 +620,70 @@ public final class ShopList {
 		shops.add("stasek", "pałasz", 740);
 		shops.add("stasek", "pordzewiała kosa", 1550);
 		shops.add("stasek", "ciupaga", 45000);
-		
+
 		//Radomil sprzedaje
 		shops.add("eliksiry", "antidotum", 50);
 		shops.add("eliksiry", "mocne antidotum", 250);
 		shops.add("eliksiry", "eliksir", 375);
 		shops.add("eliksiry", "duży eliksir", 750);
 		shops.add("eliksiry", "wielki eliksir", 1250);
-		
-		// KRAKOW //				
+
+		// KRAKOW //
+		//Samson sprzedaje:
+		shops.add("sellsamson", "toporek", 25);
+		shops.add("sellsamson", "topór jednoręczny", 35);
+		shops.add("sellsamson", "topór", 50);
+		shops.add("sellsamson", "pyrlik", 90);
+		shops.add("sellsamson", "pordzewiała kosa", 910);
+		shops.add("sellsamson", "misa do płukania złota", 270);
+
+		//StJacek sprzedaje:
+		shops.add("sellstjacek", "antidotum", 50);
+		shops.add("sellstjacek", "mocne antidotum", 250);
+		shops.add("sellstjacek", "mały eliskir", 100);
+		shops.add("sellstjacek", "eliksir", 250);
+		shops.add("sellstjacek", "duży eliksir", 550);
+		shops.add("sellstjacek", "wielki eliksir", 1100);
+
+		//Lajkonik sprzedaje:
+		shops.add("selllajkonik", "długi łuk", 1200);
+		shops.add("selllajkonik", "wzmocniona drewniana strzała", 6);
+
+		//Idris sprzedaje:
+		shops.add("sellidris", "sok z chmielu", 10);
+		shops.add("sellidris", "napój z winogron", 15);
+		shops.add("sellidris", "flaska", 5);
+		shops.add("sellidris", "ser", 20);
+		shops.add("sellidris", "marchew", 10);
+		shops.add("sellidris", "jabłko", 10);
+		shops.add("sellidris", "mięso", 40);
+		shops.add("sellidris", "szynka", 80);
+
+		//Merchand sprzedaje:
+		shops.add("sellmerchand", "peleryna", 30);
+		shops.add("sellmerchand", "sztylecik", 45);
+		shops.add("sellmerchand", "spodnie nabijane ćwiekami", 80);
+		shops.add("sellmerchand", "katana", 80);
+		//Merchand kupi:
+		shops.add("buymerchand", "spodnie kolcze", 100);
+		shops.add("buymerchand", "buty nabijane ćwiekami", 120);
+		shops.add("buymerchand", "skórzana zbroja łuskowa", 150);
+		shops.add("buymerchand", "buty kolcze", 180);
+		shops.add("buymerchand", "tarcza jednorożca", 200);
+		shops.add("buymerchand", "tarcza z czaszką", 225);
+		shops.add("buymerchand", "bułat", 250);
+		shops.add("buymerchand", "hełm wikingów", 300);
+
+		//Mr Manas kupi:
+		shops.add("buymanas", "magia ziemi", 5);
+		shops.add("buymanas", "magia płomieni", 7);
+		shops.add("buymanas", "magia deszczu", 10);
+		shops.add("buymanas", "magia mroku", 14);
+		shops.add("buymanas", "magia światła", 16);
+
+		//Winicjusz sprzedaje:
+		shops.add("sellwinicjusz", "kiść winogron", 9);
+
 		//Straznik sprzedaje:
 		shops.add("wawel", "zwój krakowski", 250);
 		shops.add("wawel", "zwój tatrzański", 350);

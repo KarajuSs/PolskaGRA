@@ -25,6 +25,7 @@ import games.stendhal.server.entity.creature.OwczarekPodhalanski;
 import games.stendhal.server.entity.creature.Pet;
 import games.stendhal.server.entity.creature.PurpleDragon;
 import games.stendhal.server.entity.creature.Sheep;
+import games.stendhal.server.entity.creature.Goat;
 import games.stendhal.server.entity.item.Corpse;
 import games.stendhal.server.entity.item.Item;
 import games.stendhal.server.entity.item.ItemInformation;
@@ -49,6 +50,7 @@ import games.stendhal.server.entity.mapstuff.sound.LoopedSoundSource;
 import games.stendhal.server.entity.mapstuff.spawner.GrowingPassiveEntityRespawnPoint;
 import games.stendhal.server.entity.mapstuff.spawner.PassiveEntityRespawnPoint;
 import games.stendhal.server.entity.mapstuff.spawner.SheepFood;
+import games.stendhal.server.entity.mapstuff.spawner.GoatFood;
 import games.stendhal.server.entity.mapstuff.useable.FishSource;
 import games.stendhal.server.entity.mapstuff.useable.GoldSource;
 import games.stendhal.server.entity.mapstuff.useable.UseableEntity;
@@ -256,6 +258,9 @@ public class RPClassGenerator {
 		if (!RPClass.hasRPClass("sheep")) {
 			Sheep.generateRPClass();
 		}
+		if (!RPClass.hasRPClass("goat")) {
+			Goat.generateRPClass();
+		}
 		if (!RPClass.hasRPClass("pet")) {
 			Pet.generateRPClass();
 		}
@@ -284,6 +289,9 @@ public class RPClassGenerator {
 		}
 		if (!RPClass.hasRPClass("food")) {
 			SheepFood.generateRPClass();
+		}
+		if (!RPClass.hasRPClass("food")) {
+			GoatFood.generateRPClass();
 		}
 
 		// zone storage

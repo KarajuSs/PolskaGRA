@@ -63,6 +63,11 @@ public class UserContext implements RPObjectChangeListener {
 	 * The owned sheep RPObject ID.
 	 */
 	private int sheepID;
+	
+	/**
+	 * The owned goat RPObject ID.
+	 */
+	private int goatID;
 
 	private RPObject player;
 
@@ -75,6 +80,7 @@ public class UserContext implements RPObjectChangeListener {
 		adminlevel = 0;
 		name = null;
 		sheepID = 0;
+		goatID = 0;
 		features = new HashMap<String, String>();
 	}
 
@@ -148,6 +154,10 @@ public class UserContext implements RPObjectChangeListener {
 	 */
 	public int getSheepID() {
 		return sheepID;
+	}
+	
+	public int getGoatID() {
+		return goatID;
 	}
 
 	/**
@@ -270,6 +280,10 @@ public class UserContext implements RPObjectChangeListener {
 				sheepID = changes.getInt("sheep");
 				// fireOwnedSheep(sheepID);
 			}
+			
+			if (changes.has("goat")) {
+				goatID = changes.getInt("goat");
+			}
 
 			if (changes.hasMap("features")) {
 				processFeaturesAdded(changes.getMap("features"));
@@ -302,6 +316,10 @@ public class UserContext implements RPObjectChangeListener {
 				// fireOwnedSheep(sheepID);
 			}
 
+			if (changes.has("goat")) {
+				goatID = 0;
+			}
+
 			if (changes.hasMap("features")) {
 				processFeaturesRemoved(changes.getMap("features"));
 			}
@@ -322,6 +340,7 @@ public class UserContext implements RPObjectChangeListener {
 			name = null;
 
 			sheepID = 0;
+			goatID = 0;
 		}
 	}
 

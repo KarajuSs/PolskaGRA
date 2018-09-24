@@ -31,6 +31,7 @@ import games.stendhal.server.entity.PassiveEntity;
 import games.stendhal.server.entity.creature.Pet;
 import games.stendhal.server.entity.creature.RaidCreature;
 import games.stendhal.server.entity.creature.Sheep;
+import games.stendhal.server.entity.creature.Goat;
 import games.stendhal.server.entity.item.Corpse;
 import games.stendhal.server.entity.item.Item;
 import games.stendhal.server.entity.item.RingOfLife;
@@ -224,6 +225,12 @@ public class PlayerDieer {
 
 		if (sheep != null) {
 			player.removeSheep(sheep);
+		}
+
+		final Goat goat = player.getGoat();
+
+		if (goat != null) {
+			player.removeGoat(goat);
 		}
 
 		final Pet pet = player.getPet();

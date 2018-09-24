@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -31,6 +30,7 @@ import games.stendhal.server.core.events.TutorialNotifier;
 import games.stendhal.server.core.rp.StendhalQuestSystem;
 import games.stendhal.server.core.rp.StendhalRPAction;
 import games.stendhal.server.entity.creature.DomesticAnimal;
+import games.stendhal.server.entity.creature.Goat;
 import games.stendhal.server.entity.creature.Pet;
 import games.stendhal.server.entity.creature.Sheep;
 import games.stendhal.server.entity.item.Item;
@@ -295,6 +295,24 @@ public class PlayerTransformer implements Transformer {
 			}
 
 			sheep.notifyWorldAboutChanges();
+		}
+		
+		// load goat
+		final Goat goat = player.getPetOwner().retrieveGoat();
+
+		if (goat != null) {
+			logger.debug("Player has a goat");
+			if (!goat.has("base_hp")) {
+				goat.initHP(10);
+			}
+			if (placeAnimalIntoWorld(goat, player)) {
+				player.setGoat(goat);
+			} else {
+				logger.warn("Could not place goat: " + goat);
+				player.sendPrivateText("You can not seem to locate your "
+						+ goat.getTitle() + ".");
+			}
+			goat.notifyWorldAboutChanges();
 		}
 
 		// load pet

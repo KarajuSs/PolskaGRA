@@ -73,6 +73,7 @@ public class PlayerRPClass {
 		// Store sheep at DB
 		player.addRPSlot("#flock", 1, Definition.HIDDEN);
 		player.addAttribute("sheep", Type.INT);
+		player.addAttribute("goat", Type.INT);
 
 		// Store pets at DB
 		player.addRPSlot("#pets", 1, Definition.HIDDEN);
@@ -90,6 +91,7 @@ public class PlayerRPClass {
 		player.addRPSlot("bank_fado", 36, Definition.HIDDEN);
 		player.addRPSlot("bank_nalwor", 36, Definition.HIDDEN);
 		player.addRPSlot("bank_zakopane", 36, Definition.HIDDEN);
+		player.addRPSlot("bank_krakow", 36, Definition.HIDDEN);
 
 		// Kills recorder - needed for quest
 		player.addRPSlot("!kills", 1, Definition.HIDDEN);

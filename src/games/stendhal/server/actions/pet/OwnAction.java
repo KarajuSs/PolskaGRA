@@ -23,6 +23,7 @@ import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.core.pathfinder.Path;
 import games.stendhal.server.entity.Entity;
 import games.stendhal.server.entity.creature.DomesticAnimal;
+import games.stendhal.server.entity.creature.Goat;
 import games.stendhal.server.entity.creature.Pet;
 import games.stendhal.server.entity.creature.Sheep;
 import games.stendhal.server.entity.player.Player;
@@ -138,6 +139,12 @@ public class OwnAction implements ActionListener {
 				player.sendPrivateText("Już masz własną owcę.");
 			} else {
 				player.setSheep((Sheep) animal);
+			}
+		} if (animal instanceof Goat) {
+			if (player.getGoat() != null) {
+				player.sendPrivateText("Już masz własną kozę.");
+			} else {
+				player.setGoat((Goat) animal);
 			}
 		} else if (animal instanceof Pet) {
 			if (player.getPet() != null) {

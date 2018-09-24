@@ -87,6 +87,10 @@ class User2DView<T extends User> extends Player2DView<T> {
 			if (user.hasSheep()) {
 				list.add(ActionType.LEAVE_SHEEP.getRepresentation());
 			}
+			
+			if (user.hasGoat()) {
+				list.add(ActionType.LEAVE_GOAT.getRepresentation());
+			}
 
 			if (user.hasPet()) {
 				list.add(ActionType.LEAVE_PET.getRepresentation());
@@ -129,6 +133,7 @@ class User2DView<T extends User> extends Player2DView<T> {
 		case WALK_STOP:
 		case WHERE:
 		case LEAVE_SHEEP:
+		case LEAVE_GOAT:
 		case LEAVE_PET:
 			at.send(at.fillTargetInfo(entity));
 			break;

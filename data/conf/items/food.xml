@@ -1921,6 +1921,29 @@
 		</equipable>
 	</item>
 
+	<item name="orzech włoski">
+		<type class="food" subclass="walnut" tileid="-1"/>
+		<description>Oto orzech włoski.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Food"/>
+		<attributes>
+			<amount value="20"/>
+			<frequency value="4"/>
+			<quantity value="1"/>
+			<regen value="4"/>
+			<menu value="Zjedz|Użyj"/>
+		</attributes>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+
 	<item name="pomarańcza">
 		<type class="food" subclass="orange" tileid="-1"/>
 		<description>Oto pomarańcza. Można ją zjeść lub wycisnąć z niej pyszny sok.</description>

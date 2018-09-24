@@ -182,6 +182,26 @@
 		</equipable>
 	</item>
 
+	<item name="ruda miedzi">
+		<type class="resource" subclass="copper_ore" tileid="-1"/>
+		<description>Oto ruda miedzi. Możesz z niej wytopić sztabę miedzi.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+		<attributes>
+			<quantity value="1"/>
+			<max_quantity value="2147483647"/>
+		</attributes>
+		<weight value="2.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+
 	<item name="bryłka złota">
 		<type class="resource" subclass="gold_ore" tileid="-1"/>
 		<description>Oto bryłka złota. Możesz z niej wytopić sztabę złota.</description>
@@ -225,6 +245,26 @@
 	<item name="żelazo">
 		<type class="resource" subclass="iron" tileid="-1"/>
 		<description>Oto żelazo.</description>
+		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
+		<attributes>
+			<quantity value="1"/>
+			<max_quantity value="2147483647"/>
+		</attributes>
+		<weight value="2.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+
+	<item name="sztabka miedzi">
+		<type class="resource" subclass="copper_bar" tileid="-1"/>
+		<description>Oto sztabka miedzi. Miedź można wykorzystać do wyrobienia odpowiedniego wyposażenia lub ją sprzedać.</description>
 		<implementation class-name="games.stendhal.server.entity.item.StackableItem"/>
 		<attributes>
 			<quantity value="1"/>

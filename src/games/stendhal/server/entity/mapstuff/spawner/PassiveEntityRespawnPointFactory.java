@@ -46,25 +46,22 @@ public class PassiveEntityRespawnPointFactory {
 
 		if (clazz.contains("herb")) {
 			passiveEntityrespawnPoint = createHerb(type);
-
 		} else if (clazz.contains("corn")) {
 			passiveEntityrespawnPoint = createGrain(type);
-
 		} else if (clazz.contains("mushroom")) {
 			passiveEntityrespawnPoint = createMushroom(type);
-
 		} else if (clazz.contains("resources")) {
 			passiveEntityrespawnPoint = createResource(type);
-
 		} else if (clazz.contains("sheepfood")) {
 			passiveEntityrespawnPoint = new SheepFood();
-
+		} else if (clazz.contains("goatfood")) {
+			passiveEntityrespawnPoint = new GoatFood();
 		} else if (clazz.contains("vegetable")) {
 			passiveEntityrespawnPoint = createVegetable(type);
-
+		} else if (clazz.contains("warzywa")) {
+			passiveEntityrespawnPoint = createPolVegetable(type);
 		} else if (clazz.contains("jewelry")) {
 			passiveEntityrespawnPoint = createJewelry(type);
-
 		} else if (clazz.contains("sign")) {
 			/*
 			 * Ignore signs. The way to go is XML.
@@ -258,6 +255,55 @@ public class PassiveEntityRespawnPointFactory {
 			break;
 		case 12:
 			passiveEntityrespawnPoint = new VegetableGrower("karczoch", "artichoke");
+			break;
+		default:
+			passiveEntityrespawnPoint = null;
+			break;
+		}
+		return passiveEntityrespawnPoint;
+	}
+
+	private static PassiveEntityRespawnPoint createPolVegetable(final int type) {
+		PassiveEntityRespawnPoint passiveEntityrespawnPoint;
+		switch (type) {
+		case 0:
+			passiveEntityrespawnPoint = new VegetableGrower("borówki", "berries");
+			break;
+		case 1:
+			passiveEntityrespawnPoint = new VegetableGrower("ziemniaki", "potato");
+			break;
+		case 2:
+			passiveEntityrespawnPoint = new VegetableGrower("dynia", "pumpkin");
+			break;
+		case 3:
+			passiveEntityrespawnPoint = new VegetableGrower("rzodkiewka", "rzodkiewka");
+			break;
+		case 4:
+			passiveEntityrespawnPoint = new VegetableGrower("rzepa", "rzepa");
+			break;
+		case 5:
+			passiveEntityrespawnPoint = new VegetableGrower("truskawka", "truskawka");
+			break;
+		case 6:
+			passiveEntityrespawnPoint = new VegetableGrower("granat", "pomegranate");
+			break;
+		case 7:
+			passiveEntityrespawnPoint = new VegetableGrower("kiść winogron", "grapevine");
+			break;
+		case 8:
+			passiveEntityrespawnPoint = new PassiveEntityRespawnPoint("zielone jabłuszko", 400);
+			passiveEntityrespawnPoint.setDescription("Oto miejsce, gdzie zielone jabłka spadają na ziemię.");
+			break;
+		case 9:
+			passiveEntityrespawnPoint = new PassiveEntityRespawnPoint("gruszeńka", 550);
+			passiveEntityrespawnPoint.setDescription("Oto miejsce, gdzie gruszki spadają na ziemię.");
+			break;
+		case 10:
+			passiveEntityrespawnPoint = new PassiveEntityRespawnPoint("pomarańcza", 450);
+			passiveEntityrespawnPoint.setDescription("Oto miejsce, gdzie pomarańcze spadają na ziemię.");
+			break;
+		case 11:
+			passiveEntityrespawnPoint = new VegetableGrower("orzech włoski", "walnut");
 			break;
 		default:
 			passiveEntityrespawnPoint = null;

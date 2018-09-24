@@ -35,6 +35,7 @@ chicken-1.ogg            ???; ???; free sound pack
 chicken-2.ogg            ???; public domain; http://www.freewebs.com/jordansroom/sounds.html
 chicken-chick-1.*        Barbamiz; CC0; http://www.freesound.org/people/Barbamiz/sounds/116135/
 chicken-chick-2.*        Barbamiz; CC0; http://www.freesound.org/people/Barbamiz/sounds/116135/
+churchbell.ogg           Ulrich Metzner, KarajuSs; CC-BY-SA 3.0; https://opengameart.org/content/church-bell
 clang-dull-1.*           alienistcog; CC0; http://www.freesound.org/people/alienistcog/sounds/124711/
 clang-metallic-1.*       lostchocolatelab; CC0; http://www.freesound.org/people/lostchocolatelab/sounds/1468/
 click-10.ogg             ???; ???; free sound pack

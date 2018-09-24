@@ -30,15 +30,15 @@ public class SemosMonsterQuestAchievementFactory extends AbstractAchievementFact
 	public Collection<Achievement> createAchievements() {
 		List<Achievement> questAchievements = new LinkedList<Achievement>();
 		//daily monster quest achievements
-		questAchievements.add(createAchievement("quest.special.daily.0010", "Ochroniaż Semos", "Ukończył codzinne zadanie na potwory 10 razy",
+		questAchievements.add(createAchievement("quest.special.daily.0010", "Ochroniaż Semos", "Ukończył codzienne zadanie na potwory 10 razy",
 												Achievement.EASY_BASE_SCORE, true, new QuestStateGreaterThanCondition("daily", 2, 9)));
-		questAchievements.add(createAchievement("quest.special.daily.0050", "Strażnik Semos", "Ukończył codzinne zadanie na potwory 50 razy",
+		questAchievements.add(createAchievement("quest.special.daily.0050", "Strażnik Semos", "Ukończył codzienne zadanie na potwory 50 razy",
 												Achievement.EASY_BASE_SCORE, true, new QuestStateGreaterThanCondition("daily", 2, 49)));
-		questAchievements.add(createAchievement("quest.special.daily.0100", "Bohater Semos", "Ukończył codzinne zadanie na potwory 100 razy",
+		questAchievements.add(createAchievement("quest.special.daily.0100", "Bohater Semos", "Ukończył codzienne zadanie na potwory 100 razy",
 												Achievement.MEDIUM_BASE_SCORE, true, new QuestStateGreaterThanCondition("daily", 2, 99)));
-		questAchievements.add(createAchievement("quest.special.daily.0250", "Mistrz Semos", "Ukończył codzinne zadanie na potwory 250 razy",
+		questAchievements.add(createAchievement("quest.special.daily.0250", "Mistrz Semos", "Ukończył codzienne zadanie na potwory 250 razy",
 												Achievement.MEDIUM_BASE_SCORE, true, new QuestStateGreaterThanCondition("daily", 2, 249)));
-		questAchievements.add(createAchievement("quest.special.daily.0500", "Zwycięzca Semos", "Ukończył codzinne zadanie na potwory 500 razy",
+		questAchievements.add(createAchievement("quest.special.daily.0500", "Zwycięzca Semos", "Ukończył codzienne zadanie na potwory 500 razy",
 												Achievement.HARD_BASE_SCORE, true, new QuestStateGreaterThanCondition("daily", 2, 499)));
 
 		return questAchievements;

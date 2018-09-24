@@ -31,6 +31,8 @@ import games.stendhal.client.entity.Entity;
 import games.stendhal.client.entity.Fire;
 import games.stendhal.client.entity.GameBoard;
 import games.stendhal.client.entity.Gate;
+import games.stendhal.client.entity.Goat;
+import games.stendhal.client.entity.GoatFood;
 import games.stendhal.client.entity.GrainField;
 import games.stendhal.client.entity.HousePortal;
 import games.stendhal.client.entity.IEntity;
@@ -81,6 +83,7 @@ public final class EntityMap {
 		register("creature", null, null, Creature.class);
 
 		register("sheep", null, null, Sheep.class);
+		register("goat", null, null, Goat.class);
 
 		register("baby_dragon", null, null, Pet.class);
 		register("purple_dragon", null, null, Pet.class);
@@ -123,6 +126,7 @@ public final class EntityMap {
 		register("block", null, null, Block.class);
 
 		register("food", null, null, SheepFood.class);
+		register("food", null, null, GoatFood.class);
 		register("chest", null, null, Chest.class);
 
 		register("corpse", null, null, Corpse.class);

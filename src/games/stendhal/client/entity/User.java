@@ -289,6 +289,14 @@ public class User extends Player {
 		return rpObject.getInt("sheep");
 	}
 
+	public boolean hasGoat() {
+		return rpObject.has("goat");
+	}
+
+	public int getGoatID() {
+		return rpObject.getInt("goat");
+	}
+
 	/**
 	 * gets the zone name
 	 *

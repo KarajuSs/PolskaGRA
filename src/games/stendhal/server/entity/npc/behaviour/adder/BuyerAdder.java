@@ -114,6 +114,15 @@ public class BuyerAdder {
 							} else {
 								// handle other items as appropriate
 							}
+							
+							if (itemName.equals("goat")) {
+								if (!player.hasGoat()) {
+									raiser.say("Nie posiadasz kozy " + player.getTitle() + "! Co chcesz zrobić?");
+									return;
+								}
+							} else {
+								// handle other items as appropriate
+							}
 
 							final int price = buyerBehaviour.getCharge(res, player);
 

@@ -31,7 +31,7 @@ public class ZakopaneItemQuestAchievementsFactory extends AbstractAchievementFac
 												Achievement.MEDIUM_BASE_SCORE, true, new QuestStateGreaterThanCondition("gazda_wojtek_daily_item", 2, 49)));
 		achievements.add(createAchievement("quest.special.gazda_wojtek_daily_item.0100", "Starszy Góral", "Ukończył codzienne zadanie na przedmiot 100 razy",
 												Achievement.HARD_BASE_SCORE, true, new QuestStateGreaterThanCondition("gazda_wojtek_daily_item", 2, 99)));
-		achievements.add(createAchievement("quest.special.gazda_wojtek_daily_item.0250", "Dostawca Zakopane", "Ukończył codzienne zadanie na przedmiot 250 razy",
+		achievements.add(createAchievement("quest.special.gazda_wojtek_daily_item.0250", "Juhas", "Ukończył codzienne zadanie na przedmiot 250 razy",
 												Achievement.HARD_BASE_SCORE, true, new QuestStateGreaterThanCondition("gazda_wojtek_daily_item", 2, 249)));
 		achievements.add(createAchievement("quest.special.gazda_wojtek_daily_item.0500", "Dostawca Zakopane", "Ukończył codzienne zadanie na przedmiot 500 razy",
 												Achievement.LEGENDARY_BASE_SCORE, true, new QuestStateGreaterThanCondition("gazda_wojtek_daily_item", 2, 499)));

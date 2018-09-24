@@ -30,6 +30,9 @@ import games.stendhal.server.entity.creature.Cat;
 //import games.stendhal.server.entity.creature.Owczarek;
 //import games.stendhal.server.entity.creature.OwczarekPodhalanski;
 import games.stendhal.server.entity.creature.Creature;
+import games.stendhal.server.entity.creature.Goat;
+import games.stendhal.server.entity.creature.Owczarek;
+import games.stendhal.server.entity.creature.OwczarekPodhalanski;
 import games.stendhal.server.entity.creature.RaidCreature;
 import games.stendhal.server.entity.creature.Sheep;
 import games.stendhal.server.entity.mapstuff.block.Block;
@@ -82,7 +85,7 @@ public class SummonAction extends AdministrationAction {
 					final Cat cat = new Cat(player);
 					found(type, cat);
 				}
-			}/* else if ("owczarek".equals(type)) {
+			} else if ("owczarek".equals(type)) {
 				if (player.hasPet()) {
 					error("Już masz własne zwierzątko!");
 				} else {
@@ -96,7 +99,7 @@ public class SummonAction extends AdministrationAction {
 					final OwczarekPodhalanski owczarek_podhalanski = new OwczarekPodhalanski(player);
 					found(type, owczarek_podhalanski);
 				}
-			}*/ else if ("baby dragon".equals(type)) {
+			} else if ("baby dragon".equals(type)) {
 				if (player.hasPet()) {
 					error("Już masz własne zwierzątko!");
 				} else {
@@ -116,6 +119,13 @@ public class SummonAction extends AdministrationAction {
 				} else {
 					final Sheep sheep = new Sheep(player);
 					found(type, sheep);
+				}
+			} else if ("goat".equals(type)) {
+				if (player.hasGoat()) {
+					error("Już masz własną kozę!");
+				} else {
+					final Goat goat = new Goat(player);
+					found(type, goat);
 				}
 			} 
 	    }
