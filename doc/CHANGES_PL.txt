@@ -5,10 +5,22 @@
 - Dodano nowy przedmiot: "środek uspokajający", który leczy/zapobiega stanom szokującym
 - Przetłumaczono wiadomości + zagadki w Piekle [hell]
 - Minimalne zwiększenie rozmiarów smoków (chodzi o okrąg pod potworkiem) z 3,2 na 3,3
-- Poprawiono wiele map
 - Zegary ma mapach pokazują nam godzinę, jeżeli klikniemy na niego PPM i wybierzemy opcję 'zobacz'
 - Zmieniono nazwę przedmiotu z: 'pióro mrocznego archanioła' na 'pióro archanioła ciemności'
 - Dodano opisy dla potworów: 'elf ciemności matrona' & 'samurai'
+- Dodano nowe przedmioty: 'orzech włoski' & 'ruda miedzi' & 'sztabka miedzi'
+- Dokonano licznych zmian na terenach Krakowia
+- Gracz może posiadać kozę jako zwierzątko
+- Dodano nowy Krakowski bank + dodano stare zadanie na piętro w banku (w krakowskim banku)
+- Dodano nowe zadania u Króla Kraka
+- Dodano nowe osiągnięcia za wykonywanie zadań w Kuźnicy
+- Dodano wiele nowych sklepów w Krakowie
+- Dodano nową skrzynię w Krakowskim banku
+- Na zrobienie sztabki złota potrzeba 3 zamiast 2 polan
+- Nowy kowal w Krakowie potrafi wytopić sztabkę miedzi (potrzeba: 2 drewna & 1 rudę miedzi)
+- Gdzieś w Krakowskim grodzie można sprzedać magię
+- Dodano nowy dungeon w Krakowie
+- Ogromna ilość zmian na mapach
 
 
 *klient*
@@ -20,7 +32,10 @@
 - Zwiększono maksymalną ilość liter w tekstach (rozmowy z NPC/graczami tzw. 'chmurki') z 84 na 124
 - Wiele nowych outfitów dla NPC
 - Dodano muzykę na pustynnych mapach (desert) oraz na mapie 1_dreamscape
-- Obraz potwora "coś" został zmieniony na bardziej abstrakcyjny
+- Dodano kilka dźwięków oraz dwie specjalne piosenki dla Krakowskich map
+- Zmieniono obraz potwora "coś" na bardziej abstrakcyjny
+- Dodano efekt otwierania bramy obok królewskiego grodu
+- Dodano grafikę kozy & rosnącego winogrona & rudy miedzi & sztabki miedzi
 
 
 *code*
