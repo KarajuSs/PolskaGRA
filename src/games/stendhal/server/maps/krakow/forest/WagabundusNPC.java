@@ -101,7 +101,7 @@ public class WagabundusNPC implements ZoneConfigurator {
 		};
 
 		npc.setDescription("Oto Wagabundus. Lubi wesołą kompanię i jest zawsze chętny do rozmowy pod warunkiem, że przyniesiesz mu coś do zwilżenia gardła.");
-		npc.setEntityClass("sellernpc");
+		npc.setEntityClass("npcwagabundus");
 		npc.setPosition(6, 87);
 		npc.initHP(100);
 		zone.add(npc);
