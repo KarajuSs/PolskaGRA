@@ -1025,6 +1025,125 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 				<parameter name="volume">15</parameter>
 			</implementation>
 		</entity>
+		<entity x="24" y="41">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">7</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		<entity x="26" y="35">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">7</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		<entity x="28" y="29">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">7</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		<entity x="30" y="23">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">7</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		<entity x="19" y="18">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">7</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		<entity x="17" y="24">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">7</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		<entity x="15" y="30">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">7</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		<entity x="13" y="36">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">7</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		<entity x="6" y="16">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">7</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		<entity x="6" y="13">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">7</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		<entity x="22" y="9">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">7</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		<entity x="29" y="9">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">7</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		<entity x="16" y="5">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">7</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		<entity x="35" y="5">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">7</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		<entity x="48" y="19">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">7</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		<entity x="48" y="29">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">7</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
+		<entity x="48" y="40">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">7</parameter>
+				<parameter name="volume">15</parameter>
+			</implementation>
+		</entity>
 		<!-- Keep creatures from blocking trading area -->
 		<entity x="11" y="19">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.area.CreatureProtectionArea">
