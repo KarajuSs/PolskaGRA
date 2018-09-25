@@ -12,6 +12,7 @@
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=+1)</parameter>
+			<parameter name="color_method" condition="stendhal.minetown">dark</parameter>
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
@@ -42,6 +43,7 @@
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=-1,rain=+1)</parameter>
+			<parameter name="color_method" condition="stendhal.minetown">dark</parameter>
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
@@ -80,6 +82,7 @@
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=-1)</parameter>
+			<parameter name="color_method" condition="stendhal.minetown">dark</parameter>
 		</attributes>
 
 		<configurator class-name="games.stendhal.server.maps.zakopane.gorasmoka.AddBalloonListener"/>
@@ -137,6 +140,7 @@
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=-1)</parameter>
+			<parameter name="color_method" condition="stendhal.minetown">dark</parameter>
 		</attributes>
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
@@ -179,6 +183,7 @@
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=-2)</parameter>
 		<!-- <parameter name="file" condition="stendhal.christmas">Level 0/zakopane/zakopane_c_xmas.tmx</parameter> -->
+			<parameter name="color_method" condition="stendhal.minetown">dark</parameter>
 		</attributes>
 
 		<entity x="1" y="1">
@@ -260,6 +265,7 @@
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=-1)</parameter>
+			<parameter name="color_method" condition="stendhal.minetown">dark</parameter>
 		</attributes>
 
 		<configurator class-name="games.stendhal.server.maps.zakopane.city.GazdaJedrzejNPC"/>
@@ -348,6 +354,7 @@
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=-2)</parameter>
+			<parameter name="color_method" condition="stendhal.minetown">dark</parameter>
 		</attributes>
 
 		<entity x="1" y="1">
@@ -426,8 +433,11 @@
 	<zone name="0_zakopane_s" level="0" x="513312" y="18688" file="Level 0/zakopane/zakopane_s.tmx">
 		<attributes>
 			<parameter name="color_method">time</parameter>
-			<parameter name="weather">varying(temperature=-2)</parameter>
-		<!-- <parameter name="file" condition="stendhal.christmas">Level 0/zakopane/zakopane_s_xmas.tmx</parameter> -->
+			<parameter name="weather" condition="!stendhal.christmas">varying(temperature=-2)</parameter>
+			<parameter name="file" condition="stendhal.christmas">Level 0/zakopane/s_xmas.tmx</parameter>
+			<parameter name="file" condition="stendhal.minetown">Level 0/zakopane/s_halloween.tmx</parameter>
+			<parameter name="color_method" condition="stendhal.minetown">dark</parameter>
+			<parameter name="weather" condition="stendhal.christmas">snow</parameter>
 		</attributes>
 
 		<configurator class-name="games.stendhal.server.maps.zakopane.city.BacaZbyszekNPC"/>
@@ -782,6 +792,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=-2)</parameter>
+			<parameter name="color_method" condition="stendhal.minetown">dark</parameter>
 		</attributes>
 
 		<entity x="1" y="1">
