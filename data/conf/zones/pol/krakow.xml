@@ -249,6 +249,8 @@
 
 	<!-- krakow_se -->
 	<zone name="0_krakow_se" level="0" x="513568" y="17920" file="Level 0/krakow/krakow_se.tmx">
+		<configurator class-name="games.stendhal.server.maps.krakow.planty.FarmerNPC"/>
+		<configurator class-name="games.stendhal.server.maps.krakow.planty.AishaNPC"/>
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
