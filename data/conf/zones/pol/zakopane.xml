@@ -986,7 +986,7 @@ Np. 25 klików = 1x Złota Skrzynia, 2x Srebrna Skrzynie oraz 5x Brązowa Skrzyn
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.sound.BackgroundMusicSource">
 				<parameter name="sound">christmastree</parameter>
-				<parameter name="volume">80</parameter>
+				<parameter name="volume">20</parameter>
 				<parameter name="radius">20</parameter>
 			</implementation>
 		</entity>
