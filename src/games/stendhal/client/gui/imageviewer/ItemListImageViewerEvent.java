@@ -17,9 +17,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.font.TextAttribute;
-//import java.util.Arrays;
 import java.util.Enumeration;
-//import java.util.List;
 import java.util.Map;
 
 import javax.swing.BorderFactory;
