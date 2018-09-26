@@ -57,6 +57,7 @@
 
 	<!-- krakow_w -->
 	<zone name="0_krakow_w" level="0" x="513312" y="17792" file="Level 0/krakow/krakow_w.tmx">
+		<configurator class-name="games.stendhal.server.maps.krakow.planty.KidsNPC"/>
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
