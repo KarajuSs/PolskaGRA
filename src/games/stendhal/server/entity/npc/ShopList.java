@@ -775,6 +775,9 @@ public final class ShopList {
 
 		//Farmer Bruno sprzedaje:
 		shops.add("sellbruno", "zboże", 4);
+
+		//Thomas sprzedaje:
+		shops.add("sellthomas", "tuńczyk", 5);
 	}
 
 	private static ShopList instance;

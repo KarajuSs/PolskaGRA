@@ -16,10 +16,14 @@ import java.util.List;
 import java.util.Map;
 
 import games.stendhal.server.core.config.ZoneConfigurator;
+import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
+import games.stendhal.server.entity.npc.behaviour.impl.QuestCompletedSellerBehaviour;
 
 /**
  * Build a NPC
@@ -27,6 +31,7 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
  * @author KarajuSs
  */
 public class ThomasNPC implements ZoneConfigurator {
+	private final ShopList shops = SingletonRepository.getShopList();
 
 	/**
 	 * Configure a zone.
@@ -62,6 +67,7 @@ public class ThomasNPC implements ZoneConfigurator {
 				addJob("Interesuje się ogólnie rybactwem, ale ostatnio mi się łódka popsuła i nie mam jak wypłynąć w szerokie wody.");
 				addOffer("Jeżeli pomożesz mi naprawić łódkę to będziesz mógł u mnie kupić tuńczyka!");
 				// tuńczyk - 5;
+				new SellerAdder().addSeller(this, new QuestCompletedSellerBehaviour("naprawa_lodzi", "Najpierw pomóż mi naprawić łódkę, a później będziesz mógł kupić ode mnie tuńczyka!", shops.get("sellthomas")), false);
 				addGoodbye();
 			}
 		};
