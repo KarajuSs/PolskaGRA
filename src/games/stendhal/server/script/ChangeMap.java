@@ -32,7 +32,7 @@ public class ChangeMap extends ScriptImpl {
 	public void execute(final Player admin, final List<String> args) {
 		final StendhalRPWorld world = SingletonRepository.getRPWorld();
 		if (args.size() != 2) {
-			sandbox.privateText(admin, "Użyj: /script zmodyfikowany_obszar ścieżka_do_tmx");
+			sandbox.privateText(admin, "Użyj: /script ChangeMap.class <nazwa_mapy> <ścieżka_do_zmodyfikowanej_mapy_tmx>");
 			return;
 		}
 		IRPZone zn = world.getRPZone(args.get(0));
@@ -78,6 +78,8 @@ public class ChangeMap extends ScriptImpl {
 		// Effect layers are optional too
 		loadOptionalLayer(zone, map, "blend_ground");
 		loadOptionalLayer(zone, map, "blend_roof");
+		// Secret layer is too optional to load
+		loadOptionalLayer(zone, map, "secret");
 
 		zone.addCollisionLayer(name + ".collision", map.getLayer("collision"));
 		zone.addProtectionLayer(name + ".protection", map.getLayer("protection"));
