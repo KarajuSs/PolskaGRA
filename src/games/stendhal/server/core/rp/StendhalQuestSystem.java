@@ -228,6 +228,7 @@ public class StendhalQuestSystem {
 		loadQuest(new KrakowBank());
 		loadQuest(new KrolewskiPlaszcz());
 		loadQuest(new MakaFarmera());
+		loadQuest(new NaprawaLodzi());
 		loadQuest(new WawelBrama());
 		/** 					**\
 		 *     DRAGON_KNIGHTS	 *
