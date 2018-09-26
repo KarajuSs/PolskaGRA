@@ -11,7 +11,7 @@
 	* 'sztabka miedzi'
 - Dodano opisy dla potworów: 'elf ciemności matrona' & 'samurai'
 - Dodano nowy Krakowski bank + dodano stare zadanie na piętro w banku (w krakowskim banku)
-- Dodano nowe zadania u 'Króla Kraka', 'Thomasa', 'Farmera Bruno'
+- Dodano kilka nowych zadań w Krakowie
 - Dodano nowych NPC w Krakowie
 - Dodano wiele nowych pomieszczeń jak i sklepów w Krakowie
 - Dodano nową skrzynię w Krakowskim banku
@@ -23,6 +23,7 @@
 - Minimalne zwiększenie rozmiarów smoków (chodzi o okrąg pod potworkiem) z 3,2 na 3,3
 - Zegary ma mapach pokazują nam godzinę, jeżeli klikniemy na niego PPM i wybierzemy opcję 'zobacz'
 - Zmieniono nazwę przedmiotu z: 'pióro mrocznego archanioła' na 'pióro archanioła ciemności'
+- Zmniejszono ilość dostawanych punktów umiejętności za zdobytego EXP'a z wykonanego zadania u burmistrzów z 10% na 5%
 - Przetłumaczono wiadomości + zagadki w Piekle [hell]
 - Gracz może posiadać kozę jako zwierzątko
 
