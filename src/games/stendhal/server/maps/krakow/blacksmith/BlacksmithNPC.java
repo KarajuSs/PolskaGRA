@@ -34,7 +34,7 @@ import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
  *
  * @author KarajuSs
  */
-public class SamsonNPC implements ZoneConfigurator {
+public class BlacksmithNPC implements ZoneConfigurator {
 	private final ShopList shops = SingletonRepository.getShopList();
 
 	/**
