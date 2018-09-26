@@ -2,41 +2,44 @@
 ---------
 1.05 - KRÓLESTWO POLAN
 *świat gry*
-- Dodano nowy przedmiot: "środek uspokajający", który leczy/zapobiega stanom szokującym
-- Przetłumaczono wiadomości + zagadki w Piekle [hell]
+- Ogromna ilość zmian na mapach
+- Dodano nowe przedmioty: 
+	* 'środek uspokajający', który leczy/zapobiega stanom szokującym,
+	* 'orzech włoski',
+	* 'tuńczyk',
+	* 'ruda miedzi',
+	* 'sztabka miedzi'
+- Dodano opisy dla potworów: 'elf ciemności matrona' & 'samurai'
+- Dodano nowy Krakowski bank + dodano stare zadanie na piętro w banku (w krakowskim banku)
+- Dodano nowe zadania u 'Króla Kraka', 'Thomasa', 'Farmera Bruno'
+- Dodano nowych NPC w Krakowie
+- Dodano wiele nowych pomieszczeń jak i sklepów w Krakowie
+- Dodano nową skrzynię w Krakowskim banku
+- Dodano nowy dungeon w Krakowie
+- Dodano nowe osiągnięcia za wykonywanie zadań w Kuźnicy
+- Dokonano licznych zmian na terenach Krakowia
+- Nowy kowal w Krakowie potrafi wytopić sztabkę miedzi (potrzeba: 2 drewna & 1 rudę miedzi)
+- Na zrobienie sztabki złota potrzeba 3 polan zamiast 2
 - Minimalne zwiększenie rozmiarów smoków (chodzi o okrąg pod potworkiem) z 3,2 na 3,3
 - Zegary ma mapach pokazują nam godzinę, jeżeli klikniemy na niego PPM i wybierzemy opcję 'zobacz'
 - Zmieniono nazwę przedmiotu z: 'pióro mrocznego archanioła' na 'pióro archanioła ciemności'
-- Dodano opisy dla potworów: 'elf ciemności matrona' & 'samurai'
-- Dodano nowe przedmioty: 'orzech włoski' & 'ruda miedzi' & 'sztabka miedzi'
-- Dokonano licznych zmian na terenach Krakowia
+- Przetłumaczono wiadomości + zagadki w Piekle [hell]
 - Gracz może posiadać kozę jako zwierzątko
-- Dodano nowy Krakowski bank + dodano stare zadanie na piętro w banku (w krakowskim banku)
-- Dodano nowe zadania u Króla Kraka
-- Dodano nowe osiągnięcia za wykonywanie zadań w Kuźnicy
-- Dodano wiele nowych sklepów w Krakowie
-- Dodano nową skrzynię w Krakowskim banku
-- Na zrobienie sztabki złota potrzeba 3 zamiast 2 polan
-- Nowy kowal w Krakowie potrafi wytopić sztabkę miedzi (potrzeba: 2 drewna & 1 rudę miedzi)
-- Gdzieś w Krakowskim grodzie można sprzedać magię
-- Dodano nowy dungeon w Krakowie
-- Ogromna ilość zmian na mapach
-- Dodano wiele nowych pomieszczeń w Krakowie
 
 
 *klient*
 - Rozmiary klienta zostały odrobinę powiększone z 640x480 (pikseli) na 800x600 (pikseli)
 - "Dymki" z wiadomościami zostały poszerzone o 100px (pikseli) [z 240px na 340px]
-- Nazwy map pod minimapą w lewym panelu zostaną podmieniane (np: nazwa mapy: 0_zakopane_s; efekt końcowy w kliencie: Zakopane S)
+- Zwiększono maksymalną ilość liter w tekstach (rozmowy z NPC/graczami tzw. 'chmurki') z 84 na 124
 - Więcej grafik natury broni służącej do ustawienia ikonki walki, jeśli jest dostępna
 - Zmieniono kolorystyke potwora 'dwugłowego lodowego smoka'
-- Zwiększono maksymalną ilość liter w tekstach (rozmowy z NPC/graczami tzw. 'chmurki') z 84 na 124
+- Zmieniono wygląd potwora 'coś' na bardziej abstrakcyjny
 - Wiele nowych outfitów dla NPC
 - Dodano muzykę na pustynnych mapach (desert) oraz na mapie 1_dreamscape
 - Dodano kilka dźwięków oraz dwie specjalne piosenki dla Krakowskich map
-- Zmieniono obraz potwora "coś" na bardziej abstrakcyjny
 - Dodano efekt otwierania bramy obok królewskiego grodu
 - Dodano grafikę kozy & rosnących winogron & rudy miedzi & sztabki miedzi
+- Nazwy map pod minimapą w lewym panelu zostaną podmieniane (np: nazwa mapy: 0_zakopane_s; efekt końcowy w kliencie: Zakopane S)
 
 
 *code*
