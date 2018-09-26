@@ -17,9 +17,9 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.font.TextAttribute;
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.Enumeration;
-import java.util.List;
+//import java.util.List;
 import java.util.Map;
 
 import javax.swing.BorderFactory;
@@ -318,14 +318,7 @@ public final class ItemListImageViewerEvent extends ViewPanel {
 	 * @return item sprite
 	 */
 	private Sprite getItemSprite(RPObject item) {
-		List<String> fishes = Arrays.asList("arctic_char", "clown-fish", "cod",
-				"mackerel", "perch", "roach", "surgeonfish", "trout", "red-lionfish", "smoked cod", "smoked trout");
 		String itemSubclass = item.get("subclass");
-		for (String t:fishes) {
-			if (t.equals(itemSubclass)) {
-				itemSubclass = "unknown_fish";
-			}
-		}
 		String itemName = item.get("class") + "/" + itemSubclass;
 		String imagePath = "/data/sprites/items/" + itemName + ".png";
 
