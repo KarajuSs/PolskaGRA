@@ -34,18 +34,17 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-
 /**
  * QUEST: KillBlordroughs
  *
  * PARTICIPANTS: <ul>
- * <li> Despot Halb Errvl
+ * <li> Mrotho
  * <li> some creatures
  * </ul>
  *
  * STEPS:<ul>
- * <li> Despot asking you to kill 100 blordrough warriors.
- * <li> Kill them and go back to Despot for your reward.
+ * <li> Mrotho asking you to kill 100 blordrough warriors.
+ * <li> Kill them and go back to Mrotho for your reward.
  * </ul>
  * 
  *
@@ -60,19 +59,19 @@ import org.apache.log4j.Logger;
  */
 
  public class KillBlordroughs extends AbstractQuest {
-	 
-	private static final String QUEST_NPC = "Despot Halb Errvl";
+
+	private static final String QUEST_NPC = "Mrotho";
 	private static final String QUEST_SLOT = "kill_blordroughs";
 	private final long questdelay = MathHelper.MILLISECONDS_IN_ONE_WEEK;	
 	protected final int killsnumber = 100;
 	private SpeakerNPC npc;	
 	private static Logger logger = Logger.getLogger(KillBlordroughs.class);
-	
+
 	protected static List<String> BLORDROUGHS = Arrays.asList(
 			"blordrough kwatermistrz",
 			"uzbrojony lider",
 			"superczłowiek");
-	
+
 	/**
 	 * function returns list of blordrough creatures.
 	 * @return - list of blordrough creatures
@@ -88,7 +87,7 @@ import org.apache.log4j.Logger;
 		}
 		return blordroughs;
 	}
-	
+
 	/**
 	 * function checking if quest is active for player or no.
 	 * @param player - player for who we will check quest state.
@@ -100,7 +99,7 @@ import org.apache.log4j.Logger;
 		}
 		return false;
 	}
-	
+
 	/**
 	 * function decides, if quest can be given to player
 	 * @param player - player for which we will check quest slot
@@ -121,7 +120,7 @@ import org.apache.log4j.Logger;
 		}
 		return false;
 	}
-	
+
 	/**
 	 * function will return NPC answer how much time remains.
 	 * @param player - chatting player.
@@ -150,7 +149,7 @@ import org.apache.log4j.Logger;
 		}
 		return reply;
 	}
-	
+
 	/**
 	 * function returns difference between recorded number of blordrough creatures
 	 *     and currently killed creatures numbers.
@@ -198,7 +197,7 @@ import org.apache.log4j.Logger;
 		}
 		return count;
 	}
-	
+
 	/**
 	 * function will update player quest slot.
 	 * @param player - player for which we will record quest.
@@ -231,7 +230,7 @@ import org.apache.log4j.Logger;
 		//player.sendPrivateText(sb.toString());
 		player.setQuest(QUEST_SLOT, sb.toString());
 	}
-	
+
 	/**
 	 * function will complete quest and reward player.
 	 * @param player - player to be rewarded.
@@ -247,12 +246,11 @@ import org.apache.log4j.Logger;
 		player.addKarma(karmabonus);
 		player.addXP(500000);
 	}
-	 
+
 	/**
 	 * class for quest talking.
 	 */
 	class QuestAction implements ChatAction {
-
 		@Override
 		public void fire(Player player, Sentence sentence, EventRaiser npc) {
 			if(questInProgress(player)) {
@@ -260,7 +258,7 @@ import org.apache.log4j.Logger;
 
 				if(killed==0) {
 					// player killed no creatures but asked about quest again.
-					npc.say("Już wyjaśniłem ci czego pragnę. Czy jesteś tak tępy aby nie pamiętać o zabiciu żołnierzy #blordroughs?");
+					npc.say("Kazałem Ci zabić #'blordroughs', pamiętasz?");
 					return;
 				}
 				if(killed < killsnumber) {
@@ -281,7 +279,7 @@ import org.apache.log4j.Logger;
 				final Long currtime = System.currentTimeMillis();
 				if (questCanBeGiven(player, currtime)) {
 					// will give quest to player.
-					npc.say("Potrzebuję pomocy w walce z #wojskami #blordrough . Są bardzo dokuczliwi. Zabij przynajmniej 100 blordrough żołnierzy, a ja zrewanżuję się w zamian.");
+					npc.say("Armia z Ados potrzebuje pomocy w walce z #'wojskami blordrough'. Są bardzo dokuczliwi. Zabij przynajmniej 100 blordrough żołnierzy, a otrzymasz nagrodę.");
 					writeQuestRecord(player);					
 				} else {
 					npc.say(getNPCTextReply(player, currtime));
@@ -289,16 +287,19 @@ import org.apache.log4j.Logger;
 			}
 		}
 	}
-	
+
 	/**
 	 * add quest state to npc's fsm.
 	 */
-	private void step_1() {	
+	private void step_1() {
+		npc.addGreeting("Pozdrawiam. Przyszedłeś zaciągnąć się do wojska?");
+		npc.addReply(ConversationPhrases.YES_MESSAGES, "Ha! Cóż nie pozwolę Ci zapisać się do wojska, ale możesz nam #zaoferować jakąś zbroję...");
+		npc.addReply(ConversationPhrases.NO_MESSAGES, "Dobrze! I tak nigdy nie chciałbyś się tutaj dostać.");
 		npc.add(ConversationStates.ATTENDING, 
 				Arrays.asList("Blordrough","blordrough","blordroughs"),
 				null, 
 				ConversationStates.ATTENDING, 
-				"Moja armia mithrilbourgh ma duże straty w walkach z żołnierzami blordrough. Podchodzą nas tunelami od strony Ados.",
+				"Armia z Ados ma duże straty w walkach z żołnierzami blordrough. Podchodzą nas tunelami od strony Ados.",
 				null);
 		npc.add(ConversationStates.ATTENDING, 
 				ConversationPhrases.QUEST_MESSAGES,
@@ -307,7 +308,7 @@ import org.apache.log4j.Logger;
 				null,
 				new QuestAction());
 	}	 
-	 
+
 	/**
 	 * add quest to the Stendhal world.
 	 */
@@ -316,17 +317,28 @@ import org.apache.log4j.Logger;
 		npc = npcs.get(QUEST_NPC);
 		fillQuestInfo(
 				"Zabij Blordroughtów",
-				"Despota Halb Errvl chce abyś zabił kilku żołnierzy Blordroughtów.",
+				"Mrotho chce abyś zabił kilku żołnierzy Blordroughtów.",
 				true);
 		step_1();
 	}
-	
+
 	@Override
 	public List<String> getHistory(final Player player) {
-		// not currently an active quest
-		return new ArrayList<String>();
+		final List<String> res = new ArrayList<String>();
+		if (!player.hasQuest(QUEST_SLOT)) {
+				return res;
+		}
+		res.add("Poznałem Mrotho w barakach w mieście Ados.");
+		final String questState = player.getQuest(QUEST_SLOT);
+		if (questState.contains("done")) {
+			res.add("Zabiłem wszystkich żołnierzy blordroughs i za wsparcie otrzymałem nagrodę od " + QUEST_NPC);
+			return res;
+		} else {
+			res.add("Zabiłem " + Integer.toString(getKilledCreaturesNumber(player)) + " blordroughs (muszę jeszcze zabić: "+Integer.toString(killsnumber)+ " blordroughs).");
+		}
+        return res;
 	}
-	
+
 	/**
 	 * return name of quest slot.
 	 */
@@ -334,7 +346,7 @@ import org.apache.log4j.Logger;
 	public String getSlotName() {
 		return QUEST_SLOT;
 	}
-	 
+
 	/**
 	 * return name of quest.
 	 */
@@ -345,7 +357,6 @@ import org.apache.log4j.Logger;
 
 	@Override
 	public String getNPCName() {
-		return "Despot Halb Errvl";
+		return "Mrotho";
 	}
 }
- 
