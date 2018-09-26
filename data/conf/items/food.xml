@@ -837,10 +837,33 @@
 
 	<item name="pstrąg">
 		<type class="food" subclass="trout" tileid="-1"/>
-		<description>To pstrąg, który wyrósł w czystym górskim potoku.</description>
+		<description>Oto pstrąg, który wyrósł w czystym górskim potoku.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Food"/>
 		<attributes>
 			<amount value="45"/>
+			<frequency value="15"/>
+			<quantity value="1"/>
+			<regen value="4"/>
+			<menu value="Zjedz|Użyj"/>
+		</attributes>
+		<weight value="1.0"/>
+		<value value="2"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+
+	<item name="tuńczyk">
+		<type class="food" subclass="tuna" tileid="-1"/>
+		<description>Oto tuńczyk, który został wyłowiony z głębokiego morza Pacyfiku.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Food"/>
+		<attributes>
+			<amount value="25"/>
 			<frequency value="15"/>
 			<quantity value="1"/>
 			<regen value="4"/>
