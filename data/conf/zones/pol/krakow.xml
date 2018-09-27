@@ -58,6 +58,7 @@
 	<!-- krakow_w -->
 	<zone name="0_krakow_w" level="0" x="513312" y="17792" file="Level 0/krakow/krakow_w.tmx">
 		<configurator class-name="games.stendhal.server.maps.krakow.planty.KidsNPC"/>
+		<configurator class-name="games.stendhal.server.maps.krakow.planty.AmandaNPC"/>
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
@@ -1326,6 +1327,7 @@ Południe: Zakopane
 	<!-- Saddler house -->
 	<zone name="int_krakow_saddler_house" file="interiors/krakow/saddler_house.tmx">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+		<configurator class-name="games.stendhal.server.maps.krakow.saddler.KrawiecNPC"/>
 		<entity x="7" y="7">
 			<implementation class-name="games.stendhal.server.maps.krakow.saddler.SaddlerNPC">
 				<parameter name="name">Rymarz</parameter>
