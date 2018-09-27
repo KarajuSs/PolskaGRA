@@ -57,6 +57,7 @@
 
 	<!-- krakow_w -->
 	<zone name="0_krakow_w" level="0" x="513312" y="17792" file="Level 0/krakow/krakow_w.tmx">
+		<!-- NPCs -->
 		<configurator class-name="games.stendhal.server.maps.krakow.planty.KidsNPC"/>
 		<configurator class-name="games.stendhal.server.maps.krakow.planty.AmandaNPC"/>
 		<attributes>
@@ -74,6 +75,9 @@
 
 	<!-- krakow_rynek -->
 	<zone name="0_krakow_rynek" level="0" x="513440" y="17792" file="Level 0/krakow/krakow_rynek.tmx">
+		<!-- PET -->
+		<configurator class-name="games.stendhal.server.maps.krakow.planty.PuppyNPC"/>
+		<!-- NPCs -->
 		<configurator class-name="games.stendhal.server.maps.krakow.marketplace.LajkonikNPC"/>
 		<configurator class-name="games.stendhal.server.maps.krakow.blacksmith.BlacksmithNPC"/>
 		<configurator class-name="games.stendhal.server.maps.krakow.vineyard.WinicjuszNPC"/>
@@ -251,6 +255,9 @@
 
 	<!-- krakow_se -->
 	<zone name="0_krakow_se" level="0" x="513568" y="17920" file="Level 0/krakow/krakow_se.tmx">
+		<!-- PET -->
+		<configurator class-name="games.stendhal.server.maps.krakow.planty.RabbitNPC"/>
+		<!-- NPCs -->
 		<configurator class-name="games.stendhal.server.maps.krakow.planty.FarmerNPC"/>
 		<configurator class-name="games.stendhal.server.maps.krakow.planty.AishaNPC"/>
 		<attributes>
