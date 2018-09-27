@@ -275,7 +275,7 @@ public class DailyItemQuest extends AbstractQuest {
 		items.put("miecz zaczepny",1);
 		items.put("pałasz",1);
 		items.put("miecz dwuręczny",1);
-		items.put("sztylet",1);
+		items.put("sztylecik",1);
 		items.put("miecz elficki",1);
 		items.put("katana",1);
 		items.put("mieczyk",1);
