@@ -77,6 +77,7 @@ public class RPEntityRPClass {
 
         entity.addAttribute("unnamed", Type.FLAG, Definition.VOLATILE);
         entity.addAttribute("no_hpbar", Type.FLAG, Definition.VOLATILE);
+        entity.addAttribute("no_attack", Type.FLAG, Definition.VOLATILE);
 
         // Jobs
         entity.addAttribute("job_merchant", Type.FLAG, Definition.VOLATILE);
