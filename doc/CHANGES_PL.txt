@@ -58,6 +58,8 @@
 - Poprawiono ostatnie zadanie u "Czarnoksiężnika"
 - Naprawiono naliczanie czasu podczas wykonywania / ulepszania złotych ciupag (tak samo z jednym wąsem i z dwoma wąsami)
 - Naprawiono wyświetlanie powtarzalności misji: 'odnowienie zapasów kwiaciarni' w dzienniku zdarzeń
+- Efektu stanu porażenia nie można ominąć poprzez użycie komendy /autowalk (automatycznego chodzenia)
+- Można przejść przez swoje zwierzątko, aby uniknąć zablokowania przez pet'a
 
 
 
