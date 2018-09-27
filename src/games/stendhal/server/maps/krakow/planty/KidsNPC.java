@@ -83,7 +83,8 @@ public class KidsNPC implements ZoneConfigurator {
 
 				@Override
 				protected void createDialog() {
-					if (!getName().equals("Nikodem")) {
+					if (!getName().equals("Nikodem") && !getName().equals("Balbina")
+							&& !getName().equals("Leo")) {
 						add(ConversationStates.IDLE,
 						        ConversationPhrases.GREETING_MESSAGES,
 					        new GreetingMatchesNameCondition(getName()), true,
