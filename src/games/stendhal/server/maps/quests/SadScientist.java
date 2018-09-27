@@ -12,6 +12,13 @@
  ***************************************************************************/
 package games.stendhal.server.maps.quests;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -39,6 +46,7 @@ import games.stendhal.server.entity.npc.condition.AndCondition;
 import games.stendhal.server.entity.npc.condition.GreetingMatchesNameCondition;
 import games.stendhal.server.entity.npc.condition.KilledForQuestCondition;
 import games.stendhal.server.entity.npc.condition.NotCondition;
+import games.stendhal.server.entity.npc.condition.PlayerHasDescriptionItemWithHimCondition;
 import games.stendhal.server.entity.npc.condition.PlayerHasItemWithHimCondition;
 import games.stendhal.server.entity.npc.condition.QuestActiveCondition;
 import games.stendhal.server.entity.npc.condition.QuestCompletedCondition;
@@ -50,23 +58,15 @@ import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 import games.stendhal.server.util.ItemCollection;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-
-import org.apache.log4j.Logger;
-
-
 /**
  * QUEST: The Sad Scientist.
- * 
+ *
  * PARTICIPANTS:
  * <ul>
  * <li>Vasi Elos, a scientist in Kalavan</li>
  * <li>Mayor Sakhs, the mayor of semos</li>
  * </ul>
- * 
+ *
  * STEPS:
  * <ul>
  * 		<li>Talk to Vasi Elos, a lonely scientist.</li>
@@ -74,30 +74,30 @@ import org.apache.log4j.Logger;
  * 		<li>Talk to semos mayor.</li>
  * 		<li>Bring Elos mayor's letter.</li>
  * 		<li>Kill the Imperial Scientist.</li>
- *		<li>Give him the flask with his brother's blood.</li> 
+ *		<li>Give him the flask with his brother's blood.</li>
  * </ul>
- * 
+ *
  * REWARD:
  * <ul>
  * 		<li>a pair of black legs</li>
  * 		<li>20 Karma</li>
  * 		<li>10000 XP</li>
  * </ul>
- * 
+ *
  * REPETITIONS:
  * <ul>
  * 		<li>None</li>
  * </ul>
  */
 public class SadScientist extends AbstractQuest {
-	
+
 	private static Logger logger = Logger.getLogger(SadScientist.class);
 
 	private static final String LETTER_DESCRIPTION = "Oto list dla Vasi Elos.";
 	private static final String QUEST_SLOT = "sad_scientist";
 	private static final int REQUIRED_MINUTES = 20;
 	private static final String NEEDED_ITEMS = "szmaragd=1;obsydian=1;szafir=1;rubin=2;sztabka złota=20;sztabka mithrilu=1";
-	
+
 	@Override
 	public String getName() {
 		return "TheSadScientist";
@@ -119,7 +119,7 @@ public class SadScientist extends AbstractQuest {
 		if ("rejected".equals(questState)) {
 			res.add("Vasi Elos poprosił mnie o pomoc, ale nie jestem zainteresowany, aby pomóc naukowcowi.");
 			return res;
-		} 
+		}
 		res.add("Vasi Elos poprosił mnie, abym dostarczył mu złoto i mithril, aby mógł sprawić dla swej słodkiej Very spodnie wysadzane klejnotami jako prezent.");
 		if (getConditionForBeingInCollectionPhase().fire(player,null,null)) {
 			final ItemCollection missingItems = new ItemCollection();
@@ -130,19 +130,19 @@ public class SadScientist extends AbstractQuest {
 		res.add("Vasi Elos potrzebuje spodni cienia. Muszę mu je dostarczyć.");
 		if ("legs".equals(questState)) {
 			return res;
-		} 
+		}
 		res.add("Vasi Elos wysadza spodnie klejnotami, które mu dostarczyłem.");
 		if (questState.startsWith("making")) {
 			return res;
-		}	
+		}
 		res.add("Vasi Elos wysłał mnie do Mayor Sakhs, abym dowiedział się gdzie jest Vera.");
 		if ("find_vera".equals(questState) && !player.isEquipped("karteczka")) {
 			return res;
-		} 
+		}
 		res.add("Mam straszną wiadomość dla Vasi Elos od Mayora Sakhsa.");
 		if ("find_vera".equals(questState) && player.isEquipped("karteczka")) {
 			return res;
-		} 
+		}
 		res.add("Vasi Elos jest taki smutny i zły, że Vera odeszła. Muszę zabić jego własnego brata i dać mu kielich pełen krwi jego brata.");
 		if (questState.startsWith("kill_scientist") && !new KilledForQuestCondition(QUEST_SLOT, 1).fire(player, null, null)) {
 			return res;
@@ -154,7 +154,7 @@ public class SadScientist extends AbstractQuest {
 		res.add("Vasi Elos jest naprawdę zrozpaczony. Naznaczył spodnie krwią brata.");
 		if (questState.startsWith("decorating")) {
 			return res;
-		} 
+		}
 		res.add("Spodnie naznaczone krwią są całe czarne. Należą teraz do mnie." +
 				"Ale jakim kosztem.");
 		if ("done".equals(questState)){
@@ -166,7 +166,7 @@ public class SadScientist extends AbstractQuest {
 		logger.error("Historia nie pasuje do stanu poszukiwania " + questState);
 		return debug;
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see games.stendhal.server.maps.quests.AbstractQuest#addToWorld()
 	 */
@@ -213,13 +213,13 @@ public class SadScientist extends AbstractQuest {
 											// here, true = bind them to player
 											new EquipItemAction("czarne spodnie", 1, true)
 										);
-		npc.add(ConversationStates.IDLE, 
-				ConversationPhrases.GREETING_MESSAGES, 
-				condition, 
-				ConversationStates.IDLE, 
+		npc.add(ConversationStates.IDLE,
+				ConversationPhrases.GREETING_MESSAGES,
+				condition,
+				ConversationStates.IDLE,
 				"Oto gotowe czarne spodnie. Możesz je teraz nosić, jest na nich symbol mojego bólu. Bądź pozdrowiony",
 				action);
-		
+
 		// time has not yet passed
 		final ChatCondition notCondition = new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 				new QuestStateStartsWithCondition(QUEST_SLOT,"decorating"),
@@ -227,14 +227,14 @@ public class SadScientist extends AbstractQuest {
 			);
 		ChatAction reply = new SayTimeRemainingAction(QUEST_SLOT, 1, 5, "Nie zakończyłem dekorowania spodni. " +
 				"Proszę sprawdź za ");
-		npc.add(ConversationStates.IDLE, 
-				ConversationPhrases.GREETING_MESSAGES, 
-				notCondition, 
-				ConversationStates.IDLE, 
-				null, 
+		npc.add(ConversationStates.IDLE,
+				ConversationPhrases.GREETING_MESSAGES,
+				notCondition,
+				ConversationStates.IDLE,
+				null,
 				reply);
 	}
-	
+
 	private void playerReturnsAfterKillingTheImperialScientist(SpeakerNPC npc) {
 		final ChatCondition condition = new AndCondition(
 				new QuestStateStartsWithCondition(QUEST_SLOT, "kill_scientist"),
@@ -248,14 +248,14 @@ public class SadScientist extends AbstractQuest {
 										);
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()), condition),
-				ConversationStates.ATTENDING,  
+				ConversationStates.ATTENDING,
 				"Ha, ha, ha! Skropię spodnie wysadzane kamieniami krwią, aż powstanie na nich " +
-				"mój #symbol bólu.", 
+				"mój #symbol bólu.",
 				null);
-		
+
 		npc.add(ConversationStates.ATTENDING, "symbol",
-				condition, ConversationStates.IDLE, 
-				"Mam zamiar stworzyć parę czarnych spodni. Wróć za 5 minut.", 
+				condition, ConversationStates.IDLE,
+				"Mam zamiar stworzyć parę czarnych spodni. Wróć za 5 minut.",
 				action);
 	}
 
@@ -265,17 +265,17 @@ public class SadScientist extends AbstractQuest {
 		final ChatCondition condition = new AndCondition(
 		new GreetingMatchesNameCondition(npc.getName()),
 				new QuestStateStartsWithCondition(QUEST_SLOT, "kill_scientist"),
-				new NotCondition( 
-						new AndCondition( 
+				new NotCondition(
+						new AndCondition(
 										new KilledForQuestCondition(QUEST_SLOT, 1),
 										new PlayerHasItemWithHimCondition("czara")))
 			);
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
-				condition, ConversationStates.IDLE, 
-				"Czuję ból i cierpienie. Zabij mojego brata i przynieś mi jego krew. To wszystko co mi w tej chwili potrzeba.", 
+				condition, ConversationStates.IDLE,
+				"Czuję ból i cierpienie. Zabij mojego brata i przynieś mi jego krew. To wszystko co mi w tej chwili potrzeba.",
 				null);
 	}
-	
+
 	private void playerReturnsWithLetter(final SpeakerNPC npc) {
 		final ChatCondition condition = new AndCondition(
 				new QuestStateStartsWithCondition(QUEST_SLOT, "find_vera"),
@@ -300,14 +300,14 @@ public class SadScientist extends AbstractQuest {
 				"Chcę aby te spodnie były symbolem bólu i cierpienia. Ty! Pójdziesz i zabijesz mojego brata, " +
 				"to imperialny naukowiec Sergej Elos. Przynieś mi jego krew.",
 				action);
-		
+
 		npc.add(ConversationStates.ATTENDING, ConversationPhrases.GOODBYE_MESSAGES,
 				new QuestInStateCondition(QUEST_SLOT, 0, "kill_scientist"),
 				ConversationStates.INFORMATION_2,
 				"Zrób to!",
 				null);
 	}
-	
+
 	private void playerReturnsWithoutLetter(final SpeakerNPC npc) {
 		final ChatCondition condition = new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 				new QuestStateStartsWithCondition(QUEST_SLOT, "find_vera"),
@@ -331,16 +331,29 @@ public class SadScientist extends AbstractQuest {
 				player.equipOrPutOnGround(item);
 			}
 		};
-		npc.add(ConversationStates.ATTENDING, Arrays.asList("Vera","Vere"),
-				new QuestStateStartsWithCondition(QUEST_SLOT, "find_vera"),
-				ConversationStates.ATTENDING, 
-				"Co? Czy ją znam? To smutna historia." +
-				" Zbierała arandulę dla Ilisy (były przyjaciółkami)," +
+
+		final String mayor_response = "Zbierała arandulę dla Ilisy (były przyjaciółkami)," +
 				" zapuściła się w czeluście katakumb. 3 miesiące później" +
-				" młody wojownik ujrzał ją, była... wampirzycą. Co za" +
-				" smutna historia. Trzymałem ten list dla jej męża. " +
-				" Myślę, że spotkasz go gdzieś w Kalavan." ,
-				action);
+				" młody wojownik ujrzał ją, była... wampirzycą.";
+
+		// Player has not received note
+		npc.add(ConversationStates.ATTENDING, Arrays.asList("Vera","Vere"),
+			new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT, "find_vera"),
+				new NotCondition(new PlayerHasDescriptionItemWithHimCondition("karteczka", LETTER_DESCRIPTION))),
+			ConversationStates.ATTENDING,
+			"Co? Skąd ją znasz? To smutna historia." +
+			mayor_response + " Co za smutna historia. Trzymałem ten list dla jej męża. " +
+			" Myślę, że spotkasz go gdzieś w Kalavan." ,
+			action);
+
+		// Player is already carrying note
+		npc.add(ConversationStates.ATTENDING, "Vera",
+			new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT, "find_vera"),
+				new PlayerHasDescriptionItemWithHimCondition("note", LETTER_DESCRIPTION)),
+			ConversationStates.ATTENDING,
+			mayor_response + " Proszę, zanieś ten list do jej męża." +
+			" Myślę, że spotkasz go gdzieś w Kalavan.",
+			null);
 	}
 
 	private void playerReturnsAfterGivingWhenFinished(final SpeakerNPC npc) {
@@ -351,21 +364,21 @@ public class SadScientist extends AbstractQuest {
 		final ChatAction action = new SetQuestAction(QUEST_SLOT,"find_vera");
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()), condition),
-				ConversationStates.INFORMATION_1, 
+				ConversationStates.INFORMATION_1,
 				"Skończyłem spodnie, ale nie mogę ci zaufać. Zanim oddam tobie te" +
 				" spodnie to dostarczysz mi wiadomość od mojej ukochanej. Zapytaj " +
 				" Mayora Sakhsa o Werę. Zrobisz to dla mnie?",
 				null);
-		
+
 		npc.add(ConversationStates.INFORMATION_1, ConversationPhrases.YES_MESSAGES,
 				condition,
-				ConversationStates.IDLE, 
+				ConversationStates.IDLE,
 				"Och, dziękuję. Będę czekać.",
 				action);
-		
+
 		npc.add(ConversationStates.INFORMATION_1, ConversationPhrases.NO_MESSAGES,
 				condition,
-				ConversationStates.IDLE, 
+				ConversationStates.IDLE,
 				"Pa! Dowidzenia!",
 				null);
 	}
@@ -377,45 +390,45 @@ public class SadScientist extends AbstractQuest {
 			);
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				condition,
-				ConversationStates.IDLE, 
+				ConversationStates.IDLE,
 				null,
 				new SayTimeRemainingAction(QUEST_SLOT, 1, REQUIRED_MINUTES,  "Czy myślisz, że mogę pracować tak szybko? Odejdź. " +
 						"Wróć za"));
 	}
-	
+
 	private void bringItemsPhase(final SpeakerNPC npc) {
 		//condition for quest being active and in item collection phase
 		ChatCondition itemPhaseCondition = getConditionForBeingInCollectionPhase();
-		
+
 		//player returns during item collection phase
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						itemPhaseCondition),
-				ConversationStates.QUESTION_1, 
+				ConversationStates.QUESTION_1,
 				"Witaj. Czy posiadasz #przedmioty potrzebne do wykonania spodni nabijanych klejnotami?",
 				null);
-		
+
 		//player asks for items
 		npc.add(ConversationStates.QUESTION_1, Arrays.asList("items", "item", "przedmioty", "przedmiot"),
 				itemPhaseCondition,
-				ConversationStates.QUESTION_1, 
+				ConversationStates.QUESTION_1,
 				null,
 				new SayRequiredItemsFromCollectionAction(QUEST_SLOT, "Proszę wróć, gdy będziesz miał wszystko co jest potrzebne do zrobienia spodni nabijanych klejnotami. Potrzebuję [items]."));
-		
+
 		//player says no
 		npc.add(ConversationStates.QUESTION_1, ConversationPhrases.NO_MESSAGES,
 				itemPhaseCondition,
-				ConversationStates.IDLE, 
+				ConversationStates.IDLE,
 				"Co za leniwe dziecko.",
 				null);
-		
+
 		//player says yes
 		npc.add(ConversationStates.QUESTION_1, ConversationPhrases.YES_MESSAGES,
 				itemPhaseCondition,
-				ConversationStates.QUESTION_1, 
+				ConversationStates.QUESTION_1,
 				"Dobrze! Więc co masz dla mnie?",
 				null);
-		
+
 		//add transition for each item
 		final ItemCollection items = new ItemCollection();
 		items.addFromQuestStateString(NEEDED_ITEMS);
@@ -433,58 +446,46 @@ public class SadScientist extends AbstractQuest {
 							));
 		}
 	}
-	
-	
+
+
 //									new SetQuestAction(QUEST_SLOT,"making;"), new SetQuestToTimeStampAction(QUEST_SLOT, 1),
 	/**
-	 * Creates a condition for quest being active and in item collection phase 
+	 * Creates a condition for quest being active and in item collection phase
 	 * @return the condition
 	 */
 	private AndCondition getConditionForBeingInCollectionPhase() {
-		return new AndCondition(
-													new QuestActiveCondition(QUEST_SLOT),
-													new NotCondition(
-															new QuestStateStartsWithCondition(QUEST_SLOT,"making;")
-																	),
-													new NotCondition(
-															new QuestStateStartsWithCondition(QUEST_SLOT,"decorating;")
-																	),
-													new NotCondition(
-															new QuestStateStartsWithCondition(QUEST_SLOT,"find_vera")
-																	),
-													new NotCondition(
-															new QuestStateStartsWithCondition(QUEST_SLOT,"kill_scientist")
-																	),
-													new NotCondition(
-															new QuestStateStartsWithCondition(QUEST_SLOT,"legs")
-																	)
-															);
+		return new AndCondition(new QuestActiveCondition(QUEST_SLOT),
+			new NotCondition(new QuestStateStartsWithCondition(QUEST_SLOT,"making;")),
+			new NotCondition(new QuestStateStartsWithCondition(QUEST_SLOT,"decorating;")),
+			new NotCondition(new QuestStateStartsWithCondition(QUEST_SLOT,"find_vera")),
+			new NotCondition(new QuestStateStartsWithCondition(QUEST_SLOT,"kill_scientist")),
+			new NotCondition(new QuestStateStartsWithCondition(QUEST_SLOT,"legs")));
 	}
-	
+
 	private void playerReturnsAfterRequestForLegs(final SpeakerNPC npc) {
 	//player returns without legs
 	final AndCondition nolegscondition = new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
-									new QuestInStateCondition(QUEST_SLOT, "legs"),
-									new NotCondition(new PlayerHasItemWithHimCondition("spodnie cieni"))
-									);
+			new QuestInStateCondition(QUEST_SLOT, "legs"),
+			new NotCondition(new PlayerHasItemWithHimCondition("spodnie cieni")));
+
 	npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 			nolegscondition,
-			ConversationStates.IDLE, 
+			ConversationStates.IDLE,
 			"Witaj ponownie. Proszę wróć gdy zdobędziesz spodnie cieni, jako podstawę do wykonania spodni nabijanych klejnotami dla mojej żony Very.",
-			null);		
-		
+			null);
+
 	//player returns with legs
 	final AndCondition legscondition = new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
-								new QuestInStateCondition(QUEST_SLOT, "legs"),
-								new PlayerHasItemWithHimCondition("spodnie cieni")
-								);
+			new QuestInStateCondition(QUEST_SLOT, "legs"),
+			new PlayerHasItemWithHimCondition("spodnie cieni"));
+
 	final ChatAction action = new MultipleActions(
 	new SetQuestAction(QUEST_SLOT,"making;"),
 	new SetQuestToTimeStampAction(QUEST_SLOT, 1),
 	new DropItemAction("spodnie cieni"));
 	npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 			legscondition,
-			ConversationStates.IDLE, 
+			ConversationStates.IDLE,
 			"Masz spodnie cieni! Wspaniale! Niezwłocznie przystąpię do pracy. Zrobię je w bardzo krótkim czasie dzięki nowej technologi! " +
 			"Proszę wróci za 20 minut.",
 			action);
@@ -492,7 +493,7 @@ public class SadScientist extends AbstractQuest {
 
 	private void startOfQuest(final SpeakerNPC npc) {
 		npc.add(ConversationStates.IDLE,
-				ConversationPhrases.GREETING_MESSAGES, 
+				ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestNotStartedCondition(QUEST_SLOT)),
 				ConversationStates.ATTENDING,
@@ -500,7 +501,7 @@ public class SadScientist extends AbstractQuest {
 
 		//offer the quest
 		npc.add(ConversationStates.ATTENDING,
-				ConversationPhrases.QUEST_MESSAGES, 
+				ConversationPhrases.QUEST_MESSAGES,
 				new QuestNotStartedCondition(QUEST_SLOT),
 				ConversationStates.QUEST_OFFERED,
 				"Hm.... Wyglądasz jak byś chciał mi pomóc?",null);
@@ -513,7 +514,7 @@ public class SadScientist extends AbstractQuest {
 				"Moja żona mieszka w Semos. Kocha klejnoty. Czy możesz mi dostarczyć kilka cennych #klejnotów. Potrzebuję ich do zrobienia " +
 				"pary drogocennych #spodni." ,
 				null);
-		
+
 		// #gems
 		npc.add(ConversationStates.QUEST_STARTED,
 				Arrays.asList("gem", "gems", "klejnotów", "klejnoty"),
@@ -522,7 +523,7 @@ public class SadScientist extends AbstractQuest {
 				"Moja żona mieszka w Semos. Kocha klejnoty. Czy możesz mi dostarczyć kilka cennych #klejnotów. Potrzebuję ich do zrobienia " +
 				"pary drogocennych  #spodni." ,
 				null);
-		
+
 		// #legs
 		npc.add(ConversationStates.QUEST_STARTED,
 				Arrays.asList("leg", "legs", "spodni", "spodnie"),
@@ -531,7 +532,7 @@ public class SadScientist extends AbstractQuest {
 				"Do spodni wysadzanych klejnotami potrzebny jest szmaragd, obsydian, szafir, 2 rubiny, 20 sztabek złota i jedna sztabka mithrilu." +
 				" Możesz zrobić to dla mej żony i dostarczyć mi wszystko co potrzebuję?" ,
 				null);
-		
+
 		//yes, no after start of quest
 		npc.add(ConversationStates.QUEST_STARTED,
 				ConversationPhrases.YES_MESSAGES,
@@ -539,14 +540,14 @@ public class SadScientist extends AbstractQuest {
 				ConversationStates.IDLE,
 				"Będę czekać cudzoziemcze." ,
 				new SetQuestAction(QUEST_SLOT, NEEDED_ITEMS));
-		
+
 		npc.add(ConversationStates.QUEST_STARTED,
 				ConversationPhrases.NO_MESSAGES,
 				null,
 				ConversationStates.QUEST_STARTED,
 				"Odejdź, nim cię zabiję!" ,
 				new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -10.0));
-		
+
 		//reject the quest
 		npc.add(ConversationStates.QUEST_OFFERED,
 				ConversationPhrases.NO_MESSAGES,
@@ -555,23 +556,23 @@ public class SadScientist extends AbstractQuest {
 				"Jeżeli zmienisz zdanie to możemy porozmawiać ponownie." ,
 				new SetQuestAndModifyKarmaAction(QUEST_SLOT, "rejected", -10.0));
 	}
-	
+
 	private void playerReturnsAfterCompletingQuest(final SpeakerNPC npc) {
 		// after finishing the quest, just tell them to go away, and mean it.
 		npc.add(ConversationStates.IDLE,
-				ConversationPhrases.GREETING_MESSAGES, 
+				ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 						new QuestCompletedCondition(QUEST_SLOT)),
 				ConversationStates.IDLE,
 				"Odejdź!",null);
 	}
-	
+
 	// The items and surviving in the basement mean we shouldn't direct them till level 100 or so
 	@Override
 	public int getMinLevel() {
 		return 100;
 	}
-	
+
 	@Override
 	public String getRegion() {
 		return Region.KALAVAN;
