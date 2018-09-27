@@ -105,9 +105,6 @@
  <tileset firstgid="530" name="0_tatry_dolina_koscieliska_n" tilewidth="64" tileheight="64" tilecount="16" columns="4">
   <image source="0_tatry_dolina_koscieliska_n.png" width="256" height="256"/>
  </tileset>
- <tileset firstgid="546" name="0_tatry_dolina_strazyska_n" tilewidth="64" tileheight="64" tilecount="0" columns="4">
-  <image source="0_tatry_dolina_strazyska_n.png" width="256" height="256"/>
- </tileset>
  <tileset firstgid="546" name="0_warszawa_ne" tilewidth="64" tileheight="64" tilecount="16" columns="4">
   <image source="0_warszawa_ne.png" width="256" height="256"/>
  </tileset>
@@ -275,9 +272,6 @@
  </tileset>
  <tileset firstgid="1358" name="0_tatry_dolina_koscieliska_s" tilewidth="64" tileheight="64" tilecount="16" columns="4">
   <image source="0_tatry_dolina_koscieliska_s.png" width="256" height="256"/>
- </tileset>
- <tileset firstgid="1374" name="0_tatry_dolina_rybiego_potoku_c" tilewidth="64" tileheight="64" tilecount="0" columns="4">
-  <image source="0_tatry_dolina_rybiego_potoku_c.png" width="256" height="256"/>
  </tileset>
  <tileset firstgid="1374" name="0_tatry_dolina_rybiego_potoku_n" tilewidth="64" tileheight="64" tilecount="16" columns="4">
   <image source="0_tatry_dolina_rybiego_potoku_n.png" width="256" height="256"/>
