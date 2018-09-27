@@ -37,7 +37,7 @@ public class PuppyNPC implements ZoneConfigurator {
 	private void buildNPC(final StendhalRPZone zone) {
 		final PassiveNPC dog = new Puppy();
 		
-		dog.put("menu", "Pet|Use");
+		dog.put("menu", "Pogłaskaj|Użyj");
 		// Not visible, but used for the emote action
 		dog.setName("Puppy");
 		dog.setPosition(23, 54);
