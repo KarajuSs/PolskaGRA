@@ -222,13 +222,16 @@ public class StendhalQuestSystem {
 		/** 					**\
 		 *        KRAKÓW		 *
 		\**	                    **/
-		loadQuest(new SolveWoodcutterTest());
-		loadQuest(new PierscienBarona());
+		loadQuest(new CzekoladaNikodema());
 		loadQuest(new KrakowBank());
 		loadQuest(new KrolewskiPlaszcz());
 		loadQuest(new MakaFarmera());
 		loadQuest(new NaprawaLodzi());
+		loadQuest(new PlaszczKapturka());
+		loadQuest(new PierscienBarona());
+		loadQuest(new SolveWoodcutterTest());
 		loadQuest(new WawelBrama());
+		loadQuest(new ZabawkaLeo());
 		/** 					**\
 		 *     DRAGON_KNIGHTS	 *
 		\**	                    **/
