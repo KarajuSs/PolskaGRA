@@ -46,7 +46,7 @@ import games.stendhal.server.entity.npc.condition.AndCondition;
 import games.stendhal.server.entity.npc.condition.GreetingMatchesNameCondition;
 import games.stendhal.server.entity.npc.condition.KilledForQuestCondition;
 import games.stendhal.server.entity.npc.condition.NotCondition;
-import games.stendhal.server.entity.npc.condition.PlayerHasDescriptionItemWithHimCondition;
+import games.stendhal.server.entity.npc.condition.PlayerHasInfostringItemWithHimCondition;
 import games.stendhal.server.entity.npc.condition.PlayerHasItemWithHimCondition;
 import games.stendhal.server.entity.npc.condition.QuestActiveCondition;
 import games.stendhal.server.entity.npc.condition.QuestCompletedCondition;
@@ -93,6 +93,7 @@ public class SadScientist extends AbstractQuest {
 
 	private static Logger logger = Logger.getLogger(SadScientist.class);
 
+	private static final String LETTER_ID = "List dla Vasi Elos";
 	private static final String LETTER_DESCRIPTION = "Oto list dla Vasi Elos.";
 	private static final String QUEST_SLOT = "sad_scientist";
 	private static final int REQUIRED_MINUTES = 20;
@@ -325,7 +326,7 @@ public class SadScientist extends AbstractQuest {
 			@Override
 			public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
 				final Item item = SingletonRepository.getEntityManager().getItem("karteczka");
-				item.setInfoString(player.getName());
+				item.setInfoString(LETTER_ID);
 				item.setDescription(LETTER_DESCRIPTION);
 				item.setBoundTo(player.getName());
 				player.equipOrPutOnGround(item);
@@ -339,7 +340,7 @@ public class SadScientist extends AbstractQuest {
 		// Player has not received note
 		npc.add(ConversationStates.ATTENDING, Arrays.asList("Vera","Vere"),
 			new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT, "find_vera"),
-				new NotCondition(new PlayerHasDescriptionItemWithHimCondition("karteczka", LETTER_DESCRIPTION))),
+				new NotCondition(new PlayerHasInfostringItemWithHimCondition("karteczka", LETTER_ID))),
 			ConversationStates.ATTENDING,
 			"Co? Skąd ją znasz? To smutna historia." +
 			mayor_response + " Co za smutna historia. Trzymałem ten list dla jej męża. " +
@@ -349,7 +350,7 @@ public class SadScientist extends AbstractQuest {
 		// Player is already carrying note
 		npc.add(ConversationStates.ATTENDING, "Vera",
 			new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT, "find_vera"),
-				new PlayerHasDescriptionItemWithHimCondition("note", LETTER_DESCRIPTION)),
+				new PlayerHasInfostringItemWithHimCondition("note", LETTER_ID)),
 			ConversationStates.ATTENDING,
 			mayor_response + " Proszę, zanieś ten list do jej męża." +
 			" Myślę, że spotkasz go gdzieś w Kalavan.",
