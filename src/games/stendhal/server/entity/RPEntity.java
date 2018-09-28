@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                      (C) Copyright 2003 - Marauroa                      *
+ *                    (C) Copyright 2003-2018 - Marauroa                   *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -11,7 +10,6 @@
  *                                                                         *
  ***************************************************************************/
 package games.stendhal.server.entity;
-
 
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
@@ -62,7 +60,6 @@ import games.stendhal.server.entity.status.StatusList;
 import games.stendhal.server.entity.status.StatusType;
 import games.stendhal.server.events.AttackEvent;
 import games.stendhal.server.events.SoundEvent;
-import games.stendhal.server.events.TextEvent;
 import games.stendhal.server.util.CounterMap;
 import marauroa.common.game.RPAction;
 import marauroa.common.game.RPObject;
@@ -1926,9 +1923,6 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 		}
 
 		String killerName = killer.getName();
-		// Needs to be done while the killer map still has the contents
-		List<String> killers = buildKillerList(killerName);
-
 		final int oldXP = this.getXP();
 
 		// Establish how much xp points your are rewarded
@@ -1968,21 +1962,6 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 			corpse.addEvent(new SoundEvent(deathSound, 23, 100, SoundLayer.FIGHTING_NOISE));
 			corpse.notifyWorldAboutChanges();
 		}
-
-		StringBuilder deathMessage = new StringBuilder(getName());
-		if (getGender() == null) {
-			deathMessage.append(" został zabity");
-		} else if (getGender().equals("F")) {
-			deathMessage.append(" została zabita");
-		} else {
-			deathMessage.append(" został zabity");
-		}
-		if (!killers.isEmpty()) {
-			deathMessage.append(" przez ");
-			deathMessage.append(Grammar.enumerateCollection(killers));
-		}
-		corpse.addEvent(new TextEvent(deathMessage.toString()));
-
 		// Corpse may want to know who this entity was attacking (RaidCreatureCorpse does),
 		// so defer stopping.
 		stopAttack();
