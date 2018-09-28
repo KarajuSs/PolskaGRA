@@ -1279,7 +1279,7 @@ public abstract class RPEntity extends AudibleEntity {
 					hpRatio = hp / (float) baseHP;
 				}
 				if (hp == 0) {
-					onDeath(attackers);
+					onDeath();
 				}
 				fireChange(PROP_HP_RATIO);
 			}
@@ -1479,7 +1479,7 @@ public abstract class RPEntity extends AudibleEntity {
 	/**
 	 * Called when the entity dies.
 	 */
-	private void onDeath(final Collection<Entity> attackers) {
+	private void onDeath() {
 	    playSoundFromCategory(SoundLayer.FIGHTING_NOISE.groupName, "death");
 	}
 
