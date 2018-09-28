@@ -49,6 +49,7 @@
 - Paski statusu (m.in. status zdrowia) przesuwa się w dół w momencie kiedy postać gracza / potwora etc. "wychodzi" poza nasze pole widzenia na ekranie
 - Przerobiono częściowo kod gry / skryptów
 - Potrzeba od teraz 20 poziom administratora, aby móc korzystać ze skryptów
+- Wiadomości o śmierci nie będą generowane przez serwer tylko przez klienta (przykład: kiedy 'my' jako gracz zginiemy to otrzymamy wiadomość na chat'cie od kogo/czego zostaliśmy zabici)
 
 
 *naprawa błędów*
