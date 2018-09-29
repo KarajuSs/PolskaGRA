@@ -1329,8 +1329,8 @@ Południe: Zakopane
 		<entity x="11" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
 				<parameter name="sound">pol-ognisko</parameter>
-				<parameter name="radius">8</parameter>
-				<parameter name="volume">20</parameter>
+				<parameter name="radius">10</parameter>
+				<parameter name="volume">40</parameter>
 			</implementation>
 		</entity>
 
@@ -1340,7 +1340,7 @@ Południe: Zakopane
 				<parameter name="min">10</parameter>
 				<parameter name="max">15</parameter>
 				<parameter name="radius">8</parameter>
-				<parameter name="volume">30</parameter>
+				<parameter name="volume">60</parameter>
 			</implementation>
 		</entity>
 
