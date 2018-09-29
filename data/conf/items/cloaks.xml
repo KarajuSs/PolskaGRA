@@ -180,9 +180,9 @@
 		</equipable>
 	</item>
 
-	<item name="płaszcz kapturka">
+	<item name="płaszcz czerwonego kapturka">
 		<type class="cloak" subclass="brightred_cloak" tileid="-1"/>
-		<description>Oto płaszcz kapturka.</description>
+		<description>Oto płaszcz czerwonego kapturka. Pewna mała dziewczynka o imieniu Balbina o nim marzy.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
 			<def value="1"/>

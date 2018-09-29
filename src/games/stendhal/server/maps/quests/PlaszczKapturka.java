@@ -67,12 +67,12 @@ public class PlaszczKapturka extends AbstractQuest {
 			res.add("Nie chcę pomagać Balbinie");
 			return res;
 		}
-		res.add("Nie chcę pomagać Balbinie w sprawie płaszcza kapturka");
+		res.add("Nie chcę pomagać Balbinie w sprawie płaszcza czarwonego kapturka");
 		if (player.isEquipped("płaszcz kapturka") || isCompleted(player)) {
 			res.add("Mam już płaszcz kapturka dla Balbiny");
 		}
 		if (isCompleted(player)) {
-			res.add("Dałem Balbinie jej wymarzony płaszcz kapturka.");
+			res.add("Dałem Balbinie jej wymarzony płaszcz czerwonego kapturka.");
 		}
 		return res;
 	}
@@ -85,7 +85,7 @@ public class PlaszczKapturka extends AbstractQuest {
 			ConversationPhrases.GREETING_MESSAGES,
 			new QuestNotStartedCondition(QUEST_SLOT),
 			ConversationStates.QUEST_OFFERED,
-			"Chciałabym zostać czerwonym kapturkiem tak jak w tych książkach! Tylko, że potrzebuję płaszcz kapturka. Pomożesz?",
+			"Chciałabym zostać czerwonym kapturkiem tak jak w tych książkach! Tylko, że potrzebuję płaszcz czerwonego kapturka. Pomożesz?",
 			null);
 
 		npc.add(ConversationStates.QUEST_OFFERED,
@@ -119,9 +119,9 @@ public class PlaszczKapturka extends AbstractQuest {
 			"Oh, już spotkałeś moją córkę Balbine. Wyglądasz na miłą osobę. Moja córka zawsze marzyła zostać czerownym #'kapturkiem', ale brakuje jej czegoś.",
 			new SetQuestAction(QUEST_SLOT, "mummy"));
 
-		mummyNPC.addReply("kapturkiem", "Czytałeś książki dla dzieci o czerwonym kapturku? Moja córka potrzebuje #'płaszcz kapturka', a ja nie mam czasu, aby przejść się do #'krawca'. Muszę pilnować swoje dziecko tutaj.");
-		mummyNPC.addReply("płaszcz kapturka", "To jest taki czerwony płaszcz, przynajmniej w wielu książkach jest tak opisywany.");
-		mummyNPC.addReply("krawca", "Jeżeli się go poprosi to może uszyje dla nas #'płaszcz kapturka'. Znajduje się pod królewskim grodem, w chatce wraz z Rymarzem. Powiedz mu imię mojej córki to od razu będzie wiedział o co chodzi.");
+		mummyNPC.addReply("kapturkiem", "Czytałeś książki dla dzieci o czerwonym kapturku? Moja córka potrzebuje #'płaszcz czerwonego kapturka', a ja nie mam czasu, aby przejść się do #'krawca'. Muszę pilnować swoje dziecko tutaj.");
+		mummyNPC.addReply("płaszcz czerwonego kapturka", "To jest taki czerwony płaszcz, przynajmniej w wielu książkach jest tak opisywany.");
+		mummyNPC.addReply("krawca", "Jeśli się go poprosi to może uszyje dla nas #'płaszcz czerwonego kapturka'. Znajduje się pod królewskim grodem, w chatce wraz z Rymarzem. Powiedz mu imię mojej córki to od razu będzie wiedział o co chodzi.");
 
 		// any other state
 		mummyNPC.add(ConversationStates.IDLE, 
@@ -145,7 +145,7 @@ public class PlaszczKapturka extends AbstractQuest {
 			ConversationPhrases.YES_MESSAGES,
 			null,
 			ConversationStates.IDLE,
-			"O to dobrze kojarzę. Rozumiem, że chciałaby, abym uszył dla niej czerwony płaszcz kapturka, zgadza się? To przynieś mi trochę skóry czerwonego smoka, może być tak z 5 sztuk. Możesz ruszać.",
+			"O to dobrze kojarzę. Rozumiem, że chciałaby, abym uszył dla niej płaszcz czerwonego kapturka, zgadza się? To przynieś mi trochę skóry czerwonego smoka, może być tak z 5 sztuk. Możesz ruszać.",
 			new SetQuestAction(QUEST_SLOT, "krawiec"));
 
 		npc.add(ConversationStates.QUEST_OFFERED,
@@ -217,11 +217,11 @@ public class PlaszczKapturka extends AbstractQuest {
 				new QuestStateStartsWithCondition(QUEST_SLOT, "sewing;"),
 				new TimePassedCondition(QUEST_SLOT, 1, REQUIRED_MINUTES)),
 			ConversationStates.ATTENDING, 
-			"Właśnie skończyłem szyć! Proszę, oto płaszcz kapturka. Możesz teraz pójść i zanieść Balbinie.", 
+			"Właśnie skończyłem szyć! Proszę, oto płaszcz czerwonego kapturka. Możesz teraz pójść i zanieść Balbinie.", 
 			new ChatAction() {
 				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
-					final Item plaszcz = SingletonRepository.getEntityManager().getItem("płaszcz kapturka");
+					final Item plaszcz = SingletonRepository.getEntityManager().getItem("płaszcz czerwonego kapturka");
 					player.equipOrPutOnGround(plaszcz);
 					player.addXP(1500);
 					player.addKarma(10);
@@ -234,17 +234,26 @@ public class PlaszczKapturka extends AbstractQuest {
 		final SpeakerNPC npc = npcs.get("Balbina");
 
 		final List<ChatAction> reward = new LinkedList<ChatAction>();
-		reward.add(new DropItemAction("płaszcz kapturka"));
+		reward.add(new DropItemAction("płaszcz czerwonego kapturka"));
 		reward.add(new IncreaseXPAction(5000));
 		reward.add(new SetQuestAction(QUEST_SLOT, "done"));
 		reward.add(new IncreaseKarmaAction(20));
 
 		npc.add(ConversationStates.IDLE, 
 			ConversationPhrases.GREETING_MESSAGES,
-			new QuestInStateCondition(QUEST_SLOT, "balbina"),
+			new AndCondition(new QuestInStateCondition(QUEST_SLOT, "balbina"),
+				new PlayerHasItemWithHimCondition("płaszcz czerwonego kapturka")),
 			ConversationStates.ATTENDING, 
 			"O widzę, że udało Ci się zdobyć dla mnie ten płaszcz. Dziękuję! *uśmiech*",
 			new MultipleActions(reward));
+
+		npc.add(ConversationStates.IDLE, 
+			ConversationPhrases.GREETING_MESSAGES,
+			new AndCondition(new QuestInStateCondition(QUEST_SLOT, "balbina"),
+				new NotCondition(new PlayerHasItemWithHimCondition("płaszcz czerwonego kapturka"))),
+			ConversationStates.ATTENDING, 
+			"*płacz* Miałeś przynieść mi płaszcz czerwonego kapturka. *płacz* :(",
+			null);
 
 		npc.add(ConversationStates.ATTENDING,
 			ConversationPhrases.QUEST_MESSAGES,
