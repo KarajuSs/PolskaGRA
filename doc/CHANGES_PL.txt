@@ -17,7 +17,7 @@
 - Dodano nową skrzynię w Krakowskim banku
 - Dodano nowy dungeon w Krakowie
 - Dodano nowe osiągnięcia za wykonywanie zadań w Kuźnicy
-- Dodano możliwość wydobycia rudę miedzi w podziemiach zakopane & w kopalni na kościelisku
+- Dodano możliwość wydobycia rudy miedzi w podziemiach zakopane & w kopalni na kościelisku
 - Dokonano licznych zmian na terenach Krakowia
 - Nowy kowal w Krakowie potrafi wytopić sztabkę miedzi (potrzeba: 2 drewna & 1 rudę miedzi)
 - Na zrobienie sztabki złota potrzeba 3 polan zamiast 2
