@@ -1578,6 +1578,48 @@ Potrzebna dojrzała owca: Proszę rozmawiać z Sato.
 			condition="stendhal.christmas" />
 		<configurator class-name="games.stendhal.server.maps.semos.city.DragonKeeperNPC" condition="stendhal.petleveling" />
 
+	    <!-- START: Mine Town Weeks Boutique -->
+    	<configurator class-name="games.stendhal.server.maps.magic.clothing_boutique.OutfitLenderNPC" condition="stendhal.minetown" />
+    	<configurator class-name="games.stendhal.server.maps.magic.clothing_boutique.OutfitLender2NPC" condition="stendhal.minetown" />
+
+	    <!-- Boutique Girls Table -->
+	    <entity x="43" y="7" condition="stendhal.minetown">
+	      <implementation class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
+	      <attribute name="description">Widzisz stół sprzedawcy.</attribute>
+	      <attribute name="width">4</attribute>
+	      <attribute name="height">3</attribute>
+	    </entity>
+	    <entity x="47" y="9" condition="stendhal.minetown">
+	      <implementation class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
+	      <attribute name="description">Widzisz stół sprzedawcy.</attribute>
+	      <attribute name="width">3</attribute>
+	      <attribute name="height">1</attribute>
+	    </entity>
+	    <entity x="43" y="7" condition="stendhal.minetown">
+	      <implementation class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
+	      <attribute name="description">Widzisz stół sprzedawcy.</attribute>
+	      <attribute name="width">4</attribute>
+	      <attribute name="height">3</attribute>
+	    </entity>
+	    <entity x="49" y="8" condition="stendhal.minetown">
+	      <implementation class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
+	      <attribute name="description">Widzisz stół sprzedawcy.</attribute>
+	      <attribute name="width">1</attribute>
+	      <attribute name="height">1</attribute>
+	    </entity>
+	    <entity x="49" y="7" condition="stendhal.minetown">
+	      <implementation class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
+	      <attribute name="description">Widzisz stół sprzedawcy.</attribute>
+	      <attribute name="width">4</attribute>
+	      <attribute name="height">1</attribute>
+	    </entity>
+	    <entity x="52" y="8" condition="stendhal.minetown">
+	      <implementation class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />
+	      <attribute name="description">Widzisz stół sprzedawcy.</attribute>
+	      <attribute name="width">1</attribute>
+	      <attribute name="height">2</attribute>
+	    </entity>
+	    <!-- END: Mine Town Weeks Boutique -->
 
 		<entity x="53" y="23">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.Gate">
@@ -1585,12 +1627,10 @@ Potrzebna dojrzała owca: Proszę rozmawiać z Sato.
 				<parameter name="orientation">h</parameter>
 				<parameter name="condition">new AlwaysFalseCondition()</parameter>
 				<parameter name="message">Brama jest zamknięta.</parameter>
-      </implementation>
-	</entity>
-
+      		</implementation>
+		</entity>
 
 		<!-- writing on the wooden arch -->
-		
 		<entity x="3" y="42">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign" />
 			<attribute name="text">Witamy w Semos</attribute>
