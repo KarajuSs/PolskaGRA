@@ -1326,6 +1326,24 @@ Południe: Zakopane
 			</implementation>
 		</entity>
 
+		<entity x="11" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">8</parameter>
+				<parameter name="volume">20</parameter>
+			</implementation>
+		</entity>
+
+		<entity x="4" y="14">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
+				<parameter name="sound">water-2</parameter>
+				<parameter name="min">10</parameter>
+				<parameter name="max">15</parameter>
+				<parameter name="radius">8</parameter>
+				<parameter name="volume">30</parameter>
+			</implementation>
+		</entity>
+
 		<portal x="18" y="16" ref="ah_exit">
 			<destination zone="0_krakow_e" ref="ah_entrance"/>
 		</portal>
