@@ -17,6 +17,7 @@
 - Dodano nową skrzynię w Krakowskim banku
 - Dodano nowy dungeon w Krakowie
 - Dodano nowe osiągnięcia za wykonywanie zadań w Kuźnicy
+- Dodano możliwość wydobycia rudę miedzi w podziemiach zakopane & w kopalni na kościelisku
 - Dokonano licznych zmian na terenach Krakowia
 - Nowy kowal w Krakowie potrafi wytopić sztabkę miedzi (potrzeba: 2 drewna & 1 rudę miedzi)
 - Na zrobienie sztabki złota potrzeba 3 polan zamiast 2
@@ -39,7 +40,7 @@
 - Dodano muzykę na pustynnych mapach (desert) oraz na mapie 1_dreamscape
 - Dodano kilka dźwięków oraz dwie specjalne piosenki dla Krakowskich map
 - Dodano efekt otwierania bramy obok królewskiego grodu
-- Dodano grafikę kozy & rosnących winogron & rudy miedzi & sztabki miedzi
+- Dodano grafikę kozy & rosnących winogron & rudy miedzi & sztabki miedzi & czarnego pierścienia
 - Nazwy map pod minimapą w lewym panelu zostaną podmieniane (np: nazwa mapy: 0_zakopane_s; efekt końcowy w kliencie: Zakopane S)
 
 
