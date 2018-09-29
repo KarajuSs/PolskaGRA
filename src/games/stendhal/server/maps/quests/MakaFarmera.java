@@ -98,7 +98,7 @@ public class MakaFarmera extends AbstractQuest {
 			ConversationPhrases.YES_MESSAGES,
 			null,
 			ConversationStates.ATTENDING,
-			"Super! Przejdź się do #'Aishy'. Ona Ci poda worki z mąką, które będziesz musiał zanieść do piekarni, która znajduje się na rynku zaraz pod Kościołem.",
+			"Super! Podejdź do #'Aishy' i powiedz jej #'mąka' to Ci poda worki z mąką, które będziesz musiał zanieść do piekarni. Znajduje się ona na rynku zaraz pod Kościołem.",
 			new SetQuestAndModifyKarmaAction(QUEST_SLOT,"start", 5.0));
 
 		npc.add(ConversationStates.QUEST_OFFERED, 
@@ -124,12 +124,12 @@ public class MakaFarmera extends AbstractQuest {
 		giveflour.add(new SetQuestAction(QUEST_SLOT, "aisha"));	
 		
 		npc.add(
-			ConversationStates.IDLE,
-			ConversationPhrases.GREETING_MESSAGES,
+			ConversationStates.ATTENDING,
+			"mąka",
 			new AndCondition(new GreetingMatchesNameCondition(getName()),
 					new QuestInStateCondition(QUEST_SLOT, "start")),
 			ConversationStates.ATTENDING,
-			"To ty jesteś od Bruno? Świetnie! W końcu ktoś zaniesie te worki z mąką... Proszę weź je i zanieść do #'Edny' i to szybko!",
+			"To ty jesteś od Bruno? Świetnie! W końcu ktoś zaniesie te worki z mąką... Proszę weź je i zanieś do #'Edny' oraz powiedz jej #'mąka', żeby wiedziała, że masz przy sobie naszą mąkę. Szybko, ruszaj!",
 			new MultipleActions(giveflour));
 
 		npc.add(
@@ -159,29 +159,33 @@ public class MakaFarmera extends AbstractQuest {
 		reward.add(new SetQuestAction(QUEST_SLOT, "done"));
 		reward.add(new IncreaseKarmaAction(15));
 
-		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
+		npc.add(
+			ConversationStates.ATTENDING,
+			"mąka",
 			new AndCondition(new GreetingMatchesNameCondition(getName()),
-						new QuestInStateCondition(QUEST_SLOT, "aisha"),
-						new PlayerHasItemWithHimCondition("mąka", ILOSC_MAKI)),
-				ConversationStates.ATTENDING,
-			"Przyniosłeś mąkę! Wspaniale! Dziękujemy za pomoc. Myślałam, że nigdy zapasów mąki nie dostaniemy...",
+				new QuestInStateCondition(QUEST_SLOT, "aisha"),
+				new PlayerHasItemWithHimCondition("mąka", ILOSC_MAKI)),
+			ConversationStates.ATTENDING,
+			"Przyniosłeś mąkę! Wspaniale! Dziękujemy za pomoc. Myślałam, że nigdy zapasów mąki już nie dostaniemy...",
 			new MultipleActions(reward));
 
-		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
+		npc.add(
+			ConversationStates.ATTENDING,
+			"mąka",
 			new AndCondition(new GreetingMatchesNameCondition(getName()),
 				new QuestInStateCondition(QUEST_SLOT, "aisha"),
 				new NotCondition(new PlayerHasItemWithHimCondition("mąka", ILOSC_MAKI))),
 			ConversationStates.ATTENDING,
-			"Hej! Słyszałam, że miały dotrzeć do mnie zapasy mąki i gdzie to zniknęło?",
+			"Hej! Nie oszukuj mnie! Wiem, że miały dotrzeć do mnie zapasy mąki i gdzie to zniknęło?",
 			null);
 	}
 
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Zabierz mąkę do Edny",
-				"Krakowska piekarnia potrzebuje zapasów mąki do pieczenia chleba.",
-				false);
+			"Zabierz mąkę do Edny",
+			"Krakowska piekarnia potrzebuje zapasów mąki do pieczenia chleba.",
+			false);
 		step_1();
 		step_2();
 		step_3();
