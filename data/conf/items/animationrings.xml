@@ -26,7 +26,7 @@
   </item>
 
 	<item name="czarny pierścień">
-    <type class="animation_ring" subclass="black_ring" tileid="-1"/>
+    <type class="ring" subclass="black_ring" tileid="-1"/>
     <description>Oto czarny pierścień. Czujesz wielką siłę kiedy go nosisz.</description>
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
     <attributes>
