@@ -36,6 +36,7 @@ public class KrolewskiPlaszcz extends AbstractQuest {
 
 	private void start() {
 		final SpeakerNPC npc = npcs.get("Król Krak");
+		String text = "I ja mam Tobie zaufać? Gdzie pomogłeś mojemu ludowi?!";
 
 		npc.add(ConversationStates.ATTENDING,
 			ConversationPhrases.QUEST_MESSAGES, null,
@@ -50,19 +51,19 @@ public class KrolewskiPlaszcz extends AbstractQuest {
 									raiser.say("Potrzebuję nowego płaszcza królewskiego. Aktualny mój płaszcz się powoli niszczy. Potrzebuję od Ciebie #'czarnego płaszcza smoczego' i to 10 sztuk! Przyniósłbyś byś mi to?");
 									raiser.setCurrentState(ConversationStates.QUEST_OFFERED);
 								} else {
-									npc.say("I ja mam Tobie zaufać? Gdzie pomogłeś mojemu ludowi?! Poszukaj małego chłopca o imieniu Leo, ponieważ zgubił swoją zabawkę i nie może jej odzyskać!");
+									npc.say(text + " Poszukaj małego chłopca o imieniu Leo, ponieważ zgubił swoją zabawkę i nie może jej odzyskać!");
 									raiser.setCurrentState(ConversationStates.ATTENDING);
 								}
 							} else {
-								npc.say("I ja mam Tobie zaufać? Gdzie pomogłeś mojemu ludowi?! Poszukaj dziewczynki o imieniu Balbina, gdyż potrzebujego pewnego płaszcza do spełnienia swojego marzenia!");
+								npc.say(text + " Poszukaj dziewczynki o imieniu Balbina, gdyż potrzebujego pewnego płaszcza do spełnienia swojego marzenia!");
 								raiser.setCurrentState(ConversationStates.ATTENDING);
 							}
 						} else {
-							npc.say("I ja mam Tobie zaufać? Gdzie pomogłeś mojemu ludowi?! Poszukaj pewnego rybaka o imieniu Thomas, potrzebuje pomocy przy naprawie jego łódki!");
+							npc.say(text + " Poszukaj pewnego rybaka o imieniu Thomas, potrzebuje pomocy przy naprawie jego łódki!");
 							raiser.setCurrentState(ConversationStates.ATTENDING);
 						}
 					} else {
-						npc.say("I ja mam Tobie zaufać? Gdzie pomogłeś mojemu ludowi?! Poszukaj Farmera Bruna, bo od kilku tygodni nie można kupić nawet jednego chleba!");
+						npc.say(text + " Poszukaj Farmera Bruno, bo od kilku tygodni nie można kupić nawet jednego chleba!");
 						raiser.setCurrentState(ConversationStates.ATTENDING);
 					}
 				}
