@@ -1,4 +1,3 @@
-/* $Id$ */
 /***************************************************************************
  *                   (C) Copyright 2003-2010 - Stendhal                    *
  ***************************************************************************
@@ -24,13 +23,13 @@ import org.apache.log4j.Logger;
 /**
  * A ametyst source is a spot where a player can prospect for ametysts. He
  * needs a kilof and lina, time, and luck.
- * 
+ *
  * Prospecting takes 7-11 seconds; during this time, the player keep standing
  * next to the ametyst source. In fact, the player only has to be there when the
  * prospecting action has finished. Therefore, make sure that two ametyst sources
  * are always at least 5 sec of walking away from each other, so that the player
  * can't prospect for ametyst at several sites simultaneously.
- * 
+ *
  * @author daniel
  * @changes artur
  */
@@ -70,7 +69,7 @@ public class SourceAmetyst extends PlayerActivityEntity {
 
 	/**
 	 * Create a ametyst source.
-	 * 
+	 *
 	 * @param itemName
 	 *            The name of the item to be prospected.
 	 */
@@ -95,14 +94,14 @@ public class SourceAmetyst extends PlayerActivityEntity {
 	 * Calculates the probability that the given player finds stone. This is
 	 * based on the player's mining skills, however even players with no skills
 	 * at all have a 5% probability of success.
-	 * 
+	 *
 	 * @param player
 	 *            The player,
-	 * 
+	 *
 	 * @return The probability of success.
 	 */
 	private double getSuccessProbability(final Player player) {
-		double probability = 0.02;
+		double probability = FINDING_PROBABILITY;
 
 		final String skill = player.getSkill("mining");
 
@@ -119,7 +118,7 @@ public class SourceAmetyst extends PlayerActivityEntity {
 
 	/**
 	 * Get the time it takes to perform this activity.
-	 * 
+	 *
 	 * @return The time to perform the activity (in seconds).
 	 */
 	@Override
@@ -129,7 +128,7 @@ public class SourceAmetyst extends PlayerActivityEntity {
 
 	/**
 	 * Decides if the activity can be done.
-	 * 
+	 *
 	 * @return <code>true</code> if successful.
 	 */
 	@Override
@@ -144,7 +143,7 @@ public class SourceAmetyst extends PlayerActivityEntity {
 
 	/**
 	 * Decides if the activity was successful.
-	 * 
+	 *
 	 * @return <code>true</code> if successful.
 	 */
 	@Override
@@ -155,7 +154,7 @@ public class SourceAmetyst extends PlayerActivityEntity {
 
 	/**
 	 * Called when the activity has finished.
-	 * 
+	 *
 	 * @param player
 	 *            The player that did the activity.
 	 * @param successful
@@ -182,7 +181,7 @@ public class SourceAmetyst extends PlayerActivityEntity {
 
 	/**
 	 * Called when the activity has started.
-	 * 
+	 *
 	 * @param player
 	 *            The player starting the activity.
 	 */

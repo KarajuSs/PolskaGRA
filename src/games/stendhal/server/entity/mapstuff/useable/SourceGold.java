@@ -59,7 +59,7 @@ public class SourceGold extends PlayerActivityEntity {
 
 	/**
 	 * Create a gold source.
-	 * 
+	 *
 	 * @param itemName
 	 *            The name of the item to be prospected.
 	 */
@@ -85,14 +85,14 @@ public class SourceGold extends PlayerActivityEntity {
 	 * Calculates the probability that the given player finds stone. This is
 	 * based on the player's mining skills, however even players with no skills
 	 * at all have a 5% probability of success.
-	 * 
+	 *
 	 * @param player
 	 *            The player,
-	 * 
+	 *
 	 * @return The probability of success.
 	 */
 	private double getSuccessProbability(final Player player) {
-		double probability = 0.02;
+		double probability = FINDING_PROBABILITY;
 
 		final String skill = player.getSkill("mining");
 
@@ -109,7 +109,7 @@ public class SourceGold extends PlayerActivityEntity {
 
 	/**
 	 * Get the time it takes to perform this activity.
-	 * 
+	 *
 	 * @return The time to perform the activity (in seconds).
 	 */
 	@Override
@@ -119,7 +119,7 @@ public class SourceGold extends PlayerActivityEntity {
 
 	/**
 	 * Decides if the activity can be done.
-	 * 
+	 *
 	 * @return <code>true</code> if successful.
 	 */
 	@Override
@@ -134,7 +134,7 @@ public class SourceGold extends PlayerActivityEntity {
 
 	/**
 	 * Decides if the activity was successful.
-	 * 
+	 *
 	 * @return <code>true</code> if successful.
 	 */
 	@Override
@@ -145,7 +145,7 @@ public class SourceGold extends PlayerActivityEntity {
 
 	/**
 	 * Called when the activity has finished.
-	 * 
+	 *
 	 * @param player
 	 *            The player that did the activity.
 	 * @param successful
@@ -172,7 +172,7 @@ public class SourceGold extends PlayerActivityEntity {
 
 	/**
 	 * Called when the activity has started.
-	 * 
+	 *
 	 * @param player
 	 *            The player starting the activity.
 	 */
