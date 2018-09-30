@@ -27,6 +27,7 @@
 - Zmniejszono ilość dostawanych punktów umiejętności za zdobytego EXP'a z wykonanego zadania u burmistrzów z 10% na 5%
 - Przetłumaczono wiadomości + zagadki w Piekle [hell]
 - Gracz może posiadać kozę jako zwierzątko
+- Za wykonanie zadania u samego Króla Kraka będzie można przejść przez północną bramę
 
 
 *klient*
