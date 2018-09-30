@@ -12,7 +12,7 @@
     </attributes>
     <weight value="0.1"/>
     <value value="323032"/>
-		<susceptibility type="dark" value="0.83"/>
+    <susceptibility type="dark" value="0.83"/>
     <susceptibility type="light" value="1.11"/>
     <equipable>
       <slot name="ground"/>
@@ -71,7 +71,7 @@
     </equipable>
   </item>
 
-	<item name="czarny pierścień">
+  <item name="czarny pierścień">
     <type class="ring" subclass="black_ring" tileid="-1"/>
     <description>Oto czarny pierścień. Czujesz wielką siłę kiedy go nosisz.</description>
     <implementation class-name="games.stendhal.server.entity.item.Item"/>
