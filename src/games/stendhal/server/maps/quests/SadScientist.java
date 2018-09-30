@@ -350,7 +350,7 @@ public class SadScientist extends AbstractQuest {
 		// Player is already carrying note
 		npc.add(ConversationStates.ATTENDING, "Vera",
 			new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT, "find_vera"),
-				new PlayerHasInfostringItemWithHimCondition("note", LETTER_ID)),
+				new PlayerHasInfostringItemWithHimCondition("karteczka", LETTER_ID)),
 			ConversationStates.ATTENDING,
 			mayor_response + " Proszę, zanieś ten list do jej męża." +
 			" Myślę, że spotkasz go gdzieś w Kalavan.",
