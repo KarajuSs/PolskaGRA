@@ -119,7 +119,7 @@ public class DailyItemQuest extends AbstractQuest {
 		items.put("kosa",1);
 		items.put("sierp",1);
 		items.put("toporek",1);
-		items.put("topór oburęczny",1);
+		items.put("topór obosieczny",1);
 
 		// boots
 		items.put("buty lazurowe",1);
