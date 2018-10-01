@@ -30,6 +30,7 @@ import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.action.CollectRequestedItemsAction;
+import games.stendhal.server.entity.npc.action.DropInfostringItemAction;
 import games.stendhal.server.entity.npc.action.DropItemAction;
 import games.stendhal.server.entity.npc.action.EquipItemAction;
 import games.stendhal.server.entity.npc.action.IncreaseKarmaAction;
@@ -93,7 +94,6 @@ public class SadScientist extends AbstractQuest {
 
 	private static Logger logger = Logger.getLogger(SadScientist.class);
 
-	private static final String LETTER_ID = "List dla Vasi Elos";
 	private static final String LETTER_DESCRIPTION = "Oto list dla Vasi Elos.";
 	private static final String QUEST_SLOT = "sad_scientist";
 	private static final int REQUIRED_MINUTES = 20;
@@ -137,11 +137,11 @@ public class SadScientist extends AbstractQuest {
 			return res;
 		}
 		res.add("Vasi Elos wysłał mnie do Mayor Sakhs, abym dowiedział się gdzie jest Vera.");
-		if ("find_vera".equals(questState) && !player.isEquipped("karteczka")) {
+		if ("find_vera".equals(questState) && !player.isEquippedWithInfostring("karteczka", QUEST_SLOT)) {
 			return res;
 		}
 		res.add("Mam straszną wiadomość dla Vasi Elos od Mayora Sakhsa.");
-		if ("find_vera".equals(questState) && player.isEquipped("karteczka")) {
+		if ("find_vera".equals(questState) && player.isEquippedWithInfostring("karteczka", QUEST_SLOT)) {
 			return res;
 		}
 		res.add("Vasi Elos jest taki smutny i zły, że Vera odeszła. Muszę zabić jego własnego brata i dać mu kielich pełen krwi jego brata.");
@@ -168,15 +168,12 @@ public class SadScientist extends AbstractQuest {
 		return debug;
 	}
 
-	/* (non-Javadoc)
-	 * @see games.stendhal.server.maps.quests.AbstractQuest#addToWorld()
-	 */
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
-				"Smutny Naukowiec",
-				"Vasi Elos samotny naukowiec chce abym przyniósł mu prezent dla jego dziewczyny.",
-				false);
+			"Smutny Naukowiec",
+			"Vasi Elos samotny naukowiec chce abym przyniósł mu prezent dla jego dziewczyny.",
+			false);
 		prepareQuestSteps();
 	}
 
@@ -208,12 +205,12 @@ public class SadScientist extends AbstractQuest {
 						new TimePassedCondition(QUEST_SLOT, 1, 5)
 					);
 		final ChatAction action = new MultipleActions(
-											new SetQuestAction(QUEST_SLOT,"done"),
-											new IncreaseKarmaAction(20),
-											new IncreaseXPAction(10000),
-											// here, true = bind them to player
-											new EquipItemAction("czarne spodnie", 1, true)
-										);
+				new SetQuestAction(QUEST_SLOT,"done"),
+				new IncreaseKarmaAction(20),
+				new IncreaseXPAction(10000),
+				// here, true = bind them to player
+				new EquipItemAction("czarne spodnie", 1, true));
+
 		npc.add(ConversationStates.IDLE,
 				ConversationPhrases.GREETING_MESSAGES,
 				condition,
@@ -224,8 +221,8 @@ public class SadScientist extends AbstractQuest {
 		// time has not yet passed
 		final ChatCondition notCondition = new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 				new QuestStateStartsWithCondition(QUEST_SLOT,"decorating"),
-				new NotCondition( new TimePassedCondition(QUEST_SLOT, 1, 5))
-			);
+				new NotCondition( new TimePassedCondition(QUEST_SLOT, 1, 5)));
+
 		ChatAction reply = new SayTimeRemainingAction(QUEST_SLOT, 1, 5, "Nie zakończyłem dekorowania spodni. " +
 				"Proszę sprawdź za ");
 		npc.add(ConversationStates.IDLE,
@@ -240,13 +237,13 @@ public class SadScientist extends AbstractQuest {
 		final ChatCondition condition = new AndCondition(
 				new QuestStateStartsWithCondition(QUEST_SLOT, "kill_scientist"),
 				new KilledForQuestCondition(QUEST_SLOT, 1),
-				new PlayerHasItemWithHimCondition("czara")
+				new PlayerHasInfostringItemWithHimCondition("czara", QUEST_SLOT)
 			);
 		ChatAction action = new MultipleActions(
-										new SetQuestAction(QUEST_SLOT, "decorating;"),
-										new SetQuestToTimeStampAction(QUEST_SLOT, 1),
-										new DropItemAction("czara",1)
-										);
+				new SetQuestAction(QUEST_SLOT, "decorating;"),
+				new SetQuestToTimeStampAction(QUEST_SLOT, 1),
+				new DropInfostringItemAction("czara", 1, QUEST_SLOT));
+
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()), condition),
 				ConversationStates.ATTENDING,
@@ -265,12 +262,11 @@ public class SadScientist extends AbstractQuest {
 			SpeakerNPC npc) {
 		final ChatCondition condition = new AndCondition(
 		new GreetingMatchesNameCondition(npc.getName()),
-				new QuestStateStartsWithCondition(QUEST_SLOT, "kill_scientist"),
-				new NotCondition(
-						new AndCondition(
-										new KilledForQuestCondition(QUEST_SLOT, 1),
-										new PlayerHasItemWithHimCondition("czara")))
-			);
+			new QuestStateStartsWithCondition(QUEST_SLOT, "kill_scientist"),
+			new NotCondition(
+				new AndCondition(new KilledForQuestCondition(QUEST_SLOT, 1),
+					new PlayerHasInfostringItemWithHimCondition("czara", QUEST_SLOT))));
+
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				condition, ConversationStates.IDLE,
 				"Czuję ból i cierpienie. Zabij mojego brata i przynieś mi jego krew. To wszystko co mi w tej chwili potrzeba.",
@@ -280,14 +276,13 @@ public class SadScientist extends AbstractQuest {
 	private void playerReturnsWithLetter(final SpeakerNPC npc) {
 		final ChatCondition condition = new AndCondition(
 				new QuestStateStartsWithCondition(QUEST_SLOT, "find_vera"),
-				new PlayerHasItemWithHimCondition("karteczka")
-			);
+				new PlayerHasInfostringItemWithHimCondition("karteczka", QUEST_SLOT));
 
 		final ChatAction action = new MultipleActions(
-					new SetQuestAction(QUEST_SLOT, 0, "kill_scientist"),
-					new StartRecordingKillsAction(QUEST_SLOT, 1, "Sergej Elos", 0, 1),
-					new DropItemAction("karteczka")
-				);
+				new SetQuestAction(QUEST_SLOT, 0, "kill_scientist"),
+				new StartRecordingKillsAction(QUEST_SLOT, 1, "Sergej Elos", 0, 1),
+				new DropInfostringItemAction("karteczka", QUEST_SLOT));
+
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()), condition),
 				ConversationStates.INFORMATION_2,
@@ -312,8 +307,8 @@ public class SadScientist extends AbstractQuest {
 	private void playerReturnsWithoutLetter(final SpeakerNPC npc) {
 		final ChatCondition condition = new AndCondition(new GreetingMatchesNameCondition(npc.getName()),
 				new QuestStateStartsWithCondition(QUEST_SLOT, "find_vera"),
-				new NotCondition(new PlayerHasItemWithHimCondition("karteczka"))
-			);
+				new NotCondition(new PlayerHasInfostringItemWithHimCondition("karteczka", QUEST_SLOT)));
+
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				condition,
 				ConversationStates.IDLE,
@@ -326,7 +321,7 @@ public class SadScientist extends AbstractQuest {
 			@Override
 			public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
 				final Item item = SingletonRepository.getEntityManager().getItem("karteczka");
-				item.setInfoString(LETTER_ID);
+				item.setInfoString(QUEST_SLOT);
 				item.setDescription(LETTER_DESCRIPTION);
 				item.setBoundTo(player.getName());
 				player.equipOrPutOnGround(item);
@@ -340,7 +335,7 @@ public class SadScientist extends AbstractQuest {
 		// Player has not received note
 		npc.add(ConversationStates.ATTENDING, Arrays.asList("Vera","Vere"),
 			new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT, "find_vera"),
-				new NotCondition(new PlayerHasInfostringItemWithHimCondition("karteczka", LETTER_ID))),
+				new NotCondition(new PlayerHasInfostringItemWithHimCondition("karteczka", QUEST_SLOT))),
 			ConversationStates.ATTENDING,
 			"Co? Skąd ją znasz? To smutna historia." +
 			mayor_response + " Co za smutna historia. Trzymałem ten list dla jej męża. " +
@@ -350,7 +345,7 @@ public class SadScientist extends AbstractQuest {
 		// Player is already carrying note
 		npc.add(ConversationStates.ATTENDING, "Vera",
 			new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT, "find_vera"),
-				new PlayerHasInfostringItemWithHimCondition("karteczka", LETTER_ID)),
+				new PlayerHasInfostringItemWithHimCondition("karteczka", QUEST_SLOT)),
 			ConversationStates.ATTENDING,
 			mayor_response + " Proszę, zanieś ten list do jej męża." +
 			" Myślę, że spotkasz go gdzieś w Kalavan.",
@@ -360,8 +355,8 @@ public class SadScientist extends AbstractQuest {
 	private void playerReturnsAfterGivingWhenFinished(final SpeakerNPC npc) {
 		final ChatCondition condition = new AndCondition(
 				new QuestStateStartsWithCondition(QUEST_SLOT, "making;"),
-				new TimePassedCondition(QUEST_SLOT, 1, REQUIRED_MINUTES)
-			);
+				new TimePassedCondition(QUEST_SLOT, 1, REQUIRED_MINUTES));
+
 		final ChatAction action = new SetQuestAction(QUEST_SLOT,"find_vera");
 		npc.add(ConversationStates.IDLE, ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(npc.getName()), condition),

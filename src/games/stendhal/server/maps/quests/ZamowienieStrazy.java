@@ -12,6 +12,7 @@ import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.action.DropInfostringItemAction;
 import games.stendhal.server.entity.npc.action.DropItemAction;
 import games.stendhal.server.entity.npc.action.EquipItemAction;
 import games.stendhal.server.entity.npc.action.IncreaseKarmaAction;
@@ -32,9 +33,8 @@ public class ZamowienieStrazy extends AbstractQuest {
 	private static final int ILOSC_ZELAZA = 150;
 	private static final int ILOSC_MIEDZI = 40;
 	private static final int ILOSC_ZLOTA = 20;
-	
-	private static final String ID = "Zamówienie Gwardzisty";
-	private static final String DESCRIPTION = "Oto zamówienie gwardzisty";
+
+	private static final String DESCRIPTION = "Oto zamówienie gwardzisty.";
 
 	public static final String QUEST_SLOT = "zamowienie_strazy";
 
@@ -50,7 +50,7 @@ public class ZamowienieStrazy extends AbstractQuest {
 			@Override
 			public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
 				final Item item = SingletonRepository.getEntityManager().getItem("karteczka");
-				item.setInfoString(ID);
+				item.setInfoString(QUEST_SLOT);
 				item.setDescription(DESCRIPTION);
 				item.setBoundTo(player.getName());
 				player.equipOrPutOnGround(item);
@@ -68,7 +68,7 @@ public class ZamowienieStrazy extends AbstractQuest {
 		npc.add(
 			ConversationStates.QUEST_OFFERED,
 			ConversationPhrases.YES_MESSAGES,
-			new NotCondition(new PlayerHasInfostringItemWithHimCondition("karteczka", ID)),
+			new NotCondition(new PlayerHasInfostringItemWithHimCondition("karteczka", QUEST_SLOT)),
 			ConversationStates.ATTENDING,
 			"Super. Najpierw przekaż tę karteczkę do kowala #'Samsona'. On ci dokładnie określi ile będziemy potrzebować zapasów.",
 			action);
@@ -76,7 +76,7 @@ public class ZamowienieStrazy extends AbstractQuest {
 		npc.add(
 			ConversationStates.ATTENDING,
 			ConversationPhrases.QUEST_MESSAGES,
-			new PlayerHasInfostringItemWithHimCondition("karteczka", ID),
+			new PlayerHasInfostringItemWithHimCondition("karteczka", QUEST_SLOT),
 			ConversationStates.ATTENDING,
 			"Hej! Zanieś tą karteczke do kowala!",
 			null);
@@ -102,15 +102,15 @@ public class ZamowienieStrazy extends AbstractQuest {
 	    npc.add(ConversationStates.ATTENDING,
 			Arrays.asList("zamówienie", "zamówienia", "karteczka", "list", "straż królewska"),
 			new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT, "start"),
-				new PlayerHasItemWithHimCondition("karteczka")),
+				new PlayerHasInfostringItemWithHimCondition("karteczka", QUEST_SLOT)),
 			ConversationStates.QUEST_OFFERED,
 			"Kolejne już zamówienie w tym miesiącu. Co teraz chcą? Ouuu... Już dawno takiego ogromnego zamówienia nie mieliśmy. Będziemy potrzebować niemałej pomocy. Pomożesz?",
-			new DropItemAction("karteczka"));
+			new DropInfostringItemAction("karteczka", QUEST_SLOT));
 
 	    npc.add(ConversationStates.ATTENDING,
 			ConversationPhrases.QUEST_MESSAGES, 
 			new AndCondition(new QuestStateStartsWithCondition(QUEST_SLOT, "start"),
-				new NotCondition(new PlayerHasItemWithHimCondition("karteczka"))),
+				new NotCondition(new PlayerHasInfostringItemWithHimCondition("karteczka", QUEST_SLOT))),
 			ConversationStates.ATTENDING,
 			"Hmmm? O czym mówiesz?",
 			null);
