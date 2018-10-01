@@ -4,11 +4,10 @@
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU Affero General Public License as        *
- *   published by the Free Software Foundation; either version 3 of the    * 
+ *   published by the Free Software Foundation; either version 3 of the    *
  *   License, or (at your option) any later version.                       *
  *                                                                         *
  ***************************************************************************/
-
 "use strict";
 
 var marauroa = window.marauroa = window.marauroa || {};
@@ -62,14 +61,14 @@ stendhal.ui.minimap = {
 			}
 		}
 	},
-	
+
 	draw: function() {
 		stendhal.ui.minimap.scale = 10;
-		
+
 		stendhal.ui.minimap.zoneChange();
 		stendhal.ui.minimap.updateBasePosition();
 		var canvas = document.getElementById("minimap");
-		
+
 		var ctx = canvas.getContext("2d");
 		// IE does not support ctx.resetTransform(), so use the following workaround:
 		ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -77,12 +76,12 @@ stendhal.ui.minimap = {
 		// The area outside of the map
 		ctx.fillStyle = "#606060";
 		ctx.fillRect(0, 0, stendhal.ui.minimap.width, stendhal.ui.minimap.height);
-		
+
 		ctx.translate(Math.round(-stendhal.ui.minimap.xOffset), Math.round(-stendhal.ui.minimap.yOffset));
 		stendhal.ui.minimap.drawBackground(ctx);
 		stendhal.ui.minimap.drawEntities(ctx);
 	},
-	
+
 	drawBackground: function(ctx) {
 		ctx.save();
 		// imageSmoothingEnabled is the standard property but browsers haven't
@@ -90,21 +89,21 @@ stendhal.ui.minimap = {
 		ctx.imageSmoothingEnabled = false;
 		ctx.mozImageSmoothingEnabled = false;
 		ctx.msImageSmoothingEnabled = false;
-		
+
 		ctx.scale(stendhal.ui.minimap.scale, stendhal.ui.minimap.scale);
 		if (stendhal.ui.minimap.bgImage) {
 			ctx.drawImage(stendhal.ui.minimap.bgImage, 0, 0);
 		}
 		ctx.restore();
 	},
-	
+
 	createBackgroundImage: function() {
 		var width = stendhal.ui.minimap.mapWidth;
 		var height = stendhal.ui.minimap.mapHeight;
 		if (width <= 0 || height <= 0) {
 			return;
 		}
-		
+
 		if (stendhal.data.map.collisionData !== stendhal.ui.minimap.lastZone) {
 			stendhal.ui.minimap.lastZone = stendhal.data.map.collisionData;
 			stendhal.ui.minimap.bgImage = document.createElement("canvas");
@@ -138,14 +137,14 @@ stendhal.ui.minimap = {
 			ctx.putImageData(imgData, 0, 0);
 		}
 	},
-	
+
 	drawEntities: function(ctx) {
 		ctx.fillStyle = "rgb(255,0,0)";
 		ctx.strokeStyle = "rgb(0,0,0)";
 
 		for (var i in marauroa.currentZone) {
 			var o = marauroa.currentZone[i];
-			if (typeof(o["x"]) != "undefined" && typeof(o["y"]) != "undefined" && (o.minimapShow || (marauroa.me["adminlevel"] && marauroa.me["adminlevel"] >= 600))) {
+			if (typeof(o["x"]) != "undefined" && typeof(o["y"]) != "undefined" && (o.minimapShow || (marauroa.me["adminlevel"] && marauroa.me["adminlevel"] >= 20))) {
 				// not supported by IE <= 8
 				if (typeof(ctx.fillText) != "undefined") {
 //					stendhal.ui.minimap.ctx.fillText(o.id, o.x * stendhal.ui.minimap.scale, o.y * stendhal.ui.minimap.scale);
@@ -159,7 +158,7 @@ stendhal.ui.minimap = {
 			}
 		}
 	},
-	
+
 	onClick: function(e) {
 		var x = Math.floor((e.offsetX + stendhal.ui.minimap.xOffset) / stendhal.ui.minimap.scale);
 		var y = Math.floor((e.offsetY + stendhal.ui.minimap.yOffset) / stendhal.ui.minimap.scale);

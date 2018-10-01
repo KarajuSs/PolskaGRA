@@ -4,7 +4,7 @@
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU Affero General Public License as        *
- *   published by the Free Software Foundation; either version 3 of the    * 
+ *   published by the Free Software Foundation; either version 3 of the    *
  *   License, or (at your option) any later version.                       *
  *                                                                         *
  ***************************************************************************/
@@ -112,7 +112,7 @@ stendhal.ui.buddyList = {
 	buildActions: function(actions) {
 		if (stendhal.ui.buddyList.current.className === "online") {
 			actions.push({
-				title: "Talk",
+				title: "Porozmawiaj",
 				action: function(entity) {
 					stendhal.ui.chatinput.setText("/msg "
 							+ stendhal.ui.buddyList.current.textContent
@@ -120,7 +120,7 @@ stendhal.ui.buddyList = {
 				}
 			});
 			actions.push({
-				title: "Where",
+				title: "Gdzie",
 				action: function(entity) {
 					var action = {
 						"type": "where",
@@ -133,7 +133,7 @@ stendhal.ui.buddyList = {
 			// Invite
 		} else {
 			actions.push({
-				title: "Leave Message",
+				title: "Zostaw wiadomość",
 				action: function(entity) {
 					stendhal.ui.chatinput.setText("/storemessage "
 							+ stendhal.ui.buddyList.current.textContent
@@ -142,7 +142,7 @@ stendhal.ui.buddyList = {
 			});
 		}
 		actions.push({
-			title: "Remove",
+			title: "Usuń",
 			action: function(entity) {
 				var action = {
 					"type": "removebuddy",

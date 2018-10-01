@@ -4,7 +4,7 @@
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU Affero General Public License as        *
- *   published by the Free Software Foundation; either version 3 of the    * 
+ *   published by the Free Software Foundation; either version 3 of the    *
  *   License, or (at your option) any later version.                       *
  *                                                                         *
  ***************************************************************************/
@@ -25,7 +25,6 @@ stendhal.main = {
 		// Object { file: "Level 0/semos/city_easter.tmx", danger_level: "0.036429932929822995", zoneid: "", readable_name: "Semos city", id: "-1", color_method: "multiply" }
 	},
 
-
 	/**
 	 * register marauroa event handlers.
 	 */
@@ -34,14 +33,14 @@ stendhal.main = {
 		marauroa.clientFramework.onDisconnect = function(reason, error){
 			stendhal.ui.chatLog.addLine("error", "Disconnected: " + error);
 		};
-	
+
 		marauroa.clientFramework.onLoginRequired = function() {
 			window.location = "/index.php?id=content/account/login&url="
 				+ escape(window.location.pathname + window.location.hash);
 		};
 
 		marauroa.clientFramework.onLoginFailed = function(reason, text) {
-			alert("Login failed. Please login on the Stendhal website first and make sure you open the client on an https://-URL");
+			alert("Nieudane logowanie. Najpierw zaloguj sie na stronie PolskaGRA i upewnij sie, ze otworzysz klienta za pomocna odnosnika - https://-URL");
 			marauroa.clientFramework.close();
 			document.getElementById("chatinput").disabled = true;
 			document.getElementById("chat").style.backgroundColor = "#AAA";
@@ -66,9 +65,8 @@ stendhal.main = {
 			marauroa.clientFramework.chooseCharacter(name);
 			var body = document.getElementById("body")
 			body.style.cursor = "auto";
-			stendhal.ui.chatLog.addLine("client", "Loading world...");
+			stendhal.ui.chatLog.addLine("client", "Ladowanie swiata...");
 		};
-
 
 		marauroa.clientFramework.onTransferREQ = function(items) {
 			for (var i in items) {
@@ -81,7 +79,7 @@ stendhal.main = {
 				}
 			}
 		};
-		
+
 		marauroa.clientFramework.onTransfer = function(items) {
 			for (var i in items) {
 				if (items[i]["name"].match(".data_map$")) {
@@ -102,7 +100,6 @@ stendhal.main = {
 			}
 		}
 	},
-
 
 	/**
 	 * registers global browser event handlers.
@@ -133,20 +130,20 @@ stendhal.main = {
 	 * starts the Stendhal web client and connects to the Stendhal server.
 	 */
 	startup: function() {
-		stendhal.ui.chatLog.addLine("error", "This is an early stage of an experimental web-based client. Please use the official client at https://stendhalgame.org to play Stendhal.");
-		stendhal.ui.chatLog.addLine("client", "Client loaded. Connecting...");
+		stendhal.ui.chatLog.addLine("error", "Jest to wczesny etap eksperymentalnego klienta internetowego. Aby moc zagrac w PolskaGRA, prosimy o zainstalowanie oficjalnego klienta z https://polskagra.net.");
+		stendhal.ui.chatLog.addLine("client", "Klient zostal zaladowany. Laczenie sie z serwerem...");
 
 		stendhal.main.registerMarauroaEventHandlers();
 		stendhal.main.registerBrowserEventHandlers();
 		marauroa.clientFramework.connect(null, null);
-		
+
 		if (document.getElementById("gamewindow")) {
 			stendhal.ui.gamewindow.draw.apply(stendhal.ui.gamewindow, arguments);
-			
+
 			document.addEventListener("click", function(e) {
 				if (e.target.dataItem) {
 					marauroa.clientFramework.sendAction({
-						type: "use", 
+						type: "use",
 						"target_path": e.target.dataItem.getIdPath(),
 						"zone": marauroa.currentZoneName
 					});
@@ -154,7 +151,7 @@ stendhal.main = {
 			});
 		}
 	},
-	
+
 	onerror: function(error) {
 		stendhal.main.errorCounter++;
 		if (stendhal.main.errorCounter > 5) {
