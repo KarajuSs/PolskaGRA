@@ -26,12 +26,16 @@ import games.stendhal.server.entity.npc.action.IncreaseKarmaAction;
 import games.stendhal.server.entity.npc.action.IncreaseXPAction;
 import games.stendhal.server.entity.npc.action.IncrementQuestAction;
 import games.stendhal.server.entity.npc.action.MultipleActions;
+import games.stendhal.server.entity.npc.action.NPCEmoteAction;
+import games.stendhal.server.entity.npc.action.PlaySoundAction;
 import games.stendhal.server.entity.npc.action.SetQuestAction;
 import games.stendhal.server.entity.npc.condition.AndCondition;
 import games.stendhal.server.entity.npc.condition.GreetingMatchesNameCondition;
 import games.stendhal.server.entity.npc.condition.NotCondition;
 import games.stendhal.server.entity.npc.condition.OrCondition;
 import games.stendhal.server.entity.npc.condition.PlayerIsWearingOutfitCondition;
+import games.stendhal.server.entity.npc.condition.QuestNotStartedCondition;
+import games.stendhal.server.entity.npc.condition.QuestStartedCondition;
 import games.stendhal.server.entity.npc.condition.SystemPropertyCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
@@ -68,10 +72,15 @@ public class BalloonForBobby extends AbstractQuest {
 	// List of outfits which are balloons
 	private static final Outfit[] balloonList = new Outfit[4];
 
+	private final String NPCName = "Bobby";
 
 	@Override
 	public void addToWorld() {
+		fillQuestInfo("Balonik Bobbiego",
+				"Młody chłopiec Bobby w Fado wpatruje się w niebo, szukając balonów. On je kocha i chce mieć jednego dla siebie.",
+				true);
 		prepareBalloonList();
+		prepareRequestQuestStep();
 		prepareGreetWithBalloonStep();
 		prepareAttendingWithBalloonStep();
 		prepareQuestItemQuestionStep();
@@ -82,7 +91,52 @@ public class BalloonForBobby extends AbstractQuest {
 		for (int i = 0; i < 4; i++) {
 			balloonList[i] = new Outfit(i+1, null, null, null, null);
 		}
+	}
 
+	private void prepareRequestQuestStep() {
+		SpeakerNPC npc = npcs.get(NPCName);
+
+		// Player asks Bobby for "quest".
+		npc.add(ConversationStates.ATTENDING,
+				ConversationPhrases.QUEST_MESSAGES,
+				new QuestNotStartedCondition(QUEST_SLOT),
+				ConversationStates.QUEST_OFFERED,
+				"Czy mógłbyś zdobyć dla mnie #'balonik'? Nim zaczną się dni miasta "
+						+ ", bo wtedy sam będę mógł zdobyć :)",
+				null);
+
+		// Player asks for quest after quest is started.
+		npc.add(ConversationStates.ANY,
+				ConversationPhrases.QUEST_MESSAGES,
+				new QuestStartedCondition(QUEST_SLOT),
+				ConversationStates.ATTENDING,
+				"Mam nadzieję, że wkrótce zdobędziesz dla mnie #'balonik'. Chyba, że już jest święto zwane Mine Town Weeks"
+						+ ", bo wtedy sam będę mógł zdobyć :)",
+				null);
+
+		// Player agrees to get a balloon.
+		npc.add(ConversationStates.QUEST_OFFERED,
+				ConversationPhrases.YES_MESSAGES,
+				null,
+				ConversationStates.ATTENDING,
+				"Yay!",
+				new SetQuestAction(QUEST_SLOT, 0, "start"));
+
+		// Player refuses to get a balloon.
+		npc.add(ConversationStates.QUEST_OFFERED,
+				ConversationPhrases.NO_MESSAGES,
+				null,
+				ConversationStates.ATTENDING,
+				"Aww. :'(",
+				new SetQuestAction(QUEST_SLOT, 0, "rejected"));
+
+		// Player asks about "balloon".
+		npc.add(ConversationStates.ANY,
+				Arrays.asList("balloon", "balonik"),
+				new QuestNotStartedCondition(QUEST_SLOT),
+				ConversationStates.ATTENDING,
+				"Pewnego dnia będę miał wystarczająco dużo baloników, żeby odlecieć!",
+				null);
 	}
 
 	// If the player has a balloon (and it is mine town weeks),
@@ -90,7 +144,7 @@ public class BalloonForBobby extends AbstractQuest {
 	private void prepareGreetWithBalloonStep() {
 
 		// get a reference to Bobby
-		SpeakerNPC npc = npcs.get("Bobby");
+		SpeakerNPC npc = npcs.get(NPCName);
 
 		// Add conditions for all 4 different kinds of balloons
 		npc.add(
@@ -115,7 +169,7 @@ public class BalloonForBobby extends AbstractQuest {
 	// (Unless it's not mine town week)
 	private void prepareAttendingWithBalloonStep() {
 
-		SpeakerNPC npc = npcs.get("Bobby");
+		SpeakerNPC npc = npcs.get(NPCName);
 
 		npc.add(
 				ConversationStates.ATTENDING,
@@ -162,7 +216,7 @@ public class BalloonForBobby extends AbstractQuest {
 	// Let player decide if he wants to give the balloon to bobby
 	private void prepareQuestItemQuestionStep() {
 
-		SpeakerNPC npc = npcs.get("Bobby");
+		SpeakerNPC npc = npcs.get(NPCName);
 
 		// The player has a balloon but wants to keep it to himself
 		npc.add(
@@ -170,8 +224,12 @@ public class BalloonForBobby extends AbstractQuest {
 				ConversationPhrases.NO_MESSAGES,
 				null,
 				ConversationStates.ATTENDING,
-				"*dąsy*",
-				null);
+				null,
+				new MultipleActions(
+						new PlaySoundAction("pout-1"),
+						new NPCEmoteAction("dąsy.", false))
+				);
+
 
 		// Rewards to give to the player if he gives Bobby the balloon
 		// NOTE: Also changes the players outfit to get rid of the balloon
@@ -197,13 +255,30 @@ public class BalloonForBobby extends AbstractQuest {
 	}
 
 	@Override
-	public boolean isVisibleOnQuestStatus() {
-		return false;
-	}
-
-	@Override
 	public List<String> getHistory(final Player player) {
-		return new ArrayList<String>();
+		final List<String> res = new ArrayList<String>();
+		if (player.hasQuest(QUEST_SLOT)) {
+			final List<String> questInfo = Arrays.asList(player.getQuest(QUEST_SLOT).split(";"));
+			final String questState = questInfo.get(0);
+			int completedCount = 0;
+ 			if (questInfo.size() > 1) {
+				completedCount = Integer.parseInt(questInfo.get(1));
+			}
+ 			if (questState.equals("rejected")) {
+				res.add("Nienawidzę balonów.");
+			} else if (questState.equals("start")) {
+				res.add("Kocham baloniki! Pomogę chłopcowi o imieniu " + NPCName + ", aby zdobył chociaż jeden.");
+			} else if (questState.equals("done")) {
+				String balloon = "balonik";
+				if (completedCount > 1 || completedCount > 20 && completedCount < 25) {
+					balloon = balloon + "i";
+				} else {
+					balloon = balloon + "ów";
+				}
+ 				res.add("Znalazłem i dałem ładne " + Integer.toString(completedCount) + " " + balloon + " dla " + NPCName + ".");
+			}
+		}
+ 		return res;
 	}
 
 	@Override
@@ -223,7 +298,11 @@ public class BalloonForBobby extends AbstractQuest {
 
 	@Override
 	public String getNPCName() {
-		return "Bobby";
+		return NPCName;
 	}
 
+	@Override
+	public boolean isRepeatable(final Player player) {
+		return true;
+	}
 }
