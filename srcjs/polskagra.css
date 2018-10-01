@@ -21,7 +21,7 @@ div.itemSlot {width:32px; height:32px; background-repeat: no-repeat; border: 1px
 padding: 1px; margin: 2px; text-align: right; color:#FFF; font-weight: bold; font-size:10px}
 .equipment {position:relative; height:210px; border: 1px solid black}
 /* Right panel */
-#necklace0 {position:absolute; top:20px; left:4px;}
+#neck0 {position:absolute; top:20px; left:4px;}
 #rhand0 {position:absolute; top:60px; left:4px}
 #finger0 {position:absolute; top:100px; left:4px}
 #fingerb0 {position:absolute; top:140px; left:4px}
@@ -34,7 +34,7 @@ padding: 1px; margin: 2px; text-align: right; color:#FFF; font-weight: bold; fon
 /* Left panel */
 #cloak0 {position:absolute; top:20px; left:84px}
 #lhand0 {position:absolute; top:60px; left:84px}
-#gloves0 {position:absolute; top:100px; left:84px}
+#glove0 {position:absolute; top:100px; left:84px}
 #money0 {position:absolute; top:140px; left:84px}
 
 
