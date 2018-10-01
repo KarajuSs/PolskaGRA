@@ -18,19 +18,19 @@ li.offline {color: #A00}
 }
 
 div.itemSlot {width:32px; height:32px; background-repeat: no-repeat; border: 1px solid black; background-color:#CCC; float: left;
-padding: 1px; margin: 2px; text-align: right; color:#FFF; font-weight: bold; font-size:10px}
+margin: 1px; text-align: right; color:#FFF; font-weight: bold; font-size:10px}
 .equipment {position:relative; height:210px; border: 1px solid black}
 /* Right panel */
-#neck0 {position:absolute; top:20px; left:4px;}
-#rhand0 {position:absolute; top:60px; left:4px}
-#finger0 {position:absolute; top:100px; left:4px}
-#fingerb0 {position:absolute; top:140px; left:4px}
+#neck0 {position:absolute; top:20px; left:7px;}
+#rhand0 {position:absolute; top:60px; left:7px}
+#finger0 {position:absolute; top:100px; left:7px}
+#fingerb0 {position:absolute; top:140px; left:7px}
 /* Middle panel */
-#head0 {position:absolute; top:5px; left:44px}
-#armor0 {position:absolute; top:45px; left:44px}
-#pas0 {position:absolute; top:85px; left:44px}
-#legs0 {position:absolute; top:125px; left:44px}
-#feet0 {position:absolute; top:165px; left:44px}
+#head0 {position:absolute; top:5px; left:45px}
+#armor0 {position:absolute; top:45px; left:45px}
+#pas0 {position:absolute; top:85px; left:45px}
+#legs0 {position:absolute; top:125px; left:45px}
+#feet0 {position:absolute; top:165px; left:45px}
 /* Left panel */
 #cloak0 {position:absolute; top:20px; left:84px}
 #lhand0 {position:absolute; top:60px; left:84px}
@@ -95,8 +95,8 @@ span.loga {color: #D40000;text-decoration: underline}
 #rightColumn { float:right; width:210px }
 #equipmentborder { float: left; width:130px }
 
-#bag { border: 1px solid black; width: 200px; padding: 2px; float: left }
-#keyring { border: 1px solid black; width: 160px; padding: 2px; float: left }
+#bag { border: 1px solid black; width: 180px; padding: 2px; float: left }
+#keyring { border: 1px solid black; width: 144px; padding: 2px; float: left }
 
 #chatinput { width:100% }
 
