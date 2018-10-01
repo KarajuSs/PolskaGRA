@@ -6,7 +6,7 @@ li.offline {color: #A00}
 #buddyList {
 	border: 1px solid black;
 	width: 128px;
-	height: 407px;
+	height: 250px;
 	float: left;
 	overflow:scroll
 }

@@ -248,7 +248,17 @@ stendhal.data.map = {
 				} else {
 					temp[1] = "Level " + temp[1];
 				}
-				filename = "/tiled/" + escape(temp[1]) + "/" + escape(temp[2]) + "/" + escape(temp[3]) + ".tmx";
+				if (temp[2] == "krakow" || temp[2] == "zakopane") {
+					if (temp[1] == "interiors") {
+						filename = "/tiled/" + escape(temp[1]) + "/" + escape(temp[2]) + "/" + escape(temp[3]) + ".tmx";
+					} else {
+						filename = "/tiled/" + escape(temp[1]) + "/" + escape(temp[2]) + "/" + escape(temp[2]) + "_" + escape(temp[3]) + ".tmx";
+					}
+				} else if (temp[2] == "football") {
+					filename = "/tiled/" + escape(temp[1]) + "/zakopane/" + escape(temp[2]) + "_" + escape(temp[3]) + ".tmx";
+				} else {
+					filename = "/tiled/" + escape(temp[1]) + "/" + escape(temp[2]) + "/" + escape(temp[3]) + ".tmx";
+				}
 			} else {
 				var temp = /[^_]*_(.*)/.exec(locat);
 				filename = "/tiled/interiors/abstract/" + escape(temp[1]) + ".tmx";
