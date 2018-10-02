@@ -102,25 +102,28 @@ span.loga {color: #D40000;text-decoration: underline}
 
 #chatinput { width:99.7% }
 
+.inventorypopup, .inventorypopup_2, .inventorypopup_6, .popuptitle {
+	background-image: url("../data/gui/panelwood120.jpg");
+}
 .inventorypopup {
 	border: 1px solid black;
 	background-color: #FFF;
 	padding: 2px;
-	float: left
+	float: left;
 }
-
 .inventorypopup_2 {
 	width: 80px;
 }
-
 .inventorypopup_6 {
 	width: 217px;
 }
-
 .popuptitle {
-	cursor: default; background-color: #FFF
+	cursor: default;
+	color: white;
+	font-weight: bold;
+	padding: 0.5px;
+	border: double 2px #825A26;
 }
-
 .popuptitleclose {
 	float:right
 }
