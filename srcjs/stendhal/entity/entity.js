@@ -76,7 +76,7 @@ marauroa.rpobjectFactory["entity"] = marauroa.util.fromProto(marauroa.rpobjectFa
 			});
 		}
 		list.push({
-			title: "Look",
+			title: "Zobacz",
 			type: "look"
 		});
 	},
