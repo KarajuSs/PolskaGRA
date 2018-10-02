@@ -113,7 +113,7 @@ stendhal.ui.Menu = function(entity, x, y) {
 		content += "<button id=\"actionbutton." + i + "\">" + stendhal.ui.html.esc(actions[i].title) + "</button><br>";
 	}
 	content += "</div>";
-	this.popup = new stendhal.ui.Popup("Action", content, x, y);
+	this.popup = new stendhal.ui.Popup("Działanie", content, x, y);
 
 	this.popup.popupdiv.addEventListener("click", function(e) {
 		var i = e.target.id.substring(13);

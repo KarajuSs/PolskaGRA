@@ -42,7 +42,7 @@ marauroa.rpobjectFactory["corpse"] = marauroa.util.fromProto(marauroa.rpobjectFa
 
 	onclick: function(x, y) {
 		if (!this.inventory || !this.inventory.popupdiv.parentNode) {
-			this.inventory = stendhal.ui.equip.createInventoryWindow("content", 2, 2, this, "Corpse");
+			this.inventory = stendhal.ui.equip.createInventoryWindow("content", 2, 2, this, "Zwłoki");
 		}
 	}
 });
