@@ -248,14 +248,15 @@ stendhal.data.map = {
 				} else {
 					temp[1] = "Level " + temp[1];
 				}
-				if (temp[2] == "krakow" || temp[2] == "zakopane") {
+				if (temp[2] == "krakow" || temp[2] == "zakopane" || temp[2] == "koscielisko"
+						|| temp[2] == "tatry" || temp[2] == "wieliczka") {
 					if (temp[1] == "interiors") {
 						filename = "/tiled/" + escape(temp[1]) + "/" + escape(temp[2]) + "/" + escape(temp[3]) + ".tmx";
 					} else {
 						filename = "/tiled/" + escape(temp[1]) + "/" + escape(temp[2]) + "/" + escape(temp[2]) + "_" + escape(temp[3]) + ".tmx";
 					}
 				} else if (temp[2] == "football") {
-					filename = "/tiled/" + escape(temp[1]) + "/zakopane/" + escape(temp[2]) + "_" + escape(temp[3]) + ".tmx";
+					filename = "/tiled/Level 1/zakopane/football_playground.tmx";
 				} else {
 					filename = "/tiled/" + escape(temp[1]) + "/" + escape(temp[2]) + "/" + escape(temp[3]) + ".tmx";
 				}
