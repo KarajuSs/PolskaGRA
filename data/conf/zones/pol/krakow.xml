@@ -38,6 +38,16 @@
 				<parameter name="volume">65</parameter>
 			</implementation>
 		</entity>
+
+		<entity x="72" y="31">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.Gate">
+				<parameter name="image">straznicy</parameter>
+				<parameter name="orientation">h</parameter>
+				<parameter name="condition">new QuestCompletedCondition("krolewski_plaszcz")</parameter>
+				<parameter name="autoclose">1</parameter>
+				<parameter name="message">Strażnicy Cię odepchneli od bramy.</parameter>
+			</implementation>
+		</entity>
 	</zone>
 
 	<!-- krakow_ne -->
@@ -57,6 +67,9 @@
 
 	<!-- krakow_w -->
 	<zone name="0_krakow_w" level="0" x="513312" y="17792" file="Level 0/krakow/krakow_w.tmx">
+		<!-- NPCs -->
+		<configurator class-name="games.stendhal.server.maps.krakow.planty.KidsNPC"/>
+		<configurator class-name="games.stendhal.server.maps.krakow.planty.AmandaNPC"/>
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
@@ -72,8 +85,11 @@
 
 	<!-- krakow_rynek -->
 	<zone name="0_krakow_rynek" level="0" x="513440" y="17792" file="Level 0/krakow/krakow_rynek.tmx">
+		<!-- PET -->
+		<configurator class-name="games.stendhal.server.maps.krakow.planty.PuppyNPC"/>
+		<!-- NPCs -->
 		<configurator class-name="games.stendhal.server.maps.krakow.marketplace.LajkonikNPC"/>
-		<configurator class-name="games.stendhal.server.maps.krakow.blacksmith.SamsonNPC"/>
+		<configurator class-name="games.stendhal.server.maps.krakow.blacksmith.BlacksmithNPC"/>
 		<configurator class-name="games.stendhal.server.maps.krakow.vineyard.WinicjuszNPC"/>
 		<attributes>
 			<parameter name="color_method">time</parameter>
@@ -249,6 +265,11 @@
 
 	<!-- krakow_se -->
 	<zone name="0_krakow_se" level="0" x="513568" y="17920" file="Level 0/krakow/krakow_se.tmx">
+		<!-- PET -->
+		<configurator class-name="games.stendhal.server.maps.krakow.planty.RabbitNPC"/>
+		<!-- NPCs -->
+		<configurator class-name="games.stendhal.server.maps.krakow.planty.FarmerNPC"/>
+		<configurator class-name="games.stendhal.server.maps.krakow.planty.AishaNPC"/>
 		<attributes>
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
@@ -1141,6 +1162,8 @@ Południe: Zakopane
 	<!-- Blacksmith -->
 	<zone name="int_krakow_blacksmith" file="interiors/krakow/blacksmith.tmx">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+		<configurator class-name="games.stendhal.server.maps.krakow.blacksmith.BlacksmithAssistNPC"/>
+
 		<entity x="1" y="1">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
 				<parameter name="sound">hammer-1, smith-1</parameter>
@@ -1313,6 +1336,24 @@ Południe: Zakopane
 			</implementation>
 		</entity>
 
+		<entity x="11" y="1">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+				<parameter name="sound">pol-ognisko</parameter>
+				<parameter name="radius">10</parameter>
+				<parameter name="volume">40</parameter>
+			</implementation>
+		</entity>
+
+		<entity x="4" y="14">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
+				<parameter name="sound">water-2</parameter>
+				<parameter name="min">10</parameter>
+				<parameter name="max">15</parameter>
+				<parameter name="radius">8</parameter>
+				<parameter name="volume">60</parameter>
+			</implementation>
+		</entity>
+
 		<portal x="18" y="16" ref="ah_exit">
 			<destination zone="0_krakow_e" ref="ah_entrance"/>
 		</portal>
@@ -1321,6 +1362,7 @@ Południe: Zakopane
 	<!-- Saddler house -->
 	<zone name="int_krakow_saddler_house" file="interiors/krakow/saddler_house.tmx">
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn"/>
+		<configurator class-name="games.stendhal.server.maps.krakow.saddler.KrawiecNPC"/>
 		<entity x="7" y="7">
 			<implementation class-name="games.stendhal.server.maps.krakow.saddler.SaddlerNPC">
 				<parameter name="name">Rymarz</parameter>

@@ -2,41 +2,47 @@
 ---------
 1.05 - KRÓLESTWO POLAN
 *świat gry*
-- Dodano nowy przedmiot: "środek uspokajający", który leczy/zapobiega stanom szokującym
-- Przetłumaczono wiadomości + zagadki w Piekle [hell]
+- Ogromna ilość zmian na mapach
+- Dodano nowe przedmioty: 
+	* 'środek uspokajający', który leczy/zapobiega stanom szokującym,
+	* 'orzech włoski',
+	* 'tuńczyk',
+	* 'ruda miedzi',
+	* 'sztabka miedzi'
+- Dodano opisy dla potworów: 'elf ciemności matrona' & 'samurai'
+- Dodano nowy Krakowski bank + dodano stare zadanie na piętro w banku (w krakowskim banku)
+- Dodano kilka nowych zadań w Krakowie
+- Dodano nowych NPC w Krakowie
+- Dodano wiele nowych pomieszczeń jak i sklepów w Krakowie
+- Dodano nową skrzynię w Krakowskim banku
+- Dodano nowy dungeon w Krakowie
+- Dodano nowe osiągnięcia za wykonywanie zadań w Kuźnicy
+- Dodano możliwość wydobycia rudy miedzi w podziemiach zakopane & w kopalni na kościelisku
+- Dokonano licznych zmian na terenach Krakowia
+- Nowy kowal w Krakowie potrafi wytopić sztabkę miedzi (potrzeba: 2 drewna & 1 rudę miedzi)
+- Na zrobienie sztabki złota potrzeba 3 polan zamiast 2
 - Minimalne zwiększenie rozmiarów smoków (chodzi o okrąg pod potworkiem) z 3,2 na 3,3
 - Zegary ma mapach pokazują nam godzinę, jeżeli klikniemy na niego PPM i wybierzemy opcję 'zobacz'
 - Zmieniono nazwę przedmiotu z: 'pióro mrocznego archanioła' na 'pióro archanioła ciemności'
-- Dodano opisy dla potworów: 'elf ciemności matrona' & 'samurai'
-- Dodano nowe przedmioty: 'orzech włoski' & 'ruda miedzi' & 'sztabka miedzi'
-- Dokonano licznych zmian na terenach Krakowia
+- Zmniejszono ilość dostawanych punktów umiejętności za zdobytego EXP'a z wykonanego zadania u burmistrzów z 10% na 5%
+- Przetłumaczono wiadomości + zagadki w Piekle [hell]
 - Gracz może posiadać kozę jako zwierzątko
-- Dodano nowy Krakowski bank + dodano stare zadanie na piętro w banku (w krakowskim banku)
-- Dodano nowe zadania u Króla Kraka
-- Dodano nowe osiągnięcia za wykonywanie zadań w Kuźnicy
-- Dodano wiele nowych sklepów w Krakowie
-- Dodano nową skrzynię w Krakowskim banku
-- Na zrobienie sztabki złota potrzeba 3 zamiast 2 polan
-- Nowy kowal w Krakowie potrafi wytopić sztabkę miedzi (potrzeba: 2 drewna & 1 rudę miedzi)
-- Gdzieś w Krakowskim grodzie można sprzedać magię
-- Dodano nowy dungeon w Krakowie
-- Ogromna ilość zmian na mapach
-- Dodano wiele nowych pomieszczeń w Krakowie
+- Za wykonanie zadania u samego Króla Kraka będzie można przejść przez północną bramę od strony krakowskiego rynku
 
 
 *klient*
 - Rozmiary klienta zostały odrobinę powiększone z 640x480 (pikseli) na 800x600 (pikseli)
 - "Dymki" z wiadomościami zostały poszerzone o 100px (pikseli) [z 240px na 340px]
-- Nazwy map pod minimapą w lewym panelu zostaną podmieniane (np: nazwa mapy: 0_zakopane_s; efekt końcowy w kliencie: Zakopane S)
+- Zwiększono maksymalną ilość liter w tekstach (rozmowy z NPC/graczami tzw. 'chmurki') z 84 na 124
 - Więcej grafik natury broni służącej do ustawienia ikonki walki, jeśli jest dostępna
 - Zmieniono kolorystyke potwora 'dwugłowego lodowego smoka'
-- Zwiększono maksymalną ilość liter w tekstach (rozmowy z NPC/graczami tzw. 'chmurki') z 84 na 124
+- Zmieniono wygląd potwora 'coś' na bardziej abstrakcyjny
 - Wiele nowych outfitów dla NPC
 - Dodano muzykę na pustynnych mapach (desert) oraz na mapie 1_dreamscape
 - Dodano kilka dźwięków oraz dwie specjalne piosenki dla Krakowskich map
-- Zmieniono obraz potwora "coś" na bardziej abstrakcyjny
 - Dodano efekt otwierania bramy obok królewskiego grodu
-- Dodano grafikę kozy & rosnących winogron & rudy miedzi & sztabki miedzi
+- Dodano grafikę kozy & rosnących winogron & rudy miedzi & sztabki miedzi & czarnego pierścienia
+- Nazwy map pod minimapą w lewym panelu zostaną podmieniane (np: nazwa mapy: 0_zakopane_s; efekt końcowy w kliencie: Zakopane S)
 
 
 *code*
@@ -45,6 +51,7 @@
 - Paski statusu (m.in. status zdrowia) przesuwa się w dół w momencie kiedy postać gracza / potwora etc. "wychodzi" poza nasze pole widzenia na ekranie
 - Przerobiono częściowo kod gry / skryptów
 - Potrzeba od teraz 20 poziom administratora, aby móc korzystać ze skryptów
+- Wiadomości o śmierci nie będą generowane przez serwer tylko przez klienta (przykład: kiedy 'my' jako gracz zginiemy to otrzymamy wiadomość na chat'cie od kogo/czego zostaliśmy zabici)
 
 
 *naprawa błędów*
@@ -54,6 +61,8 @@
 - Poprawiono ostatnie zadanie u "Czarnoksiężnika"
 - Naprawiono naliczanie czasu podczas wykonywania / ulepszania złotych ciupag (tak samo z jednym wąsem i z dwoma wąsami)
 - Naprawiono wyświetlanie powtarzalności misji: 'odnowienie zapasów kwiaciarni' w dzienniku zdarzeń
+- Efektu stanu porażenia nie można ominąć poprzez użycie komendy /autowalk (automatycznego chodzenia)
+- Można przejść przez swoje zwierzątko, aby uniknąć zablokowania przez pet'a
 
 
 

@@ -1,6 +1,3 @@
-
-
-/* $Id$ */
 /***************************************************************************
  *                   (C) Copyright 2003-2010 - Stendhal                    *
  ***************************************************************************
@@ -12,7 +9,6 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-
 package games.stendhal.server.maps.fado.city;
 
 import games.stendhal.common.Direction;
@@ -25,17 +21,12 @@ import games.stendhal.server.entity.npc.SpeakerNPC;
 import java.util.Arrays;
 import java.util.Map;
 
-
 /**
  * Creates a Small Boy NPC
  *
  * @author jackrabbit
  */
 public class SmallBoyNPC implements ZoneConfigurator {
-	//
-	// ZoneConfigurator
-	//
-
 	/**
 	 * Configure a zone.
 	 *
@@ -47,9 +38,6 @@ public class SmallBoyNPC implements ZoneConfigurator {
 		buildSmallBoyNPC(zone);
 	}
 
-	//
-	// A Small Boy NPC a bit below the tavern
-	//
 	private void buildSmallBoyNPC(final StendhalRPZone zone) {
 		final SpeakerNPC boynpc = new SpeakerNPC("Bobby") {
 
@@ -62,8 +50,6 @@ public class SmallBoyNPC implements ZoneConfigurator {
 			@Override
 			protected void createDialog() {
 				addGreeting("Hm?");
-				addQuest("Czy mógłbyś zdobyć dla mnie #balonik?. Nim zaczną się dni miasta "
-						+ ", bo wtedy sam będę mógł zdobyć :)");
 				addHelp("Zastanawiam się czy dzięki #balonik będę mógł się wznieść wystarczająco wysoko, aby dotknąć chmur...");
 				addJob("Praca? Czy to coś takiego co mogę zjeść?");
 				addReply("balonik", "Pewnego dnia będę miał tyle baloników, że będę mógł odlecieć daleko!");
@@ -76,7 +62,6 @@ public class SmallBoyNPC implements ZoneConfigurator {
 			protected void onGoodbye(RPEntity player) {
 				setDirection(Direction.RIGHT);
 			}
-			
 		};
 
 		boynpc.setOutfit(new Outfit(0, 33, 19, 3, 1));

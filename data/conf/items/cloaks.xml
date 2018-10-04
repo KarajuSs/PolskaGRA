@@ -180,6 +180,24 @@
 		</equipable>
 	</item>
 
+	<item name="płaszcz czerwonego kapturka">
+		<type class="cloak" subclass="brightred_cloak" tileid="-1"/>
+		<description>Oto płaszcz czerwonego kapturka. Pewna mała dziewczynka o imieniu Balbina o nim marzy.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<def value="1"/>
+		</attributes>
+		<weight value="1.0"/>
+		<value value="1"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="cloak"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+		</equipable>
+	</item>
+
 	<item name="peleryna elficka">
 		<type class="cloak" subclass="elf_cloak" tileid="-1"/>
 		<description>To peleryna elficka. Jest przewiewna i nie daje ochrony przez chłodem.</description>

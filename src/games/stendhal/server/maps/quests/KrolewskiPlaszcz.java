@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.entity.npc.ChatAction;
 import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
+import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.action.DropItemAction;
 import games.stendhal.server.entity.npc.action.EquipItemAction;
@@ -20,7 +22,6 @@ import games.stendhal.server.entity.npc.condition.GreetingMatchesNameCondition;
 import games.stendhal.server.entity.npc.condition.NotCondition;
 import games.stendhal.server.entity.npc.condition.PlayerHasItemWithHimCondition;
 import games.stendhal.server.entity.npc.condition.QuestCompletedCondition;
-import games.stendhal.server.entity.npc.condition.QuestNotCompletedCondition;
 import games.stendhal.server.entity.npc.condition.QuestStateStartsWithCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
@@ -28,15 +29,51 @@ import games.stendhal.server.maps.Region;
 public class KrolewskiPlaszcz extends AbstractQuest {
 	public static final String QUEST_SLOT = "krolewski_plaszcz";
 
+	private static final String UZBROJENIE = "zamowienie_strazy";
+	private static final String LUD1 = "maka";
+	private static final String LUD2 = "naprawa_lodzi";
+	private static final String LUD3 = "plaszcz_kapturka";
+	private static final String LUD4 = "zabawka_leo";
+
 	private void start() {
 		final SpeakerNPC npc = npcs.get("Król Krak");
+		String text = "I ja mam Tobie zaufać? Gdzie pomogłeś mojemu ludowi?!";
 
 		npc.add(ConversationStates.ATTENDING,
-			ConversationPhrases.QUEST_MESSAGES,
-			new QuestNotCompletedCondition(QUEST_SLOT),
-			ConversationStates.QUEST_OFFERED,
-			"Potrzebuję nowego płaszczu królewskiego. Aktualny mój płaszcz się powoli niszczy. Potrzebuję od Ciebie 10 sztuk #'płaszcz z czarnego smoka'. Przyniósłbyś byś mi to?",
-			null);
+			ConversationPhrases.QUEST_MESSAGES, null,
+			ConversationStates.QUEST_OFFERED, null,
+			new ChatAction() {
+				@Override
+				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
+					if (player.isQuestCompleted(UZBROJENIE)) {
+						if (player.isQuestCompleted(LUD1)) {
+							if (player.isQuestCompleted(LUD2)) {
+								if (player.isQuestCompleted(LUD3)) {
+									if (player.isQuestCompleted(LUD4)) {
+										raiser.say("Potrzebuję nowego płaszcza królewskiego. Aktualny mój płaszcz się powoli niszczy. Potrzebuję od Ciebie #'czarnego płaszcza smoczego' i to 10 sztuk! Przyniósłbyś byś mi to?");
+										raiser.setCurrentState(ConversationStates.QUEST_OFFERED);
+									} else {
+										npc.say(text + " Poszukaj małego chłopca o imieniu Leo, ponieważ zgubił swoją zabawkę i nie może jej odzyskać!");
+										raiser.setCurrentState(ConversationStates.ATTENDING);
+									}
+								} else {
+									npc.say(text + " Poszukaj dziewczynki o imieniu Balbina, gdyż potrzebujego pewnego płaszcza do spełnienia swojego marzenia!");
+									raiser.setCurrentState(ConversationStates.ATTENDING);
+								}
+							} else {
+								npc.say(text + " Poszukaj pewnego rybaka o imieniu Thomas, potrzebuje pomocy przy naprawie jego łódki!");
+								raiser.setCurrentState(ConversationStates.ATTENDING);
+							}
+						} else {
+							npc.say(text + " Poszukaj Farmera Bruno, bo od kilku tygodni nie można kupić nawet jednego chleba!");
+							raiser.setCurrentState(ConversationStates.ATTENDING);
+						}
+					} else {
+						npc.say("Moja armia królewska potrzebuje wyposażenia! Gwardzista już złożył zamówienie u miejskiego kowala! Lepiej mu pomóż jeśli Ci na tym zależy.");
+						raiser.setCurrentState(ConversationStates.ATTENDING);
+					}
+				}
+			});
 
 		npc.add(ConversationStates.ATTENDING,
 			ConversationPhrases.QUEST_MESSAGES,

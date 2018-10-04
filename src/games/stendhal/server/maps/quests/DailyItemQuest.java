@@ -119,7 +119,7 @@ public class DailyItemQuest extends AbstractQuest {
 		items.put("kosa",1);
 		items.put("sierp",1);
 		items.put("toporek",1);
-		items.put("topór oburęczny",1);
+		items.put("topór obosieczny",1);
 
 		// boots
 		items.put("buty lazurowe",1);
@@ -275,7 +275,7 @@ public class DailyItemQuest extends AbstractQuest {
 		items.put("miecz zaczepny",1);
 		items.put("pałasz",1);
 		items.put("miecz dwuręczny",1);
-		items.put("sztylet",1);
+		items.put("sztylecik",1);
 		items.put("miecz elficki",1);
 		items.put("katana",1);
 		items.put("mieczyk",1);

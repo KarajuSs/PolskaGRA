@@ -183,7 +183,7 @@ public class WegielNaOpal extends AbstractQuest {
 				ConversationPhrases.OFFER_MESSAGES,
 				new QuestNotCompletedCondition(QUEST_SLOT),
 				ConversationStates.ATTENDING,
-				"Powiem ci możesz u mnie kupić, jeżeli wykonasz dla mnie #'zlecenie'.", null);
+				"Powiem ci, że możesz u mnie kupić, jeżeli wykonasz dla mnie #'zlecenie'.", null);
 	}
 
 	@Override

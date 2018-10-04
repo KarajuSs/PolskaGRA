@@ -29,14 +29,13 @@ public class PassiveNPC extends NPC {
 		createPath();
 
 		put("title_type", "npc");
-
 		// Entity name is not drawn because of "unnamed" attribute
         setName("PassiveNPC");
 		put("unnamed", "");
-
 		// Health bar drawing is supressed
 		put("no_hpbar", "");
-
+		// Remove "attack" option from menus
+		put("no_attack", "");
 		setSize(1, 1);
 
 		updateModifiedAttributes();

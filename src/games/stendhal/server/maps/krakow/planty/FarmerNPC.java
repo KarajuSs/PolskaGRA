@@ -9,13 +9,11 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-package games.stendhal.server.maps.krakow.blacksmith;
+package games.stendhal.server.maps.krakow.planty;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
@@ -24,9 +22,7 @@ import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
 import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
-import games.stendhal.server.entity.npc.behaviour.adder.ProducerAdder;
 import games.stendhal.server.entity.npc.behaviour.adder.SellerAdder;
-import games.stendhal.server.entity.npc.behaviour.impl.ProducerBehaviour;
 import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
 
 /**
@@ -34,7 +30,7 @@ import games.stendhal.server.entity.npc.behaviour.impl.SellerBehaviour;
  *
  * @author KarajuSs
  */
-public class SamsonNPC implements ZoneConfigurator {
+public class FarmerNPC implements ZoneConfigurator {
 	private final ShopList shops = SingletonRepository.getShopList();
 
 	/**
@@ -49,39 +45,33 @@ public class SamsonNPC implements ZoneConfigurator {
 	}
 
 	private void buildNPC(final StendhalRPZone zone) {
-		final SpeakerNPC npc = new SpeakerNPC("Samson") {
+		final SpeakerNPC npc = new SpeakerNPC("Farmer Bruno") {
 
 			@Override
 			protected void createPath() {
 				final List<Node> nodes = new LinkedList<Node>();
-				nodes.add(new Node(17, 89));
-				nodes.add(new Node(17, 90));
-				nodes.add(new Node(20, 90));
-				nodes.add(new Node(20, 89));
+				nodes.add(new Node(76, 23));
+				nodes.add(new Node(79, 23));
+				nodes.add(new Node(79, 22));
+				nodes.add(new Node(82, 22));
+				nodes.add(new Node(82, 21));
+				nodes.add(new Node(89, 21));
 				setPath(new FixedPath(nodes, true));
 			}
 
 			@Override
 			protected void createDialog() {
-				addJob("Specjalizuje się w przetapianiu miedzi, ale również możesz o ode mnie otrzymać dobry sprzęt!");
-				addOffer("Sprzedaję: toporek 25, topór jednoręczny 35, topór 50, pyrlik 90, pordzewiała kosa 210, misa do płukania złota 270.");
-				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("sellsamson")), false);
+				addGreeting("Witojże w mej farmie!");
+				addJob("Opiekuje się tym polem zboża!");
+				addHelp("Mógłbym trochę sprzedać mego zboża bo mam nadmiar tego. Aaaa... jeszcze jedno, będę potrzebował twej pomocy, więc jak szukasz jakiegoś #'zadania' to czekam.");
+				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("sellbruno")), false);
 				addGoodbye();
-
-				final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
-				requiredResources.put("polano", 2);
-				requiredResources.put("ruda miedzi", 1);
-
-				final ProducerBehaviour behaviour = new ProducerBehaviour("samson_cast_copper",
-						Arrays.asList("cast", "odlej"), "sztabka miedzi", requiredResources, 7 * 60);
-				new ProducerAdder().addProducer(this, behaviour,
-						"Witaj w mej kuźni, wojowniku! Jeżeli będziesz coś potrzebował to zagadaj do mnie. Mogę dla Ciebie #odlać szatbkę miedzi. Powiedz mi tylko #'odlej sztabka miedzi'.");
 			}
 		};
 
-		npc.setDescription("Oto Samson. Jest miejscowym kowalem i specjalizuje się w przetapianiu miedzi. Dodatkowo prowadzi też sprzedaż potrzebnych do pracy narzędzi.");
-		npc.setEntityClass("blacksmithnpc");
-		npc.setPosition(20, 89);
+		npc.setDescription("Widzisz pewnego farmera o imieniu Bruno, który zajmuje się uprawą zboża.");
+		npc.setEntityClass("hoeingmannpc");
+		npc.setPosition(76, 23);
 		npc.initHP(100);
 		zone.add(npc);
 	}

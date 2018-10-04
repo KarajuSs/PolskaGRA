@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                      (C) Copyright 2003 - Marauroa                      *
+ *                    (C) Copyright 2003-2018 - Marauroa                   *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -12,7 +11,6 @@
  ***************************************************************************/
 package games.stendhal.server.entity;
 
-
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.WeakHashMap;
+import java.util.function.Predicate;
 
 import org.apache.log4j.Logger;
 
@@ -62,7 +61,6 @@ import games.stendhal.server.entity.status.StatusList;
 import games.stendhal.server.entity.status.StatusType;
 import games.stendhal.server.events.AttackEvent;
 import games.stendhal.server.events.SoundEvent;
-import games.stendhal.server.events.TextEvent;
 import games.stendhal.server.util.CounterMap;
 import marauroa.common.game.RPAction;
 import marauroa.common.game.RPObject;
@@ -220,7 +218,7 @@ public abstract class RPEntity extends GuidedEntity {
 		/** Maximum amount of killer names. */
 		private static final int MAX_SIZE = 10;
 		/** List of killer names. */
-		private final LinkedList<String> list = new LinkedList<String>();
+		private final LinkedList<String> list = new LinkedList<>();
 		/**
 		 * A flag for detecting when the killer list has grown over the
 		 * maximum size.
@@ -322,18 +320,18 @@ public abstract class RPEntity extends GuidedEntity {
 
 	public RPEntity(final RPObject object) {
 		super(object);
-		attackSources = new ArrayList<Entity>();
-		damageReceived = new CounterMap<Entity>(true);
-		enemiesThatGiveFightXP = new WeakHashMap<RPEntity, Integer>();
+		attackSources = new ArrayList<>();
+		damageReceived = new CounterMap<>(true);
+		enemiesThatGiveFightXP = new WeakHashMap<>();
 		totalDamageReceived = 0;
 		ignoreCollision = false;
 	}
 
 	public RPEntity() {
 		super();
-		attackSources = new ArrayList<Entity>();
-		damageReceived = new CounterMap<Entity>(true);
-		enemiesThatGiveFightXP = new WeakHashMap<RPEntity, Integer>();
+		attackSources = new ArrayList<>();
+		damageReceived = new CounterMap<>(true);
+		enemiesThatGiveFightXP = new WeakHashMap<>();
 		totalDamageReceived = 0;
 		ignoreCollision = false;
 	}
@@ -1424,7 +1422,7 @@ public abstract class RPEntity extends GuidedEntity {
 				// XXX hack - need some generic isDroppable
 				if (object instanceof CaptureTheFlagFlag) {
 					if (droppables == null) {
-						droppables = new ArrayList<Item>();
+						droppables = new ArrayList<>();
 					}
 					droppables.add((Item)object);
 				}
@@ -1926,9 +1924,6 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 		}
 
 		String killerName = killer.getName();
-		// Needs to be done while the killer map still has the contents
-		List<String> killers = buildKillerList(killerName);
-
 		final int oldXP = this.getXP();
 
 		// Establish how much xp points your are rewarded
@@ -1968,21 +1963,6 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 			corpse.addEvent(new SoundEvent(deathSound, 23, 100, SoundLayer.FIGHTING_NOISE));
 			corpse.notifyWorldAboutChanges();
 		}
-
-		StringBuilder deathMessage = new StringBuilder(getName());
-		if (getGender() == null) {
-			deathMessage.append(" został zabity");
-		} else if (getGender().equals("F")) {
-			deathMessage.append(" została zabita");
-		} else {
-			deathMessage.append(" został zabity");
-		}
-		if (!killers.isEmpty()) {
-			deathMessage.append(" przez ");
-			deathMessage.append(Grammar.enumerateCollection(killers));
-		}
-		corpse.addEvent(new TextEvent(deathMessage.toString()));
-
 		// Corpse may want to know who this entity was attacking (RaidCreatureCorpse does),
 		// so defer stopping.
 		stopAttack();
@@ -2062,7 +2042,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 	 * @return list of all attacking RPEntities
 	 */
 	public List<RPEntity> getAttackingRPEntities() {
-		final List<RPEntity> list = new ArrayList<RPEntity>();
+		final List<RPEntity> list = new ArrayList<>();
 
 		for (final Entity entity : getAttackSources()) {
 			if (entity instanceof RPEntity) {
@@ -2293,14 +2273,21 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 		// specified item. We need to do this to ensure an atomic transaction
 		// semantic later on because the required amount may be distributed
 		// to several stacks.
-		if (!isEquipped(name, amount)) {
+		return drop(item -> name.equals(item.getName()), amount);
+	}
+
+	private boolean isEquipped(Predicate<Item> condition, int amount) {
+		return getAllEquipped(condition).stream().mapToInt(Item::getQuantity).sum() >= amount;
+	}
+
+	private boolean drop(Predicate<Item> condition, int amount) {
+		if (!isEquipped(condition, amount)) {
 			return false;
 		}
 
 		int toDrop = amount;
 
 		for (RPSlot slot : this.slots(Slots.CARRYING)) {
-
 			Iterator<RPObject> objectsIterator = slot.iterator();
 			while (objectsIterator.hasNext()) {
 				final RPObject object = objectsIterator.next();
@@ -2310,7 +2297,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 
 				final Item item = (Item) object;
 
-				if (!item.getName().equals(name)) {
+				if (!condition.test(item)) {
 					continue;
 				}
 
@@ -2351,6 +2338,42 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 		}
 		// This will never happen because we ran isEquipped() earlier.
 		return false;
+	}
+
+	/**
+	 * Removes a specific amount of an item with matching info string from
+	 * the RPEntity. The item can either be stackable or non-stackable.
+	 * The units can be distributed over different slots. If the RPEntity
+	 * doesn't have enough units of the item, doesn't remove anything.
+	 *
+	 * @param name
+	 * 		Name of item to remove.
+	 * @param infostring
+	 * 		Required item info string to match.
+	 * @param amount
+	 * 		Number of items to remove from entity.
+	 * @return
+	 * 		<code>true</code> if dropping the item(s) was successful.
+	 */
+	public boolean dropWithInfostring(final String name, final String infostring, final int amount) {
+		return drop(item -> (name.equals(item.getName()) && infostring.equals(item.getInfoString())), amount);
+	}
+
+ 	/**
+	 * Removes a single item with matching info string from the RPEntity.
+	 * The item can either be stackable or non-stackable. The units can
+	 * be distributed over different slots. If the RPEntity doesn't have
+	 * enough units of the item, doesn't remove anything.
+	 *
+	 * @param name
+	 * 		Name of item to remove.
+	 * @param infostring
+	 * 		Required item info string to match.
+	 * @return
+	 * 		<code>true</code> if dropping the item(s) was successful.
+	 */
+	public boolean dropWithInfostring(final String name, final String infostring) {
+		return dropWithInfostring(name, infostring, 1);
 	}
 
 	/**
@@ -2405,27 +2428,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 	 *         number.
 	 */
 	public boolean isEquipped(final String name, final int amount) {
-		if (amount <= 0) {
-			return false;
-		}
-
-		int found = 0;
-
-		for (RPSlot slot : this.slots(Slots.CARRYING)) {
-
-			for (final RPObject object : slot) {
-				if (!(object instanceof Item)) {
-					continue;
-				}
-
-				found += getItemCount(name, (Item) object);
-				if (found >= amount) {
-					return true;
-				}
-			}
-		}
-
-		return false;
+		return isEquipped(item -> name.equals(item.getName()), amount);
 	}
 
 	/**
@@ -2438,6 +2441,36 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 	 */
 	public boolean isEquipped(final String name) {
 		return isEquipped(name, 1);
+	}
+
+	/**
+	 * Checks if entity carry a number of items with specified info string.
+	 *
+	 * @param name
+	 * 		Name of item to check.
+	 * @param infostring
+	 * 		Info string of item to check.
+	 * @param amount
+	 * 		Quantity of carried items to check.
+	 * @return
+	 * 		<code>true</code> if entity is carrying at least specified amount of items matching name & infostring.
+	 */
+	public boolean isEquippedWithInfostring(final String name, final String infostring, final int amount) {
+		return getAllEquippedWithInfostring(name, infostring).size() >= amount;
+	}
+
+ 	/**
+	 * Checks if entity carry a number of items with specified info string.
+	 *
+	 * @param name
+	 * 		Name of item to check.
+	 * @param infostring
+	 * 		Info string of item to check.
+	 * @return
+	 * 		<code>true</code> if entity is carrying at least one of items matching name & infostring.
+	 */
+	public boolean isEquippedWithInfostring(final String name, final String infostring) {
+		return isEquippedWithInfostring(name, infostring, 1);
 	}
 
 	/**
@@ -2571,20 +2604,47 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 	 *         found
 	 */
 	public List<Item> getAllEquipped(final String name) {
-		final List<Item> result = new LinkedList<Item>();
+		return getAllEquipped(item -> name.equals(item.getName()));
+	}
+
+	private List<Item> getAllEquipped(Predicate<Item> condition) {
+		final List<Item> result = new ArrayList<>();
 
 		for (RPSlot slot : this.slots(Slots.CARRYING)) {
+			result.addAll(getAllInSlot(slot, condition));
+		}
+		return result;
+	}
 
-			for (final RPObject object : slot) {
-				if (object instanceof Item) {
-					final Item item = (Item) object;
-					if (item.getName().equals(name)) {
-						result.add(item);
-					}
+	private List<Item> getAllInSlot(RPSlot slot, Predicate<Item> condition) {
+		List<Item> result = new ArrayList<>();
+		for (final RPObject object : slot) {
+			if (object instanceof Item) {
+				final Item item = (Item) object;
+				if (condition.test(item)) {
+					result.add(item);
+				}
+				for (RPSlot itemslot : item.slots()) {
+					result.addAll(getAllInSlot(itemslot, condition));
 				}
 			}
 		}
 		return result;
+	}
+
+	/**
+	 * Retrieves all of an item with matching info string.
+	 *
+	 * @param name
+	 * 		Name of item to match.
+	 * @param infostring
+	 * 		Info string of item to match.
+	 * @return
+	 * 		List<Item>
+	 */
+	public List<Item> getAllEquippedWithInfostring(String name, String infostring) {
+		return getAllEquipped(item -> name.equals(item.getName())
+				&& infostring.equalsIgnoreCase(item.getInfoString()));
 	}
 
 	/**
@@ -2686,7 +2746,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 	}
 
 	public List<Item> getWeapons() {
-		final List<Item> weapons = new ArrayList<Item>();
+		final List<Item> weapons = new ArrayList<>();
 		Item weaponItem = getWeapon();
 		if (weaponItem != null) {
 			weapons.add(weaponItem);
@@ -3100,7 +3160,7 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 	 * @return a list of all equipped defensive items
 	 */
 	public List<Item> getDefenseItems() {
-		List<Item> items = new LinkedList<Item>();
+		List<Item> items = new LinkedList<>();
 		if (hasShield()) {
 			items.add(getShield());
 		}
@@ -3701,12 +3761,10 @@ System.out.printf("  drop: %2d %2d\n", attackerRoll, defenderRoll);
 
 		// Stop other creatures and players attacks on me.
 		// Probably I am dead, and I don't want to die again with a second corpse.
-		for (Entity attacker : new LinkedList<Entity>(attackSources)) {
+		for (Entity attacker : new LinkedList<>(attackSources)) {
 			if (attacker instanceof RPEntity) {
 				((RPEntity) attacker).stopAttack();
 			}
 		}
 	}
-
-
 }

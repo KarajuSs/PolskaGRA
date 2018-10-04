@@ -772,6 +772,12 @@ public final class ShopList {
 		shops.add("buycheng", "bursztyn", 20);
 		shops.add("buycheng", "wielka perła", 1500);
 		shops.add("buycheng", "korale", 10000);
+
+		//Farmer Bruno sprzedaje:
+		shops.add("sellbruno", "zboże", 4);
+
+		//Thomas sprzedaje:
+		shops.add("sellthomas", "tuńczyk", 5);
 	}
 
 	private static ShopList instance;

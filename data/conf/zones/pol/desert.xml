@@ -310,7 +310,7 @@
 		<entity x="0" y="0">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.area.MessagingArea">
 				<parameter name="coversZone">true</parameter>
-				<parameter name="enterMessage">Zeskoczyłeś w głęboką dziurę i znalazłeś się w ogromnej podziemnej kryptcie lodowej piramidy pełnej strasznych potworów...</parameter>
+				<parameter name="enterMessage">Zeskoczyłeś w głęboką przepaść i znalazłeś się w ogromnej podziemnej lodowej kryptcie piramidy pełnej strasznych potworów...</parameter>
 			</implementation>
 		</entity>
 
@@ -408,7 +408,7 @@
 			<destination zone="-1_desert_ice_pyramid" ref="jump" />
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
 				<parameter name="minimum-level">250</parameter>
-				<parameter name="rejected">Słyszysz jakieś ryki, śmiechy oraz inne groźne głosy, a jeszcze nic nie widzisz, ponieważ tam jest strasznie ciemno. Boisz się zejść. Dla bezpieczeństwa wolisz pozostać na tym poziomie.</parameter>
+				<parameter name="rejected">Słyszysz jakieś ryki, śmiechy oraz inne groźne głosy, a dodatkowo jest tam strasznie ciemno, że nic nie widzisz co tam się znajduje. Boisz się zejść. Dla bezpieczeństwa wolisz pozostać na tym poziomie.</parameter>
 			</implementation>
 			<attribute name="hidden" />
 		</portal>
@@ -416,7 +416,7 @@
 			<destination zone="-1_desert_ice_pyramid" ref="jump" />
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
 				<parameter name="minimum-level">250</parameter>
-				<parameter name="rejected">Słyszysz jakieś ryki, śmiechy oraz inne groźne głosy, a jeszcze nic nie widzisz, ponieważ tam jest strasznie ciemno. Boisz się zejść. Dla bezpieczeństwa wolisz pozostać na tym poziomie.</parameter>
+				<parameter name="rejected">Słyszysz jakieś ryki, śmiechy oraz inne groźne głosy, a dodatkowo jest tam strasznie ciemno, że nic nie widzisz co tam się znajduje. Boisz się zejść. Dla bezpieczeństwa wolisz pozostać na tym poziomie.</parameter>
 			</implementation>
 			<attribute name="hidden" />
 		</portal>
@@ -424,7 +424,7 @@
 			<destination zone="-1_desert_ice_pyramid" ref="jump" />
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
 				<parameter name="minimum-level">250</parameter>
-				<parameter name="rejected">Słyszysz jakieś ryki, śmiechy oraz inne groźne głosy, a jeszcze nic nie widzisz, ponieważ tam jest strasznie ciemno. Boisz się zejść. Dla bezpieczeństwa wolisz pozostać na tym poziomie.</parameter>
+				<parameter name="rejected">Słyszysz jakieś ryki, śmiechy oraz inne groźne głosy, a dodatkowo jest tam strasznie ciemno, że nic nie widzisz co tam się znajduje. Boisz się zejść. Dla bezpieczeństwa wolisz pozostać na tym poziomie.</parameter>
 			</implementation>
 			<attribute name="hidden" />
 		</portal>
@@ -432,7 +432,7 @@
 			<destination zone="-1_desert_ice_pyramid" ref="jump" />
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
 				<parameter name="minimum-level">250</parameter>
-				<parameter name="rejected">Słyszysz jakieś ryki, śmiechy oraz inne groźne głosy, a jeszcze nic nie widzisz, ponieważ tam jest strasznie ciemno. Boisz się zejść. Dla bezpieczeństwa wolisz pozostać na tym poziomie.</parameter>
+				<parameter name="rejected">Słyszysz jakieś ryki, śmiechy oraz inne groźne głosy, a dodatkowo jest tam strasznie ciemno, że nic nie widzisz co tam się znajduje. Boisz się zejść. Dla bezpieczeństwa wolisz pozostać na tym poziomie.</parameter>
 			</implementation>
 			<attribute name="hidden" />
 		</portal>
@@ -440,7 +440,7 @@
 			<destination zone="-1_desert_ice_pyramid" ref="jump" />
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
 				<parameter name="minimum-level">250</parameter>
-				<parameter name="rejected">Słyszysz jakieś ryki, śmiechy oraz inne groźne głosy, a jeszcze nic nie widzisz, ponieważ tam jest strasznie ciemno. Boisz się zejść. Dla bezpieczeństwa wolisz pozostać na tym poziomie.</parameter>
+				<parameter name="rejected">Słyszysz jakieś ryki, śmiechy oraz inne groźne głosy, a dodatkowo jest tam strasznie ciemno, że nic nie widzisz co tam się znajduje. Boisz się zejść. Dla bezpieczeństwa wolisz pozostać na tym poziomie.</parameter>
 			</implementation>
 			<attribute name="hidden" />
 		</portal>
@@ -448,7 +448,7 @@
 			<destination zone="-1_desert_ice_pyramid" ref="jump" />
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
 				<parameter name="minimum-level">250</parameter>
-				<parameter name="rejected">Słyszysz jakieś ryki, śmiechy oraz inne groźne głosy, a jeszcze nic nie widzisz, ponieważ tam jest strasznie ciemno. Boisz się zejść. Dla bezpieczeństwa wolisz pozostać na tym poziomie.</parameter>
+				<parameter name="rejected">Słyszysz jakieś ryki, śmiechy oraz inne groźne głosy, a dodatkowo jest tam strasznie ciemno, że nic nie widzisz co tam się znajduje. Boisz się zejść. Dla bezpieczeństwa wolisz pozostać na tym poziomie.</parameter>
 			</implementation>
 			<attribute name="hidden" />
 		</portal>
@@ -456,7 +456,7 @@
 			<destination zone="-1_desert_ice_pyramid" ref="jump" />
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
 				<parameter name="minimum-level">250</parameter>
-				<parameter name="rejected">Słyszysz jakieś ryki, śmiechy oraz inne groźne głosy, a jeszcze nic nie widzisz, ponieważ tam jest strasznie ciemno. Boisz się zejść. Dla bezpieczeństwa wolisz pozostać na tym poziomie.</parameter>
+				<parameter name="rejected">Słyszysz jakieś ryki, śmiechy oraz inne groźne głosy, a dodatkowo jest tam strasznie ciemno, że nic nie widzisz co tam się znajduje. Boisz się zejść. Dla bezpieczeństwa wolisz pozostać na tym poziomie.</parameter>
 			</implementation>
 			<attribute name="hidden" />
 		</portal>
@@ -464,7 +464,7 @@
 			<destination zone="-1_desert_ice_pyramid" ref="jump" />
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
 				<parameter name="minimum-level">250</parameter>
-				<parameter name="rejected">Słyszysz jakieś ryki, śmiechy oraz inne groźne głosy, a jeszcze nic nie widzisz, ponieważ tam jest strasznie ciemno. Boisz się zejść. Dla bezpieczeństwa wolisz pozostać na tym poziomie.</parameter>
+				<parameter name="rejected">Słyszysz jakieś ryki, śmiechy oraz inne groźne głosy, a dodatkowo jest tam strasznie ciemno, że nic nie widzisz co tam się znajduje. Boisz się zejść. Dla bezpieczeństwa wolisz pozostać na tym poziomie.</parameter>
 			</implementation>
 			<attribute name="hidden" />
 		</portal>
@@ -472,7 +472,7 @@
 			<destination zone="-1_desert_ice_pyramid" ref="jump" />
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.LevelCheckingPortal">
 				<parameter name="minimum-level">250</parameter>
-				<parameter name="rejected">Słyszysz jakieś ryki, śmiechy oraz inne groźne głosy, a jeszcze nic nie widzisz, ponieważ tam jest strasznie ciemno. Boisz się zejść. Dla bezpieczeństwa wolisz pozostać na tym poziomie.</parameter>
+				<parameter name="rejected">Słyszysz jakieś ryki, śmiechy oraz inne groźne głosy, a dodatkowo jest tam strasznie ciemno, że nic nie widzisz co tam się znajduje. Boisz się zejść. Dla bezpieczeństwa wolisz pozostać na tym poziomie.</parameter>
 			</implementation>
 			<attribute name="hidden" />
 		</portal>
@@ -602,7 +602,7 @@
 		<entity x="0" y="0">
 			<implementation	class-name="games.stendhal.server.entity.mapstuff.area.MessagingArea">
 				<parameter name="coversZone">true</parameter>
-				<parameter name="enterMessage">Znalazłeś się w lodowej piramidzie. Nie możesz wytrzymać z tego mrozu jaki tutaj występuje, wszystko Ci marznie nawet powstał mały sopelek na twoim czupku nosa, który się zaczerwienił jak i policzki.</parameter>
+				<parameter name="enterMessage">Znalazłeś się w lodowej piramidzie. Nie możesz wytrzymać z tego mrozu jaki tutaj występuje, wszystko Ci marznie, nawet powstał mały sopelek na twoim czupku nosa, który się zaczerwienił, tak samo jak twoje policzki.</parameter>
 			</implementation>
 		</entity>
 

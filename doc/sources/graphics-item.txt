@@ -338,6 +338,8 @@ tuna_sandwich.png          Katie Russell (kymara); GPL 2.0; Stendhal
 unknown_fish.png           Kimmo Rundelin (kiheru); CC BY-SA 3.0; Stendhal
 vanillashake.png           tigertoes?; ???; ???
 watermelon.png             Red Queen?; ???; ???
+-- POL
+tuna.png		   KarajuSs; CC BY-SA 3.0; PolskaGRA
 
 data/sprites/items/grower/
 

@@ -90,7 +90,7 @@ public class TakeGoldforGrafindle extends AbstractQuest {
 		}
 		if (questState.equals("lorithien")
 				&& !player.isEquipped("sztabka złota", GOLD_AMOUNT)) {
-			res.add("O nie! Zgubiłam złote sztabki, które miałam przynieść Grafindle!");
+			res.add("O nie! Zgubiłem złote sztabki, które miałem przynieść Grafindle!");
 		}
 		if (questState.equals("done")) {
 			res.add("Dałem złote sztabki Grafindle, a on wynagrodził mnie - dostałem klucz do pokoju klienta banku Nalwor.");

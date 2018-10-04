@@ -20,6 +20,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import games.stendhal.common.constants.Occasion;
 import games.stendhal.server.core.events.TurnNotifier;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.quests.*;
@@ -65,7 +66,6 @@ public class StendhalQuestSystem {
 	 * Initializes the QuestSystem.
 	 */
 	public void init() {
-
 		loadQuest(new AdosDeathmatch());
 		loadQuest(new AmazonPrincess());
 		//loadQuest(new AntivenomRing());
@@ -121,7 +121,7 @@ public class StendhalQuestSystem {
 		loadQuest(new LookBookforCeryl());
 		loadQuest(new LookUpQuote());
 		loadQuest(new KanmararnSoldiers());
-		//loadQuest(new KillBlordroughs());
+		loadQuest(new KillBlordroughs());
 		loadQuest(new KillDarkElves());
 		loadQuest(new KillDhohrNuggetcutter());
 		loadQuest(new KillEnemyArmy());
@@ -223,11 +223,17 @@ public class StendhalQuestSystem {
 		/** 					**\
 		 *        KRAKÓW		 *
 		\**	                    **/
-		loadQuest(new SolveWoodcutterTest());
-		loadQuest(new PierscienBarona());
+		loadQuest(new CzekoladaNikodema());
 		loadQuest(new KrakowBank());
 		loadQuest(new KrolewskiPlaszcz());
+		loadQuest(new MakaFarmera());
+		loadQuest(new NaprawaLodzi());
+		loadQuest(new PlaszczKapturka());
+		loadQuest(new PierscienBarona());
+		loadQuest(new SolveWoodcutterTest());
 		loadQuest(new WawelBrama());
+		loadQuest(new ZabawkaLeo());
+		loadQuest(new ZamowienieStrazy());
 		/** 					**\
 		 *     DRAGON_KNIGHTS	 *
 		\**	                    **/
@@ -255,13 +261,13 @@ public class StendhalQuestSystem {
 		loadQuest(new MeetGuslarz());
 		loadQuest(new WhereDragon());
 
-		if (System.getProperty("stendhal.christmas") != null) {
+		if (Occasion.CHRISTMAS) {
 			loadQuest(new GoodiesForRudolph());
 		}
-		if (System.getProperty("stendhal.easter") != null) {
+		if (Occasion.EASTER) {
 			loadQuest(new EasterGiftsForChildren());
 		}
-		if (System.getProperty("stendhal.minetown") != null) {
+		if (Occasion.MINETOWN) {
 			loadQuest(new PaperChase()); // needs to be loaded before SemosMineTownRevivalWeeks
 			loadQuest(new MineTownRevivalWeeks());
 		}
