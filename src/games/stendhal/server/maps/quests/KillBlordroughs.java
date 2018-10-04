@@ -31,6 +31,7 @@ import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.condition.GreetingMatchesNameCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.util.TimeUtil;
 
@@ -268,7 +269,7 @@ import games.stendhal.server.util.TimeUtil;
 				}
 				if(killed == killsnumber) {
 					// player killed no more no less then needed soldiers
-					npc.say("Dobra robota! Tu są pieniądze. Jeżeli podoba ci sią praca u mnie, powróć tu za tydzień. Myślę iż w ciągu tego czasu zbiorą ponownie armię aby nas zaatakować.");
+					npc.say("Dobra robota! Tu są pieniądze. Jeżeli podoba ci sią praca u mnie, powróć tu za tydzień. Myślę iż w ciągu tego czasu zbiorą ponownie swoją armię aby nas zaatakować.");
 				} else {
 					// player killed more then needed soldiers
 					npc.say("Bardzo dobrze! Zabiłeś "+(killed-killsnumber)+" więcej "+
@@ -292,9 +293,27 @@ import games.stendhal.server.util.TimeUtil;
 	 * add quest state to npc's fsm.
 	 */
 	private void step_1() {
-		npc.addGreeting("Pozdrawiam. Przyszedłeś zaciągnąć się do wojska?");
-		npc.addReply(ConversationPhrases.YES_MESSAGES, "Ha! Cóż nie pozwolę Ci zapisać się do wojska, ale możesz nam #zaoferować jakąś zbroję...");
-		npc.addReply(ConversationPhrases.NO_MESSAGES, "Dobrze! I tak nigdy nie chciałbyś się tutaj dostać.");
+		npc.add(ConversationStates.IDLE,
+				ConversationPhrases.GREETING_MESSAGES,
+				new GreetingMatchesNameCondition(npc.getName()), 
+				false,
+				ConversationStates.ATTENDING,
+				"Pozdrawiam. Przyszedłeś zaciągnąć się do wojska?",
+				null);
+		npc.add(ConversationStates.ATTENDING,
+				ConversationPhrases.YES_MESSAGES,
+				new GreetingMatchesNameCondition(npc.getName()), 
+				false,
+				ConversationStates.ATTENDING,
+				"Ha! Dobrze, dałbym Ci wtedy #'zadanie'...",
+				null);
+		npc.add(ConversationStates.ATTENDING,
+				ConversationPhrases.NO_MESSAGES,
+				new GreetingMatchesNameCondition(npc.getName()), 
+				false,
+				ConversationStates.ATTENDING,
+				"Ha! Cóż nie pozwolę Ci zapisać się do wojska, ale możesz nam #zaoferować jakąś zbroję...",
+				null);	
 		npc.add(ConversationStates.ATTENDING,
 				Arrays.asList("Blordrough","blordrough","blordroughs"),
 				null,
@@ -303,7 +322,7 @@ import games.stendhal.server.util.TimeUtil;
 				null);
 		npc.add(ConversationStates.ATTENDING,
 				ConversationPhrases.QUEST_MESSAGES,
-				null,
+				new GreetingMatchesNameCondition(npc.getName()),
 				ConversationStates.ATTENDING,
 				null,
 				new QuestAction());
