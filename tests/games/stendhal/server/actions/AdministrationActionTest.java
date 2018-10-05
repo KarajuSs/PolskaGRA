@@ -766,7 +766,7 @@ public class AdministrationActionTest {
 	public final void testOnDestroyRat() {
 		CreatureTestHelper.generateRPClasses();
 		final Player pl = PlayerTestHelper.createPlayer("hugo");
-		final Creature rat = new RaidCreature(SingletonRepository.getEntityManager().getCreature("rat"));
+		final Creature rat = new RaidCreature(SingletonRepository.getEntityManager().getCreature("szczur"));
 		final StendhalRPZone testzone = new StendhalRPZone("Testzone");
 		testzone.add(rat);
 		testzone.add(pl);
