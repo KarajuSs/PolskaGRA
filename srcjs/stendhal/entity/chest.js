@@ -4,7 +4,7 @@
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU Affero General Public License as        *
- *   published by the Free Software Foundation; either version 3 of the    * 
+ *   published by the Free Software Foundation; either version 3 of the    *
  *   License, or (at your option) any later version.                       *
  *                                                                         *
  ***************************************************************************/
@@ -15,7 +15,7 @@ var marauroa = window.marauroa = window.marauroa || {};
 var stendhal = window.stendhal = window.stendhal || {};
 
 (function() {
-	
+
 var OPEN_SPRITE = {
 	filename: "/data/sprites/chest.png",
 	height: 32,
@@ -79,7 +79,7 @@ marauroa.rpobjectFactory["chest"] = marauroa.util.fromProto(marauroa.rpobjectFac
 
 	openInventoryWindow: function() {
 		if (!this.inventory || !this.inventory.popupdiv.parentNode) {
-			this.inventory = stendhal.ui.equip.createInventoryWindow("content", 5, 6, this, "Chest");
+			this.inventory = stendhal.ui.equip.createInventoryWindow("content", 6, 6, this, "Skrzynia");
 		}
 	}
 
