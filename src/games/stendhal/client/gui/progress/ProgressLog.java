@@ -64,7 +64,7 @@ class ProgressLog {
 	/** Image used for the log background. */
 	private static final String BACKGROUND_IMAGE = "data/gui/scroll_background.png";
 	/** Name of the font used for the html areas. Should match the file name without .ttf */
-	private static final String FONT_NAME = "BlackChancery";
+	private static final String FONT_NAME = "AntykwaTorunska";
 	/** Image data element for marking repeatable quests. */
 	private static final String IMAGE = "<img border=\"0\" style=\"border-style: none\" src='" + DataLoader.getResource("data/gui/rp.png").toString() + "'/>";
 
