@@ -134,7 +134,7 @@ class DropAmountChooser {
 		};
 		getTextField().setDocument(doc);
 
-		JButton button = new JButton("Drop");
+		JButton button = new JButton("Połóż");
 
 		ActionListener dropAction = new ActionListener() {
 			@Override
