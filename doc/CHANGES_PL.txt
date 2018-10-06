@@ -28,6 +28,7 @@
 - Przetłumaczono wiadomości + zagadki w Piekle [hell]
 - Gracz może posiadać kozę jako zwierzątko
 - Za wykonanie zadania u samego Króla Kraka będzie można przejść przez północną bramę od strony krakowskiego rynku
+- Zasięg strzelających potworów powiększył się o 2 kratki (gdzie zwykłym łukiem, kuszą i różdżką nie będzie można mieć większego zasięgu od potwora strzelającego, lecz jedna, jedyna różdżka, która zwie się na 'P' będzie miała nadal większy zasięg od potwora strzelającego, co będzie sprawiało, że stanie się unikatową bronią dla magów :) )
 
 
 *klient*
@@ -43,6 +44,13 @@
 - Dodano efekt otwierania bramy obok królewskiego grodu
 - Dodano grafikę kozy & rosnących winogron & rudy miedzi & sztabki miedzi & czarnego pierścienia
 - Nazwy map pod minimapą w lewym panelu zostaną podmieniane (np: nazwa mapy: 0_zakopane_s; efekt końcowy w kliencie: Zakopane S)
+
+
+*webclient*
+- Dodano wsparcie dla map ze świata POL & różnych eventowych map
+- Dodano wsparcie dla 'nowych' slotów ze standardowego klienta typu: naszyjnik/pas/rękawice/drugi pierścień/money
+- Dodano wsparcie dla zwięrzątek typu: owczarek/owczarek podhalanski/koza
+- Przybliżono szatę graficzną do standardowego klienta
 
 
 *code*
