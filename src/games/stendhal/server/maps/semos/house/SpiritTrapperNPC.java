@@ -1,6 +1,5 @@
-/* $Id$ */
 /***************************************************************************
- *                   (C) Copyright 2003-2010 - Stendhal                    *
+ *                   (C) Copyright 2003-2018 - Stendhal                    *
  ***************************************************************************
  ***************************************************************************
  *                                                                         *
@@ -12,33 +11,28 @@
  ***************************************************************************/
 package games.stendhal.server.maps.semos.house;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.common.grammar.ItemParserResult;
-import games.stendhal.common.parser.Sentence;
 import games.stendhal.server.core.config.ZoneConfigurator;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.CollisionAction;
 import games.stendhal.server.entity.item.StackableItem;
-import games.stendhal.server.entity.npc.ChatAction;
-import games.stendhal.server.entity.npc.ConversationPhrases;
-import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
-import games.stendhal.server.entity.npc.action.ProducerBehaviourAction;
-import games.stendhal.server.entity.npc.behaviour.impl.ProducerBehaviour;
+import games.stendhal.server.entity.npc.behaviour.adder.MultiProducerAdder;
+import games.stendhal.server.entity.npc.behaviour.impl.MultiProducerBehaviour;
 import games.stendhal.server.entity.npc.behaviour.impl.TeleporterBehaviour;
-import games.stendhal.server.entity.npc.condition.QuestNotActiveCondition;
 import games.stendhal.server.entity.player.Player;
-
-import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
-
-
 
 /**
  * Builds a shady Spirit Trapper NPC for the Empty Bottle quest.
@@ -46,18 +40,8 @@ import java.util.TreeMap;
  * @author soniccuz based on FlowerSellerNPC by kymara and fishermanNPC by dine.
  */
 public class SpiritTrapperNPC implements ZoneConfigurator {
-	
-	private static final String QUEST_SLOT = "trade_arrows";
-	
-	/**
-	 * Behaviour parse result in the current conversation.
-	 * Remark: There is only one conversation between a player and the NPC at any time.
-	 */
-	private ItemParserResult currentBehavRes;
-	
 	@Override
 	public void configureZone(final StendhalRPZone zone, final Map<String, String> attributes) {
-
 			final List<String> setZones = new ArrayList<String>();
 			setZones.add("0_ados_swamp");
 			setZones.add("0_ados_outside_w");
@@ -68,176 +52,159 @@ public class SpiritTrapperNPC implements ZoneConfigurator {
 	}
 
 	private SpeakerNPC buildSemosHouseArea() {
-
 	    final SpeakerNPC mizuno = new SpeakerNPC("Mizuno") {
-	                @Override
+	        @Override
 			protected void createPath() {
 				// npc does not move
 				setPath(null);
 			}
+
 	        @Override
 			protected void createDialog() {
 	        	addGreeting("Czego potrzebujesz?");
 			    addJob("Wolę to zatrzymać dla siebie.");
-			    addOffer("Spójrz. Muszę wkrótce wyjechać, ale szybko. Jeżeli masz #czarne #perły to sprzedam parę magicznych #strzał za nie. Chcesz #kupić trochę #strzał?");
-			    addGoodbye("W takim razie idę... Nie mgoę pracować w twoim towarzystwie.");
-			    
-			    addReply(Arrays.asList("arrows"),"Wytwarzam strzały przy użyciu elemnetarnej mocy. Mam #lód, #ogień i #światło.");
-			    addReply(Arrays.asList("buy fire", "kup ogień"),"Może później. Nie potrzebuję ich.");
-			    addReply(Arrays.asList("buy light", "kup światło"),"Może później, gdy nie będę potrzebował.");
+			    addHelp("Spójrz. Muszę wkrótce wyjechać, ale szybko. Jeżeli masz #'czarne perły' to sprzedam parę magicznych #strzał za nie. Chcesz #kupić trochę #'strzał'?");
+			    addOffer("Spójrz. Muszę wkrótce wyjechać, ale szybko, jeśli masz jakiekolwiek #'czarne perły' to sprzedam parę magicznych #strzał za nie. Chciałbyś może #kupić trochę #'strzał'?");
+			    addGoodbye("W takim razie idę... Nie mogę pracować w twoim towarzystwie.");
+
+			    addReply("arrows","Potrafię wykorzystać specjalną moc do zaczarowania strzał mocą żywiołów. Mam #lód, #ogień i #'światło'.");
+			    addReply(Arrays.asList("ice", "ice arrow", "fire", "fire arrow", "lód", "strzała lodowa", "ogień", "strzała ognia"),
+	                    "Mogę stworzyć 1 z tych strzał za każdą przyniesioną mi czarną perłe.");
+			    addReply(Arrays.asList("light", "light arrow", "świato", "strzała światła"),
+	                    "Strzały światła są trudne do wytworzenia, ale mogę stworzyć 1 za każde przyniesione do mnie 2 czarne perły.");
+			    addReply(Arrays.asList("czarne perły", "perły"),
+	                    "Dla mnie one robią przyzwoite talizmany. Proponuję poszukać je u zabójców.");
 			    // the rest is in the MessageInABottle quest
-			    
-			 // Mizuno exchanges elemental arrows for black pearls.
+
+			    // Mizuno exchanges elemental arrows for black pearls.
 				// (uses sorted TreeMap instead of HashMap)
-				final Map<String, Integer> requiredResources = new TreeMap<String, Integer>();
-				requiredResources.put("czarna perła", Integer.valueOf(1));
-				 
-				// Mizuno is more of a "trader" then a producer. There shouldn't be
-				// any production time in his transactions but he doesn't deal with money.
-				class SpecialProducerBehaviour extends ProducerBehaviour { 
-					SpecialProducerBehaviour(final List<String> productionActivity,
-							final String productName, final Map<String, Integer> requiredResourcesPerItem,
-							final int productionTimePerItem) {
-						super(QUEST_SLOT, productionActivity, productName,
-								requiredResourcesPerItem, productionTimePerItem, false);
+			    final HashSet<String> productsNames = new HashSet<String>();
+                	productsNames.add("strzała lodowa");
+                	productsNames.add("strzała ognia");
+                	productsNames.add("strzała światła");
+
+                final Map<String, Integer> reqRes_iceArrow = new TreeMap<String, Integer>();
+                	reqRes_iceArrow.put("czarna perła", 1);
+                final Map<String, Integer> reqRes_fireArrow = new TreeMap<String, Integer>();
+                	reqRes_fireArrow.put("czarna perła", 1);
+                final Map<String, Integer> reqRes_lightArrow = new TreeMap<String, Integer>();
+                	reqRes_lightArrow.put("czarna perła", 2);
+
+                final HashMap<String, Map<String, Integer>> requiredResourcesPerProduct = new HashMap<String, Map<String, Integer>>();
+                	requiredResourcesPerProduct.put("strzała lodowa", reqRes_iceArrow);
+                	requiredResourcesPerProduct.put("strzała ognia", reqRes_fireArrow);
+                	requiredResourcesPerProduct.put("strzała światła", reqRes_lightArrow);
+
+                final HashMap<String, Integer> productionTimesPerProduct = new HashMap<String, Integer>();
+                	productionTimesPerProduct.put("strzała lodowa", 0 * 60);
+                	productionTimesPerProduct.put("strzała ognia", 0 * 60);
+                	productionTimesPerProduct.put("strzała światła", 0 * 60);
+
+                final HashMap<String, Boolean> productsBound = new HashMap<String, Boolean>();
+                	productsBound.put("strzała lodowa", false);
+                	productsBound.put("strzała ognia", false);
+                	productsBound.put("strzała światła", false);
+
+                class SpecialTraderBehaviour extends MultiProducerBehaviour {
+					public SpecialTraderBehaviour(String questSlot, List<String> productionActivity,
+							HashSet<String> productsNames,
+							HashMap<String, Map<String, Integer>> requiredResourcesPerProduct,
+							HashMap<String, Integer> productionTimesPerProduct,
+							HashMap<String, Boolean> productsBound) {
+						super(questSlot, productionActivity, productsNames, requiredResourcesPerProduct, productionTimesPerProduct,
+								productsBound);
 					}
 
-					/**
-					 * Tries to take all the resources required to produce the agreed amount of
-					 * the product from the player. If this is possible, initiates an order.
-					 * 
-					 * @param res
-					 *
-					 * @param npc
-					 *            the involved NPC
-					 * @param player
-					 *            the involved player
-					 */
-					@Override
-					public boolean transactAgreedDeal(ItemParserResult res, final EventRaiser npc, final Player player) {
-						int amount = res.getAmount();
-
-						if (getMaximalAmount(player) < amount) {
-							// The player tried to cheat us by placing the resource
-							// onto the ground after saying "yes"
-							npc.say("Hej! Jestem tutaj! Lepiej nie próbuj mnie oszukać...");
-							return false;
-						} else {
-							for (final Map.Entry<String, Integer> entry : getRequiredResourcesPerItem().entrySet()) {
-								final int amountToDrop = amount * entry.getValue();
-								player.drop(entry.getKey(), amountToDrop);
-							}
-							final long timeNow = new Date().getTime();
-							player.setQuest(QUEST_SLOT, amount + ";" + getProductName() + ";"
-									+ timeNow);
-							return true;
-						}
-					}
-					
 					@Override
 					public boolean askForResources(final ItemParserResult res, final EventRaiser npc, final Player player) {
 						int amount = res.getAmount();
+				        String productName = res.getChosenItemName();
 
-						if (getMaximalAmount(player) < amount) {
-							npc.say(Grammar.quantityplnoun(amount, getProductName(), "A") 
-									+ " kosztuje "
-									+ getRequiredResourceNamesWithHashes(amount) + ". "
-									+ " Nie masz tyle.");
-							return false;
-						} else {
+				        if (getMaximalAmount(productName, player) < amount) {
+				            npc.say("Mogę jedynie " + getProductionActivity() + " "
+				                    + Grammar.quantityplnoun(amount, productName, "a")
+				                    + ", jeśli przyniesiesz mi "
+				                    + getRequiredResourceNamesWithHashes(productName, amount) + ".");
+				            return false;
+				        } else {
 							res.setAmount(amount);
-							npc.say(Grammar.quantityplnoun(amount, getProductName(), "A") 
+							npc.say(Grammar.quantityplnoun(amount, productName, "a")
 									+ " za "
-									+ getRequiredResourceNamesWithHashes(amount) + ". "
-									+ " Zgadza się?");
-							return true;
-						}
-					}
-					
+									+ getRequiredResourceNamesWithHashes(productName, amount) + ". "
+									+ " Zgadzasz się?");
 
-					/**
-					 * This method is called when the player returns to pick up the finished
-					 * product. It checks if the NPC is already done with the order. If that is
-					 * the case, the player is given the product. Otherwise, the NPC asks the
-					 * player to come back later.
-					 * 
-					 * @param npc
-					 *            The producing NPC
-					 * @param player
-					 *            The player who wants to fetch the product
-					 */
+
+				            return true;
+				        }
+				    }
+
 					@Override
-					public void giveProduct(final EventRaiser npc, final Player player) {
-						final String orderString = player.getQuest(QUEST_SLOT);
-						final String[] order = orderString.split(";");
-						final int numberOfProductItems = Integer.parseInt(order[0]);
-						if (!isOrderReady(player)) {
-							npc.say("Wciąż pracuje nad twoim zleceniem "
-									+ getProductionActivity() + " " + getProductName()
-									+ ". Wróć za "
-									+ getApproximateRemainingTime(player) + ",aby odebrać.");
-						} else {
-							final StackableItem products = (StackableItem) SingletonRepository.getEntityManager().getItem(
-									getProductName());
-							
+					public boolean transactAgreedDeal(ItemParserResult res, final EventRaiser npc, final Player player) {
+				    	int amount = res.getAmount();
+				        String productName = res.getChosenItemName();
 
-							products.setQuantity(numberOfProductItems);
+				        if (getMaximalAmount(productName, player) < amount) {
+				            // The player tried to cheat us by placing the resource
+				            // onto the ground after saying "yes"
+				            npc.say("Hej! Jestem tutaj! Lepiej nie próbuj mnie oszukać...");
+				            return false;
+				        } else {
+				            for (final Map.Entry<String, Integer> entry : getRequiredResourcesPerProduct(productName).entrySet()) {
+				                final int amountToDrop = amount * entry.getValue();
+				                player.drop(entry.getKey(), amountToDrop);
+				            }
+				            final long timeNow = new Date().getTime();
+				            player.setQuest(getQuestSlot(), amount + ";" + productName + ";" + timeNow);
 
-							if (isProductBound()) {
-								products.setBoundTo(player.getName());
-							}
+				            if (getProductionTime(productName, amount) == 0) {
 
-							player.equipOrPutOnGround(products);
-							npc.say("Oto " + Grammar.isare(numberOfProductItems) 
-									+ " " + Grammar.quantityplnoun(numberOfProductItems,
-											getProductName(), "") + ". Teraz idź, bo nic nie mogę zrobić, gdy jesteś tutaj.");
-							player.setQuest(QUEST_SLOT, "done");
-							npc.setCurrentState(ConversationStates.IDLE);
-							player.notifyWorldAboutChanges();
-						}
-					}
-				}
+				            	//If production time is 0 just give player the product
+				            	final int numberOfProductItems = amount;
+				            	final StackableItem products = (StackableItem) SingletonRepository.getEntityManager().getItem(productName);
+				    			products.setQuantity(numberOfProductItems);
 
-				final ProducerBehaviour behaviour = new SpecialProducerBehaviour(Arrays.asList("buy", "kup"), "strzała lodowa",
-						requiredResources, 0);
+				    			if (isProductBound(productName)) {
+				    				products.setBoundTo(player.getName());
+				    			}
 
-				add(
-						ConversationStates.ATTENDING,
-						"buy",
-						new QuestNotActiveCondition(behaviour.getQuestSlot()),
-						ConversationStates.ATTENDING, null,
-						new ProducerBehaviourAction(behaviour, "produce") {
-							@Override
-							public void fireRequestOK(final ItemParserResult res, final Player player, final Sentence sentence, final EventRaiser npc) {
-								// Find out how much items we shall produce.
-								if (res.getAmount() > 1000) {
-									res.setAmount(1);
-								}
+				    			if (player.equipToInventoryOnly(products)) {
+				    				npc.say("Oto twoje " + Grammar.isare(numberOfProductItems)
+									+ Grammar.quantityplnoun(numberOfProductItems,
+											productName, "") + ".");
 
-								if (behaviour.askForResources(res, npc, player)) {
-									currentBehavRes = res;
-									npc.setCurrentState(ConversationStates.PRODUCTION_OFFERED);
-								}
-							}
-						});
+				    				player.setQuest(getQuestSlot(), "done");
+				    				player.notifyWorldAboutChanges();
+				    				player.incProducedCountForItem(productName, products.getQuantity());
+				    				SingletonRepository.getAchievementNotifier().onProduction(player);
+				    			} else {
+				    				npc.say("Witaj z powrotem! Właśnie skończyłem twoje zamówienie. Ale teraz nie możesz wziąć "
+				    						+ Grammar.plnoun(numberOfProductItems, productName)
+				    						+ ". Wróć do mnie kiedy będziesz miał miejsce w plecaku.");
+				    			}
 
-				add(ConversationStates.PRODUCTION_OFFERED,
-						ConversationPhrases.YES_MESSAGES, null,
-						ConversationStates.ATTENDING, null,
-						new ChatAction() {
-					@Override
-					public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
-						if (behaviour.transactAgreedDeal(currentBehavRes, npc, player)) {
-							behaviour.giveProduct(npc, player);
-						}
+				            	return true;
+				            } else {
+				            		npc.say("OK, to zacznę robić "
+				                    + getProductionActivity() + " "
+				                    + Grammar.quantityplnoun(amount, productName, "a")
+				                    + " dla ciebie, ale to zajmie trochę czasu. Proszę wróć za "
+				                    + getApproximateRemainingTime(player) + ".");
+				            		return true;
+				            	}
+				        }
+				    }
+                }
 
-						currentBehavRes = null;
-					}
-				});
+                final MultiProducerBehaviour behaviour = new SpecialTraderBehaviour(
+                        "arrow_trader",
+                        Arrays.asList("buy", "kup", "kupię", "kupić"),
+                        productsNames,
+                        requiredResourcesPerProduct,
+                        productionTimesPerProduct,
+                        productsBound);
 
-				add(ConversationStates.PRODUCTION_OFFERED,
-						ConversationPhrases.NO_MESSAGES, null,
-						ConversationStates.ATTENDING, "Dobrze nie ma problemu.", null);
+                    new MultiProducerAdder().addMultiProducer(this, behaviour,
+                        "Czego potrzebujesz?");
 			}
 		};
 
@@ -248,7 +215,7 @@ public class SpiritTrapperNPC implements ZoneConfigurator {
 		mizuno.setDescription("Oto Mizuno. Jak duch nawiedza Ados robiąć nie wiadomo co.");
 
 		// start in int_semos_house
-		final StendhalRPZone	zone = SingletonRepository.getRPWorld().getZone("int_semos_house");
+		final StendhalRPZone zone = SingletonRepository.getRPWorld().getZone("int_semos_house");
 		mizuno.setPosition(5, 6);
 		zone.add(mizuno);
 
