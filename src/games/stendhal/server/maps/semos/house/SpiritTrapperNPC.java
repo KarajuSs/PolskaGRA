@@ -52,101 +52,100 @@ public class SpiritTrapperNPC implements ZoneConfigurator {
 	}
 
 	private SpeakerNPC buildSemosHouseArea() {
-	    final SpeakerNPC mizuno = new SpeakerNPC("Mizuno") {
-	        @Override
-			protected void createPath() {
-				// npc does not move
-				setPath(null);
-			}
+		final SpeakerNPC mizuno = new SpeakerNPC("Mizuno") {
+	    	@Override
+	    	protected void createPath() {
+	    		// npc does not move
+	    		setPath(null);
+	    	}
 
-	        @Override
-			protected void createDialog() {
-	        	addGreeting("Czego potrzebujesz?");
-			    addJob("Wolę to zatrzymać dla siebie.");
-			    addHelp("Spójrz. Muszę wkrótce wyjechać, ale szybko. Jeżeli masz #'czarne perły' to sprzedam parę magicznych #strzał za nie. Chcesz #kupić trochę #'strzał'?");
-			    addOffer("Spójrz. Muszę wkrótce wyjechać, ale szybko, jeśli masz jakiekolwiek #'czarne perły' to sprzedam parę magicznych #strzał za nie. Chciałbyś może #kupić trochę #'strzał'?");
-			    addGoodbye("W takim razie idę... Nie mogę pracować w twoim towarzystwie.");
+	    	@Override
+	    	protected void createDialog() {
+	    		addGreeting("Czego potrzebujesz?");
+	    		addJob("Wolę to zatrzymać dla siebie.");
+	    		addHelp("Spójrz. Muszę wkrótce wyjechać, ale szybko. Jeżeli masz #'czarne perły' to sprzedam parę magicznych #strzał za nie. Chcesz #kupić trochę #'strzał'?");
+	    		addOffer("Spójrz. Muszę wkrótce wyjechać, ale szybko, jeśli masz jakiekolwiek #'czarne perły' to sprzedam parę magicznych #strzał za nie. Chciałbyś może #kupić trochę #'strzał'?");
+	    		addGoodbye("W takim razie idę... Nie mogę pracować w twoim towarzystwie.");
 
-			    addReply("arrows","Potrafię wykorzystać specjalną moc do zaczarowania strzał mocą żywiołów. Mam #lód, #ogień i #'światło'.");
-			    addReply(Arrays.asList("ice", "ice arrow", "fire", "fire arrow", "lód", "strzała lodowa", "ogień", "strzała ognia"),
-	                    "Mogę stworzyć 1 z tych strzał za każdą przyniesioną mi czarną perłe.");
-			    addReply(Arrays.asList("light", "light arrow", "świato", "strzała światła"),
-	                    "Strzały światła są trudne do wytworzenia, ale mogę stworzyć 1 za każde przyniesione do mnie 2 czarne perły.");
-			    addReply(Arrays.asList("czarne perły", "perły"),
-	                    "Dla mnie one robią przyzwoite talizmany. Proponuję poszukać je u zabójców.");
+	    		addReply("arrows","Potrafię wykorzystać specjalną moc do zaczarowania strzał mocą żywiołów. Mam #lód, #ogień i #'światło'.");
+	    		addReply(Arrays.asList("ice", "ice arrow", "fire", "fire arrow", "lód", "strzała lodowa", "ogień", "strzała ognia"),
+	    				"Mogę stworzyć 1 z tych strzał za każdą przyniesioną mi czarną perłe.");
+	    		addReply(Arrays.asList("light", "light arrow", "świato", "strzała światła"),
+	    				"Strzały światła są trudne do wytworzenia, ale mogę stworzyć 1 za każde przyniesione do mnie 2 czarne perły.");
+	    		addReply(Arrays.asList("czarne perły", "perły"),
+	    				"Dla mnie one robią przyzwoite talizmany. Proponuję poszukać je u zabójców.");
 			    // the rest is in the MessageInABottle quest
 
 			    // Mizuno exchanges elemental arrows for black pearls.
 				// (uses sorted TreeMap instead of HashMap)
-			    final HashSet<String> productsNames = new HashSet<String>();
-                	productsNames.add("strzała lodowa");
-                	productsNames.add("strzała ognia");
-                	productsNames.add("strzała światła");
+	    		final HashSet<String> productsNames = new HashSet<String>();
+	    			productsNames.add("strzała lodowa");
+	    			productsNames.add("strzała ognia");
+	    			productsNames.add("strzała światła");
 
-                final Map<String, Integer> reqRes_iceArrow = new TreeMap<String, Integer>();
-                	reqRes_iceArrow.put("czarna perła", 1);
-                final Map<String, Integer> reqRes_fireArrow = new TreeMap<String, Integer>();
-                	reqRes_fireArrow.put("czarna perła", 1);
-                final Map<String, Integer> reqRes_lightArrow = new TreeMap<String, Integer>();
-                	reqRes_lightArrow.put("czarna perła", 2);
+	    		final Map<String, Integer> reqRes_iceArrow = new TreeMap<String, Integer>();
+	    			reqRes_iceArrow.put("czarna perła", 1);
+	    		final Map<String, Integer> reqRes_fireArrow = new TreeMap<String, Integer>();
+	    			reqRes_fireArrow.put("czarna perła", 1);
+	    		final Map<String, Integer> reqRes_lightArrow = new TreeMap<String, Integer>();
+	    			reqRes_lightArrow.put("czarna perła", 2);
 
-                final HashMap<String, Map<String, Integer>> requiredResourcesPerProduct = new HashMap<String, Map<String, Integer>>();
-                	requiredResourcesPerProduct.put("strzała lodowa", reqRes_iceArrow);
-                	requiredResourcesPerProduct.put("strzała ognia", reqRes_fireArrow);
-                	requiredResourcesPerProduct.put("strzała światła", reqRes_lightArrow);
+	    		final HashMap<String, Map<String, Integer>> requiredResourcesPerProduct = new HashMap<String, Map<String, Integer>>();
+	    			requiredResourcesPerProduct.put("strzała lodowa", reqRes_iceArrow);
+	    			requiredResourcesPerProduct.put("strzała ognia", reqRes_fireArrow);
+	    			requiredResourcesPerProduct.put("strzała światła", reqRes_lightArrow);
 
-                final HashMap<String, Integer> productionTimesPerProduct = new HashMap<String, Integer>();
-                	productionTimesPerProduct.put("strzała lodowa", 0 * 60);
-                	productionTimesPerProduct.put("strzała ognia", 0 * 60);
-                	productionTimesPerProduct.put("strzała światła", 0 * 60);
+	    		final HashMap<String, Integer> productionTimesPerProduct = new HashMap<String, Integer>();
+	    			productionTimesPerProduct.put("strzała lodowa", 0 * 60);
+	    			productionTimesPerProduct.put("strzała ognia", 0 * 60);
+	    			productionTimesPerProduct.put("strzała światła", 0 * 60);
 
-                final HashMap<String, Boolean> productsBound = new HashMap<String, Boolean>();
-                	productsBound.put("strzała lodowa", false);
-                	productsBound.put("strzała ognia", false);
-                	productsBound.put("strzała światła", false);
+	    		final HashMap<String, Boolean> productsBound = new HashMap<String, Boolean>();
+	    			productsBound.put("strzała lodowa", false);
+	    			productsBound.put("strzała ognia", false);
+	    			productsBound.put("strzała światła", false);
 
                 class SpecialTraderBehaviour extends MultiProducerBehaviour {
-					public SpecialTraderBehaviour(String questSlot, List<String> productionActivity,
-							HashSet<String> productsNames,
-							HashMap<String, Map<String, Integer>> requiredResourcesPerProduct,
-							HashMap<String, Integer> productionTimesPerProduct,
-							HashMap<String, Boolean> productsBound) {
-						super(questSlot, productionActivity, productsNames, requiredResourcesPerProduct, productionTimesPerProduct,
-								productsBound);
-					}
+                	public SpecialTraderBehaviour(String questSlot, List<String> productionActivity,
+                			HashSet<String> productsNames,
+                			HashMap<String, Map<String, Integer>> requiredResourcesPerProduct,
+                			HashMap<String, Integer> productionTimesPerProduct,
+                			HashMap<String, Boolean> productsBound) {
+                		super(questSlot, productionActivity, productsNames, requiredResourcesPerProduct, productionTimesPerProduct,
+                				productsBound);
+                	}
 
-					@Override
-					public boolean askForResources(final ItemParserResult res, final EventRaiser npc, final Player player) {
-						int amount = res.getAmount();
-				        String productName = res.getChosenItemName();
+                	@Override
+                	public boolean askForResources(final ItemParserResult res, final EventRaiser npc, final Player player) {
+                		int amount = res.getAmount();
+                		String productName = res.getChosenItemName();
 
-				        if (getMaximalAmount(productName, player) < amount) {
-				            npc.say("Mogę jedynie " + getProductionActivity() + " "
-				                    + Grammar.quantityplnoun(amount, productName, "a")
-				                    + ", jeśli przyniesiesz mi "
-				                    + getRequiredResourceNamesWithHashes(productName, amount) + ".");
-				            return false;
-				        } else {
-							res.setAmount(amount);
-							npc.say(Grammar.quantityplnoun(amount, productName, "a")
-									+ " za "
-									+ getRequiredResourceNamesWithHashes(productName, amount) + ". "
-									+ " Zgadzasz się?");
+                		if (getMaximalAmount(productName, player) < amount) {
+                			npc.say("Mogę jedynie " + getProductionActivity() + " "
+                					+ Grammar.quantityplnoun(amount, productName, "a")
+                					+ ", jeśli przyniesiesz mi "
+                					+ getRequiredResourceNamesWithHashes(productName, amount) + ".");
+                			return false;
+                		} else {
+                			res.setAmount(amount);
+                			npc.say(Grammar.quantityplnoun(amount, productName, "a")
+                					+ " za "
+                					+ getRequiredResourceNamesWithHashes(productName, amount) + ". "
+                					+ " Zgadzasz się?");
 
+                			return true;
+                		}
+                	}
 
-				            return true;
-				        }
-				    }
+                	@Override
+                	public boolean transactAgreedDeal(ItemParserResult res, final EventRaiser npc, final Player player) {
+                		int amount = res.getAmount();
+                		String productName = res.getChosenItemName();
 
-					@Override
-					public boolean transactAgreedDeal(ItemParserResult res, final EventRaiser npc, final Player player) {
-				    	int amount = res.getAmount();
-				        String productName = res.getChosenItemName();
-
-				        if (getMaximalAmount(productName, player) < amount) {
+                		if (getMaximalAmount(productName, player) < amount) {
 				            // The player tried to cheat us by placing the resource
 				            // onto the ground after saying "yes"
-				            npc.say("Hej! Jestem tutaj! Lepiej nie próbuj mnie oszukać...");
+                			npc.say("Hej! Jestem tutaj! Lepiej nie próbuj mnie oszukać...");
 				            return false;
 				        } else {
 				            for (final Map.Entry<String, Integer> entry : getRequiredResourcesPerProduct(productName).entrySet()) {
