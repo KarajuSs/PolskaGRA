@@ -117,11 +117,15 @@ span.loga {color: #D40000;text-decoration: underline}
 .inventorypopup_6 {
 	width: 217px;
 }
+.popupdiv {
+	border: 1px solid #000;
+	background-color: #FFF;
+}
 .popuptitle {
 	cursor: default;
-	color: white;
-	font-weight: bold;
-	padding: 0.5px;
+	background-color: #00A;
+	color: #FFF;
+	padding: 3px;
 	border: double 2px #825A26;
 }
 .popuptitleclose {
