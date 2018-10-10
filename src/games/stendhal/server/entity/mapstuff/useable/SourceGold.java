@@ -67,7 +67,7 @@ public class SourceGold extends PlayerActivityEntity {
 		this.itemName = itemName;
 		put("class", "source");
 		put("name", "source_gold");
-		setMenu("Wydobądź");
+		setMenu("Wydobądź|Użyj");
 		setDescription("Wszystko wskazuje na to, że tutaj coś jest.");
 		setResistance(100);
 	}

@@ -78,7 +78,7 @@ public class SourceCarbuncle extends PlayerActivityEntity {
 		this.itemName = itemName;
 		put("class", "source");
 		put("name", "source_carbuncle");
-		setMenu("Wydobądź");
+		setMenu("Wydobądź|Użyj");
 		setDescription("Wszystko wskazuje na to, że tutaj coś jest.");
 	}
 

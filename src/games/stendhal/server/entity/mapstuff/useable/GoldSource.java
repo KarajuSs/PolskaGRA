@@ -81,7 +81,7 @@ public class GoldSource extends PlayerActivityEntity {
 		this.itemName = itemName;
 		put("class", "source");
 		put("name", "gold_source");
-		setMenu("Poszukaj złota");
+		setMenu("Poszukaj złota|Użyj");
 		setDescription("Widzisz coś świecącego na złoto.");
 	}
 

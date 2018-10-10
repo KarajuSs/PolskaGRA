@@ -65,7 +65,7 @@ public class FishSource extends PlayerActivityEntity {
 		this.itemName = itemName;
 		put("class", "source");
 		put("name", "fish_source");
-		setMenu("Wędkowanie");
+		setMenu("Łowienie|Użyj");
 		setDescription("Coś znajduje się w wodzie.");
 	}
 

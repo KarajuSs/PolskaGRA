@@ -52,7 +52,7 @@ public class WoodSource extends PlayerActivityEntity {
 		this.itemName = itemName;
 		put("class", "source");
 		put("name", "wood_source");
-		setMenu("Wytnij");
+		setMenu("Wytnij|Użyj");
 		setDescription("To drzewo przeznaczone jest do wycięcia.");
 		setResistance(100);
 	}

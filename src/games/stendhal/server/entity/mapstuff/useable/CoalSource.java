@@ -78,7 +78,7 @@ public class CoalSource extends PlayerActivityEntity {
 		put("class", "source");
 		put("name", "coal_source");
 		put("state", 0);
-
+		setMenu("Wydobądź węgiel|Użyj");
 		setDescription("Jest coś czarnego na skale.");
 		handleRespawn();
 	}
