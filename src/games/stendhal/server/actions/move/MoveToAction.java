@@ -73,7 +73,7 @@ public class MoveToAction implements ActionListener {
 		if (player.hasPath()) {
 			player.clearPath();
 		}
-		
+
 		if (player.has(AWAY)) {
 			player.remove(AWAY);
 			player.setVisibility(100);
@@ -110,6 +110,10 @@ public class MoveToAction implements ActionListener {
 				// Teleport
 				final StendhalRPZone zone = player.getZone();
 				player.teleport(zone, x, y, null, null);
+				// Make sure the player stopped after teleport
+				if (!player.stopped()) {
+					player.stop();
+				}
 			} else {
 				// Walk
 				final List<Node> path = Path.searchPath(player, x, y);
