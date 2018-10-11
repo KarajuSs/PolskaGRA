@@ -32,6 +32,7 @@ import games.stendhal.server.entity.npc.condition.GreetingMatchesNameCondition;
 import games.stendhal.server.entity.npc.condition.NotCondition;
 import games.stendhal.server.entity.npc.condition.OrCondition;
 import games.stendhal.server.entity.npc.condition.PlayerHasRecordedItemWithHimCondition;
+import games.stendhal.server.entity.npc.condition.QuestActiveCondition;
 import games.stendhal.server.entity.npc.condition.QuestCompletedCondition;
 import games.stendhal.server.entity.npc.condition.QuestInStateCondition;
 import games.stendhal.server.entity.npc.condition.QuestNotCompletedCondition;
@@ -149,7 +150,7 @@ public class ZooFood extends AbstractQuest {
 
         // Player has never done the zoo quest, player asks what the task was
 		npc.add(ConversationStates.ATTENDING, ConversationPhrases.QUEST_MESSAGES,
-				new QuestNotCompletedCondition(QUEST_SLOT), 
+				new QuestNotStartedCondition(QUEST_SLOT), 
 				ConversationStates.QUEST_OFFERED, "Nasze zwierzęta sę głodne. Potrzebujemy więcej " +
 						"jedzenia do ich wykarmienia. Pomożesz nam?",
 				null);
@@ -171,8 +172,6 @@ public class ZooFood extends AbstractQuest {
 		items.put("sałata",10);
 		items.put("szpinak",7);
 
-
-		
         // Player has done quest before and agrees to help again
 		npc.add(ConversationStates.QUEST_OFFERED, ConversationPhrases.YES_MESSAGES,
 				null,
@@ -181,7 +180,6 @@ public class ZooFood extends AbstractQuest {
 				new StartRecordingRandomItemCollectionAction(QUEST_SLOT, 1, items, "Dziękuję! Proszę" 
                 + " przynieś [item] lub tyle ile dasz rady."))
 		);
-
 
 		// player is not willing to help
 		npc.add(ConversationStates.QUEST_OFFERED, ConversationPhrases.NO_MESSAGES, 
@@ -197,6 +195,13 @@ public class ZooFood extends AbstractQuest {
 				ConversationStates.ATTENDING, null, 
 				new SayTimeRemainingAction(QUEST_SLOT, 1, DELAY,  "Dziękuję, ale nie mamy teraz problemów."));
 
+		// player requests quest while quest still active
+		npc.add(ConversationStates.ATTENDING,
+				ConversationPhrases.QUEST_MESSAGES,
+				new QuestActiveCondition(QUEST_SLOT),
+				ConversationStates.ATTENDING,
+				null,
+				new SayRequiredItemAction(QUEST_SLOT, 1, "Już jesteś w trakcie zbierania [item]."));
 	}
 
 	private void step_2() {
