@@ -43,10 +43,12 @@ import games.stendhal.server.entity.npc.condition.NotCondition;
 import games.stendhal.server.entity.npc.condition.OrCondition;
 import games.stendhal.server.entity.npc.condition.PlayerHasInfostringItemWithHimCondition;
 import games.stendhal.server.entity.npc.condition.PlayerOwnsItemIncludingBankCondition;
+import games.stendhal.server.entity.npc.condition.QuestActiveCondition;
 import games.stendhal.server.entity.npc.condition.QuestCompletedCondition;
 import games.stendhal.server.entity.npc.condition.QuestInStateCondition;
 import games.stendhal.server.entity.npc.condition.QuestNotCompletedCondition;
 import games.stendhal.server.entity.npc.condition.QuestNotInStateCondition;
+import games.stendhal.server.entity.npc.condition.QuestNotStartedCondition;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.Region;
 import marauroa.common.game.RPObject;
@@ -105,8 +107,6 @@ public class KanmararnSoldiers extends AbstractQuest {
 	 * again, so that other players can do the quest as well.
 	 */
 	private static final int CORPSE_REFILL_SECONDS = 60;
-
-
 
 	@Override
 	public String getSlotName() {
@@ -226,7 +226,7 @@ public class KanmararnSoldiers extends AbstractQuest {
 
 		henry.add(ConversationStates.ATTENDING,
 			ConversationPhrases.QUEST_MESSAGES,
-			new AndCondition(new QuestNotCompletedCondition(QUEST_SLOT),
+			new AndCondition(new QuestNotStartedCondition(QUEST_SLOT),
 							 new QuestNotInStateCondition(QUEST_SLOT,"map")),
 			ConversationStates.QUEST_OFFERED,
 			"Znajdź moją #drużynę Peter, Tom i Charles. Udowodnij, że ich znalazłeś a ja Cię wynagrodzę. Zrobisz to?",
@@ -245,6 +245,15 @@ public class KanmararnSoldiers extends AbstractQuest {
 			ConversationStates.ATTENDING,
 			"Dziękuje! Bedę czekał na twój powrót.",
 			new SetQuestAndModifyKarmaAction(QUEST_SLOT, "start", 5.0));
+		
+		// player tries to ask for quest again after starting
+		henry.add(ConversationStates.ATTENDING,
+			ConversationPhrases.QUEST_MESSAGES,
+			new AndCondition(new QuestActiveCondition(QUEST_SLOT),
+				new QuestNotInStateCondition(QUEST_SLOT, "map")),
+			ConversationStates.ATTENDING,
+			"Już Cię poprosiłem, abyś odnalazł moich przyjaciół Peter, Tom i Charles.",
+			null);
 
 		henry.add(
 			ConversationStates.QUEST_OFFERED,
