@@ -108,6 +108,13 @@ public class KanmararnSoldiers extends AbstractQuest {
 	 */
 	private static final int CORPSE_REFILL_SECONDS = 60;
 
+	/* Soldier names used in quest */
+	private static final String SLD_HENRY = "Henry";
+	private static final String SLD_CHARLES = "Charles";
+	private static final String SLD_TOM = "Tom";
+	private static final String SLD_PETER = "Peter";
+	private static final String SRG_JAMES = "Sergeant James";
+
 	@Override
 	public String getSlotName() {
 		return QUEST_SLOT;
@@ -222,7 +229,7 @@ public class KanmararnSoldiers extends AbstractQuest {
 	 * We add text for NPC Henry who will get us on the quest.
 	 */
 	private void prepareCowardSoldier() {
-		final SpeakerNPC henry = npcs.get("Henry");
+		final SpeakerNPC henry = npcs.get(SLD_HENRY);
 
 		henry.add(ConversationStates.ATTENDING,
 			ConversationPhrases.QUEST_MESSAGES,
@@ -279,8 +286,8 @@ public class KanmararnSoldiers extends AbstractQuest {
 
 		final List<ChatAction> actions = new LinkedList<ChatAction>();
 		actions.add(new IncreaseXPAction(2500));
-		actions.add(new DropInfostringItemAction("skórzane spodnie","tom"));
-		actions.add(new DropInfostringItemAction("zbroja łuskowa","peter"));
+		actions.add(new DropInfostringItemAction("skórzane spodnie", SLD_TOM));
+		actions.add(new DropInfostringItemAction("zbroja łuskowa", SLD_PETER));
 		actions.add(new IncreaseKarmaAction(15.0));
 		actions.add(new GiveMapAction(false));
 
@@ -288,9 +295,9 @@ public class KanmararnSoldiers extends AbstractQuest {
 				ConversationPhrases.GREETING_MESSAGES,
 				new AndCondition(new GreetingMatchesNameCondition(henry.getName()),
 						new QuestInStateCondition(QUEST_SLOT, "start"),
-						new PlayerHasInfostringItemWithHimCondition("skórzane spodnie", "tom"),
-						new PlayerHasInfostringItemWithHimCondition("karteczka", "charles"),
-						new PlayerHasInfostringItemWithHimCondition("zbroja łuskowa", "peter")),
+						new PlayerHasInfostringItemWithHimCondition("skórzane spodnie", SLD_TOM),
+						new PlayerHasInfostringItemWithHimCondition("karteczka", SLD_CHARLES),
+						new PlayerHasInfostringItemWithHimCondition("zbroja łuskowa", SLD_PETER)),
 				ConversationStates.ATTENDING,
 				"Och nie! Peter, Tom i Charles nie żyją? *płacz*. W każdym razie oto twoja nagroda i zatrzymaj IOU.",
 				new MultipleActions(actions));
@@ -301,9 +308,9 @@ public class KanmararnSoldiers extends AbstractQuest {
 						new QuestInStateCondition(QUEST_SLOT, "start"),
 						new NotCondition(
 								new AndCondition(
-										new PlayerHasInfostringItemWithHimCondition("skórzane spodnie", "tom"),
-										new PlayerHasInfostringItemWithHimCondition("karteczka", "charles"),
-										new PlayerHasInfostringItemWithHimCondition("zbroja łuskowa", "peter")))),
+										new PlayerHasInfostringItemWithHimCondition("skórzane spodnie", SLD_TOM),
+										new PlayerHasInfostringItemWithHimCondition("karteczka", SLD_CHARLES),
+										new PlayerHasInfostringItemWithHimCondition("zbroja łuskowa", SLD_PETER)))),
 				ConversationStates.ATTENDING,
 				"Nie udowodniłeś, że znalazłeś wszystkich!",
 				null);
@@ -341,7 +348,7 @@ public class KanmararnSoldiers extends AbstractQuest {
 		final Corpse tom = new Corpse("youngsoldiernpc", 5, 47);
 		// he died first
 		tom.setStage(4);
-		tom.setName("Tom");
+		tom.setName(SLD_TOM);
 		tom.setKiller("patrol krasnali");
 		// Add our new Ex-NPC to the game world
 		zone.add(tom);
@@ -355,7 +362,7 @@ public class KanmararnSoldiers extends AbstractQuest {
 		final Corpse charles = new Corpse("youngsoldiernpc", 94, 5);
 		// he died second
 		charles.setStage(3);
-		charles.setName("Charles");
+		charles.setName(SLD_CHARLES);
 		charles.setKiller("patrol krasnali");
 		// Add our new Ex-NPC to the game world
 		zone.add(charles);
@@ -368,7 +375,7 @@ public class KanmararnSoldiers extends AbstractQuest {
 		final Corpse peter = new Corpse("youngsoldiernpc", 11, 63);
 		// he died recently
 		peter.setStage(2);
-		peter.setName("Peter");
+		peter.setName(SLD_PETER);
 		peter.setKiller("patrol krasnali");
 		// Add our new Ex-NPC to the game world
 		zone.add(peter);
@@ -384,7 +391,7 @@ public class KanmararnSoldiers extends AbstractQuest {
 	 * add James.
 	 */
 	private void prepareSergeant() {
-		final SpeakerNPC james = npcs.get("Sergeant James");
+		final SpeakerNPC james = npcs.get(SRG_JAMES);
 
 		// quest related stuff
 		james.addHelp("Pomyśl potrzebuję małej pomocy. Moja #drużyna została wybita, a #jeden uciekł. Nie dobrze, bo on miał #mapę.");
@@ -408,14 +415,14 @@ public class KanmararnSoldiers extends AbstractQuest {
 
 		final List<ChatAction> actions = new LinkedList<ChatAction>();
 		actions.add(new IncreaseXPAction(5000));
-		actions.add(new DropInfostringItemAction("mapa","Henry"));
+		actions.add(new DropInfostringItemAction("mapa", SLD_HENRY));
 		actions.add(new SetQuestAndModifyKarmaAction(QUEST_SLOT, "done", 15.0));
 		actions.add(new EquipItemAction("buty mainiocyjskie", 1, true));
 
 		james.add(ConversationStates.ATTENDING,
 				Arrays.asList("map", "henry", "mapa"),
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "map"),
-								new PlayerHasInfostringItemWithHimCondition("mapa", "henry")),
+								new PlayerHasInfostringItemWithHimCondition("mapa", SLD_HENRY)),
 				ConversationStates.ATTENDING,
 				"Mapa! Cudownie! Dziękuję. Oto twoja nagroda. Zdobyłem te buty, gdy byłem w #dreamscape.",
 				new MultipleActions(actions));
@@ -423,7 +430,7 @@ public class KanmararnSoldiers extends AbstractQuest {
 		james.add(ConversationStates.ATTENDING,
 				Arrays.asList("map", "henry", "mapa"),
 				new AndCondition(new QuestInStateCondition(QUEST_SLOT, "map"),
-								new NotCondition(new PlayerHasInfostringItemWithHimCondition("mapa", "henry"))),
+								new NotCondition(new PlayerHasInfostringItemWithHimCondition("mapa", SLD_HENRY))),
 				ConversationStates.ATTENDING,
 				"Cóż, gdzie jest mapa?",
 				null);
@@ -498,7 +505,7 @@ public class KanmararnSoldiers extends AbstractQuest {
 
 	@Override
 	public String getNPCName() {
-		return "Henry";
+		return SLD_HENRY;
 	}
 
 	@Override
