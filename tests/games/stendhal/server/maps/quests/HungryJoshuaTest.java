@@ -116,7 +116,7 @@ public class HungryJoshuaTest {
 
 		Item item = ItemTestHelper.createItem("sandwich", 5);
 		player.getSlot("bag").add(item);
-		final int xp = player.getXP();
+		final long xp = player.getXP();
 
 		en.step(player, "hi");
 		assertEquals("Hi! I'm the local goldsmith. If you require me to #cast you a #'gold bar' just tell me!", getReply(npc));
@@ -134,7 +134,7 @@ public class HungryJoshuaTest {
 		// -----------------------------------------------
 		npc = SingletonRepository.getNPCList().get("Xoderos");
 		en = npc.getEngine();
-		final int xp2 = player.getXP();
+		final long xp2 = player.getXP();
 
 		en.step(player, "hi");
 		assertEquals("Greetings. I am sorry to tell you that, because of the war, I am not allowed to sell you any weapons. However, I can #cast iron for you. I can also #offer you tools.", getReply(npc));

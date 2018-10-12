@@ -197,7 +197,7 @@ public class HerbsForCarmenTest {
 		en.step(player, "bye");
 		assertEquals("Bye.", getReply(npc));
 
-		final int xp = player.getXP();
+		final long xp = player.getXP();
 		Item apples2= ItemTestHelper.createItem("apple", 2);
 		player.getSlot("bag").add(apples2);
 		Item arandula2 = ItemTestHelper.createItem("arandula", 2);

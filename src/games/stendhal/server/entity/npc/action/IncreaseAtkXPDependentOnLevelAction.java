@@ -43,8 +43,8 @@ public class IncreaseAtkXPDependentOnLevelAction implements ChatAction {
 
 	@Override
 	public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-		final int start = Level.getXP(player.getLevel());
-		final int next = Level.getXP(player.getLevel() + 1);
+		final long start = Level.getXP(player.getLevel());
+		final long next = Level.getXP(player.getLevel() + 1);
 		int reward = (int) (((next - start) / (atk_xpDiff) / 10) / 2);
 		player.setAtkXP(reward + player.getAtkXP());
 		player.notifyWorldAboutChanges();

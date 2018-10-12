@@ -163,7 +163,7 @@ public class TakeGoldforGrafindleTest {
 		// the player did actually get them before so lets now equip him with them
 		PlayerTestHelper.equipWithStackableItem(player, "gold bar", 25);
 
-		final int xp = player.getXP();
+		final long xp = player.getXP();
 		final double karma3 = player.getKarma();
 
 		en.step(player, "hi");

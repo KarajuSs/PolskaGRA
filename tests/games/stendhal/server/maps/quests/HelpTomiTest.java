@@ -87,7 +87,7 @@ public class HelpTomiTest {
 
 		Item item = ItemTestHelper.createItem("ice sword");
 		player.getSlot("bag").add(item);
-		final int xp = player.getXP();
+		final long xp = player.getXP();
 		en.step(player, "hi");
 		assertEquals("help!", getReply(npc));
 		en.step(player, "help");
@@ -110,7 +110,7 @@ public class HelpTomiTest {
 
 		item = ItemTestHelper.createItem("ice sword");
 		player.getSlot("bag").add(item);
-		final int xp2 = player.getXP();
+		final long xp2 = player.getXP();
 		en.step(player, "hi");
 		assertEquals("help!", getReply(npc));
 		en.step(player, "ice");
@@ -124,7 +124,7 @@ public class HelpTomiTest {
 
 		item = ItemTestHelper.createItem("ice sword");
 		player.getSlot("bag").add(item);
-		final int xp3 = player.getXP();
+		final long xp3 = player.getXP();
 		en.step(player, "hi");
 		assertEquals("help!", getReply(npc));
 		en.step(player, "ice");
@@ -140,7 +140,7 @@ public class HelpTomiTest {
 		player.setQuest(questSlot, 1, "11");
 		item = ItemTestHelper.createItem("ice sword");
 		player.getSlot("bag").add(item);
-		final int xp4 = player.getXP();
+		final long xp4 = player.getXP();
 		en.step(player, "hi");
 		assertEquals("help!", getReply(npc));
 		en.step(player, "ice");

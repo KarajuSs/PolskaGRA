@@ -112,7 +112,7 @@ public abstract class RPEntity extends GuidedEntity {
 	private int base_hp;
 	private int hp;
 	protected int lv_cap;
-	private int xp;
+	private long xp;
 	private String gender;
 	protected int level;
 	private int mana;
@@ -978,7 +978,7 @@ public abstract class RPEntity extends GuidedEntity {
 	 * @return
 	 * 		Integer representation of current experience
 	 */
-	public int getRatkXP() {
+	public double getRatkXP() {
 		return ratk_xp;
 	}
 
@@ -1171,7 +1171,7 @@ public abstract class RPEntity extends GuidedEntity {
 		this.updateModifiedAttributes();
 	}
 
-	public final void setXP(final int newxp) {
+	public final void setXP(final long newxp) {
 		if (newxp < 0) {
 			return;
 		}
@@ -1179,12 +1179,12 @@ public abstract class RPEntity extends GuidedEntity {
 		put("xp", xp);
 	}
 
-	public void subXP(final int newxp) {
+	public void subXP(final long newxp) {
 		addXP(-newxp);
 	}
 
-	public void addXP(final int newxp) {
-		if (Integer.MAX_VALUE - this.xp <= newxp) {
+	public void addXP(final long newxp) {
+		if (Long.MAX_VALUE - this.xp <= newxp) {
 			return;
 		}
 		if (newxp == 0) {
@@ -1194,7 +1194,7 @@ public abstract class RPEntity extends GuidedEntity {
 		// Increment experience points
 		this.xp += newxp;
 		put("xp", xp);
-		String[] params = { Integer.toString(newxp) };
+		String[] params = { Long.toString(newxp) };
 
 		new GameEvent(getName(), "added xp", params).raise();
 		new GameEvent(getName(), "xp", String.valueOf(xp)).raise();
@@ -1219,7 +1219,7 @@ public abstract class RPEntity extends GuidedEntity {
 		}
 	}
 
-	public int getXP() {
+	public long getXP() {
 		return xp;
 	}
 
@@ -1649,7 +1649,7 @@ public abstract class RPEntity extends GuidedEntity {
 	 * @param oldXP
 	 *            The XP that this RPEntity had before being killed.
 	 */
-	protected void rewardKillers(final int oldXP) {
+	protected void rewardKillers(final long oldXP) {
 		final int xpReward = (int) (oldXP * 0.05);
 
 		for (Entry<Entity, Integer> entry : damageReceived.entrySet()) {
@@ -1719,7 +1719,7 @@ public abstract class RPEntity extends GuidedEntity {
 	/*
 	 * Reward pets who kill enemies.  don't perks like AchievementNotifier that players.
 	 */
-	protected void rewardKillerAnimals(final int oldXP) {
+	protected void rewardKillerAnimals(final long oldXP) {
 		if (!System.getProperty("stendhal.petleveling", "false").equals("true")) {
 			return;
 		}
@@ -1866,7 +1866,7 @@ public abstract class RPEntity extends GuidedEntity {
 		}
 
 		String killerName = killer.getName();
-		final int oldXP = this.getXP();
+		final long oldXP = this.getXP();
 
 		// Establish how much xp points your are rewarded
 		// give XP to everyone who helped killing this RPEntity

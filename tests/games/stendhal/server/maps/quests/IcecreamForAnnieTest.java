@@ -144,7 +144,7 @@ public class IcecreamForAnnieTest {
 		npc = SingletonRepository.getNPCList().get("Annie Jones");
 		en = npc.getEngine();
 
-		final int xp = player.getXP();
+		final long xp = player.getXP();
 		final double karma = player.getKarma();
 		en.step(player, "hi");
 		assertEquals("Yummy! Is that ice cream for me?", getReply(npc));

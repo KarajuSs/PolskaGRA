@@ -157,7 +157,7 @@ public class ArmorForDagobertTest {
 		assertEquals(questHistory, quest.getHistory(player));
 		assertEquals("Excuse me, please! I have noticed the leather cuirass you're carrying. Is it for me?",
 				getReply(npc));
-		final int xpBeforeReward = player.getXP();
+		final long xpBeforeReward = player.getXP();
 		en.step(player, "yes");
 		questHistory.add("I took the leather cuirass to Dagobert. As a little thank you, he will allow me to use a private vault.");
 		assertEquals(questHistory, quest.getHistory(player));

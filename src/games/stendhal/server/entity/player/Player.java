@@ -2337,7 +2337,7 @@ public class Player extends RPEntity implements UseListener {
 	}
 
 	@Override
-	protected void rewardKillers(final int oldXP) {
+	protected void rewardKillers(final long oldXP) {
 		// Don't reward for killing players
 		// process tutorial event for first player kill
 

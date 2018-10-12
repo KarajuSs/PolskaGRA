@@ -210,7 +210,7 @@ public class RingMakerTest {
 		assertEquals("Hi! Can I #help you?", getReply(npc));
 		en.step(player, "help");
 		assertEquals("I am an expert on #'wedding rings' and #'emerald rings', sometimes called the ring of #life.", getReply(npc));
-		final int oldXP = player.getXP();
+		final long oldXP = player.getXP();
 		en.step(player, "szmaragd");
 		assertEquals("I'm pleased to say, your ring of life is fixed! It's good as new now.", getReply(npc));
 		assertEquals("player earns 500 experience points.", oldXP + 500, player.getXP());
@@ -340,7 +340,7 @@ public class RingMakerTest {
 		assertEquals("Hi! Can I #help you?", getReply(npc));
 		en.step(testplayer, "help");
 		assertEquals("I am an expert on #'wedding rings' and #'emerald rings', sometimes called the ring of #life.", getReply(npc));
-		final int oldXP = testplayer.getXP();
+		final long oldXP = testplayer.getXP();
 		en.step(testplayer, "szmaragd");
 		assertEquals("I'm pleased to say, your ring of life is fixed! It's good as new now.", getReply(npc));
 		assertEquals("player earns 500 experience points.", oldXP + 500, testplayer.getXP());

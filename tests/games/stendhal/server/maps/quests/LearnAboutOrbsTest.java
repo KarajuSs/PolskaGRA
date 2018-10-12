@@ -53,7 +53,7 @@ public class LearnAboutOrbsTest {
 
 	@Test
 	public void testQuestAppropriateLevel() {
-		int before = player.getXP();
+		long before = player.getXP();
 		player.setLevel(11);
 		npc = SingletonRepository.getNPCList().get("Ilisa");
 		en = npc.getEngine();
@@ -89,7 +89,7 @@ public class LearnAboutOrbsTest {
 		en.step(player, "bye");
 		assertEquals("Bye.", getReply(npc));
 		assertEquals(player.getQuest(new LearnAboutOrbs().getSlotName()),"done");
-		int xpAfterQuest = before + 50;
+		long xpAfterQuest = before + 50;
 		assertEquals(player.getXP(), xpAfterQuest);
 	}
 

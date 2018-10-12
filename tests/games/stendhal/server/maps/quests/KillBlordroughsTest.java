@@ -174,7 +174,7 @@ public class KillBlordroughsTest {
 		KillRandomBlordroughs(1);
 		en.step(player, "hi");
 		assertEquals("Greetings. Have you come to enlist as a soldier?", getReply(npc));
-		int tempxp = player.getXP();
+		long tempxp = player.getXP();
 		int tempmoneys = player.getEquippedItemClass("bag", "money").getQuantity();
 		double tempkarma = player.getKarma();
 		en.step(player, "quest");

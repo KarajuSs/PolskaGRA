@@ -147,7 +147,7 @@ public class PizzaDeliveryTest {
 
 		final SpeakerNPC eliza = SingletonRepository.getNPCList().get("Eliza");
 		en = eliza.getEngine();
-		int xp = player.getXP();
+		long xp = player.getXP();
 		player.setQuest(questSlot, "Eliza;" + System.currentTimeMillis());
 		en.step(player, "hi");
 		assertEquals("Welcome to the #ferry service to #Athor #island! How can I #help you?", getReply(eliza));

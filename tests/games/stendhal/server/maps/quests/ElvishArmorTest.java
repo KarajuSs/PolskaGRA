@@ -219,7 +219,7 @@ public class ElvishArmorTest {
 	public void testQuestion1ToAttending() {
 		final Player player = PlayerTestHelper.createPlayer("bob");
 		final double oldKarma = player.getKarma();
-		final int oldXp = player.getXP();
+		final long oldXp = player.getXP();
 		npcEngine.setCurrentState(QUESTION_1);
 		for (final String playerSays : NEEDEDITEMS) {
 			PlayerTestHelper.equipWithItem(player, playerSays);

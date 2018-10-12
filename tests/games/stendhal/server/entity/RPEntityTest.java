@@ -441,8 +441,8 @@ public class RPEntityTest {
 			}
 		};
 		entity.setXP(300);
-		final int oldXP = entity.getXP();
-		entity.setXP(oldXP + Integer.MAX_VALUE);
+		final long oldXP = entity.getXP();
+		entity.setXP(oldXP + Long.MAX_VALUE);
 		assertThat(entity.getXP(), is(oldXP));
 	}
 
@@ -453,8 +453,8 @@ public class RPEntityTest {
 	public void testaddXP() {
 		final RPEntity entity = new MockRPEntity();
 		entity.setXP(300);
-		final int oldXP = entity.getXP();
-		entity.addXP(Integer.MAX_VALUE);
+		final double oldXP = entity.getXP();
+		entity.addXP(Long.MAX_VALUE);
 		assertThat(entity.getXP(), is(oldXP));
 	}
 

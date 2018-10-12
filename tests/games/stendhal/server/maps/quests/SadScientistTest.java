@@ -261,7 +261,7 @@ public class SadScientistTest {
 		// -----------------------------------------------
 		player.setQuest(QUEST_SLOT, "decorating;1");
 
-		final int xp = player.getXP();
+		final long xp = player.getXP();
 		final double karma = player.getKarma();
 
 		en.step(player, "hi");

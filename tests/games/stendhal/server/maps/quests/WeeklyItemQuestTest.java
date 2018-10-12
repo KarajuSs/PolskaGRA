@@ -86,7 +86,7 @@ public class WeeklyItemQuestTest {
 		player.setQuest(questSlot, "obsidian;100");
 		Item item = ItemTestHelper.createItem("obsidian");
 		player.getSlot("bag").add(item);
-		final int xp = player.getXP();
+		final long xp = player.getXP();
 
 		en.step(player, "hi");
 		assertEquals("Welcome to Kirdneh Museum.", getReply(npc));

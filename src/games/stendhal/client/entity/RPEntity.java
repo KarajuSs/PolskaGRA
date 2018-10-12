@@ -182,7 +182,7 @@ public abstract class RPEntity extends AudibleEntity {
 
 	private int ratk;
 
-	private int xp;
+	private long xp;
 
 	private int hp;
 
@@ -511,7 +511,7 @@ public abstract class RPEntity extends AudibleEntity {
 	/**
 	 * @return Returns the XP.
 	 */
-	public int getXP() {
+	public long getXP() {
 		return xp;
 	}
 
@@ -1416,10 +1416,10 @@ public abstract class RPEntity extends AudibleEntity {
 		}
 
 		if (changes.has("xp")) {
-			int newXp = changes.getInt("xp");
+			long newXp = changes.getLong("xp");
 
 			if (object.has("xp") && (User.squaredDistanceTo(x, y) < HEARING_DISTANCE_SQ)) {
-				final int amount = newXp - xp;
+				final long amount = newXp - xp;
 				if (amount > 0) {
 					addTextIndicator("+" + amount,
 							NotificationType.SIGNIFICANT_POSITIVE);

@@ -86,7 +86,7 @@ public class DailyItemQuestTest {
 		player.setQuest(questSlot, "pina colada;100");
 		Item item = ItemTestHelper.createItem("pina colada");
 		player.getSlot("bag").add(item);
-		final int xp = player.getXP();
+		final long xp = player.getXP();
 
 		en.step(player, "hi");
 		assertEquals("On behalf of the citizens of Ados, welcome.", getReply(npc));

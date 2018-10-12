@@ -116,7 +116,7 @@ public class KillMonksTest extends ZonePlayerAndNPCTestImpl {
 
 	@Test
 	public void testBackToNpc() {
-		int initialXp = player.getXP();
+		long initialXp = player.getXP();
 
 		player.setQuest(questSlot, QUEST_STATE_JUST_STARTED);
 		killCreatureShared("monk", 25);

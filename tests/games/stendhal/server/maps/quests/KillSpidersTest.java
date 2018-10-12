@@ -146,7 +146,7 @@ public class KillSpidersTest extends SpidersCreatures {
 		questHistory.add("I have killed a giant spider in the basement.");
 		questHistory.add("I have killed all 3 spiders in the basement. Now I go back to Morgrin to fetch my reward.");
 		assertEquals(questHistory, quest.getHistory(player));
-		final int xp = player.getXP();
+		final long xp = player.getXP();
 		final double karma = player.getKarma();
 
 		questHistory.clear();
@@ -196,7 +196,7 @@ public class KillSpidersTest extends SpidersCreatures {
 
 	@Test
 	public void testOldQuest() {
-		final int xp = player.getXP();
+		final long xp = player.getXP();
 		final double karma = player.getKarma();
 		LinkedList<String> questHistory = new LinkedList<String>();
 

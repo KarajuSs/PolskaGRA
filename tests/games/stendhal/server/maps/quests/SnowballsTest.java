@@ -113,7 +113,7 @@ public class SnowballsTest {
 
 		PlayerTestHelper.equipWithStackableItem(player, "snowball", 25);
 
-		final int xp = player.getXP();
+		final long xp = player.getXP();
 
 		en.step(player, "hi");
 		assertEquals("Greetings stranger! I see you have the snow I asked for. Are these snowballs for me?", getReply(npc));

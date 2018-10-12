@@ -307,7 +307,7 @@ public class KillDarkElvesTest {
 			assertTrue(bob.isEquipped("amulet"));
 
 			final double karma = bob.getKarma();
-			final int xp = bob.getXP();
+			final long xp = bob.getXP();
 
 			questHistory.clear();
 			questHistory.add("I agreed to help Maerion.");
@@ -460,7 +460,7 @@ public class KillDarkElvesTest {
 			assertTrue(bob.isEquipped("amulet"));
 
 			final double karma = bob.getKarma();
-			final int xp = bob.getXP();
+			final long xp = bob.getXP();
 
 			questHistory.clear();
 			questHistory.add("I agreed to help Maerion.");

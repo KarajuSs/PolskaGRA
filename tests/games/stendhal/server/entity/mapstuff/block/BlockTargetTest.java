@@ -93,14 +93,14 @@ public class BlockTargetTest {
 		BlockTarget unshapedTarget = new BlockTarget();
 		unshapedTarget.setPosition(1, 1);
 		Player player = PlayerTestHelper.createPlayer("pusher");
-		assertThat(Integer.valueOf(player.getXP()), is(Integer.valueOf(0)));
+		assertThat(Long.valueOf(player.getXP()), is(Integer.valueOf(0)));
 		unshapedTarget.trigger(unshapedBlock, player);
 
 		unshapedTarget.setAction(new IncreaseXPAction(5));
 
-		assertThat(Integer.valueOf(player.getXP()), is(Integer.valueOf(0)));
+		assertThat(Long.valueOf(player.getXP()), is(Integer.valueOf(0)));
 		unshapedTarget.trigger(unshapedBlock, player);
-		assertThat(Integer.valueOf(player.getXP()), is(Integer.valueOf(5)));
+		assertThat(Long.valueOf(player.getXP()), is(Integer.valueOf(5)));
 	}
 
 }

@@ -659,7 +659,7 @@ public class VampireSwordTest {
 			final Player player = PlayerTestHelper.createPlayer("me");
 			final SpeakerNPC npc = vs.npcs.get(DWARF_NPC);
 			final Engine en = vs.npcs.get(DWARF_NPC).getEngine();
-			int xp = player.getXP();
+			long xp = player.getXP();
 			double karma = player.getKarma();
 
 			en.setCurrentState(ConversationStates.IDLE);

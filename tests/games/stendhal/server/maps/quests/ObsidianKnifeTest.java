@@ -91,7 +91,7 @@ public class ObsidianKnifeTest {
 
 		Item item = ItemTestHelper.createItem("meat", 100);
 		player.getSlot("bag").add(item);
-		final int xp = player.getXP();
+		final long xp = player.getXP();
 		final double oldKarma = player.getKarma();
 
 		en.step(player, "hi");
@@ -147,7 +147,7 @@ public class ObsidianKnifeTest {
 		npc = SingletonRepository.getNPCList().get("Alrak");
 
 		en = npc.getEngine();
-		final int xp2 = player.getXP();
+		final long xp2 = player.getXP();
 
 		en.step(player, "hi");
 		// [09:28] kymara earns 500 experience points.
@@ -216,7 +216,7 @@ public class ObsidianKnifeTest {
 
 		// [09:33] Changed the state of quest 'obsidian_knife' from 'forging;1219829551665' to 'forging;0'
 		player.setQuest(questSlot, "forging;0");
-		final int xp3 = player.getXP();
+		final long xp3 = player.getXP();
 
 		en.step(player, "hi");
 		// [09:35] kymara earns 10000 experience points.

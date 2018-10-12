@@ -186,7 +186,7 @@ public class GoodiesForRudolphTest extends ZonePlayerAndNPCTestImpl {
 
 	@Test
 	public void testBackToRudolphOfferGoodies() {
-		int initialXp = player.getXP();
+		long initialXp = player.getXP();
 		player.setQuest(questSlot, "start");
 		prepareGoodies();
 

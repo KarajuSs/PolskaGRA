@@ -52,7 +52,7 @@ public final class StatsPanelController {
 	private final HashMap<String, HashMap<String, RPObject>> money = new HashMap<String, HashMap<String, RPObject>>();
 
 	private int level;
-	private int xp;
+	private long xp;
 	private int hp;
 	private int maxhp;
 	private int maxhpModified;
@@ -182,10 +182,10 @@ public final class StatsPanelController {
 	 * Called when xp or level has changed.
 	 */
 	private void updateLevel() {
-		final int next = Level.getXP(level + 1) - xp;
+		final long next = Level.getXP(level + 1) - xp;
 		// Show "em-dash" for max level players rather than
 		// a confusing negative required xp.
-		final String nextS = (next < 0) ? "\u2014" : Integer.toString(next);
+		final String nextS = (next < 0) ? "\u2014" : Long.toString(next);
 
 		final String text = "Poziom:" + SPC + level + SPC + "(" + nextS + ")";
 		SwingUtilities.invokeLater(new Runnable() {
@@ -219,7 +219,7 @@ public final class StatsPanelController {
 	 */
 	private void updateAtk() {
 		// atk uses 10 levels shifted starting point
-		final int next = Level.getXP(atk - 9) - atkxp;
+		final long next = Level.getXP(atk - 9) - atkxp;
 		final String text = "ATK:" + SPC + atk + "×" + (1 + weaponAtk) + SPC + "(" + next + ")";
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
@@ -234,7 +234,7 @@ public final class StatsPanelController {
 	 */
 	private void updateDef() {
 		// def uses 10 levels shifted starting point
-		final int next = Level.getXP(def - 9) - defxp;
+		final long next = Level.getXP(def - 9) - defxp;
 		final String text = "DEF:" + SPC + def + "×" + (1 + itemDef) + SPC + "(" + next + ")";
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
@@ -249,7 +249,7 @@ public final class StatsPanelController {
 	 */
 	private void updateRatk() {
 		// ratk uses 10 levels shifted starting point
-		final int next = Level.getXP(ratk - 9) - ratkxp;
+		final long next = Level.getXP(ratk - 9) - ratkxp;
 		final String text = "RATK:" + SPC + ratk + "×" + (1 + weaponRatk) + SPC + "(" + next + ")";
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override

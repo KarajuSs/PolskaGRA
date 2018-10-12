@@ -179,7 +179,7 @@ public class FindJefsMomTest extends ZonePlayerAndNPCTestImpl {
 
 	@Test
 	public void testBackToJef() {
-		int initialXp = player.getXP();
+		long initialXp = player.getXP();
 		PlayerTestHelper.equipWithItem(player, "bielikrasa");
 		player.setQuest(questSlot, "found_mom");
 

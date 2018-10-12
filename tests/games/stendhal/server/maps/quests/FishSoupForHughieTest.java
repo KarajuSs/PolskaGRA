@@ -129,7 +129,7 @@ public class FishSoupForHughieTest {
 		assertEquals("Goodbye.", getReply(npc));
 
 		// get values to test after reward
-		final int xp = player.getXP();
+		final long xp = player.getXP();
 		final double karma  = player.getKarma();
 
 		en.step(player, "hi");

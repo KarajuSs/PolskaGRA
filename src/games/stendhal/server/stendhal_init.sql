@@ -10,7 +10,7 @@ create table if not exists character_stats
   level integer,
   outfit varchar(32),
   outfit_colors varchar(100),
-  xp integer,
+  xp bigint,
   money integer,
 
   married varchar(32),

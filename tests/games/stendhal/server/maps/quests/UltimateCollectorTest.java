@@ -229,7 +229,7 @@ public class UltimateCollectorTest {
 		assertEquals("It was nice to meet you.", getReply(npc));
 
 
-		final int xp = player.getXP();
+		final long xp = player.getXP();
 		PlayerTestHelper.equipWithItem(player, "vulcano hammer");
 		en.step(player, "hi");
 		assertEquals("Did you bring me that very rare item I asked you for?", getReply(npc));

@@ -58,7 +58,7 @@ public class DeathMatchCreature extends Creature {
 	}
 
 	@Override
-	protected void rewardKillers(final int oldXP) {
+	protected void rewardKillers(final long oldXP) {
 		for (Entry<Entity, Integer> entry : damageReceived.entrySet()) {
 			int damageDone = entry.getValue();
 			if (damageDone == 0) {

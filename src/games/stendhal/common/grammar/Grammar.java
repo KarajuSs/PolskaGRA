@@ -828,15 +828,15 @@ public class Grammar {
 	 * Returns either the plural or singular form of the given noun, depending
 	 * on the quantity.
 	 *
-	 * @param quantity
+	 * @param amount
 	 *            The quantity to examine
 	 * @param noun
 	 *            The noun to examine
 	 * @return Either "[noun]" or plural("[noun]") as appropriate
 	 */
-	public static String plnoun(final int quantity, final String noun) {
+	public static String plnoun(final long amount, final String noun) {
 		final String enoun = fullForm(noun);
-		if (quantity == 1) {
+		if (amount == 1) {
 			return singular(enoun);
 		} else {
 			return plural(noun);
@@ -869,16 +869,16 @@ public class Grammar {
 	 * Returns either the plural or singular form of the given noun, depending
 	 * on the quantity; also prefixes the quantity.
 	 *
-	 * @param quantity
+	 * @param amount
 	 *            The quantity to examine
 	 * @param noun
 	 *            The noun to examine
 	 * @return Either "[quantity] [noun]" or "[quantity]" + plural("[noun]") as
 	 *         appropriate
 	 */
-	public static String quantityplnoun(final int quantity, final String noun) {
-		final String end = plnoun(quantity, noun);
-		return Integer.toString(quantity) + " " + end;
+	public static String quantityplnoun(final long amount, final String noun) {
+		final String end = plnoun(amount, noun);
+		return Long.toString(amount) + " " + end;
 	}
 
 	/**

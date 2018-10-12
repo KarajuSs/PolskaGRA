@@ -123,7 +123,7 @@ public class SuppliesForPhalkTest {
 		PlayerTestHelper.equipWithStackableItem(player, "wine", 3);
 
 		// remember xp
-		final int xp = player.getXP();
+		final long xp = player.getXP();
 		en.step(player, "food");
 		assertEquals("Do you have 3 sandwiches, 3 bottles of beer and 3 glasses of wine?", getReply(npc));
 		en.step(player, "yes");
@@ -198,7 +198,7 @@ public class SuppliesForPhalkTest {
 
 		// get the gold bars
 		PlayerTestHelper.equipWithStackableItem(player, "gold bar", 20);
-		final int xp = player.getXP();
+		final long xp = player.getXP();
 
 		en.step(player, "payment");
 		assertEquals("The armor will cost 20 gold bars. Do you have them?", getReply(npc));
@@ -269,7 +269,7 @@ public class SuppliesForPhalkTest {
 
 		// get the arrows
 		PlayerTestHelper.equipWithStackableItem(player, "steel arrow", 20);
-		final int xp = player.getXP();
+		final long xp = player.getXP();
 
 		en.step(player, "yes");
 		assertEquals("Ok, here you are.", getReply(npc));
@@ -340,7 +340,7 @@ public class SuppliesForPhalkTest {
 		cloak.setInfoString("Phalk");
 		player.getSlot("bag").add(cloak);
 
-		final int xp = player.getXP();
+		final long xp = player.getXP();
 
 		en.step(player, "hi");
 		assertEquals("There is something huge there! Everyone is very nervous. Be careful! For entering the dark parts of the mines, push the #stones away which are laying infront of the entrance...", getReply(npc));

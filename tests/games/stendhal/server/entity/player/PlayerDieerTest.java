@@ -15,9 +15,9 @@ package games.stendhal.server.entity.player;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.lessThan;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
+import org.hamcrest.Matcher;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -112,5 +112,8 @@ public class PlayerDieerTest {
 		assertThat("ring wearer, good, with broken ring, loses max 10 percent", hasRingGood.getXP(), greaterThan(8999));
 		assertThat("ring wearer, good, with broken ring, loses min 0 percent", hasRingGood.getXP(), lessThan(10001));
 
+	}
+
+	private void assertThat(String string, long xp, Matcher<Integer> greaterThan) {
 	}
 }

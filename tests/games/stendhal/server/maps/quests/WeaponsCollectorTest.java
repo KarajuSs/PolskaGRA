@@ -150,7 +150,7 @@ public class WeaponsCollectorTest {
 	public final void testRewardPlayer() {
 		final WeaponsCollector wc = new WeaponsCollector();
 		final Player player = PlayerTestHelper.createPlayer("player");
-		final int oldXP = player.getXP();
+		final long oldXP = player.getXP();
 		wc.rewardPlayer(player);
 
 		assertTrue(player.isEquipped("ice sword"));
