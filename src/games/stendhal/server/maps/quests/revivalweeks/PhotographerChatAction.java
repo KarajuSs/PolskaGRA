@@ -80,8 +80,8 @@ public class PhotographerChatAction implements ChatAction {
 
 		String url = generateUrl(outfit, i);
 		String caption = player.getName() + CAPTIONS[i];
-		addSign(player.getName(), url, "Picture", caption);
-		player.addEvent(new ExamineEvent(url, "Picture", caption));
+		addSign(player.getName(), url, "Zdjęcia", caption);
+		player.addEvent(new ExamineEvent(url, "Zdjęcia", caption));
 		player.notifyWorldAboutChanges();
 	}
 
