@@ -159,10 +159,10 @@ class GeneralSettings {
 		// Continuous movement
 		final JCheckBox moveContinuousToggle = SettingsComponentFactory.createSettingsToggle(MOVE_CONTINUOUS_PROPERTY, false,
 				"Ciągły ruch", "Zmieniaj mapy i przechodź przez portale bez zatrzymywania się");
-		moveContinuousToggle.addActionListener(new ActionListener() {
+		moveContinuousToggle.addItemListener(new ItemListener() {
 			@Override
-			public void actionPerformed(final ActionEvent e) {
-				new MoveContinuousAction().sendAction(moveContinuousToggle.isSelected());
+			public void itemStateChanged(ItemEvent e) {
+				new MoveContinuousAction().sendAction(e.getStateChange() == ItemEvent.SELECTED);
 			}
 		});
 		WtWindowManager.getInstance().registerSettingChangeListener(MOVE_CONTINUOUS_PROPERTY,

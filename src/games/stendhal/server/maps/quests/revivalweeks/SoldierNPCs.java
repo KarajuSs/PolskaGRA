@@ -34,15 +34,15 @@ public class SoldierNPCs implements LoadableContent {
 			@Override
 			protected void createDialog() {
 				addGreeting("...");
-				addJob("Chronię festiwal przed złymi istotami czającymi się głęboko w kopalniach.");
-				addGoodbye("Bądź ostrożny.");
+				addJob("I protect the festival from the evil creatures lurking deep inside the mines.");
+				addGoodbye("Be careful.");
 			}
 		};
 
 		npc1.setPosition(88, 98);
 		npc1.setEntityClass("youngsoldiernpc");
 		npc1.setDirection(Direction.RIGHT);
-		npc1.setDescription("Widzisz strażnika Hibitus. Strzeże wejścia do Kopalni Semos.");
+		npc1.setDescription("You see Hibitus. He guards the entrance to Semos Mine.");
 		npc1.initHP(100);
 		zone.add(npc1);
 
@@ -56,15 +56,15 @@ public class SoldierNPCs implements LoadableContent {
 			@Override
 			protected void createDialog() {
 				addGreeting("...");
-				addJob("Chronię festiwal przed złymi istotami czającymi się głęboko w kopalniach.");
-				addGoodbye("Bądź ostrożny.");
+				addJob("I protect the festival from the evil creatures lurking deep inside the mines.");
+				addGoodbye("Be careful.");
 			}
 		};
 
 		npc2.setPosition(92, 98);
 		npc2.setEntityClass("youngsoldiernpc");
 		npc2.setDirection(Direction.LEFT);
-		npc2.setDescription("Widzisz strażnika Lucanus. Strzeże wejścia do Kopalni Semos.");
+		npc2.setDescription("You see Lucanus. He guards the entrance to Semos Mine.");
 		npc2.initHP(100);
 		zone.add(npc2);
 	}

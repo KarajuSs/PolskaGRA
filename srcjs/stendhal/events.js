@@ -143,7 +143,7 @@ marauroa.rpeventFactory["sound_event"] = marauroa.util.fromProto(marauroa.rpeven
 		}
 		// Further adjustments if the sound has a radius
 		if (this.hasOwnProperty("radius")) {
-			if (!marauroa.me || !rpobject || !rpobject["_x"]) {
+			if (!marauroa.me) {
 				// Can't calculate the distance yet. Ignore the sound.
 				return;
 			}

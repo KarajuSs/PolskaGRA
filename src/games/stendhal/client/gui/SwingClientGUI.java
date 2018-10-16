@@ -446,8 +446,6 @@ class SwingClientGUI implements J2DClientGUI {
 					final RPAction stop = new RPAction();
 					stop.put(TYPE, COND_STOP);
 					ClientSingletonRepository.getClientFramework().send(stop);
-					// Clear any direction keypresses
-					gameKeyHandler.flushDirectionKeys();
 				}
 			}
 		});

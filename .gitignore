@@ -3,7 +3,6 @@ manifest.mf
 nbbuild.xml
 nbproject
 
-/.settings
 build_client
 build_client_sound_data
 marauroa.ini
