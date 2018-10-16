@@ -102,7 +102,7 @@ public class SokobanGame implements LoadableContent, SokobanListener {
 			protected void createDialog() {
 				addGreeting("Witaj. #Zagrajmy w grę.");
 				addJob("Prowadzę tą grę.");
-				addHelp("Pchnij dynie na ich miejsce. Powiedx #wyjście jeśli utkniesz.");
+				addHelp("Pchnij dynie na ich miejsce. Powiedz #wyjście jeśli utkniesz.");
 				addQuest("#Zagrajmy w grę.");
 
 				add(ConversationStates.ATTENDING,

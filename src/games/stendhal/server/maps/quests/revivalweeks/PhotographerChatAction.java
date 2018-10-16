@@ -53,25 +53,25 @@ public class PhotographerChatAction implements ChatAction {
 		this.zone = zone;
 	}
 
-	public String[] CAPTIONS = new String[] {
-			" spotkanie Balduin",
-			" starting the adventure",
-			" exploring Semos Dungeon",
-			" visiting the Semos Temple",
-			" spotkanie Jenny",
-			" discovering the Gnome village",
-			" visiting Ados",
-			" discovering a huge tower",
-			" sneaking into Ados Wildlife Refuge",
-			" looking out of the wizzard tower",
-			" providing ice cream",
-			" visiting hell",
-			" looking around",
-			" getting to the top of the tower",
-			" visiting elves",
-			" visiting oni",
-			" relaxing at a camp fire"
-		};
+	private static final String[] CAPTIONS = new String[] {
+		" i spotkanie Balduina",
+		" i rozpoczęcie przygody",
+		" eksplorowanie Semos Dungeon",
+		" oraz wizyta w Semos Temple",
+		" i spotkanie Jenny'iego",
+		" oraz odkrycie wioski gnomów",
+		" oraz wizyta w mieście Ados",
+		" i odkrywanie gigantyczną wieżę",
+		" oraz skradanie się w Ados Wildlife Refuge",
+		" oraz oglądanie z wieży czarodziejów",
+		" i dostarczanie lodów",
+		" oraz wizyta w piekle",
+		" rozgląda się",
+		" oraz dostanie się na szczyt wieży",
+		" i odwiedzenie elfów",
+		" i odwiedzenie oni",
+		" i relaks przy ognisku"
+	};
 
 	@Override
 	public void fire(Player player, Sentence sentence, EventRaiser npc) {
@@ -80,8 +80,8 @@ public class PhotographerChatAction implements ChatAction {
 
 		String url = generateUrl(outfit, i);
 		String caption = player.getName() + CAPTIONS[i];
-		addSign(player.getName(), url, "Picture", caption);
-		player.addEvent(new ExamineEvent(url, "Picture", caption));
+		addSign(player.getName(), url, "Zdjęcia", caption);
+		player.addEvent(new ExamineEvent(url, "Zdjęcia", caption));
 		player.notifyWorldAboutChanges();
 	}
 
@@ -194,13 +194,13 @@ public class PhotographerChatAction implements ChatAction {
 	 *
 	 * @param outfit outfit of player
 	 * @param i background index
-	 * @return 
+	 * @return
 	 */
 	private String generateUrl(String outfit, int i) {
 		try {
 			String hash = hmac(i + "_" + outfit, Configuration.getConfiguration().get("stendhal.secret"));
 			StringBuilder sb = new StringBuilder();
-			sb.append("https://stendhalgame.org/content/game/photo.php?outfit=");
+			sb.append("https://polskagra.net/content/game/photo.php?outfit=");
 			sb.append(outfit);
 			sb.append("&i=");
 			sb.append(i);

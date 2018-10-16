@@ -1,4 +1,3 @@
-/* $Id$ */
 /***************************************************************************
  *                   (C) Copyright 2003-2010 - Stendhal                    *
  ***************************************************************************
@@ -124,7 +123,9 @@ public class WikipediaAccess extends DefaultHandler implements Runnable {
 		content = content.replaceAll("(?s)<ref>.*?</ref>", "");
 
 		// remove templates
-		// first for two level deep templates
+		// first for three level deep templates
+		content = content.replaceAll("(?s)\\{\\{([^{}]*?\\{\\{([^{}]*?\\{\\{[^{}]*?\\}\\})+[^{}]*?\\}\\})+[^{}]*?}}", "");
+		// then for two level deep templates
 		content = content.replaceAll("(?s)\\{\\{([^{}]*?\\{\\{[^{}]*?\\}\\})+[^{}].*?\\}\\}", "");
 		// then handle one level templates (This doesn't work with templates inside templates.)
 		content = content.replaceAll("(?s)\\{\\{.*?\\}\\}", "");
@@ -182,20 +183,13 @@ public class WikipediaAccess extends DefaultHandler implements Runnable {
 
 				if (response.startsWith("#REDIRECT")) {
 					// extract the new keyword
-					final String redirect = wikiToPlainText(response).substring(9);
-
-					// check for new line to detect if we got only a one liner to redirect
-					if (redirect.indexOf('\n') > -1) {
-						// We found the redirected article.
+					final String redirect = wikiToPlainText(response).substring(9).replaceAll("\\n.*", "").trim();
+					if (keyword.equalsIgnoreCase(redirect)) {
+						// stop to avoid an infinite loop
 						keyword = null;
 					} else {
-						if (keyword.equalsIgnoreCase(redirect)) {
-							// stop to avoid an infinite loop
-							keyword = null;
-						} else {
-							reset();
-							keyword = redirect;
-						}
+						reset();
+						keyword = redirect;
 					}
 				} else {
 					// finished
@@ -220,6 +214,7 @@ public class WikipediaAccess extends DefaultHandler implements Runnable {
 	private void reset() {
 		isContent = false;
 		finished = false;
+		text.setLength(0);
 	}
 
 	@Override
