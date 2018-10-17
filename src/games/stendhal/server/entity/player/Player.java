@@ -1130,7 +1130,7 @@ public class Player extends RPEntity implements UseListener {
 	public void removeSheep(final Sheep sheep) {
 		getPetOwner().removeSheep(sheep);
 	}
-	
+
 	public void removeGoat(final Goat goat) {
 		getPetOwner().removeGoat(goat);
 	}
@@ -1818,10 +1818,8 @@ public class Player extends RPEntity implements UseListener {
 		setOutfit(outfit, temporary);
 
 		if (detailCode > 0) {
-			System.out.println("Stary strój miał detale");
-
 			// get current outfit code
-			int outfitCode = outfit.getCode() + (detailCode * 100000000);
+			final int outfitCode = outfit.getCode() + (detailCode * 100000000);
 
 			// re-add detail
 			put("outfit", outfitCode);
