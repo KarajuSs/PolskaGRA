@@ -164,7 +164,7 @@ public class MeetSanta extends AbstractQuest implements LoginListener {
 		final Outfit outfit = player.getOutfit();
 		if (!isChristmasTime(new GregorianCalendar())) {
 			final Outfit newOutfit;
-			newOutfit = new Outfit(0, null, null, null, null, null, null);
+			newOutfit = new Outfit(0, null, null, null, null);
 			player.setOutfit(newOutfit.putOver(outfit), false);
 		}
 	}
