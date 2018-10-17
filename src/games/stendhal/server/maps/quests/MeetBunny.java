@@ -54,7 +54,7 @@ public class MeetBunny extends AbstractQuest {
 	protected SpeakerNPC bunny;
 
 	private ItemDroppingTeleporterBehaviour teleporterBehaviour;
-	
+
 	/** the name of the quest */
 	public static final String QUEST_NAME = "MeetBunny";
 
@@ -65,7 +65,7 @@ public class MeetBunny extends AbstractQuest {
 	public String getSlotName() {
 		return QUEST_SLOT;
 	}
-	
+
 	private SpeakerNPC createbunny() {
 		bunny = new SpeakerNPC("Easter Bunny") {
 			@Override
@@ -98,11 +98,11 @@ public class MeetBunny extends AbstractQuest {
 					new MultipleActions(reward));
 			}
 		};
-		
+
 		bunny.setEntityClass("easterbunnynpc");
 		bunny.initHP(100);
 		// times out twice as fast as normal NPCs
-		bunny.setPlayerChatTimeout(TIME_OUT); 
+		bunny.setPlayerChatTimeout(TIME_OUT);
 		bunny.setDescription("Oto przyjacielski króliczek niosący kolorowy Wielkanocny koszyczek.");
 		// start in int_admin_playground
 
@@ -119,13 +119,13 @@ public class MeetBunny extends AbstractQuest {
 				"Spotkanie Króliczka Wielkanocnego",
 				"Wielkanoc wkrótce nadejdzie, a paru bohaterów już widziało króliczka skakjącego to tu to tam. Czy będziesz miał na tyle szczęscia, aby go złapać w określonym czasie? Trzymaj się jest bardzo szybki, a także nosi ze sobą niespodzianki...",
 				false);
-		
+
 		if (System.getProperty("stendhal.easterbunny") != null) {
 		    createbunny();
-		    teleporterBehaviour = new ItemDroppingTeleporterBehaviour(bunny, null, "0", "*hop* *hop* *hop* Szczęśliwej Wielkanocy!", true, "małe jajo wielkanocne"); 
+		    teleporterBehaviour = new ItemDroppingTeleporterBehaviour(bunny, null, "0", "*hop* *hop* *hop* Szczęśliwej Wielkanocy!", true, "małe jajo wielkanocne");
 		}
 	}
-		
+
 	/**
 	 * removes a quest from the world.
 	 *
@@ -138,7 +138,7 @@ public class MeetBunny extends AbstractQuest {
 		SingletonRepository.getTurnNotifier().dontNotify(teleporterBehaviour);
 		return true;
 	}
-	
+
 	/**
 	 * removes an NPC from the world and NPC list
 	 *
@@ -156,17 +156,17 @@ public class MeetBunny extends AbstractQuest {
 	public String getName() {
 		return QUEST_NAME;
 	}
-	
+
 	@Override
 	public boolean isVisibleOnQuestStatus() {
 		return false;
 	}
-	
+
 	@Override
 	public List<String> getHistory(final Player player) {
 		return new ArrayList<String>();
 	}
-	
+
 	@Override
 	public String getNPCName() {
 		return "Easter Bunny";
