@@ -180,8 +180,6 @@ public class Player extends RPEntity implements UseListener {
 		player.put("atk_xp", 0);
 		player.put("def", 10);
 		player.put("def_xp", 0);
-		player.put("wint", 10);
-		player.put("wint_xp", 0);
 		player.put("ratk", 10);
 		player.put("ratk_xp", 0);
 		player.put("level", 0);
@@ -2924,11 +2922,6 @@ public class Player extends RPEntity implements UseListener {
 	public int getCappedDef() {
 		// Red line in https://sourceforge.net/p/arianne/feature-requests/1330/
 		return Math.min(this.def, getMaxDefForLevel(level));
-	}
-
-	@Override
-	public int getCappedInt() {
-		return Math.min(this.wint, getMaxAtkForLevel(level));
 	}
 
 	/**

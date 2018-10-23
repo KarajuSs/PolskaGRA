@@ -594,7 +594,6 @@ public abstract class RPEntity extends GuidedEntity {
 		 * XXX: atkStrength never used outside of debugger.
 		 */
 		final int atkStrength, sourceAtk;
-		int sourceInt = 1;
 		if (isRanged) {
 			atkStrength = this.getRatk();
 			sourceAtk = this.getCappedRatk();
