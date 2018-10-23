@@ -107,6 +107,8 @@ public abstract class RPEntity extends GuidedEntity {
 	private int atk_xp;
 	protected int def;
 	private int def_xp;
+	protected int wint;
+	private int wint_xp;
 	protected int ratk;
 	private int ratk_xp;
 	private int base_hp;
@@ -492,6 +494,11 @@ public abstract class RPEntity extends GuidedEntity {
 			setDefXpInternal(def_xp, false);
 		}
 
+		if (has("wint_xp")) {
+			wint_xp = getInt("wint_xp");
+			setIntXPInternal(wint_xp, false);
+		}
+
 		if (has("ratk_xp")) {
 			ratk_xp = getInt("ratk_xp");
 			setRatkXPInternal(ratk_xp, false);
@@ -594,12 +601,14 @@ public abstract class RPEntity extends GuidedEntity {
 		 * XXX: atkStrength never used outside of debugger.
 		 */
 		final int atkStrength, sourceAtk;
+		int sourceInt = 1;
 		if (isRanged) {
 			atkStrength = this.getRatk();
 			sourceAtk = this.getCappedRatk();
 		} else {
 			atkStrength = this.getAtk();
 			sourceAtk = this.getCappedAtk();
+			sourceInt = this.getCappedInt();
 		}
 
 		// Attacking
@@ -627,7 +636,7 @@ public abstract class RPEntity extends GuidedEntity {
 
 		final double weaponComponent = 1.0 + attackingWeaponsValue;
 		// XXX: Is correct to use sourceAtk here instead of atkStrength?
-		final double maxAttack = sourceAtk * weaponComponent
+		final double maxAttack = sourceAtk + sourceInt * weaponComponent
 				* (1 + LEVEL_ATK * effectiveAttackerLevel) * speedEffect;
 		double attack = Rand.rand() * maxAttack;
 
@@ -880,6 +889,51 @@ public abstract class RPEntity extends GuidedEntity {
 	 */
 	public void incDefXP() {
 		setDefXP(def_xp + 1);
+	}
+
+	public void setwInt(final int wint) {
+		setIntInternal(wint, true);
+	}
+
+	private void setIntInternal(final int wint, boolean notify) {
+		this.wint = wint;
+		put("wint", wint);
+		if(notify) {
+			this.updateModifiedAttributes();
+		}
+	}
+
+	public int getwInt() {
+		return this.wint;
+	}
+
+	public int getCappedInt() {
+		return this.wint;
+	}
+
+	public void setwIntXP(final int wintXP) {
+		setIntXPInternal(wintXP, true);
+	}
+
+	protected void setIntXPInternal(final int wintXP, boolean notify) {
+		this.wint_xp = wintXP;
+		put("wint_xp", wint_xp);
+
+		final int newLevel = Level.getLevel(wint_xp);
+		final int levels = newLevel - (this.wint - 10);
+
+		if (levels != 0) {
+			setIntInternal(this.wint + levels, notify);
+			new GameEvent(getName(), "wint", Integer.toString(this.wint)).raise();
+		}
+	}
+
+	public int getwIntXP() {
+		return wint_xp;
+	}
+
+	public void incwIntXP() {
+		setwIntXP(wint_xp + 1);
 	}
 
 

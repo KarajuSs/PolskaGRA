@@ -33,7 +33,7 @@ class StatsPanel extends JPanel {
 	 */
 	private static final long serialVersionUID = -353271026575752035L;
 
-	private final StatLabel hpLabel, atkLabel, defLabel, ratkLabel, xpLabel, levelLabel, moneyLabel;
+	private final StatLabel hpLabel, atkLabel, defLabel, wintLabel, ratkLabel, xpLabel, levelLabel, moneyLabel;
 	private final StatusIconPanel statusIcons;
 	private final KarmaIndicator karmaIndicator;
 	private final ManaIndicator manaIndicator;
@@ -62,6 +62,9 @@ class StatsPanel extends JPanel {
 
 		defLabel = new StatLabel();
 		add(defLabel, SLayout.EXPAND_X);
+
+		wintLabel = new StatLabel();
+		add(wintLabel, SLayout.EXPAND_X);
 
 		ratkLabel = new StatLabel();
 		add(ratkLabel, SLayout.EXPAND_X);
@@ -101,6 +104,15 @@ class StatsPanel extends JPanel {
 	 */
 	void setDef(String def) {
 		defLabel.setText(def);
+	}
+
+	/**
+	 * Set the wizard intelligence description string.
+	 *
+	 * @param wint
+	 */
+	void setwInt(String wint) {
+		wintLabel.setText(wint);
 	}
 	
 	/**

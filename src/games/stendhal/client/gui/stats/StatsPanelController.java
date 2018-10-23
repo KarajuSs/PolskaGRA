@@ -64,6 +64,10 @@ public final class StatsPanelController {
 	private int defxp;
 	private int itemDef;
 
+	private int wint;
+	private int wintxp;
+	private int weaponInt;
+
 	private int ratk;
 	private int ratkxp;
 	private int weaponRatk;
@@ -119,6 +123,10 @@ public final class StatsPanelController {
 		addPropertyChangeListenerWithModifiedSupport(pcs, "def", listener);
 		pcs.addPropertyChangeListener("def_xp", listener);
 
+		listener = new WINTChangeListener();
+		addPropertyChangeListenerWithModifiedSupport(pcs, "wint", listener);
+		pcs.addPropertyChangeListener("wint_xp", listener);
+
 		listener = new RATKChangeListener();
 		addPropertyChangeListenerWithModifiedSupport(pcs, "ratk", listener);
 		pcs.addPropertyChangeListener("ratk_xp", listener);
@@ -134,6 +142,9 @@ public final class StatsPanelController {
 
 		listener = new ArmorChangeListener();
 		pcs.addPropertyChangeListener("def_item", listener);
+
+		listener = new RangedMagicWeaponChangeListener();
+		pcs.addPropertyChangeListener("wint_item", listener);
 
 		listener = new RangedWeaponChangeListener();
 		pcs.addPropertyChangeListener("ratk_item", listener);
@@ -233,6 +244,17 @@ public final class StatsPanelController {
 			@Override
 			public void run() {
 				panel.setDef(text);
+			}
+		});
+	}
+
+	private void updateInt() {
+		final int next = Level.getXP(wint - 9) - wintxp;
+		final String text = "WINT:" + SPC + wint + "×" + (1 + weaponInt) + SPC + "(" + next + ")";
+		SwingUtilities.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				panel.setwInt(text);
 			}
 		});
 	}
@@ -389,6 +411,22 @@ public final class StatsPanelController {
 		}
 	}
 
+	private class WINTChangeListener implements PropertyChangeListener {
+		@Override
+		public void propertyChange(final PropertyChangeEvent event) {
+			if (event == null) {
+				return;
+			}
+
+			if ("wint_xp".equals(event.getPropertyName())) {
+				wintxp = Integer.parseInt((String) event.getNewValue());
+			} else if ("wint".equals(event.getPropertyName())) {
+				wint = Integer.parseInt((String) event.getNewValue());
+			}
+			updateInt();
+		}
+	}
+
 	/**
 	 * Listener for ratk and ratk_xp changes.
 	 */
@@ -470,6 +508,20 @@ public final class StatsPanelController {
 			}
 			itemDef = Integer.parseInt((String) event.getNewValue());
 			updateDef();
+		}
+	}
+
+	/**
+	 * Listener for ranged magic weapon int changes.
+	 */
+	private class RangedMagicWeaponChangeListener implements PropertyChangeListener {
+		@Override
+		public void propertyChange(final PropertyChangeEvent event) {
+			if (event == null) {
+				return;
+			}
+			weaponInt = Integer.parseInt((String) event.getNewValue());
+			updateInt();
 		}
 	}
 

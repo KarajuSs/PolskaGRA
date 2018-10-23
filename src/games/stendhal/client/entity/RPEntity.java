@@ -179,6 +179,8 @@ public abstract class RPEntity extends AudibleEntity {
 
 	private int def;
 
+	private int wint;
+
 	private int ratk;
 
 	private int xp;
@@ -241,11 +243,15 @@ public abstract class RPEntity extends AudibleEntity {
 
 	private int defXP;
 
+	private int wintXP;
+
 	private int ratkXP;
 
 	private int atkItem = -1;
 
 	private int defItem = -1;
+
+	private int wintItem = -1;
 
 	private int ratkItem = -1;
 
@@ -346,6 +352,27 @@ public abstract class RPEntity extends AudibleEntity {
 	 */
 	public int getDefXP() {
 		return defXP;
+	}
+
+	/**
+	 * @return Returns the wizard intelligence.
+	 */
+	public int getwInt() {
+		return wint;
+	}
+
+	/**
+	 * @return Returns the wizard intelligence of items
+	 */
+	public int getwIntItem() {
+		return wintItem;
+	}
+
+	/**
+	 * @return the wizard intelligence xp
+	 */
+	public int getwIntXP() {
+		return wintXP;
 	}
 
 	/**
@@ -1348,6 +1375,13 @@ public abstract class RPEntity extends AudibleEntity {
 			def = changes.getInt("modified_def");
 		}
 
+		if (changes.has("wint")) {
+			wint = changes.getInt("wint");
+		}
+		if (changes.has("modified_wint")) {
+			wint = changes.getInt("modified_wint");
+		}
+
 		if (changes.has("ratk")) {
 			ratk = changes.getInt("ratk");
 		}
@@ -1370,6 +1404,10 @@ public abstract class RPEntity extends AudibleEntity {
 			defXP = changes.getInt("def_xp");
 		}
 
+		if (changes.has("wint_xp")) {
+			wintXP = changes.getInt("wint_xp");
+		}
+
 		if (changes.has("ratk_xp")) {
 			ratkXP = changes.getInt("ratk_xp");
 		}
@@ -1380,6 +1418,10 @@ public abstract class RPEntity extends AudibleEntity {
 
 		if (changes.has("def_item")) {
 			defItem = changes.getInt("def_item");
+		}
+
+		if (changes.has("wint_item")) {
+			wintItem = changes.getInt("wint_item");
 		}
 
 		if (changes.has("ratk_item")) {
