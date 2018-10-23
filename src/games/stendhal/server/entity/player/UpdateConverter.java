@@ -243,12 +243,8 @@ public abstract class UpdateConverter {
     		object.put("def", "10");
     	}
 
-    	if (!object.has("wint_xp")) {
-			object.put("wint_xp", "10");
-		}
-
     	if (!object.has("ratk_xp")) {
-			object.put("ratk_xp", "10");
+			object.put("ratk_xp", "0");
 		}
 
     	if (!object.has("age")) {

@@ -107,8 +107,6 @@ public abstract class RPEntity extends GuidedEntity {
 	private int atk_xp;
 	protected int def;
 	private int def_xp;
-	protected int wint;
-	private int wint_xp;
 	protected int ratk;
 	private int ratk_xp;
 	private int base_hp;
@@ -494,11 +492,6 @@ public abstract class RPEntity extends GuidedEntity {
 			setDefXpInternal(def_xp, false);
 		}
 
-		if (has("wint_xp")) {
-			wint_xp = getInt("wint_xp");
-			setIntXPInternal(wint_xp, false);
-		}
-
 		if (has("ratk_xp")) {
 			ratk_xp = getInt("ratk_xp");
 			setRatkXPInternal(ratk_xp, false);
@@ -608,7 +601,6 @@ public abstract class RPEntity extends GuidedEntity {
 		} else {
 			atkStrength = this.getAtk();
 			sourceAtk = this.getCappedAtk();
-			sourceInt = this.getCappedInt();
 		}
 
 		// Attacking
@@ -636,7 +628,7 @@ public abstract class RPEntity extends GuidedEntity {
 
 		final double weaponComponent = 1.0 + attackingWeaponsValue;
 		// XXX: Is correct to use sourceAtk here instead of atkStrength?
-		final double maxAttack = sourceAtk + sourceInt * weaponComponent
+		final double maxAttack = sourceAtk * weaponComponent
 				* (1 + LEVEL_ATK * effectiveAttackerLevel) * speedEffect;
 		double attack = Rand.rand() * maxAttack;
 
@@ -890,52 +882,6 @@ public abstract class RPEntity extends GuidedEntity {
 	public void incDefXP() {
 		setDefXP(def_xp + 1);
 	}
-
-	public void setwInt(final int wint) {
-		setIntInternal(wint, true);
-	}
-
-	private void setIntInternal(final int wint, boolean notify) {
-		this.wint = wint;
-		put("wint", wint);
-		if(notify) {
-			this.updateModifiedAttributes();
-		}
-	}
-
-	public int getwInt() {
-		return this.wint;
-	}
-
-	public int getCappedInt() {
-		return this.wint;
-	}
-
-	public void setwIntXP(final int wintXP) {
-		setIntXPInternal(wintXP, true);
-	}
-
-	protected void setIntXPInternal(final int wintXP, boolean notify) {
-		this.wint_xp = wintXP;
-		put("wint_xp", wint_xp);
-
-		final int newLevel = Level.getLevel(wint_xp);
-		final int levels = newLevel - (this.wint - 10);
-
-		if (levels != 0) {
-			setIntInternal(this.wint + levels, notify);
-			new GameEvent(getName(), "wint", Integer.toString(this.wint)).raise();
-		}
-	}
-
-	public int getwIntXP() {
-		return wint_xp;
-	}
-
-	public void incwIntXP() {
-		setwIntXP(wint_xp + 1);
-	}
-
 
 /* ### --- START RANGED --- ### */
 
@@ -2299,7 +2245,7 @@ public abstract class RPEntity extends GuidedEntity {
 	/**
 	 * Low level drop. <b>Does not check the containing slot or owner. This is
 	 * meant to be used only by higher level drop() methods.</b>
-	 * 
+	 *
 	 * @param item dropped item
 	 * @param amount maximum amout to drop
 	 * @return dropped amount
@@ -2912,32 +2858,38 @@ public abstract class RPEntity extends GuidedEntity {
 			shield += getShield().getAttack();
 		}
 
-		// range weapons
-		StackableItem ammunitionItem = null;
-		StackableItem magiaItem = null;
+		return weapon + glove + ring + ringb + shield;
+	}
+
+	/**
+	 * Retrieves total range attack value of held weapon & ammunition.
+	 */
+	public float getItemRatk() {
+		float ratk = 0;
+		final List<Item> weapons = getWeapons();
+
 		if (weapons.size() > 0) {
-			if (weapons.get(0).isOfClass("ranged")) {
+			final Item held = getWeapons().get(0);
+			ratk += held.getRangedAttack();
+
+			StackableItem ammunitionItem = null;
+			StackableItem magiaItem = null;
+			if (held.isOfClass("ranged")) {
 				ammunitionItem = getAmmunition();
 
 				if (ammunitionItem != null) {
-					weapon += ammunitionItem.getAttack();
-				} else {
-					// If there is no ammunition...
-					weapon = 0;
+					ratk += ammunitionItem.getRangedAttack();
 				}
-			} else if (weapons.get(0).isOfClass("wand")) {
+			} else if (held.isOfClass("wand")) {
 				magiaItem = getMagia();
 
 				if (magiaItem != null) {
-					weapon += magiaItem.getAttack();
-				} else {
-					// If there is no magia...
-					weapon = 0;
+					ratk += magiaItem.getRangedAttack();
 				}
 			}
 		}
 
-		return weapon + glove + ring +  ringb + shield;
+		return ratk;
 	}
 
 	public float getItemDef() {
@@ -3074,6 +3026,7 @@ public abstract class RPEntity extends GuidedEntity {
 	 */
 	public void updateItemAtkDef() {
 		put("atk_item", ((int) getItemAtk()));
+		put("ratk_item", ((int) getItemRatk()));
 		put("def_item", ((int) getItemDef()));
 		notifyWorldAboutChanges();
 	}
@@ -3368,10 +3321,13 @@ public abstract class RPEntity extends GuidedEntity {
 			&& (((getDamageType() == getRangedDamageType()) || squaredDistance(defender) > 0));
 
 		Nature nature;
+		float itemAtk;
 		if (isRanged) {
 			nature = getRangedDamageType();
+			itemAtk = getItemRatk();
 		} else {
 			nature = getDamageType();
+			itemAtk = getItemRatk();
 		}
 
 		// Try to inflict a status effect
@@ -3389,7 +3345,7 @@ public abstract class RPEntity extends GuidedEntity {
 		if (this.canHit(defender)) {
 			defender.applyDefXP(this);
 
-			int damage = damageDone(defender, getItemAtk(), nature, isRanged, maxRange);
+			int damage = damageDone(defender, itemAtk, nature, isRanged, maxRange);
 
 			if (damage > 0) {
 
@@ -3638,7 +3594,7 @@ public abstract class RPEntity extends GuidedEntity {
 	/**
 	 * Gets an items as a stream of items, followed by any contained items
 	 * recursively.
-	 * 
+	 *
 	 * @param item
 	 * @return stream of items
 	 */
@@ -3651,10 +3607,10 @@ public abstract class RPEntity extends GuidedEntity {
 		Stream<Item> internalItems = slots.flatMap(this::slotStream);
 		return Stream.concat(stream, internalItems);
 	}
-	
+
 	/**
 	 * Get a stream of all items in a slot.
-	 * 
+	 *
 	 * @param slot
 	 * @return items in the slot
 	 */
@@ -3663,10 +3619,10 @@ public abstract class RPEntity extends GuidedEntity {
 		Stream<Item> items = objects.filter(Item.class::isInstance).map(Item.class::cast);
 		return items.flatMap(this::itemStream);
 	}
-	
+
 	/**
 	 * Get a stream of all equipped items.
-	 * 
+	 *
 	 * @return equipped items
 	 */
 	private Stream<Item> equippedStream() {
@@ -3674,10 +3630,10 @@ public abstract class RPEntity extends GuidedEntity {
 		Stream<RPSlot> slots = slotNames.map(this::getSlot).filter(Objects::nonNull);
 		return slots.flatMap(this::slotStream);
 	}
-	
+
 	/**
 	 * A convenience method for getting a method for matching item names.
-	 * 
+	 *
 	 * @param name name to match
 	 * @return a predicate for matching the name
 	 */
