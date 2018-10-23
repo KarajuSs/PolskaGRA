@@ -492,12 +492,9 @@ public abstract class RPEntity extends GuidedEntity {
 			setDefXpInternal(def_xp, false);
 		}
 
-		/* TODO: Remove condition after ranged stat testing is finished. */
-		if (Testing.COMBAT) {
-			if (has("ratk_xp")) {
-				ratk_xp = getInt("ratk_xp");
-				setRatkXPInternal(ratk_xp, false);
-			}
+		if (has("ratk_xp")) {
+			ratk_xp = getInt("ratk_xp");
+			setRatkXPInternal(ratk_xp, false);
 		}
 
 		if (has("base_hp")) {
@@ -597,10 +594,7 @@ public abstract class RPEntity extends GuidedEntity {
 		 * XXX: atkStrength never used outside of debugger.
 		 */
 		final int atkStrength, sourceAtk;
-		/* TODO: Remove COMBAT condition when ranged attack testing is
-		 *       finished.
-		 */
-		if (isRanged && Testing.COMBAT) {
+		if (isRanged) {
 			atkStrength = this.getRatk();
 			sourceAtk = this.getCappedRatk();
 		} else {
@@ -3203,10 +3197,7 @@ public abstract class RPEntity extends GuidedEntity {
 		}
 
 		final int attackerATK;
-		/* TODO: Remove Testing.COMBAT condition check when ranged stat
-		 * testing is finished.
-		 */
-		if (usesRanged && Testing.COMBAT) {
+		if (usesRanged) {
 			attackerATK = this.getCappedRatk(); // player is using ranged weapon
 		} else {
 			attackerATK = this.getCappedAtk(); // player is using hand-to-hand
