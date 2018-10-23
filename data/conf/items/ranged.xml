@@ -7,7 +7,7 @@
 		<description>Oto drewniany łuk. Z tą bronią w jednej ręce i strzałami w drugiej, bedziesz mógł atakować z dystansu.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="12"/>
+			<ratk value="12"/>
 			<range value="3"/>
 			<min_level value="20"/>
 		</attributes>
@@ -27,7 +27,7 @@
 		<description>Widzisz długi łuk. Z tą bronią w jednej ręce i strzałami w drugiej, będziesz mógł atakować z dystansu.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="14"/>
+			<ratk value="14"/>
 			<range value="4"/>
 			<min_level value="40"/>
 		</attributes>
@@ -47,7 +47,7 @@
 		<description>Oto klejony łuk. Lepiej naciągnięty, dlatego możesz strzelać z większego dystansu.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="15"/>
+			<ratk value="15"/>
 			<range value="5"/>
 			<min_level value="60"/>
 		</attributes>
@@ -67,7 +67,7 @@
 		<description>Oto kusza. Atak jest duży, ale słabsza celność. Co wolisz?</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="17"/>
+			<ratk value="17"/>
 			<range value="3"/>
 			<min_level value="80"/>
 		</attributes>
@@ -87,7 +87,7 @@
 		<description>Oto kusza łowcy. Musisz zdecydować się czy duży atak jest warty krótszego zasięgu.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="21"/>
+			<ratk value="21"/>
 			<range value="4"/>
 			<min_level value="150"/>
 		</attributes>
@@ -107,7 +107,7 @@
 		<description>Oto lekki lecz wytrzymały łuk z mithrilu. Kunszt z jakim go wykonano pozwala strzelać celnie.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="28"/>
+			<ratk value="28"/>
 			<range value="4"/>
 			<min_level value="300"/>
 		</attributes>
@@ -128,7 +128,7 @@
 		<description>Oto lodowa kusza.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="23"/>
+			<ratk value="23"/>
 			<range value="5"/>
 			<min_level value="150"/>
 		</attributes>
@@ -149,7 +149,7 @@
 		<description>Oto lekka kusza.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="30"/>
+			<ratk value="30"/>
 			<range value="5"/>
 			<min_level value="175"/>
 		</attributes>
