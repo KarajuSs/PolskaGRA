@@ -4,7 +4,7 @@
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU Affero General Public License as        *
- *   published by the Free Software Foundation; either version 3 of the    * 
+ *   published by the Free Software Foundation; either version 3 of the    *
  *   License, or (at your option) any later version.                       *
  *                                                                         *
  ***************************************************************************/
@@ -46,9 +46,25 @@ marauroa.rpobjectFactory["sheep"] = marauroa.util.fromProto(marauroa.rpobjectFac
 	largeWeight: 60
 });
 
+marauroa.rpobjectFactory["goat"] = marauroa.util.fromProto(marauroa.rpobjectFactory["domesticanimal"], {
+	imagePath: "/data/sprites/goat.png",
+	largeWeight: 60
+});
+
 marauroa.rpobjectFactory["cat"] = marauroa.util.fromProto(marauroa.rpobjectFactory["domesticanimal"], {
 	imagePath: "/data/sprites/cat.png",
 	largeWeight: 20
+});
+
+marauroa.rpobjectFactory["owczarek"] = marauroa.util.fromProto(marauroa.rpobjectFactory["domesticanimal"], {
+	imagePath: "/data/sprites/owczarek.png",
+	largeWeight: 20
+});
+
+marauroa.rpobjectFactory["owczarek_podhalanski"] = marauroa.util.fromProto(marauroa.rpobjectFactory["domesticanimal"], {
+	imagePath: "/data/sprites/owczarek_podhalanski.png",
+	largeWeight: 20,
+	title: "owczarek podhalanski"
 });
 
 marauroa.rpobjectFactory["baby_dragon"] = marauroa.util.fromProto(marauroa.rpobjectFactory["domesticanimal"], {

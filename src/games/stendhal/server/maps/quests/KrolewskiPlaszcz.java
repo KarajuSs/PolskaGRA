@@ -29,6 +29,7 @@ import games.stendhal.server.maps.Region;
 public class KrolewskiPlaszcz extends AbstractQuest {
 	public static final String QUEST_SLOT = "krolewski_plaszcz";
 
+	private static final String UZBROJENIE = "zamowienie_strazy";
 	private static final String LUD1 = "maka";
 	private static final String LUD2 = "naprawa_lodzi";
 	private static final String LUD3 = "plaszcz_kapturka";
@@ -44,26 +45,31 @@ public class KrolewskiPlaszcz extends AbstractQuest {
 			new ChatAction() {
 				@Override
 				public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
-					if (player.isQuestCompleted(LUD1)) {
-						if (player.isQuestCompleted(LUD2)) {
-							if (player.isQuestCompleted(LUD3)) {
-								if (player.isQuestCompleted(LUD4)) {
-									raiser.say("Potrzebuję nowego płaszcza królewskiego. Aktualny mój płaszcz się powoli niszczy. Potrzebuję od Ciebie #'czarnego płaszcza smoczego' i to 10 sztuk! Przyniósłbyś byś mi to?");
-									raiser.setCurrentState(ConversationStates.QUEST_OFFERED);
+					if (player.isQuestCompleted(UZBROJENIE)) {
+						if (player.isQuestCompleted(LUD1)) {
+							if (player.isQuestCompleted(LUD2)) {
+								if (player.isQuestCompleted(LUD3)) {
+									if (player.isQuestCompleted(LUD4)) {
+										raiser.say("Potrzebuję nowego płaszcza królewskiego. Aktualny mój płaszcz się powoli niszczy. Potrzebuję od Ciebie #'czarnego płaszcza smoczego' i to 10 sztuk! Przyniósłbyś byś mi to?");
+										raiser.setCurrentState(ConversationStates.QUEST_OFFERED);
+									} else {
+										npc.say(text + " Poszukaj małego chłopca o imieniu Leo, ponieważ zgubił swoją zabawkę i nie może jej odzyskać!");
+										raiser.setCurrentState(ConversationStates.ATTENDING);
+									}
 								} else {
-									npc.say(text + " Poszukaj małego chłopca o imieniu Leo, ponieważ zgubił swoją zabawkę i nie może jej odzyskać!");
+									npc.say(text + " Poszukaj dziewczynki o imieniu Balbina, gdyż potrzebujego pewnego płaszcza do spełnienia swojego marzenia!");
 									raiser.setCurrentState(ConversationStates.ATTENDING);
 								}
 							} else {
-								npc.say(text + " Poszukaj dziewczynki o imieniu Balbina, gdyż potrzebujego pewnego płaszcza do spełnienia swojego marzenia!");
+								npc.say(text + " Poszukaj pewnego rybaka o imieniu Thomas, potrzebuje pomocy przy naprawie jego łódki!");
 								raiser.setCurrentState(ConversationStates.ATTENDING);
 							}
 						} else {
-							npc.say(text + " Poszukaj pewnego rybaka o imieniu Thomas, potrzebuje pomocy przy naprawie jego łódki!");
+							npc.say(text + " Poszukaj Farmera Bruno, bo od kilku tygodni nie można kupić nawet jednego chleba!");
 							raiser.setCurrentState(ConversationStates.ATTENDING);
 						}
 					} else {
-						npc.say(text + " Poszukaj Farmera Bruno, bo od kilku tygodni nie można kupić nawet jednego chleba!");
+						npc.say("Moja armia królewska potrzebuje wyposażenia! Gwardzista już złożył zamówienie u miejskiego kowala! Lepiej mu pomóż jeśli Ci na tym zależy.");
 						raiser.setCurrentState(ConversationStates.ATTENDING);
 					}
 				}

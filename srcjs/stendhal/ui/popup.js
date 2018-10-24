@@ -4,11 +4,10 @@
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU Affero General Public License as        *
- *   published by the Free Software Foundation; either version 3 of the    * 
+ *   published by the Free Software Foundation; either version 3 of the    *
  *   License, or (at your option) any later version.                       *
  *                                                                         *
  ***************************************************************************/
-
 "use strict";
 
 var marauroa = window.marauroa = window.marauroa || {};
@@ -66,13 +65,13 @@ stendhal.ui.Popup = function(title, content, x, y) {
 		window.removeEventListener("mouseup", onMouseUpDuringDrag, true);
 	}
 
-
 	var that = this;
 	var popupcontainer = document.getElementById("popupcontainer");
 	this.popupdiv = document.createElement('div');
 	this.popupdiv.style.position = "absolute";
 	this.popupdiv.style.left = x + "px";
 	this.popupdiv.style.top = y + "px";
+	this.popupdiv.className = "popupdiv";
 	var temp = content;
 	if (title) {
 		temp = createTitleHtml() + content;
@@ -83,7 +82,6 @@ stendhal.ui.Popup = function(title, content, x, y) {
 	popupcontainer.appendChild(this.popupdiv);
 }
 
-
 /**
  * @constructor
  */
@@ -91,19 +89,19 @@ stendhal.ui.Menu = function(entity, x, y) {
 	if (stendhal.ui.globalpopup) {
 		stendhal.ui.globalpopup.popup.close();
 	}
-	
+
 	var actions = [];
 	var that = this;
 	entity.buildActions(actions);
-	if (marauroa.me["adminlevel"] && marauroa.me["adminlevel"] >= 600) {
+	if (marauroa.me["adminlevel"] && marauroa.me["adminlevel"] >= 20) {
 		actions.push({
-			title: "(*) Inspect",
+			title: "(*) Zbadaj (inspect)",
 			action: function(entity) {
 				console.log(entity);
 			}
 		});
 		actions.push({
-			title: "(*) Alter",
+			title: "(*) Zmień (alter)",
 			action: function(entity) {
 				stendhal.ui.chatinput.setText("/alter #"
 						+ entity["id"]
@@ -116,7 +114,7 @@ stendhal.ui.Menu = function(entity, x, y) {
 		content += "<button id=\"actionbutton." + i + "\">" + stendhal.ui.html.esc(actions[i].title) + "</button><br>";
 	}
 	content += "</div>";
-	this.popup = new stendhal.ui.Popup("Action", content, x, y);
+	this.popup = new stendhal.ui.Popup("Działanie", content, x, y);
 
 	this.popup.popupdiv.addEventListener("click", function(e) {
 		var i = e.target.id.substring(13);
@@ -130,7 +128,7 @@ stendhal.ui.Menu = function(entity, x, y) {
 				actions[i].action(entity);
 			} else {
 				var action = {
-					"type": actions[i].type, 
+					"type": actions[i].type,
 					"target": "#" + entity.id,
 					"zone": marauroa.currentZoneName
 				};
@@ -138,7 +136,7 @@ stendhal.ui.Menu = function(entity, x, y) {
 			}
 		}
 	});
-	
+
 	this.close = function() {
 		this.popup.close();
 		stendhal.ui.globalpopup = null;
@@ -170,6 +168,24 @@ stendhal.ui.DropNumberDialog = function(action, x, y) {
 	});
 
 	this.close = function() {
+		this.popup.close();
+		stendhal.ui.globalpopup = null;
+	}
+	stendhal.ui.globalpopup = this;
+}
+
+/**
+ * @constructor
+ */
+stendhal.ui.ImageViewer = function(title, caption, path) {
+	if (stendhal.ui.globalpopup) {
+		stendhal.ui.globalpopup.popup.close();
+	}
+
+ 	var content = "<h3>" + stendhal.ui.html.esc(caption) + "</h3><img src=\"" + stendhal.ui.html.esc(path) + "\">";
+	this.popup = new stendhal.ui.Popup(title, content, 100, 50);
+
+ 	this.close = function() {
 		this.popup.close();
 		stendhal.ui.globalpopup = null;
 	}

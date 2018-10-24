@@ -2,8 +2,8 @@
 <items xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="stendhal ../items.xsd ">
 
-	<!-- Start Anti-poison -->
-  
+	<!-- START: Status Protection -->
+
 	<item name="pierścień leczniczy">
 		<type class="ring" subclass="medicinal_ring" tileid="-1"/>
 		<description>Oto pierścień leczniczy. Może cię ochronić przed zatruciem gdy nosisz go na palcu.</description>
@@ -12,13 +12,14 @@
 		</attributes>
 		<weight value="0.1"/>
 		<value value="1"/>
-		<resistance type="poisoned" value="0.25" slots="finger;" />
+		<resistance type="poisoned" value="0.25" slots="finger;fingerb;" />
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
 			<slot name="bag"/>
 			<slot name="trade"/>
 			<slot name="finger"/>
+			<slot name="fingerb"/>
 			<slot name="keyring"/>
 		</equipable>
 	</item>
@@ -32,13 +33,14 @@
 		</attributes>
 		<weight value="0.1"/>
 		<value value="1"/>
-		<resistance type="poisoned" value="0.5" slots="finger;" />
+		<resistance type="poisoned" value="0.5" slots="finger;fingerb;" />
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
 			<slot name="bag"/>
 			<slot name="trade"/>
 			<slot name="finger"/>
+			<slot name="fingerb"/>
 			<slot name="keyring"/>
 		</equipable>
 	</item>
@@ -51,19 +53,40 @@
 		</attributes>
 		<weight value="0.1"/>
 		<value value="1"/>
-		<resistance type="poisoned" value="0.75" slots="finger;" />
+		<resistance type="poisoned" value="0.75" slots="finger;fingerb;" />
 		<equipable>
 			<slot name="ground"/>
 			<slot name="content"/>
 			<slot name="bag"/>
 			<slot name="trade"/>
 			<slot name="finger"/>
+			<slot name="fingerb"/>
 			<slot name="keyring"/>
 		</equipable>
 	</item>
 	DISABLED -->
 
-	<!-- End Anti-poison -->
+	<item name="zaizolowany pierścień">
+    <type class="ring" subclass="insulated_ring" tileid="-1"/>
+    <description>Oto zaizolowany pierścień, który ochroni ciebie przed zaszokowaniem - wstrząsami. Musi być założony na palcu.</description>
+    <implementation class-name="games.stendhal.server.entity.item.StatusResistantItem"/>
+    <attributes>
+    </attributes>
+    <weight value="0.1"/>
+    <value value="1"/>
+    <resistance type="shocked" value="0.66" slots="finger;fingerb;"/>
+    <equipable>
+      <slot name="ground"/>
+      <slot name="content"/>
+      <slot name="bag"/>
+      <slot name="trade"/>
+      <slot name="finger"/>
+			<slot name="fingerb"/>
+      <slot name="keyring"/>
+    </equipable>
+  </item>
+
+	<!-- END: Status Protection -->
 
 	<item name="obrączka ślubna">
 		<type class="ring" subclass="wedding" tileid="-1"/>

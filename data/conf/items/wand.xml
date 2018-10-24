@@ -7,7 +7,7 @@
 		<description>Oto proca. Podnieś kamień i atakuj z daleka.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="5"/>
+			<ratk value="5"/>
 			<range value="4"/>
 		</attributes>
 		<weight value="1.0"/>
@@ -27,7 +27,7 @@
 		<description>Oto różdżka z gałęzi urwanej ze Świętego Drzewa. Gdy nią machasz liście drzew milkną.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="15"/>
+			<ratk value="15"/>
 			<def value="5"/>
 			<range value="4"/>
 			<min_level value="100"/>
@@ -49,7 +49,7 @@
 		<description>Oto trójząb Trzygłowa. Starcy mówią, iż posiada magiczną moc i potrafi nieźle ugodzić wroga.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="24"/>
+			<ratk value="24"/>
 			<def value="6"/>
 			<range value="5"/>
 			<min_level value="150"/>
@@ -71,7 +71,7 @@
 		<description>Oto różdżka Strzyboga! Podobno ma moc sprowadzania deszczu i odganiania chmur.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="35"/>
+			<ratk value="35"/>
 			<def value="7"/>
 			<range value="6"/>
 			<min_level value="175"/>
@@ -93,7 +93,7 @@
 		<description>Oto różdżka Wołosa co spadła z Nieba! Wielką moc ma, gdy magią władasz.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="56"/>
+			<ratk value="56"/>
 			<def value="8"/>
 			<range value="7"/>
 			<min_level value="200"/>
@@ -115,7 +115,7 @@
 		<description>Oto różdżka Swaroga co upadła ze Słońca! Wielką moc ma, gdy magią władasz.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="63"/>
+			<ratk value="63"/>
 			<def value="9"/>
 			<range value="8"/>
 			<min_level value="300"/>
@@ -137,9 +137,9 @@
 		<description>Oto różdżka Peruna. Lepiej nie przyznawaj się, że ją znalazłeś, bo jego gniew cię porazi.</description>
 		<implementation class-name="games.stendhal.server.entity.item.Item"/>
 		<attributes>
-			<atk value="99"/>
+			<ratk value="99"/>
 			<def value="10"/>
-			<range value="10"/>
+			<range value="9"/>
 			<min_level value="400"/>
 		</attributes>
 		<weight value="5.0"/>

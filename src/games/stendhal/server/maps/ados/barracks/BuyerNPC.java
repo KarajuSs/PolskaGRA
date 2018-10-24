@@ -21,6 +21,7 @@ import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.core.pathfinder.FixedPath;
 import games.stendhal.server.core.pathfinder.Node;
+import games.stendhal.server.entity.npc.ConversationPhrases;
 import games.stendhal.server.entity.npc.ShopList;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.behaviour.adder.BuyerAdder;
@@ -64,9 +65,13 @@ public class BuyerNPC implements ZoneConfigurator {
 
 			@Override
 			protected void createDialog() {
+				addGreeting("Pozdrawiam. Przyszedłeś zaciągnąć się do wojska?");
+				addReply(ConversationPhrases.YES_MESSAGES, "Ha! Cóż nie pozwolę Ci zapisać się do wojska, ale możesz nam #zaoferować jakąś zbroję...");
+				addReply(ConversationPhrases.NO_MESSAGES, "Dobrze! I tak nigdy nie chciałbyś się tutaj dostać.");
 				addJob("Poszukuję broni. Brakuje nam jej tutaj. Posiadamy dużo amunicji a mało zbroi. Widzę, że masz ze sobą jakąś zbroję, którą mógłbyś nam #zaoferować.");
 				addHelp("Skupuję zbroje jeżeli coś masz to #zaoferuj mi to.");
 				addOffer("Spójrz na tablicę, aby zobaczyć czego nam brakuje i ile za to płacimy. Sprzedaję również różne strzały.");
+				addQuest("O, dziękuję, ale niczego już nie potrzebuję.");
 				new BuyerAdder().addBuyer(this, new BuyerBehaviour(shops.get("buyrare3")), false);
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("sellarrows")), false);
 				addGoodbye("Dowidzenia kolego.");

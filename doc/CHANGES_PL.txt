@@ -1,9 +1,29 @@
 ﻿Changelog
 ---------
+1.06
+*świat gry*
+- Dodano nowy przedmiot: zaizolowany pierścień (ochrona przed wstrząsem) - drop z gashadokuro - 5%
+- Administrator używający komendy /teleclickmode będzie się od razu zatrzymywał
+- Mizuno potrafi wytworzyć więcej niżeli 1 strzałę lodową, strzałę ognia, strzałę światła
+
+*klient*
+- Dodano nowe outfity NPC
+
+*webclient*
+- Dodano wsparcie dla większej ilości entities (łowienie ryb, wydobywanie węgla, studnia życzeń, mini-gierki)
+- Dodano wsparcie dla eventowych map typu: halloween/easter/xmas
+- Dodano nową warstwę szczegółów (np. balon)
+- Naprawiono uszkodzone menu na pustej liście znajomych
+
+*serwer*
+- Zaktualizowano zabezpieczenia marauroa
+
+
+
 1.05 - KRÓLESTWO POLAN
 *świat gry*
 - Ogromna ilość zmian na mapach
-- Dodano nowe przedmioty: 
+- Dodano nowe przedmioty:
 	* 'środek uspokajający', który leczy/zapobiega stanom szokującym,
 	* 'orzech włoski',
 	* 'tuńczyk',
@@ -27,7 +47,8 @@
 - Zmniejszono ilość dostawanych punktów umiejętności za zdobytego EXP'a z wykonanego zadania u burmistrzów z 10% na 5%
 - Przetłumaczono wiadomości + zagadki w Piekle [hell]
 - Gracz może posiadać kozę jako zwierzątko
-
+- Za wykonanie zadania u samego Króla Kraka będzie można przejść przez północną bramę od strony krakowskiego rynku
+- Zasięg strzelających potworów powiększył się o 2 kratki (gdzie zwykłym łukiem, kuszą i różdżką nie będzie można mieć większego zasięgu od potwora strzelającego, lecz jedna, jedyna różdżka, która zwie się na 'P' będzie miała nadal większy zasięg od potwora strzelającego, co będzie sprawiało, że stanie się unikatową bronią dla magów :) )
 
 *klient*
 - Rozmiary klienta zostały odrobinę powiększone z 640x480 (pikseli) na 800x600 (pikseli)
@@ -43,6 +64,11 @@
 - Dodano grafikę kozy & rosnących winogron & rudy miedzi & sztabki miedzi & czarnego pierścienia
 - Nazwy map pod minimapą w lewym panelu zostaną podmieniane (np: nazwa mapy: 0_zakopane_s; efekt końcowy w kliencie: Zakopane S)
 
+*webclient*
+- Dodano wsparcie dla map ze świata POL & różnych eventowych map
+- Dodano wsparcie dla 'nowych' slotów ze standardowego klienta typu: naszyjnik/pas/rękawice/drugi pierścień/money
+- Dodano wsparcie dla zwięrzątek typu: owczarek/owczarek podhalanski/koza
+- Przybliżono szatę graficzną do standardowego klienta
 
 *code*
 - Nowa implementacja sprawdzania statusu 'uzdrowienia' dla przedmiotów typu: antidotum & mocne antidotum & środek uspokajający
@@ -51,7 +77,6 @@
 - Przerobiono częściowo kod gry / skryptów
 - Potrzeba od teraz 20 poziom administratora, aby móc korzystać ze skryptów
 - Wiadomości o śmierci nie będą generowane przez serwer tylko przez klienta (przykład: kiedy 'my' jako gracz zginiemy to otrzymamy wiadomość na chat'cie od kogo/czego zostaliśmy zabici)
-
 
 *naprawa błędów*
 - Wyciszono pomniejsze błędy kompilatora
@@ -76,10 +101,8 @@
 - Poprawiono graficznie ubrania dress_62-68.png
 - Poprawiono graficznie elficki naszyjnik
 
-
 *serwer*
 - Przetłumaczono wszystkie skrypty oraz dodano kilka nowych dla administratorów
-
 
 *świat gry*
 - Aktywowano mapy takie jak: Kraków, Wieliczka, Warszawa, Dragon_land, Dragon_knights, labirynt (od Ozo)
@@ -125,10 +148,8 @@
 - Dodano 4 semońskie skrzynie w górnej części zakopiańskiego banku oraz dodano tabliczki z jakiej krainy te skrzynie pochodzą
 - Zadanie na złotą ciupagę z jednym wąsem nie jest wymagany przedmiot: 'krew smoka', a na złotą ciupagę z dwoma wąsami nie są wymagane następujące przedmioty: 'pazur niebieskiego smoka' (podmieniono na 'pazur zielonego smoka') & 'pazur czarnego smoka'. Dodatkowo zwiększono nagrodę w postaci punktów doświadczenia w pierwszym zadaniu z 20'000 na 250'000 oraz drugiego zadania z 20'000 na 500'000
 
-
 *code*
 - Lifesteal z rękawic wampirzych sumuje się wraz z lifesteal'em w broni lub bez niej (lifesteal'a)
-
 
 *naprawa błędów*
 - Naprawiono zadanie na tarcze z mithrilu
@@ -142,7 +163,6 @@
 *klient*
 - Przetłumaczono handel
 
-
 *świat gry*
 - Radomil zyskał nową moc usuwania czaszek z zabójców posiadających dobrą karmę
 - Przywrócono desert
@@ -155,11 +175,9 @@
 - Poprawiono osiągnięcie 'Heretyk'- od teraz potrzeba wykonać 25 zadań zamiast 50
 - Aenihata przywrócila swoje dawne siły
 
-
 *code*
 - Usunieto pliki takie jak: GuildRing.java & Ring.java (nie korzystane)
 - Pierścienie mieszczanina, rycerza, barona i magnata są teraz opisywane jako Item zamiast GuildRing
-
 
 *naprawa błędów*
 - Naprawiono listę oferty u Wielkoluda
@@ -172,7 +190,6 @@
 *klient*
 - Przetłumaczono część tekstów
 - Dodano trzy nowe grafiki: złoty amulet, elficki naszyjnik, pióro mrocznego archanioła
-
 
 *świat gry*
 - Aktywowano mapy Tatr
@@ -196,13 +213,11 @@
 - NPC na skille (na 100 poziom) został przeniesiony z Gdańska do jaskini na wyspie Athor
 - Wynagrodzenie w niektórych zadaniach w krainie faiumoni oraz krainie prasłowiańskiej zostało zmienione (na lepsze)
 
-
 *code*
 - Klient teraz będzie wymagał od nas Jave w wersji 1.8 zamiast 1.7
 - Zmieniono nieco mnożnik DEF'a (na plus oczywiście)
 - Poprawiono 'jakość' chodzenia gracza oraz kodu gry
 - Dodano nowy skrypt dla GM - /alterkills
-
 
 *naprawa błędów*
 - Naprawiono błąd licznika, który nie pokazywał ile posiadamy w ekwipunku/skrzynce surowców typu 'kryształ ametystu' oraz magii
@@ -220,7 +235,6 @@ np: wcześniejszy starzec: ATK: 169; OBR: 24; HP: 166; XP: 313;
 nowy starzec: ATK: 135; OBR: 18; HP: 133; XP: 533;
 UWAGA! Nowe statystyki potworów były sprawdzane, jeżeli chodzi o 'wieśniaka' to sprawdzaliśmy na 17 poziomie gracza oraz skillami 22x22!
 Gracz spokojnie go może zabić nie tracąc większej połowy HP!)
-
 
 *naprawa błędów*
 - Poprawiono grafiki drzewców
@@ -253,9 +267,8 @@ Gracz spokojnie go może zabić nie tracąc większej połowy HP!)
 - Dodano do ustawień możliwość wyboru między ciemnym a jasnym drewnem jako wygląd klienta
 - Przetłumaczono prawie cały klient
 
-
 *świat gry*
-- Nowe NPC: 
+- Nowe NPC:
 	- Yerena
 	- Stajenny Marcel
 	- Dr. Wojciech
@@ -263,7 +276,7 @@ Gracz spokojnie go może zabić nie tracąc większej połowy HP!)
 - Mapa zakopane została zmieniona wizualnie
 - Mapa kościelisko została zmieniona wizualnie
 - Nowe pomieszczenie na górze w zakopane_s + jaskinia
-- Nowe zadanie na reset poziomu gracza (gracz musi osiągnąć poziom maksymalny, aby móc go zresetować. Zadania / skille / 
+- Nowe zadanie na reset poziomu gracza (gracz musi osiągnąć poziom maksymalny, aby móc go zresetować. Zadania / skille /
 bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 - Katinka nagradza pozytywną karmą za przyjęcie zadania Zoo Food
 - Nowy "nieszkodliwy" corpse sprite dla pająków
@@ -293,13 +306,11 @@ bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 - Został wykorzystany program BalanceRPGame.java (od twórców Stendhala) do zbalansowania potworów ze świata POL
 - Juhas sprzedaje bilet turystyczny
 
-
 *code*
 - Nowy atrybut dla map - "dark" - dzięki, któremu mamy efekt nocy
 - Dodano nową funckję, która sprawdza jaką mamy ustawioną szerokość okna gry i dostosowuje okienka wewnątrz gry [Dla wersji rozszerzonego klienta]
 - Za wykonane zadanie można nagrodzić gracza punktami umiejętności ataku oraz obrony niezależnie jak i zależnie od poziomu gracza
 - Reorganizacja plików XML z potworkami ze świata POL (33 do 11 plików)
-
 
 *naprawa błędów*
 - Naprawiono błąd, który powodował, że serwer przydzielał nam zupełnie inną płeć
@@ -316,10 +327,8 @@ bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 *klient*
 - przetłumaczono część interfejsu (grupy/listę znajomych oraz wiadomości kiedy jesteśmy zatruci)
 
-
 *świat gry*
 - przywrócono Juhasa w int_semos_tavern_0 oraz dodano u niego możliwość kupna zwoju semos za 300 money
-
 
 *naprawa błędów*
 - naprawiono plecak
@@ -341,15 +350,12 @@ bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 - nowy wygląd slotów
 - przywrócono 36 slotów w skrzyni zamiast 30
 
-
 *eksperymetalne zmiany*
 - nowe sloty w ekwipunku gracza (plecak, pas, rzemyk) [Eksperyment chwilowo nie wyszedł tak jak powinien]
-
 
 *serwer*
 - baza marauroa została zaktualizowana do najnowszej wersji
 - silnik gry został zaktualizowany do najnowszej wersji Stendhal'a
-
 
 *świat gry*
 - wiele nowych outfit'ów NPC jak i graczy
@@ -373,12 +379,10 @@ bazowe zdrowie nie zostaną naruszone przy resetowaniu poziomu)
 - już więcej nie będzie potrzebne 1 money do użycia zwoju czyszczącego
 - przetłumaczono wszystkie zadania / regiony / potwory / przedmioty / npc oraz cały klient
 
-
 *code*
 - został dodany nowy atrybut dla portali - "face" - służący do ustawiania kierunku skierowania gracza
 - został dodany nowy atrybut dla portali - "offset" - przesuwający pozycję gracza względem miejsca docelowego
 - dodano resistance do creatures.xsd
-
 
 *naprawa błędów*
 - naprawiono błąd, który powodował duplikowanie przedmiotów poprzez podwójne logowanie

@@ -46,18 +46,24 @@ public class OutfitChangerBehaviour extends MerchantBehaviour {
 		// FIXME: Use new outfit system
 		// swimsuits for men
 		outfitTypes.put("trunks", Arrays.asList(
-				new Outfit(null, null, null, 95, null), new Outfit(null, null, null, 96,
-						null), new Outfit(null, null, null, 97, null), new Outfit(
-								null, null, null, 98, null)));
+				new Outfit(null, null, null, 95, null),
+				new Outfit(null, null, null, 96, null),
+				new Outfit(null, null, null, 97, null),
+				new Outfit(null, null, null, 98, null)));
 
 		// swimsuits for women
-		outfitTypes.put("swimsuit", Arrays.asList(new Outfit(null, null, null, 91,
-				null), new Outfit(null, null, null, 92, null), new Outfit(null, null, null,
-				93, null), new Outfit(null, null, null, 94, null)));
+		outfitTypes.put("swimsuit", Arrays.asList(
+				new Outfit(null, null, null, 91, null),
+				new Outfit(null, null, null, 92, null),
+				new Outfit(null, null, null, 93, null),
+				new Outfit(null, null, null, 94, null)));
 
-		outfitTypes.put("mask", Arrays.asList(new Outfit(null, 0, 80, null, null),
-				new Outfit(null, 0, 81, null, null), new Outfit(null, 0, 82, null, null),
-				new Outfit(null, 0, 83, null, null), new Outfit(null, 0, 84, null, null),
+		outfitTypes.put("mask", Arrays.asList(
+				new Outfit(null, 0, 80, null, null),
+				new Outfit(null, 0, 81, null, null),
+				new Outfit(null, 0, 82, null, null),
+				new Outfit(null, 0, 83, null, null),
+				new Outfit(null, 0, 84, null, null),
 				new Outfit(null, 0, 85, null, null)));
 
 		// wedding dress for brides
@@ -72,7 +78,7 @@ public class OutfitChangerBehaviour extends MerchantBehaviour {
 	/**
 	 * Creates a new OutfitChangerBehaviour for outfits that never wear off
 	 * automatically.
-	 * 
+	 *
 	 * @param priceList
 	 *            list of outfit types and their prices
 	 */
@@ -83,7 +89,7 @@ public class OutfitChangerBehaviour extends MerchantBehaviour {
 	/**
 	 * Creates a new OutfitChangerBehaviour for outfits that wear off
 	 * automatically after some time.
-	 * 
+	 *
 	 * @param priceList
 	 *            list of outfit types and their prices
 	 * @param endurance
@@ -103,7 +109,7 @@ public class OutfitChangerBehaviour extends MerchantBehaviour {
 	/**
 	 * Transacts the sale that has been agreed on earlier via setChosenItem()
 	 * and setAmount().
-	 * 
+	 *
 	 * @param seller
 	 *            The NPC who sells
 	 * @param player
@@ -116,7 +122,7 @@ public class OutfitChangerBehaviour extends MerchantBehaviour {
 		final String outfitType = res.getChosenItemName();
 
 		if (!player.getOutfit().isCompatibleWithClothes()) {
-			// if the player is wearing a non standard player base  
+			// if the player is wearing a non standard player base
 			// then swimsuits, masks and many other outfits wouldn't look good mixed with it
 			seller.say("Już posiadasz magiczny strój, który na tobie nie wygląda zbyt dobrze z innym - czy mógłbyś wymienić na coś co pasuje do ciebie i zapytać ponownie? Dziękuję!");
 			return false;
@@ -180,7 +186,7 @@ public class OutfitChangerBehaviour extends MerchantBehaviour {
 	 * Tries to get back the bought/lent outfit and give the player his original
 	 * outfit back. This will only be successful if the player is wearing an
 	 * outfit he got here, and if the original outfit has been stored.
-	 * 
+	 *
 	 * @param player
 	 *            The player.
 	 * @param outfitType the outfit to wear
@@ -195,7 +201,7 @@ public class OutfitChangerBehaviour extends MerchantBehaviour {
 	/**
 	 * Checks whether or not the given player is currently wearing an outfit
 	 * that may have been bought/lent from an NPC with this behaviour.
-	 * 
+	 *
 	 * @param player
 	 *            The player.
 	 * @return true iff the player wears an outfit from here.
@@ -218,7 +224,7 @@ public class OutfitChangerBehaviour extends MerchantBehaviour {
 	 * Tries to get back the bought/lent outfit and give the player his original
 	 * outfit back. This will only be successful if the player is wearing an
 	 * outfit he got here, and if the original outfit has been stored.
-	 * 
+	 *
 	 * @param player
 	 *            The player.
 	 * @return true iff returning was successful.

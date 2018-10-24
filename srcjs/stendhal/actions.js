@@ -4,7 +4,7 @@
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU Affero General Public License as        *
- *   published by the Free Software Foundation; either version 3 of the    * 
+ *   published by the Free Software Foundation; either version 3 of the    *
  *   License, or (at your option) any later version.                       *
  *                                                                         *
  ***************************************************************************/
@@ -300,7 +300,7 @@ stendhal.slashActionRepository = {
 
 	"beginnersguide": {
 		execute: function(type, params, remainder) {
-			window.location = "https://stendhalgame.org/wiki/Stendhal_Beginner's_Guide";
+			window.location = "https://polskagra.net/wiki/Stendhal_Beginner's_Guide";
 		},
 		getMinParams: 0,
 		getMaxParams: 0
@@ -308,7 +308,7 @@ stendhal.slashActionRepository = {
 
 	"faq": {
 		execute: function(type, params, remainder) {
-			window.location = "https://stendhalgame.org/wiki/Stendhal_FAQ";
+			window.location = "https://polskagra.net/wiki/Stendhal_FAQ";
 		},
 		getMinParams: 0,
 		getMaxParams: 0
@@ -316,7 +316,7 @@ stendhal.slashActionRepository = {
 
 	"manual": {
 		execute: function(type, params, remainder) {
-			window.location = "https://stendhalgame.org/wiki/Stendhal_Manual/Controls_and_Game_Settings";
+			window.location = "https://polskagra.net/wiki/Stendhal_Manual/Controls_and_Game_Settings";
 		},
 		getMinParams: 0,
 		getMaxParams: 0
@@ -324,7 +324,7 @@ stendhal.slashActionRepository = {
 
 	"rules": {
 		execute: function(type, params, remainder) {
-			window.location = "https://stendhalgame.org/wiki/Stendhal_Rules";
+			window.location = "https://polskagra.net/wiki/Stendhal_Rules";
 		},
 		getMinParams: 0,
 		getMaxParams: 0
@@ -332,7 +332,7 @@ stendhal.slashActionRepository = {
 
 	"changepassword": {
 		execute: function(type, params, remainder) {
-			window.location = "https://stendhalgame.org/account/change-password.html";
+			window.location = "https://polskagra.net/account/change-password.html";
 		},
 		getMinParams: 0,
 		getMaxParams: 0
@@ -341,7 +341,7 @@ stendhal.slashActionRepository = {
 
 	"loginhistory": {
 		execute: function(type, params, remainder) {
-			window.location = "https://stendhalgame.org/account/history.html";
+			window.location = "https://polskagra.net/account/history.html";
 		},
 		getMinParams: 0,
 		getMaxParams: 0
@@ -349,7 +349,7 @@ stendhal.slashActionRepository = {
 
 	"halloffame": {
 		execute: function(type, params, remainder) {
-			window.location = "https://stendhalgame.org/world/hall-of-fame/active_overview.html";
+			window.location = "https://polskagra.net/world/hall-of-fame/active_overview.html";
 		},
 		getMinParams: 0,
 		getMaxParams: 0
@@ -402,7 +402,7 @@ stendhal.slashActionRepository = {
 		} else {
 			action = stendhal.slashActionRepository[name];
 		}
-		
+
 		if (action.getMinParams <= array.length) {
 			var remainder = "";
 			for (var i = action.getMaxParams; i < array.length; i++) {
@@ -411,7 +411,7 @@ stendhal.slashActionRepository = {
 			array.slice(action.getMaxParams);
 			return action.execute(name, array, remainder.trim());
 		} else {
-			stendhal.ui.chatLog.addLine("error", "Missing arguments. Try /help");
+			stendhal.ui.chatLog.addLine("error", "Brakujące argumenty. Spróbuj /help");
 			return false;
 		}
 	}

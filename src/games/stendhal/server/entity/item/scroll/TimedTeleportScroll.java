@@ -1,6 +1,3 @@
-/*
- * $Id$
- */
 package games.stendhal.server.entity.item.scroll;
 
 import java.util.Arrays;
@@ -43,13 +40,15 @@ public class TimedTeleportScroll extends TeleportScroll {
 
 	private static final Logger logger = Logger.getLogger(TimedTeleportScroll.class);
 
-		private static final List<String> DESERT_MAPS = Arrays.asList("0_desert_pyramid_ne", "0_desert_pyramid_sw",
-				"0_desert_pyramid_se", "int_desert_blacksmith", "-1_desert_fire_pyramid", "-1_desert_pyramid",
-				"-1_desert_corridor", "-2_desert_black_river_n", "-2_desert_black_river_s");
+		private static final List<String> DESERT_MAPS = Arrays.asList("5_desert_ice_pyramid", "4_desert_ice_pyramid",
+				"3_desert_ice_pyramid", "2_desert_ice_pyramid", "1_desert_ice_pyramid", "0_desert_pyramid_ne",
+				"0_desert_pyramid_sw", "0_desert_pyramid_se", "int_desert_blacksmith", "-1_desert_fire_pyramid",
+				"-1_desert_pyramid", "-1_desert_corridor", "-1_desert_ice_pyramid", "-2_desert_black_river_n",
+				"-2_desert_black_river_s");
 
 	/**
 	 * Teleport the player back from the target zone.
-	 * 
+	 *
 	 * @param player
 	 * @return true if teleport was successful
 	 */
@@ -90,7 +89,7 @@ public class TimedTeleportScroll extends TeleportScroll {
 				}
 
 				if (notInTargetZone(player, targetZoneName)) {
-					return true; 
+					return true;
 				}
 			} else {
 				for(final String mapsName : DESERT_MAPS) {

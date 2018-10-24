@@ -86,7 +86,7 @@ stendhal.data = stendhal.data || {};
 
 stendhal.data.map = {
 
-	lastMap : "",
+	lastMapFilename : "",
 
 	offsetX : 0,
 	offsetY : 0,
@@ -184,6 +184,8 @@ stendhal.data.map = {
 					this.collisionData = this.layers[this.layers.length - 1];
 				} else if (layerName === "protection") {
 					this.protection = this.layers[this.layers.length - 1];
+				} else if (layerName === "secret") {
+					this.secret = this.layers[this.layers.length - 1];
 				}
 			}
 		}
@@ -232,25 +234,42 @@ stendhal.data.map = {
 		this.layers.push(layer);
 	},
 
-	load: function(locat) {
+	load: function(location, filenameOverride) {
 		var filename = "";
-		if (this.lastMap != locat) {
-			this.lastMap = locat;
-			var body = document.getElementById("body");
-			body.style.cursor = "wait";
-			console.log(locat);
-			var temp = /([^_]*)_([^_]*)_(.*)/.exec(locat);
+		if (filenameOverride) {
+			filename = "/tiled/" + escape(filenameOverride);
+		} else {
+			var temp = /([^_]*)_([^_]*)_(.*)/.exec(location);
 			if (temp) {
 				if (temp[1] == "int") {
 					temp[1] = "interiors";
 				} else {
 					temp[1] = "Level " + temp[1];
 				}
-				filename = "/tiled/" + escape(temp[1]) + "/" + escape(temp[2]) + "/" + escape(temp[3]) + ".tmx";
+				if (temp[2] == "krakow" || temp[2] == "zakopane" || temp[2] == "koscielisko"
+						|| temp[2] == "tatry" || temp[2] == "wieliczka") {
+					if (temp[1] == "interiors") {
+						filename = "/tiled/" + escape(temp[1]) + "/" + escape(temp[2]) + "/" + escape(temp[3]) + ".tmx";
+					} else {
+						filename = "/tiled/" + escape(temp[1]) + "/" + escape(temp[2]) + "/" + escape(temp[2]) + "_" + escape(temp[3]) + ".tmx";
+					}
+				} else if (temp[2] == "football") {
+					filename = "/tiled/Level 1/zakopane/football_playground.tmx";
+				} else {
+					filename = "/tiled/" + escape(temp[1]) + "/" + escape(temp[2]) + "/" + escape(temp[3]) + ".tmx";
+				}
 			} else {
-				var temp = /[^_]*_(.*)/.exec(locat);
+				var temp = /[^_]*_(.*)/.exec(location);
 				filename = "/tiled/interiors/abstract/" + escape(temp[1]) + ".tmx";
 			}
+		}
+
+ 		if (this.lastMapFilename != filename) {
+			this.lastMapFilename = filename;
+			var body = document.getElementById("body");
+			body.style.cursor = "wait";
+			console.log("load map", location, filename);
+
 			this.requestMap(filename);
 		}
 	},

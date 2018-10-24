@@ -4,7 +4,7 @@
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU Affero General Public License as        *
- *   published by the Free Software Foundation; either version 3 of the    * 
+ *   published by the Free Software Foundation; either version 3 of the    *
  *   License, or (at your option) any later version.                       *
  *                                                                         *
  ***************************************************************************/
@@ -17,7 +17,7 @@ var stendhal = window.stendhal = window.stendhal || {};
 
 marauroa.rpeventFactory["attack"] = marauroa.util.fromProto(marauroa.rpeventFactory["_default"], {
 	execute: function(entity) {
-		
+
 		var target = entity.getAttackTarget();
 		if (!target) {
 			return;
@@ -39,7 +39,10 @@ marauroa.rpeventFactory["attack"] = marauroa.util.fromProto(marauroa.rpeventFact
 
 marauroa.rpeventFactory["examine"] = marauroa.util.fromProto(marauroa.rpeventFactory["_default"], {
 	execute: function(rpobject) {
-		// TODO: new ExamineEvent();
+		if (rpobject !== marauroa.me) {
+			return;
+		}
+		new stendhal.ui.ImageViewer(this["title"], this["caption"], this["path"]);
 	}
 });
 
@@ -68,6 +71,7 @@ marauroa.rpeventFactory["group_invite_event"] = marauroa.util.fromProto(marauroa
 marauroa.rpeventFactory["image_event"] = marauroa.util.fromProto(marauroa.rpeventFactory["_default"], {
 	execute: function(rpobject) {
 		// TODO: new ImageEffectEvent();
+		console.log("image_event", this, rpobject);
 	}
 });
 
@@ -139,7 +143,7 @@ marauroa.rpeventFactory["sound_event"] = marauroa.util.fromProto(marauroa.rpeven
 		}
 		// Further adjustments if the sound has a radius
 		if (this.hasOwnProperty("radius")) {
-			if (!marauroa.me) {
+			if (!marauroa.me || !rpobject || !rpobject["_x"]) {
 				// Can't calculate the distance yet. Ignore the sound.
 				return;
 			}

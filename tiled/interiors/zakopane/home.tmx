@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="19" tilewidth="32" tileheight="32" nextobjectid="1">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="32" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="1">
  <tileset firstgid="1" name="carpets_2" tilewidth="32" tileheight="32" tilecount="12" columns="4">
   <image source="../../tileset/furniture/carpet/carpets_2.png" trans="ff00ff" width="128" height="96"/>
  </tileset>
@@ -90,48 +90,48 @@
  <tileset firstgid="317" name="choinka" tilewidth="32" tileheight="32" tilecount="40" columns="5">
   <image source="../../tileset/pol/choinka.png" width="160" height="256"/>
  </tileset>
- <tileset firstgid="357" name="portal" tilewidth="32" tileheight="32" tilecount="7" columns="7">
-  <image source="../../tileset/logic/portal.png" width="224" height="32"/>
+ <tileset firstgid="357" name="portal" tilewidth="32" tileheight="32" tilecount="16" columns="8">
+  <image source="../../tileset/logic/portal.png" width="256" height="64"/>
  </tileset>
- <tileset firstgid="364" name="pompki" tilewidth="32" tileheight="32" tilecount="16" columns="4">
+ <tileset firstgid="373" name="pompki" tilewidth="32" tileheight="32" tilecount="16" columns="4">
   <image source="../../tileset/pol/choinka_banki.png" width="128" height="128"/>
  </tileset>
- <layer name="0_floor" width="32" height="19">
+ <layer id="1" name="0_floor" width="32" height="19">
   <data encoding="base64" compression="zlib">
    eJzFlMsKwjAQRYuioi7aH28tuAjFb3DrT7h167+YQArD5c7Dqrg4YAKdMy/TNU3TBbgD45eIuAsP8F8Vful/Cv9NocQ8C0Zxx35H/fvMMbOqrGucVOMkiDtzygyZXtz1AX8L501mK9hBjcyNd/N5MPzolfUfBEcjvpfHtKD/kbg480huWt14ZrGsnuO+eX6r/5H5avFZf6L73zr+iNfL23MXkuPwcnmn/7Nb8kmtVu9x/yQd8Ue81n/Smj86Wf2ReUb2j71/zBv1Wz1g9bP3j/Vd6z/LIRGP5mfvn1d/+e5Sc5+UGnG++A3Lne0/EpntUv7tfwHjbvno
   </data>
  </layer>
- <layer name="1_terrain" width="32" height="19">
+ <layer id="2" name="1_terrain" width="32" height="19">
   <data encoding="base64" compression="zlib">
    eJzllkkKwkAQResMjiuFoDvHSzmcyIV4BAc0aiSx7+ZvrEDRJLEyaBZ+eJuuTj9IVZr4ROQr2DCavXnYg4OCLdg5ayMwZibKcyRHcAI3cE8h4PoCLJ3aFMyYecYZaeee2f+g9ITMCqx5bQB6Gc9oEub0ywxr9lcRjd/23ZT090v4I3rPiinoboAm0yrgLxvXL2fm234PtEGH6Tp16bfv+ckEYk98LwRUfaQ/9li/7HXE7l/Nv+1X0pz8g9+r2W9j5zVpTuu6/37ll9+fi/lQL4ph/4Wq/6fRcgUv6Riu2w==
   </data>
  </layer>
- <layer name="2_object" width="32" height="19">
+ <layer id="3" name="2_object" width="32" height="19">
   <data encoding="base64" compression="zlib">
    eJxjYKA+sCMgb0OEGY/IkPMGYlsgdgJiZyDuxKLeE4jdiLD/FRo/E4iz0OQcgNgRiQYBeyB2gbK7cZjlQYT9lAB3CuXpAV4A8Usk/peBcgiJQAGJVsCpahSgA9eBdgAa+ADEHwfaEYMQmA60AwYYmCCxpWloD6z8ewfE77HIS9PYfkJgoO3HBZ4SoWYuEM8D4vkk6CEWvKWyHgAoyRsk
   </data>
  </layer>
- <layer name="3_roof" width="32" height="19">
+ <layer id="4" name="3_roof" width="32" height="19">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AUDEfQA6XtBtQVo2AUjIJRMAqwAQB7NADL
   </data>
  </layer>
- <layer name="4_roof_add" width="32" height="19">
+ <layer id="5" name="4_roof_add" width="32" height="19">
   <data encoding="base64" compression="zlib">
    eJztwTEBAAAAwqD1T20LL6AAAHgaCYAAAQ==
   </data>
  </layer>
- <layer name="objects" width="32" height="19">
+ <layer id="6" name="objects" width="32" height="19">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo4A4kMo40C4YBaNgFNAS6I3wPK4/wv0/CugLAAvBAMY=
   </data>
  </layer>
- <layer name="collision" width="32" height="19">
+ <layer id="7" name="collision" width="32" height="19">
   <data encoding="base64" compression="zlib">
    eJwzY2BgMBvFA45xAWxq8KknFpBqP7rYQNpPDUCM/cS4bzDbj88OYsOfEoBs9kDaT4z/ceUzesX/QNvPwIA/nEai/QMZ/rTOH4TMp7f91Mb0sIMaGAAumzo5
   </data>
  </layer>
- <layer name="protection" width="32" height="19">
+ <layer id="8" name="protection" width="32" height="19">
   <data encoding="base64" compression="zlib">
    eJwzZ2BgMB/Fo3gUj+JRPIpH8SgexXTDAKsjgqE=
   </data>

@@ -66,7 +66,7 @@ public class SourceCopper extends PlayerActivityEntity {
 		this.itemName = itemName;
 		put("class", "source");
 		put("name", "source_copper");
-		setMenu("Wydobądź");
+		setMenu("Wydobądź|Użyj");
 		setDescription("Wszystko wskazuje na to, że tutaj coś jest.");
 		setResistance(100);
 	}

@@ -142,7 +142,7 @@ public class WaterForXhiphinTest extends ZonePlayerAndNPCTestImpl {
 		SpeakerNPC npc = SingletonRepository.getNPCList().get("Xhiphin Zohos");
 		Engine en = npc.getEngine();
 		player.setQuest(QUEST_SLOT, "start");
-		PlayerTestHelper.equipWithItem(player, "water");
+		PlayerTestHelper.equipWithItem(player, "woda");
 
 		en.step(player, "hi");
 		assertEquals("Hello! Welcome to Fado City! You can #learn about Fado from me.", getReply(npc));
@@ -162,7 +162,7 @@ public class WaterForXhiphinTest extends ZonePlayerAndNPCTestImpl {
 		SpeakerNPC npc = SingletonRepository.getNPCList().get("Xhiphin Zohos");
 		Engine en = npc.getEngine();
 		player.setQuest(QUEST_SLOT, "start");
-		PlayerTestHelper.equipWithItem(player, "water", "clean");
+		PlayerTestHelper.equipWithItem(player, "woda", "clean");
 
 		en.step(player, "HI");
 		assertEquals("Hello! Welcome to Fado City! You can #learn about Fado from me.", getReply(npc));

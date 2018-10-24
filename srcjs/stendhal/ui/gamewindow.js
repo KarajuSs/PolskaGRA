@@ -4,7 +4,7 @@
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU Affero General Public License as        *
- *   published by the Free Software Foundation; either version 3 of the    * 
+ *   published by the Free Software Foundation; either version 3 of the    *
  *   License, or (at your option) any later version.                       *
  *                                                                         *
  ***************************************************************************/
@@ -24,7 +24,7 @@ stendhal.ui.gamewindow = {
 	offsetY: 0,
 	timeStamp: Date.now(),
 	textSprites: [],
-	
+
 	draw: function() {
 		var startTime = new Date().getTime();
 
@@ -37,22 +37,22 @@ stendhal.ui.gamewindow = {
 			this.ctx = canvas.getContext("2d");
 			this.ctx.globalAlpha = 1.0;
 			this.adjustView(canvas);
-			
+
 			var tileOffsetX = Math.floor(this.offsetX / this.targetTileWidth);
 			var tileOffsetY = Math.floor(this.offsetY / this.targetTileHeight);
 
 			for (var drawingLayer=0; drawingLayer < stendhal.data.map.layers.length; drawingLayer++) {
 				var name = stendhal.data.map.layerNames[drawingLayer];
-				if (name !== "protection" && name !== "collision" && name !== "objects"
-					&& name !== "blend_ground" && name !== "blend_roof") {
+				if (name !== "protection" && name !== "collision" && name !== "secret"
+				  && name !== "objects" && name !== "blend_ground" && name !== "blend_roof") {
 					this.paintLayer(canvas, drawingLayer, tileOffsetX, tileOffsetY);
 				}
 				if (name === "2_object") {
 					this.drawEntities();
-					this.drawTextSprites();
 				}
 			}
 			this.drawEntitiesTop();
+			this.drawTextSprites();
 		}
 		setTimeout(function() {
 			stendhal.ui.gamewindow.draw.apply(stendhal.ui.gamewindow, arguments);
@@ -76,8 +76,8 @@ stendhal.ui.gamewindow = {
 					try {
 						if (stendhal.data.map.aImages[tileset].height > 0) {
 							this.ctx.drawImage(stendhal.data.map.aImages[tileset],
-								(idx * stendhal.data.map.tileWidth) % tilesetWidth, Math.floor((idx * stendhal.data.map.tileWidth) / tilesetWidth) * stendhal.data.map.tileHeight, 
-								stendhal.data.map.tileWidth, stendhal.data.map.tileHeight, 
+								(idx * stendhal.data.map.tileWidth) % tilesetWidth, Math.floor((idx * stendhal.data.map.tileWidth) / tilesetWidth) * stendhal.data.map.tileHeight,
+								stendhal.data.map.tileWidth, stendhal.data.map.tileHeight,
 								x * this.targetTileWidth,
 								y * this.targetTileHeight,
 								this.targetTileWidth, this.targetTileHeight);
@@ -119,6 +119,7 @@ stendhal.ui.gamewindow = {
 			var remove = sprite.draw(this.ctx);
 			if (remove) {
 				this.textSprites.splice(i, 1);
+				i--;
 			}
 		}
 	},
@@ -153,7 +154,7 @@ stendhal.ui.gamewindow = {
 		var startX;
 		var startY;
 		var timestampMouseDown;
-		
+
 		function _onMouseDown(e) {
 			if (stendhal.ui.globalpopup) {
 				stendhal.ui.globalpopup.close();
@@ -169,7 +170,7 @@ stendhal.ui.gamewindow = {
 			entity = stendhal.zone.entityAt(x, y);
 			timestampMouseDown = +new Date();
 		}
-		
+
 		function isRightClick(e) {
 			if (+new Date() - timestampMouseDown > 300) {
 				return true;
@@ -180,7 +181,7 @@ stendhal.ui.gamewindow = {
 				return (e.button === 2);
 			}
 		}
-		
+
 		function onMouseUp(e) {
 			if (isRightClick(e)) {
 				if (entity != stendhal.zone.ground) {
@@ -200,7 +201,7 @@ stendhal.ui.gamewindow = {
 				cleanUp(e);
 			}
 		}
-		
+
 		function cleanUp(e) {
 			entity = null;
 			e.target.removeEventListener("mouseup", onMouseUp);
@@ -210,7 +211,7 @@ stendhal.ui.gamewindow = {
 
 		return _onMouseDown;
 	})(),
-	
+
 	// ***************** Drag and drop ******************
 	onDragStart: function(e) {
 		var draggedEntity = stendhal.zone.entityAt(e.offsetX + stendhal.ui.gamewindow.offsetX,
@@ -232,7 +233,7 @@ stendhal.ui.gamewindow = {
 			zone: marauroa.currentZoneName
 		}));
 	},
-	
+
 	onDragOver: function(e) {
 		e.preventDefault(); // Necessary. Allows us to drop.
 		e.dataTransfer.dropEffect = "move";
@@ -268,7 +269,7 @@ stendhal.ui.gamewindow = {
 		e.stopPropagation();
 		e.preventDefault();
 	},
-	
+
 	onContentMenu: function(e) {
 		e.preventDefault();
 	}

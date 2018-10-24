@@ -39,11 +39,11 @@ import java.util.Map;
 import marauroa.common.Pair;
 
 public class OutfitLenderNPC implements ZoneConfigurator {
-	
-	// outfits to last for 10 hours normally 
+
+	// outfits to last for 10 hours normally
 	public static final int endurance = 10 * 60;
 
-	// this constant is to vary the price. N=1 normally but could be a lot smaller on special occasions 
+	// this constant is to vary the price. N=1 normally but could be a lot smaller on special occasions
 	private static final double N = 1;
 
 	private static HashMap<String, Pair<Outfit, Boolean>> outfitTypes = new HashMap<String, Pair<Outfit, Boolean>>();
@@ -68,8 +68,8 @@ public class OutfitLenderNPC implements ZoneConfigurator {
 	}
 
 	private void initOutfits() {
-		// these outfits must be put on over existing outfit 
-		// (what's null doesn't change that part of the outfit)	
+		// these outfits must be put on over existing outfit
+		// (what's null doesn't change that part of the outfit)
 		// so true means we put on over
 		// FIXME: Use new outfit system
 		final Pair<Outfit, Boolean> JUMPSUIT = new Pair<Outfit, Boolean>(new Outfit(null, null, null, Integer.valueOf(83), null), true);
@@ -80,7 +80,7 @@ public class OutfitLenderNPC implements ZoneConfigurator {
 		final Pair<Outfit, Boolean> NOOB = new Pair<Outfit, Boolean>(new Outfit(null, null, null, Integer.valueOf(80), null), true);
 		final Pair<Outfit, Boolean> GLASSES = new Pair<Outfit, Boolean>(new Outfit(null, null, Integer.valueOf(99), null, null), true);
 		final Pair<Outfit, Boolean> GLASSES_2 = new Pair<Outfit, Boolean>(new Outfit(null, null, Integer.valueOf(79), null, null), true);
-		final Pair<Outfit, Boolean> HAT = new Pair<Outfit, Boolean>(new Outfit(null, Integer.valueOf(99), null, null, null), true);
+		final Pair<Outfit, Boolean> HAT = new Pair<Outfit, Boolean>(new Outfit(null, Integer.valueOf(199), null, null, null), true);
 
 		// these outfits must replace the current outfit (what's null simply isn't there)
 		final Pair<Outfit, Boolean> BUNNY = new Pair<Outfit, Boolean>(new Outfit(null, Integer.valueOf(00), Integer.valueOf(98), Integer.valueOf(81), Integer.valueOf(98)), false);
@@ -123,7 +123,7 @@ public class OutfitLenderNPC implements ZoneConfigurator {
 
 					@Override
 					public void putOnOutfit(final Player player, final String outfitType) {
-						
+
 						final Pair<Outfit, Boolean> outfitPair = outfitTypes.get(outfitType);
 						final Outfit outfit = outfitPair.first();
 						final boolean type = outfitPair.second();
@@ -142,7 +142,7 @@ public class OutfitLenderNPC implements ZoneConfigurator {
 						final boolean type = outfitPair.second();
 
 						if (type) {
-							if (player.getOutfit().getBody() > 80
+							if (player.getOutfit().getBody() > 77
 									&& player.getOutfit().getBody() < 99) {
 								seller.say("Już masz magiczne ubranie, które gryzie się z resztą - mógłbyś założyć coś bardziej konwencjonalnego i zapytać ponownie? Dziękuję!");
 								return false;
@@ -160,7 +160,7 @@ public class OutfitLenderNPC implements ZoneConfigurator {
 							return false;
 						}
 					}
-					
+
 					// These outfits are not on the usual OutfitChangerBehaviour's
 					// list, so they need special care when looking for them
 					@Override
@@ -187,7 +187,7 @@ public class OutfitLenderNPC implements ZoneConfigurator {
 				priceList.put("hat", (int) (N * 400));
 				priceList.put("horse", (int) (N * 1200));
 				priceList.put("girl horse", (int) (N * 1200));
-				priceList.put("alien", (int) (N * 1200));	
+				priceList.put("alien", (int) (N * 1200));
 				addGreeting("Cześć! W czym mogę pomóc?");
 				addQuest("Nic nie mogę dla Ciebie znaleść.");
 				add(
@@ -195,8 +195,8 @@ public class OutfitLenderNPC implements ZoneConfigurator {
 					ConversationPhrases.OFFER_MESSAGES,
 					null,
 					ConversationStates.ATTENDING,
-					"Powiedz mi jeżeli chciałbyś #wypożyczyć #gown, #black #dress, #glasses, #other #glasses, #hat, kostium #alien, kostium #horse, #girl #horse, #jumpsuit, #dungarees, #suit #bunny lub kostium #orange.",
-					new ExamineChatAction("outfits.png", "Outfits", "Price varies"));
+					"Powiedz mi jeżeli chciałbyś #'wypożyczyć gown', #'black dress', #'glasses', #'other glasses', #'hat', kostium #'alien', kostium #'horse', #'girl horse', #'jumpsuit', #'dungarees', #'suit bunny' lub kostium #'orange'.",
+					new ExamineChatAction("outfits1.png", "Kostiumy", "Różna cena"));
 				addJob(jobReply);
 				// addJob("Normalnie pracuję w butiku. Używamy magii, aby ubierać naszych klientów w fantastyczne stroje. Jestem tutaj ze względu na Mine Town Revival Weeks, gdzie #oferujemy nasze stroje po korzystnych cenach!");
 				addHelp("Nasze wynajęte kostiumy zdejmują się po pewnym czasie, ale zawsze możesz wrócić po następne!");
@@ -229,4 +229,3 @@ public class OutfitLenderNPC implements ZoneConfigurator {
 		zone.add(npc);
 	}
 }
-

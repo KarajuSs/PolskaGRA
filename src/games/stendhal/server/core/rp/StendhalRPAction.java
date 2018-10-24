@@ -316,6 +316,9 @@ public class StendhalRPAction {
 		// Throw dices to determine if the attacker has missed the defender
 		final boolean beaten = player.canHit(defender);
 
+		// For checking if RATK XP should be incremented on successful hit
+		boolean addRatkXP = isRanged;
+
 		/* TODO: Remove if alternate attack training method implemented in
 		 *       game.
 		 *
@@ -327,7 +330,12 @@ public class StendhalRPAction {
 			// disabled attack xp for attacking NPC's
 			if (!(defender instanceof SpeakerNPC)
 					&& player.getsFightXpFrom(defender)) {
-				player.incAtkXP();
+				if (isRanged) {
+					player.incRatkXP();
+					addRatkXP = false;
+				} else {
+					player.incAtkXP();
+				}
 			}
 		}
 
@@ -338,9 +346,20 @@ public class StendhalRPAction {
 			}
 
 			final List<Item> weapons = player.getWeapons();
+			float itemAtk;
+			if (isRanged) {
+				itemAtk = player.getItemRatk();
+			} else {
+				itemAtk = player.getItemAtk();
+			}
 
-			int damage = player.damageDone(defender, player.getItemAtk(), player.getDamageType());
+			int damage = player.damageDone(defender, itemAtk, player.getDamageType());
 			if (damage > 0) {
+
+				if (addRatkXP && !(defender instanceof SpeakerNPC)) {
+					// Range attack XP is incremented for successful hits regardless of whether player has recently been hit
+					player.incRatkXP();
+				}
 
 				// limit damage to target HP
 				damage = Math.min(damage, defender.getHP());
@@ -665,7 +684,7 @@ public class StendhalRPAction {
 					player.sendPrivateText("Wygląda na to, że twoja owca zginęła, gdy wpadłeś w tarapaty.");
 				}
 			}
-			
+
 			if (goat != null) {
 				if (placePet(zone, player, goat)) {
 					player.setGoat(goat);

@@ -4,7 +4,7 @@
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU Affero General Public License as        *
- *   published by the Free Software Foundation; either version 3 of the    * 
+ *   published by the Free Software Foundation; either version 3 of the    *
  *   License, or (at your option) any later version.                       *
  *                                                                         *
  ***************************************************************************/
@@ -36,7 +36,7 @@ stendhal.ui.chatLog = {
 		var div = document.createElement("div");
 		div.className = "log" + type;
 		div.innerHTML = "[" + time + "] " + stendhal.ui.chatLog.formatLogEntry(message);
-		
+
 		var isAtBottom = (chatElement.scrollHeight - chatElement.clientHeight) === chatElement.scrollTop;
 		chatElement.appendChild(div);
 
@@ -44,13 +44,13 @@ stendhal.ui.chatLog = {
 			chatElement.scrollTop = chatElement.scrollHeight;
 		}
 	},
-	
+
 	formatLogEntry: function(message) {
 		var res = "";
 		var delims = [" ", ",", ".", "!", "?", ":", ";"];
 		var length = message.length;
-		var inHighlight = false, inUnderline = false, 
-			inHighlightQuote = false, inUnderlineQuote = false;
+		var inHighlight = false, inUnderline = false, inAttention = false,
+			inHighlightQuote = false, inUnderlineQuote = false, inAttentionQuote = false;
 		for (var i = 0; i < length; i++) {
 			var c = message[i];
 
@@ -97,6 +97,24 @@ stendhal.ui.chatLog = {
 				inUnderline = true;
 				res += "<span class=\"logi\">";
 
+			} else if (c === "&") {
+				if (inAttention) {
+					res += c;
+					continue;
+				}
+				var n = message[i + 1];
+				if (n === "&") {
+					res += c;
+					i++;
+					continue;
+				}
+				if (n === "'") {
+					inAttentionQuote = true;
+					i++;
+				}
+				inAttention = true;
+				res += "<span class=\"loga\">";
+
 			// End Highlight and Underline?
 			} else if (c === "'") {
 				if (inUnderlineQuote) {
@@ -110,6 +128,11 @@ stendhal.ui.chatLog = {
 					inHighlightQuote = false;
 					res += "</span>";
 				}
+				if (inAttentionQuote) {
+					inAttention = false;
+					inAttentionQuote = false;
+					res += "</span>";
+				}
 
 			// HTML escape
 			} else if (c === "<") {
@@ -119,13 +142,18 @@ stendhal.ui.chatLog = {
 			} else if (delims.indexOf(c) > -1) {
 				var n = message[i + 1];
 				if (c === " " || n === " " || n == undefined) {
-					if (inUnderline && !inUnderlineQuote && !inHighlightQuote) {
+					if (inUnderline && !inUnderlineQuote && !inHighlightQuote && !inAttentionQuote) {
 						inUnderline = false;
 						res += "</span>" + c;
 						continue;
 					}
-					if (inHighlight && !inUnderlineQuote && !inHighlightQuote) {
+					if (inHighlight && !inUnderlineQuote && !inHighlightQuote && !inAttentionQuote) {
 						inHighlight = false;
+						res += "</span>" + c;
+						continue;
+					}
+					if (inAttention && !inUnderlineQuote && !inHighlightQuote && !inAttentionQuote) {
+						inAttention = false;
 						res += "</span>" + c;
 						continue;
 					}

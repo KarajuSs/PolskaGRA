@@ -1,4 +1,3 @@
-/* $Id$ */
 /***************************************************************************
  *                   (C) Copyright 2003-2010 - Stendhal                    *
  ***************************************************************************
@@ -11,9 +10,6 @@
  *                                                                         *
  ***************************************************************************/
 package games.stendhal.server.entity.mapstuff.useable;
-
-//
-//
 
 import games.stendhal.common.MathHelper;
 import games.stendhal.common.Rand;
@@ -69,7 +65,7 @@ public class FishSource extends PlayerActivityEntity {
 		this.itemName = itemName;
 		put("class", "source");
 		put("name", "fish_source");
-		setMenu("Wędkowanie");
+		setMenu("Łowienie|Użyj");
 		setDescription("Coś znajduje się w wodzie.");
 	}
 
@@ -178,7 +174,7 @@ public class FishSource extends PlayerActivityEntity {
 		    // TODO: find a sound for failure
             //this.addEvent(new SoundEvent(failSound, SOUND_RADIUS, 100, SoundLayer.AMBIENT_SOUND));
 			this.notifyWorldAboutChanges();
-		    
+
 			player.sendPrivateText("Nie złapałeś ryby.");
 		}
 		notifyWorldAboutChanges();

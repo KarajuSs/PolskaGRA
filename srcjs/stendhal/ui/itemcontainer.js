@@ -4,17 +4,15 @@
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU Affero General Public License as        *
- *   published by the Free Software Foundation; either version 3 of the    * 
+ *   published by the Free Software Foundation; either version 3 of the    *
  *   License, or (at your option) any later version.                       *
  *                                                                         *
  ***************************************************************************/
-
 "use strict";
 
 var marauroa = window.marauroa = window.marauroa || {};
 var stendhal = window.stendhal = window.stendhal || {};
 stendhal.ui = stendhal.ui || {};
-
 
 /**
  * slot name, slot size, object (a corpse or chest) or null for marauroa.me,
@@ -103,10 +101,9 @@ stendhal.ui.ItemContainerWindow = function(slot, size, object, suffix) {
 	}
 };
 
-
 stendhal.ui.equip = {
-	slotNames: ["head", "lhand", "rhand", "finger", "armor", "cloak", "legs", "feet", "bag", "keyring"],
-	slotSizes: [   1,       1,      1,       1,        1,       1,       1,     1,      12,       8   ],
+	slotNames: ["neck", "head", "cloak", "rhand", "armor", "lhand", "finger", "pas", "glove", "fingerb", "legs", "money", "feet", "bag", "keyring"],
+	slotSizes: [  1,      1,       1,      1,       1,        1,       1,       1,      1,        1,       1,       1,      1,      30,       8   ],
 	counter: 0,
 
 	init: function() {

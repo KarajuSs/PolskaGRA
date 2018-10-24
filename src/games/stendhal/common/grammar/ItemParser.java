@@ -136,11 +136,9 @@ public class ItemParser {
 		} else if (mayBeItems!=null && !mayBeItems.isEmpty()) {
 			return "Powiedz mi jaki rodzaj "
 					+ chosenItemName + " chcesz użyć.";
-		} else if (npcAction != null) {
+		} else {
 			return "Nie " + npcActionPL + " "
 					+ Grammar.plural(chosenItemName) + ".";
-		} else {
-			return null;
 		}
 	}
 

@@ -126,10 +126,6 @@ public class Creature extends NPC {
 	/** Respawn time in turns */
 	private int respawnTime;
 
-	private int resistance;
-
-	private int visibility;
-
 	private Map<String, String> aiProfiles;
 	private IdleBehaviour idler;
 
@@ -227,7 +223,7 @@ public class Creature extends NPC {
 		setSounds(copy.getSounds());
 		setDeathSound(copy.deathSound);
 		setMovementSound(copy.movementSound);
-		
+
 		if (copy.getResistance() == 0) {
 			setResistance(100);
 		} else {
@@ -844,8 +840,7 @@ public class Creature extends NPC {
 					list.add(item);
 				} else {
 					final StackableItem stackItem = (StackableItem) item;
-					stackItem.setQuantity(Rand.rand(dropped.max - dropped.min)
-							+ dropped.min);
+					stackItem.setQuantity(Rand.randUniform(dropped.max, dropped.min));
 					list.add(stackItem);
 				}
 			}

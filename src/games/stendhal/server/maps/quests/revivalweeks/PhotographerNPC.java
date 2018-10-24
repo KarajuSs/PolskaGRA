@@ -34,15 +34,15 @@ public class PhotographerNPC implements LoadableContent {
 
 			@Override
 			protected void createDialog() {
-				addGreeting("#Pictures! Good #Pictures! Memory #Pictures! Buy #Pictures!");
-				addJob("I create #pictures from your memories.");
-				addGoodbye("Take care.");
+				addGreeting("#Zdjęcia! Fajne #Zdjęcia! Pamiątkowe #Zdjęcia! Kup #Zdjęcia!");
+				addJob("Tworzę #zdjęcia z twoich wspomnień.");
+				addGoodbye("Bądź ostrożny.");
 
 				add(ConversationStates.ATTENDING,
-					"picture",
+					"zdjęcia",
 					null,
 					ConversationStates.ATTENDING,
-					"Ohmmmmm, I see blury mist, Ohmmmmm. The picture is getting clearer, Ohmmmmm. Just a view more seconds...",
+					"Ohmmmmm, Widzę zamgloną mgiełkę, Ohmmmmm. Obraz staje się coraz wyraźniejszy, Ohmmmmm. Potrzebuje trochę więcej czasu...",
 					new PhotographerChatAction(zone));
 			}
 		};
@@ -50,7 +50,7 @@ public class PhotographerNPC implements LoadableContent {
 		npc1.setPosition(68, 119);
 		npc1.setEntityClass("photographernpc");
 		npc1.setDirection(Direction.DOWN);
-		npc1.setDescription("You see Kirla. She creates pictures.");
+		npc1.setDescription("Widzisz Kirla. Potrafi stworzyć wyjątkowe pamiątkowe zdjęcia.");
 		npc1.initHP(100);
 		zone.add(npc1);
 	}

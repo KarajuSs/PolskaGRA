@@ -38,6 +38,16 @@
 				<parameter name="volume">65</parameter>
 			</implementation>
 		</entity>
+
+		<entity x="72" y="31">
+			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.Gate">
+				<parameter name="image">straznicy</parameter>
+				<parameter name="orientation">h</parameter>
+				<parameter name="condition">new QuestCompletedCondition("krolewski_plaszcz")</parameter>
+				<parameter name="autoclose">1</parameter>
+				<parameter name="message">Strażnicy Cię odepchneli od bramy.</parameter>
+			</implementation>
+		</entity>
 	</zone>
 
 	<!-- krakow_ne -->

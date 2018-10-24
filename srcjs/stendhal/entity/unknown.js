@@ -4,7 +4,7 @@
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU Affero General Public License as        *
- *   published by the Free Software Foundation; either version 3 of the    * 
+ *   published by the Free Software Foundation; either version 3 of the    *
  *   License, or (at your option) any later version.                       *
  *                                                                         *
  ***************************************************************************/
@@ -72,12 +72,12 @@ marauroa.rpobjectFactory["unknown"] = marauroa.util.fromProto(marauroa.rpobjectF
 		marauroa.rpobjectFactory["unknown"].proto.init.apply(this, arguments);
 		var that = this;
 		setTimeout(function() {
-			console.log("Unknown entity", that["_rpclass"], that["x"], that["y"]);
+			console.log("Unknown entity", that["_rpclass"], that["x"], that["y"], that);
 		}, 1);
 	},
-	
+
 	isVisibleToAction: function(filter) {
-		return (marauroa.me["adminlevel"] && marauroa.me["adminlevel"] >= 600);
+		return (marauroa.me["adminlevel"] && marauroa.me["adminlevel"] >= 20);
 	}
 });
 

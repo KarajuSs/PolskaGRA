@@ -55,7 +55,7 @@ import games.stendhal.server.entity.player.Player;
  * REPETITIONS:None
  */
 public class MeetSanta extends AbstractQuest implements LoginListener {
-	
+
 	// quest slot changed ready for 2015
 	private static final String QUEST_SLOT = "meet_santa_[seasonyear]";
 
@@ -70,7 +70,7 @@ public class MeetSanta extends AbstractQuest implements LoginListener {
 	public String getSlotName() {
 		return QUEST_SLOT;
 	}
-	
+
 	private SpeakerNPC createSanta() {
 		santa = new SpeakerNPC("Święty Mikołaj") {
 			@Override
@@ -91,8 +91,8 @@ public class MeetSanta extends AbstractQuest implements LoginListener {
 					"Witaj ponownie! Pamiętaj, aby być grzecznym jeżeli chcesz dostąc prezent w przyszłym roku!",
 				    new ChatAction() {
 					    @Override
-					    public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) { 
-					    	addHat(player);	    
+						public void fire(final Player player, final Sentence sentence, final EventRaiser raiser) {
+					    	addHat(player);
 					    }
 					}
 				);
@@ -102,7 +102,7 @@ public class MeetSanta extends AbstractQuest implements LoginListener {
 				reward.add(new SetQuestAction(QUEST_SLOT, "done"));
 				reward.add(new ChatAction() {
 				        @Override
-				        public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
+						public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
 						    addHat(player);
 						}
 				    }
@@ -150,11 +150,15 @@ public class MeetSanta extends AbstractQuest implements LoginListener {
 		// fetch old outfit as we want to know the current hair
 		final Outfit oldoutfit = player.getOutfit();
 		// all santa hat sprites are at 50 + current hair
-		final Outfit newOutfit;
-		newOutfit = new Outfit(8, null, null, null, null);
-		//put it on, and store old outfit.
-		player.setOutfit(newOutfit.putOver(oldoutfit), true);
-		player.registerOutfitExpireTime(43200);
+		if (oldoutfit.getHair() < 50) {
+			final int hatnumber = oldoutfit.getHair() + 50;
+			// the new outfit only changes the hair, rest is null
+			final Outfit newOutfit;
+			newOutfit = new Outfit(null, hatnumber, null, null, null);
+			//put it on, and store old outfit.
+			player.setOutfit(newOutfit.putOver(oldoutfit), true);
+			player.registerOutfitExpireTime(43200);
+		}
 	}
 
 
@@ -162,10 +166,14 @@ public class MeetSanta extends AbstractQuest implements LoginListener {
 	public void onLoggedIn(final Player player) {
 		// is it Christmas?
 		final Outfit outfit = player.getOutfit();
-		if (!isChristmasTime(new GregorianCalendar())) {
-			final Outfit newOutfit;
-			newOutfit = new Outfit(0, null, null, null, null, null, null);
-			player.setOutfit(newOutfit.putOver(outfit), false);
+		final int hairnumber = outfit.getHair();
+		if (hairnumber >= 50 && hairnumber < 94) {
+			if (!isChristmasTime(new GregorianCalendar())) {
+				final int newhair = hairnumber - 50;
+				final Outfit newOutfit;
+				newOutfit = new Outfit(null, newhair, null, null, null);
+				player.setOutfit(newOutfit.putOver(outfit), false);
+			}
 		}
 	}
 
@@ -206,7 +214,7 @@ public class MeetSanta extends AbstractQuest implements LoginListener {
 		}
 		npc.getZone().remove(npc);
 	}
-	
+
 	@Override
 	public void addToWorld() {
 		fillQuestInfo(
@@ -214,14 +222,14 @@ public class MeetSanta extends AbstractQuest implements LoginListener {
 				"Pada śnieg, pada śnieg, spamuje cały czas... Ho Ho Ho! Spiesz się i znajdź Świętego Mikołaja w Faiumoni! Jeżeli byłeś grzeczny to dostaniesz prezent...",
 				false);
 		SingletonRepository.getLoginNotifier().addListener(this);
-		
+
 		if (System.getProperty("stendhal.santa") != null) {
 			// activate santa here
 			createSanta();
 			teleporterBehaviour = new TeleporterBehaviour(santa, null, "0", "Ho, ho, ho! Wesołych Świąt!", false);
 		}
 	}
-	
+
 	/**
 	 * removes a quest from the world.
 	 *
@@ -239,12 +247,12 @@ public class MeetSanta extends AbstractQuest implements LoginListener {
 	public String getName() {
 		return "MeetSanta";
 	}
-	
+
 	@Override
 	public boolean isVisibleOnQuestStatus() {
 		return false;
 	}
-	
+
 	@Override
 	public List<String> getHistory(final Player player) {
 		return new ArrayList<String>();
@@ -254,5 +262,5 @@ public class MeetSanta extends AbstractQuest implements LoginListener {
 	public String getNPCName() {
 		return "Święty Mikołaj";
 	}
-	
+
 }
