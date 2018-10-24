@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="32" tileheight="32" infinite="0" nextobjectid="1">
+ <tileset firstgid="1" name="building/fence/wooden_brown_fence" tilewidth="32" tileheight="32" tilecount="42" columns="7">
+  <image source="../../tileset/building/fence/wooden_brown_fence.png" width="224" height="192"/>
+ </tileset>
+ <tileset firstgid="43" name="logic/collision" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="44" name="furniture/table/square_pale" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/furniture/table/square_pale.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="45" name="building/wall/old_wood" tilewidth="32" tileheight="32" tilecount="9" columns="3">
+  <image source="../../tileset/building/wall/old_wood.png" width="96" height="96"/>
+ </tileset>
+ <tileset firstgid="54" name="ground/dry_grass" tilewidth="32" tileheight="32" tilecount="54" columns="9">
+  <image source="../../tileset/ground/dry_grass.png" width="288" height="192"/>
+ </tileset>
+ <tileset firstgid="108" name="ground/dirt_mounds" tilewidth="32" tileheight="32" tilecount="9" columns="3">
+  <image source="../../tileset/ground/dirt_mounds.png" width="96" height="96"/>
+ </tileset>
+ <tileset firstgid="117" name="ground/ground_3" tilewidth="32" tileheight="32" tilecount="5" columns="5">
+  <image source="../../tileset/ground/ground_3.png" width="160" height="32"/>
+ </tileset>
+ <tileset firstgid="122" name="plant/tree/tree_darkgreen" tilewidth="32" tileheight="32" tilecount="88" columns="8">
+  <image source="../../tileset/plant/tree/tree_darkgreen.png" trans="ffffff" width="256" height="352"/>
+ </tileset>
+ <tileset firstgid="210" name="../../tileset/plant/tree/tree_darkgreen.png" tilewidth="32" tileheight="32" tilecount="88" columns="8">
+  <image source="../../tileset/plant/tree/tree_darkgreen.png" trans="ffffff" width="256" height="352"/>
+ </tileset>
+ <layer name="0_floor" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztlUESwCAIA3msf/D7vXYclSTGkxw4tDJsgNT2iOgXoyVxk41oKn7xi1/8l/ijBmeM9VG+K+//zPSPzivLccx/5xWXZ9R/8Spv9j7rx81fsVweYP3B8B08lqPyXZode195ysHParJeRvhtUnt2huhQPIHsGZkF40mG44pTvurdnWeU/WWaWdbJXcj0pty9yneo8ndzdLNv9YTEB1gSxUc=
+  </data>
+ </layer>
+ <layer name="1_terrain" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzNVstugzAQ3D/gR3qoKj6Ba46EckksbqSVKvVf+jilfGpt1SOGZQ2oclBGWjnYa+/OetZKKSLlznb19uNt8PYkf3jNNJayjEdvn96+vH1T/LdM45b4Fv89498j//dM43/4P8R9uca1+Bb/MvO4FN+6/72Q4r9n/Hvin/ttBay1xtuzt1ZG/sWNeAKIGaz2dvLWyci/MPxg7cp5S37wrek7xHVx1Px7b5dopzh3NM7vaV3IT+cAvmfy5/iaP8PFfS9qvqV14BxzDr5NYh7+Xcw/zFn3j9rW0VfXujPiM3euTUc+Ts2x/gvDD778zftT81YsnsN94k41/7X42B/qw1pZi6+1dY3rg0z1z1o9qm9A68IpXtCcpV3kgpyZP/JmvXJMi6vOGb4Hmdec83Ay5c+6Zd4HGTWsubYyatmCU99VHD8oPvg74gieF+PMPo6cUwr6najot4v7B4rPfaRzb2R+j/yWp8DnVDLtb+5/6JP1zefWtKbPtt4+5Id71JoI36n3D/qDzhqZA3ePu2L9cx/gPLyN6NvU+4c11pWTZfA69wnHFnVm6v3TWOovKz7HSmk06J////D7w/eo6w5uutbIb60fGMwfcDLvbauO8LXmt0Dz12cGQHupOi7Vdwss/j397uS2YP6/nO/Azw==
+  </data>
+ </layer>
+ <layer name="2_object" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMNyBCRRPGyD746H0vAGyHwSmMgyc/2FgpPt/IAHM/9MpMCOesBKCYD4VzMAH4nCIU8P/lAJQ+qe1//GBkez/wZD/B6r8A+XbweD/oQyyGHCXLaOAdAAqh2Yg8afRQQwZAAAB6Rua
+  </data>
+ </layer>
+ <layer name="3_roof" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztkTkKgDAURD/e261wK1xOoZXLEZ0UQfkINuabYgYegUmReUTENj0YwAgm47ddKlCDBrQ/vE//Z//ko/Mtsfpbhf70pz/96U9/+tuH/vSPyT8HBShBCrLAnfb3O2awqG0Wnd+xgV1ts+hc1tvdEaDTf97JlROQbILH
+  </data>
+ </layer>
+ <layer name="4_roof_add" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAvqAXiOiCuB+IGOts9GMCo/0f9P+r/Uf+P+n/U/w0D65QBAaP+H/X/qP9H/T/q/8Hl/0Y6iIEALv93AnErmlp6iMHcMxGIe6HuprVYH5L9sHBAVkdPMQAOPkYK
+  </data>
+ </layer>
+ <layer name="objects" width="32" height="32" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20PBxQAAADwbhAAAAE=
+  </data>
+ </layer>
+ <layer name="collision" width="32" height="32" visible="0" opacity="0.25">
+  <data encoding="base64" compression="zlib">
+   eJzt1LEJADAIBED3cf/9skAgKUQJuYfHzus+IyKHW5nTPz5/51ff1/yu8Hu2dGp/b8Ln8/l8Pp8/7f/cBajrLdw=
+  </data>
+ </layer>
+ <layer name="protection" width="32" height="32" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20PBxQAAADwbhAAAAE=
+  </data>
+ </layer>
+</map>
