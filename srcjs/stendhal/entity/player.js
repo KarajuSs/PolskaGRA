@@ -88,8 +88,16 @@ marauroa.rpobjectFactory["player"] = marauroa.util.fromProto(marauroa.rpobjectFa
 				}
 			});
 		}
-	/*
 
+		if (marauroa.me === this) {
+			list.push({
+				title: "Zmień wygląd",
+				action: function(entity) {
+					new stendhal.ui.OutfitDialog();
+				}
+			});
+		}
+	/*
 		list.push({
 			title: "Trade",
 			type: "trade"
