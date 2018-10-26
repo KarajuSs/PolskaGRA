@@ -74,6 +74,8 @@ public class PlayerRPClass {
 		// Store sheep at DB
 		player.addRPSlot("#flock", 1, Definition.HIDDEN);
 		player.addAttribute("sheep", Type.INT);
+		// Store goat at DB
+		player.addRPSlot("#goat", 1, Definition.HIDDEN);
 		player.addAttribute("goat", Type.INT);
 
 		// Store pets at DB

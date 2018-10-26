@@ -172,8 +172,8 @@ public class PetOwner {
 					player.remove(ATTR_GOAT);
 				}
 
-				if (player.hasSlot("#flock")) {
-					player.removeSlot("#flock");
+				if (player.hasSlot("#goat")) {
+					player.removeSlot("#goat");
 				}
 
 				return null;
@@ -209,13 +209,19 @@ public class PetOwner {
 			 * NOTE: Once the sheep is stored there is no more trace of zoneid.
 			 */
 			playerSheepManager.storeSheep(sheep);
-		} else if (goat != null) {
-			goat.getZone().remove(goat);
-			playerGoatManager.storeGoat(goat);
 		} else {
 			// Bug on pre 0.20 released
 			if (player.hasSlot("#flock")) {
 				player.removeSlot("#flock");
+			}
+		}
+
+		if (goat != null) {
+			goat.getZone().remove(goat);
+			playerGoatManager.storeGoat(goat);
+		} else {
+			if (player.hasSlot("#goat")) {
+				player.removeSlot("#goat");
 			}
 		}
 

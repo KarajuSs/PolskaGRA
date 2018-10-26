@@ -24,11 +24,11 @@ public class PlayerGoatManager {
 	}
 
 	public void storeGoat(final Goat goat) {
-		if (!player.hasSlot("#flock")) {
-			player.addSlot(new RPSlot("#flock"));
+		if (!player.hasSlot("#goat")) {
+			player.addSlot(new RPSlot("#goat"));
 		}
 
-		final RPSlot slot = player.getSlot("#flock");
+		final RPSlot slot = player.getSlot("#goat");
 		slot.clear();
 
 		/*
@@ -59,13 +59,13 @@ public class PlayerGoatManager {
 	 * @return A goat, or <code>null</code> if none.
 	 */
 	public Goat retrieveGoat() {
-		if (player.hasSlot("#flock")) {
-			final RPSlot slot = player.getSlot("#flock");
+		if (player.hasSlot("#goat")) {
+			final RPSlot slot = player.getSlot("#goat");
 
 			if (slot.size() > 0) {
 				final RPObject object = slot.getFirst();
 				slot.remove(object.getID());
-				player.removeSlot("#flock");
+				player.removeSlot("#goat");
 				object.put("x", player.getX());
 				object.put("y", player.getY());
 				return new Goat(object, player);
