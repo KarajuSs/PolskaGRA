@@ -126,7 +126,7 @@ public class PetOwner {
 	}
 	
 	public void setGoat(final Goat goat) {
-		player.put(ATTR_SHEEP, goat.getID().getObjectID());
+		player.put(ATTR_GOAT, goat.getID().getObjectID());
 		goat.setOwner(player);
 	}
 
