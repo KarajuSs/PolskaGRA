@@ -3,6 +3,8 @@
 1.06
 *świat gry*
 - Dodano nowy przedmiot: zaizolowany pierścień (ochrona przed wstrząsem) - drop z gashadokuro - 5%
+- Dodano nową statystykę: range attack (ratk) oraz łuki, strzały, różdżki i magia zostały przekonwertowane z ATK na RATK
+- Dodano nowe outfity NPC
 - Administrator używający komendy /teleclickmode będzie się od razu zatrzymywał
 - Mizuno potrafi wytworzyć więcej niżeli 1 strzałę lodową, strzałę ognia, strzałę światła
 
@@ -17,6 +19,10 @@
 
 *serwer*
 - Zaktualizowano zabezpieczenia marauroa
+
+*naprawa błędów*
+- Naprawiono skalowanie ekranu gry
+- Naprawiono pasek życia podczas skalowania ekranu gry
 
 
 
