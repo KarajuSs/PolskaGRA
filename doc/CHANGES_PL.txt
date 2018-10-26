@@ -16,6 +16,7 @@
 - Dodano wsparcie dla eventowych map typu: halloween/easter/xmas
 - Dodano nową warstwę szczegółów (np. balon)
 - Naprawiono uszkodzone menu na pustej liście znajomych
+- Zaimplementowano możliwość zmiany outfitu gracza
 
 *serwer*
 - Zaktualizowano zabezpieczenia marauroa
@@ -23,6 +24,7 @@
 *naprawa błędów*
 - Naprawiono skalowanie ekranu gry
 - Naprawiono pasek życia podczas skalowania ekranu gry
+- Naprawiono kozę
 
 
 
