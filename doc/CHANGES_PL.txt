@@ -4,7 +4,9 @@
 *świat gry*
 - Dodano nowy przedmiot: zaizolowany pierścień (ochrona przed wstrząsem) - drop z gashadokuro - 5%
 - Dodano nową statystykę: range attack (ratk) oraz łuki, strzały, różdżki i magia zostały przekonwertowane z ATK na RATK
+- Dodano manekina treningowego do trenowania ATK lub RATK oraz dodano tarczę strzelecką do trenowania RATK
 - Dodano nowe outfity NPC
+- Dodano strzelnicę do trenowania RATK
 - Administrator używający komendy /teleclickmode będzie się od razu zatrzymywał
 - Mizuno potrafi wytworzyć więcej niżeli 1 strzałę lodową, strzałę ognia, strzałę światła
 
@@ -17,6 +19,9 @@
 - Dodano nową warstwę szczegółów (np. balon)
 - Naprawiono uszkodzone menu na pustej liście znajomych
 - Zaimplementowano możliwość zmiany outfitu gracza
+
+*code*
+- Dodano nową warstwę nazwaną flyoverarea, tzn. że przez tą warstwę można strzelać strzałami/magią itp.., lecz nie można przez nią przejść oraz jest ona oznaczona kolorem pomarańczowym na minimapie
 
 *serwer*
 - Zaktualizowano zabezpieczenia marauroa
