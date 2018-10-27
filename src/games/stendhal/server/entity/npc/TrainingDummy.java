@@ -17,19 +17,6 @@ import games.stendhal.server.entity.Entity;
  * An entity that can be used for training a player's ATK & RATK stats.
  */
 public class TrainingDummy extends NPC {
-
-	public TrainingDummy() {
-		super();
-
-		init("other/training_dummy", "Oto manekin treningowy.");
-	}
-
-	public TrainingDummy(final String image) {
-		super();
-
-		init(image, "Oto manekin treningowy.");
-	}
-
  	public TrainingDummy(final String image, final String descr) {
 		super();
  		init(image, descr);
@@ -47,7 +34,7 @@ public class TrainingDummy extends NPC {
 		put("no_hpbar", "");
 
 		setEntityClass(image);
-		setName("manekin treningowy");
+		setName("TrainingDummy");
 		setDescription(descr);
 
 		initHP(1);

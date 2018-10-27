@@ -24,7 +24,7 @@ public class TrainingDummyFactory {
 
 		switch (type) {
 		case 0:
-			dummy = new TrainingDummy();
+			dummy = new TrainingDummy("other/training_dummy", "Oto manekin treningowy.");
 			break;
 		case 1:
 			dummy = new TrainingDummy("other/bullseye", "Oto tarcza strzelecka.");
