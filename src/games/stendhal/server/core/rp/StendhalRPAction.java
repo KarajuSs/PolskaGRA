@@ -45,6 +45,7 @@ import games.stendhal.server.entity.creature.Sheep;
 import games.stendhal.server.entity.item.Item;
 import games.stendhal.server.entity.item.StackableItem;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.TrainingDummy;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.events.AttackEvent;
 import marauroa.common.net.message.TransferContent;
@@ -274,6 +275,8 @@ public class StendhalRPAction {
 			return false;
 		}
 
+		final boolean usesTrainingDummy = defender instanceof TrainingDummy;
+
 		defender.rememberAttacker(player);
 		if (defender instanceof Player) {
 			player.storeLastPVPActionTime();
@@ -313,8 +316,14 @@ public class StendhalRPAction {
 			weaponClass = attackWeapon.getWeaponType();
 		}
 
-		// Throw dices to determine if the attacker has missed the defender
-		final boolean beaten = player.canHit(defender);
+		final boolean beaten;
+		if (usesTrainingDummy) {
+			// training dummies can always be hit
+			beaten = true;
+		} else {
+			// Throw dices to determine if the attacker has missed the defender
+			beaten = player.canHit(defender);
+		}
 
 		// For checking if RATK XP should be incremented on successful hit
 		boolean addRatkXP = isRanged;
@@ -345,6 +354,7 @@ public class StendhalRPAction {
 				defender.incDefXP();
 			}
 
+			// FIXME: some of this can be skipped when using a training dummy
 			final List<Item> weapons = player.getWeapons();
 			float itemAtk;
 			if (isRanged) {
@@ -354,7 +364,7 @@ public class StendhalRPAction {
 			}
 
 			int damage = player.damageDone(defender, itemAtk, player.getDamageType());
-			if (damage > 0) {
+			if (!usesTrainingDummy && damage > 0) {
 
 				if (addRatkXP && !(defender instanceof SpeakerNPC)) {
 					// Range attack XP is incremented for successful hits regardless of whether player has recently been hit
