@@ -20,7 +20,7 @@ public class FlyOverAreaMapObject extends StaticMapObject {
 	/**
 	 * The colour of fly over areas (orange).
 	 */
-    private static final Color COLOR = new Color(212, 158, 72);
+    private static final Color COLOR = new Color(255, 170, 35);
 
 	FlyOverAreaMapObject(IEntity entity) {
 		super(entity);
