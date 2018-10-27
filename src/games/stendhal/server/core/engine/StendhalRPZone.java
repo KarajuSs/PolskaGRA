@@ -67,6 +67,8 @@ import games.stendhal.server.entity.mapstuff.spawner.SheepFood;
 import games.stendhal.server.entity.mapstuff.spawner.GoatFood;
 import games.stendhal.server.entity.npc.NPC;
 import games.stendhal.server.entity.npc.SpeakerNPC;
+import games.stendhal.server.entity.npc.TrainingDummy;
+import games.stendhal.server.entity.npc.TrainingDummyFactory;
 import games.stendhal.server.entity.player.Player;
 import marauroa.common.game.IRPZone;
 import marauroa.common.game.RPObject;
@@ -677,6 +679,10 @@ public class StendhalRPZone extends MarauroaRPZone {
 					passiveEntityrespawnPoint.setStartState();
 
 				}
+			} else if (clazz.contains("logic/training_dummy")) {
+				final TrainingDummy dummy = TrainingDummyFactory.create(type);
+				dummy.setPosition(x, y);
+				add(dummy);
 			}
 		} catch (final RuntimeException e) {
 			logger.error("error creating entity " + type + " at (" + x + ","
@@ -834,6 +840,25 @@ public class StendhalRPZone extends MarauroaRPZone {
 
 	public boolean simpleCollides(final Entity entity, final double x, final double y, final double w, final double h) {
 		return collisionMap.collides(x, y, w, h);
+	}
+
+	/**
+	 * Checks if a position can be occupied by an entity.
+	 *
+	 * @param x
+	 * 		Horizontal coordinate of position to check.
+	 * @param y
+	 * 		Vertical coordinate of position to check.
+	 * @return
+	 * 		<code>true</code> if the position can be occupied.
+	 */
+	public boolean isAreaOccupiable(final int x, final int y) {
+		for (final Entity entity: getEntitiesAt(x, y)) {
+			if (entity.has("no_occupy_area")) {
+				return false;
+			}
+		}
+ 		return true;
 	}
 
 	@Override

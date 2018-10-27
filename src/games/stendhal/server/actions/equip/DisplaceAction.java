@@ -192,7 +192,7 @@ public class DisplaceAction implements ActionListener {
 	 * @return true, iff allowed
 	 */
 	private boolean entityCollides(final Player player, final StendhalRPZone zone, final int x, final int y, final PassiveEntity entity) {
-		boolean res = zone.simpleCollides(entity, x, y, entity.getWidth(), entity.getHeight());
+		boolean res = zone.simpleCollides(entity, x, y, entity.getWidth(), entity.getHeight()) || !zone.isAreaOccupiable(x, y);
 		if (res) {
 			player.sendPrivateText("Nie ma tam miejsca.");
 		}
@@ -213,10 +213,22 @@ public class DisplaceAction implements ActionListener {
 		final List<Node> path = Path.searchPath(entity, zone,
 				player.getX(), player.getY(), new Rectangle(x, y, 1, 1),
 				64 /* maxDestination * maxDestination */, false);
-		if (path.isEmpty()) {
+		// Check if there are any WalkerBlocker instances in path
+		// FIXME: Should be done Path.searchPath()?
+		boolean blockerInPath = false;
+		for (final Node node: path) {
+			final int pathX = node.getX();
+			final int pathY = node.getY();
+		 	blockerInPath = !zone.isAreaOccupiable(pathX, pathY);
+		 	if (blockerInPath) {
+				break;
+			}
+		}
+		final boolean res = !path.isEmpty() && !blockerInPath;
+		if (!res) {
 			player.sendPrivateText("Nie ma łatwiejszego przejścia do tego miejsca.");
 		}
-		return !path.isEmpty();
+		return res;
 	}
 
 	/* returns true if zone is semos tavern and entity is dice */
