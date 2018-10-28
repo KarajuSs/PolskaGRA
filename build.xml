@@ -1126,7 +1126,7 @@ d = 9017093486007323270605414717455737376618092805104733236083857811315606869372
 	<extension-point name="js-prepare" depends="js-prepare-marauroa, js-prepare-build" />
 
 	<target name="js-invoke-compiler">
-		<property name="js-debug"          value="" />
+		<property name="js-debug"          value="--debug --formatting=PRETTY_PRINT --create_source_map srcjs/stendhal-compiled.js.map --source_map_include_content" />
 
 		<property name="js-files-license"  value="srcjs/stendhal/license.js" />
 		<property name="js-files-marauroa" value="build/js/marauroa.js build/js/client-framework.js build/js/message-factory.js build/js/perception.js build/js/rpfactory.js build/js/deserializer.js" />
@@ -1144,7 +1144,7 @@ d = 9017093486007323270605414717455737376618092805104733236083857811315606869372
 		<property name="js-files-ui2"      value="srcjs/stendhal/ui/html.js srcjs/stendhal/ui/minimap.js srcjs/stendhal/ui/sound.js srcjs/stendhal/ui/stats.js srcjs/stendhal/ui/chatinput.js" />
 		<property name="js-files-ui3"      value="" />
 		<property name="js-files-main1"    value="srcjs/stendhal/actions.js srcjs/stendhal/events.js" />
-		<property name="js-files-ui4"      value="srcjs/stendhal/ui/popup.js srcjs/stendhal/ui/itemcontainer.js" />
+		<property name="js-files-ui4"      value="srcjs/stendhal/ui/popup.js srcjs/stendhal/ui/itemcontainer.js srcjs/stendhal/ui/outfitdialog.js" />
 		<property name="js-files-main2"    value="srcjs/stendhal/main.js" />
 		<property name="js-files-main3"    value="" />
 
@@ -1157,6 +1157,7 @@ d = 9017093486007323270605414717455737376618092805104733236083857811315606869372
 			<arg value="--compilation_level" />
 			<arg value="ADVANCED" />
 			<arg line="${js-debug}" />
+			<arg value="--jscomp_off=checkVars" />
 
 			<arg value="--js_output_file=srcjs/stendhal-compiled.js"/>
 
