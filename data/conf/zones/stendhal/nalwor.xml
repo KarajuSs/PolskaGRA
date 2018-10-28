@@ -38,6 +38,38 @@
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying</parameter>
 		</attributes>
+
+		<!-- Archery Range -->
+	    <entity x="97" y="102">
+	      <implementation class-name="games.stendhal.server.entity.mapstuff.area.FlyOverArea" />
+	    </entity>
+	    <entity x="99" y="102">
+	      <implementation class-name="games.stendhal.server.entity.mapstuff.area.FlyOverArea" />
+	    </entity>
+	    <entity x="101" y="102">
+	      <implementation class-name="games.stendhal.server.entity.mapstuff.area.FlyOverArea" />
+	    </entity>
+	    <entity x="103" y="102">
+	      <implementation class-name="games.stendhal.server.entity.mapstuff.area.FlyOverArea" />
+	    </entity>
+	    <entity x="105" y="102">
+	      <implementation class-name="games.stendhal.server.entity.mapstuff.area.FlyOverArea" />
+	    </entity>
+	    <entity x="107" y="102">
+	      <implementation class-name="games.stendhal.server.entity.mapstuff.area.FlyOverArea" />
+	    </entity>
+	    <entity x="109" y="102">
+	      <implementation class-name="games.stendhal.server.entity.mapstuff.area.FlyOverArea" />
+	    </entity>
+	    <entity x="111" y="102">
+	      <implementation class-name="games.stendhal.server.entity.mapstuff.area.FlyOverArea" />
+	    </entity>
+	    <entity x="113" y="102">
+	      <implementation class-name="games.stendhal.server.entity.mapstuff.area.FlyOverArea" />
+	    </entity>
+	    <entity x="115" y="102">
+	      <implementation class-name="games.stendhal.server.entity.mapstuff.area.FlyOverArea" />
+	    </entity>
 	</zone>
 
 	<zone name="0_nalwor_forest_ne" level="0" x="500384" y="500128"
@@ -129,41 +161,6 @@
 				class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination" />
 		</portal>
 	</zone>
-
-	<zone name="0_nalwor_archery_range" level="0" x="500352" y="500256"
-    file="Level 0/nalwor/archery_range.tmx">
-     <!-- Archery Tables -->
-    <entity x="1" y="6">
-      <implementation class-name="games.stendhal.server.entity.mapstuff.area.FlyOverArea" />
-    </entity>
-    <entity x="3" y="6">
-      <implementation class-name="games.stendhal.server.entity.mapstuff.area.FlyOverArea" />
-    </entity>
-    <entity x="5" y="6">
-      <implementation class-name="games.stendhal.server.entity.mapstuff.area.FlyOverArea" />
-    </entity>
-    <entity x="7" y="6">
-      <implementation class-name="games.stendhal.server.entity.mapstuff.area.FlyOverArea" />
-    </entity>
-    <entity x="9" y="6">
-      <implementation class-name="games.stendhal.server.entity.mapstuff.area.FlyOverArea" />
-    </entity>
-    <entity x="11" y="6">
-      <implementation class-name="games.stendhal.server.entity.mapstuff.area.FlyOverArea" />
-    </entity>
-    <entity x="13" y="6">
-      <implementation class-name="games.stendhal.server.entity.mapstuff.area.FlyOverArea" />
-    </entity>
-    <entity x="15" y="6">
-      <implementation class-name="games.stendhal.server.entity.mapstuff.area.FlyOverArea" />
-    </entity>
-    <entity x="17" y="6">
-      <implementation class-name="games.stendhal.server.entity.mapstuff.area.FlyOverArea" />
-    </entity>
-    <entity x="19" y="6">
-      <implementation class-name="games.stendhal.server.entity.mapstuff.area.FlyOverArea" />
-    </entity>
-  </zone>
 
 	<zone name="int_nalwor_pottery" file="interiors/nalwor/pottery.tmx">
 		<portal x="10" y="18" ref="entrance_left">
