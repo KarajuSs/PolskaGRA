@@ -40,6 +40,8 @@
 		</attributes>
 
 		<!-- Archery Range -->
+		<configurator class-name="games.stendhal.server.maps.nalwor.forest.ArcheryInstructorNPC" />
+
 	    <entity x="97" y="102">
 	      <implementation class-name="games.stendhal.server.entity.mapstuff.area.FlyOverArea" />
 	    </entity>
