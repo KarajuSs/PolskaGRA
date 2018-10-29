@@ -766,6 +766,10 @@ public class Item extends PassiveEntity implements TurnListener, EquipListener,
 			stats.append(" LIFE-SUPPORT: ");
 			stats.append(get("life_support"));
 		}
+		if (has("uses")) {
+			stats.append(" ZUŻYCIE: ");
+			stats.append(get("uses"));
+		}
 		String statString = "";
 		if (stats.length() > 0) {
 			statString =  " Parametry (" + stats.toString().trim() + ").";

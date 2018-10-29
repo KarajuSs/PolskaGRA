@@ -418,7 +418,7 @@ public class StendhalRPAction {
 							if (slot instanceof Entity) {
 								((Entity) slot).notifyWorldAboutChanges();
 							}
-							player.sendPrivateText("Your " + breakable.getName() + " has broken!");
+							player.sendPrivateText("Twój przedmiot " + breakable.getName() + " się zniszczył!");
 						} else {
 							logger.error("Could not remove BreakableItem \"" + breakable.getName() + "\" with ID " + breakable.getID().toString());
 						}
