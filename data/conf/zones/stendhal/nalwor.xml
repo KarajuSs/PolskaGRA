@@ -42,6 +42,13 @@
 		<!-- Archery Range -->
 		<configurator class-name="games.stendhal.server.maps.nalwor.forest.ArcheryInstructorNPC" />
 
+		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn">
+	      <parameter name="x">96</parameter>
+	      <parameter name="y">96</parameter>
+	      <parameter name="width">21</parameter>
+	      <parameter name="height">12</parameter>
+	    </configurator>
+
 		<portal x="116" y="104" ref="range">
 	      <implementation class-name="games.stendhal.server.entity.mapstuff.portal.ConditionAndActionPortal">
 	        <parameter name="condition">new QuestInStateCondition("archery_range", 0, "training")</parameter>
