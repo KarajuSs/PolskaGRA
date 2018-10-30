@@ -49,17 +49,6 @@
 	      <parameter name="height">12</parameter>
 	    </configurator>
 
-		<portal x="116" y="104" ref="range">
-	      <implementation class-name="games.stendhal.server.entity.mapstuff.portal.ConditionAndActionPortal">
-	        <parameter name="condition">new QuestInStateCondition("archery_range", 0, "training")</parameter>
-	        <parameter name="rejected">Musisz porozmawiać z Chester'em, jeśli chcesz trochę potrenować swoje umiejętności dystansowe.</parameter>
-	        <parameter name="rejectedAction">new TeleportAction("0_nalwor_forest_n", 117, 104, null)</parameter>
-	        <parameter name="forceStop">true</parameter>
-	        <parameter name="ignoreNoDestination">true</parameter>
-	      </implementation>
-	      <attribute name="resistance">0</attribute>
-	    </portal>
-
 	    <entity x="97" y="102">
 	      <implementation class-name="games.stendhal.server.entity.mapstuff.area.FlyOverArea" />
 	    </entity>
