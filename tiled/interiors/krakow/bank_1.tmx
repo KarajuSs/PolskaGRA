@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="19" height="44" tilewidth="32" tileheight="32" nextobjectid="1">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="19" height="44" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="1">
  <tileset firstgid="1" name="sciana" tilewidth="32" tileheight="32" tilecount="27" columns="3">
   <image source="../../tileset/pol/waly/int_plazy.png" width="96" height="288"/>
  </tileset>
@@ -69,39 +69,39 @@
  <tileset firstgid="288" name="brown" tilewidth="32" tileheight="32" tilecount="5" columns="5">
   <image source="../../tileset/ground/brown.png" width="160" height="32"/>
  </tileset>
- <layer name="0_floor" width="19" height="44">
+ <layer id="1" name="0_floor" width="19" height="44">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC5NlYGCQHcQ4hADGpWewmRWNhCkNk5FglgyUliMgRyp7OJlFTliOmsXAwMiIiskxC90MXGaRk76pmVeGmlm4wpOceMQVR6PxOBqPgy28BqtZo/E4PMwaavE4UBgANjDQyRANAAA=
+   H4sIAAAAAAAACpNlYGCQHcQ4hADGpWewmRWNhCkNk5FglgyUliMgRyp7OJlFTliOmsXAwMiIiskxC90MXGaRk76pmVeGmlm4wpOceMQVR6PxOBqPgy28BqtZo/E4PMwaavE4UBgANjDQyRANAAA=
   </data>
  </layer>
- <layer name="1_terrain" width="19" height="44">
+ <layer id="2" name="1_terrain" width="19" height="44">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2WWwrCQAxFUyu+Ra0P1K7GXerafH4I6i7MQAoxJM20/s6F89NJbmluBpoBQCeSHMlqzrrIElk5rJEe1Y+QMWNCZ1tkA762zGtO/UC+xR9eVT8w37ZeU3E2Y147ZO9QCq8j+ZyYVx8ZRDKE33kd4HdeVsYWpTMvmbFH5aPNq5rlS9R8jOdSmldbeV7PP71C/xm5EFfRE+a6UCiE15vqb8ideAivUGfd3WHNN2oKddZe54aXNasp6PvD9yt2XmEv5W7lmZ1j3bwsca/wPi2fiejxcrTu9prex+XlaN3t0vDycrSy0bxicgx5cGmZNc2xjVKOKceUY8qxUspR/5dtKu5l5RiLl2NTQo5fHqj2+xANAAA=
+   H4sIAAAAAAAACu2WWwrCQAxFUyu+Ra0P1K7GXerafH4I6i7MQAoxJM20/s6F89NJbmluBpoBQCeSHMlqzrrIElk5rJEe1Y+QMWNCZ1tkA762zGtO/UC+xR9eVT8w37ZeU3E2Y147ZO9QCq8j+ZyYVx8ZRDKE33kd4HdeVsYWpTMvmbFH5aPNq5rlS9R8jOdSmldbeV7PP71C/xm5EFfRE+a6UCiE15vqb8ideAivUGfd3WHNN2oKddZe54aXNasp6PvD9yt2XmEv5W7lmZ1j3bwsca/wPi2fiejxcrTu9prex+XlaN3t0vDycrSy0bxicgx5cGmZNc2xjVKOKceUY8qxUspR/5dtKu5l5RiLl2NTQo5fHqj2+xANAAA=
   </data>
  </layer>
- <layer name="2_object" width="19" height="44">
+ <layer id="3" name="2_object" width="19" height="44">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgQAABRgYMgE0MBgTxyEkA5Q4j8a9BxXABSTxylAIRoNmiNDSfWmAzEG+B4q141JkAsSkQm1HBTgcgdgRiJyqYRQg8Q2J/wyGOD1AjHsWA+sWHQFpAB6+oZM4TKB7O4CWJ6q9BaRlgupDFkjZICa+hmr4GA7hKoX4uaLiP5HJiMIArFOrnhIY7rvxICpAD6pcfjUeyAAuF4cZOxfw4Go/kAzYKw42DivkRW7kqjMNMIRziuNSDgDQOOSkc4ujqAQxCk3EQDQAA
+   H4sIAAAAAAAACmNgQAABRgYMgE0MBgTxyEkA5Q4j8a9BxXABSRxyS3FrYViCRw4ZiADNFsVj92ABm4F4CxRvxaPOBIhNgdiMCnY6ALEjEDtRwSxC4BkS+xsOcXyAGvEoBtQvPgTSAjp4RSVznkDxcAYvSVR/DUrLANOFLJa0QUp4DdX0NRjAVQr1c0HDfSSXE4MBXKFQPyc03HHlR1KAHFC//Gg8kgVYKAw3dirmx9F4JB+wURhuHFTMj9jKVWEcZgrhEMelHgSkcchJ4RBHVw8ADGShvxANAAA=
   </data>
  </layer>
- <layer name="3_roof" width="19" height="44">
+ <layer id="4" name="3_roof" width="19" height="44">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAWjgDjwlUL9b3CIv6bQ3MEGbgDxTSi+NcBuGQpgNLxGwSgYBaNgFIyCUTCQAAAbVasOEA0AAA==
+   H4sIAAAAAAAACmNgoD6YikduCg3sGwX0AV8p1P8Gh/hrCs0dbOAGEN+E4lsD7JahAEbDaxSMglEwCkbBKBgFAwkAOquHBBANAAA=
   </data>
  </layer>
- <layer name="objects" width="19" height="44">
+ <layer id="5" name="objects" width="19" height="44">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3BAQEAAACCIP+vbkhAAQAAfBoVUKKuEA0AAA==
+   H4sIAAAAAAAACu3BAQEAAACCIP+vbkhAAQAAfBoVUKKuEA0AAA==
   </data>
  </layer>
- <layer name="collision" width="19" height="44" opacity="0.2">
+ <layer id="6" name="collision" width="19" height="44" opacity="0.2">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC92TsQ4AIQxCvd3//16nWy5UBnqWSuJCDOizzmeMabyYbshCuacZu2XtWL7edw/y2bsoqs6qmNfMc1VlsQ5FGfOd+Ve6ZUU8mYc6FHXh5ZoV8WQe6lDUhZdrVsSTeahDURderlkRT+ahDkXq3f9eC5zXFCEQDQAA
+   H4sIAAAAAAAACtWTwQ7AIAxC3d3//96ddllgJKNbKYkXYh6KdR9r7fDFVMV5w6tkIe7f/aaxnrq8vPse5Kt3cdTN6pjXynN1sVSGo4r5rvwr01isT+WhDEdT+kplsT6VhzIcTekrlcX6VB7KcDSlr1QW61N5KMORe/ev1wm9tuFDEA0AAA==
   </data>
  </layer>
- <layer name="protection" width="19" height="44" visible="0">
+ <layer id="7" name="protection" width="19" height="44" visible="0">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3DAQ0AAAwCIF/A/nENctjoJVVVVX14MZbH+hANAAA=
+   H4sIAAAAAAAACu3DAQ0AAAwCIF/A/nENctjoJVVVVX14MZbH+hANAAA=
   </data>
  </layer>
 </map>
