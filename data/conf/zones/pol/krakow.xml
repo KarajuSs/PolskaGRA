@@ -201,7 +201,7 @@
 		<portal x="21" y="121" ref="vyh_entrance">
 			<destination zone="int_krakow_vineyard_house_0" ref="vyh_exit"/>
 		</portal>
-		
+
 		<!-- Poziom -1 - canals -->
 		<portal x="90" y="87" ref="canals_entrance">
 			<destination zone="-1_krakow_canals" ref="canals_exit"/>
@@ -789,7 +789,7 @@ Południe: Zakopane
 				<parameter name="height">2</parameter>
 			</implementation>
 		</entity>
-		
+
 		<!-- stoliki -->
 		<entity x="16" y="24">
 			<implementation
@@ -952,7 +952,7 @@ Południe: Zakopane
 		<portal x="15" y="6" ref="bank_down_exit">
 			<destination zone="int_krakow_bank_0" ref="bank_up_entrance"/>
 		</portal>
-	
+
 		<portal x="5" y="5" ref="upper_bank1_exit">
 			<destination zone="int_krakow_bank_0" ref="upper_bank_exit"/>
 		</portal>
