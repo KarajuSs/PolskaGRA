@@ -3284,15 +3284,16 @@ public abstract class RPEntity extends GuidedEntity {
 	 * @return the attack rate
 	 */
 	public int getAttackRate() {
+		boolean meleeDistance = isAttacking() && nextTo(getAttackTarget());
 
 		final List<Item> weapons = getWeapons();
 
 		if (weapons.isEmpty()) {
 			return 5;
 		}
-		int best = weapons.get(0).getAttackRate();
+		int best = weapons.get(0).getAttackRate(meleeDistance);
 		for (final Item weapon : weapons) {
-			final int res = weapon.getAttackRate();
+			final int res = weapon.getAttackRate(meleeDistance);
 			if (res < best) {
 				best = res;
 			}
