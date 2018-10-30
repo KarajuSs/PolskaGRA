@@ -74,7 +74,7 @@ public class RadomilNPC implements ZoneConfigurator {
 				new FreeHealerAdder().addHealer(this, 0);
 				addOffer("Potrafię również zdjąć z Ciebie piętno zabójcy. Powiedz mi tylko #'zdejmij czaszkę'.");
 				new SellerAdder().addSeller(this, new SellerBehaviour(shops.get("eliksiry")));
-				
+
 				addReply("zdejmij", null,
 						new BehaviourAction(new Behaviour("czaszkę"), Arrays.asList("remove", "zdejmij"), "offer") {
 					@Override
