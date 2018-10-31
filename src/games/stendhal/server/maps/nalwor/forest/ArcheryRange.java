@@ -11,6 +11,7 @@
  ***************************************************************************/
 package games.stendhal.server.maps.nalwor.forest;
 
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
 import java.lang.ref.WeakReference;
@@ -18,8 +19,6 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.apache.log4j.Logger;
 
 import games.stendhal.common.Direction;
 import games.stendhal.common.MathHelper;
@@ -65,14 +64,9 @@ import games.stendhal.server.util.TimeUtil;
 
 /**
  * TODO: create JUnit test
- * FIXME: training session remaining time is not accurately saved when player logs out
  * FIXME: should bows wear & break even if hit not successful?
  */
 public class ArcheryRange implements ZoneConfigurator,LoginListener,LogoutListener {
-
-	/** logger instance */
-	private static Logger logger = Logger.getLogger(ArcheryRange.class);
-
 	/** quest/activity identifier */
 	private static final String QUEST_SLOT = "archery_range";
 
@@ -85,17 +79,17 @@ public class ArcheryRange implements ZoneConfigurator,LoginListener,LogoutListen
 	/** time (in seconds) allowed for training session */
 	private static final int TRAIN_TIME = 15 * MathHelper.SECONDS_IN_ONE_MINUTE;
 
-	/** time (in seconds) remaining for this training session */
-	private int TIME_REMAINING = 0;
-
 	/** time player must wait to train again */
 	private static final int COOLDOWN = 6 * MathHelper.MINUTES_IN_ONE_HOUR;
 
 	/** max number of players allowed in training area at a time */
 	private static final int MAX_OCCUPANTS = 10;
 
+	/** zone info */
+	private StendhalRPZone archeryZone;
+	private String archeryZoneID;
+
 	/** archery range area */
-	private final String archeryZone = "0_nalwor_forest_n";
 	private final Rectangle2D archeryArea = new Rectangle(97, 97, 19, 10);
 
 	/** NPC that manages archery area */
@@ -112,6 +106,13 @@ public class ArcheryRange implements ZoneConfigurator,LoginListener,LogoutListen
 
 	private static final String FULL_MESSAGE = "Strzelnica jest pełna. Wróć później.";
 
+	/** position of portal that manages access to training area */
+	private static final Point PORTAL_POS = new Point(116, 104);
+
+	/** misc objects for JUnit test */
+	private static AbstractQuest quest;
+	private static ShopSign blackboard;
+
 
 	@Override
 	public void configureZone(final StendhalRPZone zone, final Map<String, String> attributes) {
@@ -119,14 +120,17 @@ public class ArcheryRange implements ZoneConfigurator,LoginListener,LogoutListen
 		SingletonRepository.getLoginNotifier().addListener(this);
 		SingletonRepository.getLogoutNotifier().addListener(this);
 
-		buildNPC(zone);
-		initShop(zone);
+		archeryZone = zone;
+		archeryZoneID = zone.getName();
+
+ 		buildNPC();
+		initShop();
 		initTraining();
-		initEntrance(zone);
+		initEntrance();
 		addToQuestSystem();
 	}
 
-	private void buildNPC(final StendhalRPZone zone) {
+	private void buildNPC() {
 		npc = new SpeakerNPC(npcName) {
 			@Override
 			protected void createDialog() {
@@ -150,13 +154,13 @@ public class ArcheryRange implements ZoneConfigurator,LoginListener,LogoutListen
 		npc.setDescription("Widzisz mężczyznę, który wydaje się być utalentowanym zabójcą.");
 		npc.setPosition(120, 100);
 		npc.setEntityClass("rangernpc");
-		zone.add(npc);
+		archeryZone.add(npc);
 	}
 
 	/**
 	 * Adds bow & arrows for sale from NPC.
 	 */
-	private void initShop(final StendhalRPZone zone) {
+	private void initShop() {
 		final String rejectedMessage = "Nie sprzedam ci niczego bez określonego dowodu, że można ci ufać.";
 
 		// override the default offer message
@@ -199,7 +203,7 @@ public class ArcheryRange implements ZoneConfigurator,LoginListener,LogoutListen
 		new SellerAdder().addSeller(npc, seller, false);
 
 		// a sign showing prices of items
-		final ShopSign blackboard = new ShopSign("sellarcheryrange", "Sklep łuczniczy dla zabójców", "Sprzedawane są tu łuki i strzały:", true) {
+		blackboard = new ShopSign("sellarcheryrange", "Sklep łuczniczy dla zabójców", "Sprzedawane są tu łuki i strzały:", true) {
 			@Override
 			public boolean onUsed(final RPEntity user) {
 				// Chester is protective, even of his blackboard if player doesn't have licencja na zabijanie
@@ -217,7 +221,7 @@ public class ArcheryRange implements ZoneConfigurator,LoginListener,LogoutListen
 		};
 		blackboard.setEntityClass("blackboard");
 		blackboard.setPosition(117, 101);
-		zone.add(blackboard);
+		archeryZone.add(blackboard);
 	}
 
 	/**
@@ -297,7 +301,7 @@ public class ArcheryRange implements ZoneConfigurator,LoginListener,LogoutListen
 				new AndCondition(
 						new PlayerStatLevelCondition("ratk", "lt", RATK_LIMIT),
 						new PlayerHasItemWithHimCondition("licencja na zabijanie"),
-						new AreaIsFullCondition(archeryZone, archeryArea, MAX_OCCUPANTS)),
+						new AreaIsFullCondition(archeryZoneID, archeryArea, MAX_OCCUPANTS)),
 				ConversationStates.ATTENDING,
 				FULL_MESSAGE,
 				null);
@@ -333,7 +337,7 @@ public class ArcheryRange implements ZoneConfigurator,LoginListener,LogoutListen
 				ConversationPhrases.NO_MESSAGES,
 				null,
 				ConversationStates.ATTENDING,
-				"Aww, szkoda. Czy jest coś jeszcze, co mogę ci pomóc?",
+				"No to odejdź stąd i nie trać mojego cennego czasu!",
 				null);
 
 		/* FIXME: How to get updated remaining time?
@@ -350,15 +354,15 @@ public class ArcheryRange implements ZoneConfigurator,LoginListener,LogoutListen
 	/**
 	 * Initializes portal entity that manages access to the training area.
 	 */
-	private void initEntrance(final StendhalRPZone zone) {
-		zone.add(new ArcheryRangeConditionAndActionPortal());
+	private void initEntrance() {
+		archeryZone.add(new ArcheryRangeConditionAndActionPortal());
 	}
 
 	/**
 	 * Makes visible in inspect command.
 	 */
 	private void addToQuestSystem() {
-		SingletonRepository.getStendhalQuestSystem().loadQuest(new AbstractQuest() {
+		quest = new AbstractQuest() {
 
 			@Override
 			public List<String> getHistory(Player player) {
@@ -378,7 +382,26 @@ public class ArcheryRange implements ZoneConfigurator,LoginListener,LogoutListen
 			public String getName() {
 				return "ArcheryRange";
 			}
-		});
+		};
+
+		SingletonRepository.getStendhalQuestSystem().loadQuest(quest);
+	}
+
+	/**
+	 * Allows time remaining to be altered by changing quest slot.
+	 */
+	private Integer updateTimeRemaining(final Player player) {
+		try {
+			final int timeRemaining = Integer.parseInt(player.getQuest(QUEST_SLOT, 1)) - 1;
+			player.setQuest(QUEST_SLOT, 1, Integer.toString(timeRemaining));
+			return timeRemaining;
+		} catch (NumberFormatException e) {
+			// couldn't get time remaining from quest state
+			SingletonRepository.getTurnNotifier().dontNotify(new Timer(player));
+ 			e.printStackTrace();
+		}
+
+ 		return null;
 	}
 
 	/**
@@ -387,29 +410,18 @@ public class ArcheryRange implements ZoneConfigurator,LoginListener,LogoutListen
 	@Override
 	public void onLoggedIn(final Player player) {
 		// don't allow players to login within archery range area boundaries
-		if (player.isInArea(archeryZone, archeryArea)) {
-			player.teleport(archeryZone, 118, 104, null, null);
+		if (player.isInArea(archeryZoneID, archeryArea) || (player.getX() == PORTAL_POS.x && player.getY() == PORTAL_POS.y)) {
+			player.teleport(archeryZoneID, 118, 104, null, null);
 		}
 
-		// re-initialize turn notifier if player still has active training session
 		final String sessionState = player.getQuest(QUEST_SLOT, 0);
 		if (sessionState != null && sessionState.equals(STATE_ACTIVE)) {
-			final String sessionTime = player.getQuest(QUEST_SLOT, 1);
-			if (sessionTime != null) {
-				// set remaining time from quest state
-				TIME_REMAINING = Integer.parseInt(sessionTime);
-
-				// re-create the timer/notifier
+			final String sessionTimeString = player.getQuest(QUEST_SLOT, 1);
+			if (sessionTimeString != null) {
+				// re-initialize turn notifier if player still has active training session
 				new ArcheryRangeTimerAction().fire(player, null, null);
-				return;
 			}
 		}
-
-		// ensure time remaining value is reset to 0 if session info is not found
-		if (TIME_REMAINING != 0) {
-			logger.debug("Session time remaining was not \"0\" at login. Actual time remaining: " + Integer.toString(TIME_REMAINING));
-		}
-		TIME_REMAINING = 0;
 	}
 
 	/**
@@ -417,15 +429,7 @@ public class ArcheryRange implements ZoneConfigurator,LoginListener,LogoutListen
 	 */
 	@Override
 	public void onLoggedOut(Player player) {
-		final String sessionState = player.getQuest(QUEST_SLOT, 0);
-		if (sessionState != null && sessionState.equals(STATE_ACTIVE)) {
-			// store training session information
-			player.setQuest(QUEST_SLOT, 1, Integer.toString(TIME_REMAINING));
-		}
-
-		/* Stop running notifiers that might be left after the player
-		 * logged out during archery range training session.
-		 */
+		// disable timer/notifier
 		SingletonRepository.getTurnNotifier().dontNotify(new Timer(player));
 	}
 
@@ -433,29 +437,41 @@ public class ArcheryRange implements ZoneConfigurator,LoginListener,LogoutListen
 	 * Teleports player out of archery range training area.
 	 */
 	private void endTrainingSession(final Player player) {
-		if (player.get("zoneid").equals(archeryZone)) {
+		if (player.get("zoneid").equals(archeryZoneID)) {
 			npc.say("Twój trening właśnie się skończył " + player.getName() + ".");
 		}
-		if (player.isInArea(archeryZone, archeryArea)) {
-			player.teleport(archeryZone, 118, 104, null, null);
+		if (player.isInArea(archeryZoneID, archeryArea)) {
+			player.teleport(archeryZoneID, 118, 104, null, null);
 		}
 
 		player.setQuest(QUEST_SLOT, STATE_DONE + ";" + Long.toString(System.currentTimeMillis()));
 	}
 
+	/**
+	 * Retrieves objects used for archery range functions.
+	 */
+	public List<Object> getJunitObjects() {
+		return Arrays.asList(
+				quest,
+				blackboard,
+				COST,
+				TRAIN_TIME);
+	}
 
 	/**
 	 * Notifies player of time remaining for training & ends training session.
 	 */
 	private class Timer implements TurnListener {
-
 		private final WeakReference<Player> timedPlayer;
+		private Integer timeRemaining = 0;
 
 		protected Timer(final Player player) {
 			timedPlayer = new WeakReference<Player>(player);
-			if (TIME_REMAINING == 0) {
-				// beginning a new session
-				TIME_REMAINING = TRAIN_TIME;
+			try {
+				// set player's time remaining from quest slot value
+				timeRemaining = Integer.parseInt(timedPlayer.get().getQuest(QUEST_SLOT, 1));
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
 			}
 		}
 
@@ -464,13 +480,15 @@ public class ArcheryRange implements ZoneConfigurator,LoginListener,LogoutListen
 			final Player playerTemp = timedPlayer.get();
 
 			if (playerTemp != null) {
-				if (TIME_REMAINING > 0) {
+				if (timeRemaining != null && timeRemaining > 0) {
 					// notify players at 10 minute mark & every minute after 5 minute mark
-					if (TIME_REMAINING == 10 * MathHelper.SECONDS_IN_ONE_MINUTE || TIME_REMAINING <= 5 * MathHelper.SECONDS_IN_ONE_MINUTE) {
-						npc.say(playerTemp.getName() + ", pozostało Tobie " + TimeUtil.timeUntil(TIME_REMAINING) + ".");
+					if (timeRemaining == 10 * MathHelper.SECONDS_IN_ONE_MINUTE ||
+							(timeRemaining <= 5 * MathHelper.SECONDS_IN_ONE_MINUTE && timeRemaining % 60 == 0)) {
+						npc.say(playerTemp.getName() + ", pozostało Tobie " + TimeUtil.timeUntil(timeRemaining) + ".");
 					}
-					TIME_REMAINING = TIME_REMAINING - 10 * 6;
-					SingletonRepository.getTurnNotifier().notifyInTurns(10 * 3 * 6, this);
+					// remaining time needs to be updated every second in order to be saved if player logs out
+					timeRemaining = updateTimeRemaining(playerTemp);
+					SingletonRepository.getTurnNotifier().notifyInSeconds(1, this);
 				} else {
 					endTrainingSession(playerTemp);
 				}
@@ -535,9 +553,15 @@ public class ArcheryRange implements ZoneConfigurator,LoginListener,LogoutListen
 	 * Special portal for checking multiple conditions.
 	 */
 	private class ArcheryRangeConditionAndActionPortal extends ConditionAndActionPortal {
-
 		/** messages for different rejection reasons */
-		private final Map<ChatCondition, String> rejections;
+		private final Map<ChatCondition, List<String>> rejections;
+
+		/** message for when player is pushed into training area by another player */
+		private final String pushMessage = "Hej %s! Nie pchaj innych!";
+
+		/** determines if entity was pushed onto portal */
+		private boolean wasPushed = false;
+		private RPEntity pusher = null;
 
 
 		public ArcheryRangeConditionAndActionPortal() {
@@ -546,12 +570,15 @@ public class ArcheryRange implements ZoneConfigurator,LoginListener,LogoutListen
 			rejections = new LinkedHashMap<>();
 			rejections.put(
 					new QuestInStateCondition(QUEST_SLOT, 0, STATE_ACTIVE),
-					"Hej %s! Nie możesz sobie biegać po mojej strzelnicy za darmo.");
+					Arrays.asList("Hej %s! Nie możesz sobie biegać po mojej strzelnicy za darmo.",
+							pushMessage));
 			rejections.put(
-					new NotCondition(new AreaIsFullCondition(archeryZone, archeryArea, MAX_OCCUPANTS)),
-					FULL_MESSAGE);
+					new NotCondition(new AreaIsFullCondition(archeryZoneID, archeryArea, MAX_OCCUPANTS)),
+					Arrays.asList(
+							FULL_MESSAGE,
+							pushMessage));
 
-			setPosition(116, 104);
+			setPosition(PORTAL_POS.x, PORTAL_POS.y);
 			setIgnoreNoDestination(true);
 			setResistance(0);
 			setForceStop(true);
@@ -566,12 +593,19 @@ public class ArcheryRange implements ZoneConfigurator,LoginListener,LogoutListen
 		 */
 		@Override
 		protected boolean isAllowed(final RPEntity user) {
+			int msgIndex = 0;
+			RPEntity msgTarget = user;
+			if (wasPushed && pusher != null) {
+				msgIndex = 1;
+				msgTarget = pusher;
+			}
+
 			final Sentence sentence = ConversationParser.parse(user.get("text"));
 			for (final ChatCondition cond : rejections.keySet()) {
 				if (!cond.fire((Player) user, sentence, this)) {
 					setRejectedAction(new MultipleActions(
-							new TeleportAction(archeryZone, 117, 104, null),
-							new SayTextAction(formatMessage(rejections.get(cond), user))));
+							new TeleportAction(archeryZoneID, 117, 104, null),
+							new SayTextAction(formatMessage(rejections.get(cond).get(msgIndex), msgTarget))));
 					return false;
 				}
 			}
@@ -590,6 +624,26 @@ public class ArcheryRange implements ZoneConfigurator,LoginListener,LogoutListen
 			}
 
 			return res;
+		}
+
+		/**
+		 * Check access for players pushed onto portal.
+		 */
+		@Override
+		public void onPushedOntoFrom(final RPEntity pushed, final RPEntity pusher, final Point prevPos) {
+			wasPushed = true;
+			if (pusher != null) {
+				this.pusher = pusher;
+			}
+
+ 			// check if entity is being pushed from the right
+			if (prevPos.x == getX() + 1) {
+				super.onUsed(pushed);
+			}
+
+ 			// reset pushed status
+			wasPushed = false;
+			this.pusher = null;
 		}
 
 		/**
