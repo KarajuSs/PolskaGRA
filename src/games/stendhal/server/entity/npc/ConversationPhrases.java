@@ -45,9 +45,11 @@ public class ConversationPhrases {
 	public static final List<String> QUEST_MESSAGES = Arrays.asList("task",
 			"quest", "favor", "favour", "zadanie", "misja", "zadanko", "przysługa",
 			"przysługę", "przysluga", "przyslugi", "przysluge", "zadaniem", "zadaniu", "zadania");
+
 	public static final List<String> FINISH_MESSAGES = Arrays.asList("done",
 			"finish", "complete", "zrobione", "skończone", "zakończone", "ukończone", "załatwione");
-	
+	public static final List<String> QUEST_FINISH_MESSAGES = combine(QUEST_MESSAGES, FINISH_MESSAGES);
+
 	public static final List<String> ABORT_MESSAGES = Arrays.asList("another", "abort", "inny", "przerwij");
 
 	public static final List<String> OFFER_MESSAGES = Arrays.asList("offer", "deal", "trade",
@@ -65,7 +67,12 @@ public class ConversationPhrases {
 			"farewell", "cya", "adios", "dowidzenia", "żegnaj", "zegnaj", "bywaj",
 			"nara", "tymczasem", "dobranoc", "na razie", "do jutra");
 
-	public static final List<String> QUEST_FINISH_MESSAGES = combine(QUEST_MESSAGES, FINISH_MESSAGES);
+	public static final List<String> PURCHASE_MESSAGES = Arrays.asList("buy", "purchase", "kup",
+			"kupię", "kupie", "kupno", "kupić", "kupic", "kupować", "kupowac", "zakup",
+			"zakupię", "zakupie", "zakupić", "zakupic");
+
+	public static final List<String> SALES_MESSAGES = Arrays.asList("sell", "sales", "sprzedaż",
+			"sprzedaz", "sprzedam");
 
 	/**
 	 * Combine a string collection (list) with additional strings.

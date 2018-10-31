@@ -12,6 +12,8 @@
  ***************************************************************************/
 package games.stendhal.server.entity.npc.behaviour.adder;
 
+import org.apache.log4j.Logger;
+
 import games.stendhal.common.constants.SoundLayer;
 import games.stendhal.common.grammar.Grammar;
 import games.stendhal.common.grammar.ItemParserResult;
@@ -33,9 +35,6 @@ import games.stendhal.server.entity.npc.fsm.Engine;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.events.SoundEvent;
 
-import org.apache.log4j.Logger;
-import java.util.Arrays;
-
 public class BuyerAdder {
 	private static Logger logger = Logger.getLogger(BuyerAdder.class);
 
@@ -54,32 +53,36 @@ public class BuyerAdder {
 
 		if (offer) {
 			engine.add(
-					ConversationStates.ATTENDING,
-					ConversationPhrases.OFFER_MESSAGES,
-					null,
-					false,
-					ConversationStates.ATTENDING,
-					"Skupuję " + Grammar.enumerateCollectionPlural(buyerBehaviour.dealtItems()) + ".",
-					null);
+				ConversationStates.ATTENDING,
+				ConversationPhrases.OFFER_MESSAGES,
+				null,
+				false,
+				ConversationStates.ATTENDING,
+				"Skupuję " + Grammar.enumerateCollectionPlural(buyerBehaviour.dealtItems()) + ".",
+				null);
 		}
-		engine.add(ConversationStates.ATTENDING, Arrays.asList("sell", "sprzedam"), new SentenceHasErrorCondition(),
-				false, ConversationStates.ATTENDING,
-				null, new ComplainAboutSentenceErrorAction());
+		engine.add(ConversationStates.ATTENDING,
+			ConversationPhrases.SALES_MESSAGES,
+			new SentenceHasErrorCondition(),
+			false, ConversationStates.ATTENDING,
+			null, new ComplainAboutSentenceErrorAction());
 
-		engine.add(ConversationStates.ATTENDING, Arrays.asList("sell", "sprzedam"),
+		engine.add(ConversationStates.ATTENDING,
+			ConversationPhrases.SALES_MESSAGES,
 			new AndCondition(
 					new NotCondition(new SentenceHasErrorCondition()),
 					new NotCondition(buyerBehaviour.getTransactionCondition())),
 			false, ConversationStates.ATTENDING,
 			null, buyerBehaviour.getRejectedTransactionAction());
 
-		engine.add(ConversationStates.ATTENDING, Arrays.asList("sell", "sprzedam"),
+		engine.add(ConversationStates.ATTENDING,
+				ConversationPhrases.SALES_MESSAGES,
 				new AndCondition(
 						new NotCondition(new SentenceHasErrorCondition()),
 						buyerBehaviour.getTransactionCondition()),
 				false, ConversationStates.ATTENDING,
 				null,
-				new BehaviourAction(buyerBehaviour, Arrays.asList("sell", "sprzedam"), "buy") {
+				new BehaviourAction(buyerBehaviour, ConversationPhrases.SALES_MESSAGES, "buy") {
 					@Override
 					public void fireRequestOK(final ItemParserResult res, final Player player, final Sentence sentence, final EventRaiser raiser) {
 						if (player.isBadBoy()) {

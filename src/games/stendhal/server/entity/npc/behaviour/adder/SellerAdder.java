@@ -38,7 +38,6 @@ import games.stendhal.server.entity.npc.fsm.Engine;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.events.SoundEvent;
 
-import java.util.Arrays;
 public class SellerAdder {
 	private static Logger logger = Logger.getLogger(SellerAdder.class);
 
@@ -61,33 +60,37 @@ public class SellerAdder {
 
 		if (offer) {
 			engine.add(
-					ConversationStates.ATTENDING,
-					ConversationPhrases.OFFER_MESSAGES,
-					null,
-					false,
-					ConversationStates.ATTENDING, "Sprzedaję "
-									+ Grammar.enumerateCollection(sellerBehaviour.dealtItems())
-							+ ".", null);
+				ConversationStates.ATTENDING,
+				ConversationPhrases.OFFER_MESSAGES,
+				null, false, ConversationStates.ATTENDING,
+				"Sprzedaję " + Grammar.enumerateCollection(sellerBehaviour.dealtItems()) + ".", null);
 		}
 
-		engine.add(ConversationStates.ATTENDING, Arrays.asList("buy", "kupię"), new SentenceHasErrorCondition(),
+		engine.add(ConversationStates.ATTENDING,
+				ConversationPhrases.PURCHASE_MESSAGES,
+				new SentenceHasErrorCondition(),
 				false, ConversationStates.ATTENDING,
 				null, new ComplainAboutSentenceErrorAction());
 
 		ChatCondition condition = new AndCondition(
 			new NotCondition(new SentenceHasErrorCondition()),
 			new NotCondition(sellerBehaviour.getTransactionCondition()));
-		engine.add(ConversationStates.ATTENDING, Arrays.asList("buy", "kupię"), condition,
-			false, ConversationStates.ATTENDING,
-			null, sellerBehaviour.getRejectedTransactionAction());
+
+		engine.add(ConversationStates.ATTENDING,
+				ConversationPhrases.PURCHASE_MESSAGES,
+				condition, false,
+				ConversationStates.ATTENDING, null,
+				sellerBehaviour.getRejectedTransactionAction());
 
 		condition = new AndCondition(
 			new NotCondition(new SentenceHasErrorCondition()),
 			sellerBehaviour.getTransactionCondition());
 
-		engine.add(ConversationStates.ATTENDING, Arrays.asList("buy", "kupię"), condition, false,
+		engine.add(ConversationStates.ATTENDING,
+				ConversationPhrases.PURCHASE_MESSAGES,
+				condition, false,
 				ConversationStates.ATTENDING, null,
-				new BehaviourAction(sellerBehaviour, Arrays.asList("buy", "kupię"), "sell") {
+				new BehaviourAction(sellerBehaviour, ConversationPhrases.PURCHASE_MESSAGES, "sell") {
 					@Override
 					public void fireRequestOK(final ItemParserResult res, final Player player, final Sentence sentence, final EventRaiser raiser) {
 						String chosenItemName = res.getChosenItemName();
@@ -170,5 +173,4 @@ public class SellerAdder {
 				false, ConversationStates.ATTENDING,
 				"Dobrze w czym jeszcze mogę pomóc?", null);
 	}
-
 }
