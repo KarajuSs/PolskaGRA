@@ -333,6 +333,13 @@ public class Item extends PassiveEntity implements TurnListener, EquipListener,
 	}
 
 	/**
+	 * Retrieves default attack rate for items.
+	 */
+	public static int getDefaultAttackRate() {
+		return DEFAULT_ATTACK_RATE;
+	}
+
+	/**
 	 * Returns turn delay for this item's attack.
 	 *
 	 * @param meleeDistance

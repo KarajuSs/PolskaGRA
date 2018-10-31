@@ -3289,7 +3289,7 @@ public abstract class RPEntity extends GuidedEntity {
 		final List<Item> weapons = getWeapons();
 
 		if (weapons.isEmpty()) {
-			return 5;
+			return Item.getDefaultAttackRate();
 		}
 		int best = weapons.get(0).getAttackRate(meleeDistance);
 		for (final Item weapon : weapons) {
