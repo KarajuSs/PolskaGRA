@@ -12,6 +12,9 @@
  ***************************************************************************/
 package games.stendhal.common;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Constants about slots
  */
@@ -24,6 +27,12 @@ public final class Constants {
 	public static final String[] CARRYING_SLOTS = { "bag", "neck", "head", "cloak",
 			"lhand", "armor", "rhand", "finger", "pas", "legs", "keyring", "back", "belt",
 			"fingerb", "feet", "glove", "money" };
+
+	/**
+	 * Modes that can be used for setting combat karma.
+	 */
+	public final static List<String> KARMA_SETTINGS = Arrays.asList(
+			"nigdy", "normalny", "zawsze");
 
 	public static final String[] CARRYING_SLOTS_BANKS = { "bag", "neck", "head", "cloak",
 			"lhand", "armor", "rhand", "finger", "pas", "legs", "keyring", "back", "belt",
