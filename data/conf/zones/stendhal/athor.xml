@@ -32,9 +32,10 @@
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(rain=-1,fog=+1,temperature=+2)</parameter>
 		</attributes>
-    
+
 		<!-- NPCs -->
-		<configurator class-name="games.stendhal.server.maps.athor.ship.CoastConveyerNPC" />
+		<configurator class-name="games.stendhal.serve
+			<attribute name="move.continuous" />r.maps.athor.ship.CoastConveyerNPC" />
 		<configurator class-name="games.stendhal.server.maps.athor.ship.CaptainNPC" />
 		<configurator class-name="games.stendhal.server.maps.athor.ship.ScubaNPC" />
 
@@ -107,7 +108,7 @@
 			<parameter name="radius">8</parameter>
 		</implementation>
 		</entity>
-		
+
 	</zone>
 
 	<zone name="0_athor_island_w" level="0" x="500896" y="500384" file="Level 0/athor/island_w.tmx">
@@ -160,7 +161,7 @@
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(rain=-2, temperature=+5)</parameter>
 		</attributes>
-    
+
 		<!-- NPCs -->
 		<configurator class-name="games.stendhal.server.maps.athor.holiday_area.TouristFromAdosNPC" />
 		<configurator class-name="games.stendhal.server.maps.athor.holiday_area.HusbandNPC" />
@@ -171,7 +172,7 @@
 		<configurator class-name="games.stendhal.server.maps.athor.holiday_area.SwimmerNPC" />
 		<configurator class-name="games.stendhal.server.maps.athor.holiday_area.FerryConveyerNPC" />
 
-		<!-- portals --> 
+		<!-- portals -->
 		<portal x="57" y="57" ref="apartment_1_entrance">
 			<destination zone="int_athor_apartment_101" ref="out" />
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.HousePortal">
@@ -238,18 +239,22 @@
 
 		<portal x="123" y="15" ref="labyrinth_hut_entrance">
 			<destination zone="int_athor_labyrinth_entrance" ref="out" />
+			<attribute name="move.continuous" />
 		</portal>
 
 		<portal x="16" y="50" ref="cocktail_bar_entrance">
 			<destination zone="int_athor_cocktail_bar" ref="entrance" />
+			<attribute name="move.continuous" />
 		</portal>
 
 		<portal x="87" y="40" ref="dressing_room_m_entrance">
 			<destination zone="int_athor_dressing_room_m" ref="out" />
+			<attribute name="move.continuous" />
 		</portal>
 
 		<portal x="82" y="40" ref="dressing_room_f_entrance">
 			<destination zone="int_athor_dressing_room_f" ref="out" />
+			<attribute name="move.continuous" />
 		</portal>
 
 		<portal x="117" y="95" ref="quicksand_1">
@@ -394,7 +399,7 @@
 			</implementation>
 		</entity>
 
-		<!-- Shop  -->  
+		<!-- Shop  -->
 		<configurator class-name="games.stendhal.server.maps.athor.holiday_area.HotdogLadyNPC" />
 
 		<entity x="34" y="65">
@@ -445,7 +450,7 @@
 			<attribute name="width">2</attribute>
 			<attribute name="height">1</attribute>
 		</entity>
-	
+
 		<!-- Interactive sounds -->
 		<entity x="10" y="9">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.useable.PlaySoundEntity">
@@ -480,7 +485,7 @@
 		<entity x="2" y="8">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.BellSoundSource" />
 		</entity>
-    
+
 		<!-- Clock -->
 		<entity x="2" y="8">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Clock" />
@@ -531,7 +536,7 @@
 			<parameter name="x">13</parameter>
 			<parameter name="y">10</parameter>
 		</configurator>
-    
+
 		<!-- Portals -->
 		<portal x="4" y="14" ref="out">
 			<destination zone="0_athor_island" ref="apartment_2_entrance" />
@@ -623,7 +628,7 @@
 			<parameter name="x">7</parameter>
 			<parameter name="y">2</parameter>
 		</configurator>
-    
+
 		<!-- Portals -->
 		<portal x="4" y="14" ref="out">
 			<destination zone="0_athor_island" ref="apartment_3_entrance" />
@@ -697,7 +702,7 @@
 			<parameter name="x">7</parameter>
 			<parameter name="y">8</parameter>
 		</configurator>
-    
+
 		<!-- Portals -->
 		<portal x="4" y="14" ref="out">
 			<destination zone="0_athor_island" ref="apartment_4_entrance" />
@@ -760,7 +765,7 @@
 			<parameter name="x">2</parameter>
 			<parameter name="y">12</parameter>
 		</configurator>
-    
+
 		<!-- Portals -->
 		<portal x="4" y="14" ref="out">
 			<destination zone="0_athor_island" ref="apartment_5_entrance" />
@@ -846,7 +851,7 @@
 			<parameter name="x">2</parameter>
 			<parameter name="y">10</parameter>
 		</configurator>
-	  
+
 		<!-- Portals -->
 		<portal x="4" y="14" ref="out">
 			<destination zone="0_athor_island" ref="apartment_6_entrance" />
@@ -889,7 +894,7 @@
 			<parameter name="x">12</parameter>
 			<parameter name="y">8</parameter>
 		</configurator>
-    
+
 		<!-- Portals -->
 		<portal x="4" y="14" ref="out">
 			<destination zone="0_athor_island" ref="apartment_7_entrance"/>
@@ -905,7 +910,7 @@
 				<parameter name="volume">80</parameter>
 			</implementation>
 		</entity>
-    
+
 		<!-- Music/Ambiance -->
 		<entity x="3" y="4">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
@@ -996,7 +1001,7 @@
 			<parameter name="x">2</parameter>
 			<parameter name="y">7</parameter>
 		</configurator>
-    
+
 		<!-- Portals -->
 		<portal x="4" y="14" ref="out">
 			<destination zone="0_athor_island" ref="apartment_8_entrance" />
@@ -1047,6 +1052,7 @@
 		<!-- Portals -->
 		<portal x="6" y="14" ref="out">
 			<destination zone="0_athor_island" ref="dressing_room_m_entrance" />
+			<attribute name="move.continuous" />
 		</portal>
 
 	</zone>
@@ -1065,6 +1071,7 @@
 		<!-- Portals -->
 		<portal x="9" y="14" ref="out">
 			<destination zone="0_athor_island" ref="dressing_room_f_entrance"/>
+			<attribute name="move.continuous" />
 		</portal>
 
 	</zone>
@@ -1076,6 +1083,7 @@
 		<!-- Portals -->
 		<portal x="9" y="17" ref="entrance">
 			<destination zone="0_athor_island" ref="cocktail_bar_entrance" />
+			<attribute name="move.continuous" />
 		</portal>
 
 	</zone>
@@ -1084,6 +1092,7 @@
 		<!-- Portals -->
 		<portal x="8" y="14" ref="out">
 			<destination zone="0_athor_island" ref="labyrinth_hut_entrance" />
+			<attribute name="move.continuous" />
 		</portal>
 
 	</zone>
@@ -1115,7 +1124,7 @@
 			<parameter name="color_method">softlight</parameter>
 			<parameter name="color">#0c4774</parameter>
 		</attributes>
-    
+
 		<!-- NPCs -->
 		<configurator class-name="games.stendhal.server.maps.athor.ship.CookNPC"/>
 
@@ -1280,10 +1289,12 @@ Gdy jest remis to dostajesz z powrotem swoją stawkę. Jeżeli wygrasz dostajesz
 		<!-- Portals -->
 		<portal x="1" y="118" ref="labyrinth1">
 			<destination zone="-1_athor_island" ref="labyrinth_locked_door" />
+			<attribute name="move.continuous" />
 		</portal>
 
 		<portal x="1" y="119" ref="labyrinth2">
 			<destination zone="-1_athor_island" ref="labyrinth_locked_door" />
+			<attribute name="move.continuous" />
 		</portal>
 
 	</zone>
@@ -1297,7 +1308,7 @@ Gdy jest remis to dostajesz z powrotem swoją stawkę. Jeżeli wygrasz dostajesz
 			<parameter name="color_method">softlight</parameter>
 			<parameter name="color">#052238</parameter>
 		</attributes>
-    
+
 		<!-- NPCs -->
 		<configurator class-name="games.stendhal.server.maps.athor.ship.CargoWorkerNPC"/>
 
