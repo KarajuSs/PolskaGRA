@@ -48,3 +48,4 @@ build_server_xmlconf
 /*.cert
 /*.csr
 /map.map
+/buildtools/launch4j/polskagra-starter.exe

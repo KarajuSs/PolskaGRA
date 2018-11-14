@@ -650,6 +650,7 @@
 		<zip destfile="${buildroot}/polskagra-${version}.zip">
 			<zipfileset dir="${buildroot}/polskagra-${version}" excludes="polskagra-starter.jar"/>
 			<zipfileset dir="${buildroot}/polskagra-${version}" includes="polskagra-starter.jar" filemode="755"/>
+			<zipfileset dir="buildtools/launch4j" includes="polskagra-starter.exe" filemode="755"/>
 		</zip>
 		<delete dir="${buildroot}/polskagra-${version}"/>
 	</target>
