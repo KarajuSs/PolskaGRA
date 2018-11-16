@@ -34,8 +34,7 @@
 		</attributes>
 
 		<!-- NPCs -->
-		<configurator class-name="games.stendhal.serve
-			<attribute name="move.continuous" />r.maps.athor.ship.CoastConveyerNPC" />
+		<configurator class-name="games.stendhal.server.maps.athor.ship.CoastConveyerNPC" />
 		<configurator class-name="games.stendhal.server.maps.athor.ship.CaptainNPC" />
 		<configurator class-name="games.stendhal.server.maps.athor.ship.ScubaNPC" />
 
