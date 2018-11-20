@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zones xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="stendhal ../../zones.xsd ">
-	<!-- ** Load zones. Written from left to right and from top to bottom. 
+	<!-- ** Load zones. Written from left to right and from top to bottom.
 	  ** Please respect it! -->
 
 	<!-- Ground level -->
@@ -28,7 +28,7 @@
 		<portal x="36" y="31" ref="south_r">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination" />
 		</portal>
-  
+
 	</zone>
 
 	<zone name="0_semos_mountain_n_w4" level="0" x="499616" y="499744"
@@ -37,10 +37,10 @@
 			<parameter name="color_method">time</parameter>
 			<parameter name="weather">varying(temperature=-2,rain=+1)</parameter>
 		</attributes>
-		
+
 		<configurator
 			class-name="games.stendhal.server.maps.semos.mountain.YellowCrystalNPC" />
-		
+
 		<entity x="28" y="27">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.useable.FishSource">
 				<parameter name="species">pstrąg</parameter>
@@ -160,7 +160,7 @@
 	<!-- Interiors in 0_semos_mountain_n2_w -->
 
 	<zone name="int_apothecary_cabin" file="interiors/semos/apothecary_cabin.tmx" accessible="false">
-  
+
 		<!-- Portals -->
 		<!-- add portal at 0_semos_mountain_n2_w to enable this zone
 		<portal x="7" y="19" ref="exit">
@@ -1025,7 +1025,7 @@ Niestety w tym roku nie będę mógł odwiedzić Athor. Miałem małego pecha. M
  			<destination zone="int_semos_wizards_tower_9" ref="portal_from_spire_1" />
 			<attribute name="hidden" />
 		</portal>
-		<!-- <portal x="7" y="28" ref="portal_to_malleus_plain"> <destination 
+		<!-- <portal x="7" y="28" ref="portal_to_malleus_plain"> <destination
 			zone="malleus_plain" ref="portal_to_malleus" /> </portal> -->
 
 		<entity x="9" y="15">
@@ -1135,7 +1135,7 @@ Niestety w tym roku nie będę mógł odwiedzić Athor. Miałem małego pecha. M
 	<!-- Plains of the wizards -->
 	<zone name="malleus_plain" file="interiors/abstract/malleus_plain.tmx"
 		accessible="false">
-		<!-- <portal x="7" y="28" ref="portal_to_malleus"> <destination zone="int_semos_wizards_tower_8" 
+		<!-- <portal x="7" y="28" ref="portal_to_malleus"> <destination zone="int_semos_wizards_tower_8"
 		  ref="portal_to_malleus_plain" /> </portal> -->
 		<portal x="23" y="28" ref="cliff_way">
 			<destination zone="malleus_plain" ref="cliff_way_back" />
@@ -1224,6 +1224,11 @@ Niestety w tym roku nie będę mógł odwiedzić Athor. Miałem małego pecha. M
 			</implementation>
 		</portal>
 
+		<portal x="21" y="80" ref="school_entrance">
+      <destination zone="int_semos_school_0" ref="exit" />
+      <attribute name="move.continuous" />
+    </portal>
+
 		<point-of-interest x="92" y="101">
 			<name>Katakumby Semos</name>
 			<type>dungeon</type>
@@ -1252,7 +1257,7 @@ Niestety w tym roku nie będę mógł odwiedzić Athor. Miałem małego pecha. M
 		<entity x="70" y="50">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign" />
 			<attribute name="text">
-Jeżeli czytasz ten znak to wiedz, że udało mi się odkryć znaczenie tych kwiatków... 
+Jeżeli czytasz ten znak to wiedz, że udało mi się odkryć znaczenie tych kwiatków...
 
 Jeżeli sadzisz kwiatek to nie sadzisz go dla samego siebie. Sadzisz go jako prezent dla kogoś innego. Ludzie, którzy mówią "To mój kwiatek i nikt inny nie powinien go zerwać!" zostaną rozczarowani... To trudne zebrać swoje własne kwiatki. Powinieneś zrobić prezent innemu wojownikowi sadząc kwiatek, a innego dnia dostaniesz nagrodę znajdując kwiatek, który ktoś inny posadził jako prezent dla innych. :)
 
@@ -1284,6 +1289,19 @@ Południe: Miasto Semos
 		</entity>
 
 	</zone>
+
+	<zone name="int_semos_school_0" file="interiors/semos/school_0.tmx">
+		<portal x="20" y="38" ref="exit">
+      <destination zone="0_semos_plains_n" ref="school_entrance" />
+        <attribute name="move.continuous" />
+    </portal>
+
+    <!-- sign indicating other floors are not accessible -->
+    <entity x="20" y="4">
+      <implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign" />
+      <attribute name="text">Z powodu remontu powyższe piętra szkoły są niedostępne.</attribute>
+    </entity>
+  </zone>
 
 	<zone name="0_semos_plains_ne" level="0" x="500128" y="499872"
 		file="Level 0/semos/plains_ne.tmx">
@@ -1471,8 +1489,8 @@ Oszuści wśród prostaków wolą nacisnąć na potworze. To też działa!
 			</implementation>
 		</entity>
 
-		<!-- <entity x="1" y="1"> <implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource"> 
-			<parameter name="sound">wind-2</parameter> <parameter name="volume">5</parameter> 
+		<!-- <entity x="1" y="1"> <implementation class-name="games.stendhal.server.entity.mapstuff.sound.LoopedAmbientSoundSource">
+			<parameter name="sound">wind-2</parameter> <parameter name="volume">5</parameter>
 			</implementation> </entity> -->
 		<entity x="13" y="42">
 			<implementation
@@ -1575,7 +1593,7 @@ Potrzebna dojrzała owca: Proszę rozmawiać z Sato.
 		</configurator>
 		<configurator
 			class-name="games.stendhal.server.entity.mapstuff.block.BlockZoneConfigurator"
-			condition="stendhal.testserver"> 
+			condition="stendhal.testserver">
 			<parameter name="start-x">44</parameter>
 			<parameter name="start-y">53</parameter>
 			<parameter name="multi">true</parameter>
@@ -1918,7 +1936,7 @@ Południe: Las Nalwor i zamek Or'ril
 			<attribute name="class">transparent</attribute>
 			<attribute name="width">3</attribute>
 			<attribute name="height">2</attribute>
-		</entity> 
+		</entity>
 
 		<!-- wishing well outside Bank -->
 		<entity x="15" y="29">
@@ -1958,9 +1976,9 @@ Uwaga: W tych podziemiach znajduje się sporo szczurów i inne niebezpieczne pot
 
 
 		<!-- TEST - Make the bird statue in semos a semi-safe zone -->
-		<!-- <entity x="26" y="40"> <implementation class-name="games.stendhal.server.entity.mapstuff.area.CreatureProtectionArea"> 
-			<parameter name="width">6</parameter> <parameter name="height">6</parameter> 
-			<parameter name="default">block</parameter> <parameter name="rules"> -animal:wolf 
+		<!-- <entity x="26" y="40"> <implementation class-name="games.stendhal.server.entity.mapstuff.area.CreatureProtectionArea">
+			<parameter name="width">6</parameter> <parameter name="height">6</parameter>
+			<parameter name="default">block</parameter> <parameter name="rules"> -animal:wolf
 			+animal:* -*:lich,*:ghost +undead:* </parameter> </implementation> </entity> -->
 
 		<entity x="45" y="55">
@@ -1985,7 +2003,7 @@ Uwaga: W tych podziemiach znajduje się sporo szczurów i inne niebezpieczne pot
 		<entity x="42" y="35">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.sign.Description" />
-			<attribute name="text">Czytasz: "Tawerna w Starym Semos" 
+			<attribute name="text">Czytasz: "Tawerna w Starym Semos"
 Brzmi jak bardzo dobre miejsce do spotkania interesujących ludzi i spędzenia miłego wieczoru razem.</attribute>
 			<attribute name="width">1</attribute>
 			<attribute name="height">1</attribute>
@@ -2054,7 +2072,7 @@ Ahh jak miło, już czujesz ten zapach,a pod spodem widnieje dopisek: "Nowe! Pys
 			class-name="games.stendhal.server.maps.semos.tavern.DiceDealerNPC" />
 		<configurator
 			class-name="games.stendhal.server.maps.semos.tavern.market.TradeCenterZoneConfigurator" />
-		<configurator 
+		<configurator
 			class-name="games.stendhal.server.maps.semos.tavern.JuhasNPC"/>
 
 		<entity x="1" y="1" condition="!stendhal.christmas">
@@ -2120,10 +2138,10 @@ Ahh jak miło, już czujesz ten zapach,a pod spodem widnieje dopisek: "Nowe! Pys
 			<attribute name="height">4</attribute>
 		</entity>
 
-		<!-- Sign for the Trading Center <entity x="11" y="17"> <implementation 
-			class-name="games.stendhal.server.entity.mapstuff.sign.TradeCenterSign"> 
-			<parameter name="shop">tradeswords</parameter> <parameter name="title">Trading 
-			- swords</parameter> </implementation> <attribute name="class">blackboard</attribute> 
+		<!-- Sign for the Trading Center <entity x="11" y="17"> <implementation
+			class-name="games.stendhal.server.entity.mapstuff.sign.TradeCenterSign">
+			<parameter name="shop">tradeswords</parameter> <parameter name="title">Trading
+			- swords</parameter> </implementation> <attribute name="class">blackboard</attribute>
 		</entity> -->
 
 		<entity x="2" y="11">
@@ -2565,7 +2583,7 @@ Poszukiwacze przygód opisali mi skutki trucizn potworów i grzybów. Są nie ty
 		<attributes>
 			<parameter name="file" condition="stendhal.christmas">interiors/semos/bank_xmas.tmx</parameter>
 		</attributes>
-		<!-- to disallow making or using marked scrolls for getting to trading 
+		<!-- to disallow making or using marked scrolls for getting to trading
 		  table area -->
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn" />
 		<configurator
@@ -2593,7 +2611,7 @@ Poszukiwacze przygód opisali mi skutki trucizn potworów i grzybów. Są nie ty
        <attribute name="class">transparent</attribute>
        <attribute name="width">1</attribute>
        <attribute name="height">1</attribute>
-    </entity> 
+    </entity>
 
        <entity x="21" y="18">
 			<implementation
@@ -2603,7 +2621,7 @@ Poszukiwacze przygód opisali mi skutki trucizn potworów i grzybów. Są nie ty
        <attribute name="width">1</attribute>
        <attribute name="height">1</attribute>
     </entity>
-    
+
         <entity x="22" y="18">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.sign.Description" />
@@ -2612,7 +2630,7 @@ Poszukiwacze przygód opisali mi skutki trucizn potworów i grzybów. Są nie ty
        <attribute name="width">1</attribute>
        <attribute name="height">1</attribute>
     </entity>
-    
+
         <entity x="23" y="18">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.sign.Description" />
@@ -2621,7 +2639,7 @@ Poszukiwacze przygód opisali mi skutki trucizn potworów i grzybów. Są nie ty
        <attribute name="width">1</attribute>
        <attribute name="height">1</attribute>
     </entity>
-    
+
         <entity x="24" y="18">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.sign.Description" />
@@ -2630,7 +2648,7 @@ Poszukiwacze przygód opisali mi skutki trucizn potworów i grzybów. Są nie ty
        <attribute name="width">1</attribute>
        <attribute name="height">1</attribute>
     </entity>
-    
+
         <entity x="20" y="19">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.sign.Description" />
@@ -2638,7 +2656,7 @@ Poszukiwacze przygód opisali mi skutki trucizn potworów i grzybów. Są nie ty
        <attribute name="class">transparent</attribute>
        <attribute name="width">1</attribute>
        <attribute name="height">1</attribute>
-    </entity> 
+    </entity>
 
        <entity x="21" y="19">
 			<implementation
@@ -2648,7 +2666,7 @@ Poszukiwacze przygód opisali mi skutki trucizn potworów i grzybów. Są nie ty
        <attribute name="width">1</attribute>
        <attribute name="height">1</attribute>
     </entity>
-    
+
         <entity x="22" y="19">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.sign.Description" />
@@ -2657,7 +2675,7 @@ Poszukiwacze przygód opisali mi skutki trucizn potworów i grzybów. Są nie ty
        <attribute name="width">1</attribute>
        <attribute name="height">1</attribute>
     </entity>
-    
+
         <entity x="23" y="19">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.sign.Description" />
@@ -2666,7 +2684,7 @@ Poszukiwacze przygód opisali mi skutki trucizn potworów i grzybów. Są nie ty
        <attribute name="width">1</attribute>
        <attribute name="height">1</attribute>
     </entity>
-    
+
         <entity x="24" y="19">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.sign.Description" />
@@ -2675,7 +2693,7 @@ Poszukiwacze przygód opisali mi skutki trucizn potworów i grzybów. Są nie ty
        <attribute name="width">1</attribute>
        <attribute name="height">1</attribute>
     </entity>
-    
+
         <entity x="20" y="20">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.sign.Description" />
@@ -2684,7 +2702,7 @@ Poszukiwacze przygód opisali mi skutki trucizn potworów i grzybów. Są nie ty
        <attribute name="width">1</attribute>
        <attribute name="height">1</attribute>
     </entity>
-    
+
         <entity x="21" y="20">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.sign.Description" />
@@ -2693,7 +2711,7 @@ Poszukiwacze przygód opisali mi skutki trucizn potworów i grzybów. Są nie ty
        <attribute name="width">1</attribute>
        <attribute name="height">1</attribute>
     </entity>
-   
+
     <entity x="22" y="20">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.sign.Description" />
@@ -2711,7 +2729,7 @@ Poszukiwacze przygód opisali mi skutki trucizn potworów i grzybów. Są nie ty
        <attribute name="width">1</attribute>
        <attribute name="height">1</attribute>
     </entity>
-    
+
         <entity x="24" y="20">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.sign.Description" />
@@ -2720,7 +2738,7 @@ Poszukiwacze przygód opisali mi skutki trucizn potworów i grzybów. Są nie ty
        <attribute name="width">1</attribute>
        <attribute name="height">1</attribute>
     </entity>
-    
+
 		<entity x="2" y="2">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.chest.PersonalChest" />
@@ -3144,7 +3162,7 @@ Wschód: Miasto Ados
 			<destination zone="0_semos_road_e" ref="pad_entrance" />
 			<attribute name="move.continuous" />
 		</portal>
-		            
+
 	</zone>
 
 	<zone name="0_semos_road_se" level="0" x="500128" y="500064"
@@ -3185,7 +3203,7 @@ Wschód: Miasto Ados
 				<parameter name="radius">30</parameter>
 			</implementation>
 		</entity>
-		
+
 		<portal x="74" y="28" ref="dream_exit1">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.portal.OneWayPortalDestination" />
@@ -3411,25 +3429,25 @@ Południowy-Zachód: Zamek Or'ril i Miasto Fado
 		file="Level -1/semos/mine_n2.tmx">
 
 		<configurator
-			class-name="games.stendhal.server.entity.mapstuff.block.BlockZoneConfigurator"> 
+			class-name="games.stendhal.server.entity.mapstuff.block.BlockZoneConfigurator">
 			<parameter name="start-x">121</parameter>
 			<parameter name="start-y">23</parameter>
 		</configurator>
 
 		<configurator
-			class-name="games.stendhal.server.entity.mapstuff.block.BlockZoneConfigurator"> 
+			class-name="games.stendhal.server.entity.mapstuff.block.BlockZoneConfigurator">
 			<parameter name="start-x">122</parameter>
 			<parameter name="start-y">25</parameter>
 		</configurator>
 
 		<configurator
-			class-name="games.stendhal.server.entity.mapstuff.block.BlockZoneConfigurator"> 
+			class-name="games.stendhal.server.entity.mapstuff.block.BlockZoneConfigurator">
 			<parameter name="start-x">123</parameter>
 			<parameter name="start-y">26</parameter>
 		</configurator>
 
 		<configurator
-			class-name="games.stendhal.server.entity.mapstuff.block.BlockZoneConfigurator"> 
+			class-name="games.stendhal.server.entity.mapstuff.block.BlockZoneConfigurator">
 			<parameter name="start-x">126</parameter>
 			<parameter name="start-y">28</parameter>
 		</configurator>
@@ -3467,57 +3485,57 @@ Południowy-Zachód: Zamek Or'ril i Miasto Fado
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-		
+
 		<entity x="73" y="38">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-		
+
 		<entity x="77" y="40">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-		
+
 		<entity x="56" y="22">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-		
+
 		<entity x="23" y="1">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-		
+
 		<entity x="18" y="72">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-		
+
 		<entity x="21" y="74">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-		
+
 		<entity x="79" y="4">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-		
+
 		<entity x="67" y="9">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-		
+
 		<entity x="60" y="22">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-		
+
 		<entity x="42" y="5">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-			
+
 	</zone>
 
 	<zone name="-1_semos_mine_ne" level="-1" x="500128" y="499744"
@@ -3527,37 +3545,37 @@ Południowy-Zachód: Zamek Or'ril i Miasto Fado
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-		
+
 		<entity x="75" y="111">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-		
+
 		<entity x="84" y="107">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-		
+
 		<entity x="35" y="94">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-		
+
 		<entity x="39" y="92">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-		
+
 		<entity x="101" y="106">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-		
+
 		<entity x="121" y="47">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-		
+
 		<entity x="113" y="88">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
@@ -3566,37 +3584,37 @@ Południowy-Zachód: Zamek Or'ril i Miasto Fado
 
 	<zone name="-1_semos_mine_n_e2" level="-1" x="500256" y="499744"
 		file="Level -1/semos/mine_n_e2.tmx">
-		
+
 		<entity x="56" y="49">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-		
+
 		<entity x="64" y="48">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-		
+
 		<entity x="102" y="21">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-		
+
 		<entity x="90" y="48">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-		
+
 		<entity x="101" y="50">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-		
+
 		<entity x="116" y="72">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
 		</entity>
-		
+
 		<entity x="95" y="21">
 			<implementation
 				class-name="games.stendhal.server.entity.mapstuff.useable.CoalSource" />
@@ -4366,7 +4384,7 @@ Południowy-Zachód: Zamek Or'ril i Miasto Fado
 		</entity>
 
 		<entity x="60" y="61">
-			<!-- all dialogs for this NPC are quest-related, so we don't need a 
+			<!-- all dialogs for this NPC are quest-related, so we don't need a
 			  special SpeakerNPC factory for him. -->
 			<implementation class-name="games.stendhal.server.entity.npc.SpeakerNPC">
 				<parameter name="name">Markovich</parameter>
@@ -4428,7 +4446,7 @@ Południowy-Zachód: Zamek Or'ril i Miasto Fado
 
 	<!-- Level -7 -->
 
-	<!-- If we call it _jail, players can't move items around in it for security 
+	<!-- If we call it _jail, players can't move items around in it for security
 	  reasons. This issue is fixed now. -->
 	<zone name="-7_kanmararn_prison" level="-7" x="500160" y="500064"
 		file="Level -7/kanmararn/jail.tmx">
@@ -4518,7 +4536,7 @@ Południowy-Zachód: Zamek Or'ril i Miasto Fado
 		  </implementation>
 		</entity>
 
-		<!-- Don't allow teleporting in as we don't want marked scrolls made 
+		<!-- Don't allow teleporting in as we don't want marked scrolls made
 		  or ring abused -->
 		<configurator class-name="games.stendhal.server.core.config.zone.NoTeleportIn" />
 		<portal x="43" y="49" ref="exit1">

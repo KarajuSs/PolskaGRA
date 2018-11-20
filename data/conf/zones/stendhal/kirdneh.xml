@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zones xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="stendhal ../../zones.xsd ">
-	<!-- ** Load zones. Written from left to right and from top to bottom. 
+	<!-- ** Load zones. Written from left to right and from top to bottom.
 	  ** Please respect it! -->
 
 	<!-- Level 6 -->
@@ -62,9 +62,11 @@
 		</portal>
 		<portal x="9" y="92" ref="tavern_left">
 			<destination zone="int_kirdneh_inn" ref="entrance_left" />
+			<attribute name="move.continuous" />
 		</portal>
 		<portal x="10" y="92" ref="tavern">
 			<destination zone="int_kirdneh_inn" ref="entrance" />
+			<attribute name="move.continuous" />
 		</portal>
 		<portal x="48" y="7" ref="pool">
 			<implementation
@@ -72,6 +74,7 @@
 		</portal>
 		<portal x="77" y="58" ref="townhall">
 			<destination zone="int_kirdneh_townhall" ref="entrance" />
+			<attribute name="move.continuous" />
 		</portal>
 		<entity x="20" y="57">
 			<implementation
@@ -297,12 +300,15 @@
 		</portal>
 		<portal x="116" y="81" ref="museum1">
 			<destination zone="int_kirdneh_museum" ref="entrance1" />
+			<attribute name="move.continuous" />
 		</portal>
 		<portal x="116" y="82" ref="museum2">
 			<destination zone="int_kirdneh_museum" ref="entrance2" />
+			<attribute name="move.continuous" />
 		</portal>
 		<portal x="119" y="37" ref="bank">
 			<destination zone="int_kirdneh_bank" ref="entrance" />
+			<attribute name="move.continuous" />
 		</portal>
 
 		<point-of-interest x="119" y="37">
@@ -353,7 +359,7 @@
 			<parameter name="x">15</parameter>
 			<parameter name="y">13</parameter>
 		</configurator>
-    
+
 		<!-- Planter box -->
 		<configurator class-name="games.stendhal.server.maps.semos.city.FertileGrounds">
 			<parameter name="x">37</parameter>
@@ -685,7 +691,7 @@
 		<portal x="19" y="23" ref="entrance">
 			<destination zone="0_kirdneh_city" ref="35" />
 		</portal>
-  
+
 		<!-- flushing toilet -->
 		<entity x="37" y="1">
 			<implementation
@@ -695,7 +701,7 @@
 			</implementation>
 			<attribute name="description">Oto toaleta.</attribute>
 		</entity>
-        
+
 		<!-- faucet running water -->
 		<entity x="35" y="1">
 			<implementation
@@ -1655,21 +1661,26 @@
 		<configurator class-name="games.stendhal.server.maps.kirdneh.inn.ItemsOnTable" />
 		<portal x="17" y="23" ref="entrance_left">
 			<destination zone="0_kirdneh_city" ref="tavern_left" />
+			<attribute name="move.continuous" />
 		</portal>
 		<portal x="18" y="23" ref="entrance">
 			<destination zone="0_kirdneh_city" ref="tavern" />
+			<attribute name="move.continuous" />
 		</portal>
 	</zone>
 
 	<zone name="int_kirdneh_townhall" file="interiors/kirdneh/townhall.tmx">
 		<portal x="19" y="23" ref="entrance">
 			<destination zone="0_kirdneh_city" ref="townhall" />
+			<attribute name="move.continuous" />
 		</portal>
 		<portal x="18" y="3" ref="upstair_left">
 			<destination zone="int_kirdneh_townhall1" ref="downstair_left" />
+			<attribute name="move.continuous" />
 		</portal>
 		<portal x="19" y="3" ref="upstair_right">
 			<destination zone="int_kirdneh_townhall1" ref="downstair_right" />
+			<attribute name="move.continuous" />
 		</portal>
 	</zone>
 
@@ -1688,9 +1699,11 @@
 		</entity>
 		<portal x="18" y="4" ref="downstair_left">
 			<destination zone="int_kirdneh_townhall" ref="upstair_left" />
+			<attribute name="move.continuous" />
 		</portal>
 		<portal x="19" y="4" ref="downstair_right">
 			<destination zone="int_kirdneh_townhall" ref="upstair_right" />
+			<attribute name="move.continuous" />
 		</portal>
 	</zone>
 
@@ -1716,15 +1729,18 @@
 		</entity>
 		<portal x="1" y="24" ref="entrance1">
 			<destination zone="0_kirdneh_city" ref="museum1" />
+			<attribute name="move.continuous" />
 		</portal>
 		<portal x="1" y="25" ref="entrance2">
 			<destination zone="0_kirdneh_city" ref="museum2" />
+			<attribute name="move.continuous" />
 		</portal>
 	</zone>
 
 	<zone name="int_kirdneh_bank" file="interiors/kirdneh/bank.tmx">
 		<portal x="1" y="18" ref="entrance">
 			<destination zone="0_kirdneh_city" ref="bank" />
+			<attribute name="move.continuous" />
 		</portal>
 		<entity x="3" y="9">
 			<implementation class-name="games.stendhal.server.entity.mapstuff.sign.Sign" />
@@ -1789,9 +1805,11 @@
 
 		<portal x="50" y="108" ref="river_house">
 			<destination zone="int_kirdneh_river_house_0" ref="entrance" />
+			<attribute name="move.continuous" />
 		</portal>
 		<portal x="51" y="108" ref="river_house_right">
 			<destination zone="int_kirdneh_river_house_0" ref="entrance" />
+			<attribute name="move.continuous" />
 		</portal>
 	</zone>
 
@@ -1802,7 +1820,7 @@
 		<portal x="22" y="2" ref="downstair">
 			<destination zone="-1_fado_great_cave_n_e2" ref="kirdneh_house" />
 		</portal>
-   
+
 		<point-of-interest x="22" y="2">
 			<name>Małe Podziemia Kirdneh Wejście w Domku</name>
 			<title>Małe Podziemia Kirdneh</title>
@@ -1813,15 +1831,18 @@
 
 		<portal x="15" y="30" ref="entrance">
 			<destination zone="0_kirdneh_river_w" ref="river_house" />
+			<attribute name="move.continuous" />
 		</portal>
 		<portal x="20" y="17" ref="upstair">
 			<destination zone="int_kirdneh_river_house_1" ref="downstair" />
+			<attribute name="move.continuous" />
 		</portal>
 	</zone>
 
 	<zone name="int_kirdneh_river_house_1" file="interiors/kirdneh/river_house_1.tmx">
 		<portal x="12" y="7" ref="downstair">
 			<destination zone="int_kirdneh_river_house_0" ref="upstair" />
+			<attribute name="move.continuous" />
 		</portal>
 	</zone>
 
