@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="1">
+ <tileset firstgid="1" name="collision" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="2" name="dojo_walls" tilewidth="32" tileheight="32" tilecount="160" columns="10">
+  <image source="../../tileset/building/wall/dojo_walls.png" width="320" height="512"/>
+ </tileset>
+ <tileset firstgid="162" name="floor_tiles" tilewidth="32" tileheight="32" tilecount="9" columns="3">
+  <image source="../../tileset/ground/indoor/floor_tiles.png" width="96" height="96"/>
+ </tileset>
+ <tileset firstgid="171" name="dojo_entrances" tilewidth="32" tileheight="32" tilecount="72" columns="12">
+  <image source="../../tileset/building/entrance/dojo_entrances.png" width="384" height="192"/>
+ </tileset>
+ <tileset firstgid="243" name="portal" tilewidth="32" tileheight="32" tilecount="16" columns="8">
+  <image source="../../tileset/logic/portal.png" width="256" height="64"/>
+ </tileset>
+ <tileset firstgid="259" name="double_pink_roses" tilewidth="32" tileheight="32" tilecount="18" columns="6">
+  <image source="../../tileset/furniture/bed/double_pink_roses.png" width="192" height="96"/>
+ </tileset>
+ <tileset firstgid="277" name="sofa_chair_pink" tilewidth="32" tileheight="32" tilecount="12" columns="3">
+  <image source="../../tileset/furniture/chair/sofa_chair_pink.png" width="96" height="128"/>
+ </tileset>
+ <tileset firstgid="289" name="greenish_grey" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../../tileset/furniture/chair/greenish_grey.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="293" name="desk" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../../tileset/furniture/table/desk.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="297" name="grey_plain" tilewidth="32" tileheight="32" tilecount="9" columns="3">
+  <image source="../../tileset/furniture/table/grey_plain.png" width="96" height="96"/>
+ </tileset>
+ <tileset firstgid="306" name="concrete_table" tilewidth="32" tileheight="32" tilecount="9" columns="3">
+  <image source="../../tileset/furniture/table/concrete_table.png" width="96" height="96"/>
+ </tileset>
+ <tileset firstgid="315" name="warmer" tilewidth="32" tileheight="32" tilecount="2" columns="1">
+  <image source="../../tileset/furniture/kitchen/warmer.png" width="32" height="64"/>
+ </tileset>
+ <tileset firstgid="317" name="cabinets" tilewidth="32" tileheight="32" tilecount="44" columns="4">
+  <image source="../../tileset/furniture/kitchen/cabinets.png" width="128" height="352"/>
+ </tileset>
+ <tileset firstgid="361" name="warmer_2" tilewidth="32" tileheight="32" tilecount="6" columns="2">
+  <image source="../../tileset/furniture/kitchen/warmer_2.png" width="64" height="96"/>
+ </tileset>
+ <tileset firstgid="367" name="item_shelf" tilewidth="32" tileheight="32" tilecount="6" columns="2">
+  <image source="../../tileset/furniture/shelve/item_shelf.png" width="64" height="96"/>
+ </tileset>
+ <tileset firstgid="373" name="shelf_3" tilewidth="32" tileheight="32" tilecount="10" columns="2">
+  <image source="../../tileset/furniture/shelve/shelf_3.png" width="64" height="160"/>
+ </tileset>
+ <tileset firstgid="383" name="spruce_xmas" tilewidth="32" tileheight="32" tilecount="6" columns="2">
+  <image source="../../tileset/plant/tree/spruce_xmas.png" width="64" height="96"/>
+ </tileset>
+ <tileset firstgid="389" name="oriental_plant" tilewidth="32" tileheight="32" tilecount="2" columns="1">
+  <image source="../../tileset/plant/indoor/oriental_plant.png" width="32" height="64"/>
+ </tileset>
+ <tileset firstgid="391" name="xmas_lights" tilewidth="32" tileheight="32" tilecount="20" columns="4">
+  <image source="../../tileset/furniture/light/xmas_lights.png" width="128" height="160"/>
+ </tileset>
+ <layer id="1" name="0_floor" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNiYGBgBmJOKmBuIOYBYl4gFqYQiwCxKBB7ALEnEC+nEAcAcSCZ5i1BwtQwj9ruo6d5QUAcDMSRePABEsyLAeJYIE7Gg8+QYB4TA+H0fJ4E84hJz7eHUfwim7cEBx41j37mEcpvN6Dqb+FRA8JRDMTltydQ857hUQPCKUCcCsQAlnotQ0AGAAA=
+  </data>
+ </layer>
+ <layer id="2" name="1_terrain" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACr2TyU4CURBF3wvuNIGNOCDgBM4CCwVxiiIOMS70LxxwIyiysR3iP/oB/odnUR2Stp953TZdyUkVlXtvhRdQyq6utVI3cAXHWjmXMoNzof09CfZDUNT92a1b5jvYhSbswYn0fUPeMPsRWND92a0W8z0cwBkcwrn0hiEvyT6lf89x19E/727g34Sqjiavhn8L6hHlees0pnfucOfRc+uFz07I+0/4uuLdlv5KfwuZ94yvJ94d6e/0D0PeA/t2RG83a5kzii4NBRgzeJbYL8OKReY4mgn5D0/66GfYrcIarMOcIfMzwDuU0JahYuHJoJmCRcj+oZ+3vJ9Dl5fvOz2g3/1XxHnfAbQ/VgesjkAGAAA=
+  </data>
+ </layer>
+ <layer id="3" name="2_object" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwCkgHADV9EcVABgAA
+  </data>
+ </layer>
+ <layer id="4" name="3_roof" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGDqAl5GBgY8Rk01v4EChvUZA/cZAbDJA7h8F2EE+MD4KqBgnhUCzikbjGAxaR8NhWAIAlXhxqkAGAAA=
+  </data>
+ </layer>
+ <layer id="5" name="4_roof_add" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYOSAdkYGhi5G6pnXDzSrj4rmTQaaNY2K5o2CUUBLAABngqILQAYAAA==
+  </data>
+ </layer>
+ <layer id="6" name="objects" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwVMHPAbQbAMfKvNFABgAA
+  </data>
+ </layer>
+ <layer id="7" name="collision" width="20" height="20" opacity="0.43">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNkYGBgHAKYECCkDpt5uNjE2kWK+2hpHi5/0dI8SuKLlvE/VMxjwMJGF8NlBi7zKAG4zCPGHnL1EeMWXOZRO89hk6eGeeS6mdS0R06eogYGACIXSLtABgAA
+  </data>
+ </layer>
+ <layer id="8" name="protection" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwCkgHADV9EcVABgAA
+  </data>
+ </layer>
+</map>
