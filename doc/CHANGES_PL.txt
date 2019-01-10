@@ -17,19 +17,29 @@
 - Dodano wsparcie dla większej ilości entities (łowienie ryb, wydobywanie węgla, studnia życzeń, mini-gierki)
 - Dodano wsparcie dla eventowych map typu: halloween/easter/xmas
 - Dodano nową warstwę szczegółów (np. balon)
+- Dodano kilka nowych komend (/help, /atlas, /characterselector)
+- Dodano wsparcie umożliwiające zmiany koloru własnego wyglądu
 - Naprawiono uszkodzone menu na pustej liście znajomych
 - Zaimplementowano możliwość zmiany outfitu gracza
 
 *code*
 - Dodano nową warstwę nazwaną flyoverarea, tzn. że przez tą warstwę można strzelać strzałami/magią itp.., lecz nie można przez nią przejść oraz jest ona oznaczona kolorem pomarańczowym na minimapie
+- Dodano nową funkcję oraz komendę dla administratora (ListZones)
+- Skrócono większość kodów JAVA + zwiększono kompatybilność serwera
 
 *serwer*
 - Zaktualizowano zabezpieczenia marauroa
+- Dodano auto-ban, który blokuje postacie wykorzystujące błąd z kopiowaniem przedmiotów
+- Zaktualizowano plik mysql-connector-java
 
 *naprawa błędów*
 - Naprawiono skalowanie ekranu gry
 - Naprawiono pasek życia podczas skalowania ekranu gry
 - Naprawiono kozę
+- Naprawiono błędy w logach serwera po wylogowaniu się postaci
+- Naprawiono plik AreaIsFull
+- Naprawiono strzelnicę
+- Naprawiono funkcję niszczących się broni
 
 
 
