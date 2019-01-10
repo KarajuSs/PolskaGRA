@@ -169,3 +169,14 @@ span.loga {color: #D40000;text-decoration: underline}
 	background: #FFF;
 	text-align: center;
 }
+
+.horizontalgroup {
+	display: flex;
+	align-items: center;
+}
+
+.verticalgroup {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}

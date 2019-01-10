@@ -27,6 +27,21 @@ stendhal.data.sprites = {
 		return temp;
 	},
 
+	getWithPromise: function(filename) {
+		return new Promise((resolve) => {
+			if (typeof(this[filename]) != "undefined") {
+				this[filename].counter++;
+				resolve(this[filename]);
+			}
+
+			const image = new Image();
+			image.counter = 0;
+			this[filename] = image;
+			image.onload = () => resolve(image);
+			image.src = filename;
+		});
+	},
+
 	/** deletes all objects that have not been accessed since this method was called last time */
 	// TODO: call clean on map change
 	clean: function() {
@@ -79,29 +94,31 @@ stendhal.data.sprites = {
 	 * @param {number=} param
 	 */
 	getFiltered: function(fileName, filter, param) {
-		var img = this.get(fileName);
-		var filterFn;
-		if (typeof(filter) === "undefined"
-			|| !(filterFn = stendhal.data.sprites.filter[filter])
-			|| img.width === 0 || img.height === 0) {
-			return img;
-		}
-		var filteredName = fileName + " " + filter + " " + param;
-		var filtered = this[filteredName];
-		if (typeof(filtered) === "undefined") {
-			var canvas = document.createElement("canvas");
-			canvas.width  = img.width;
-			canvas.height = img.height;
-			var ctx = canvas.getContext("2d");
-			ctx.drawImage(img, 0, 0);
-			var imgData = ctx.getImageData(0, 0, img.width, img.height);
-			var data = imgData.data;
-			filterFn(data, param);
-			ctx.putImageData(imgData, 0, 0);
-			this[filteredName] = filtered = canvas;
-		}
-		
-		return filtered;
+		const imgPromise = this.getWithPromise(fileName);
+		return imgPromise.then(function (img) {
+			let filterFn;
+			if (typeof(filter) === "undefined"
+				|| !(filterFn = stendhal.data.sprites.filter[filter])
+				|| img.width === 0 || img.height === 0) {
+				return img;
+			}
+			const filteredName = fileName + " " + filter + " " + param;
+			let filtered = this[filteredName];
+			if (typeof(filtered) === "undefined") {
+				const canvas = document.createElement("canvas");
+				canvas.width  = img.width;
+				canvas.height = img.height;
+				const ctx = canvas.getContext("2d");
+				ctx.drawImage(img, 0, 0);
+				const imgData = ctx.getImageData(0, 0, img.width, img.height);
+				const data = imgData.data;
+				filterFn(data, param);
+				ctx.putImageData(imgData, 0, 0);
+				this[filteredName] = filtered = canvas;
+			}
+
+			return filtered;
+		});
 	},
 	
 	/** Image filters */
@@ -119,7 +136,13 @@ stendhal.data.sprites = {
 			rgb >>>= 8;
 			return [rgb, g, b];
 		},
-		
+
+		mergergb: function(rgbArray) {
+			const r = rgbArray[0] << 16;
+			const g = rgbArray[1] << 8;
+			return 0xffffff & (r | g | rgbArray[2]);
+		},
+
 		/**
 		 * @param {Array<Number>} rgb
 		 * @return {Array<Number>}
