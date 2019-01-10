@@ -1,53 +1,33 @@
-[![Stendhal Tower](https://arianne-project.org/screens/stendhal/THM_MagicTower98small.jpeg)](https://arianne-project.org/screens/stendhal/MagicTower98.jpg)
-[![Achievements](https://arianne-project.org/screens/stendhal/THM_Achievement_Stendhal98.jpg)](https://arianne-project.org/screens/stendhal/Achievement_Stendhal98.jpg)
-[![Party](https://arianne-project.org/screens/stendhal/THM_raid20110105.jpg)](https://arianne-project.org/screens/stendhal/raid20110105.jpg)&nbsp;&nbsp;&nbsp;[More Images >](https://stendhalgame.org/media/screenshots.html)
+## UWAGA !!!!
 
-Are you looking for adventure? Want to fight for riches?<br>
-Develop yourself and your social standing? Meet new people?<br>
-Do you want to be part of a brave new world?
+Zalecam nie korzystanie z poprzednich wersji plików serwerowych PolskaOnLine/PolskaGRA/FaumoniaOnline/Polhale, gdyż mają w sobie poważnych błąd w kodzie, który został zniwelowany w aktualnej wersji 1.06 PolskaGRA, przeze mnie (KarajuSs).
 
-Stendhal is a fully fledged multiplayer online adventures game (MORPG). It is completely open source (client, server, everything).
+Osoby, które chcą się zająć serwerem, tzn. stworzeniem własnego serwera i modyfikowanie go, nie mam nic przeciwko osobom wykorzystujące nasze pliki serwerowe PolskaGRA. TO JEST OPENSOURCE.
 
-Stendhal features a new, rich and expanding world in which you can explore towns, buildings, plains, caves and dungeons.
-You will meet NPCs and acquire tasks and quests for valuable experience.
+Tak więc, krótko opisując na czym ten problem polegał, tfu kilkadziesiąt problemów polegało to streszczając pliki serwerowe potrafiły mocno przeciążyć serwer gdzie później gracz mógł to wykorzystać na tworzenie nieistniejących postaci w bazie jak i na serwerze powodując właśnie owo przeciążenie oraz kopiowanie przedmiotów poprzez wykorzystując cofki klienta oraz bazy danych.
 
-Your character will develop and grow and with each new level up become stronger and better. With the money you acquire you can buy new items and improve your armour and weapons. And for the blood thirsty of you; satisfy your killing desires by roaming the world in search of evil monsters!
-
-Stendhal is platform independent, and completely open source.
-
-So what are you waiting for?! A whole new world awaits...
+Jeśli ktoś planuje postawić serwer zalecam modyfikowanie moich aktualnych plików serwerowych PolskaGRA, gdyż posiadają większe udogodnienia w kodzie jak i w działaniu samego kodu gry oraz lepsze zabezpieczenia.
+Na aktualnych plikach podziałam jedynie do końca kwietnia/maja i porzucam je. Będę jedynie aktualizował to co Stendhal wprowadzi (a zamierza wprowadzić nowy region i nie tylko, np: spelle (magiczne umiejętności + mana już są przygotowane) :) )
 
 
-## How to play
+## Nowe funkcje względem starszych wersji plików
 
-[![Play now](https://arianne-project.org/images/playbutton.png)](https://stendhalgame.org/account/mycharacters.html) &nbsp; &nbsp; &nbsp; &nbsp;
-[![Download](https://stendhalgame.org/images/downloadbutton.png)](https://arianne-project.org/download/stendhal.zip)
-
-You need Java which you can download from [https://www.java.com](https://www.java.com/en/download) on Microsoft Windows. Java is included in most Linux distributions. Both Oracle Java and OpenJDK are supported.
-
-Please download Stendhal from [https://stendhalgame.org](https://stendhalgame.org)<br>
-You can double click on stendhal-starter.jar and the client will run.<br>
-If you prefer to run from command line, then just execute this command
-in the stendhal folder:
-
-`java -jar stendhal-starter.jar`
-
-There is a  [manual](https://stendhalgame.org/wiki/Stendhal_Manual), and there is Help from the client menu icons in the upper right hand side of the game screen.
+* bardziej przejrzysty oraz skrócony kod gry,
+* większa kompatybilność serwera,
+* zaktualizowano marauroa oraz mysql-connector-java,
+* posiada nową statystykę: RATK (ranged attack) dla łuków, kusz, różdżek [możliwe, że sam wprowadzę jeszcze osobną statystykę dla magii],
+* posiada własny webclient - przeglądarkowa wersja klienta,
+* unikalne pasy, zbalansowane oraz specjalne grafiki przygotowane przez KarajuSs'a (możliwe, że potrzebują jeszcze trochę poprawek),
+* auto-ban dla osób wykorzystujących bug z kopiowaniem przedmiotów,
+* oraz ogromna ilość poprawek kodu gry
 
 
-## Development environment
+## Plany jakie miały zostać spełnione ale nie udało się
 
-* [Hosting a Stendhal Server](https://stendhalgame.org/wiki/Host_a_Stendhal_Server)
-* [Stendhal in Eclipse](https://stendhalgame.org/wiki/Stendhal_on_Eclipse)
-* [Building Stendhal](https://stendhalgame.org/wiki/HowToBuildStendhal)
+Plany jakie miały zostać spełnione, ale nie udało się, to np:
+* przywrócenie dawnej świetności mapy Kraków jak to było w KrakowMobile (conamniej 70% zostało odwzorowanych z KrakowMobile [questy/npc/cały rynek + kilka nowości]),
+* dokończenie Wieliczki, Warszawy, Gdańska
 
 
-## Legal
-The server and java client is free software; you can redistribute it and/or modify it under the terms of the **GNU General Public License** 2 or later as published by the Free Software Foundation.
-
-The web client is free software; you can redistribute it and/or modify it under the terms of the **GNU Affero General Public License** 3 or later as published by the Free Software Foundation.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the [LICENSE.txt](LICENSE.txt) file for more details.
-
-Stendhal(c) is copyright of Miguel Angel Blanch Lardin, 2005-2008, arianne_rpg at users dot sourceforge dot net and others<br>
-Stendhal(c) is copyright of the Arianne Project, 2006-2017, arianne-general at lists dot sourceforge dot net
+## Kończąc...
+Kończąc, zalecam właśnie wykorzystanie tych plików do modyfikowania własnego serwera i mam nadzieje, że kiedyś znajdzie się osoba/team, która stworzy porządny serwer z owych plików, to nie musi być kolejna wersja PolskaGRA!!!! Możecie stworzyć własną grę!
