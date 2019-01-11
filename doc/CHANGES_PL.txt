@@ -26,6 +26,7 @@
 - Dodano nową warstwę nazwaną flyoverarea, tzn. że przez tą warstwę można strzelać strzałami/magią itp.., lecz nie można przez nią przejść oraz jest ona oznaczona kolorem pomarańczowym na minimapie
 - Dodano nową funkcję oraz komendę dla administratora (ListZones)
 - Skrócono większość kodów JAVA + zwiększono kompatybilność serwera
+- Zaimplementowano do gry nową funkcję niszczenia się przedmiotów
 
 *serwer*
 - Zaktualizowano zabezpieczenia marauroa
