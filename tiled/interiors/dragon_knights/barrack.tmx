@@ -1,142 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="17" height="17" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="wall red" tilewidth="32" tileheight="32">
-  <image source="../../tileset/building/wall/int_wall_dark_red.png" width="128" height="128"/>
+  <image source="../../tileset/building/wall/int_wall_dark_red.png"/>
  </tileset>
  <tileset firstgid="17" name="int red wall" tilewidth="32" tileheight="32">
-  <image source="../../tileset/building/wall/int_wall_dark_red_corners.png" width="128" height="128"/>
+  <image source="../../tileset/building/wall/int_wall_dark_red_corners.png"/>
  </tileset>
  <tileset firstgid="33" name="collision" tilewidth="32" tileheight="32">
-  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+  <image source="../../tileset/logic/collision.png"/>
  </tileset>
- <tileset firstgid="34" name="miecze" tilewidth="32" tileheight="32">
-  <image source="../../tileset/pol/wyposazenie/miecze.png" width="256" height="128"/>
+ <tileset firstgid="34" name="kafelki" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/domki/podloga/kafelki_blyszczace3smok.png"/>
  </tileset>
- <tileset firstgid="66" name="roslinki_doniczki" tilewidth="32" tileheight="32">
-  <image source="../../tileset/pol/natura/kwiaty/roslinki_doniczki.png" width="512" height="64"/>
+ <tileset firstgid="125" name="drzwi" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/entrance/dark_red_ns.png"/>
  </tileset>
- <tileset firstgid="98" name="straznicy" tilewidth="32" tileheight="32">
-  <image source="../../tileset/pol/posagi/straznicy.png" width="352" height="96"/>
+ <tileset firstgid="137" name="dark_red_ew" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/entrance/dark_red_ew.png"/>
  </tileset>
- <tileset firstgid="131" name="kafelki" tilewidth="32" tileheight="32">
-  <image source="../../tileset/pol/domki/podloga/kafelki_blyszczace3smok.png" width="224" height="416"/>
+ <tileset firstgid="149" name="pol_rycerze" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/creature/pol_rycerze.png"/>
  </tileset>
- <tileset firstgid="222" name="skrzynie" tilewidth="32" tileheight="32">
-  <image source="../../tileset/pol/wyposazenie/skrzynie.png" width="64" height="64"/>
+ <tileset firstgid="157" name="rug" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/carpet/orange.png"/>
  </tileset>
- <tileset firstgid="226" name="drzwi" tilewidth="32" tileheight="32">
-  <image source="../../tileset/building/entrance/dark_red_ns.png" width="96" height="128"/>
+ <tileset firstgid="166" name="barrel" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/pot/barrel.png"/>
  </tileset>
- <tileset firstgid="238" name="dark_red_ew" tilewidth="32" tileheight="32">
-  <image source="../../tileset/building/entrance/dark_red_ew.png" width="128" height="96"/>
+ <tileset firstgid="168" name="weapons rack" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/armor/weapons_rack.png"/>
  </tileset>
- <tileset firstgid="250" name="pol_rycerze" tilewidth="32" tileheight="32">
-  <image source="../../tileset/logic/creature/pol_rycerze.png" width="256" height="32"/>
+ <tileset firstgid="186" name="ropes" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/ropes.png"/>
  </tileset>
- <tileset firstgid="258" name="parawan" tilewidth="32" tileheight="32">
-  <image source="../../tileset/furniture/other/oriental_screen.png" width="64" height="64"/>
+ <tileset firstgid="190" name="weapons" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/weapon/box_of_weapons.png"/>
  </tileset>
- <tileset firstgid="262" name="stolik" tilewidth="32" tileheight="32">
-  <image source="../../tileset/pol/wyposazenie/stoly/wiezienie_stolik.png" width="96" height="64"/>
+ <tileset firstgid="192" name="stick" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/other/stick.png"/>
  </tileset>
- <tileset firstgid="268" name="filiz" tilewidth="32" tileheight="32">
-  <image source="../../tileset/pol/wyposazenie/bibeloty_na_stol.png" width="224" height="64"/>
+ <tileset firstgid="194" name="copper table" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/table/table_copper.png"/>
  </tileset>
- <tileset firstgid="282" name="butle" tilewidth="32" tileheight="32">
-  <image source="../../tileset/item/drink/bottles_and_cups.png" width="128" height="128"/>
+ <tileset firstgid="209" name="weapons" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/armor/weapons_for_walls.png"/>
  </tileset>
- <tileset firstgid="298" name="loze" tilewidth="32" tileheight="32">
-  <image source="../../tileset/furniture/bed/single_white2.png" width="32" height="96"/>
+ <tileset firstgid="225" name="tools" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/tools.png"/>
  </tileset>
- <tileset firstgid="301" name="kordelka" tilewidth="32" tileheight="32">
-  <image source="../../tileset/furniture/bed/single_white2_top_sheet.png" width="32" height="32"/>
+ <tileset firstgid="234" name="grey_plain" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/table/grey_plain.png"/>
  </tileset>
- <tileset firstgid="302" name="wall" tilewidth="32" tileheight="32">
-  <image source="../../tileset/building/wall/int_wall_dark_red_corners_2.png" width="64" height="128"/>
+ <tileset firstgid="243" name="grey_fancy" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/table/grey_fancy.png"/>
  </tileset>
- <tileset firstgid="310" name="rug" tilewidth="32" tileheight="32">
-  <image source="../../tileset/furniture/carpet/orange.png" width="96" height="96"/>
+ <tileset firstgid="252" name="book" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/documents/book.png"/>
  </tileset>
- <tileset firstgid="319" name="barrel" tilewidth="32" tileheight="32">
-  <image source="../../tileset/item/pot/barrel.png" width="32" height="64"/>
+ <tileset firstgid="256" name="light" tilewidth="32" tileheight="32">
+  <image source="../../tileset/furniture/light/dark_torch.png"/>
  </tileset>
- <tileset firstgid="321" name="weapons rack" tilewidth="32" tileheight="32">
-  <image source="../../tileset/item/armor/weapons_rack.png" width="288" height="64"/>
+ <tileset firstgid="264" name="books2" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/documents/books2.png"/>
  </tileset>
- <tileset firstgid="339" name="ropes" tilewidth="32" tileheight="32">
-  <image source="../../tileset/item/ropes.png" width="64" height="64"/>
- </tileset>
- <tileset firstgid="343" name="weapons" tilewidth="32" tileheight="32">
-  <image source="../../tileset/item/weapon/box_of_weapons.png" width="32" height="64"/>
- </tileset>
- <tileset firstgid="345" name="stick" tilewidth="32" tileheight="32">
-  <image source="../../tileset/furniture/other/stick.png" width="32" height="64"/>
- </tileset>
- <tileset firstgid="347" name="copper table" tilewidth="32" tileheight="32">
-  <image source="../../tileset/furniture/table/table_copper.png" width="96" height="64"/>
- </tileset>
- <tileset firstgid="353" name="weapons" tilewidth="32" tileheight="32">
-  <image source="../../tileset/item/armor/weapons_for_walls.png" width="128" height="128"/>
- </tileset>
- <tileset firstgid="369" name="tools" tilewidth="32" tileheight="32">
-  <image source="../../tileset/item/tools.png" width="96" height="96"/>
- </tileset>
- <tileset firstgid="378" name="grey_plain" tilewidth="32" tileheight="32">
-  <image source="../../tileset/furniture/table/grey_plain.png" width="96" height="96"/>
- </tileset>
- <tileset firstgid="387" name="grey_fancy" tilewidth="32" tileheight="32">
-  <image source="../../tileset/furniture/table/grey_fancy.png" width="96" height="96"/>
- </tileset>
- <tileset firstgid="396" name="book" tilewidth="32" tileheight="32">
-  <image source="../../tileset/item/documents/book.png" width="64" height="64"/>
- </tileset>
- <tileset firstgid="400" name="light" tilewidth="32" tileheight="32">
-  <image source="../../tileset/furniture/light/dark_torch.png" width="64" height="128"/>
- </tileset>
- <tileset firstgid="408" name="books2" tilewidth="32" tileheight="32">
-  <image source="../../tileset/item/documents/books2.png" width="64" height="64"/>
- </tileset>
- <tileset firstgid="412" name="kafelki_rozne" tilewidth="32" tileheight="32">
-  <image source="../../tileset/pol/domki/podloga/kafelki_rozne.png" width="512" height="160"/>
+ <tileset firstgid="268" name="kafelki_rozne" tilewidth="32" tileheight="32">
+  <image source="../../tileset/pol/domki/podloga/kafelki_rozne.png"/>
  </tileset>
  <layer name="0_floor" width="17" height="17">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC1vHyMCwjg64k4E+9ozioYWtsOChaoYtFjzQ4TsUMAC7mMRmhAQAAA==
+   H4sIAAAAAAAAAJNjZGCQowPWYKCPPaN4aOGFDJh4qJqxhAETD3T4DgUMAFFLle2EBAAA
   </data>
  </layer>
  <layer name="1_terrain" width="17" height="17">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC73PxwoCMRRA0WSjoCsZC1gYv8KuqAthdCG4sKL4Kfb6014wggbRmIAPDkzIvAuJCSE8B3EkkETYQgpZ1QhhJoWY45eJao0F+0vHRov9NjoIDFt6o8teD30MLBs2849GgfcU3yhJ80aZfyvYYoe9OlctGgcccXJonHHB1bAxebqv8V3HCmts1LnxoTHibipfO99Gb4zZbarOY4byzqSRRsRCRjVy8B3kcQOIbV1VhAQAAA==
+   H4sIAAAAAAAAAL3MtwoCURBG4VspaCUmMOC+uFlRC0EthC2MKL6OOTaeYgS5iO7OBX/4imHgJIwx
+SQcppJFBVCGLgjQiWGJlwi1uNdbYODa66KGPgbIxxAhj+MqGZv9olFH5oBqiUUMdBxxxkruhaJxx
+wdWhccMdj4CN+du/iRa22GEvd/tLY4qF1fk1uzFDRzqvTUSQRg4xhbw0iig58PAE9IpQTIQEAAA=
   </data>
  </layer>
  <layer name="2_object" width="17" height="17">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgwA1eAPFLIH6FRw02kMvIwJDNCGG/BuI3QPwWiMsZSTSIjuAdEL+n0IxPQPyZQjO+AfF3Cs2gFDjQOZ5mA+1rAeLJFNjbBtTbD8QdFJjRCdTbBcQTKTCjAai3EYibaBCG9hSaCdJPqRm0AABQrcbQhAQAAA==
-  </data>
- </layer>
- <layer name="3_roof" width="17" height="17">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAWjYBSMgoEDAJPZHwSEBAAA
-  </data>
- </layer>
- <layer name="4_roof_add" width="17" height="17">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAWjYBSMgoEDAJPZHwSEBAAA
+   H4sIAAAAAAAAAL3OvQ5AMBSG4TZGl+1fQsJFcFFitiIiWHgHo0o49EuetEP7naOUOR58BDdvrtKi
+Oe8hIsToHvbYTIJU2JEhF3YUKIUd0tSW57laqYnT0e87ZuxYBHus2KAFe/QYMAr2MKX64L+0448c
+++TA+4QEAAA=
   </data>
  </layer>
  <layer name="objects" width="17" height="17">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAWkgv8D7QAKwZ8BtPs3keoYGWnqjEEJ/mITHAHhAAB9EsukhAQAAA==
+   H4sIAAAAAAAAAGNgGAWkglkD7QAKwfQBtHsakerm0NQVgxPMwCI2m+6uoD8AAKMoU1iEBAAA
   </data>
  </layer>
  <layer name="collision" width="17" height="17">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC1NkYGBQpDFmIFMPsYCWZpBqFqVmUOIHaplBaViS6g58aoaaGfgALdOWIhZ1pOofKAwA7PZwaYQEAAA=
+   H4sIAAAAAAAAAFNkYGBQpDFmIFMPsYCWZpBqFqVmUOIHaplBaViS6g58aoaaGfgALdOWIhZ1pOof
+KAwA7PZwaYQEAAA=
   </data>
  </layer>
  <layer name="protection" width="17" height="17">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAWjYBSMgoEDAJPZHwSEBAAA
+   H4sIAAAAAAAAAGNgGAWjYBSMgoEDAJPZHwSEBAAA
   </data>
  </layer>
 </map>

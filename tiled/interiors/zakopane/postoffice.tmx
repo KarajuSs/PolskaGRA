@@ -52,47 +52,48 @@
  <tileset firstgid="78" name="protection" tilewidth="32" tileheight="32">
   <image source="../../tileset/logic/protection.png"/>
  </tileset>
- <tileset firstgid="79" name="dechy" tilewidth="32" tileheight="32">
+ <tileset firstgid="80" name="dechy" tilewidth="32" tileheight="32">
   <image source="../../tileset/pol/domki/podloga/deski_kaflee.png"/>
  </tileset>
- <tileset firstgid="95" name="plazy" tilewidth="32" tileheight="32">
+ <tileset firstgid="96" name="plazy" tilewidth="32" tileheight="32">
   <image source="../../tileset/pol/waly/int_plazy.png"/>
  </tileset>
- <tileset firstgid="122" name="okna" tilewidth="32" tileheight="32">
+ <tileset firstgid="123" name="okna" tilewidth="32" tileheight="32">
   <image source="../../tileset/pol/domki/okna/window_drewno.png"/>
  </tileset>
- <tileset firstgid="138" name="drz" tilewidth="32" tileheight="32">
+ <tileset firstgid="139" name="drz" tilewidth="32" tileheight="32">
   <image source="../../tileset/pol/domki/drzwi/door_drewno_int.png"/>
  </tileset>
- <tileset firstgid="153" name="skrzynia" tilewidth="32" tileheight="32">
+ <tileset firstgid="154" name="skrzynia" tilewidth="32" tileheight="32">
   <image source="../../tileset/item/pot/crate_small.png"/>
  </tileset>
- <tileset firstgid="154" name="skrzynki" tilewidth="32" tileheight="32">
+ <tileset firstgid="155" name="skrzynki" tilewidth="32" tileheight="32">
   <image source="../../tileset/item/pot/crates.png"/>
  </tileset>
  <layer name="0_floor" width="20" height="12">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAItgYGCIAOIwJBxBBUxt86KQzAunkplxNDBzFA8tjJwGYqhkJjXTPSHzAFMqAXbAAwAA
+   H4sIAAAAAAAAAItkYGCIBOJwJBxJBUxt86KRzIugkpnxNDBzFA8tjJwGYqlkJjXTPSHzAEWVto3A
+AwAA
   </data>
  </layer>
  <layer name="1_terrain" width="20" height="12">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAItnYGBIoBJOBOIkIM4A4kwKcRYQp0DNy2YgDLQIyOfiMI+PCLNJMY9cQA/zZlPZvLlUNo8SQEvz8oA4n0JcADUvFYjTqITTgRgAgilF68ADAAA=
+   H4sIAAAAAAAAAEtgYGBIpBJOAuJkIM4E4iwKcTYQp0LNy2EgDLQIyOfhMI+PCLNJMY9cQA/z5lDZ
+vHlUNo8SQEvz8oG4gEJcCDUvDYjTqYQzgBgAIvYCs8ADAAA=
   </data>
  </layer>
  <layer name="2_object" width="20" height="12">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgQIAqKEYGMgzkgyYoxgYUgVgDiDWhfHsodsChnhmPPZJALA/EhkBsBMTWQOwExc5APBuLHkEg5gPiWVCaH0lOCojN8Ng3F4sYDxDPBOI5QCwGxKJIctJY3IuNxgWk0cxDBiA7paBsdBrdfTCA7j5kYE6kebDwg2EhJDl0/0jjoIkFhOKDFYsYvvSCbD8ordgAsS0StsOipwuIu6G4B59jgaAWiqkFWqEYGwAA18DRgcADAAA=
+   H4sIAAAAAAAAAGNgQIBqKEYGMgzkg2YoxgYUgVgDiDWhfHsodsChnhmPPZJALA/EhkBsBMTWQOwE
+xc5APAeLHkEg5gPi2VCaH0lOCojN8Ng3D4sYDxDPAuK5QCwGxKJIctJY3IuNxgWk0cxDBiA7paBs
+dBrdfTCA7j5kYE6kebDwg2EhJDl0/0jjoIkFhOKDFYsYvvSCbD8ordgAsS0StsOipxuIe6C4F59j
+gaAOiqkF2qAYGwAAZY943sADAAA=
   </data>
  </layer>
  <layer name="3_roof" width="20" height="12">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgIB1YkqEHH7CisnnEAO4BsBMGPNBobIAU96Gbg89cUszzpNAcEBgOaWUwAwCBo4DRwAMAAA==
-  </data>
- </layer>
- <layer name="4_roof_add" width="20" height="12">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgGAWjYBQMVQAAewDiOMADAAA=
+   H4sIAAAAAAAAAGNgIB1YkqEHH7CisnnEAO4BsBMGPNBobIAU96Gbg89cUszzpNAcEBgOaWUwAwCB
+o4DRwAMAAA==
   </data>
  </layer>
  <layer name="objects" width="20" height="12">
@@ -102,7 +103,8 @@
  </layer>
  <layer name="collision" width="20" height="12">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAPNlYGDwHSIYFyCkllTz8dlFDfN8sdD4zMDnf3R15LiP2uaR4198gNz4IMY8ctLfQOcDZAwAeRkAxcADAAA=
+   H4sIAAAAAAAAAPNlYGDwHSIYFyCkllTz8dlFDfN8sdD4zMDnf3R15LiP2uaR4198gNz4IMY8ctLf
+QOcDZAwAeRkAxcADAAA=
   </data>
  </layer>
  <layer name="protection" width="20" height="12">

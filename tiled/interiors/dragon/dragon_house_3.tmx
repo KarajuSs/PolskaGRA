@@ -24,27 +24,20 @@
  </tileset>
  <layer name="0_floor" width="17" height="13">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAHNgYGBwIBGjA1L1U8sMdLOQxdyA2B2IPXDoQZfHZoYnEHsBsTcOM9DlaeWXwWLGUA/TwQIAPEGaQXQDAAA=
+   H4sIAAAAAAAAAHNgYGBwIBGjA1L1U8sMdLOQxdyA2B2IPXDoQZfHZoYnEHsBsTcOM9DlaeWXwWLG
+UA/TwQIAPEGaQXQDAAA=
   </data>
  </layer>
  <layer name="1_terrain" width="17" height="13">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAPNhYGDwpQD7AbE/EMcBcTwZOAGIA6FmJDKQB5JHzRg1g0gzUoA4FQfOwCOXBjUjCIiD8eB8AvIhQAwAQRtqF3QDAAA=
+   H4sIAAAAAAAAAPNhYGDwpQD7AbE/EMcBcTwZOAGIA6FmJDKQB5JHzRg1g0gzUoA4FQfOwCOXBjUj
+CIiD8eB8AvIhQAwAQRtqF3QDAAA=
   </data>
  </layer>
  <layer name="2_object" width="17" height="13">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgQAAWIGaFssWAWBzKlgBiSShbBIhFGXADHiDmhbLlgFgeylYAYkUoWwaIZfGYMQpGAb1BOpTOpMCMPChdQEAdAONsoF50AwAA
-  </data>
- </layer>
- <layer name="3_roof" width="17" height="13">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgGAWjYBTQEwAAX9FJ7XQDAAA=
-  </data>
- </layer>
- <layer name="4_roof_add" width="17" height="13">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNgGAWjYBTQEwAAX9FJ7XQDAAA=
+   H4sIAAAAAAAAAGNgQAAWIGaFssWAWBzKlgBiSShbBIhFGXADHiDmhbLlgFgeylYAYkUoWwaIZfGY
+MQpGAb1BOpTOpMCMPChdQEAdAONsoF50AwAA
   </data>
  </layer>
  <layer name="objects" width="17" height="13">

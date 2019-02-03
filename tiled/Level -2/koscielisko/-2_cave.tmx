@@ -1,86 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="36" height="64" tilewidth="32" tileheight="32" nextobjectid="1">
- <tileset firstgid="1" name="brown" tilewidth="32" tileheight="32" tilecount="5" columns="5">
-  <image source="../../tileset/ground/brown.png" width="160" height="32"/>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" width="36" height="64" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="brown" tilewidth="32" tileheight="32">
+  <image source="../../tileset/ground/brown.png"/>
  </tileset>
- <tileset firstgid="6" name="int_rock" tilewidth="32" tileheight="32" tilecount="140" columns="10">
-  <image source="../../tileset/building/wall/int_rock.png" width="320" height="448"/>
+ <tileset firstgid="6" name="int_rock" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/wall/int_rock.png"/>
  </tileset>
- <tileset firstgid="146" name="int_rock" tilewidth="32" tileheight="32" tilecount="140" columns="10">
-  <image source="../../tileset/building/wall/int_rock.png" width="320" height="448"/>
+ <tileset firstgid="146" name="stairs" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/stairs/stairs.png"/>
  </tileset>
- <tileset firstgid="286" name="stairs" tilewidth="32" tileheight="32" tilecount="12" columns="2">
-  <image source="../../tileset/building/stairs/stairs.png" width="64" height="192"/>
+ <tileset firstgid="158" name="kobold" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/creature/kobold.png"/>
  </tileset>
- <tileset firstgid="298" name="kobold" tilewidth="32" tileheight="32" tilecount="5" columns="5">
-  <image source="../../tileset/logic/creature/kobold.png" width="160" height="32"/>
+ <tileset firstgid="163" name="small_animal" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/creature/small_animal.png"/>
  </tileset>
- <tileset firstgid="303" name="small_animal" tilewidth="32" tileheight="32" tilecount="5" columns="5">
-  <image source="../../tileset/logic/creature/small_animal.png" width="160" height="32"/>
+ <tileset firstgid="168" name="animal" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/creature/animal.png"/>
  </tileset>
- <tileset firstgid="308" name="animal" tilewidth="32" tileheight="32" tilecount="30" columns="30">
-  <image source="../../tileset/logic/creature/animal.png" width="960" height="32"/>
+ <tileset firstgid="198" name="collision" tilewidth="32" tileheight="32">
+  <image source="../../tileset/logic/collision.png"/>
  </tileset>
- <tileset firstgid="338" name="collision" tilewidth="32" tileheight="32" tilecount="1" columns="1">
-  <image source="../../tileset/logic/collision.png" width="32" height="32"/>
+ <tileset firstgid="199" name="rocks" tilewidth="32" tileheight="32">
+  <image source="../../tileset/building/decoration/rocks.png"/>
  </tileset>
- <tileset firstgid="339" name="rocks" tilewidth="32" tileheight="32" tilecount="6" columns="3">
-  <image source="../../tileset/building/decoration/rocks.png" width="96" height="64"/>
+ <tileset firstgid="205" name="floor_stains_2" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/blood/floor_stains_2.png"/>
  </tileset>
- <tileset firstgid="345" name="floor_stains_2" tilewidth="32" tileheight="32" tilecount="4" columns="2">
-  <image source="../../tileset/item/blood/floor_stains_2.png" width="64" height="64"/>
- </tileset>
- <tileset firstgid="349" name="nsew_stains" tilewidth="32" tileheight="32" tilecount="4" columns="2">
-  <image source="../../tileset/item/blood/nsew_stains.png" width="64" height="64"/>
+ <tileset firstgid="209" name="nsew_stains" tilewidth="32" tileheight="32">
+  <image source="../../tileset/item/blood/nsew_stains.png"/>
  </tileset>
  <layer name="0_floor" width="36" height="64">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3DwQkAAAwDoXtk/5k7R0HBVVNVVVVVVVVVVV8+7EJfvwAkAAA=
+   H4sIAAAAAAAAAO3DwQkAAAwDoXtk/5k7R0HBVVNVVVVVVVVVVV8+7EJfvwAkAAA=
   </data>
  </layer>
  <layer name="1_terrain" width="36" height="64">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2ZTW4CMQyFcxAouyJ2lboDev9rMVlEitLYju34R4hIb8t8PDse23MtpVzfUKdDX4MugRw/5f85O7JhHLPT2Cy4TgwOSy6uJxjTbwKOkUnikSY21JF49G3EIuGx9OZ26C8JSz1cbyzjlMmbLCyV48Fk2R2nxiDh0HjTP7eXhEHizfh87XM1PNx8tOTxZKF4vFmq7oeeSVgwjzS9yofHn0fay+0QlNORTNC9t5xZKI8egE89FyQrXooLOtY+Nq6mVT6v+HL5vO/CSlwj7ifFFVVXM9awjExQXY2IGzQbRPRSu1navocbZ2xPpGFpv7eaexTHznmQYsJmSE2uYL8LMVmxVFGz18iE5azXrNz3PSPLLg4OD3QsagpU3yNYNEzWtZ/D5FX7+z7mVuCexvu9eO/+/8y3yN6hKtPsitVi77hZvhciWcZvrJI4Y3V7NU5QPyLJPawerfQi1Hc8Se5RTDPvV3fr0rtA1e1x57HCor0L0r2C1fcEjA9ii9oVz9gi99Yztgws76YXYiwEOwAkAAA=
+   H4sIAAAAAAAAAO2ZTW4CMQyFcxAouyJ2lboDev9rMVlEitLYju34R4hIb8t8PDse23MtpVzfUKdD
+X4MugRw/5f85O7JhHLPT2Cy4TgwOSy6uJxjTbwKOkUnikSY21JF49G3EIuGx9OZ26C8JSz1cbyzj
+lMmbLCyV48Fk2R2nxiDh0HjTP7eXhEHizfh87XM1PNx8tOTxZKF4vFmq7oeeSVgwjzS9yofHn0fa
+y+0QlNORTNC9t5xZKI8egE89FyQrXooLOtY+Nq6mVT6v+HL5vO/CSlwj7ifFFVVXM9awjExQXY2I
+GzQbRPRSu1navocbZ2xPpGFpv7eaexTHznmQYsJmSE2uYL8LMVmxVFGz18iE5azXrNz3PSPLLg4O
+D3QsagpU3yNYNEzWtZ/D5FX7+z7mVuCexvu9eO/+/8y3yN6hKtPsitVi77hZvhciWcZvrJI4Y3V7
+NU5QPyLJPawerfQi1Hc8Se5RTDPvV3fr0rtA1e1x57HCor0L0r2C1fcEjA9ii9oVz9gi99Yztgws
+76YXYiwEOwAkAAA=
   </data>
  </layer>
  <layer name="2_object" width="36" height="64">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3YQQ6DIBRFUdiIcVNqtVbd/yoqAxI0tGmIwmu4J3GgE18gfD4YA5SzWGMetnQKpFKdvy7I5DK2GTM+I/962e/vOJouHJ9FeKw/rZ15/97vzyCUfRTKUpuwnlE78O9ieySAPHx/tZ7WoVovP4vl8c7jBqRS6+c6sTxK6FvqsjHfP3E1Q2ltqNXUGMV7KX/nVGouY/3nlXeByEftLAFtrh7Se94jrOfNTWOcumeonvFzU+oHqN11eAM5n3gJACQAAA==
+   H4sIAAAAAAAAAO3YWwqAIBAF0Pb/GW2qtz0WlH4EJoYUNnPDe0AoiRwSp9GqItKz2jZoB0Gvoc5f
+6127GBvBsedI35K4p6sp47vWjO/K7W7tGNs623rBWFJG7QAK5ucz5g76u9g/kohknPXVFvSj1fJG
+O4Ab4XcjegutnmvTjxSLdUtZdu0AfsLlDKS1gZZTYxDPpc4zJ625jNWfOc8CSQ7aXoKwuXzI2vMb
+fj6vBcZ4AnWPLw2pHmDuLsMBFtYTvQAkAAA=
   </data>
  </layer>
  <layer name="3_roof" width="36" height="64">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3YQQ0AMAzEsCvGjT+Wseik1kaQdxIA2O1Ucut3BQAAAACTeE4AAHR642PaSAAkAAA=
-  </data>
- </layer>
- <layer name="4_roof_add" width="36" height="64">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAgFcDEWH4ywAkAAA=
+   H4sIAAAAAAAAAO3YwQ0AMAgDMfZfDMZqpwAJbOn+eScCAG7LX02PAAAAAGAVnxMAAJ0e2KzezAAk
+AAA=
   </data>
  </layer>
  <layer name="objects" width="36" height="64">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3ZywqAIBCFYX2dLtSi93+2CHE3CWLkcfw/aCsDjseRQgB0XLF3Be9W4dpmshf24Yzpgw9f5sFhrGWtX+ovAAk5O5aN/UIj5fkcflizmgrVe28RrQvjIedRQymvZ8hBZvkxKZ2TLPcSmQ+vlP7dcM7Q4nl/KvVzrd79r/p+B/52A25caZ8AJAAA
+   H4sIAAAAAAAAAO3ZwQ5AMBCE4b7/Q1Dh4DEFdZONIna6/i8RB4nMYTvaSAnQMXsHMPTeAbAZjGdT
+uRDDm30wXny/NV8AdvRsW7J3ADRPeX+OOM72aipUv3uddwCEQc+jhlJf/6EHs3cA3KK0Tg653Ol8
+RKX074Z1hifW86fSPNfynn/V8zvwtQV/8iu5ACQAAA==
   </data>
  </layer>
  <layer name="collision" width="36" height="64" opacity="0.4">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3UQQ7DMAgEwPSL+f9jeurFCgVjL7uxQOJkBSaY5P5c191ZkmOoOJ6i0hE1IV0roeLYaZrthTRlIvIc+45ULVmPkuUt9+SdWecn/GOynl19sxZkf8uD2IPd86m2/PMwLJaJaWlPe040qX3zb3QpWZVtnk/Rpbhvaia2R9H0M6iYlOZzsiVbAzGTTL2nQMw5UrfS4tVHOKx78nqhHJH5ZGbHMCEtM3tU6Rn7MWczMze2ZzSxLeoetqstsZ1Z8ex6n9X5WFFt8gKxR1ZdtCXTE9W3Ysc6O1fzC14MlEMAJAAA
+   H4sIAAAAAAAAAO3UQQ7AIAgEQP//sL6r18aIILqwNZCQHkxhiqRPa+2pDMk+WByjiHRYTUjXTrA4
+TppWeyFNnrC8l31HrBavh8nyl3vSzqTzG/4xXs+pvl4Lsr/kQezB6flEW2aeDItkyrSUpzw3mkaR
+bfqbi8nKbNN8jC7GfWMzZXsYTe3zZDAxzedmi7cGYiaeeqNAzNlSN9Ki1Uc4pHvSeqEclvnMAmHx
+mpCWlT2K9PT9MmezMrdsT2/KtrB7sl1lse3MjufU9+zOR4pokxaIPZLqoi2enqi+ETtWWbmbLx4X
+EwMAJAAA
   </data>
  </layer>
  <layer name="protection" width="36" height="64">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAgFcDEWH4ywAkAAA=
+   H4sIAAAAAAAAAO3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAgFcDEWH4ywAkAAA=
   </data>
  </layer>
  <layer name="blend_ground" width="36" height="64">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAgFcDEWH4ywAkAAA=
+   H4sIAAAAAAAAAO3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAgFcDEWH4ywAkAAA=
   </data>
  </layer>
  <layer name="blend_roof" width="36" height="64">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAgFcDEWH4ywAkAAA=
+   H4sIAAAAAAAAAO3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAgFcDEWH4ywAkAAA=
   </data>
  </layer>
 </map>
