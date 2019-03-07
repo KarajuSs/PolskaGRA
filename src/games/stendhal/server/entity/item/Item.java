@@ -320,6 +320,20 @@ public class Item extends PassiveEntity implements TurnListener, EquipListener,
 	}
 
 	/**
+	 * Returns the intelligence points of this item. Positive and negative values are
+	 * allowed. If this item doesn't modify the intellect it should return '0'.
+	 *
+	 * @return intelligence points
+	 */
+	public int getIntellect() {
+		if (has("intellect") && getDeterioration() <= MAX_DETERIORATION) {
+			return getInt("intellect");
+		}
+
+		return 0;
+	}
+
+	/**
 	 * Returns each how many turns this item can attack.
 	 *
 	 * @return each how many turns this item can attack.
@@ -754,6 +768,10 @@ public class Item extends PassiveEntity implements TurnListener, EquipListener,
 		if (has("ratk")) {
 			stats.append(" RATK: ");
 			stats.append(get("ratk"));
+		}
+		if (has("intellect")) {
+			stats.append(" INT: ");
+			stats.append(get("intellect"));
 		}
 		if (has("rate")) {
 			stats.append(" WAGA: ");

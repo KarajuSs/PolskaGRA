@@ -247,6 +247,10 @@ public abstract class UpdateConverter {
 			object.put("ratk_xp", "0");
 		}
 
+    	if (!object.has("intellect_xp")) {
+			object.put("intellect_xp", "0");
+		}
+
     	if (!object.has("age")) {
     		object.put("age", "0");
     	}

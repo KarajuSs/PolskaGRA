@@ -184,6 +184,8 @@ public class Player extends RPEntity implements UseListener {
 		player.put("def_xp", 0);
 		player.put("ratk", 10);
 		player.put("ratk_xp", 0);
+		player.put("intellect", 10);
+		player.put("intellect_xp", 0);
 		player.put("level", 0);
 		player.setXP(0);
 
@@ -3003,6 +3005,17 @@ public class Player extends RPEntity implements UseListener {
 	@Override
 	public int getCappedRatk() {
 		return Math.min(this.ratk, getMaxAtkForLevel(level));
+	}
+
+	/**
+	 * Gets the capped int level, which prevent players from training their int
+	 * way beyond what is reasonable for their level
+	 *
+	 * @return capped int
+	 */
+	@Override
+	public int getCappedIntellect() {
+		return Math.min(this.intellect, getMaxAtkForLevel(level));
 	}
 
 	/**

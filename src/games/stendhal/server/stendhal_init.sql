@@ -19,6 +19,7 @@ create table if not exists character_stats
   atk integer,
   def integer,
   ratk integer,
+  intellect integer,
   hp integer,
   karma integer,
 

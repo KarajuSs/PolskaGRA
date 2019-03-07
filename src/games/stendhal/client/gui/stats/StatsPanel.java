@@ -33,7 +33,7 @@ class StatsPanel extends JPanel {
 	 */
 	private static final long serialVersionUID = -353271026575752035L;
 
-	private final StatLabel hpLabel, atkLabel, defLabel, ratkLabel, xpLabel, levelLabel, moneyLabel;
+	private final StatLabel hpLabel, atkLabel, defLabel, ratkLabel, intellectLabel, xpLabel, levelLabel, moneyLabel;
 	private final StatusIconPanel statusIcons;
 	private final KarmaIndicator karmaIndicator;
 	private final ManaIndicator manaIndicator;
@@ -65,6 +65,9 @@ class StatsPanel extends JPanel {
 
 		ratkLabel = new StatLabel();
 		add(ratkLabel, SLayout.EXPAND_X);
+
+		intellectLabel = new StatLabel();
+		add(intellectLabel, SLayout.EXPAND_X);
 
 		xpLabel = new StatLabel();
 		add(xpLabel, SLayout.EXPAND_X);
@@ -110,6 +113,15 @@ class StatsPanel extends JPanel {
 	 */
 	void setRatk(String ratk) {
 		ratkLabel.setText(ratk);
+	}
+
+	/**
+	 * Set the int description string.
+	 *
+	 * @param atk
+	 */
+	void setIntellect(String intellect) {
+		intellectLabel.setText(intellect);
 	}
 
 	/**

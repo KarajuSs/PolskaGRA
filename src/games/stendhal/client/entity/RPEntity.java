@@ -181,6 +181,8 @@ public abstract class RPEntity extends AudibleEntity {
 
 	private int ratk;
 
+	private int intellect;
+
 	private int xp;
 
 	private int hp;
@@ -243,11 +245,15 @@ public abstract class RPEntity extends AudibleEntity {
 
 	private int ratkXP;
 
+	private int intellectXP;
+
 	private int atkItem = -1;
 
 	private int defItem = -1;
 
 	private int ratkItem = -1;
+
+	private int intellectItem = -1;
 
 	/** A flag that gets set once the entity has been released. */
 	private boolean released;
@@ -367,6 +373,27 @@ public abstract class RPEntity extends AudibleEntity {
 	 */
 	public int getRatkXP() {
 		return ratkXP;
+	}
+
+	/**
+	 * @return Returns the intelligence.
+	 */
+	public int getIntellect() {
+		return intellect;
+	}
+
+	/**
+	 * @return Returns the intelligence of items
+	 */
+	public int getIntellectItem() {
+		return intellectItem;
+	}
+
+	/**
+	 * @return the intelligence xp
+	 */
+	public int getIntellectXP() {
+		return intellectXP;
 	}
 
 	/**
@@ -1366,6 +1393,13 @@ public abstract class RPEntity extends AudibleEntity {
 			ratk = changes.getInt("modified_ratk");
 		}
 
+		if (changes.has("intellect")) {
+			intellect = changes.getInt("intellect");
+		}
+		if (changes.has("modified_intellect")) {
+			intellect = changes.getInt("modified_intellect");
+		}
+
 		if (changes.has("level")) {
 			level = changes.getInt("level");
 		}
@@ -1385,6 +1419,10 @@ public abstract class RPEntity extends AudibleEntity {
 			ratkXP = changes.getInt("ratk_xp");
 		}
 
+		if (changes.has("intellect_xp")) {
+			intellectXP = changes.getInt("intellect_xp");
+		}
+
 		if (changes.has("atk_item")) {
 			atkItem = changes.getInt("atk_item");
 		}
@@ -1395,6 +1433,10 @@ public abstract class RPEntity extends AudibleEntity {
 
 		if (changes.has("ratk_item")) {
 			ratkItem = changes.getInt("ratk_item");
+		}
+
+		if (changes.has("intellect_item")) {
+			intellectItem = changes.getInt("intellect_item");
 		}
 
 		if (changes.has("mana")) {

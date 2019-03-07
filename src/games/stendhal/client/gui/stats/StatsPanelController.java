@@ -68,6 +68,10 @@ public final class StatsPanelController {
 	private int ratkxp;
 	private int weaponRatk;
 
+	private int intellect;
+	private int intellectxp;
+	private int weaponIntellect;
+
 	private int mana;
 	private int baseMana;
 
@@ -123,6 +127,10 @@ public final class StatsPanelController {
 		addPropertyChangeListenerWithModifiedSupport(pcs, "ratk", listener);
 		pcs.addPropertyChangeListener("ratk_xp", listener);
 
+		listener = new INTChangeListener();
+		addPropertyChangeListenerWithModifiedSupport(pcs, "intellect", listener);
+		pcs.addPropertyChangeListener("intellect_xp", listener);
+
 		listener = new XPChangeListener();
 		pcs.addPropertyChangeListener("xp", listener);
 
@@ -137,6 +145,9 @@ public final class StatsPanelController {
 
 		listener = new RangedWeaponChangeListener();
 		pcs.addPropertyChangeListener("ratk_item", listener);
+
+		listener = new MagicWeaponChangeListener();
+		pcs.addPropertyChangeListener("intellect_item", listener);
 
 		listener = new MoneyChangeListener();
 		for (String slot : MONEY_SLOTS) {
@@ -248,6 +259,21 @@ public final class StatsPanelController {
 			@Override
 			public void run() {
 				panel.setRatk(text);
+			}
+		});
+	}
+
+	/**
+	 * Called when intelligence, intxp, or weaponInt changes.
+	 */
+	private void updateIntellect() {
+		// atk uses 10 levels shifted starting point
+		final int next = Level.getXP(intellect - 9) - intellectxp;
+		final String text = "INT:" + SPC + intellect + "×" + (1 + weaponIntellect) + SPC + "(" + next + ")";
+		SwingUtilities.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				panel.setIntellect(text);
 			}
 		});
 	}
@@ -409,6 +435,25 @@ public final class StatsPanelController {
 	}
 
 	/**
+	 * Listener for intellect and intellect_xp changes.
+	 */
+	private class INTChangeListener implements PropertyChangeListener {
+		@Override
+		public void propertyChange(final PropertyChangeEvent event) {
+			if (event == null) {
+				return;
+			}
+
+			if ("intellect_xp".equals(event.getPropertyName())) {
+				intellectxp = Integer.parseInt((String) event.getNewValue());
+			} else if ("intellect".equals(event.getPropertyName())) {
+				intellect = Integer.parseInt((String) event.getNewValue());
+			}
+			updateIntellect();
+		}
+	}
+
+	/**
 	 * Listener for xp changes.
 	 */
 	private class XPChangeListener implements PropertyChangeListener {
@@ -484,6 +529,20 @@ public final class StatsPanelController {
 			}
 			weaponRatk = Integer.parseInt((String) event.getNewValue());
 			updateRatk();
+		}
+	}
+
+	/**
+	 * Listener for magic weapon int changes.
+	 */
+	private class MagicWeaponChangeListener implements PropertyChangeListener {
+		@Override
+		public void propertyChange(final PropertyChangeEvent event) {
+			if (event == null) {
+				return;
+			}
+			weaponIntellect = Integer.parseInt((String) event.getNewValue());
+			updateIntellect();
 		}
 	}
 

@@ -83,6 +83,8 @@ public class InspectAction extends AdministrationAction {
 					+ inspected.getDefXP() + ")");
 			st.append("\nRATK:  " + inspected.getRatk() + "("
 					+ inspected.getRatkXP() + ")");
+			st.append("\nINT:  " + inspected.getIntellect() + "("
+					+ inspected.getIntellectXP() + ")");
 			st.append("\nPŻ:	" + inspected.getHP() + " / "
 					+ inspected.getBaseHP());
 			st.append("\nXP:	" + inspected.getXP());
