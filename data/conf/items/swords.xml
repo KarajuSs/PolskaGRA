@@ -986,4 +986,26 @@
 			<slot name="rhand"/>
 		</equipable>
 	</item>
+
+	<item name="excalibur">
+		<type class="sword" subclass="excalibur" tileid="-1"/>
+		<description>Oto legendarny złoty miecz excalibur. Miecz jest tak potężny, że potrafi przeciąć każdy żywioł natury bez jakiegokolwiek problemu.</description>
+		<implementation class-name="games.stendhal.server.entity.item.Item"/>
+		<attributes>
+			<atk value="99"/>
+			<rate value="6"/>
+			<min_level value="597"/>
+		</attributes>
+		<weight value="99.0"/>
+		<value value="4571428"/>
+		<damage type="light"/>
+		<equipable>
+			<slot name="ground"/>
+			<slot name="content"/>
+			<slot name="bag"/>
+			<slot name="trade"/>
+			<slot name="lhand"/>
+			<slot name="rhand"/>
+		</equipable>
+	</item>
 </items>
