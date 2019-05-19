@@ -249,8 +249,8 @@ public class GenerateINI {
 		out.println();
 		out.println("# Database information. Edit to match your configuration.");
 		if (databaseSystem.equals("mysql")) {
-			out.println("jdbc_url=jdbc:mysql://" + databaseHost + "/" + databaseName + "?useUnicode=yes&characterEncoding=UTF-8");
-			out.println("jdbc_class=com.mysql.jdbc.Driver");
+			out.println("jdbc_url=jdbc:mysql://" + databaseHost + "/" + databaseName + "?useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC");
+			out.println("jdbc_class=com.mysql.cj.jdbc.Driver");
 			out.println("jdbc_user=" + databaseUsername);
 			out.println("jdbc_pwd=" + databasePassword);
 		} else {
