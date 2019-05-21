@@ -45,7 +45,6 @@ class AccountCreationRules {
 		validators.add(new MinLengthValidator(username, 4));
 		validators.add(new MaxLengthValidator(username, 20));
 
-		validators.add(new LowerCaseValidator(username));
 		validators.add(new NameCharacterValidator(username));
 		validators.add(new ReservedSubStringValidator(username));
 		validators.add(new NPCNameValidator(username));

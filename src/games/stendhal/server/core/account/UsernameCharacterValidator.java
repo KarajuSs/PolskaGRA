@@ -33,7 +33,7 @@ public class UsernameCharacterValidator implements AccountParameterValidator {
 
 	@Override
 	public Result validate() {
-		if (!parameterValue.contains("@") || !parameterValue.contains(".") || (parameterValue.length() <= 5)) {
+		if (parameterValue.length() <= 3) {
 			return Result.FAILED_INVALID_CHARACTER_USED;
 		}
 

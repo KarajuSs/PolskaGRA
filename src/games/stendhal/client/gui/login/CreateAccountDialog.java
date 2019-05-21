@@ -133,7 +133,6 @@ public class CreateAccountDialog extends JDialog {
 
 		JLabel usernameLabel = new JLabel("Wybierz imię wojownika");
 		usernameField = new JTextField();
-		//usernameField.setDocument(new LowerCaseLetterDocument());
 
 		JLabel passwordLabel = new JLabel("Hasło (min. 6 znaków)");
 		passwordField = new JPasswordField();
@@ -576,37 +575,5 @@ public class CreateAccountDialog extends JDialog {
 		}
 
 		return true;
-	}
-
-	/**
-	 * A document that can contain only lower case characters.
-	 */
-	private static class LowerCaseLetterDocument extends PlainDocument {
-		private static final long serialVersionUID = -5123268875802709841L;
-
-		@Override
-		public void insertString(final int offs, final String str, final AttributeSet a)
-				throws BadLocationException {
-			final String lower = str.toLowerCase(Locale.ENGLISH);
-			boolean ok = true;
-			for (int i = lower.length() - 1; i >= 0; i--) {
-				final char chr = lower.charAt(i);
-				if (((chr < 'a') || (chr > 'z')) && (chr != 'ą') && (chr != 'ć')
-					&& (chr != 'ę') && (chr != 'ł') && (chr != 'ń') || (chr != 'ó')
-					&& (chr != 'ś') && (chr != 'ź') && (chr != 'ż')
-					&& (chr != '!') && (chr != '@') && (chr != '$') && (chr != '%')
-					&& (chr != '^') && (chr != '&') && (chr != '*') && (chr != '(')
-					&& (chr != ')') && (chr != '-') && (chr != '_') && (chr != '+')
-					&& (chr != '=') && (chr != '?')) {
-					ok = false;
-					break;
-				}
-			}
-			if (ok) {
-				super.insertString(offs, lower, a);
-			} else {
-				Toolkit.getDefaultToolkit().beep();
-			}
-		}
 	}
 }
