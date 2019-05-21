@@ -34,7 +34,6 @@ public class LowerCaseValidator implements AccountParameterValidator {
 		this.parameterValue = parameterValue;
 	}
 
-	@Override
 	public Result validate() {
 		if (!parameterValue.toLowerCase(Locale.ENGLISH).equals(parameterValue)) {
 			return Result.FAILED_INVALID_CHARACTER_USED;
@@ -42,5 +41,4 @@ public class LowerCaseValidator implements AccountParameterValidator {
 
 		return null;
 	}
-
 }
