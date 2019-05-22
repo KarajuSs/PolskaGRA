@@ -574,7 +574,7 @@ public abstract class RPEntity extends GuidedEntity {
 	 *         attack was completely blocked by the defender.
 	 */
 	int damageDone(RPEntity defender, double attackingWeaponsValue, Nature damageType,
-			boolean isRanged, boolean isMagic, int maxRange) {
+			boolean isRanged, int maxRange) {
 		// Don't start from 0 to mitigate weird behaviour at very low levels
 		final int effectiveAttackerLevel = getLevel() + 5;
 		final int effectiveDefenderLevel = defender.getLevel() + 5;
@@ -624,9 +624,6 @@ public abstract class RPEntity extends GuidedEntity {
 		if (isRanged) {
 			atkStrength = this.getRatk();
 			sourceAtk = this.getCappedRatk();
-		} else if (isMagic) {
-			atkStrength = this.getIntellect();
-			sourceAtk = this.getCappedIntellect();
 		} else {
 			atkStrength = this.getAtk();
 			sourceAtk = this.getCappedAtk();
@@ -704,11 +701,6 @@ public abstract class RPEntity extends GuidedEntity {
 			damage = applyDistanceAttackModifiers(damage,
 					squaredDistance(defender), maxRange);
 		}
-		
-		if (isMagic) {
-			damage = applyDistanceAttackModifiers(damage,
-					squaredDistance(defender), maxRange);
-		}
 
 		return damage;
 	}
@@ -729,9 +721,9 @@ public abstract class RPEntity extends GuidedEntity {
 	 */
 	public int damageDone(final RPEntity defender, double attackingWeaponsValue, Nature damageType) {
 		final int maxRange = getMaxRangeForArcher();
-		boolean isRanged = ((maxRange > 0) && canDoRangeAttack(defender, maxRange)), isMagic = ((maxRange > 0) && canDoRangeAttack(defender, maxRange));
+		boolean isRanged = ((maxRange > 0) && canDoRangeAttack(defender, maxRange));
 
-		return damageDone(defender, attackingWeaponsValue, damageType, isRanged, isMagic, maxRange);
+		return damageDone(defender, attackingWeaponsValue, damageType, isRanged, maxRange);
 	}
 
 	/**
@@ -3491,8 +3483,6 @@ public abstract class RPEntity extends GuidedEntity {
 		 * powers (yes, it's a bit of a hack).
 		 */
 		boolean isRanged = ((maxRange > 0) && canDoRangeAttack(defender, maxRange))
-			&& (((getDamageType() == getRangedDamageType()) || squaredDistance(defender) > 0)),
-				isMagic = ((maxRange > 0) && canDoRangeAttack(defender, maxRange))
 			&& (((getDamageType() == getRangedDamageType()) || squaredDistance(defender) > 0));
 
 		Nature nature;
@@ -3503,14 +3493,6 @@ public abstract class RPEntity extends GuidedEntity {
 		} else {
 			nature = getDamageType();
 			itemAtk = getItemRatk();
-		}
-		
-		if (isMagic) {
-			nature = getRangedDamageType();
-			itemAtk = getItemIntellect();
-		} else {
-			nature = getDamageType();
-			itemAtk = getItemIntellect();
 		}
 
 		// Try to inflict a status effect
@@ -3528,7 +3510,7 @@ public abstract class RPEntity extends GuidedEntity {
 		if (this.canHit(defender)) {
 			defender.applyDefXP(this);
 
-			int damage = damageDone(defender, itemAtk, nature, isRanged, isMagic, maxRange);
+			int damage = damageDone(defender, itemAtk, nature, isRanged, maxRange);
 
 			if (damage > 0) {
 
