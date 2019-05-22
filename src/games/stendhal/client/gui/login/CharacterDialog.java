@@ -227,6 +227,19 @@ public final class CharacterDialog extends JDialog implements Runnable {
 				level = character.get("level");
 			}
 			label.append(level);
+			/** Skills */
+			label.append("<br>Skille: ");
+			String atk = "0";
+			if (character.has("atk")) {
+				atk = character.get("atk");
+			}
+			label.append(atk);
+			label.append("/");
+			String def = "0";
+			if (character.has("def")) {
+				def = character.get("def");
+			}
+			label.append(def);
 		}
 		label.append("</html>");
 
