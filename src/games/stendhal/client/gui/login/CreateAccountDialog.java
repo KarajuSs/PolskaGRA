@@ -13,7 +13,6 @@ package games.stendhal.client.gui.login;
 
 import java.awt.Frame;
 import java.awt.GridLayout;
-import java.awt.Toolkit;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,7 +21,6 @@ import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.Locale;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -37,9 +35,6 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import javax.swing.text.AbstractDocument;
-import javax.swing.text.AttributeSet;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.PlainDocument;
 
 import org.apache.log4j.Logger;
 
@@ -63,7 +58,7 @@ import marauroa.common.net.InvalidVersionException;
  */
 public class CreateAccountDialog extends JDialog {
 	/** Logger instance. */
-	private static final Logger logger = Logger.getLogger(CreateAccountDialog.class);
+	private static final Logger LOGGER = Logger.getLogger(CreateAccountDialog.class);
 
 	/** User name input field. */
 	private JTextField usernameField;
@@ -314,7 +309,7 @@ public class CreateAccountDialog extends JDialog {
 							"Nie można się połączyć z serwerem w celu utworzenia konta. Serwer może nie działać, a jeśli korzystasz z innego serwera " +
 							"to sprawdź czy poprawnie wpisałeś nazwę i numer portu.");
 
-					logger.error(ex, ex);
+					LOGGER.error(ex, ex);
 
 					return;
 				}
@@ -437,7 +432,11 @@ public class CreateAccountDialog extends JDialog {
 		//
 		final String email = (emailField.getText()).trim();
 		if  (!validateEmail(email)) {
-			final String warning = badEmailReason + "Twój adres email jest tylko dla administratora po to, aby móc się z Tobą skontaktować w celu zweryfikowania, że To konto należy akurat do Ciebie.\nJeżeli to pole pominiesz nie będziesz mógł odzyskać hasła do konta, np: Zapomniałeś hasła do swojego konta. Inny gracz zalogował się na Twoje konto i zmienił hasło.\nCzy chcesz kontynuować?";
+			final String warning = badEmailReason + "Adres e-mail jest jedynym sposobem, w jaki administratorzy mogą kontaktować się z prawowitym właścicielem konta.\n" + 
+					"Jeśli go nie dostarczysz, nie będziesz mógł uzyskać nowego hasła do tego konta, na przykład:\n" + 
+					"- Zapomniałeś hasła.\n" + 
+					"- Inny gracz w jakiś sposób dostaje hasło i zmienia je.\n" + 
+					"Czy mimo to chcesz kontynuować?";
 			final int i = JOptionPane.showOptionDialog(owner, warning, badEmailTitle,
 					JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE,
 					null, null, 1);
@@ -459,13 +458,13 @@ public class CreateAccountDialog extends JDialog {
 	 */
 	private boolean validateEmail(final String email) {
 		if  (email.isEmpty()) {
-			badEmailTitle = "Pole adresu email jest puste";
-			badEmailReason = "Nie wpisałeś swojego adresu email.\n";
+			badEmailTitle = "Pole adresu e-mail jest puste";
+			badEmailReason = "Nie podałeś adresu e-mail.\n";
 			return false;
 		} else {
 			if (!email.contains("@") || !email.contains(".") || (email.length() <= 5)) {
-				badEmailTitle =  "Błąd w adresie email?";
-				badEmailReason = "Wpisany adres email ma prawdopobnie bład.\n";
+				badEmailTitle =  "Błąd w adresie e-mail?";
+				badEmailReason = "Wpisany adres e-mail ma prawdopodobnie błąd.\n";
 				return false;
 			}
 		}
@@ -479,7 +478,7 @@ public class CreateAccountDialog extends JDialog {
 	 */
 	private void debug(final String text) {
 		if (client == null) {
-			logger.debug(text);
+			LOGGER.debug(text);
 		}
 	}
 
@@ -569,7 +568,7 @@ public class CreateAccountDialog extends JDialog {
 			if (isVisible()) {
 				JOptionPane.showMessageDialog(getOwner(), text);
 			} else {
-				logger.warn(text);
+				LOGGER.warn(text);
 			}
 			return false;
 		}

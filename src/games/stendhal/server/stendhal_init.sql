@@ -29,12 +29,12 @@ create table if not exists character_stats
   lhand varchar(32),
   armor varchar(32),
   rhand varchar(32),
+  pas varchar(32),
   legs varchar(32),
   glove varchar(32),
   finger varchar(32),
   fingerb varchar(32),
   feet varchar(32),
-  pas varchar(32),
 
   zone varchar(50),
 
@@ -44,13 +44,6 @@ create table if not exists character_stats
   );
 
 CREATE INDEX IF NOT EXISTS i_character_stats_name ON character_stats(name);
-
-create table if not exists accountcode
-  (
-  code varchar(8)
-  );
-
-CREATE INDEX IF NOT EXISTS i_accountcode_code ON accountcode(code);
 
 create table if not exists halloffame
   (
